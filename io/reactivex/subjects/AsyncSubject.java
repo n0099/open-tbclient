@@ -20,7 +20,6 @@ public final class AsyncSubject<T> extends a<T> {
         public void dispose() {
             if (super.tryDispose()) {
                 this.parent.c(this);
-                throw null;
             }
         }
 
@@ -40,7 +39,5 @@ public final class AsyncSubject<T> extends a<T> {
         }
     }
 
-    public void c(AsyncDisposable<T> asyncDisposable) {
-        throw null;
-    }
+    public abstract void c(AsyncDisposable<T> asyncDisposable);
 }

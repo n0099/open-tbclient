@@ -17,7 +17,7 @@ import d.b.b.e.p.l;
 import d.b.i0.b1.a.j;
 import d.b.i0.b1.f.d;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
     public LikeModel likeModel;
     public d mHotTopicMoreView;
@@ -27,7 +27,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public CustomMessageListener unLikeForumListener = new b(2001336);
     public e mLikeModelCallback = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -55,7 +55,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -83,7 +83,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends e {
         public c() {
         }

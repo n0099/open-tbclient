@@ -8,32 +8,32 @@ import d.b.h0.r.q.a2;
 import d.b.h0.r.q.w;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f62130a;
+    public TbPageContext<?> f62131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f62131b;
+    public BdUniqueId f62132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f62132c;
+    public BdTypeRecyclerView f62133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f62133d;
+    public j f62134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f62134e;
+    public c f62135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f62135f;
+    public e f62136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f62136g;
+    public d f62137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f62137h;
+    public f f62138h;
     public k i;
     public g j;
     public h k;
@@ -43,57 +43,57 @@ public class l {
     public List<d.b.b.j.e.a> o = new LinkedList();
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f62130a = tbPageContext;
-        this.f62131b = bdUniqueId;
-        this.f62132c = bdTypeRecyclerView;
+        this.f62131a = tbPageContext;
+        this.f62132b = bdUniqueId;
+        this.f62133c = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
-        j jVar = new j(this.f62130a, a2.N2, this.f62131b);
-        this.f62133d = jVar;
-        jVar.p0(this.f62132c);
-        this.o.add(this.f62133d);
-        c cVar = new c(this.f62130a, a2.S2, this.f62131b);
-        this.f62134e = cVar;
-        cVar.q0(this.f62132c);
-        this.o.add(this.f62134e);
-        e eVar = new e(this.f62130a, a2.Q2, this.f62131b);
-        this.f62135f = eVar;
-        eVar.p0(this.f62132c);
-        this.o.add(this.f62135f);
-        d dVar = new d(this.f62130a, a2.R2, this.f62131b);
-        this.f62136g = dVar;
-        dVar.p0(this.f62132c);
-        this.o.add(this.f62136g);
-        f fVar = new f(this.f62130a, a2.O2, this.f62131b);
-        this.f62137h = fVar;
-        fVar.p0(this.f62132c);
-        this.o.add(this.f62137h);
-        k kVar = new k(this.f62130a, a2.e3, this.f62131b);
+        j jVar = new j(this.f62131a, a2.N2, this.f62132b);
+        this.f62134d = jVar;
+        jVar.p0(this.f62133c);
+        this.o.add(this.f62134d);
+        c cVar = new c(this.f62131a, a2.S2, this.f62132b);
+        this.f62135e = cVar;
+        cVar.q0(this.f62133c);
+        this.o.add(this.f62135e);
+        e eVar = new e(this.f62131a, a2.Q2, this.f62132b);
+        this.f62136f = eVar;
+        eVar.p0(this.f62133c);
+        this.o.add(this.f62136f);
+        d dVar = new d(this.f62131a, a2.R2, this.f62132b);
+        this.f62137g = dVar;
+        dVar.p0(this.f62133c);
+        this.o.add(this.f62137g);
+        f fVar = new f(this.f62131a, a2.O2, this.f62132b);
+        this.f62138h = fVar;
+        fVar.p0(this.f62133c);
+        this.o.add(this.f62138h);
+        k kVar = new k(this.f62131a, a2.e3, this.f62132b);
         this.i = kVar;
-        kVar.s0(this.f62132c);
+        kVar.s0(this.f62133c);
         this.o.add(this.i);
-        g gVar = new g(this.f62130a, a2.X2, this.f62131b);
+        g gVar = new g(this.f62131a, a2.X2, this.f62132b);
         this.j = gVar;
-        gVar.p0(this.f62132c);
+        gVar.p0(this.f62133c);
         this.o.add(this.j);
-        h hVar = new h(this.f62130a, a2.T2, this.f62131b);
+        h hVar = new h(this.f62131a, a2.T2, this.f62132b);
         this.k = hVar;
-        hVar.p0(this.f62132c);
+        hVar.p0(this.f62133c);
         this.o.add(this.k);
-        b bVar = new b(this.f62130a, a2.W2, this.f62131b);
+        b bVar = new b(this.f62131a, a2.W2, this.f62132b);
         this.l = bVar;
-        bVar.q0(this.f62132c);
+        bVar.q0(this.f62133c);
         this.o.add(this.l);
-        m mVar = new m(this.f62130a, w.f50912f);
+        m mVar = new m(this.f62131a, w.f50913f);
         this.m = mVar;
-        mVar.o0(this.f62132c);
+        mVar.o0(this.f62133c);
         this.o.add(this.m);
-        i iVar = new i(this.f62130a, d.b.i0.x.e0.k.o0);
+        i iVar = new i(this.f62131a, d.b.i0.x.e0.k.o0);
         this.n = iVar;
         this.o.add(iVar);
-        this.f62132c.a(this.o);
+        this.f62133c.a(this.o);
     }
 
     public void b(boolean z) {
@@ -105,10 +105,10 @@ public class l {
     }
 
     public void c() {
-        this.f62132c.getAdapter().notifyDataSetChanged();
+        this.f62133c.getAdapter().notifyDataSetChanged();
     }
 
     public void d(List<? extends n> list) {
-        this.f62132c.setData(list);
+        this.f62133c.setData(list);
     }
 }

@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.PingMessage;
 import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class e extends Handler implements d.b.b.c.e.c.b {
     public static e j;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51425e = 0;
+    public long f51426e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51426f = TiebaStatic.MAX_COST_VALUE;
+    public int f51427f = TiebaStatic.MAX_COST_VALUE;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51427g = 900000;
+    public int f51428g = 900000;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51428h = 900000;
+    public int f51429h = 900000;
     public PingMessage i = null;
 
     /* loaded from: classes3.dex */
@@ -92,14 +92,14 @@ public class e extends Handler implements d.b.b.c.e.c.b {
 
     @Override // d.b.b.c.e.c.b
     public boolean c(boolean z, String str) {
-        if ((z || System.currentTimeMillis() - this.f51425e >= 180000) && BdSocketLinkService.isOpen()) {
-            this.f51425e = System.currentTimeMillis();
+        if ((z || System.currentTimeMillis() - this.f51426e >= 180000) && BdSocketLinkService.isOpen()) {
+            this.f51426e = System.currentTimeMillis();
             MessageManager.getInstance().sendMessage(this.i);
             PingMessage pingMessage = this.i;
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append("-");
-            sb.append(this.f51428h == this.f51427g ? j.j : "fore");
+            sb.append(this.f51429h == this.f51428g ? j.j : "fore");
             d.b.b.c.e.c.i.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
             return true;
         }
@@ -114,8 +114,8 @@ public class e extends Handler implements d.b.b.c.e.c.b {
     @Override // d.b.b.c.e.c.b
     public void e() {
         removeMessages(1);
-        sendMessageDelayed(obtainMessage(1), this.f51428h);
-        this.f51425e = System.currentTimeMillis();
+        sendMessageDelayed(obtainMessage(1), this.f51429h);
+        this.f51426e = System.currentTimeMillis();
     }
 
     public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
@@ -123,10 +123,10 @@ public class e extends Handler implements d.b.b.c.e.c.b {
             return;
         }
         if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.f51428h = this.f51427g;
+            this.f51429h = this.f51428g;
             return;
         }
-        this.f51428h = this.f51426f;
+        this.f51429h = this.f51427f;
         a("switchToForeground");
     }
 
@@ -140,7 +140,7 @@ public class e extends Handler implements d.b.b.c.e.c.b {
     }
 
     public int i() {
-        return this.f51426f;
+        return this.f51427f;
     }
 
     public void k() {
@@ -165,27 +165,27 @@ public class e extends Handler implements d.b.b.c.e.c.b {
         int error = responsedMessage.getError();
         if (error == 0) {
             com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = d.b.h0.r.h.f50618a;
-            d.b.b.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f51425e));
+            int i = d.b.h0.r.h.f50619a;
+            d.b.b.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f51426e));
             return;
         }
         BdSocketLinkService.close(7, "ping error");
         int cmd = this.i.getCmd();
         long clientLogID = this.i.getClientLogID();
-        d.b.b.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f51425e));
+        d.b.b.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f51426e));
     }
 
     public void m() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
             int i = socketHeartBeatStratgy[0] * 1000;
-            this.f51426f = i;
-            this.f51427g = socketHeartBeatStratgy[1] * 1000;
+            this.f51427f = i;
+            this.f51428g = socketHeartBeatStratgy[1] * 1000;
             if (i < 180000) {
-                this.f51426f = TiebaStatic.MAX_COST_VALUE;
+                this.f51427f = TiebaStatic.MAX_COST_VALUE;
             }
-            if (this.f51427g < 180000) {
-                this.f51427g = TiebaStatic.MAX_COST_VALUE;
+            if (this.f51428g < 180000) {
+                this.f51428g = TiebaStatic.MAX_COST_VALUE;
             }
         }
     }

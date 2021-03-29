@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FIFOPool<T extends IPoolItem> implements IPool<T> {
     public static final int INVALID_INDEX = -1;
     public static final String TAG = "FIFOPool";

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMEIRequestUtils {
     @SuppressLint({"MissingPermission"})
     public static String getIMEI(String str) {

@@ -10,106 +10,106 @@ import d.b.g0.a.k;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44383f = k.f45050a;
+    public static final boolean f44384f = k.f45051a;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d.b.g0.a.e2.a f44384g;
+    public static d.b.g0.a.e2.a f44385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile c f44385h;
+    public static volatile c f44386h;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44386a = 0;
+    public int f44387a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44387b = 200;
+    public int f44388b = 200;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44388c;
+    public int f44389c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f44389d;
+    public ViewTreeObserver.OnGlobalLayoutListener f44390d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44390e;
+    public String f44391e;
 
     /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f44391e;
+        public final /* synthetic */ View f44392e;
 
         public a(View view) {
-            this.f44391e = view;
+            this.f44392e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            if (c.f44384g != null) {
-                c.f44384g.a(c.this.f44390e);
+            if (c.f44385g != null) {
+                c.f44385g.a(c.this.f44391e);
             }
             Rect rect = new Rect();
-            this.f44391e.getWindowVisibleDisplayFrame(rect);
+            this.f44392e.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
-            if (c.this.f44388c == c.this.f44386a) {
-                c.this.f44388c = height;
-            } else if (c.this.f44388c == height) {
+            if (c.this.f44389c == c.this.f44387a) {
+                c.this.f44389c = height;
+            } else if (c.this.f44389c == height) {
             } else {
-                if (c.this.f44388c - height > c.this.f44387b) {
-                    if (c.f44384g != null) {
-                        c.f44384g.c(c.this.f44390e, c.this.f44388c - height);
-                        if (c.f44383f) {
-                            Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.f44388c + " visibleHeight " + height);
+                if (c.this.f44389c - height > c.this.f44388b) {
+                    if (c.f44385g != null) {
+                        c.f44385g.c(c.this.f44391e, c.this.f44389c - height);
+                        if (c.f44384f) {
+                            Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.f44389c + " visibleHeight " + height);
                         }
                     }
-                    c.this.f44388c = height;
-                } else if (height - c.this.f44388c > c.this.f44387b) {
-                    if (c.f44384g != null) {
-                        c.f44384g.b(c.this.f44390e, height - c.this.f44388c);
+                    c.this.f44389c = height;
+                } else if (height - c.this.f44389c > c.this.f44388b) {
+                    if (c.f44385g != null) {
+                        c.f44385g.b(c.this.f44391e, height - c.this.f44389c);
                     }
-                    if (c.f44383f) {
-                        Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.f44388c + " visibleHeight " + height);
+                    if (c.f44384f) {
+                        Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.f44389c + " visibleHeight " + height);
                     }
-                    c.this.f44388c = height;
+                    c.this.f44389c = height;
                 }
             }
         }
     }
 
     public static c i() {
-        if (f44385h == null) {
+        if (f44386h == null) {
             synchronized (c.class) {
-                if (f44385h == null) {
-                    f44385h = new c();
+                if (f44386h == null) {
+                    f44386h = new c();
                 }
             }
         }
-        return f44385h;
+        return f44386h;
     }
 
     public static void j() {
-        f44384g = null;
-        f44385h = null;
+        f44385g = null;
+        f44386h = null;
     }
 
     public final void h(View view) {
-        if (this.f44389d == null) {
-            this.f44389d = new a(view);
+        if (this.f44390d == null) {
+            this.f44390d = new a(view);
         }
-        view.getViewTreeObserver().addOnGlobalLayoutListener(this.f44389d);
+        view.getViewTreeObserver().addOnGlobalLayoutListener(this.f44390d);
     }
 
     public void k(@NonNull View view) {
-        view.getViewTreeObserver().removeOnGlobalLayoutListener(this.f44389d);
-        this.f44390e = "";
-        f44384g = null;
-        this.f44388c = 0;
+        view.getViewTreeObserver().removeOnGlobalLayoutListener(this.f44390d);
+        this.f44391e = "";
+        f44385g = null;
+        this.f44389c = 0;
     }
 
     public void l(View view, String str, d.b.g0.a.e2.a aVar) {
         h(view);
-        this.f44390e = str;
-        f44384g = aVar;
-        this.f44388c = 0;
+        this.f44391e = str;
+        f44385g = aVar;
+        this.f44389c = 0;
     }
 }

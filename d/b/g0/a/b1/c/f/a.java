@@ -1,7 +1,7 @@
 package d.b.g0.a.b1.c.f;
 
 import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void onGetCurrentSong(String str);
 

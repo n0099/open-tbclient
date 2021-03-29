@@ -118,10 +118,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public final LayoutInflater f26615b;
+        public final LayoutInflater f26616b;
 
         public a(ListView listView) {
-            this.f26615b = LayoutInflater.from(MyCouponListActivity.this);
+            this.f26616b = LayoutInflater.from(MyCouponListActivity.this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,7 +194,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             final CouponList.Coupon item = getItem(i);
             if (item.isLabel) {
                 if (view == null || view.getTag() != null) {
-                    view = this.f26615b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
+                    view = this.f26616b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
                 }
                 ((TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "bd_wallet_coupon_label"))).setText(item.labelValue);
                 return view;
@@ -203,14 +203,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             PayStatisticsUtil.onEventWithValues("#couponShow", Arrays.asList(item.logo_title, item.template_title));
             if (view == null || view.getTag() == null) {
                 cVar = new c();
-                view = this.f26615b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                cVar.f26622b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
-                cVar.f26623c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
-                cVar.f26624d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
-                cVar.f26625e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
-                cVar.f26626f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
-                cVar.f26627g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
-                cVar.f26628h = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
+                view = this.f26616b.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                cVar.f26623b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
+                cVar.f26624c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
+                cVar.f26625d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
+                cVar.f26626e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
+                cVar.f26627f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
+                cVar.f26628g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
+                cVar.f26629h = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
                 cVar.i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_valid_time"));
                 cVar.j = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now_text"));
                 cVar.k = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now_img"));
@@ -220,30 +220,30 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f26622b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+            cVar.f26623b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
             if (!TextUtils.isEmpty(item.logo_url)) {
-                cVar.f26622b.setImageUrl(item.logo_url);
+                cVar.f26623b.setImageUrl(item.logo_url);
             }
             if (TextUtils.isEmpty(item.logo_title)) {
-                textView = cVar.f26623c;
+                textView = cVar.f26624c;
                 string = ResUtils.getString(MyCouponListActivity.this.mAct, "wallet_personal_coupon_logo_title");
             } else {
-                textView = cVar.f26623c;
+                textView = cVar.f26624c;
                 string = item.logo_title;
             }
             textView.setText(string);
             if (TextUtils.isEmpty(item.marketing_label)) {
-                cVar.f26624d.setVisibility(8);
+                cVar.f26625d.setVisibility(8);
             } else {
                 if (item.marketing_label.length() > 7) {
-                    textView7 = cVar.f26624d;
+                    textView7 = cVar.f26625d;
                     str5 = item.marketing_label.substring(0, 7);
                 } else {
-                    textView7 = cVar.f26624d;
+                    textView7 = cVar.f26625d;
                     str5 = item.marketing_label;
                 }
                 textView7.setText(str5);
-                cVar.f26624d.setVisibility(0);
+                cVar.f26625d.setVisibility(0);
             }
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 40.0f));
             AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 30.0f));
@@ -253,68 +253,68 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length();
             } else if (item.discount_content_v2.length() > 7) {
                 spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                cVar.f26627g.setText(spannableStringBuilder);
-                cVar.f26625e.setText(item.template_title);
-                cVar.f26626f.setText(item.use_limit_v2);
+                cVar.f26628g.setText(spannableStringBuilder);
+                cVar.f26626e.setText(item.template_title);
+                cVar.f26627f.setText(item.use_limit_v2);
                 if (item.source_type == 1) {
-                    textView2 = cVar.f26627g;
+                    textView2 = cVar.f26628g;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_coupon_red";
                 } else {
-                    textView2 = cVar.f26627g;
+                    textView2 = cVar.f26628g;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_coupon_blue";
                 }
                 textView2.setTextColor(ResUtils.getColor(beanActivity, str));
                 if (TextUtils.isEmpty(item.date_message_expire)) {
-                    cVar.f26628h.setSingleLine(true);
-                    cVar.f26628h.setEllipsize(TextUtils.TruncateAt.END);
+                    cVar.f26629h.setSingleLine(true);
+                    cVar.f26629h.setEllipsize(TextUtils.TruncateAt.END);
                     if (item.date_message_expire.length() > 7) {
-                        textView6 = cVar.f26628h;
+                        textView6 = cVar.f26629h;
                         str4 = item.date_message_expire.substring(0, 7);
                     } else {
-                        textView6 = cVar.f26628h;
+                        textView6 = cVar.f26629h;
                         str4 = item.date_message_expire;
                     }
                     textView6.setText(str4);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 89.5f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 16.5f));
                     layoutParams2.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), 0, 0);
-                    cVar.f26628h.setLayoutParams(layoutParams2);
-                    cVar.f26628h.setGravity(17);
-                    cVar.f26628h.setPadding(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 13.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 1.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 0.5f));
-                    cVar.f26628h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_date_message_expire"));
-                    cVar.f26628h.setBackgroundResource(ResUtils.drawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_daojishi"));
-                    cVar.f26628h.setTextSize(1, 11.0f);
+                    cVar.f26629h.setLayoutParams(layoutParams2);
+                    cVar.f26629h.setGravity(17);
+                    cVar.f26629h.setPadding(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 13.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 1.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 6.0f), DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 0.5f));
+                    cVar.f26629h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_date_message_expire"));
+                    cVar.f26629h.setBackgroundResource(ResUtils.drawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_daojishi"));
+                    cVar.f26629h.setTextSize(1, 11.0f);
                     cVar.i.setVisibility(8);
                 } else {
                     if (TextUtils.isEmpty(item.date_not_started)) {
-                        cVar.f26628h.setText(item.date_message_v2);
-                        cVar.f26628h.setTextSize(1, 11.0f);
-                        cVar.f26628h.setBackgroundDrawable(null);
+                        cVar.f26629h.setText(item.date_message_v2);
+                        cVar.f26629h.setTextSize(1, 11.0f);
+                        cVar.f26629h.setBackgroundDrawable(null);
                         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams3.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this, 6.0f), 0, 0);
-                        cVar.f26628h.setPadding(0, 0, 0, 0);
-                        cVar.f26628h.setLayoutParams(layoutParams3);
+                        cVar.f26629h.setPadding(0, 0, 0, 0);
+                        cVar.f26629h.setLayoutParams(layoutParams3);
                         cVar.i.setVisibility(8);
-                        cVar.f26628h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                        textView3 = cVar.f26628h;
+                        cVar.f26629h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                        textView3 = cVar.f26629h;
                     } else {
-                        cVar.f26628h.setPadding(0, 0, 0, 0);
+                        cVar.f26629h.setPadding(0, 0, 0, 0);
                         if (item.date_not_started.length() > 4) {
-                            textView4 = cVar.f26628h;
+                            textView4 = cVar.f26629h;
                             str2 = item.date_not_started.substring(0, 4);
                         } else {
-                            textView4 = cVar.f26628h;
+                            textView4 = cVar.f26629h;
                             str2 = item.date_not_started;
                         }
                         textView4.setText(str2);
-                        cVar.f26628h.setTextSize(1, 10.0f);
+                        cVar.f26629h.setTextSize(1, 10.0f);
                         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams4.setMargins(0, DisplayUtils.dip2px(MyCouponListActivity.this, 4.0f), 0, 0);
-                        cVar.f26628h.setBackgroundDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_xianshiduan_bg"));
-                        cVar.f26628h.setLayoutParams(layoutParams4);
-                        cVar.f26628h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                        cVar.f26628h.setVisibility(0);
+                        cVar.f26629h.setBackgroundDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_xianshiduan_bg"));
+                        cVar.f26629h.setLayoutParams(layoutParams4);
+                        cVar.f26629h.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                        cVar.f26629h.setVisibility(0);
                         cVar.i.setText(item.date_message_v2);
                         textView3 = cVar.i;
                     }
@@ -363,9 +363,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             CouponList.Coupon coupon = item;
                             CouponList.Coupon.AppSceneService appSceneService = coupon.app_scene_service;
                             if (appSceneService != null) {
-                                if (appSceneService.f26579android > 0) {
+                                if (appSceneService.f26580android > 0) {
                                     MyCouponListActivity.this.needRefreshCouponlist = true;
-                                    BaiduWalletServiceController.getInstance().gotoWalletService(MyCouponListActivity.this.mAct, item.app_scene_service.f26579android, "");
+                                    BaiduWalletServiceController.getInstance().gotoWalletService(MyCouponListActivity.this.mAct, item.app_scene_service.f26580android, "");
                                     return;
                                 } else if (TextUtils.isEmpty(appSceneService.url)) {
                                     return;
@@ -406,9 +406,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
             }
             spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-            cVar.f26627g.setText(spannableStringBuilder);
-            cVar.f26625e.setText(item.template_title);
-            cVar.f26626f.setText(item.use_limit_v2);
+            cVar.f26628g.setText(spannableStringBuilder);
+            cVar.f26626e.setText(item.template_title);
+            cVar.f26627f.setText(item.use_limit_v2);
             if (item.source_type == 1) {
             }
             textView2.setTextColor(ResUtils.getColor(beanActivity, str));
@@ -435,13 +435,13 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class b extends BaseAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f26618a;
+        public c f26619a;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LayoutInflater f26620c;
+        public final LayoutInflater f26621c;
 
         public b() {
-            this.f26620c = LayoutInflater.from(MyCouponListActivity.this.mAct);
+            this.f26621c = LayoutInflater.from(MyCouponListActivity.this.mAct);
         }
 
         private void b(int i) {
@@ -449,23 +449,23 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             BeanActivity beanActivity;
             String str;
             if (i == 0) {
-                imageView = this.f26618a.l;
+                imageView = this.f26619a.l;
                 beanActivity = MyCouponListActivity.this.mAct;
                 str = "wallet_personal_coupon_expired";
             } else if (i != 1) {
                 if (i == 2) {
-                    imageView = this.f26618a.l;
+                    imageView = this.f26619a.l;
                     beanActivity = MyCouponListActivity.this.mAct;
                     str = "wallet_personal_coupon_disabled";
                 }
-                this.f26618a.l.setVisibility(0);
+                this.f26619a.l.setVisibility(0);
             } else {
-                imageView = this.f26618a.l;
+                imageView = this.f26619a.l;
                 beanActivity = MyCouponListActivity.this.mAct;
                 str = "wallet_personal_coupon_used";
             }
             imageView.setImageDrawable(ResUtils.getDrawable(beanActivity, str));
-            this.f26618a.l.setVisibility(0);
+            this.f26619a.l.setVisibility(0);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -500,40 +500,40 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             int length;
             CouponList.Coupon item = getItem(i);
             if (view == null || view.getTag() == null) {
-                this.f26618a = new c();
-                view = this.f26620c.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                this.f26618a.f26622b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
-                this.f26618a.f26623c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
-                this.f26618a.f26624d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
-                this.f26618a.f26625e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
-                this.f26618a.f26626f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
-                this.f26618a.f26627g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
-                this.f26618a.f26627g.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
-                this.f26618a.i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
-                this.f26618a.i.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
-                this.f26618a.l = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_used"));
-                this.f26618a.m = view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now"));
-                this.f26618a.m.setVisibility(8);
-                view.setTag(this.f26618a);
+                this.f26619a = new c();
+                view = this.f26621c.inflate(ResUtils.layout(MyCouponListActivity.this.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                this.f26619a.f26623b = (CirclePortraitView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "sp_logo"));
+                this.f26619a.f26624c = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "logo_title"));
+                this.f26619a.f26625d = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_maket_label"));
+                this.f26619a.f26626e = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_tempalte_title"));
+                this.f26619a.f26627f = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_limit"));
+                this.f26619a.f26628g = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_content"));
+                this.f26619a.f26628g.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
+                this.f26619a.i = (TextView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "couppon_time_limit"));
+                this.f26619a.i.setTextColor(ResUtils.getColor(MyCouponListActivity.this.mAct, "wallet_coupon_txt_999999"));
+                this.f26619a.l = (ImageView) view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_used"));
+                this.f26619a.m = view.findViewById(ResUtils.id(MyCouponListActivity.this.mAct, "coupn_use_now"));
+                this.f26619a.m.setVisibility(8);
+                view.setTag(this.f26619a);
             } else {
-                this.f26618a = (c) view.getTag();
+                this.f26619a = (c) view.getTag();
             }
-            this.f26618a.f26622b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+            this.f26619a.f26623b.setImageDrawable(ResUtils.getDrawable(MyCouponListActivity.this.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
             if (TextUtils.isEmpty(item.logo_title)) {
-                textView = this.f26618a.f26623c;
+                textView = this.f26619a.f26624c;
                 string = ResUtils.getString(MyCouponListActivity.this.mAct, "wallet_personal_coupon_logo_title");
             } else {
-                textView = this.f26618a.f26623c;
+                textView = this.f26619a.f26624c;
                 string = item.logo_title;
             }
             textView.setText(string);
             if (!TextUtils.isEmpty(item.logo_url)) {
-                this.f26618a.f26622b.setImageUrl(item.logo_url);
+                this.f26619a.f26623b.setImageUrl(item.logo_url);
             }
             ColorMatrix colorMatrix = new ColorMatrix();
             colorMatrix.setSaturation(0.0f);
-            this.f26618a.f26622b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            this.f26618a.f26624d.setVisibility(8);
+            this.f26619a.f26623b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            this.f26619a.f26625d.setVisibility(8);
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 40.0f));
             AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(MyCouponListActivity.this.mAct, 30.0f));
             StyleSpan styleSpan = new StyleSpan(1);
@@ -542,14 +542,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length();
             } else if (item.discount_content_v2.length() > 7) {
                 spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                this.f26618a.f26627g.setText(spannableStringBuilder);
-                this.f26618a.f26625e.setText(item.template_title);
-                this.f26618a.f26626f.setText(item.use_limit_v2);
+                this.f26619a.f26628g.setText(spannableStringBuilder);
+                this.f26619a.f26626e.setText(item.template_title);
+                this.f26619a.f26627f.setText(item.use_limit_v2);
                 if (TextUtils.isEmpty(item.date_message)) {
-                    this.f26618a.i.setVisibility(0);
-                    this.f26618a.i.setText(item.date_message);
+                    this.f26619a.i.setVisibility(0);
+                    this.f26619a.i.setText(item.date_message);
                 } else {
-                    this.f26618a.i.setVisibility(8);
+                    this.f26619a.i.setVisibility(8);
                 }
                 switch (item.status) {
                     case 3:
@@ -580,9 +580,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
             }
             spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-            this.f26618a.f26627g.setText(spannableStringBuilder);
-            this.f26618a.f26625e.setText(item.template_title);
-            this.f26618a.f26626f.setText(item.use_limit_v2);
+            this.f26619a.f26628g.setText(spannableStringBuilder);
+            this.f26619a.f26626e.setText(item.template_title);
+            this.f26619a.f26627f.setText(item.use_limit_v2);
             if (TextUtils.isEmpty(item.date_message)) {
             }
             switch (item.status) {
@@ -595,25 +595,25 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public CirclePortraitView f26622b;
+        public CirclePortraitView f26623b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f26623c;
+        public TextView f26624c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f26624d;
+        public TextView f26625d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f26625e;
+        public TextView f26626e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f26626f;
+        public TextView f26627f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f26627g;
+        public TextView f26628g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f26628h;
+        public TextView f26629h;
         public TextView i;
         public TextView j;
         public ImageView k;

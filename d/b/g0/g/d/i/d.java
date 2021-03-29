@@ -11,24 +11,24 @@ public class d {
     public class a extends ResponseCallback<byte[]> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f48078a;
+        public final /* synthetic */ b f48079a;
 
         /* renamed from: d.b.g0.g.d.i.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0959a implements Runnable {
+        public class RunnableC0960a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f48079e;
+            public final /* synthetic */ byte[] f48080e;
 
-            public RunnableC0959a(byte[] bArr) {
-                this.f48079e = bArr;
+            public RunnableC0960a(byte[] bArr) {
+                this.f48080e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b bVar = a.this.f48078a;
+                b bVar = a.this.f48079a;
                 if (bVar != null) {
-                    bVar.a(true, this.f48079e);
+                    bVar.a(true, this.f48080e);
                 }
             }
         }
@@ -40,7 +40,7 @@ public class d {
 
             @Override // java.lang.Runnable
             public void run() {
-                b bVar = a.this.f48078a;
+                b bVar = a.this.f48079a;
                 if (bVar != null) {
                     bVar.a(false, null);
                 }
@@ -48,14 +48,14 @@ public class d {
         }
 
         public a(d dVar, b bVar) {
-            this.f48078a = bVar;
+            this.f48079a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(byte[] bArr, int i) {
-            p.l(new RunnableC0959a(bArr), "HandshakeRequest");
+            p.l(new RunnableC0960a(bArr), "HandshakeRequest");
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback

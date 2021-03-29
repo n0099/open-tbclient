@@ -19,20 +19,20 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f53488a = new ArrayList<>();
+    public ArrayList<b> f53489a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public f f53489b = new f();
+    public f f53490b = new f();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.f53488a.add(bVar);
+            this.f53489a.add(bVar);
         }
-        if (this.f53489b == null || bVar == null || bVar.getClass().getAnnotation(d.b.d.a.a.class) == null) {
+        if (this.f53490b == null || bVar == null || bVar.getClass().getAnnotation(d.b.d.a.a.class) == null) {
             return;
         }
         try {
-            this.f53489b.a((d.b.i0.c3.l0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + d.b.i0.c3.l0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+            this.f53490b.a((d.b.i0.c3.l0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + d.b.i0.c3.l0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
         } catch (Exception e2) {
             BdLog.e(e2);
         }
@@ -64,8 +64,8 @@ public class a {
     }
 
     public final boolean d(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (ListUtils.getCount(this.f53488a) > 0) {
-            Iterator<b> it = this.f53488a.iterator();
+        if (ListUtils.getCount(this.f53489a) > 0) {
+            Iterator<b> it = this.f53489a.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
@@ -78,7 +78,7 @@ public class a {
     }
 
     public final void e(WebView webView, String str) {
-        if (this.f53489b == null) {
+        if (this.f53490b == null) {
             return;
         }
         e eVar = new e();
@@ -100,27 +100,27 @@ public class a {
         }
         eVar.i(g.e(str));
         eVar.g(g.c(str));
-        d.b.i0.c3.l0.d.c c2 = this.f53489b.c(eVar, cVar);
+        d.b.i0.c3.l0.d.c c2 = this.f53490b.c(eVar, cVar);
         if (c2.f()) {
-            this.f53489b.d(webView, c2);
+            this.f53490b.d(webView, c2);
         }
     }
 
     public void f() {
-        this.f53488a.clear();
+        this.f53489a.clear();
     }
 
     public void g(b bVar) {
         if (bVar != null) {
-            this.f53488a.remove(bVar);
+            this.f53489a.remove(bVar);
         }
     }
 
     public void h(WebView webView, String str, @Nullable HashMap hashMap) {
-        f fVar = this.f53489b;
+        f fVar = this.f53490b;
         if (fVar == null) {
             return;
         }
-        this.f53489b.e(webView, fVar.f(str, hashMap));
+        this.f53490b.e(webView, fVar.f(str, hashMap));
     }
 }

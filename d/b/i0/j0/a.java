@@ -5,8 +5,8 @@ import android.os.Bundle;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f56402a;
+    public int f56403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f56403b;
+    public Bundle f56404b;
 }

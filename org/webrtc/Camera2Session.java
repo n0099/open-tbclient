@@ -21,7 +21,7 @@ import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 @TargetApi(21)
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class Camera2Session implements CameraSession {
     public static final String TAG = "Camera2Session";
     public final Context applicationContext;

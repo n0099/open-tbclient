@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.content.Context;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.TaskManagerConfiguration;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class TaskFacade {
     public static final String TAG = "TaskFacade";
     public static TaskFacade instance;

@@ -66,8 +66,8 @@ public class AdCardVideoView extends AdCardBaseView implements n {
             String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.c4) ? getPageTypeByBusiness() : advertAppInfo.c4;
             d dVar = advertAppInfo.Y3;
             if (dVar != null) {
-                i = dVar.f50749b;
-                pageTypeByBusiness = dVar.f50748a;
+                i = dVar.f50750b;
+                pageTypeByBusiness = dVar.f50749a;
             }
             this.m0.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }

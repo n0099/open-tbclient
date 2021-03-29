@@ -8,27 +8,27 @@ import com.baidu.platform.comjni.map.cloud.a;
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6757a = "CloudManager";
+    public static final String f6758a = "CloudManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static CloudManager f6758b;
+    public static CloudManager f6759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ICloudCenter f6759c;
+    public ICloudCenter f6760c;
 
     private boolean a(BaseCloudSearchInfo baseCloudSearchInfo) {
         String a2;
         if (baseCloudSearchInfo == null || (a2 = baseCloudSearchInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.f6759c.a(a2);
+        return this.f6760c.a(a2);
     }
 
     public static CloudManager getInstance() {
-        if (f6758b == null) {
-            f6758b = new CloudManager();
+        if (f6759b == null) {
+            f6759b = new CloudManager();
         }
-        return f6758b;
+        return f6759b;
     }
 
     public boolean boundSearch(BoundSearchInfo boundSearchInfo) {
@@ -36,8 +36,8 @@ public class CloudManager {
     }
 
     public void destroy() {
-        if (this.f6759c != null) {
-            this.f6759c = null;
+        if (this.f6760c != null) {
+            this.f6760c = null;
             BMapManager.destroy();
         }
     }
@@ -47,21 +47,21 @@ public class CloudManager {
         if (detailSearchInfo == null || (a2 = detailSearchInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.f6759c.b(a2);
+        return this.f6760c.b(a2);
     }
 
     public void init() {
-        if (this.f6759c == null) {
+        if (this.f6760c == null) {
             BMapManager.init();
-            this.f6759c = new a();
+            this.f6760c = new a();
         }
     }
 
     public void init(CloudListener cloudListener) {
-        if (this.f6759c == null) {
+        if (this.f6760c == null) {
             BMapManager.init();
             a aVar = new a();
-            this.f6759c = aVar;
+            this.f6760c = aVar;
             aVar.a(cloudListener);
         }
     }
@@ -75,7 +75,7 @@ public class CloudManager {
     }
 
     public void registerListener(CloudListener cloudListener) {
-        ICloudCenter iCloudCenter = this.f6759c;
+        ICloudCenter iCloudCenter = this.f6760c;
         if (iCloudCenter == null) {
             return;
         }
@@ -90,11 +90,11 @@ public class CloudManager {
         if (cloudRgcInfo == null || (a2 = cloudRgcInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.f6759c.c(a2);
+        return this.f6760c.c(a2);
     }
 
     public void unregisterListener() {
-        ICloudCenter iCloudCenter = this.f6759c;
+        ICloudCenter iCloudCenter = this.f6760c;
         if (iCloudCenter == null) {
             return;
         }

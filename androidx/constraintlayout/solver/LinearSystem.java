@@ -409,15 +409,11 @@ public class LinearSystem {
         SolverVariable createObjectVariable8 = createObjectVariable(constraintWidget2.getAnchor(ConstraintAnchor.Type.BOTTOM));
         ArrayRow createRow = createRow();
         double d2 = f2;
-        double sin = Math.sin(d2);
         double d3 = i;
-        Double.isNaN(d3);
-        createRow.createRowWithAngle(createObjectVariable2, createObjectVariable4, createObjectVariable6, createObjectVariable8, (float) (sin * d3));
+        createRow.createRowWithAngle(createObjectVariable2, createObjectVariable4, createObjectVariable6, createObjectVariable8, (float) (Math.sin(d2) * d3));
         addConstraint(createRow);
         ArrayRow createRow2 = createRow();
-        double cos = Math.cos(d2);
-        Double.isNaN(d3);
-        createRow2.createRowWithAngle(createObjectVariable, createObjectVariable3, createObjectVariable5, createObjectVariable7, (float) (cos * d3));
+        createRow2.createRowWithAngle(createObjectVariable, createObjectVariable3, createObjectVariable5, createObjectVariable7, (float) (Math.cos(d2) * d3));
         addConstraint(createRow2);
     }
 

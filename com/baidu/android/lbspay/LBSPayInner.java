@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSPayInner {
     public static final int STATE_CODE_CANCEL = 2;
     public static final int STATE_CODE_FAILD = 3;
@@ -50,16 +50,16 @@ public class LBSPayInner {
     public LBSPayBack mLbsPayBack;
     public String mOrderNo;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface AliPayCallback {
         void onResult(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayInner f2557a = new LBSPayInner();
+        public static LBSPayInner f2558a = new LBSPayInner();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,7 +73,7 @@ public class LBSPayInner {
     }
 
     public static LBSPayInner getInstance() {
-        return a.f2557a;
+        return a.f2558a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

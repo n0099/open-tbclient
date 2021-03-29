@@ -40,11 +40,7 @@ public class BitReaderBuffer {
             int i5 = i - i4;
             readBits = (readBits(i4) << i5) + readBits(i5);
         }
-        ByteBuffer byteBuffer = this.buffer;
-        int i6 = this.initialPos;
-        double d2 = this.position;
-        Double.isNaN(d2);
-        byteBuffer.position(i6 + ((int) Math.ceil(d2 / 8.0d)));
+        this.buffer.position(this.initialPos + ((int) Math.ceil(this.position / 8.0d)));
         return readBits;
     }
 

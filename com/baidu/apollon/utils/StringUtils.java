@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class StringUtils {
     public static String collectionToCommaDelimitedString(Collection<?> collection) {
         return collectionToDelimitedString(collection, ",");

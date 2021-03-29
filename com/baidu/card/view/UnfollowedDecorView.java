@@ -17,24 +17,24 @@ import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.h0.z0.l;
 import d.b.i0.b0.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public g f4531e;
+    public g f4532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4532f;
+    public int f4533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4533g;
+    public int f4534g;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
     }
 
     public void a(a2 a2Var) {
-        this.f4531e.h(a2Var);
+        this.f4532e.h(a2Var);
         if (!ThreadCardUtils.isSelf(a2Var) && a2Var.Y1()) {
             setVisibility(0);
         } else {
@@ -53,7 +53,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void c() {
-        setImageDrawable(WebPManager.getPureDrawable(this.f4532f, SkinManager.getColor(this.f4533g), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(this.f4533f, SkinManager.getColor(this.f4534g), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     @Override // android.view.View.OnClickListener
@@ -61,12 +61,12 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         if (l.a()) {
             return;
         }
-        this.f4531e.n();
+        this.f4532e.n();
     }
 
     public void setWebPResId(int i, int i2) {
-        this.f4532f = i;
-        this.f4533g = i2;
+        this.f4533f = i;
+        this.f4534g = i2;
         setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
@@ -76,9 +76,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f4532f = R.drawable.icon_pure_card_more22;
-        this.f4533g = R.color.CAM_X0111;
-        this.f4531e = new g(b((Activity) context), this);
+        this.f4533f = R.drawable.icon_pure_card_more22;
+        this.f4534g = R.color.CAM_X0111;
+        this.f4532e = new g(b((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));

@@ -10,22 +10,22 @@ public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7162a;
+    public int f7163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7163b;
+    public int f7164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7164c;
+    public String f7165c;
     public List<LatLng> mWayPoints;
 
     public RouteStep() {
     }
 
     public RouteStep(Parcel parcel) {
-        this.f7162a = parcel.readInt();
-        this.f7163b = parcel.readInt();
-        this.f7164c = parcel.readString();
+        this.f7163a = parcel.readInt();
+        this.f7164b = parcel.readInt();
+        this.f7165c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -40,15 +40,15 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f7162a;
+        return this.f7163a;
     }
 
     public int getDuration() {
-        return this.f7163b;
+        return this.f7164b;
     }
 
     public String getName() {
-        return this.f7164c;
+        return this.f7165c;
     }
 
     public List<LatLng> getWayPoints() {
@@ -56,15 +56,15 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.f7162a = i;
+        this.f7163a = i;
     }
 
     public void setDuration(int i) {
-        this.f7163b = i;
+        this.f7164b = i;
     }
 
     public void setName(String str) {
-        this.f7164c = str;
+        this.f7165c = str;
     }
 
     public void setWayPoints(List<LatLng> list) {
@@ -73,9 +73,9 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f7162a);
-        parcel.writeInt(this.f7163b);
-        parcel.writeString(this.f7164c);
+        parcel.writeInt(this.f7163a);
+        parcel.writeInt(this.f7164b);
+        parcel.writeString(this.f7165c);
         parcel.writeList(this.mWayPoints);
     }
 }

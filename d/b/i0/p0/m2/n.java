@@ -43,21 +43,21 @@ public class n {
     public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f57929a;
+        public final /* synthetic */ TbPageContext f57930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsViewData f57930b;
+        public final /* synthetic */ FrsViewData f57931b;
 
         public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-            this.f57929a = tbPageContext;
-            this.f57930b = frsViewData;
+            this.f57930a = tbPageContext;
+            this.f57931b = frsViewData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.b.b.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f57929a.getPageActivity(), this.f57930b.getForum().getName(), this.f57930b.getForum().getId(), this.f57930b.getUserData().getUserId(), this.f57930b.getForum().getSpecialForumType())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f57930a.getPageActivity(), this.f57931b.getForum().getName(), this.f57931b.getForum().getId(), this.f57931b.getUserData().getUserId(), this.f57931b.getForum().getSpecialForumType())));
         }
     }
 

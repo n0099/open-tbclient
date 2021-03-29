@@ -3,15 +3,15 @@ package d.c.d.b.c.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65803a;
+    public String f65804a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65804b;
+    public long f65805b;
 
     public static a a(String str) {
         a aVar = new a();
-        aVar.f65803a = str;
-        aVar.f65804b = System.currentTimeMillis();
+        aVar.f65804a = str;
+        aVar.f65805b = System.currentTimeMillis();
         return aVar;
     }
 }

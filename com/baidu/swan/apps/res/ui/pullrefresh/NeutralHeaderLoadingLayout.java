@@ -10,37 +10,37 @@ import d.b.g0.a.f;
 import d.b.g0.a.g;
 import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean n = k.f45050a;
+    public static final boolean n = k.f45051a;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12534h;
+    public int f12535h;
     public int i;
     public int j;
     public int k;
     public View l;
     public NeutralRefreshAnimView m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f12535e;
+        public final /* synthetic */ Runnable f12536e;
 
         public a(Runnable runnable) {
-            this.f12535e = runnable;
+            this.f12536e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12535e.run();
+            this.f12536e.run();
         }
     }
 
     public NeutralHeaderLoadingLayout(Context context) {
         super(context);
-        this.f12534h = 0;
+        this.f12535h = 0;
         o();
     }
 
@@ -144,7 +144,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         float f2;
         int i2 = this.i;
         if (i < i2) {
-            int i3 = this.f12534h;
+            int i3 = this.f12535h;
             f2 = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
         } else {
             f2 = 1.0f;
@@ -159,13 +159,13 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         this.m = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
         int e2 = h0.e(getContext(), 29.0f);
-        this.f12534h = e2;
+        this.f12535h = e2;
         this.i = (int) (e2 * 2.4f);
         int i = (int) (e2 * 1.5f);
         this.k = i;
         this.j = i;
         if (n) {
-            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f12534h);
+            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f12535h);
             Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.i);
             Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.k);
             Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.j);

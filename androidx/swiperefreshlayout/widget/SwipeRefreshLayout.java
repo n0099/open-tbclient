@@ -191,9 +191,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     private void moveSpinner(float f2) {
         this.mProgress.setArrowEnabled(true);
         float min = Math.min(1.0f, Math.abs(f2 / this.mTotalDragDistance));
-        double d2 = min;
-        Double.isNaN(d2);
-        float max = (((float) Math.max(d2 - 0.4d, 0.0d)) * 5.0f) / 3.0f;
+        float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
         float abs = Math.abs(f2) - this.mTotalDragDistance;
         int i = this.mCustomSlingshotDistance;
         if (i <= 0) {
@@ -201,10 +199,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
         float f3 = i;
         double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
-        double pow = Math.pow(max2, 2.0d);
-        Double.isNaN(max2);
-        float f4 = ((float) (max2 - pow)) * 2.0f;
-        int i2 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * f4 * 2.0f)));
+        float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
+        int i2 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
         if (this.mCircleView.getVisibility() != 0) {
             this.mCircleView.setVisibility(0);
         }
@@ -224,7 +220,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
         this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
         this.mProgress.setArrowScale(Math.min(1.0f, max));
-        this.mProgress.setProgressRotation((((max * 0.4f) - 0.25f) + (f4 * 2.0f)) * 0.5f);
+        this.mProgress.setProgressRotation((((max * 0.4f) - 0.25f) + (pow * 2.0f)) * 0.5f);
         setTargetOffsetTopAndBottom(i2 - this.mCurrentTargetOffsetTop);
     }
 

@@ -15,35 +15,35 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f4771a;
+    public static SharedPreferences f4772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ScheduledThreadPoolExecutor f4772b = new ScheduledThreadPoolExecutor(1);
+    public static final ScheduledThreadPoolExecutor f4773b = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ScheduledThreadPoolExecutor f4773c = new ScheduledThreadPoolExecutor(1);
+    public static final ScheduledThreadPoolExecutor f4774c = new ScheduledThreadPoolExecutor(1);
 
     public static void a(Context context, Throwable th) {
-        f4772b.execute(new d.b.n.d.c(th, context));
+        f4773b.execute(new d.b.n.d.c(th, context));
     }
 
     public static synchronized void b(boolean z, Context context) {
         synchronized (k.class) {
             d.b.n.d.f fVar = new d.b.n.d.f(context);
             if (!z) {
-                f4772b.execute(fVar);
+                f4773b.execute(fVar);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis() - g(context, "time_upload_crash");
             com.baidu.crabsdk.c.a.c("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
             if (currentTimeMillis < 10000) {
-                f4772b.schedule(fVar, 10L, TimeUnit.SECONDS);
+                f4773b.schedule(fVar, 10L, TimeUnit.SECONDS);
             } else {
-                f4772b.execute(fVar);
+                f4773b.execute(fVar);
             }
             f(context, "time_upload_crash");
         }
@@ -55,21 +55,21 @@ public final class k {
     }
 
     public static Future d(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        return f4773c.submit(new e(onUploadFilesCallback, str, str2, str3, str4));
+        return f4774c.submit(new e(onUploadFilesCallback, str, str2, str3, str4));
     }
 
     public static void e(Context context, Throwable th) {
-        f4772b.execute(new d.b.n.d.d(context, th));
+        f4773b.execute(new d.b.n.d.d(context, th));
     }
 
     public static void f(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (f4771a == null && context != null) {
-                f4771a = context.getSharedPreferences("last_init_crab", 4);
+            if (f4772a == null && context != null) {
+                f4772a = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (f4771a != null) {
-                f4771a.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (f4772a != null) {
+                f4772a.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -79,11 +79,11 @@ public final class k {
 
     public static long g(Context context, String str) {
         try {
-            if (f4771a == null && context != null) {
-                f4771a = context.getSharedPreferences("last_init_crab", 4);
+            if (f4772a == null && context != null) {
+                f4772a = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (f4771a != null) {
-                return f4771a.getLong(str, 0L);
+            if (f4772a != null) {
+                return f4772a.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e2) {
@@ -97,7 +97,7 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - g(context, "time_upload_native");
         com.baidu.crabsdk.c.a.c("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         int i = (currentTimeMillis > 10000L ? 1 : (currentTimeMillis == 10000L ? 0 : -1));
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = f4772b;
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = f4773b;
         if (i < 0) {
             scheduledThreadPoolExecutor.schedule(bVar, 10L, TimeUnit.SECONDS);
         } else {
@@ -136,15 +136,15 @@ public final class k {
     /* JADX WARN: Code restructure failed: missing block: B:90:0x0208, code lost:
         com.baidu.crabsdk.c.a.a("Create uploadDumpData error!", r0);
      */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x011a A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x013f A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x015c A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x01a4 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x01dc A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x01e9 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x01f0 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01f7 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:149:0x00f4, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x020f A[Catch: all -> 0x0323, TRY_LEAVE, TryCatch #0 {, blocks: (B:4:0x0005, B:6:0x0011, B:7:0x0015, B:9:0x001b, B:11:0x0029, B:13:0x004c, B:15:0x0059, B:18:0x0060, B:19:0x0077, B:21:0x007d, B:23:0x009d, B:25:0x00aa, B:28:0x00c3, B:36:0x00d4, B:38:0x00dc, B:39:0x00e4, B:43:0x00eb, B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:92:0x020f, B:95:0x0217, B:96:0x021b, B:97:0x0235, B:98:0x0239, B:99:0x023d, B:102:0x0260, B:104:0x0266, B:109:0x0273, B:111:0x0280, B:116:0x02a2, B:118:0x02b6, B:112:0x028d, B:114:0x0295, B:120:0x02f8, B:121:0x0306, B:124:0x030f, B:56:0x013f, B:87:0x01ff, B:90:0x0208, B:32:0x00ca, B:12:0x0047), top: B:138:0x0005, inners: #3, #4, #5, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x011a A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x013f A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x015c A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01a4 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x01dc A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x01e9 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01f0 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x01f7 A[Catch: Exception -> 0x0207, all -> 0x0323, TryCatch #6 {Exception -> 0x0207, blocks: (B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:56:0x013f, B:87:0x01ff), top: B:147:0x00f4, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x020f A[Catch: all -> 0x0323, TRY_LEAVE, TryCatch #0 {, blocks: (B:4:0x0005, B:6:0x0011, B:7:0x0015, B:9:0x001b, B:11:0x0029, B:13:0x004c, B:15:0x0059, B:18:0x0060, B:19:0x0077, B:21:0x007d, B:23:0x009d, B:25:0x00aa, B:28:0x00c3, B:36:0x00d4, B:38:0x00dc, B:39:0x00e4, B:43:0x00eb, B:44:0x00f4, B:46:0x00fa, B:49:0x00ff, B:51:0x011a, B:53:0x0136, B:55:0x0139, B:58:0x0145, B:60:0x015c, B:62:0x0178, B:64:0x017b, B:66:0x0186, B:68:0x018d, B:70:0x01a4, B:72:0x01c0, B:74:0x01c3, B:76:0x01ce, B:79:0x01dc, B:81:0x01e9, B:83:0x01f0, B:85:0x01f7, B:86:0x01fa, B:92:0x020f, B:95:0x0217, B:96:0x021b, B:97:0x0235, B:98:0x0239, B:99:0x023d, B:102:0x0260, B:104:0x0266, B:109:0x0273, B:111:0x0280, B:116:0x02a2, B:118:0x02b6, B:112:0x028d, B:114:0x0295, B:120:0x02f8, B:121:0x0306, B:124:0x030f, B:56:0x013f, B:87:0x01ff, B:90:0x0208, B:32:0x00ca, B:12:0x0047), top: B:136:0x0005, inners: #3, #4, #5, #6 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -251,7 +251,7 @@ public final class k {
                                                 } else {
                                                     try {
                                                         byte[] j = com.baidu.crabsdk.c.c.j(str9);
-                                                        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4637d, UUID.randomUUID().toString());
+                                                        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4638d, UUID.randomUUID().toString());
                                                         try {
                                                             byte[] g2 = com.baidu.crabsdk.c.d.g(j, h2);
                                                             try {
@@ -400,7 +400,7 @@ public final class k {
     }
 
     public static void k(Context context) {
-        f4772b.execute(new d.b.n.d.g(context));
+        f4773b.execute(new d.b.n.d.g(context));
     }
 
     public static synchronized void l(Context context) {
@@ -436,10 +436,10 @@ public final class k {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0103 A[Catch: all -> 0x0262, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000d, B:7:0x0011, B:9:0x0017, B:11:0x0038, B:12:0x003f, B:14:0x005d, B:15:0x007e, B:25:0x00eb, B:27:0x0103, B:28:0x0108, B:67:0x025c, B:30:0x010f, B:35:0x011c, B:37:0x0129, B:38:0x0131, B:43:0x0147, B:51:0x0167, B:52:0x018b, B:53:0x01ad, B:55:0x01b2, B:58:0x01c1, B:61:0x01e6, B:62:0x0219, B:63:0x021d, B:64:0x0241, B:39:0x0136, B:41:0x013e, B:66:0x0247, B:16:0x0082, B:18:0x008a, B:19:0x00ac, B:21:0x00b4, B:22:0x00d6, B:24:0x00de), top: B:76:0x0003, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0103 A[Catch: all -> 0x0262, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000d, B:7:0x0011, B:9:0x0017, B:11:0x0038, B:12:0x003f, B:14:0x005d, B:15:0x007e, B:25:0x00eb, B:27:0x0103, B:28:0x0108, B:67:0x025c, B:30:0x010f, B:35:0x011c, B:37:0x0129, B:38:0x0131, B:43:0x0147, B:51:0x0167, B:52:0x018b, B:53:0x01ad, B:55:0x01b2, B:58:0x01c1, B:61:0x01e6, B:62:0x0219, B:63:0x021d, B:64:0x0241, B:39:0x0136, B:41:0x013e, B:66:0x0247, B:16:0x0082, B:18:0x008a, B:19:0x00ac, B:21:0x00b4, B:22:0x00d6, B:24:0x00de), top: B:74:0x0003, inners: #1, #2 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x010d  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0241 A[Catch: all -> 0x0262, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000d, B:7:0x0011, B:9:0x0017, B:11:0x0038, B:12:0x003f, B:14:0x005d, B:15:0x007e, B:25:0x00eb, B:27:0x0103, B:28:0x0108, B:67:0x025c, B:30:0x010f, B:35:0x011c, B:37:0x0129, B:38:0x0131, B:43:0x0147, B:51:0x0167, B:52:0x018b, B:53:0x01ad, B:55:0x01b2, B:58:0x01c1, B:61:0x01e6, B:62:0x0219, B:63:0x021d, B:64:0x0241, B:39:0x0136, B:41:0x013e, B:66:0x0247, B:16:0x0082, B:18:0x008a, B:19:0x00ac, B:21:0x00b4, B:22:0x00d6, B:24:0x00de), top: B:76:0x0003, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0241 A[Catch: all -> 0x0262, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000d, B:7:0x0011, B:9:0x0017, B:11:0x0038, B:12:0x003f, B:14:0x005d, B:15:0x007e, B:25:0x00eb, B:27:0x0103, B:28:0x0108, B:67:0x025c, B:30:0x010f, B:35:0x011c, B:37:0x0129, B:38:0x0131, B:43:0x0147, B:51:0x0167, B:52:0x018b, B:53:0x01ad, B:55:0x01b2, B:58:0x01c1, B:61:0x01e6, B:62:0x0219, B:63:0x021d, B:64:0x0241, B:39:0x0136, B:41:0x013e, B:66:0x0247, B:16:0x0082, B:18:0x008a, B:19:0x00ac, B:21:0x00b4, B:22:0x00d6, B:24:0x00de), top: B:74:0x0003, inners: #1, #2 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -521,7 +521,7 @@ public final class k {
                                                 h.x(p(str3));
                                                 h.z("key_" + p(str3));
                                                 e.printStackTrace();
-                                                f.f4765g = true;
+                                                f.f4766g = true;
                                             }
                                         } else if (i == 10 || i == 15) {
                                             i.j(str3);
@@ -534,7 +534,7 @@ public final class k {
                                             h.z("key_" + p(str3));
                                             h.t(str3);
                                         }
-                                        f.f4765g = true;
+                                        f.f4766g = true;
                                     } else {
                                         i.j(str3);
                                         h.x(p(str3));
@@ -542,26 +542,26 @@ public final class k {
                                         h.t(str3);
                                     }
                                     h.e();
-                                    f.f4765g = true;
+                                    f.f4766g = true;
                                 }
                                 i = num.intValue();
                                 com.baidu.crabsdk.c.a.b("###--> errno = " + i);
                                 if (i != -1) {
                                 }
                                 h.e();
-                                f.f4765g = true;
+                                f.f4766g = true;
                             } else {
                                 str2 = "not connected to server!";
                             }
                             com.baidu.crabsdk.c.a.e(str2);
-                            f.f4765g = true;
+                            f.f4766g = true;
                         }
                         com.baidu.crabsdk.c.a.b(str);
                         com.baidu.crabsdk.c.a.b("HttpSender.doUpload.result: " + str4);
                         if (!TextUtils.isEmpty(str4)) {
                         }
                         com.baidu.crabsdk.c.a.e(str2);
-                        f.f4765g = true;
+                        f.f4766g = true;
                     } else {
                         i.j(str3);
                         h.t(str3);

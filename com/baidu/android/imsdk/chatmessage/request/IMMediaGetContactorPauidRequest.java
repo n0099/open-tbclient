@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     public static final String TAG = "IMMediaGetContactorPauidRequest";
     public long mContacter;

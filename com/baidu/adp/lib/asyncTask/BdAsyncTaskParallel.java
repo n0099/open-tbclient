@@ -6,13 +6,13 @@ import java.security.InvalidParameterException;
 public class BdAsyncTaskParallel {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f2147a;
+    public BdUniqueId f2148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f2148b;
+    public BdAsyncTaskParallelType f2149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2149c;
+    public int f2150c;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -25,23 +25,23 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.f2147a = null;
-        this.f2148b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f2149c = 1;
+        this.f2148a = null;
+        this.f2149b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f2150c = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.f2148b = bdAsyncTaskParallelType;
-            this.f2147a = bdUniqueId;
+            this.f2149b = bdAsyncTaskParallelType;
+            this.f2148a = bdUniqueId;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 
     public int a() {
-        return this.f2149c;
+        return this.f2150c;
     }
 
     public int b() {
-        BdUniqueId bdUniqueId = this.f2147a;
+        BdUniqueId bdUniqueId = this.f2148a;
         if (bdUniqueId == null) {
             return 0;
         }
@@ -49,17 +49,17 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallelType c() {
-        return this.f2148b;
+        return this.f2149b;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.f2147a = null;
-        this.f2148b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f2149c = 1;
+        this.f2148a = null;
+        this.f2149b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f2150c = 1;
         if (bdUniqueId != null) {
-            this.f2148b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.f2149c = i;
-            this.f2147a = bdUniqueId;
+            this.f2149b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.f2150c = i;
+            this.f2148a = bdUniqueId;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");

@@ -15,23 +15,23 @@ public class a {
 
     /* renamed from: d.b.i0.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1124a implements a.e {
+    public static class C1125a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51959e;
+        public final /* synthetic */ TbPageContext f51960e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f51960f;
+        public final /* synthetic */ int f51961f;
 
-        public C1124a(TbPageContext tbPageContext, int i) {
-            this.f51959e = tbPageContext;
-            this.f51960f = i;
+        public C1125a(TbPageContext tbPageContext, int i) {
+            this.f51960e = tbPageContext;
+            this.f51961f = i;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f51959e.getPageActivity(), true, this.f51960f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f51960e.getPageActivity(), true, this.f51961f)));
         }
     }
 
@@ -55,7 +55,7 @@ public class a {
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(tbPageContext.getPageActivity());
         aVar.setContentViewSize(1);
         aVar.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-        aVar.setPositiveButton(R.string.change_account, new C1124a(tbPageContext, i));
+        aVar.setPositiveButton(R.string.change_account, new C1125a(tbPageContext, i));
         aVar.setNegativeButton(R.string.not_change_account, new b());
         aVar.create(tbPageContext).show();
     }

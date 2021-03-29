@@ -55,7 +55,7 @@ public class XiubaTbJsBridge implements d.b.i0.c3.l0.b {
     public class b extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f14506a;
+        public boolean f14507a;
 
         public b(int i) {
             super(i);
@@ -72,16 +72,16 @@ public class XiubaTbJsBridge implements d.b.i0.c3.l0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f14506a) {
-                                this.f14506a = true;
+                            if (!this.f14507a) {
+                                this.f14507a = true;
                                 XiubaTbJsBridge.this.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                             XiubaTbJsBridge.this.callDownloadListener(2);
-                            this.f14506a = false;
+                            this.f14507a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                             XiubaTbJsBridge.this.callDownloadListener(0);
-                            this.f14506a = false;
+                            this.f14507a = false;
                         }
                     }
                 }

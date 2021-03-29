@@ -2,7 +2,7 @@ package d.b.g0.a.p.c;
 
 import android.content.Context;
 import com.baidu.swan.apps.core.container.NgWebView;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface s0 {
     void a(String str, Context context);
 

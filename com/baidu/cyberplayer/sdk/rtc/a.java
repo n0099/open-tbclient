@@ -4,19 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f5052a;
+    public static a f5053a;
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f5052a == null) {
-                f5052a = new a();
+            if (f5053a == null) {
+                f5053a = new a();
             }
-            aVar = f5052a;
+            aVar = f5053a;
         }
         return aVar;
     }

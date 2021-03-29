@@ -1,14 +1,14 @@
 package com.baidu.sofire.core;
 
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11711a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f11712a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static byte[] a() {
-        char[] charArray = f11711a.toCharArray();
+        char[] charArray = f11712a.toCharArray();
         char[] cArr = new char[16];
         for (int i = 0; i < 16; i++) {
             cArr[i] = charArray[new Random().nextInt(62)];

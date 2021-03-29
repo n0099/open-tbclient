@@ -14,21 +14,21 @@ import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 @TargetApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f3407a;
+    public Handler f3408a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JobService f3408a;
+        public final JobService f3409a;
 
         public a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.f3408a = jobService;
+            this.f3409a = jobService;
         }
 
         @Override // android.os.Handler
@@ -36,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f3408a.jobFinished(jobParameters, true);
+                    this.f3409a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f3408a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f3409a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f3408a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f3409a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -69,10 +69,10 @@ public class PushJobService extends JobService {
             } catch (Exception unused) {
             }
         }
-        if (this.f3407a == null) {
-            this.f3407a = new a(this);
+        if (this.f3408a == null) {
+            this.f3408a = new a(this);
         }
-        Handler handler = this.f3407a;
+        Handler handler = this.f3408a;
         handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);
         return true;
     }

@@ -18,10 +18,10 @@ import org.apache.http.protocol.HTTP;
 public final class a implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f65168a;
+    public final d f65169a;
 
     public a(d dVar) {
-        this.f65168a = dVar;
+        this.f65169a = dVar;
     }
 
     public static d.c.c.a.b.c c(d.c.c.a.b.c cVar) {
@@ -40,14 +40,14 @@ public final class a implements w {
             String b2 = vVar.b(i);
             String e2 = vVar.e(i);
             if ((!"Warning".equalsIgnoreCase(b2) || !e2.startsWith("1")) && (!e(b2) || vVar2.c(b2) == null)) {
-                d.c.c.a.b.a.b.f65183a.g(aVar, b2, e2);
+                d.c.c.a.b.a.b.f65184a.g(aVar, b2, e2);
             }
         }
         int a3 = vVar2.a();
         for (int i2 = 0; i2 < a3; i2++) {
             String b3 = vVar2.b(i2);
             if (!"Content-Length".equalsIgnoreCase(b3) && e(b3)) {
-                d.c.c.a.b.a.b.f65183a.g(aVar, b3, vVar2.e(i2));
+                d.c.c.a.b.a.b.f65184a.g(aVar, b3, vVar2.e(i2));
             }
         }
         return aVar.c();
@@ -59,12 +59,12 @@ public final class a implements w {
 
     @Override // d.c.c.a.b.w
     public d.c.c.a.b.c a(w.a aVar) throws IOException {
-        d dVar = this.f65168a;
+        d dVar = this.f65169a;
         d.c.c.a.b.c a2 = dVar != null ? dVar.a(aVar.a()) : null;
         c a3 = new c.a(System.currentTimeMillis(), aVar.a(), a2).a();
-        a0 a0Var = a3.f65173a;
-        d.c.c.a.b.c cVar = a3.f65174b;
-        d dVar2 = this.f65168a;
+        a0 a0Var = a3.f65174a;
+        d.c.c.a.b.c cVar = a3.f65175b;
+        d dVar2 = this.f65169a;
         if (dVar2 != null) {
             dVar2.c(a3);
         }
@@ -77,7 +77,7 @@ public final class a implements w {
             aVar2.g(com.bytedance.sdk.a.b.w.HTTP_1_1);
             aVar2.a(504);
             aVar2.i("Unsatisfiable Request (only-if-cached)");
-            aVar2.d(e.f65219c);
+            aVar2.d(e.f65220c);
             aVar2.b(-1L);
             aVar2.m(System.currentTimeMillis());
             return aVar2.k();
@@ -100,8 +100,8 @@ public final class a implements w {
                         y2.c(c(a4));
                         d.c.c.a.b.c k = y2.k();
                         a4.x().close();
-                        this.f65168a.a();
-                        this.f65168a.d(cVar, k);
+                        this.f65169a.a();
+                        this.f65169a.d(cVar, k);
                         return k;
                     }
                     e.q(cVar.x());
@@ -110,13 +110,13 @@ public final class a implements w {
                 y3.n(c(cVar));
                 y3.c(c(a4));
                 d.c.c.a.b.c k2 = y3.k();
-                if (this.f65168a != null) {
+                if (this.f65169a != null) {
                     if (e.g.h(k2) && c.a(k2, a0Var)) {
-                        return b(this.f65168a.b(k2), k2);
+                        return b(this.f65169a.b(k2), k2);
                     }
                     if (e.h.a(a0Var.c())) {
                         try {
-                            this.f65168a.e(a0Var);
+                            this.f65169a.e(a0Var);
                         } catch (IOException unused) {
                         }
                     }
@@ -135,54 +135,54 @@ public final class a implements w {
         if (bVar == null || (a2 = bVar.a()) == null) {
             return cVar;
         }
-        C1785a c1785a = new C1785a(this, cVar.x().r(), bVar, k.a(a2));
+        C1786a c1786a = new C1786a(this, cVar.x().r(), bVar, k.a(a2));
         String o = cVar.o("Content-Type");
         long o2 = cVar.x().o();
         c.a y = cVar.y();
-        y.d(new e.j(o, o2, k.b(c1785a)));
+        y.d(new e.j(o, o2, k.b(c1786a)));
         return y.k();
     }
 
     /* renamed from: d.c.c.a.b.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1785a implements q {
+    public class C1786a implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f65169e;
+        public boolean f65170e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.c.c.a.a.e f65170f;
+        public final /* synthetic */ d.c.c.a.a.e f65171f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f65171g;
+        public final /* synthetic */ b f65172g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.c.c.a.a.d f65172h;
+        public final /* synthetic */ d.c.c.a.a.d f65173h;
 
-        public C1785a(a aVar, d.c.c.a.a.e eVar, b bVar, d.c.c.a.a.d dVar) {
-            this.f65170f = eVar;
-            this.f65171g = bVar;
-            this.f65172h = dVar;
+        public C1786a(a aVar, d.c.c.a.a.e eVar, b bVar, d.c.c.a.a.d dVar) {
+            this.f65171f = eVar;
+            this.f65172g = bVar;
+            this.f65173h = dVar;
         }
 
         @Override // d.c.c.a.a.q
         public long a(d.c.c.a.a.c cVar, long j) throws IOException {
             try {
-                long a2 = this.f65170f.a(cVar, j);
+                long a2 = this.f65171f.a(cVar, j);
                 if (a2 == -1) {
-                    if (!this.f65169e) {
-                        this.f65169e = true;
-                        this.f65172h.close();
+                    if (!this.f65170e) {
+                        this.f65170e = true;
+                        this.f65173h.close();
                     }
                     return -1L;
                 }
-                cVar.n(this.f65172h.c(), cVar.v() - a2, a2);
-                this.f65172h.u();
+                cVar.n(this.f65173h.c(), cVar.v() - a2, a2);
+                this.f65173h.u();
                 return a2;
             } catch (IOException e2) {
-                if (!this.f65169e) {
-                    this.f65169e = true;
-                    this.f65171g.b();
+                if (!this.f65170e) {
+                    this.f65170e = true;
+                    this.f65172g.b();
                 }
                 throw e2;
             }
@@ -190,16 +190,16 @@ public final class a implements w {
 
         @Override // d.c.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!this.f65169e && !e.s(this, 100, TimeUnit.MILLISECONDS)) {
-                this.f65169e = true;
-                this.f65171g.b();
+            if (!this.f65170e && !e.s(this, 100, TimeUnit.MILLISECONDS)) {
+                this.f65170e = true;
+                this.f65172g.b();
             }
-            this.f65170f.close();
+            this.f65171f.close();
         }
 
         @Override // d.c.c.a.a.q
         public r a() {
-            return this.f65170f.a();
+            return this.f65171f.a();
         }
     }
 }

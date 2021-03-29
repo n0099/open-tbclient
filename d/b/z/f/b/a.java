@@ -42,65 +42,65 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f64889d = "nps" + File.separator + "preset";
+    public static final String f64890d = "nps" + File.separator + "preset";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f64890e = f64889d + File.separator + "info";
+    public static final String f64891e = f64890d + File.separator + "info";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f64891f = f64889d + File.separator + "bundle";
+    public static final String f64892f = f64890d + File.separator + "bundle";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f64892g = 4;
+    public static final int f64893g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static a f64893h = new a();
+    public static a f64894h = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64894a = false;
+    public boolean f64895a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, BundleInfo> f64895b = new HashMap();
+    public Map<String, BundleInfo> f64896b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f64896c = new HashSet();
+    public Set<String> f64897c = new HashSet();
 
     /* renamed from: d.b.z.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1780a implements IPackageGetCallback {
+    public class C1781a implements IPackageGetCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f64897a;
+        public final /* synthetic */ d f64898a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f64898b;
+        public final /* synthetic */ CountDownLatch f64899b;
 
-        public C1780a(a aVar, d dVar, CountDownLatch countDownLatch) {
-            this.f64897a = dVar;
-            this.f64898b = countDownLatch;
+        public C1781a(a aVar, d dVar, CountDownLatch countDownLatch) {
+            this.f64898a = dVar;
+            this.f64899b = countDownLatch;
         }
 
         @Override // com.baidu.nps.interfa.IPackageGetCallback
         public void onBundleInfoGetFail(int i, String str) {
-            d dVar = this.f64897a;
-            dVar.f64913a = i;
-            dVar.f64914b = new ArrayList();
-            this.f64898b.countDown();
+            d dVar = this.f64898a;
+            dVar.f64914a = i;
+            dVar.f64915b = new ArrayList();
+            this.f64899b.countDown();
         }
 
         @Override // com.baidu.nps.interfa.IPackageGetCallback
         public void onBundleInfoGetSuccess(List<IBundleInfo> list) {
-            d dVar = this.f64897a;
-            dVar.f64913a = 0;
+            d dVar = this.f64898a;
+            dVar.f64914a = 0;
             if (list == null) {
                 list = new ArrayList<>();
             }
-            dVar.f64914b = list;
-            this.f64898b.countDown();
+            dVar.f64915b = list;
+            this.f64899b.countDown();
         }
     }
 
@@ -108,64 +108,64 @@ public class a {
     public class b implements IPackageDownloadCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f64899a;
+        public final /* synthetic */ Context f64900a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f64900b;
+        public final /* synthetic */ d f64901b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f64901c;
+        public final /* synthetic */ CountDownLatch f64902c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f64902d;
+        public final /* synthetic */ BundleInfo f64903d;
 
         /* renamed from: d.b.z.f.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC1781a implements Runnable {
+        public class RunnableC1782a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f64903e;
+            public final /* synthetic */ String f64904e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f64904f;
+            public final /* synthetic */ String f64905f;
 
-            public RunnableC1781a(String str, String str2) {
-                this.f64903e = str;
-                this.f64904f = str2;
+            public RunnableC1782a(String str, String str2) {
+                this.f64904e = str;
+                this.f64905f = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Context context = b.this.f64899a;
-                File g2 = d.b.z.h.c.g(context, this.f64903e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                Context context = b.this.f64900a;
+                File g2 = d.b.z.h.c.g(context, this.f64904e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                 if (g2.exists()) {
                     g2.delete();
                 }
-                if (d.b.z.h.c.b(new File(this.f64904f), g2)) {
-                    b.this.f64900b.f64913a = 2;
+                if (d.b.z.h.c.b(new File(this.f64905f), g2)) {
+                    b.this.f64901b.f64914a = 2;
                 } else {
-                    b.this.f64900b.f64913a = 11;
+                    b.this.f64901b.f64914a = 11;
                 }
-                b.this.f64901c.countDown();
+                b.this.f64902c.countDown();
             }
         }
 
         /* renamed from: d.b.z.f.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC1782b implements Runnable {
+        public class RunnableC1783b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f64906e;
+            public final /* synthetic */ int f64907e;
 
-            public RunnableC1782b(int i) {
-                this.f64906e = i;
+            public RunnableC1783b(int i) {
+                this.f64907e = i;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar = b.this;
-                bVar.f64900b.f64913a = this.f64906e;
-                bVar.f64901c.countDown();
+                bVar.f64901b.f64914a = this.f64907e;
+                bVar.f64902c.countDown();
             }
         }
 
@@ -173,37 +173,37 @@ public class a {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ long f64908e;
+            public final /* synthetic */ long f64909e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f64909f;
+            public final /* synthetic */ long f64910f;
 
             public c(long j, long j2) {
-                this.f64908e = j;
-                this.f64909f = j2;
+                this.f64909e = j;
+                this.f64910f = j2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f64899a.getContentResolver().notifyChange(i.c(b.this.f64902d.getPackageName(), this.f64908e, this.f64909f), null);
+                b.this.f64900a.getContentResolver().notifyChange(i.c(b.this.f64903d.getPackageName(), this.f64909e, this.f64910f), null);
             }
         }
 
         public b(a aVar, Context context, d dVar, CountDownLatch countDownLatch, BundleInfo bundleInfo) {
-            this.f64899a = context;
-            this.f64900b = dVar;
-            this.f64901c = countDownLatch;
-            this.f64902d = bundleInfo;
+            this.f64900a = context;
+            this.f64901b = dVar;
+            this.f64902c = countDownLatch;
+            this.f64903d = bundleInfo;
         }
 
         @Override // com.baidu.nps.interfa.IPackageDownloadCallback
         public void onPackageDownloadFail(String str, int i, String str2) {
-            g.a().b().run(new RunnableC1782b(i));
+            g.a().b().run(new RunnableC1783b(i));
         }
 
         @Override // com.baidu.nps.interfa.IPackageDownloadCallback
         public void onPackageDownloadSuccess(String str, String str2) {
-            g.a().b().run(new RunnableC1781a(str, str2));
+            g.a().b().run(new RunnableC1782a(str, str2));
         }
 
         @Override // com.baidu.nps.interfa.IPackageDownloadCallback
@@ -216,14 +216,14 @@ public class a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f64911e;
+        public final /* synthetic */ BundleInfo f64912e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64912f;
+        public final /* synthetic */ String f64913f;
 
         public c(a aVar, BundleInfo bundleInfo, String str) {
-            this.f64911e = bundleInfo;
-            this.f64912f = str;
+            this.f64912e = bundleInfo;
+            this.f64913f = str;
         }
 
         @Override // java.lang.Runnable
@@ -239,17 +239,17 @@ public class a {
                     file2.createNewFile();
                 }
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v_c", this.f64911e.getVersionCode());
-                jSONObject.put("name", this.f64911e.getPackageName());
-                jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE, this.f64911e.getUpdateV());
-                jSONObject.put("f_u", this.f64911e.needForceUpdate());
-                jSONObject.put("f_b", this.f64911e.isForbidden());
-                jSONObject.put("visible", this.f64911e.isVisible());
+                jSONObject.put("v_c", this.f64912e.getVersionCode());
+                jSONObject.put("name", this.f64912e.getPackageName());
+                jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE, this.f64912e.getUpdateV());
+                jSONObject.put("f_u", this.f64912e.needForceUpdate());
+                jSONObject.put("f_b", this.f64912e.isForbidden());
+                jSONObject.put("visible", this.f64912e.isVisible());
                 try {
                     fileOutputStream = new FileOutputStream(file2, true);
                     try {
                         fileOutputStream.write(jSONObject.toString().getBytes());
-                        fileOutputStream.write(this.f64912f.getBytes());
+                        fileOutputStream.write(this.f64913f.getBytes());
                         fileOutputStream.write(String.valueOf(System.currentTimeMillis()).getBytes());
                         fileOutputStream.flush();
                         fileOutputStream.close();
@@ -272,23 +272,23 @@ public class a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64913a;
+        public int f64914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<IBundleInfo> f64914b;
+        public List<IBundleInfo> f64915b;
     }
 
     public static a c() {
-        return f64893h;
+        return f64894h;
     }
 
     public int a(BundleInfo bundleInfo, int i) {
         d dVar = new d();
-        dVar.f64913a = 2;
+        dVar.f64914a = 2;
         CountDownLatch countDownLatch = new CountDownLatch(1);
         Application applicationContext = ContextHolder.getApplicationContext();
         IPackageGetter b2 = d.b.z.c.a.c.a().b();
@@ -297,14 +297,14 @@ public class a {
             countDownLatch.await();
         } catch (InterruptedException unused) {
         }
-        return dVar.f64913a;
+        return dVar.f64914a;
     }
 
     public d b(List<IBundleInfo> list) {
         d dVar = new d();
-        dVar.f64913a = 0;
+        dVar.f64914a = 0;
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        d.b.z.c.a.c.a().b().getBundleInfo(list, new C1780a(this, dVar, countDownLatch));
+        d.b.z.c.a.c.a().b().getBundleInfo(list, new C1781a(this, dVar, countDownLatch));
         try {
             countDownLatch.await();
         } catch (InterruptedException unused) {
@@ -325,12 +325,12 @@ public class a {
     }
 
     public synchronized Map<String, BundleInfo> e() {
-        if (this.f64894a) {
-            return this.f64895b;
+        if (this.f64895a) {
+            return this.f64896b;
         }
         try {
             AssetManager assets = ContextHolder.getApplicationContext().getAssets();
-            InputStream open = assets.open(f64890e + File.separator + "preset.json");
+            InputStream open = assets.open(f64891e + File.separator + "preset.json");
             StringBuilder sb = new StringBuilder();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Xml.Encoding.UTF_8.toString()), 8192);
             while (true) {
@@ -340,8 +340,8 @@ public class a {
                 }
                 sb.append(readLine);
             }
-            this.f64895b = k(new JSONArray(sb.toString()));
-            this.f64894a = true;
+            this.f64896b = k(new JSONArray(sb.toString()));
+            this.f64895a = true;
         } catch (IOException e2) {
             if (d.b.z.h.b.a()) {
                 Log.e("PRESET", "e=" + e2.getMessage());
@@ -351,7 +351,7 @@ public class a {
                 Log.e("PRESET", "e=" + e3.getMessage());
             }
         }
-        return this.f64895b;
+        return this.f64896b;
     }
 
     public int f(BundleInfo bundleInfo, File file) {
@@ -427,7 +427,7 @@ public class a {
                 String name = nextElement.getName();
                 if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && name.endsWith(".so")) {
                     int lastIndexOf = name.lastIndexOf("/");
-                    String substring = name.substring(f64892g, lastIndexOf);
+                    String substring = name.substring(f64893g, lastIndexOf);
                     if (str3.equals(substring)) {
                         z = true;
                     } else if (str4.equals(substring) && !z) {
@@ -504,7 +504,7 @@ public class a {
         if (g2.exists()) {
             g2.delete();
         }
-        if (d.b.z.h.c.a(applicationContext, f64891f + File.separator + bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX, g2.getAbsolutePath())) {
+        if (d.b.z.h.c.a(applicationContext, f64892f + File.separator + bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX, g2.getAbsolutePath())) {
             return f(bundleInfo, g2);
         }
         return 11;
@@ -514,7 +514,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.f64896c.contains(str);
+        return this.f64897c.contains(str);
     }
 
     public final Map<String, BundleInfo> k(JSONArray jSONArray) {
@@ -541,7 +541,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f64896c.add(str);
+        this.f64897c.add(str);
     }
 
     public final void m(BundleInfo bundleInfo, String str) {

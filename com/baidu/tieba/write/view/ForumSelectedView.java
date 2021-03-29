@@ -21,16 +21,16 @@ import d.b.h0.r.u.c;
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22361e;
+    public int f22362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f22362f;
+    public ImageView f22363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22363g;
+    public TextView f22364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22364h;
+    public TextView f22365h;
     public ImageView i;
     public View j;
 
@@ -40,9 +40,9 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
-        this.f22362f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.f22363g = (TextView) findViewById(R.id.cell_forum_selected_name);
-        this.f22364h = (TextView) findViewById(R.id.cell_forum_selected_tip);
+        this.f22363f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
+        this.f22364g = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.f22365h = (TextView) findViewById(R.id.cell_forum_selected_tip);
         this.i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
         this.j = findViewById(R.id.cell_forum_selected_line);
         setOnClickListener(this);
@@ -51,15 +51,15 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f22361e) {
+        if (skinType == this.f22362e) {
             return;
         }
-        this.f22361e = skinType;
+        this.f22362e = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.f22362f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f22363g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f22364h, R.color.CAM_X0109);
-        c a2 = c.a(this.f22364h);
+        this.f22363f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f22364g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f22365h, R.color.CAM_X0109);
+        c a2 = c.a(this.f22365h);
         a2.h(R.string.J_X06);
         a2.c(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
@@ -72,8 +72,8 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     }
 
     public void setSelectedForum(String str) {
-        this.f22364h.setVisibility(8);
-        this.f22363g.setText(str);
+        this.f22365h.setVisibility(8);
+        this.f22364g.setText(str);
     }
 
     public ForumSelectedView(Context context, AttributeSet attributeSet) {
@@ -82,7 +82,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public ForumSelectedView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22361e = 3;
+        this.f22362e = 3;
         a();
     }
 }

@@ -12,13 +12,13 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f40591a;
+    public static gj f40592a;
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f435a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f40592b = new ConcurrentHashMap();
+    public Map<String, Object> f40593b = new ConcurrentHashMap();
 
     public gj() {
         m332a();
@@ -27,10 +27,10 @@ public class gj {
     public static synchronized gj a() {
         gj gjVar;
         synchronized (gj.class) {
-            if (f40591a == null) {
-                f40591a = new gj();
+            if (f40592a == null) {
+                f40592a = new gj();
             }
-            gjVar = f40591a;
+            gjVar = f40592a;
         }
         return gjVar;
     }
@@ -99,14 +99,14 @@ public class gj {
                                 newPullParser.next();
                                 String nextText3 = newPullParser.nextText();
                                 String a2 = a(nextText, nextText2);
-                                if (!this.f40592b.containsKey(a2)) {
+                                if (!this.f40593b.containsKey(a2)) {
                                     try {
                                         Class<?> cls = Class.forName(nextText3);
                                         if (gh.class.isAssignableFrom(cls)) {
-                                            map2 = this.f40592b;
+                                            map2 = this.f40593b;
                                             obj2 = cls.newInstance();
                                         } else if (ga.class.isAssignableFrom(cls)) {
-                                            map2 = this.f40592b;
+                                            map2 = this.f40593b;
                                             obj2 = cls;
                                         }
                                         map2.put(a2, obj2);

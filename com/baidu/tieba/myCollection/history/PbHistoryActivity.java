@@ -42,7 +42,7 @@ import d.b.b.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public List<Long> closeLives;
     public List<d.b.i0.v1.h.a> datas;
@@ -58,7 +58,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final HttpMessageListener listener = new b(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
     public AbsListView.OnScrollListener mOnScrollListener = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements CacheModel.c<d.b.i0.v1.h.a> {
         public a() {
         }
@@ -98,7 +98,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -119,7 +119,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements AbsListView.OnScrollListener {
         public c() {
         }
@@ -140,10 +140,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements a.e {
             public a() {
             }
@@ -155,7 +155,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements a.e {
             public b(d dVar) {
             }
@@ -179,7 +179,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements AdapterView.OnItemClickListener {
         public e() {
         }

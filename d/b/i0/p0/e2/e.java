@@ -24,45 +24,45 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f57430a;
+    public l f57431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a2 f57431b;
+    public a2 f57432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f57432c = new c(2921324);
+    public CustomMessageListener f57433c = new c(2921324);
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f57433d = new d(2016488);
+    public CustomMessageListener f57434d = new d(2016488);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f57434e = new C1382e(2016553);
+    public CustomMessageListener f57435e = new C1383e(2016553);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f57435f = new g(2016331);
+    public CustomMessageListener f57436f = new g(2016331);
 
     /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f57436a;
+        public final /* synthetic */ View f57437a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f57437b;
+        public final /* synthetic */ String f57438b;
 
         public a(View view, String str) {
-            this.f57436a = view;
-            this.f57437b = str;
+            this.f57437a = view;
+            this.f57438b = str;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (e.this.f57430a == null || e.this.f57430a.x0() == null || e.this.f57430a.x0().Z() == null || e.this.f57430a.x0().U() == null) {
+            if (e.this.f57431a == null || e.this.f57431a.x0() == null || e.this.f57431a.x0().Z() == null || e.this.f57431a.x0().U() == null) {
                 return;
             }
-            e.this.f57430a.x0().Z().removeView(this.f57436a);
-            e.this.j(this.f57437b);
-            e.this.f57430a.x0().U().notifyDataSetChanged();
+            e.this.f57431a.x0().Z().removeView(this.f57437a);
+            e.this.j(this.f57438b);
+            e.this.f57431a.x0().U().notifyDataSetChanged();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -78,28 +78,28 @@ public class e {
     public class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f57439a;
+        public final /* synthetic */ String f57440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f57440b;
+        public final /* synthetic */ String f57441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f57441c;
+        public final /* synthetic */ View f57442c;
 
         public b(String str, String str2, View view) {
-            this.f57439a = str;
-            this.f57440b = str2;
-            this.f57441c = view;
+            this.f57440a = str;
+            this.f57441b = str2;
+            this.f57442c = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            e.this.k(this.f57439a, this.f57440b);
-            this.f57441c.setVisibility(8);
-            if (e.this.f57430a.x0() == null || e.this.f57430a.x0().U() == null) {
+            e.this.k(this.f57440a, this.f57441b);
+            this.f57442c.setVisibility(8);
+            if (e.this.f57431a.x0() == null || e.this.f57431a.x0().U() == null) {
                 return;
             }
-            e.this.f57430a.x0().U().notifyDataSetChanged();
+            e.this.f57431a.x0().U().notifyDataSetChanged();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -139,8 +139,8 @@ public class e {
 
     /* renamed from: d.b.i0.p0.e2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1382e extends CustomMessageListener {
-        public C1382e(int i) {
+    public class C1383e extends CustomMessageListener {
+        public C1383e(int i) {
             super(i);
         }
 
@@ -148,7 +148,7 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.j(e.this.u(customResponsedMessage));
-            e.this.f57430a.x0().U().notifyDataSetChanged();
+            e.this.f57431a.x0().U().notifyDataSetChanged();
         }
     }
 
@@ -156,21 +156,21 @@ public class e {
     public class f extends Animation {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f57446e;
+        public final /* synthetic */ int f57447e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f57447f;
+        public final /* synthetic */ View f57448f;
 
         public f(e eVar, int i, View view) {
-            this.f57446e = i;
-            this.f57447f = view;
+            this.f57447e = i;
+            this.f57448f = view;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
-            int i = this.f57446e;
-            this.f57447f.getLayoutParams().height = i - ((int) (i * f2));
-            this.f57447f.requestLayout();
+            int i = this.f57447e;
+            this.f57448f.getLayoutParams().height = i - ((int) (i * f2));
+            this.f57448f.requestLayout();
         }
 
         @Override // android.view.animation.Animation
@@ -188,76 +188,76 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || e.this.f57430a == null || e.this.f57430a.M() == null || e.this.f57430a.M().Z() == null) {
+            if (customResponsedMessage == null || e.this.f57431a == null || e.this.f57431a.M() == null || e.this.f57431a.M().Z() == null) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            e.this.m(str, e.this.f57430a.M().Z().getForum().getBannerListData().getAllAdvertList());
+            e.this.m(str, e.this.f57431a.M().Z().getForum().getBannerListData().getAllAdvertList());
             e eVar = e.this;
-            eVar.l(str, eVar.f57430a.x0().Z().getData());
+            eVar.l(str, eVar.f57431a.x0().Z().getData());
             e eVar2 = e.this;
-            eVar2.l(str, eVar2.f57430a.d0().f().v());
-            e.this.f57430a.M().E(str);
-            if (e.this.f57430a.x0() == null || e.this.f57430a.x0().U() == null) {
+            eVar2.l(str, eVar2.f57431a.d0().f().v());
+            e.this.f57431a.M().E(str);
+            if (e.this.f57431a.x0() == null || e.this.f57431a.x0().U() == null) {
                 return;
             }
-            e.this.f57430a.x0().U().notifyDataSetChanged();
+            e.this.f57431a.x0().U().notifyDataSetChanged();
         }
     }
 
     public e(l lVar, BdUniqueId bdUniqueId) {
-        this.f57430a = lVar;
-        this.f57433d.setTag(bdUniqueId);
-        this.f57435f.setTag(bdUniqueId);
-        this.f57432c.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f57432c);
-        MessageManager.getInstance().registerListener(this.f57433d);
-        MessageManager.getInstance().registerListener(this.f57435f);
-        this.f57434e.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f57434e);
+        this.f57431a = lVar;
+        this.f57434d.setTag(bdUniqueId);
+        this.f57436f.setTag(bdUniqueId);
+        this.f57433c.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f57433c);
+        MessageManager.getInstance().registerListener(this.f57434d);
+        MessageManager.getInstance().registerListener(this.f57436f);
+        this.f57435e.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f57435e);
     }
 
     public final void i() {
-        a2 a2Var = this.f57431b;
+        a2 a2Var = this.f57432b;
         if (a2Var == null || !a2Var.P1) {
             return;
         }
         TbPageTag tbPageTag = null;
-        l lVar = this.f57430a;
+        l lVar = this.f57431a;
         if (lVar != null && lVar.x0() != null) {
-            tbPageTag = d.b.h0.j0.c.k(this.f57430a.x0().T());
+            tbPageTag = d.b.h0.j0.c.k(this.f57431a.x0().T());
         }
-        d.b.i0.p0.j2.a.h(this.f57431b, tbPageTag);
+        d.b.i0.p0.j2.a.h(this.f57432b, tbPageTag);
     }
 
     public final void j(String str) {
         if (StringUtils.isNull(str)) {
             return;
         }
-        ArrayList<d.b.b.j.e.n> threadList = this.f57430a.M().Z().getThreadList();
+        ArrayList<d.b.b.j.e.n> threadList = this.f57431a.M().Z().getThreadList();
         p(str, threadList);
-        p(str, this.f57430a.x0().Z().getData());
-        p(str, this.f57430a.d0().e());
-        this.f57430a.M().G(str);
+        p(str, this.f57431a.x0().Z().getData());
+        p(str, this.f57431a.d0().e());
+        this.f57431a.M().G(str);
         if (threadList == null || threadList.size() >= 5) {
             return;
         }
-        this.f57430a.loadMore();
+        this.f57431a.loadMore();
     }
 
     public final void k(String str, String str2) {
-        ArrayList<d.b.b.j.e.n> threadList = this.f57430a.M().Z().getThreadList();
+        ArrayList<d.b.b.j.e.n> threadList = this.f57431a.M().Z().getThreadList();
         q(str, str2, threadList);
-        q(str, str2, this.f57430a.x0().Z().getData());
+        q(str, str2, this.f57431a.x0().Z().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.f57430a.M().F(str2);
+            this.f57431a.M().F(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.f57430a.M().G(str2);
+            this.f57431a.M().G(str2);
         }
         if (threadList == null || threadList.size() >= 5) {
             return;
         }
-        this.f57430a.loadMore();
+        this.f57431a.loadMore();
     }
 
     public final void l(String str, List<d.b.b.j.e.n> list) {
@@ -291,7 +291,7 @@ public class e {
 
     public final void n(CustomResponsedMessage<?> customResponsedMessage) {
         l lVar;
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f57430a) == null || lVar.M() == null || this.f57430a.M().Z() == null) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f57431a) == null || lVar.M() == null || this.f57431a.M().Z() == null) {
             return;
         }
         JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
@@ -300,16 +300,16 @@ public class e {
             return;
         }
         String optString2 = jSONObject.optString("tid");
-        if (this.f57430a.x0() == null || this.f57430a.x0().U() == null) {
+        if (this.f57431a.x0() == null || this.f57431a.x0().U() == null) {
             return;
         }
-        View childAt = this.f57430a.x0().Z().getChildAt(s(optString, optString2, this.f57430a.x0().Z()));
+        View childAt = this.f57431a.x0().Z().getChildAt(s(optString, optString2, this.f57431a.x0().Z()));
         if (childAt != null) {
             o(childAt, new b(optString, optString2, childAt));
             return;
         }
         k(optString, optString2);
-        this.f57430a.x0().U().notifyDataSetChanged();
+        this.f57431a.x0().U().notifyDataSetChanged();
     }
 
     public final void o(View view, Animation.AnimationListener animationListener) {
@@ -372,7 +372,7 @@ public class e {
             if (B instanceof z1) {
                 a2 a2Var = ((z1) B).w;
                 if (a2Var.w1() != null && a2Var.w1().equals(str)) {
-                    this.f57431b = a2Var;
+                    this.f57432b = a2Var;
                     i = i2;
                 }
             }
@@ -414,20 +414,20 @@ public class e {
     }
 
     public final void t(CustomResponsedMessage<?> customResponsedMessage) {
-        l lVar = this.f57430a;
-        if (lVar == null || lVar.M() == null || this.f57430a.M().Z() == null) {
+        l lVar = this.f57431a;
+        if (lVar == null || lVar.M() == null || this.f57431a.M().Z() == null) {
             return;
         }
         String u = u(customResponsedMessage);
-        if (StringUtils.isNull(u) || this.f57430a.x0() == null || this.f57430a.x0().U() == null) {
+        if (StringUtils.isNull(u) || this.f57431a.x0() == null || this.f57431a.x0().U() == null) {
             return;
         }
-        View childAt = this.f57430a.x0().Z().getChildAt(r(u, this.f57430a.x0().Z()));
+        View childAt = this.f57431a.x0().Z().getChildAt(r(u, this.f57431a.x0().Z()));
         if (childAt != null) {
             o(childAt, new a(childAt, u));
         } else {
             j(u);
-            this.f57430a.x0().U().notifyDataSetChanged();
+            this.f57431a.x0().U().notifyDataSetChanged();
         }
         i();
     }

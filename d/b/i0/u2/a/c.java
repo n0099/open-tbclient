@@ -14,19 +14,19 @@ import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f61292a;
+    public BdUniqueId f61293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61293b = 1;
+    public int f61294b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f61294c;
+    public d f61295c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f61295d;
+    public b f61296d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.c.g.a f61296e;
+    public d.b.b.c.g.a f61297e;
 
     /* loaded from: classes5.dex */
     public class a extends d.b.b.c.g.a {
@@ -40,31 +40,31 @@ public class c {
             if (responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == c.this.f61292a) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == c.this.f61293a) {
                 if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
                     pageData = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
                 } else {
                     pageData = responsedMessage instanceof ForbiddenForumSocketResMsg ? ((ForbiddenForumSocketResMsg) responsedMessage).getPageData() : null;
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (c.this.f61293b == 1 && (pageData == null || ListUtils.isEmpty(pageData.f61298a))) {
-                        if (c.this.f61295d != null) {
-                            c.this.f61295d.a(null);
+                    if (c.this.f61294b == 1 && (pageData == null || ListUtils.isEmpty(pageData.f61299a))) {
+                        if (c.this.f61296d != null) {
+                            c.this.f61296d.a(null);
                         }
                     } else if (pageData != null) {
-                        c.this.f61294c.f61298a.addAll(pageData.f61298a);
-                        if (ListUtils.isEmpty(pageData.f61298a)) {
-                            c.this.f61294c.f61299b = false;
+                        c.this.f61295c.f61299a.addAll(pageData.f61299a);
+                        if (ListUtils.isEmpty(pageData.f61299a)) {
+                            c.this.f61295c.f61300b = false;
                         } else {
-                            c.this.f61294c.f61299b = pageData.f61299b;
+                            c.this.f61295c.f61300b = pageData.f61300b;
                             c.c(c.this);
                         }
-                        if (c.this.f61295d != null) {
-                            c.this.f61295d.a(pageData);
+                        if (c.this.f61296d != null) {
+                            c.this.f61296d.a(pageData);
                         }
                     }
-                } else if (c.this.f61295d != null) {
-                    c.this.f61295d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                } else if (c.this.f61296d != null) {
+                    c.this.f61296d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -79,37 +79,37 @@ public class c {
 
     public c(BdUniqueId bdUniqueId) {
         a aVar = new a(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.f61296e = aVar;
-        this.f61292a = bdUniqueId;
+        this.f61297e = aVar;
+        this.f61293a = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f61296e);
+        MessageManager.getInstance().registerListener(this.f61297e);
         i();
         h();
-        this.f61294c = new d();
+        this.f61295c = new d();
     }
 
     public static /* synthetic */ int c(c cVar) {
-        int i = cVar.f61293b;
-        cVar.f61293b = i + 1;
+        int i = cVar.f61294b;
+        cVar.f61294b = i + 1;
         return i;
     }
 
     public void f(String str) {
         String str2;
-        d dVar = this.f61294c;
-        if (dVar == null || ListUtils.isEmpty(dVar.f61298a)) {
+        d dVar = this.f61295c;
+        if (dVar == null || ListUtils.isEmpty(dVar.f61299a)) {
             return;
         }
-        for (d.b.i0.u2.a.b bVar : this.f61294c.f61298a) {
-            if (bVar != null && (str2 = bVar.f61291c) != null && str2.equals(str)) {
-                this.f61294c.f61298a.remove(bVar);
+        for (d.b.i0.u2.a.b bVar : this.f61295c.f61299a) {
+            if (bVar != null && (str2 = bVar.f61292c) != null && str2.equals(str)) {
+                this.f61295c.f61299a.remove(bVar);
                 return;
             }
         }
     }
 
     public d g() {
-        return this.f61294c;
+        return this.f61295c;
     }
 
     public final void h() {
@@ -131,12 +131,12 @@ public class c {
     public void j() {
         ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
         forbiddenForumReqMsg.pageSize = 20;
-        forbiddenForumReqMsg.pageNum = this.f61293b;
-        forbiddenForumReqMsg.setTag(this.f61292a);
+        forbiddenForumReqMsg.pageNum = this.f61294b;
+        forbiddenForumReqMsg.setTag(this.f61293a);
         MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
     }
 
     public void k(b bVar) {
-        this.f61295d = bVar;
+        this.f61296d = bVar;
     }
 }

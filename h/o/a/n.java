@@ -3,9 +3,7 @@ package h.o.a;
 public final class n<T, K, V> extends h.j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.o.b.a f67774e;
+    public final h.o.b.a f67779e;
 
-    public void b(K k) {
-        throw null;
-    }
+    public abstract void b(K k);
 }

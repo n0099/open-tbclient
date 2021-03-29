@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMTrackManager {
     public static final int FAIL_MAX_COUNT = 3;
     public static final int RETRY_MAX_COUNT = 1;

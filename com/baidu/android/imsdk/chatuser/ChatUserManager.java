@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatuser;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.BaseManager;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatUserManager extends BaseManager {
     @Deprecated
     public static ArrayList<ChatUser> getChatUser(Context context) {

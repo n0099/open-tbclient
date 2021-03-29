@@ -9,7 +9,7 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<MultiGraphicTextMsg> CREATOR = new Parcelable.Creator<MultiGraphicTextMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
     };
     public Article[] mArticles;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Article implements Parcelable, NoProGuard {
         public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.Article.1
             /* JADX DEBUG: Method merged with bridge method */

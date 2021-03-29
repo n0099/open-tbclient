@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static final int DF_SEG_SIZE = 524288;
     public static int DF_SEG_WRITE_SIZE = 524288;
@@ -146,12 +146,11 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                             if (j5 > 0) {
                                 long j6 = abstractTask.mLastNotifySpeed;
                                 if (j6 > 0) {
-                                    long j7 = (j2 - j) / j3;
-                                    long j8 = (j5 - j4) / j6;
-                                    if (j7 > j8) {
+                                    int i3 = (((j2 - j) / j3) > ((j5 - j4) / j6) ? 1 : (((j2 - j) / j3) == ((j5 - j4) / j6) ? 0 : -1));
+                                    if (i3 > 0) {
                                         return 1;
                                     }
-                                    return j7 < j8 ? -1 : 0;
+                                    return i3 < 0 ? -1 : 0;
                                 }
                             }
                         }
@@ -159,14 +158,14 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                 }
             }
             if (this.mTotalLength == 0) {
-                long j9 = this.mSizeB;
-                if (j9 > 0 && abstractTask.mTotalLength == 0) {
-                    long j10 = abstractTask.mSizeB;
-                    if (j10 > 0) {
-                        if (j9 > j10) {
+                long j7 = this.mSizeB;
+                if (j7 > 0 && abstractTask.mTotalLength == 0) {
+                    long j8 = abstractTask.mSizeB;
+                    if (j8 > 0) {
+                        if (j7 > j8) {
                             return 1;
                         }
-                        if (j9 < j10) {
+                        if (j7 < j8) {
                             return -1;
                         }
                     }

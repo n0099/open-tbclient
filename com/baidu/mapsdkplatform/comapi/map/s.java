@@ -6,10 +6,10 @@ import android.os.Message;
 public class s extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ r f7668a;
+    public final /* synthetic */ r f7669a;
 
     public s(r rVar) {
-        this.f7668a = rVar;
+        this.f7669a = rVar;
     }
 
     @Override // android.os.Handler
@@ -17,9 +17,9 @@ public class s extends Handler {
         r rVar;
         w wVar;
         super.handleMessage(message);
-        rVar = r.f7664c;
+        rVar = r.f7665c;
         if (rVar != null) {
-            wVar = this.f7668a.f7666d;
+            wVar = this.f7669a.f7667d;
             wVar.a(message);
         }
     }

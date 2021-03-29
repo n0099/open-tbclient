@@ -14,19 +14,19 @@ import java.util.List;
 public class d extends d.b.b.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59054a;
+    public View f59055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HorizontalListView f59055b;
+    public HorizontalListView f59056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.p3.j.h.a f59056c;
+    public d.b.i0.p3.j.h.a f59057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.p3.j.c.b f59057d;
+    public d.b.i0.p3.j.c.b f59058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.p3.j.d.a f59058e;
+    public d.b.i0.p3.j.d.a f59059e;
 
     /* loaded from: classes5.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -35,29 +35,29 @@ public class d extends d.b.b.a.d {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d.b.i0.p3.j.e.a aVar = (d.b.i0.p3.j.e.a) d.this.f59057d.getItem(i);
-            if (d.this.f59058e != null) {
-                d.this.f59058e.h(aVar);
+            d.b.i0.p3.j.e.a aVar = (d.b.i0.p3.j.e.a) d.this.f59058d.getItem(i);
+            if (d.this.f59059e != null) {
+                d.this.f59059e.h(aVar);
             }
-            if (d.this.f59056c == null || d.this.f59056c.z() == null) {
+            if (d.this.f59057c == null || d.this.f59057c.z() == null) {
                 return;
             }
-            d.this.f59056c.z().setFilter(aVar);
+            d.this.f59057c.z().setFilter(aVar);
         }
     }
 
     public d(f fVar, d.b.i0.p3.j.h.a aVar) {
         super(fVar);
-        this.f59056c = aVar;
+        this.f59057c = aVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_filter_layout, (ViewGroup) null);
-        this.f59054a = inflate;
+        this.f59055a = inflate;
         inflate.getResources();
         k();
     }
 
     public d.b.i0.p3.j.e.a g(String str) {
-        for (d.b.i0.p3.j.e.a aVar : this.f59057d.a()) {
-            if (aVar != null && StringHelper.equals(aVar.f59004c, str)) {
+        for (d.b.i0.p3.j.e.a aVar : this.f59058d.a()) {
+            if (aVar != null && StringHelper.equals(aVar.f59005c, str)) {
                 return aVar;
             }
         }
@@ -65,17 +65,17 @@ public class d extends d.b.b.a.d {
     }
 
     public View h() {
-        return this.f59054a;
+        return this.f59055a;
     }
 
     public void i(View view) {
     }
 
     public final void k() {
-        this.f59055b = (HorizontalListView) this.f59054a.findViewById(R.id.edit_filter_horizontal_list);
-        this.f59057d = new d.b.i0.p3.j.c.b();
-        r(d.b.i0.p3.j.d.a.c(this.f59054a.getContext()));
-        this.f59055b.setOnItemClickListener(new a());
+        this.f59056b = (HorizontalListView) this.f59055a.findViewById(R.id.edit_filter_horizontal_list);
+        this.f59058d = new d.b.i0.p3.j.c.b();
+        r(d.b.i0.p3.j.d.a.c(this.f59055a.getContext()));
+        this.f59056b.setOnItemClickListener(new a());
     }
 
     public void l() {
@@ -88,15 +88,15 @@ public class d extends d.b.b.a.d {
     }
 
     public void o(d.b.i0.p3.j.e.a aVar) {
-        this.f59057d.b(aVar);
+        this.f59058d.b(aVar);
     }
 
     public void q(d.b.i0.p3.j.d.a aVar) {
-        this.f59058e = aVar;
+        this.f59059e = aVar;
     }
 
     public void r(List<d.b.i0.p3.j.e.a> list) {
-        this.f59057d.c(list);
-        this.f59055b.setAdapter((ListAdapter) this.f59057d);
+        this.f59058d.c(list);
+        this.f59056b.setAdapter((ListAdapter) this.f59058d);
     }
 }

@@ -26,17 +26,17 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20767e;
+        public final /* synthetic */ AdCard f20768e;
 
         public a(AdCard adCard) {
-            this.f20767e = adCard;
+            this.f20768e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.c0(this.f20767e);
+                adCardSmallPicVideoView.c0(this.f20768e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -104,8 +104,8 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             String pageTypeByBusiness = getPageTypeByBusiness();
             d dVar = advertAppInfo.Y3;
             if (dVar != null) {
-                i = dVar.f50749b;
-                pageTypeByBusiness = dVar.f50748a;
+                i = dVar.f50750b;
+                pageTypeByBusiness = dVar.f50749a;
             }
             this.C.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }

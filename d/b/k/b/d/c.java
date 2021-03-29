@@ -1,5 +1,5 @@
 package d.b.k.b.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static void a(String str, String str2) {
     }

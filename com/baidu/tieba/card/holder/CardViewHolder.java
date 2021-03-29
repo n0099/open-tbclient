@@ -6,14 +6,14 @@ import d.b.i0.x.b;
 public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
 
     /* renamed from: e  reason: collision with root package name */
-    public T f15282e;
+    public T f15283e;
 
     public CardViewHolder(T t) {
         super(t.m());
-        this.f15282e = t;
+        this.f15283e = t;
     }
 
     public T b() {
-        return this.f15282e;
+        return this.f15283e;
     }
 }

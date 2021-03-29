@@ -162,7 +162,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements p.c, Voi
     public class e extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f19682e = new int[2];
+        public int[] f19683e = new int[2];
 
         public e() {
         }
@@ -177,9 +177,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements p.c, Voi
         public boolean onSingleTapUp(MotionEvent motionEvent) {
             WholeDisplayGridView wholeDisplayGridView;
             if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.mImgsGridView) != null) {
-                wholeDisplayGridView.getLocationInWindow(this.f19682e);
-                int x = ((int) motionEvent.getX()) - this.f19682e[0];
-                int y = ((int) motionEvent.getY()) - this.f19682e[1];
+                wholeDisplayGridView.getLocationInWindow(this.f19683e);
+                int x = ((int) motionEvent.getX()) - this.f19683e[0];
+                int y = ((int) motionEvent.getY()) - this.f19683e[1];
                 if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
                     PbFullScreenEditorActivity.this.mEditorTools.q();
                     PbFullScreenEditorActivity.this.mEditorTools.y();
@@ -231,15 +231,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements p.c, Voi
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19687e;
+        public final /* synthetic */ String f19688e;
 
         public i(String str) {
-            this.f19687e = str;
+            this.f19688e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbFullScreenEditorActivity.this.showToast(this.f19687e);
+            PbFullScreenEditorActivity.this.showToast(this.f19688e);
         }
     }
 
@@ -523,7 +523,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements p.c, Voi
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f51523a;
+        int i2 = aVar.f51524a;
         if (i2 == 3) {
             d.b.i0.k0.b.a(this.mEditContent);
         } else if (i2 == 14) {
@@ -547,12 +547,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements p.c, Voi
                 deleteVoice();
                 return;
             }
-            Object obj = aVar.f51525c;
+            Object obj = aVar.f51526c;
             if (obj instanceof VoiceData$VoiceModel) {
                 addVoice((VoiceData$VoiceModel) obj);
             }
         } else {
-            Object obj2 = aVar.f51525c;
+            Object obj2 = aVar.f51526c;
             if (obj2 instanceof d.b.h0.s.c.t) {
                 d.b.h0.s.c.t tVar = (d.b.h0.s.c.t) obj2;
                 if (tVar.e() != EmotionGroupType.BIG_EMOTION && tVar.e() != EmotionGroupType.USER_COLLECT) {

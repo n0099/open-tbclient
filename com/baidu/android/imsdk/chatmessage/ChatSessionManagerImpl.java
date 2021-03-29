@@ -46,7 +46,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatSessionManagerImpl {
     public static final String TAG = "SessionManagerImpl";
     public static Context mContext;

@@ -16,21 +16,21 @@ import org.json.JSONObject;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64078a;
+    public static int f64079a;
 
     /* loaded from: classes5.dex */
     public static class b extends d.b.m0.a.f.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64079e;
+        public final /* synthetic */ Context f64080e;
 
         public b(Context context) {
-            this.f64079e = context;
+            this.f64080e = context;
         }
 
         @Override // d.b.m0.a.f.c
         public final void a() {
-            g.k(this.f64079e);
+            g.k(this.f64080e);
             if (d.b.m0.a.c.i().j() != null && !d.b.m0.a.c.i().j().equals("")) {
                 d.b.m0.a.f.i.a("BaiDuAB sdk  init success");
             } else {
@@ -51,7 +51,7 @@ public final class g {
     public static class e extends d.b.m0.a.f.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64082e;
+        public final /* synthetic */ String f64083e;
 
         /* loaded from: classes5.dex */
         public class a implements b.a<JSONObject> {
@@ -70,7 +70,7 @@ public final class g {
         }
 
         public e(String str) {
-            this.f64082e = str;
+            this.f64083e = str;
         }
 
         @Override // d.b.m0.a.f.c
@@ -79,7 +79,7 @@ public final class g {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.f64082e);
+            hashMap.put("exids", this.f64083e);
             d.b.m0.a.d.b.c(d.b.m0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
         }
     }
@@ -180,8 +180,8 @@ public final class g {
     }
 
     public static /* synthetic */ int f() {
-        int i = f64078a;
-        f64078a = i + 1;
+        int i = f64079a;
+        f64079a = i + 1;
         return i;
     }
 
@@ -257,14 +257,14 @@ public final class g {
     public static class c implements b.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f64080a;
+        public final /* synthetic */ long f64081a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f64081b;
+        public final /* synthetic */ Context f64082b;
 
         public c(long j, Context context) {
-            this.f64080a = j;
-            this.f64081b = context;
+            this.f64081a = j;
+            this.f64082b = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -276,8 +276,8 @@ public final class g {
             }
             d.b.m0.a.c.i().b(optString);
             d.b.m0.a.f.d.f("token", optString);
-            d.b.m0.a.f.d.g("token_update_time", this.f64080a);
-            d.b.m0.a.f.d.f("lastkey", g.i(this.f64081b));
+            d.b.m0.a.f.d.g("token_update_time", this.f64081a);
+            d.b.m0.a.f.d.f("lastkey", g.i(this.f64082b));
         }
 
         @Override // d.b.m0.a.d.b.a
@@ -312,7 +312,7 @@ public final class g {
 
         @Override // d.b.m0.a.d.b.a
         public final void a(String str) {
-            while (g.f64078a < 2) {
+            while (g.f64079a < 2) {
                 synchronized (this) {
                     g.f();
                 }

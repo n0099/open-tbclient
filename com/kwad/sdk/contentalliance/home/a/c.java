@@ -19,28 +19,28 @@ import org.json.JSONObject;
 public class c extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f32564c;
+    public SceneImpl f32565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32565d;
+    public int f32566d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32566e;
+    public int f32567e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32568g;
+    public String f32569g;
     public int j;
     public com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.h, AdResultData> k;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32567f = false;
+    public boolean f32568f = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32569h = true;
+    public boolean f32570h = true;
     public Handler i = new Handler(Looper.getMainLooper());
 
     public c(SceneImpl sceneImpl) {
-        this.f32564c = sceneImpl;
+        this.f32565c = sceneImpl;
     }
 
     private boolean a(SceneImpl sceneImpl) {
@@ -59,15 +59,15 @@ public class c extends a {
             }
         }
         com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "usePreloadContentData cache item list size=" + a2.size());
-        this.f32561a.addAll(a2);
+        this.f32562a.addAll(a2);
         a3.b(posId);
-        a(false, this.f32565d);
+        a(false, this.f32566d);
         return true;
     }
 
     public static /* synthetic */ int b(c cVar) {
-        int i = cVar.f32565d;
-        cVar.f32565d = i + 1;
+        int i = cVar.f32566d;
+        cVar.f32566d = i + 1;
         return i;
     }
 
@@ -91,83 +91,83 @@ public class c extends a {
         } else {
             str2 = "";
         }
-        this.f32568g = str2;
+        this.f32569g = str2;
     }
 
     public void a(boolean z) {
-        this.f32566e = z ? 1 : 0;
+        this.f32567e = z ? 1 : 0;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.a
     public void a(final boolean z, boolean z2, int i) {
         boolean z3;
-        if (this.f32567f) {
+        if (this.f32568f) {
             return;
         }
         int i2 = 1;
-        this.f32567f = true;
+        this.f32568f = true;
         com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "loadData isRefresh=" + z);
-        a(z, z2, i, this.f32565d);
-        if (!this.f32569h) {
-            this.f32568g = null;
+        a(z, z2, i, this.f32566d);
+        if (!this.f32570h) {
+            this.f32569g = null;
         }
         if (com.kwad.sdk.contentalliance.home.c.a()) {
             this.i.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        c.this.f32561a.clear();
-                        c.this.f32565d = 0;
+                        c.this.f32562a.clear();
+                        c.this.f32566d = 0;
                     }
-                    if (c.this.f32561a.isEmpty()) {
+                    if (c.this.f32562a.isEmpty()) {
                         m.e();
                     }
-                    c.this.f32561a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    c.this.f32562a.addAll(com.kwad.sdk.contentalliance.home.c.b());
                     com.kwad.sdk.contentalliance.home.c.c();
                     c cVar = c.this;
-                    cVar.a(z, cVar.f32565d);
+                    cVar.a(z, cVar.f32566d);
                     c.b(c.this);
-                    c.this.f32567f = false;
+                    c.this.f32568f = false;
                 }
             });
             return;
         }
         final int i3 = 0;
-        if (!TextUtils.isEmpty(this.f32568g) || z || z2 || !this.f32561a.isEmpty()) {
+        if (!TextUtils.isEmpty(this.f32569g) || z || z2 || !this.f32562a.isEmpty()) {
             z3 = false;
         } else {
-            z3 = a(this.f32564c);
+            z3 = a(this.f32565c);
             if (z3) {
                 m.e();
             }
         }
         final h.a aVar = new h.a();
-        com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f32564c);
-        fVar.f33651b = this.f32564c.getPageScene();
-        fVar.f33652c = 100L;
-        aVar.f33784a.add(fVar);
+        com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f32565c);
+        fVar.f33652b = this.f32565c.getPageScene();
+        fVar.f33653c = 100L;
+        aVar.f33785a.add(fVar);
         if (i == 0) {
             i2 = 3;
         } else if (i == 1) {
-            com.kwad.sdk.core.report.e.b(this.f32564c, 1);
+            com.kwad.sdk.core.report.e.b(this.f32565c, 1);
             i3 = 1;
         } else if (i == 2) {
-            com.kwad.sdk.core.report.e.b(this.f32564c, 2);
+            com.kwad.sdk.core.report.e.b(this.f32565c, 2);
             i3 = 2;
         } else if (i != 3) {
             i2 = i != 4 ? 0 : 2;
         } else {
-            com.kwad.sdk.core.report.e.b(this.f32564c, 3);
+            com.kwad.sdk.core.report.e.b(this.f32565c, 3);
             i3 = 3;
         }
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
-        cVar.f33638c = i2;
-        cVar.f33637b = this.f32566e;
-        cVar.f33639d = this.j;
-        aVar.f33785b = cVar;
-        aVar.f33786c = this.f32568g;
+        cVar.f33639c = i2;
+        cVar.f33638b = this.f32567e;
+        cVar.f33640d = this.j;
+        aVar.f33786b = cVar;
+        aVar.f33787c = this.f32569g;
         if (z3) {
-            aVar.f33787d = new com.kwad.sdk.core.g.a.j(this.f32561a);
+            aVar.f33788d = new com.kwad.sdk.core.g.a.j(this.f32562a);
         }
         com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.h, AdResultData> iVar = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.h, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -185,8 +185,8 @@ public class c extends a {
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f33784a) {
-                    arrayList.add(fVar2.f33650a);
+                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f33785a) {
+                    arrayList.add(fVar2.f33651a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);
@@ -203,7 +203,7 @@ public class c extends a {
                     public void run() {
                         com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onError msg:" + str);
                         c.this.a(i4, str);
-                        c.this.f32567f = false;
+                        c.this.f32568f = false;
                     }
                 });
             }
@@ -221,21 +221,21 @@ public class c extends a {
                 c.this.i.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.c.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.f32569h = false;
+                        c.this.f32570h = false;
                         AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
                         if (z) {
-                            c.this.f32565d = 0;
-                            c.this.f32561a.clear();
+                            c.this.f32566d = 0;
+                            c.this.f32562a.clear();
                         }
-                        if (c.this.f32561a.isEmpty()) {
+                        if (c.this.f32562a.isEmpty()) {
                             m.e();
                         }
-                        c.this.f32561a.addAll(arrayList);
+                        c.this.f32562a.addAll(arrayList);
                         AnonymousClass3 anonymousClass32 = AnonymousClass3.this;
                         c cVar2 = c.this;
-                        cVar2.a(z, cVar2.f32565d);
-                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f32561a.size());
-                        c.this.f32567f = false;
+                        cVar2.a(z, cVar2.f32566d);
+                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f32562a.size());
+                        c.this.f32568f = false;
                         c.b(c.this);
                         c.c(c.this);
                     }
@@ -251,6 +251,6 @@ public class c extends a {
         if (iVar != null) {
             iVar.e();
         }
-        this.f32567f = false;
+        this.f32568f = false;
     }
 }

@@ -6,10 +6,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f14716a;
+    public View f14717a;
 
     public SquareLiveCategoryViewHolder(View view) {
         super(view);
-        this.f14716a = view;
+        this.f14717a = view;
     }
 }

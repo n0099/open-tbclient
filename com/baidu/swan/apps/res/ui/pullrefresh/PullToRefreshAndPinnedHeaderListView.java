@@ -2,7 +2,7 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PullToRefreshAndPinnedHeaderListView extends PullToRefreshListView {
     public PullToRefreshAndPinnedHeaderListView(Context context) {
         super(context);

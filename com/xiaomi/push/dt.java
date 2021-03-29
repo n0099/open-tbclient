@@ -16,28 +16,28 @@ public final class dt {
         public boolean f243b;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40375d;
+        public boolean f40376d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40376e;
+        public boolean f40377e;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40372a = 0;
+        public int f40373a = 0;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f244c = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40373b = 0;
+        public int f40374b = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40377f = false;
+        public boolean f40378f = false;
 
         /* renamed from: a  reason: collision with other field name */
         public List<String> f241a = Collections.emptyList();
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40374c = -1;
+        public int f40375c = -1;
 
         public static a a(byte[] bArr) {
             return (a) new a().a(bArr);
@@ -49,15 +49,15 @@ public final class dt {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40374c < 0) {
+            if (this.f40375c < 0) {
                 b();
             }
-            return this.f40374c;
+            return this.f40375c;
         }
 
         public a a(int i) {
             this.f242a = true;
-            this.f40372a = i;
+            this.f40373a = i;
             return this;
         }
 
@@ -148,19 +148,19 @@ public final class dt {
                 i += c.a(str);
             }
             int size = b2 + i + (a().size() * 1);
-            this.f40374c = size;
+            this.f40375c = size;
             return size;
         }
 
         public a b(int i) {
-            this.f40375d = true;
-            this.f40373b = i;
+            this.f40376d = true;
+            this.f40374b = i;
             return this;
         }
 
         public a b(boolean z) {
-            this.f40376e = true;
-            this.f40377f = z;
+            this.f40377e = true;
+            this.f40378f = z;
             return this;
         }
 
@@ -170,7 +170,7 @@ public final class dt {
         }
 
         public int c() {
-            return this.f40372a;
+            return this.f40373a;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -179,12 +179,12 @@ public final class dt {
         }
 
         public int d() {
-            return this.f40373b;
+            return this.f40374b;
         }
 
         /* renamed from: d  reason: collision with other method in class */
         public boolean m233d() {
-            return this.f40375d;
+            return this.f40376d;
         }
 
         public int e() {
@@ -193,11 +193,11 @@ public final class dt {
 
         /* renamed from: e  reason: collision with other method in class */
         public boolean m234e() {
-            return this.f40377f;
+            return this.f40378f;
         }
 
         public boolean f() {
-            return this.f40376e;
+            return this.f40377e;
         }
     }
 }

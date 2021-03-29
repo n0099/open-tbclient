@@ -24,9 +24,7 @@ public class y {
 
     public static int c(View view, int i) {
         if (i == 3) {
-            double c2 = al.c(view.getContext().getApplicationContext());
-            Double.isNaN(c2);
-            return (int) (c2 * 0.7d);
+            return (int) (al.c(view.getContext().getApplicationContext()) * 0.7d);
         }
         return 20;
     }

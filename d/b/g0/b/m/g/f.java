@@ -23,16 +23,16 @@ public class f {
     public static class a extends OneKeyLoginCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.b.m.g.c f47435a;
+        public final /* synthetic */ d.b.g0.b.m.g.c f47436a;
 
         public a(d.b.g0.b.m.g.c cVar) {
-            this.f47435a = cVar;
+            this.f47436a = cVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void available(OneKeyLoginResult oneKeyLoginResult) {
             if (oneKeyLoginResult == null) {
-                this.f47435a.a(null);
+                this.f47436a.a(null);
                 return;
             }
             boolean z = oneKeyLoginResult.enable;
@@ -64,13 +64,13 @@ public class f {
             } else if (c2 == 2) {
                 aVar.i(14);
             }
-            this.f47435a.a(QuickLoginInfo.a(aVar));
+            this.f47436a.a(QuickLoginInfo.a(aVar));
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
             super.unAvailable(oneKeyLoginResult);
-            this.f47435a.a(null);
+            this.f47436a.a(null);
         }
     }
 
@@ -78,10 +78,10 @@ public class f {
     public static class b extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.b.m.g.c f47436c;
+        public final /* synthetic */ d.b.g0.b.m.g.c f47437c;
 
         public b(d.b.g0.b.m.g.c cVar) {
-            this.f47436c = cVar;
+            this.f47437c = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,15 +89,15 @@ public class f {
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
             Bundle a2 = bVar.a();
             if (a2 == null) {
-                this.f47436c.a(null);
+                this.f47437c.a(null);
                 return;
             }
             a2.setClassLoader(QuickLoginInfo.class.getClassLoader());
             QuickLoginInfo quickLoginInfo = (QuickLoginInfo) a2.getParcelable("quick_login_info_result");
             if (quickLoginInfo == null) {
-                this.f47436c.a(null);
+                this.f47437c.a(null);
             } else {
-                this.f47436c.a(quickLoginInfo);
+                this.f47437c.a(quickLoginInfo);
             }
         }
     }
@@ -106,24 +106,24 @@ public class f {
     public static class c extends OneKeyLoginCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f47437a;
+        public final /* synthetic */ Activity f47438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f47438b;
+        public final /* synthetic */ e f47439b;
 
         public c(Activity activity, e eVar) {
-            this.f47437a = activity;
-            this.f47438b = eVar;
+            this.f47438a = activity;
+            this.f47439b = eVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void available(OneKeyLoginResult oneKeyLoginResult) {
-            v.a().k(this.f47437a, oneKeyLoginResult.sign, this.f47438b);
+            v.a().k(this.f47438a, oneKeyLoginResult.sign, this.f47439b);
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-            this.f47438b.onResult(-1);
+            this.f47439b.onResult(-1);
         }
     }
 
@@ -131,23 +131,23 @@ public class f {
     public static class d implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f47439a;
+        public final /* synthetic */ e f47440a;
 
         public d(e eVar) {
-            this.f47439a = eVar;
+            this.f47440a = eVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Bundle bundle = delegateResult.mResult;
-            if (this.f47439a != null) {
-                this.f47439a.onResult(u.f(bundle, "quick_login", -1));
+            if (this.f47440a != null) {
+                this.f47440a.onResult(u.f(bundle, "quick_login", -1));
             }
         }
     }
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public static void a(d.b.g0.b.m.g.c cVar) {

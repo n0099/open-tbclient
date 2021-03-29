@@ -775,9 +775,9 @@ public class SwitchCompat extends CompoundButton {
                 create = Typeface.create(typeface, i);
             }
             setSwitchTypeface(create);
-            int style = ((create != null ? create.getStyle() : 0) ^ (-1)) & i;
-            this.mTextPaint.setFakeBoldText((style & 1) != 0);
-            this.mTextPaint.setTextSkewX((style & 2) != 0 ? -0.25f : 0.0f);
+            int i2 = (~(create != null ? create.getStyle() : 0)) & i;
+            this.mTextPaint.setFakeBoldText((i2 & 1) != 0);
+            this.mTextPaint.setTextSkewX((i2 & 2) != 0 ? -0.25f : 0.0f);
             return;
         }
         this.mTextPaint.setFakeBoldText(false);

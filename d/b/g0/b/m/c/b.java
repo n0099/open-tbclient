@@ -26,25 +26,25 @@ public class b extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f47403e;
+        public final /* synthetic */ Context f47404e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47404f;
+        public final /* synthetic */ CallbackHandler f47405f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47405g;
+        public final /* synthetic */ String f47406g;
 
         public a(Context context, CallbackHandler callbackHandler, String str) {
-            this.f47403e = context;
-            this.f47404f = callbackHandler;
-            this.f47405g = str;
+            this.f47404e = context;
+            this.f47405f = callbackHandler;
+            this.f47406g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
-            b.this.l(hVar, this.f47403e, this.f47404f, this.f47405g);
+            b.this.l(hVar, this.f47404e, this.f47405f, this.f47406g);
         }
     }
 
@@ -81,7 +81,7 @@ public class b extends a0 {
         String k = i0.k(cookie, "BAIDUID");
         String k2 = i0.k(cookie, "H_WISE_SIDS");
         String a3 = d.b.g0.q.b.b(AppRuntime.getAppContext()).a();
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("GetSysInfoAction", "cuid = " + c2 + ", imei = " + r + ", zid = " + E + ", uid = " + a2 + ", baiDuId = " + k + ", sid = " + k2);
         }
         try {
@@ -96,7 +96,7 @@ public class b extends a0 {
             c.g("GetSysInfo", "fetch commonSysInfo success");
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
             c.b("GetSysInfo", "generate data occur exception");

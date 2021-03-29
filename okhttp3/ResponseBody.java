@@ -11,7 +11,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public abstract class ResponseBody implements Closeable {
     public Reader reader;
 

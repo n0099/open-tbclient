@@ -21,40 +21,40 @@ import d.b.h0.r.l.c;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f51649b;
+    public static b f51650b;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f51650a;
+    public UserData f51651a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f51651e;
+        public final /* synthetic */ AccountData f51652e;
 
         public a(b bVar, AccountData accountData) {
-            this.f51651e = accountData;
+            this.f51652e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.g(this.f51651e);
+            c.g(this.f51652e);
         }
     }
 
     public static b a() {
-        if (f51649b == null) {
+        if (f51650b == null) {
             synchronized (b.class) {
-                if (f51649b == null) {
-                    f51649b = new b();
+                if (f51650b == null) {
+                    f51650b = new b();
                 }
             }
         }
-        return f51649b;
+        return f51650b;
     }
 
     public UserData b() {
-        return this.f51650a;
+        return this.f51651a;
     }
 
     public void c() {
@@ -73,7 +73,7 @@ public class b {
     }
 
     public void e(UserData userData) {
-        this.f51650a = userData;
+        this.f51651a = userData;
         if (userData == null) {
             return;
         }

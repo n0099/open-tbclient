@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoTask {
     public String webUrl = "";
     public String videoUrl = "";

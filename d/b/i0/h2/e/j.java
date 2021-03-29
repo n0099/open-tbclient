@@ -6,13 +6,13 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class j extends BaseCardInfo {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f55296f = BdUniqueId.gen();
+    public static final BdUniqueId f55297f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55297e;
+    public boolean f55298e;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f55296f;
+        return f55297f;
     }
 }

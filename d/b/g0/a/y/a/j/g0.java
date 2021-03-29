@@ -2,31 +2,31 @@ package d.b.g0.a.y.a.j;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f46991a;
+    public i f46992a;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
-        i iVar = this.f46991a;
+        i iVar = this.f46992a;
         if (iVar == null || !iVar.d()) {
             return;
         }
-        if (this.f46991a.c()) {
-            bVar.f46970g.setShader(this.f46991a.b());
+        if (this.f46992a.c()) {
+            bVar.f46971g.setShader(this.f46992a.b());
             return;
         }
-        bVar.q = this.f46991a.a();
-        bVar.f46970g.setColor(this.f46991a.a());
-        bVar.f46969f.setShader(null);
+        bVar.q = this.f46992a.a();
+        bVar.f46971g.setColor(this.f46992a.a());
+        bVar.f46970f.setShader(null);
     }
 
     @Override // d.b.g0.a.y.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.f46991a = new i(jSONArray);
+            this.f46992a = new i(jSONArray);
         }
     }
 }

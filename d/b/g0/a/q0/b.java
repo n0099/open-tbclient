@@ -10,44 +10,44 @@ import d.b.g0.a.y0.e.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45496a;
+    public boolean f45497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45497b;
+    public boolean f45498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45498c;
+    public String f45499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f45499d;
+    public JSONObject f45500d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.a().putString("swan_guide_toast", b.this.f45499d.toString());
+            h.a().putString("swan_guide_toast", b.this.f45500d.toString());
         }
     }
 
     public final boolean b() {
         if (d.e().h() == 0) {
-            return d(this.f45499d, "bbasp_guide_");
+            return d(this.f45500d, "bbasp_guide_");
         }
         if (d.e().h() == 1) {
-            return d(this.f45499d, "bbaspg_guide_");
+            return d(this.f45500d, "bbaspg_guide_");
         }
         return false;
     }
 
     public final boolean c() {
-        JSONArray optJSONArray = this.f45499d.optJSONArray("custom_guide_list");
+        JSONArray optJSONArray = this.f45500d.optJSONArray("custom_guide_list");
         if (optJSONArray != null && optJSONArray.length() != 0) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -122,17 +122,17 @@ public class b {
     }
 
     public String f() {
-        if (this.f45496a) {
+        if (this.f45497a) {
             return "special";
         }
-        if (this.f45497b) {
+        if (this.f45498b) {
             return "normal";
         }
         return null;
     }
 
     public String g() {
-        return this.f45498c;
+        return this.f45499c;
     }
 
     public final int h(JSONObject jSONObject, int i, String str) {
@@ -143,29 +143,29 @@ public class b {
         if (i >= optJSONArray.length()) {
             i = 0;
         }
-        this.f45498c = optJSONArray.optString(i);
+        this.f45499c = optJSONArray.optString(i);
         return i;
     }
 
     public b i() {
-        this.f45496a = false;
-        this.f45497b = false;
-        this.f45498c = null;
+        this.f45497a = false;
+        this.f45498b = false;
+        this.f45499c = null;
         JSONObject e2 = e();
-        this.f45499d = e2;
+        this.f45500d = e2;
         if (e2 == null) {
             return this;
         }
         boolean c2 = c();
-        this.f45496a = c2;
+        this.f45497a = c2;
         if (c2) {
             return this;
         }
-        this.f45497b = b();
+        this.f45498b = b();
         return this;
     }
 
     public boolean j() {
-        return this.f45497b || this.f45496a;
+        return this.f45498b || this.f45497a;
     }
 }

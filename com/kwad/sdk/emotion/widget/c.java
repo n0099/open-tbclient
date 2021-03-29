@@ -12,23 +12,23 @@ import java.lang.ref.WeakReference;
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.FontMetricsInt f34702a;
+    public Paint.FontMetricsInt f34703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Drawable> f34703b;
+    public WeakReference<Drawable> f34704b;
 
     public c(Drawable drawable, String str, View view) {
         super(drawable, str);
-        this.f34702a = new Paint.FontMetricsInt();
+        this.f34703a = new Paint.FontMetricsInt();
         drawable.setCallback(view);
     }
 
     private Drawable a() {
-        WeakReference<Drawable> weakReference = this.f34703b;
+        WeakReference<Drawable> weakReference = this.f34704b;
         if (weakReference == null || weakReference.get() == null) {
-            this.f34703b = new WeakReference<>(getDrawable());
+            this.f34704b = new WeakReference<>(getDrawable());
         }
-        return this.f34703b.get();
+        return this.f34704b.get();
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -37,9 +37,9 @@ public class c extends ImageSpan {
         if (paint instanceof TextPaint) {
             a2.setState(((TextPaint) paint).drawableState);
         }
-        int fontMetricsInt = paint.getFontMetricsInt(this.f34702a);
+        int fontMetricsInt = paint.getFontMetricsInt(this.f34703a);
         canvas.save();
-        canvas.translate(f2, i4 + this.f34702a.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
+        canvas.translate(f2, i4 + this.f34703a.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
         a2.draw(canvas);
         canvas.restore();
     }
@@ -59,8 +59,6 @@ public class c extends ImageSpan {
             fontMetricsInt.bottom = i6;
             fontMetricsInt.descent = i6;
         }
-        double d2 = bounds.right;
-        Double.isNaN(d2);
-        return (int) (d2 * 1.1d);
+        return (int) (bounds.right * 1.1d);
     }
 }

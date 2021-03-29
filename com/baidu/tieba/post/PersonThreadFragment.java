@@ -51,13 +51,13 @@ import java.util.ArrayList;
 public class PersonThreadFragment extends BaseFragment implements PersonPostModel.d, b.a, PersonPostModel.c, BdListView.p, d.b.i0.l2.c {
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.l2.h f20578f;
+    public d.b.i0.l2.h f20579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f20579g;
+    public FrameLayout f20580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20580h;
+    public View f20581h;
     public d.b.i0.l2.n.a i;
     public PersonPostModel j;
     public boolean k;
@@ -70,7 +70,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     public ShareSuccessReplyToServerModel v;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20577e = "common";
+    public String f20578e = "common";
     public boolean o = false;
     public boolean r = true;
     public boolean s = true;
@@ -129,8 +129,8 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             CardPersonDynamicThreadData cardPersonDynamicThreadData;
-            if (i >= 0 && PersonThreadFragment.this.i != null && i < ListUtils.getCount(PersonThreadFragment.this.j.threadList) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) PersonThreadFragment.this.i.f56775a.z(i)) != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonThreadFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(cardPersonDynamicThreadData.f15275f), String.valueOf(cardPersonDynamicThreadData.f15276g), "person_page", 18005).setThreadData(cardPersonDynamicThreadData.r)));
+            if (i >= 0 && PersonThreadFragment.this.i != null && i < ListUtils.getCount(PersonThreadFragment.this.j.threadList) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) PersonThreadFragment.this.i.f56776a.z(i)) != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonThreadFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(cardPersonDynamicThreadData.f15276f), String.valueOf(cardPersonDynamicThreadData.f15277g), "person_page", 18005).setThreadData(cardPersonDynamicThreadData.r)));
             }
         }
     }
@@ -146,8 +146,8 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (personThreadFragment.j != null) {
                 personThreadFragment.r = true;
                 if (!j.A()) {
-                    if (PersonThreadFragment.this.f20578f != null) {
-                        PersonThreadFragment.this.f20578f.i(PersonThreadFragment.this.getString(R.string.neterror), true);
+                    if (PersonThreadFragment.this.f20579f != null) {
+                        PersonThreadFragment.this.f20579f.i(PersonThreadFragment.this.getString(R.string.neterror), true);
                         return;
                     }
                     return;
@@ -164,16 +164,16 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f20587e;
+            public final /* synthetic */ CustomDialogData f20588e;
 
             public a(CustomDialogData customDialogData) {
-                this.f20587e = customDialogData;
+                this.f20588e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 if (PersonThreadFragment.this.getPageContext().getPageActivity() != null) {
-                    d.b.i0.c2.j.c.a(PersonThreadFragment.this.getPageContext(), this.f20587e).show();
+                    d.b.i0.c2.j.c.a(PersonThreadFragment.this.getPageContext(), this.f20588e).show();
                 }
             }
         }
@@ -206,9 +206,9 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                     PersonThreadFragment.this.n.f();
                 }
                 if (TbadkCoreApplication.isMyLive) {
-                    BdListViewHelper.c(PersonThreadFragment.this.f20580h, BdListViewHelper.HeadType.DEFAULT, j.z());
+                    BdListViewHelper.c(PersonThreadFragment.this.f20581h, BdListViewHelper.HeadType.DEFAULT, j.z());
                 } else {
-                    BdListViewHelper.c(PersonThreadFragment.this.f20580h, BdListViewHelper.HeadType.HASTAB, true);
+                    BdListViewHelper.c(PersonThreadFragment.this.f20581h, BdListViewHelper.HeadType.HASTAB, true);
                 }
             }
         }
@@ -218,37 +218,37 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     public static class h extends d.b.b.j.e.b {
 
         /* renamed from: g  reason: collision with root package name */
-        public BaseFragmentActivity f20591g;
+        public BaseFragmentActivity f20592g;
         public View l;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f20590f = R.color.CAM_X0201;
+        public int f20591f = R.color.CAM_X0201;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f20592h = null;
+        public TextView f20593h = null;
         public ProgressBar i = null;
         public View.OnClickListener j = null;
         public View k = null;
         public int m = 3;
 
         public h(BaseFragmentActivity baseFragmentActivity) {
-            this.f20591g = null;
-            this.f20591g = baseFragmentActivity;
+            this.f20592g = null;
+            this.f20592g = baseFragmentActivity;
         }
 
         @Override // d.b.b.j.e.b
         public View a() {
-            View inflate = LayoutInflater.from(this.f20591g.getPageContext().getContext()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f20592g.getPageContext().getContext()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             this.k = inflate;
-            this.f20592h = (TextView) inflate.findViewById(R.id.pb_more_text);
+            this.f20593h = (TextView) inflate.findViewById(R.id.pb_more_text);
             this.l = this.k.findViewById(R.id.pb_more_view);
-            SkinManager.setBackgroundColor(this.k, this.f20590f);
-            SkinManager.setBackgroundColor(this.l, this.f20590f);
+            SkinManager.setBackgroundColor(this.k, this.f20591f);
+            SkinManager.setBackgroundColor(this.l, this.f20591f);
             this.l.setVisibility(8);
             this.i = (ProgressBar) this.k.findViewById(R.id.progress);
             h(TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setViewTextColor(this.f20592h, R.color.common_color_10039);
-            this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(this.f20591g.getPageContext().getPageActivity(), R.dimen.ds120)));
+            SkinManager.setViewTextColor(this.f20593h, R.color.common_color_10039);
+            this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(this.f20592g.getPageContext().getPageActivity(), R.dimen.ds120)));
             return this.k;
         }
 
@@ -267,16 +267,16 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         @SuppressLint({"ResourceAsColor"})
         public void e(int i) {
             if (this.m != i) {
-                SkinManager.setViewTextColor(this.f20592h, R.color.common_color_10039);
-                SkinManager.setBackgroundColor(this.k, this.f20590f, i);
-                SkinManager.setBackgroundColor(this.l, this.f20590f, i);
+                SkinManager.setViewTextColor(this.f20593h, R.color.common_color_10039);
+                SkinManager.setBackgroundColor(this.k, this.f20591f, i);
+                SkinManager.setBackgroundColor(this.l, this.f20591f, i);
                 this.m = i;
             }
         }
 
         public void f() {
             this.i.setVisibility(0);
-            this.f20592h.setText(this.f20591g.getPageContext().getPageActivity().getText(R.string.loading));
+            this.f20593h.setText(this.f20592g.getPageContext().getPageActivity().getText(R.string.loading));
             this.l.setVisibility(0);
         }
 
@@ -285,19 +285,19 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }
-            if (this.f20592h != null) {
+            if (this.f20593h != null) {
                 if (!z) {
                     this.l.setVisibility(0);
-                    this.f20592h.setText(this.f20591g.getResources().getString(R.string.list_no_more));
+                    this.f20593h.setText(this.f20592g.getResources().getString(R.string.list_no_more));
                     return;
                 }
                 this.l.setVisibility(0);
-                this.f20592h.setText(this.f20591g.getResources().getString(R.string.load_more));
+                this.f20593h.setText(this.f20592g.getResources().getString(R.string.load_more));
             }
         }
 
         public void h(int i) {
-            this.f20591g.getLayoutMode().j(this.l);
+            this.f20592g.getLayoutMode().j(this.l);
         }
     }
 
@@ -305,8 +305,8 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     public void D0(PersonPostModel personPostModel, boolean z) {
         this.t = false;
         if (isAdded()) {
-            this.f20578f.f56754c.A(0L);
-            this.f20578f.f56754c.setEmptyView(null);
+            this.f20579f.f56755c.A(0L);
+            this.f20579f.f56755c.setEmptyView(null);
             if (personPostModel != null || this.r) {
                 if (personPostModel != null && (personPostModel.threadList.size() != 0 || !this.r || !StringUtils.isNull(personPostModel.getErrorString()))) {
                     if (personPostModel.threadList.size() == 0 && this.r) {
@@ -336,12 +336,12 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     }
 
     public final void L0(boolean z) {
-        d.b.i0.l2.h hVar = this.f20578f;
-        hVar.f56754c.removeHeaderView(hVar.f56755d);
+        d.b.i0.l2.h hVar = this.f20579f;
+        hVar.f56755c.removeHeaderView(hVar.f56756d);
         if (z) {
-            this.f20578f.f56755d.setVisibility(0);
-            d.b.i0.l2.h hVar2 = this.f20578f;
-            hVar2.f56754c.addHeaderView(hVar2.f56755d);
+            this.f20579f.f56756d.setVisibility(0);
+            d.b.i0.l2.h hVar2 = this.f20579f;
+            hVar2.f56755c.addHeaderView(hVar2.f56756d);
             this.n.b().setVisibility(8);
             return;
         }
@@ -365,7 +365,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     }
 
     public d.b.i0.l2.h O0() {
-        return this.f20578f;
+        return this.f20579f;
     }
 
     public final void P0() {
@@ -376,7 +376,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         if (this.k) {
             return;
         }
-        this.f20578f.f56754c.F();
+        this.f20579f.f56755c.F();
         this.k = true;
     }
 
@@ -425,7 +425,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                         break;
                     }
                     n nVar = (n) ListUtils.getItem(this.j.threadList, i3);
-                    if ((nVar instanceof CardPersonDynamicThreadData) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) nVar) != null && stringExtra.equals(String.valueOf(cardPersonDynamicThreadData.f15275f))) {
+                    if ((nVar instanceof CardPersonDynamicThreadData) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) nVar) != null && stringExtra.equals(String.valueOf(cardPersonDynamicThreadData.f15276f))) {
                         z = true;
                         break;
                     }
@@ -451,7 +451,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            NoDataView noDataView = this.f20578f.f56755d;
+            NoDataView noDataView = this.f20579f.f56756d;
             if (noDataView != null) {
                 noDataView.d(getPageContext());
             }
@@ -467,7 +467,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (hVar != null) {
                 hVar.e(i);
             }
-            SkinManager.setBackgroundColor(this.f20578f.f56754c, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f20579f.f56755c, R.color.CAM_X0201);
         }
     }
 
@@ -489,25 +489,25 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         String str;
         String string2;
         View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_thread_fragment, viewGroup, false);
-        this.f20579g = (FrameLayout) inflate.findViewById(R.id.root_view);
+        this.f20580g = (FrameLayout) inflate.findViewById(R.id.root_view);
         d.b.i0.l2.h hVar = new d.b.i0.l2.h(getActivity(), inflate);
-        this.f20578f = hVar;
+        this.f20579f = hVar;
         if (hVar.g() == null) {
-            this.f20578f.h(this.p);
+            this.f20579f.h(this.p);
         }
-        BdTypeListView bdTypeListView = this.f20578f.f56754c;
+        BdTypeListView bdTypeListView = this.f20579f.f56755c;
         if (bdTypeListView != null) {
             SkinManager.setBackgroundColor(bdTypeListView, R.color.CAM_X0201);
         }
         String string3 = getArguments().getString("thread_type_key");
         if (!k.isEmpty(string3)) {
-            this.f20577e = string3;
+            this.f20578e = string3;
         }
         NoDataViewFactory.b bVar = new NoDataViewFactory.b(getString(R.string.to_be_an_liver), new c());
         int dimension = (int) getResources().getDimension(R.dimen.ds102);
         String str2 = "";
         NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, dimension);
-        if (this.f20577e.equals(WriteActivity.PHOTO_LIVE_DRAFT_KEY)) {
+        if (this.f20578e.equals(WriteActivity.PHOTO_LIVE_DRAFT_KEY)) {
             int j = d.b.h0.r.d0.b.i().j(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
             if (j == 0) {
                 string2 = getPageContext().getResources().getString(R.string.to_live_to_god);
@@ -531,7 +531,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             string = getArguments().getString(PersonPostActivity.KEY_EMPTYVIEW_TXT);
             cVar = null;
         }
-        this.f20578f.f56755d = NoDataViewFactory.a(getActivity(), null, b2, NoDataViewFactory.e.d(str2, string), cVar);
+        this.f20579f.f56756d = NoDataViewFactory.a(getActivity(), null, b2, NoDataViewFactory.e.d(str2, string), cVar);
         return inflate;
     }
 
@@ -575,7 +575,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        NoDataView noDataView = this.f20578f.f56755d;
+        NoDataView noDataView = this.f20579f.f56756d;
         if (noDataView != null) {
             noDataView.d(getPageContext());
         }
@@ -584,7 +584,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        NoDataView noDataView = this.f20578f.f56755d;
+        NoDataView noDataView = this.f20579f.f56756d;
         if (noDataView != null) {
             noDataView.e();
         }
@@ -593,28 +593,28 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         this.l = getArguments().getString("key_uid");
-        if (this.f20577e.equals(WriteActivity.PHOTO_LIVE_DRAFT_KEY)) {
+        if (this.f20578e.equals(WriteActivity.PHOTO_LIVE_DRAFT_KEY)) {
             this.u = 33;
         }
-        this.i = new d.b.i0.l2.n.a(getPageContext(), this.f20578f.f56754c);
-        this.f20578f.f().setOnItemClickListener(new d());
+        this.i = new d.b.i0.l2.n.a(getPageContext(), this.f20579f.f56755c);
+        this.f20579f.f().setOnItemClickListener(new d());
         d.b.h0.r.f0.g gVar = new d.b.h0.r.f0.g(getPageContext());
         this.m = gVar;
         gVar.b(new e());
-        this.f20578f.f56754c.setPullRefresh(this.m);
+        this.f20579f.f56755c.setPullRefresh(this.m);
         if (TbadkCoreApplication.isMyLive) {
-            View d2 = BdListViewHelper.d(getActivity(), this.f20578f.f56754c, BdListViewHelper.HeadType.DEFAULT);
-            this.f20580h = d2;
+            View d2 = BdListViewHelper.d(getActivity(), this.f20579f.f56755c, BdListViewHelper.HeadType.DEFAULT);
+            this.f20581h = d2;
             BdListViewHelper.c(d2, BdListViewHelper.HeadType.DEFAULT, j.z());
         } else {
-            View d3 = BdListViewHelper.d(getActivity(), this.f20578f.f56754c, BdListViewHelper.HeadType.HASTAB);
-            this.f20580h = d3;
+            View d3 = BdListViewHelper.d(getActivity(), this.f20579f.f56755c, BdListViewHelper.HeadType.HASTAB);
+            this.f20581h = d3;
             BdListViewHelper.c(d3, BdListViewHelper.HeadType.HASTAB, true);
         }
-        this.f20578f.f56754c.setOnSrollToBottomListener(this);
+        this.f20579f.f56755c.setOnSrollToBottomListener(this);
         h hVar = new h(getBaseFragmentActivity());
         this.n = hVar;
-        this.f20578f.f56754c.setNextPage(hVar);
+        this.f20579f.f56755c.setNextPage(hVar);
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
@@ -634,7 +634,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 if (nVar instanceof CardPersonDynamicThreadData) {
                     ((CardPersonDynamicThreadData) nVar).G = true;
                 } else if (nVar instanceof d.b.i0.h2.e.j) {
-                    ((d.b.i0.h2.e.j) nVar).f55297e = true;
+                    ((d.b.i0.h2.e.j) nVar).f55298e = true;
                 }
             }
             this.j.threadList.addAll(arrayList);
@@ -652,8 +652,8 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
     @Override // d.b.i0.l2.c
     public void u() {
         BdTypeListView bdTypeListView;
-        d.b.i0.l2.h hVar = this.f20578f;
-        if (hVar == null || (bdTypeListView = hVar.f56754c) == null) {
+        d.b.i0.l2.h hVar = this.f20579f;
+        if (hVar == null || (bdTypeListView = hVar.f56755c) == null) {
             return;
         }
         bdTypeListView.F();

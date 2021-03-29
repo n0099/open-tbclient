@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public Context mContext;
     public String mKey;

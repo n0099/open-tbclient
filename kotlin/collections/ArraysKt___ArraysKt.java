@@ -111,17 +111,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     public static final double average(byte[] bArr) {
         double d2 = 0.0d;
         int i = 0;
-        for (double d3 : bArr) {
-            Double.isNaN(d3);
-            d2 += d3;
+        for (byte b2 : bArr) {
+            d2 += b2;
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfByte")
@@ -129,17 +123,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         double d2 = 0.0d;
         int i = 0;
         for (Byte b2 : bArr) {
-            double byteValue = b2.byteValue();
-            Double.isNaN(byteValue);
-            d2 += byteValue;
+            d2 += b2.byteValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfDouble")
@@ -150,12 +137,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             d2 += d3.doubleValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfFloat")
@@ -163,17 +145,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         double d2 = 0.0d;
         int i = 0;
         for (Float f2 : fArr) {
-            double floatValue = f2.floatValue();
-            Double.isNaN(floatValue);
-            d2 += floatValue;
+            d2 += f2.floatValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfInt")
@@ -181,17 +156,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         double d2 = 0.0d;
         int i = 0;
         for (Integer num : numArr) {
-            double intValue = num.intValue();
-            Double.isNaN(intValue);
-            d2 += intValue;
+            d2 += num.intValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfLong")
@@ -199,17 +167,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         double d2 = 0.0d;
         int i = 0;
         for (Long l : lArr) {
-            double longValue = l.longValue();
-            Double.isNaN(longValue);
-            d2 += longValue;
+            d2 += l.longValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfShort")
@@ -217,17 +178,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         double d2 = 0.0d;
         int i = 0;
         for (Short sh : shArr) {
-            double shortValue = sh.shortValue();
-            Double.isNaN(shortValue);
-            d2 += shortValue;
+            d2 += sh.shortValue();
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @InlineOnly
@@ -1830,6 +1784,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    public static final double average(short[] sArr) {
+        double d2 = 0.0d;
+        int i = 0;
+        for (short s : sArr) {
+            d2 += s;
+            i++;
+        }
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
+    }
+
     @InlineOnly
     public static final short component1(short[] sArr) {
         return sArr[0];
@@ -2258,22 +2222,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return !(iArr.length == 0);
     }
 
-    public static final double average(short[] sArr) {
-        double d2 = 0.0d;
-        int i = 0;
-        for (double d3 : sArr) {
-            Double.isNaN(d3);
-            d2 += d3;
-            i++;
-        }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
-    }
-
     @InlineOnly
     public static final int component1(int[] iArr) {
         return iArr[0];
@@ -2677,6 +2625,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             m.put(invoke.getFirst(), invoke.getSecond());
         }
         return m;
+    }
+
+    public static final double average(int[] iArr) {
+        double d2 = 0.0d;
+        int i = 0;
+        for (int i2 : iArr) {
+            d2 += i2;
+            i++;
+        }
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @InlineOnly
@@ -3653,20 +3611,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
-    public static final double average(int[] iArr) {
+    public static final double average(long[] jArr) {
         double d2 = 0.0d;
         int i = 0;
-        for (double d3 : iArr) {
-            Double.isNaN(d3);
-            d2 += d3;
+        for (long j : jArr) {
+            d2 += j;
             i++;
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @InlineOnly
@@ -4735,6 +4687,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    public static final double average(float[] fArr) {
+        double d2 = 0.0d;
+        int i = 0;
+        for (float f2 : fArr) {
+            d2 += f2;
+            i++;
+        }
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
+    }
+
     @InlineOnly
     public static final char component1(char[] cArr) {
         return cArr[0];
@@ -5281,22 +5243,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
-    public static final double average(long[] jArr) {
-        double d2 = 0.0d;
-        int i = 0;
-        for (double d3 : jArr) {
-            Double.isNaN(d3);
-            d2 += d3;
-            i++;
-        }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
-    }
-
     public static final <T> int count(T[] tArr, Function1<? super T, Boolean> function1) {
         int i = 0;
         for (T t : tArr) {
@@ -5506,6 +5452,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             m.put(invoke.getFirst(), invoke.getSecond());
         }
         return m;
+    }
+
+    public static final double average(double[] dArr) {
+        double d2 = 0.0d;
+        int i = 0;
+        for (double d3 : dArr) {
+            d2 += d3;
+            i++;
+        }
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     public static final int count(byte[] bArr, Function1<? super Byte, Boolean> function1) {
@@ -5970,22 +5926,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             m.put(invoke.getFirst(), invoke.getSecond());
         }
         return m;
-    }
-
-    public static final double average(float[] fArr) {
-        double d2 = 0.0d;
-        int i = 0;
-        for (double d3 : fArr) {
-            Double.isNaN(d3);
-            d2 += d3;
-            i++;
-        }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
     }
 
     public static final int count(int[] iArr, Function1<? super Integer, Boolean> function1) {
@@ -6930,21 +6870,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             }
         }
         return false;
-    }
-
-    public static final double average(double[] dArr) {
-        double d2 = 0.0d;
-        int i = 0;
-        for (double d3 : dArr) {
-            d2 += d3;
-            i++;
-        }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
     }
 
     public static final int count(double[] dArr, Function1<? super Double, Boolean> function1) {

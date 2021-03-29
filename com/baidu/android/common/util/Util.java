@@ -5,14 +5,14 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import d.b.j.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class Util {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2525a = false;
+    public static final boolean f2526a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2526b = "Util";
+    public static final String f2527b = "Util";
 
     public static boolean hasOtherServiceRuninMyPid(Context context, String str) {
         for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getRunningServices(100)) {

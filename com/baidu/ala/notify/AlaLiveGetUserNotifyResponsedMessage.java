@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessage {
     public ArrayList<AlaLiveUserNotifyData> dataList;
     public int notify_count;

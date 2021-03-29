@@ -17,13 +17,13 @@ import d.b.b.e.p.l;
 public class ProfessionDialogLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f16786e;
+    public View.OnClickListener f16787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f16787f;
+    public View.OnClickListener f16788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f16788g;
+    public Context f16789g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -32,8 +32,8 @@ public class ProfessionDialogLayout extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ProfessionDialogLayout.this.f16787f != null) {
-                ProfessionDialogLayout.this.f16787f.onClick(view);
+            if (ProfessionDialogLayout.this.f16788f != null) {
+                ProfessionDialogLayout.this.f16788f.onClick(view);
             }
         }
     }
@@ -45,8 +45,8 @@ public class ProfessionDialogLayout extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ProfessionDialogLayout.this.f16786e != null) {
-                ProfessionDialogLayout.this.f16786e.onClick(view);
+            if (ProfessionDialogLayout.this.f16787e != null) {
+                ProfessionDialogLayout.this.f16787e.onClick(view);
             }
         }
     }
@@ -58,24 +58,24 @@ public class ProfessionDialogLayout extends LinearLayout {
 
     private void setImageAttribute(TbImageView tbImageView) {
         int k;
-        int g2 = l.g(this.f16788g, R.dimen.ds40);
-        if (UtilHelper.getRealScreenOrientation(this.f16788g) == 2) {
-            k = l.i(this.f16788g);
+        int g2 = l.g(this.f16789g, R.dimen.ds40);
+        if (UtilHelper.getRealScreenOrientation(this.f16789g) == 2) {
+            k = l.i(this.f16789g);
         } else {
-            k = l.k(this.f16788g);
+            k = l.k(this.f16789g);
         }
         int i = k - (g2 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = (i * 558) / 992;
         tbImageView.setLayoutParams(layoutParams);
-        tbImageView.setRadius(l.g(this.f16788g, R.dimen.ds16));
+        tbImageView.setRadius(l.g(this.f16789g, R.dimen.ds16));
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
     }
 
     public final void c(Context context) {
-        this.f16788g = context;
+        this.f16789g = context;
         LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
         setOrientation(1);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
@@ -91,11 +91,11 @@ public class ProfessionDialogLayout extends LinearLayout {
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.f16786e = onClickListener;
+        this.f16787e = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.f16787f = onClickListener;
+        this.f16788f = onClickListener;
     }
 
     public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet) {

@@ -5,7 +5,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.MsgInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class UserMsgs extends Message {
     public static final List<MsgInfo> DEFAULT_MSGS = Collections.emptyList();
     @ProtoField(label = Message.Label.REPEATED, tag = 1)

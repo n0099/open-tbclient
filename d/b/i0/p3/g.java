@@ -6,8 +6,8 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<VideoItemData> f58912a;
+    public List<VideoItemData> f58913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58913b;
+    public boolean f58914b;
 }

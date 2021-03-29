@@ -6,40 +6,40 @@ import android.text.TextUtils;
 import d.b.f0.l.e;
 import d.b.f0.l.g;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f42821e;
+    public static volatile a f42822e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42822a;
+    public String f42823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f42823b;
+    public SharedPreferences f42824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f42824c;
+    public SharedPreferences.Editor f42825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f42825d;
+    public Context f42826d;
 
     public a(Context context) {
-        this.f42823b = context.getSharedPreferences("once_login_config", 0);
+        this.f42824b = context.getSharedPreferences("once_login_config", 0);
         context.getSharedPreferences("leroadcfg", 0);
-        this.f42824c = this.f42823b.edit();
-        this.f42825d = context;
+        this.f42825c = this.f42824b.edit();
+        this.f42826d = context;
     }
 
     public static a g(Context context) {
-        if (f42821e == null) {
+        if (f42822e == null) {
             synchronized (a.class) {
-                if (f42821e == null) {
-                    f42821e = new a(context);
+                if (f42822e == null) {
+                    f42822e = new a(context);
                 }
             }
         }
-        return f42821e;
+        return f42822e;
     }
 
     public void A(String str, String str2) {
@@ -51,11 +51,11 @@ public class a {
     }
 
     public long C() {
-        return f("ky_cfo_t", d.b.f0.l.c.f43019f);
+        return f("ky_cfo_t", d.b.f0.l.c.f43020f);
     }
 
     public final String D(String str, String str2) {
-        return this.f42823b.getString(str, str2);
+        return this.f42824b.getString(str, str2);
     }
 
     public void E(long j) {
@@ -71,17 +71,17 @@ public class a {
     }
 
     public String H() {
-        if (!TextUtils.isEmpty(this.f42822a)) {
-            return this.f42822a;
+        if (!TextUtils.isEmpty(this.f42823a)) {
+            return this.f42823a;
         }
         String D = D("xyus", "");
-        this.f42822a = D;
+        this.f42823a = D;
         if (TextUtils.isEmpty(D)) {
             String b2 = g.b(UUID.randomUUID().toString());
-            this.f42822a = b2;
+            this.f42823a = b2;
             K("xyus", b2);
         }
-        return this.f42822a;
+        return this.f42823a;
     }
 
     public void I(long j) {
@@ -93,8 +93,8 @@ public class a {
     }
 
     public final void K(String str, String str2) {
-        this.f42824c.putString(str, str2);
-        this.f42824c.commit();
+        this.f42825c.putString(str, str2);
+        this.f42825c.commit();
     }
 
     public void L(boolean z) {
@@ -193,7 +193,7 @@ public class a {
     }
 
     public final int e(String str, int i) {
-        return this.f42823b.getInt(str, i);
+        return this.f42824b.getInt(str, i);
     }
 
     public int e0() {
@@ -201,7 +201,7 @@ public class a {
     }
 
     public final long f(String str, long j) {
-        return this.f42823b.getLong(str, j);
+        return this.f42824b.getLong(str, j);
     }
 
     public long f0() {
@@ -213,8 +213,8 @@ public class a {
     }
 
     public String h(String str, String str2) {
-        String string = this.f42823b.getString(str, str2);
-        return !TextUtils.isEmpty(string) ? e.a(this.f42825d, string) : "";
+        String string = this.f42824b.getString(str, str2);
+        return !TextUtils.isEmpty(string) ? e.a(this.f42826d, string) : "";
     }
 
     public String h0() {
@@ -262,7 +262,7 @@ public class a {
     }
 
     public final boolean n(String str, boolean z) {
-        return this.f42823b.getBoolean(str, z);
+        return this.f42824b.getBoolean(str, z);
     }
 
     public boolean n0() {
@@ -286,26 +286,26 @@ public class a {
     }
 
     public final void s(String str, int i) {
-        this.f42824c.putInt(str, i);
-        this.f42824c.commit();
+        this.f42825c.putInt(str, i);
+        this.f42825c.commit();
     }
 
     public final void t(String str, long j) {
-        this.f42824c.putLong(str, j);
-        this.f42824c.commit();
+        this.f42825c.putLong(str, j);
+        this.f42825c.commit();
     }
 
     public void u(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f42824c.putString(str, e.b(this.f42825d, str2.getBytes()));
-        this.f42824c.commit();
+        this.f42825c.putString(str, e.b(this.f42826d, str2.getBytes()));
+        this.f42825c.commit();
     }
 
     public final void v(String str, boolean z) {
-        this.f42824c.putBoolean(str, z);
-        this.f42824c.commit();
+        this.f42825c.putBoolean(str, z);
+        this.f42825c.commit();
     }
 
     public void w(boolean z) {
@@ -313,7 +313,7 @@ public class a {
     }
 
     public long x() {
-        return f("k_a_itl", d.b.f0.l.b.f43013b * 24);
+        return f("k_a_itl", d.b.f0.l.b.f43014b * 24);
     }
 
     public void y(long j) {

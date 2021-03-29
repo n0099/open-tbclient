@@ -1,5 +1,5 @@
 package d.b.g0.a.a2.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d {
     boolean a(long j);
 

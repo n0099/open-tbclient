@@ -12,40 +12,40 @@ import java.util.Map;
 public abstract class AbstractRequest implements Request {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38356b;
+    public int f38357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38357c;
+    public int f38358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38358d;
+    public int f38359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38359e;
+    public String f38360e;
     public Request.Method j;
     public byte[] k;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38355a = true;
+    public boolean f38356a = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f38360f = new HashMap();
+    public Map<String, String> f38361f = new HashMap();
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f38361g = new HashMap();
+    public Map<String, String> f38362g = new HashMap();
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f38362h = Collections.unmodifiableMap(this.f38360f);
-    public Map<String, String> i = Collections.unmodifiableMap(this.f38361g);
+    public Map<String, String> f38363h = Collections.unmodifiableMap(this.f38361f);
+    public Map<String, String> i = Collections.unmodifiableMap(this.f38362g);
 
     public AbstractRequest(String str, Request.Method method, byte[] bArr) {
-        this.f38359e = str;
+        this.f38360e = str;
         this.j = method;
         this.k = bArr == null ? null : (byte[]) bArr.clone();
     }
 
     public AbstractRequest(String str, Map<String, String> map, Request.Method method) {
-        this.f38359e = str;
+        this.f38360e = str;
         this.j = method;
         if (Request.Method.POST == method) {
             StringBuilder sb = new StringBuilder();
@@ -75,22 +75,22 @@ public abstract class AbstractRequest implements Request {
         if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        this.f38360f.put(str, str2);
+        this.f38361f.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void addQuery(String str, String str2) {
-        this.f38361g.put(str, str2);
+        this.f38362g.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getConnectionTimeOut() {
-        return this.f38357c;
+        return this.f38358c;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getHeaders() {
-        return this.f38362h;
+        return this.f38363h;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -105,7 +105,7 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getPriority() {
-        return this.f38356b;
+        return this.f38357b;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -115,12 +115,12 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getSocketTimeOut() {
-        return this.f38358d;
+        return this.f38359d;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public String getUrl() {
-        return this.f38359e;
+        return this.f38360e;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -137,24 +137,24 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public boolean isAutoClose() {
-        return this.f38355a;
+        return this.f38356a;
     }
 
     public void setAutoClose(boolean z) {
-        this.f38355a = z;
+        this.f38356a = z;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setConnectionTimeOut(int i) {
-        this.f38357c = i;
+        this.f38358c = i;
     }
 
     public void setPriority(int i) {
-        this.f38356b = i;
+        this.f38357b = i;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setSocketTimeOut(int i) {
-        this.f38358d = i;
+        this.f38359d = i;
     }
 }

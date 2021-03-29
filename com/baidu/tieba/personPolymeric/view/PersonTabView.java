@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 public class PersonTabView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20481e;
+    public Context f20482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20482f;
+    public TextView f20483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20483g;
+    public TextView f20484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20484h;
+    public View f20485h;
     public View i;
     public View j;
     public View k;
@@ -64,15 +64,15 @@ public class PersonTabView extends LinearLayout {
     }
 
     public final void c(Context context) {
-        this.f20481e = context;
+        this.f20482e = context;
         LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
         TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-        this.f20482f = textView;
+        this.f20483f = textView;
         textView.setOnClickListener(this.p);
         TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-        this.f20483g = textView2;
+        this.f20484g = textView2;
         textView2.setOnClickListener(this.p);
-        this.f20484h = findViewById(R.id.main_thread_divider);
+        this.f20485h = findViewById(R.id.main_thread_divider);
         this.i = findViewById(R.id.reply_btn_divider);
         this.j = findViewById(R.id.main_thread_bottom_divider);
         this.k = findViewById(R.id.reply_btn_bottom_divider);
@@ -85,15 +85,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i;
         if (i == 0) {
-            this.f20484h.setVisibility(0);
+            this.f20485h.setVisibility(0);
             this.i.setVisibility(4);
-            this.f20482f.setTextColor(this.m);
-            this.f20483g.setTextColor(this.n);
+            this.f20483f.setTextColor(this.m);
+            this.f20484g.setTextColor(this.n);
         } else if (i == 1) {
-            this.f20484h.setVisibility(4);
+            this.f20485h.setVisibility(4);
             this.i.setVisibility(0);
-            this.f20482f.setTextColor(this.n);
-            this.f20483g.setTextColor(this.m);
+            this.f20483f.setTextColor(this.n);
+            this.f20484g.setTextColor(this.m);
         }
     }
 

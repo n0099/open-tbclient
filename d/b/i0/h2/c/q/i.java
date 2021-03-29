@@ -95,7 +95,7 @@ public class i extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.b
                     i.this.s.a(threadCardViewHolder.a(), lVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) lVar, view.getContext(), 4, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -104,24 +104,24 @@ public class i extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.b
     public class d implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f55200a;
+        public final /* synthetic */ ViewGroup f55201a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f55201b;
+        public final /* synthetic */ View f55202b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f55202c;
+        public final /* synthetic */ int f55203c;
 
         public d(i iVar, ViewGroup viewGroup, View view, int i) {
-            this.f55200a = viewGroup;
-            this.f55201b = view;
-            this.f55202c = i;
+            this.f55201a = viewGroup;
+            this.f55202b = view;
+            this.f55203c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f55200a, this.f55201b, this.f55202c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f55201a, this.f55202b, this.f55203c));
             }
         }
     }
@@ -161,15 +161,15 @@ public class i extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.b
         mVar.u("profile");
         mVar.y(null);
         bVar.n(mVar);
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds25));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds25));
         bVar.h(new d.b.i.s(this.n.getPageActivity()));
         bVar.h(new g0(this.n.getPageActivity()));
         bVar.h(new a0(this.n.getPageActivity()));
         bVar.h(new d.b.i.k(this.n.getPageActivity()));
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 3;
-        eVar.f50768h = 3;
+        eVar.f50763b = 3;
+        eVar.f50769h = 3;
         m0Var.v(eVar);
         m0Var.w(8);
         m0Var.B("personalize_page");

@@ -3,10 +3,10 @@ package d.b.b.e.r;
 public class y extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42140a;
+    public c f42141a;
 
     public y(c cVar) {
-        this.f42140a = null;
-        this.f42140a = cVar;
+        this.f42141a = null;
+        this.f42141a = cVar;
     }
 }

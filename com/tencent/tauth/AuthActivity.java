@@ -17,7 +17,7 @@ public class AuthActivity extends Activity {
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39344a;
+    public static int f39345a;
 
     private void a(Uri uri) {
         f.c("openSDK_LOG.AuthActivity", "-->handleActionUri--start");
@@ -69,10 +69,10 @@ public class AuthActivity extends Activity {
                     }
                 } else {
                     if (string.equals("shareToQzone") && h.a(this, "com.tencent.mobileqq") != null && h.c(this, "5.2.0") < 0) {
-                        int i = f39344a + 1;
-                        f39344a = i;
+                        int i = f39345a + 1;
+                        f39345a = i;
                         if (i == 2) {
-                            f39344a = 0;
+                            f39345a = 0;
                             finish();
                             return;
                         }

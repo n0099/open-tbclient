@@ -7,14 +7,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SparseIntArray f55917a = new SparseIntArray();
+    public static final SparseIntArray f55918a = new SparseIntArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<BdUniqueId> f55918b = new SparseArray<>();
+    public static final SparseArray<BdUniqueId> f55919b = new SparseArray<>();
 
     public e() {
         c();

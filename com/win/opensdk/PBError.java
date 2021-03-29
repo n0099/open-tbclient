@@ -3,10 +3,10 @@ package com.win.opensdk;
 public class PBError {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39751a;
+    public int f39752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39752b;
+    public String f39753b;
     public static final PBError NO_FILL = new PBError(2001, "NO FILL");
     public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
     public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
@@ -21,27 +21,27 @@ public class PBError {
     public static final PBError LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
 
     public PBError(int i, String str) {
-        this.f39751a = i;
-        this.f39752b = str;
+        this.f39752a = i;
+        this.f39753b = str;
     }
 
     public int getCode() {
-        return this.f39751a;
+        return this.f39752a;
     }
 
     public String getMsg() {
-        return this.f39752b;
+        return this.f39753b;
     }
 
     public void setCode(int i) {
-        this.f39751a = i;
+        this.f39752a = i;
     }
 
     public void setMsg(String str) {
-        this.f39752b = str;
+        this.f39753b = str;
     }
 
     public String toString() {
-        return "PBError{code=" + this.f39751a + ", msg='" + this.f39752b + "'}";
+        return "PBError{code=" + this.f39752a + ", msg='" + this.f39753b + "'}";
     }
 }

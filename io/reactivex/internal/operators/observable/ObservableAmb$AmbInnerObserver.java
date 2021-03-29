@@ -1,5 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
+import f.a.a0.a;
 import f.a.o;
 import f.a.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -26,9 +27,9 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
     public void onComplete() {
         if (this.won) {
             this.actual.onComplete();
-        } else {
-            this.parent.a(this.index);
-            throw null;
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onComplete();
         }
     }
 
@@ -36,9 +37,11 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
     public void onError(Throwable th) {
         if (this.won) {
             this.actual.onError(th);
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onError(th);
         } else {
-            this.parent.a(this.index);
-            throw null;
+            a.f(th);
         }
     }
 
@@ -46,9 +49,11 @@ public final class ObservableAmb$AmbInnerObserver<T> extends AtomicReference<b> 
     public void onNext(T t) {
         if (this.won) {
             this.actual.onNext(t);
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onNext(t);
         } else {
-            this.parent.a(this.index);
-            throw null;
+            get().dispose();
         }
     }
 

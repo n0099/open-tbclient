@@ -3,7 +3,7 @@ package com.baidu.apollon.statusbar;
 import android.app.Activity;
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImmersiveStatusBarManager {
     public static void setMiuiFlymeBarDark(Activity activity, boolean z) {
         if (Build.VERSION.SDK_INT < 27) {

@@ -71,9 +71,7 @@ public final class Duration implements Comparable<Duration> {
 
     /* renamed from: div-impl  reason: not valid java name */
     public static final double m1553divimpl(double d2, int i) {
-        double d3 = i;
-        Double.isNaN(d3);
-        return m1550constructorimpl(d2 / d3);
+        return m1550constructorimpl(d2 / i);
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
@@ -93,10 +91,7 @@ public final class Duration implements Comparable<Duration> {
 
     /* renamed from: getHoursComponent-impl  reason: not valid java name */
     public static final int m1557getHoursComponentimpl(double d2) {
-        double m1559getInHoursimpl = m1559getInHoursimpl(d2);
-        double d3 = 24;
-        Double.isNaN(d3);
-        return (int) (m1559getInHoursimpl % d3);
+        return (int) (m1559getInHoursimpl(d2) % 24);
     }
 
     /* renamed from: getInDays-impl  reason: not valid java name */
@@ -136,10 +131,7 @@ public final class Duration implements Comparable<Duration> {
 
     /* renamed from: getMinutesComponent-impl  reason: not valid java name */
     public static final int m1565getMinutesComponentimpl(double d2) {
-        double m1562getInMinutesimpl = m1562getInMinutesimpl(d2);
-        double d3 = 60;
-        Double.isNaN(d3);
-        return (int) (m1562getInMinutesimpl % d3);
+        return (int) (m1562getInMinutesimpl(d2) % 60);
     }
 
     /* renamed from: getNanosecondsComponent-impl  reason: not valid java name */
@@ -149,10 +141,7 @@ public final class Duration implements Comparable<Duration> {
 
     /* renamed from: getSecondsComponent-impl  reason: not valid java name */
     public static final int m1567getSecondsComponentimpl(double d2) {
-        double m1564getInSecondsimpl = m1564getInSecondsimpl(d2);
-        double d3 = 60;
-        Double.isNaN(d3);
-        return (int) (m1564getInSecondsimpl % d3);
+        return (int) (m1564getInSecondsimpl(d2) % 60);
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
@@ -220,9 +209,7 @@ public final class Duration implements Comparable<Duration> {
 
     /* renamed from: times-impl  reason: not valid java name */
     public static final double m1577timesimpl(double d2, int i) {
-        double d3 = i;
-        Double.isNaN(d3);
-        return m1550constructorimpl(d2 * d3);
+        return m1550constructorimpl(d2 * i);
     }
 
     /* renamed from: toComponents-impl  reason: not valid java name */

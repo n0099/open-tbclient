@@ -45,16 +45,16 @@ import java.util.List;
 public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f58453e;
+    public List<n> f58454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f58454f;
+    public Context f58455f;
     public UserData j;
     public w k;
     public boolean o;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58456h = "";
+    public String f58457h = "";
     public String i = "";
     public int l = SkinManager.getColor(R.color.CAM_X0302);
     public String m = "";
@@ -64,7 +64,7 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     public View.OnClickListener r = new b();
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f58455g = p();
+    public TbPageContext f58456g = p();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -73,15 +73,15 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            C1434e c1434e;
+            C1435e c1435e;
             TextView textView;
-            if ((e.this.f58454f == null || ViewHelper.checkUpIsLogin(e.this.f58454f)) && view != null) {
-                if ((view.getTag() instanceof k) || (view.getTag() instanceof C1434e)) {
+            if ((e.this.f58455f == null || ViewHelper.checkUpIsLogin(e.this.f58455f)) && view != null) {
+                if ((view.getTag() instanceof k) || (view.getTag() instanceof C1435e)) {
                     k kVar = null;
                     if (view.getTag() instanceof k) {
                         kVar = (k) view.getTag();
-                    } else if ((view.getTag() instanceof C1434e) && (textView = (c1434e = (C1434e) view.getTag()).f58466c) != null && (textView.getTag() instanceof k)) {
-                        kVar = (k) c1434e.f58466c.getTag();
+                    } else if ((view.getTag() instanceof C1435e) && (textView = (c1435e = (C1435e) view.getTag()).f58467c) != null && (textView.getTag() instanceof k)) {
+                        kVar = (k) c1435e.f58467c.getTag();
                     }
                     if (kVar != null && kVar.l() == 2) {
                         if (StringUtils.isNull(kVar.k())) {
@@ -89,20 +89,20 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
                         }
                         String k = kVar.k();
                         if ((k.contains("nohead:url") || k.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                            l.K(e.this.f58454f, R.string.book_plugin_not_install_tip);
+                            l.K(e.this.f58455f, R.string.book_plugin_not_install_tip);
                             return;
                         }
-                        UrlManager.getInstance().dealOneLink(e.this.f58455g, new String[]{k});
-                        a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.e(), e.this.f58456h, e.this.i, null);
+                        UrlManager.getInstance().dealOneLink(e.this.f58456g, new String[]{k});
+                        a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.e(), e.this.f58457h, e.this.i, null);
                         b2.e(TiebaStatic.Params.OBJ_URL, kVar.k());
                         b2.f();
                     } else if (kVar == null || kVar.l() != 3) {
                     } else {
-                        new StatisticItem("c13442").param("forum_id", e.this.f58456h).eventStat();
-                        if (e.this.f58455g == null || TextUtils.isEmpty(e.this.f58456h)) {
+                        new StatisticItem("c13442").param("forum_id", e.this.f58457h).eventStat();
+                        if (e.this.f58456g == null || TextUtils.isEmpty(e.this.f58457h)) {
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(e.this.f58455g.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(e.this.f58456h, 0L), 1)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(e.this.f58456g.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(e.this.f58457h, 0L), 1)));
                     }
                 }
             }
@@ -116,18 +116,18 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            C1434e c1434e;
+            C1435e c1435e;
             view.setPressed(false);
-            if (e.this.k == null || !(view.getTag() instanceof C1434e) || (c1434e = (C1434e) view.getTag()) == null) {
+            if (e.this.k == null || !(view.getTag() instanceof C1435e) || (c1435e = (C1435e) view.getTag()) == null) {
                 return;
             }
-            n nVar = (n) ListUtils.getItem(e.this.f58453e, c1434e.f58464a);
+            n nVar = (n) ListUtils.getItem(e.this.f58454e, c1435e.f58465a);
             if (nVar instanceof a2) {
                 a2 a2Var = (a2) nVar;
-                e.this.k.f(view, a2Var, BdUniqueId.gen(), null, e.this.o ? c1434e.f58464a + 1 : c1434e.f58464a, 0L);
-                TiebaStatic.log(new StatisticItem("c13124").param("fid", a2Var.c0()).param("tid", a2Var.w1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", c1434e.f58464a + 1));
+                e.this.k.f(view, a2Var, BdUniqueId.gen(), null, e.this.o ? c1435e.f58465a + 1 : c1435e.f58465a, 0L);
+                TiebaStatic.log(new StatisticItem("c13124").param("fid", a2Var.c0()).param("tid", a2Var.w1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", c1435e.f58465a + 1));
             } else if (nVar instanceof p) {
-                e.this.k.f(view, (p) nVar, BdUniqueId.gen(), null, c1434e.f58464a, 0L);
+                e.this.k.f(view, (p) nVar, BdUniqueId.gen(), null, c1435e.f58465a, 0L);
             }
         }
     }
@@ -136,24 +136,24 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f58459e;
+        public final /* synthetic */ f f58460e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f58460f;
+        public final /* synthetic */ String f58461f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f58461g;
+        public final /* synthetic */ String f58462g;
 
         public c(f fVar, String str, String str2) {
-            this.f58459e = fVar;
-            this.f58460f = str;
-            this.f58461g = str2;
+            this.f58460e = fVar;
+            this.f58461f = str;
+            this.f58462g = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f58459e.f58466c.getLayout().getEllipsisCount(this.f58459e.f58466c.getLineCount() - 1) > 0) {
-                e.this.x(this.f58460f, this.f58461g);
+            if (this.f58460e.f58467c.getLayout().getEllipsisCount(this.f58460e.f58467c.getLineCount() - 1) > 0) {
+                e.this.x(this.f58461f, this.f58462g);
             }
         }
     }
@@ -162,43 +162,43 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f58463e;
+        public final /* synthetic */ d.b.h0.r.s.a f58464e;
 
         public d(e eVar, d.b.h0.r.s.a aVar) {
-            this.f58463e = aVar;
+            this.f58464e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f58463e.dismiss();
+            this.f58464e.dismiss();
         }
     }
 
     /* renamed from: d.b.i0.p0.q2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1434e {
+    public class C1435e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f58464a;
+        public int f58465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f58465b;
+        public View f58466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f58466c;
+        public TextView f58467c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f58467d;
+        public TextView f58468d;
 
-        public C1434e(e eVar) {
+        public C1435e(e eVar) {
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f extends C1434e {
+    public class f extends C1435e {
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f58468e;
+        public TextView f58469e;
 
         public f(e eVar) {
             super(eVar);
@@ -206,13 +206,13 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     }
 
     /* loaded from: classes4.dex */
-    public class g extends C1434e {
+    public class g extends C1435e {
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f58469e;
+        public TbImageView f58470e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f58470f;
+        public TextView f58471f;
 
         public g(e eVar) {
             super(eVar);
@@ -220,7 +220,7 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     }
 
     public e(Context context) {
-        this.f58454f = context;
+        this.f58455f = context;
     }
 
     @Override // d.b.i0.p0.j2.d
@@ -230,12 +230,12 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f58453e);
+        return ListUtils.getCount(this.f58454e);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return ListUtils.getItem(this.f58453e, i);
+        return ListUtils.getItem(this.f58454e, i);
     }
 
     @Override // android.widget.Adapter
@@ -257,100 +257,100 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
                 gVar = (g) view.getTag();
             } else {
                 gVar = new g(this);
-                view = LayoutInflater.from(this.f58454f).inflate(R.layout.frs_header_top_item_single, (ViewGroup) null, false);
-                gVar.f58465b = view;
-                gVar.f58469e = (TbImageView) view.findViewById(R.id.frs_header_top_item_image);
-                gVar.f58466c = (TextView) view.findViewById(R.id.frs_header_top_item_title);
-                gVar.f58467d = (TextView) view.findViewById(R.id.top_item_type);
-                gVar.f58470f = (TextView) view.findViewById(R.id.top_item_rank);
+                view = LayoutInflater.from(this.f58455f).inflate(R.layout.frs_header_top_item_single, (ViewGroup) null, false);
+                gVar.f58466b = view;
+                gVar.f58470e = (TbImageView) view.findViewById(R.id.frs_header_top_item_image);
+                gVar.f58467c = (TextView) view.findViewById(R.id.frs_header_top_item_title);
+                gVar.f58468d = (TextView) view.findViewById(R.id.top_item_type);
+                gVar.f58471f = (TextView) view.findViewById(R.id.top_item_rank);
                 view.setTag(gVar);
             }
-            m(gVar, (n) ListUtils.getItem(this.f58453e, i));
+            m(gVar, (n) ListUtils.getItem(this.f58454e, i));
         } else if (getItemViewType(i) == 2) {
             if (view != null && (view.getTag() instanceof f)) {
                 fVar = (f) view.getTag();
             } else {
                 fVar = new f(this);
-                view = LayoutInflater.from(this.f58454f).inflate(R.layout.frs_header_top_item_double, (ViewGroup) null, false);
-                fVar.f58465b = view;
-                fVar.f58467d = (TextView) view.findViewById(R.id.top_item_type);
-                fVar.f58466c = (TextView) view.findViewById(R.id.top_item_title);
-                fVar.f58468e = (TextView) view.findViewById(R.id.top_item_rank);
+                view = LayoutInflater.from(this.f58455f).inflate(R.layout.frs_header_top_item_double, (ViewGroup) null, false);
+                fVar.f58466b = view;
+                fVar.f58468d = (TextView) view.findViewById(R.id.top_item_type);
+                fVar.f58467c = (TextView) view.findViewById(R.id.top_item_title);
+                fVar.f58469e = (TextView) view.findViewById(R.id.top_item_rank);
                 view.setTag(fVar);
             }
-            n nVar = (n) ListUtils.getItem(this.f58453e, i);
+            n nVar = (n) ListUtils.getItem(this.f58454e, i);
             if (nVar instanceof a2) {
                 j(fVar, (a2) nVar, i);
-                fVar.f58464a = i;
+                fVar.f58465a = i;
             } else if (nVar instanceof k) {
                 k(fVar, (k) nVar);
             } else if (nVar instanceof o) {
                 y((o) nVar, fVar, i);
             } else if (nVar instanceof p) {
-                fVar.f58464a = i;
+                fVar.f58465a = i;
                 l(fVar, (p) nVar, i);
             }
         }
         return view;
     }
 
-    public final void i(C1434e c1434e) {
-        if (c1434e == null) {
+    public final void i(C1435e c1435e) {
+        if (c1435e == null) {
             return;
         }
-        SkinManager.setViewTextColor(c1434e.f58466c, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(c1434e.f58467d, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(c1435e.f58467c, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(c1435e.f58468d, R.color.CAM_X0101);
     }
 
     public final void j(f fVar, a2 a2Var, int i) {
         if (fVar == null || a2Var == null) {
             return;
         }
-        fVar.f58467d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58454f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58467d);
+        fVar.f58468d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
+        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58455f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58468d);
         a2Var.T2();
         SpannableStringBuilder l1 = a2Var.l1();
         if ((l1 == null || d.b.b.e.p.k.isEmptyStringAfterTrim(l1.toString())) && a2Var.D() != null) {
             l1 = new SpannableStringBuilder(a2Var.D());
         }
-        fVar.f58466c.setOnTouchListener(new i(l1));
-        fVar.f58466c.setText(l1);
-        fVar.f58465b.setOnClickListener(this.r);
+        fVar.f58467c.setOnTouchListener(new i(l1));
+        fVar.f58467c.setText(l1);
+        fVar.f58466b.setOnClickListener(this.r);
         i(fVar);
     }
 
     public final void k(f fVar, k kVar) {
         String o = o(kVar);
-        fVar.f58466c.setText(kVar.g());
-        fVar.f58467d.setText(o);
-        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58454f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58467d);
+        fVar.f58467c.setText(kVar.g());
+        fVar.f58468d.setText(o);
+        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58455f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58468d);
         if (kVar.f() != 0) {
-            fVar.f58468e.setVisibility(0);
+            fVar.f58469e.setVisibility(0);
             if (kVar.f() == -1) {
-                fVar.f58468e.setText(this.f58454f.getString(R.string.no_rank));
+                fVar.f58469e.setText(this.f58455f.getString(R.string.no_rank));
             } else if (kVar.f() > 999) {
-                fVar.f58468e.setText(this.f58454f.getString(R.string.rang_orer_thousand));
+                fVar.f58469e.setText(this.f58455f.getString(R.string.rang_orer_thousand));
             } else {
-                TextView textView = fVar.f58468e;
-                textView.setText(this.f58454f.getString(R.string.rang_identify) + kVar.f());
+                TextView textView = fVar.f58469e;
+                textView.setText(this.f58455f.getString(R.string.rang_identify) + kVar.f());
             }
             if (!StringUtils.isNull(kVar.g())) {
-                fVar.f58466c.setText(kVar.g());
+                fVar.f58467c.setText(kVar.g());
             }
         } else {
-            fVar.f58468e.setVisibility(8);
+            fVar.f58469e.setVisibility(8);
         }
         i(fVar);
-        fVar.f58466c.setTag(kVar);
+        fVar.f58467c.setTag(kVar);
         View.OnClickListener onClickListener = this.q;
         if (onClickListener != null) {
-            fVar.f58465b.setOnClickListener(onClickListener);
+            fVar.f58466b.setOnClickListener(onClickListener);
         }
         HashSet<String> hashSet = this.n;
         if (hashSet == null || !hashSet.add(kVar.e())) {
             return;
         }
-        a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.e(), this.f58456h, this.i, null);
+        a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.e(), this.f58457h, this.i, null);
         b2.e(TiebaStatic.Params.OBJ_URL, kVar.k());
         b2.f();
     }
@@ -359,22 +359,22 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
         if (fVar == null || pVar == null || pVar.a() == null || this.j == null) {
             return;
         }
-        fVar.f58467d.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
-        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58454f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58467d);
+        fVar.f58468d.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
+        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f58455f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f58468d);
         if (this.j.getIs_manager() == 1) {
             if (pVar.a().audit_status.intValue() == 0 && pVar.a().has_forum_rule.intValue() == 0) {
-                fVar.f58466c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
+                fVar.f58467c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
             } else if (pVar.a().audit_status.intValue() == 0) {
-                fVar.f58466c.setText(pVar.a().title);
+                fVar.f58467c.setText(pVar.a().title);
             } else if (pVar.a().audit_status.intValue() == 1) {
-                fVar.f58466c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
+                fVar.f58467c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
             } else if (pVar.a().audit_status.intValue() == 2) {
-                fVar.f58466c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
+                fVar.f58467c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
             }
         } else {
-            fVar.f58466c.setText(pVar.a().title);
+            fVar.f58467c.setText(pVar.a().title);
         }
-        fVar.f58465b.setOnClickListener(this.r);
+        fVar.f58466b.setOnClickListener(this.r);
         i(fVar);
     }
 
@@ -389,72 +389,72 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
             if ((l1 == null || d.b.b.e.p.k.isEmptyStringAfterTrim(l1.toString())) && a2Var.D() != null) {
                 l1 = new SpannableStringBuilder(a2Var.D());
             }
-            gVar.f58467d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-            gVar.f58466c.setOnTouchListener(new i(l1));
-            gVar.f58466c.setText(l1);
+            gVar.f58468d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
+            gVar.f58467c.setOnTouchListener(new i(l1));
+            gVar.f58467c.setText(l1);
             if (StringUtils.isNull(this.m)) {
-                gVar.f58469e.setVisibility(8);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gVar.f58467d.getLayoutParams();
-                layoutParams.setMargins((int) this.f58454f.getResources().getDimension(R.dimen.tbds56), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                gVar.f58470e.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gVar.f58468d.getLayoutParams();
+                layoutParams.setMargins((int) this.f58455f.getResources().getDimension(R.dimen.tbds56), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
             } else {
-                gVar.f58469e.setVisibility(0);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f58467d.getLayoutParams();
-                layoutParams2.setMargins((int) this.f58454f.getResources().getDimension(R.dimen.tbds26), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
-                gVar.f58469e.W(this.m, 10, false);
+                gVar.f58470e.setVisibility(0);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f58468d.getLayoutParams();
+                layoutParams2.setMargins((int) this.f58455f.getResources().getDimension(R.dimen.tbds26), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+                gVar.f58470e.W(this.m, 10, false);
             }
-            gVar.f58467d.setTextColor(this.l);
-            gVar.f58465b.setOnClickListener(this.r);
+            gVar.f58468d.setTextColor(this.l);
+            gVar.f58466b.setOnClickListener(this.r);
             i(gVar);
         } else if (nVar instanceof k) {
             k kVar = (k) nVar;
             String o = o(kVar);
             if (StringUtils.isNull(this.m)) {
-                gVar.f58467d.setText(o);
-                gVar.f58467d.setVisibility(0);
-                gVar.f58466c.setText(kVar.g());
-                gVar.f58469e.setVisibility(8);
+                gVar.f58468d.setText(o);
+                gVar.f58468d.setVisibility(0);
+                gVar.f58467c.setText(kVar.g());
+                gVar.f58470e.setVisibility(8);
             } else {
-                gVar.f58467d.setVisibility(8);
-                gVar.f58469e.setVisibility(0);
-                TextView textView = gVar.f58466c;
+                gVar.f58468d.setVisibility(8);
+                gVar.f58470e.setVisibility(0);
+                TextView textView = gVar.f58467c;
                 textView.setText(o + "：" + kVar.g());
-                gVar.f58469e.W(this.m, 10, false);
+                gVar.f58470e.W(this.m, 10, false);
             }
             if (kVar.f() != 0) {
-                gVar.f58470f.setVisibility(0);
+                gVar.f58471f.setVisibility(0);
                 if (kVar.f() == -1) {
-                    gVar.f58470f.setText(this.f58454f.getString(R.string.no_rank));
+                    gVar.f58471f.setText(this.f58455f.getString(R.string.no_rank));
                 } else if (kVar.f() > 999) {
-                    gVar.f58470f.setText(this.f58454f.getString(R.string.rang_orer_thousand));
+                    gVar.f58471f.setText(this.f58455f.getString(R.string.rang_orer_thousand));
                 } else {
-                    TextView textView2 = gVar.f58470f;
-                    textView2.setText(this.f58454f.getString(R.string.rang_identify) + kVar.f());
+                    TextView textView2 = gVar.f58471f;
+                    textView2.setText(this.f58455f.getString(R.string.rang_identify) + kVar.f());
                 }
                 if (!StringUtils.isNull(kVar.g())) {
-                    gVar.f58466c.setText(kVar.g());
+                    gVar.f58467c.setText(kVar.g());
                 }
             } else {
-                gVar.f58470f.setVisibility(8);
+                gVar.f58471f.setVisibility(8);
             }
-            gVar.f58467d.setTextColor(this.l);
+            gVar.f58468d.setTextColor(this.l);
             i(gVar);
-            gVar.f58466c.setTag(kVar);
+            gVar.f58467c.setTag(kVar);
             View.OnClickListener onClickListener = this.q;
             if (onClickListener != null) {
-                gVar.f58465b.setOnClickListener(onClickListener);
+                gVar.f58466b.setOnClickListener(onClickListener);
             }
             HashSet<String> hashSet = this.n;
             if (hashSet == null || !hashSet.add(kVar.e())) {
                 return;
             }
-            a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.e(), this.f58456h, this.i, null);
+            a.b b2 = d.b.i0.c3.j0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.e(), this.f58457h, this.i, null);
             b2.e(TiebaStatic.Params.OBJ_URL, kVar.k());
             b2.f();
         }
     }
 
     public List<n> n() {
-        return this.f58453e;
+        return this.f58454e;
     }
 
     public final String o(k kVar) {
@@ -468,7 +468,7 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     }
 
     public TbPageContext p() {
-        Context context = this.f58454f;
+        Context context = this.f58455f;
         if (context instanceof BaseFragmentActivity) {
             return ((BaseFragmentActivity) context).getPageContext();
         }
@@ -479,12 +479,12 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
     }
 
     public void r(List<n> list) {
-        this.f58453e = list;
+        this.f58454e = list;
         notifyDataSetChanged();
     }
 
     public void s(String str, String str2, UserData userData) {
-        this.f58456h = str;
+        this.f58457h = str;
         this.i = str2;
         this.j = userData;
     }
@@ -508,7 +508,7 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
         if (d.b.b.e.p.k.isEmpty(str) || d.b.b.e.p.k.isEmpty(str2)) {
             return;
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a((BaseFragmentActivity) this.f58454f);
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a((BaseFragmentActivity) this.f58455f);
         aVar.setTitle(str2);
         aVar.setTitleShowCenter(true);
         aVar.setMessage(str);
@@ -528,10 +528,10 @@ public class e extends BaseAdapter implements d.b.i0.p0.j2.d {
         if (StringUtils.isNull(riskTipNotice)) {
             return false;
         }
-        fVar.f58467d.setText(TbadkCoreApplication.getInst().getString(R.string.risk_notice_title));
-        fVar.f58467d.setTextColor(this.l);
-        fVar.f58466c.setText(riskTipNotice);
-        fVar.f58466c.setOnClickListener(new c(fVar, riskTipPop, riskTipPopTitle));
+        fVar.f58468d.setText(TbadkCoreApplication.getInst().getString(R.string.risk_notice_title));
+        fVar.f58468d.setTextColor(this.l);
+        fVar.f58467c.setText(riskTipNotice);
+        fVar.f58467c.setOnClickListener(new c(fVar, riskTipPop, riskTipPopTitle));
         i(fVar);
         return true;
     }

@@ -283,7 +283,7 @@ public final class BitMatrix implements Cloneable {
     public void unset(int i, int i2) {
         int i3 = (i2 * this.rowSize) + (i / 32);
         int[] iArr = this.bits;
-        iArr[i3] = ((1 << (i & 31)) ^ (-1)) & iArr[i3];
+        iArr[i3] = (~(1 << (i & 31))) & iArr[i3];
     }
 
     public void xor(BitMatrix bitMatrix) {

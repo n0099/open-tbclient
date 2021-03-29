@@ -7,7 +7,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HanziToPinyin {
     public static final boolean DEBUG = false;
     public static final String FIRST_PINYIN_UNIHAN = "吖";
@@ -30,7 +30,7 @@ public class HanziToPinyin {
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Token {
         public static final int DIGIT = 3;
         public static final int LATIN = 1;

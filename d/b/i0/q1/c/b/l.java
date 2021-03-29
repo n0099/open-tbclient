@@ -10,7 +10,7 @@ import tbclient.GetVipInfo.VipUser;
 public class l implements d.b.b.j.e.n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f59313e = BdUniqueId.gen();
+    public static final BdUniqueId f59314e = BdUniqueId.gen();
 
     public l(DataRes dataRes) {
         VipUser vipUser;
@@ -49,6 +49,6 @@ public class l implements d.b.b.j.e.n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f59313e;
+        return f59314e;
     }
 }

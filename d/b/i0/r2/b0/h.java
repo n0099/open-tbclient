@@ -123,10 +123,10 @@ public class h {
 
     public static c f(@NonNull d.b.c.m.g.a aVar) {
         c cVar = new c();
-        cVar.j(aVar.f42531a);
-        cVar.d(aVar.f42533c);
-        cVar.h(aVar.f42532b);
-        cVar.s(aVar.f42534d);
+        cVar.j(aVar.f42532a);
+        cVar.d(aVar.f42534c);
+        cVar.h(aVar.f42533b);
+        cVar.s(aVar.f42535d);
         return cVar;
     }
 
@@ -198,10 +198,10 @@ public class h {
 
     public static c n(@NonNull d.b.c.m.g.a aVar) {
         c cVar = new c();
-        cVar.j(aVar.f42531a);
-        cVar.d(aVar.f42533c);
-        cVar.h(aVar.f42532b);
-        cVar.s(aVar.f42534d);
+        cVar.j(aVar.f42532a);
+        cVar.d(aVar.f42534c);
+        cVar.h(aVar.f42533b);
+        cVar.s(aVar.f42535d);
         return cVar;
     }
 
@@ -216,10 +216,10 @@ public class h {
 
     public static c p(@NonNull d.b.c.m.g.a aVar) {
         c cVar = new c();
-        cVar.j(aVar.f42531a);
-        cVar.d(aVar.f42533c);
-        cVar.h(aVar.f42532b);
-        cVar.s(aVar.f42534d);
+        cVar.j(aVar.f42532a);
+        cVar.d(aVar.f42534c);
+        cVar.h(aVar.f42533b);
+        cVar.s(aVar.f42535d);
         cVar.k(aVar.k);
         if (!TextUtils.isEmpty(aVar.j)) {
             cVar.r(aVar.j);
@@ -230,14 +230,14 @@ public class h {
 
     public static c q(@NonNull d.b.c.m.g.a aVar) {
         c cVar = new c();
-        cVar.j(aVar.f42531a);
-        cVar.d(aVar.f42533c);
-        cVar.h(aVar.f42532b);
-        cVar.s(aVar.f42534d);
+        cVar.j(aVar.f42532a);
+        cVar.d(aVar.f42534c);
+        cVar.h(aVar.f42533b);
+        cVar.s(aVar.f42535d);
         cVar.k(0);
-        cVar.l(aVar.f42536f);
-        cVar.m(aVar.f42535e);
-        cVar.n(aVar.f42537g);
+        cVar.l(aVar.f42537f);
+        cVar.m(aVar.f42536e);
+        cVar.n(aVar.f42538g);
         return cVar;
     }
 }

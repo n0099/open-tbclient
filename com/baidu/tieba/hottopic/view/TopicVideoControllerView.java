@@ -16,20 +16,20 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicVideoControllerView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17678e;
+    public int f17679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaController.MediaPlayerControl f17679f;
+    public MediaController.MediaPlayerControl f17680f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17680g;
+    public TextView f17681g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17681h;
+    public TextView f17682h;
     public boolean i;
     public boolean j;
     public SeekBar k;
@@ -38,7 +38,7 @@ public class TopicVideoControllerView extends RelativeLayout {
     public Handler n;
     public SeekBar.OnSeekBarChangeListener o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -46,13 +46,13 @@ public class TopicVideoControllerView extends RelativeLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == 1 && !TopicVideoControllerView.this.i && TopicVideoControllerView.this.j && TopicVideoControllerView.this.f17679f != null && TopicVideoControllerView.this.f17679f.isPlaying()) {
-                sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.f17678e - (TopicVideoControllerView.this.p() % TopicVideoControllerView.this.f17678e));
+            if (message.what == 1 && !TopicVideoControllerView.this.i && TopicVideoControllerView.this.j && TopicVideoControllerView.this.f17680f != null && TopicVideoControllerView.this.f17680f.isPlaying()) {
+                sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.f17679e - (TopicVideoControllerView.this.p() % TopicVideoControllerView.this.f17679e));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements SeekBar.OnSeekBarChangeListener {
         public b() {
         }
@@ -60,10 +60,10 @@ public class TopicVideoControllerView extends RelativeLayout {
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             if (z) {
-                int duration = (int) ((TopicVideoControllerView.this.f17679f.getDuration() * i) / 10000);
-                TopicVideoControllerView.this.f17679f.seekTo(duration);
-                if (TopicVideoControllerView.this.f17680g != null) {
-                    TopicVideoControllerView.this.f17680g.setText(TopicVideoControllerView.this.r(duration));
+                int duration = (int) ((TopicVideoControllerView.this.f17680f.getDuration() * i) / 10000);
+                TopicVideoControllerView.this.f17680f.seekTo(duration);
+                if (TopicVideoControllerView.this.f17681g != null) {
+                    TopicVideoControllerView.this.f17681g.setText(TopicVideoControllerView.this.r(duration));
                 }
             }
         }
@@ -84,7 +84,7 @@ public class TopicVideoControllerView extends RelativeLayout {
 
     public TopicVideoControllerView(Context context) {
         super(context);
-        this.f17678e = 50;
+        this.f17679e = 50;
         this.i = false;
         this.j = true;
         this.n = new a(Looper.getMainLooper());
@@ -110,8 +110,8 @@ public class TopicVideoControllerView extends RelativeLayout {
     public final void k(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_video_controller, (ViewGroup) null);
         addView(inflate, -1, (int) context.getResources().getDimension(R.dimen.ds80));
-        this.f17680g = (TextView) inflate.findViewById(R.id.progress_textview_cur_time);
-        this.f17681h = (TextView) inflate.findViewById(R.id.progress_textview_duration);
+        this.f17681g = (TextView) inflate.findViewById(R.id.progress_textview_cur_time);
+        this.f17682h = (TextView) inflate.findViewById(R.id.progress_textview_duration);
         SeekBar seekBar = (SeekBar) inflate.findViewById(R.id.topic_video_controller_seekBar);
         this.k = seekBar;
         seekBar.setOnSeekBarChangeListener(this.o);
@@ -123,19 +123,19 @@ public class TopicVideoControllerView extends RelativeLayout {
         this.j = false;
         this.n.removeMessages(1);
         this.k.setProgress(0);
-        TextView textView = this.f17680g;
+        TextView textView = this.f17681g;
         if (textView != null) {
             textView.setText(r(i));
         }
-        TextView textView2 = this.f17681h;
+        TextView textView2 = this.f17682h;
         if (textView2 != null) {
             textView2.setText(r(n(i2)));
         }
     }
 
     public void m(int i) {
-        SkinManager.setViewTextColor(this.f17680g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f17681h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f17681g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f17682h, R.color.CAM_X0101, 1);
         this.k.setProgressDrawable(SkinManager.getSkinDrawable(null, R.drawable.topic_video_seekbar));
         this.k.setThumb(SkinManager.getSkinDrawable(null, R.drawable.topic_video_seekbar_thumb));
         this.k.setThumbOffset(0);
@@ -149,28 +149,28 @@ public class TopicVideoControllerView extends RelativeLayout {
         this.j = false;
         this.n.removeMessages(1);
         this.k.setProgress(0);
-        TextView textView = this.f17680g;
+        TextView textView = this.f17681g;
         if (textView != null) {
             textView.setText(r(0));
         }
     }
 
     public final int p() {
-        MediaController.MediaPlayerControl mediaPlayerControl = this.f17679f;
+        MediaController.MediaPlayerControl mediaPlayerControl = this.f17680f;
         if (mediaPlayerControl == null || this.i) {
             return 0;
         }
         int currentPosition = mediaPlayerControl.getCurrentPosition();
-        int duration = this.f17679f.getDuration();
+        int duration = this.f17680f.getDuration();
         SeekBar seekBar = this.k;
         if (seekBar != null && duration > 0) {
             seekBar.setProgress((int) ((currentPosition * 10000) / duration));
         }
-        TextView textView = this.f17681h;
+        TextView textView = this.f17682h;
         if (textView != null && duration > 0) {
             textView.setText(r(n(duration)));
         }
-        TextView textView2 = this.f17680g;
+        TextView textView2 = this.f17681g;
         if (textView2 != null) {
             textView2.setText(r(currentPosition));
         }
@@ -178,19 +178,19 @@ public class TopicVideoControllerView extends RelativeLayout {
     }
 
     public void q() {
-        MediaController.MediaPlayerControl mediaPlayerControl = this.f17679f;
+        MediaController.MediaPlayerControl mediaPlayerControl = this.f17680f;
         if (mediaPlayerControl == null) {
             return;
         }
         int duration = ((mediaPlayerControl.getDuration() / 200) / 50) * 50;
-        this.f17678e = duration;
+        this.f17679e = duration;
         if (duration < 50) {
-            this.f17678e = 50;
+            this.f17679e = 50;
         }
         this.j = true;
         this.n.removeMessages(1);
         Handler handler = this.n;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f17678e - (this.f17679f.getCurrentPosition() % this.f17678e));
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f17679e - (this.f17680f.getCurrentPosition() % this.f17679e));
     }
 
     public final String r(int i) {
@@ -203,12 +203,12 @@ public class TopicVideoControllerView extends RelativeLayout {
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.f17679f = mediaPlayerControl;
+        this.f17680f = mediaPlayerControl;
     }
 
     public TopicVideoControllerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17678e = 50;
+        this.f17679e = 50;
         this.i = false;
         this.j = true;
         this.n = new a(Looper.getMainLooper());
@@ -218,7 +218,7 @@ public class TopicVideoControllerView extends RelativeLayout {
 
     public TopicVideoControllerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17678e = 50;
+        this.f17679e = 50;
         this.i = false;
         this.j = true;
         this.n = new a(Looper.getMainLooper());

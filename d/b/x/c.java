@@ -23,37 +23,37 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f64853a;
+    public static HashMap<String, Integer> f64854a;
 
     static {
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f64853a = hashMap;
+        f64854a = hashMap;
         hashMap.put(TbConfig.SERVER_ADDRESS + "c/f/forum/getforumlist", Integer.valueOf((int) CmdConfigHttp.SIGNALL_GET_FOURMS));
-        HashMap<String, Integer> hashMap2 = f64853a;
+        HashMap<String, Integer> hashMap2 = f64854a;
         hashMap2.put(TbConfig.SERVER_ADDRESS + "c/c/forum/msign", 0);
-        HashMap<String, Integer> hashMap3 = f64853a;
+        HashMap<String, Integer> hashMap3 = f64854a;
         hashMap3.put(TbConfig.SERVER_ADDRESS + "c/u/user/profile", Integer.valueOf((int) CmdConfigHttp.PROFILE_HTTP_CMD));
-        HashMap<String, Integer> hashMap4 = f64853a;
+        HashMap<String, Integer> hashMap4 = f64854a;
         hashMap4.put(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP, 0);
-        HashMap<String, Integer> hashMap5 = f64853a;
+        HashMap<String, Integer> hashMap5 = f64854a;
         hashMap5.put(TbConfig.SERVER_ADDRESS + TbConfig.GET_FORUM_DETAIL, Integer.valueOf((int) CmdConfigHttp.MSG_FORUM_DETAIL_CMD));
-        HashMap<String, Integer> hashMap6 = f64853a;
+        HashMap<String, Integer> hashMap6 = f64854a;
         hashMap6.put(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS, 0);
-        HashMap<String, Integer> hashMap7 = f64853a;
+        HashMap<String, Integer> hashMap7 = f64854a;
         hashMap7.put(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS, Integer.valueOf((int) CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD));
-        HashMap<String, Integer> hashMap8 = f64853a;
+        HashMap<String, Integer> hashMap8 = f64854a;
         hashMap8.put(TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg", Integer.valueOf((int) CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
-        HashMap<String, Integer> hashMap9 = f64853a;
+        HashMap<String, Integer> hashMap9 = f64854a;
         hashMap9.put(TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD, 0);
-        HashMap<String, Integer> hashMap10 = f64853a;
+        HashMap<String, Integer> hashMap10 = f64854a;
         hashMap10.put(TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE, Integer.valueOf((int) CmdConfigHttp.SET_PRIVATE_CMD));
-        HashMap<String, Integer> hashMap11 = f64853a;
+        HashMap<String, Integer> hashMap11 = f64854a;
         hashMap11.put(TbConfig.SERVER_ADDRESS + "c/f/forum/like", Integer.valueOf((int) CmdConfigHttp.PIC_LIKE_BAR_CMD));
     }
 
     public static int a(String str) {
-        if (f64853a.containsKey(str)) {
-            return f64853a.get(str).intValue();
+        if (f64854a.containsKey(str)) {
+            return f64854a.get(str).intValue();
         }
         return 0;
     }

@@ -10,10 +10,10 @@ import java.lang.ref.WeakReference;
 public class g implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Handler> f56126a;
+    public WeakReference<Handler> f56127a;
 
     public g(Handler handler) {
-        this.f56126a = new WeakReference<>(handler);
+        this.f56127a = new WeakReference<>(handler);
     }
 
     @Override // android.hardware.SensorEventListener
@@ -39,8 +39,8 @@ public class g implements SensorEventListener {
             if (round < 0) {
                 round += 360;
             }
-            WeakReference<Handler> weakReference = this.f56126a;
-            if (weakReference == null || weakReference.get() == null || (obtainMessage = (handler = this.f56126a.get()).obtainMessage(1)) == null) {
+            WeakReference<Handler> weakReference = this.f56127a;
+            if (weakReference == null || weakReference.get() == null || (obtainMessage = (handler = this.f56127a.get()).obtainMessage(1)) == null) {
                 return;
             }
             obtainMessage.arg1 = round;

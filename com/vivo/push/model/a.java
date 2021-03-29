@@ -3,22 +3,22 @@ package com.vivo.push.model;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39481a;
+    public String f39482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39482b;
+    public String f39483b;
 
     public a(String str, String str2) {
-        this.f39481a = str;
-        this.f39482b = str2;
+        this.f39482a = str;
+        this.f39483b = str2;
     }
 
     public final String a() {
-        return this.f39481a;
+        return this.f39482a;
     }
 
     public final String b() {
-        return this.f39482b;
+        return this.f39483b;
     }
 
     public final boolean equals(Object obj) {
@@ -27,12 +27,12 @@ public final class a {
         }
         if (obj != null && a.class == obj.getClass()) {
             a aVar = (a) obj;
-            String str = this.f39481a;
+            String str = this.f39482a;
             if (str == null) {
-                if (aVar.f39481a != null) {
+                if (aVar.f39482a != null) {
                     return false;
                 }
-            } else if (!str.equals(aVar.f39481a)) {
+            } else if (!str.equals(aVar.f39482a)) {
                 return false;
             }
             return true;
@@ -41,11 +41,11 @@ public final class a {
     }
 
     public final int hashCode() {
-        String str = this.f39481a;
+        String str = this.f39482a;
         return (str == null ? 0 : str.hashCode()) + 31;
     }
 
     public final String toString() {
-        return "ConfigItem{mKey='" + this.f39481a + "', mValue='" + this.f39482b + "'}";
+        return "ConfigItem{mKey='" + this.f39482a + "', mValue='" + this.f39483b + "'}";
     }
 }

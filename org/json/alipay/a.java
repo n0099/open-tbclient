@@ -7,10 +7,10 @@ import java.util.Collection;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f68123a;
+    public ArrayList f68128a;
 
     public a() {
-        this.f68123a = new ArrayList();
+        this.f68128a = new ArrayList();
     }
 
     public a(Object obj) {
@@ -20,7 +20,7 @@ public class a {
         }
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.f68123a.add(Array.get(obj, i));
+            this.f68128a.add(Array.get(obj, i));
         }
     }
 
@@ -29,7 +29,7 @@ public class a {
     }
 
     public a(Collection collection) {
-        this.f68123a = collection == null ? new ArrayList() : new ArrayList(collection);
+        this.f68128a = collection == null ? new ArrayList() : new ArrayList(collection);
     }
 
     public a(c cVar) {
@@ -53,10 +53,10 @@ public class a {
             char c4 = cVar.c();
             cVar.a();
             if (c4 == ',') {
-                arrayList = this.f68123a;
+                arrayList = this.f68128a;
                 d2 = null;
             } else {
-                arrayList = this.f68123a;
+                arrayList = this.f68128a;
                 d2 = cVar.d();
             }
             arrayList.add(d2);
@@ -76,23 +76,23 @@ public class a {
     }
 
     private String a(String str) {
-        int size = this.f68123a.size();
+        int size = this.f68128a.size();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < size; i++) {
             if (i > 0) {
                 stringBuffer.append(str);
             }
-            stringBuffer.append(b.a(this.f68123a.get(i)));
+            stringBuffer.append(b.a(this.f68128a.get(i)));
         }
         return stringBuffer.toString();
     }
 
     public final int a() {
-        return this.f68123a.size();
+        return this.f68128a.size();
     }
 
     public final Object a(int i) {
-        Object obj = (i < 0 || i >= this.f68123a.size()) ? null : this.f68123a.get(i);
+        Object obj = (i < 0 || i >= this.f68128a.size()) ? null : this.f68128a.get(i);
         if (obj != null) {
             return obj;
         }

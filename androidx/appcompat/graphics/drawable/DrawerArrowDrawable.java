@@ -80,13 +80,9 @@ public class DrawerArrowDrawable extends Drawable {
         float lerp4 = lerp(z ? 0.0f : -180.0f, z ? 180.0f : 0.0f, this.mProgress);
         double d2 = lerp;
         double d3 = lerp3;
-        double cos = Math.cos(d3);
-        Double.isNaN(d2);
         boolean z2 = z;
-        float round2 = (float) Math.round(cos * d2);
-        double sin = Math.sin(d3);
-        Double.isNaN(d2);
-        float round3 = (float) Math.round(d2 * sin);
+        float round2 = (float) Math.round(Math.cos(d3) * d2);
+        float round3 = (float) Math.round(d2 * Math.sin(d3));
         this.mPath.rewind();
         float lerp5 = lerp(this.mBarGap + this.mPaint.getStrokeWidth(), -this.mMaxCutForBarSize, this.mProgress);
         float f4 = (-lerp2) / 2.0f;
@@ -199,10 +195,7 @@ public class DrawerArrowDrawable extends Drawable {
     public void setBarThickness(float f2) {
         if (this.mPaint.getStrokeWidth() != f2) {
             this.mPaint.setStrokeWidth(f2);
-            double d2 = f2 / 2.0f;
-            double cos = Math.cos(ARROW_HEAD_ANGLE);
-            Double.isNaN(d2);
-            this.mMaxCutForBarSize = (float) (d2 * cos);
+            this.mMaxCutForBarSize = (float) ((f2 / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
             invalidateSelf();
         }
     }

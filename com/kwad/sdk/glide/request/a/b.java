@@ -11,6 +11,6 @@ public class b extends e<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.request.a.e
     public void a(Bitmap bitmap) {
-        ((ImageView) ((k) this).f35782a).setImageBitmap(bitmap);
+        ((ImageView) ((k) this).f35783a).setImageBitmap(bitmap);
     }
 }

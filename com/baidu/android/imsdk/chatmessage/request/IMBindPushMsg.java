@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMBindPushMsg extends Message {
     public String mChannelId;
     public boolean mChannelIdIsEmpty;

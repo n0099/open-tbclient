@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class EglRenderer implements VideoSink {
     public static final long LOG_INTERVAL_SEC = 4;
     public static final String TAG = "EglRenderer";

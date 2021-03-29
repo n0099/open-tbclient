@@ -9,25 +9,25 @@ import java.io.IOException;
 public final class V extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public W f39819a;
+    public W f39820a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ File f39820b;
+    public final /* synthetic */ File f39821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f39821c;
+    public final /* synthetic */ Bitmap f39822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f39822d;
+    public final /* synthetic */ Bitmap.CompressFormat f39823d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ i f39823e;
+    public final /* synthetic */ i f39824e;
 
     public V(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, i iVar) {
-        this.f39820b = file;
-        this.f39821c = bitmap;
-        this.f39822d = compressFormat;
-        this.f39823e = iVar;
+        this.f39821b = file;
+        this.f39822c = bitmap;
+        this.f39823d = compressFormat;
+        this.f39824e = iVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:30:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -42,15 +42,15 @@ public final class V extends AsyncTask {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                fileOutputStream = new FileOutputStream(this.f39820b);
+                fileOutputStream = new FileOutputStream(this.f39821b);
                 try {
                     try {
-                        this.f39821c.compress(this.f39822d, 100, fileOutputStream);
+                        this.f39822c.compress(this.f39823d, 100, fileOutputStream);
                         fileOutputStream.flush();
                         fileOutputStream.close();
                     } catch (IOException e3) {
                         e2 = e3;
-                        this.f39819a = new W(e2);
+                        this.f39820a = new W(e2);
                         cancel(true);
                         if (fileOutputStream != null) {
                             fileOutputStream.flush();
@@ -89,12 +89,12 @@ public final class V extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public void onCancelled() {
-        this.f39823e.a();
+        this.f39824e.a();
     }
 
     @Override // android.os.AsyncTask
     public void onPostExecute(Object obj) {
         Void r1 = (Void) obj;
-        this.f39823e.b();
+        this.f39824e.b();
     }
 }

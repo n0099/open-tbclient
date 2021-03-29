@@ -8,21 +8,21 @@ import d.b.h0.r.q.a2;
 public class b extends BaseCardInfo implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f58521f = BdUniqueId.gen();
+    public static final BdUniqueId f58522f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f58522e;
+    public a2 f58523e;
 
     public a2 g() {
-        return this.f58522e;
+        return this.f58523e;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f58521f;
+        return f58522f;
     }
 
     public void j(a2 a2Var) {
-        this.f58522e = a2Var;
+        this.f58523e = a2Var;
     }
 }

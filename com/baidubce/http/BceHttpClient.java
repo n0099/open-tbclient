@@ -114,7 +114,7 @@ public class BceHttpClient {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:67:0x014b  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0186 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0185 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -182,25 +182,26 @@ public class BceHttpClient {
                     }
                     BLog.warn("Unable to execute HTTP request");
                     delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis < 0) {
-                        throw bceServiceException;
-                    }
-                    BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
-                    try {
-                        Thread.sleep(delayBeforeNextRetryInMillis);
-                        if (internalRequest.getContent() != null) {
-                            internalRequest.getContent().restart();
+                    if (delayBeforeNextRetryInMillis >= 0) {
+                        BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
+                        try {
+                            Thread.sleep(delayBeforeNextRetryInMillis);
+                            if (internalRequest.getContent() != null) {
+                                internalRequest.getContent().restart();
+                            }
+                            i++;
+                        } catch (InterruptedException e3) {
+                            throw new BceClientException("Delay interrupted", e3);
                         }
-                        i++;
-                    } catch (InterruptedException e3) {
-                        throw new BceClientException("Delay interrupted", e3);
+                    } else {
+                        throw bceServiceException;
                     }
                 } catch (BceClientException e4) {
                     e = e4;
                     bceServiceException = e;
                     BLog.warn("Unable to execute HTTP request");
                     delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis < 0) {
+                    if (delayBeforeNextRetryInMillis >= 0) {
                     }
                 } catch (Exception e5) {
                     e = e5;
@@ -211,7 +212,7 @@ public class BceHttpClient {
                     }
                     BLog.warn("Unable to execute HTTP request");
                     delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                    if (delayBeforeNextRetryInMillis < 0) {
+                    if (delayBeforeNextRetryInMillis >= 0) {
                     }
                 }
             } catch (BceServiceException e6) {

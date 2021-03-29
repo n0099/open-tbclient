@@ -63,13 +63,9 @@ public class c extends k {
         double d3 = 0.0d;
         for (int i = 5; i < length; i++) {
             if (i % 2 != 0) {
-                double optInt = jSONArray.optInt(i);
-                Double.isNaN(optInt);
-                d3 += optInt;
+                d3 += jSONArray.optInt(i);
             } else {
-                double optInt2 = jSONArray.optInt(i);
-                Double.isNaN(optInt2);
-                d2 += optInt2;
+                d2 += jSONArray.optInt(i);
                 arrayList.add(CoordUtil.mc2ll(new GeoPoint(d2, d3)));
             }
         }
@@ -116,9 +112,7 @@ public class c extends k {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(" - ");
                                 i3 = i;
-                                double d2 = distance;
-                                Double.isNaN(d2);
-                                sb.append(d2 / 1000.0d);
+                                sb.append(distance / 1000.0d);
                                 sb.append("公里");
                                 optString2 = sb.toString();
                             }

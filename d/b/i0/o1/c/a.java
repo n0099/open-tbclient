@@ -8,17 +8,17 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f57276a;
+    public List<String> f57277a;
 
     public void a(JSONArray jSONArray) {
-        this.f57276a = new ArrayList();
+        this.f57277a = new ArrayList();
         if (jSONArray == null || jSONArray.length() <= 0) {
             return;
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             String optString = jSONArray.optString(i);
             if (!StringUtils.isNull(optString)) {
-                this.f57276a.add(optString);
+                this.f57277a.add(optString);
             }
         }
     }

@@ -20,19 +20,19 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7242d;
+        public int f7243d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7243e;
+        public RouteNode f7244e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f7244f;
+        public RouteNode f7245f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7245g;
+        public String f7246g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7246h;
+        public String f7247h;
         public String i;
         public String j;
         public String k;
@@ -42,11 +42,11 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
 
         public BikingStep(Parcel parcel) {
             super(parcel);
-            this.f7242d = parcel.readInt();
-            this.f7243e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7244f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7245g = parcel.readString();
-            this.f7246h = parcel.readString();
+            this.f7243d = parcel.readInt();
+            this.f7244e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7245f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7246g = parcel.readString();
+            this.f7247h = parcel.readString();
             this.i = parcel.readString();
             this.j = parcel.readString();
             this.k = parcel.readString();
@@ -79,19 +79,19 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         public int getDirection() {
-            return this.f7242d;
+            return this.f7243d;
         }
 
         public RouteNode getEntrance() {
-            return this.f7243e;
+            return this.f7244e;
         }
 
         public String getEntranceInstructions() {
-            return this.f7246h;
+            return this.f7247h;
         }
 
         public RouteNode getExit() {
-            return this.f7244f;
+            return this.f7245f;
         }
 
         public String getExitInstructions() {
@@ -109,25 +109,25 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         @Override // com.baidu.mapapi.search.core.RouteStep
         public List<LatLng> getWayPoints() {
             if (this.mWayPoints == null) {
-                this.mWayPoints = a(this.f7245g);
+                this.mWayPoints = a(this.f7246g);
             }
             return this.mWayPoints;
         }
 
         public void setDirection(int i) {
-            this.f7242d = i;
+            this.f7243d = i;
         }
 
         public void setEntrance(RouteNode routeNode) {
-            this.f7243e = routeNode;
+            this.f7244e = routeNode;
         }
 
         public void setEntranceInstructions(String str) {
-            this.f7246h = str;
+            this.f7247h = str;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7244f = routeNode;
+            this.f7245f = routeNode;
         }
 
         public void setExitInstructions(String str) {
@@ -139,7 +139,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         public void setPathString(String str) {
-            this.f7245g = str;
+            this.f7246g = str;
         }
 
         public void setTurnType(String str) {
@@ -149,11 +149,11 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, 1);
-            parcel.writeInt(this.f7242d);
-            parcel.writeParcelable(this.f7243e, 1);
-            parcel.writeParcelable(this.f7244f, 1);
-            parcel.writeString(this.f7245g);
-            parcel.writeString(this.f7246h);
+            parcel.writeInt(this.f7243d);
+            parcel.writeParcelable(this.f7244e, 1);
+            parcel.writeParcelable(this.f7245f, 1);
+            parcel.writeString(this.f7246g);
+            parcel.writeString(this.f7247h);
             parcel.writeString(this.i);
             parcel.writeString(this.j);
             parcel.writeString(this.k);

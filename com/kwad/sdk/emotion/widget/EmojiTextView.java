@@ -10,19 +10,19 @@ import android.widget.TextView;
 public class EmojiTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f34689a;
+    public e f34690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f34690b;
+    public a f34691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34691c;
+    public boolean f34692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34692d;
+    public boolean f34693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34693e;
+    public boolean f34694e;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -31,54 +31,54 @@ public class EmojiTextView extends TextView {
 
     public EmojiTextView(Context context) {
         super(context);
-        this.f34691c = false;
-        this.f34692d = false;
-        this.f34693e = false;
+        this.f34692c = false;
+        this.f34693d = false;
+        this.f34694e = false;
         a();
     }
 
     public EmojiTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f34691c = false;
-        this.f34692d = false;
-        this.f34693e = false;
+        this.f34692c = false;
+        this.f34693d = false;
+        this.f34694e = false;
         a();
     }
 
     public EmojiTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f34691c = false;
-        this.f34692d = false;
-        this.f34693e = false;
+        this.f34692c = false;
+        this.f34693d = false;
+        this.f34694e = false;
         a();
     }
 
     private void a() {
-        this.f34689a = new d(this);
+        this.f34690a = new d(this);
         addTextChangedListener(new TextWatcher() { // from class: com.kwad.sdk.emotion.widget.EmojiTextView.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 EmojiTextView emojiTextView = EmojiTextView.this;
-                if (emojiTextView.f34689a == null) {
+                if (emojiTextView.f34690a == null) {
                     return;
                 }
-                if (emojiTextView.f34691c) {
-                    if (EmojiTextView.this.f34693e || TextUtils.isEmpty(EmojiTextView.this.getEditableText())) {
-                        if (EmojiTextView.this.f34692d) {
+                if (emojiTextView.f34692c) {
+                    if (EmojiTextView.this.f34694e || TextUtils.isEmpty(EmojiTextView.this.getEditableText())) {
+                        if (EmojiTextView.this.f34693d) {
                             return;
                         }
                         EmojiTextView emojiTextView2 = EmojiTextView.this;
-                        emojiTextView2.f34689a.a(emojiTextView2.getEditableText());
-                        if (EmojiTextView.this.f34691c) {
-                            EmojiTextView.this.f34692d = true;
+                        emojiTextView2.f34690a.a(emojiTextView2.getEditableText());
+                        if (EmojiTextView.this.f34692c) {
+                            EmojiTextView.this.f34693d = true;
                             return;
                         }
                         return;
                     }
-                    EmojiTextView.this.f34693e = true;
+                    EmojiTextView.this.f34694e = true;
                 }
                 EmojiTextView emojiTextView3 = EmojiTextView.this;
-                emojiTextView3.f34689a.a(emojiTextView3.getEditableText());
+                emojiTextView3.f34690a.a(emojiTextView3.getEditableText());
             }
 
             @Override // android.text.TextWatcher
@@ -92,7 +92,7 @@ public class EmojiTextView extends TextView {
         if (getText() == null || getText().length() <= 0) {
             return;
         }
-        this.f34689a.a(getEditableText());
+        this.f34690a.a(getEditableText());
     }
 
     @Override // android.widget.TextView
@@ -105,7 +105,7 @@ public class EmojiTextView extends TextView {
     }
 
     public e getKSTextDisplayHandler() {
-        return this.f34689a;
+        return this.f34690a;
     }
 
     @Override // android.widget.TextView
@@ -141,16 +141,16 @@ public class EmojiTextView extends TextView {
 
     @Override // android.view.View
     public void postInvalidate() {
-        this.f34692d = true;
+        this.f34693d = true;
         super.postInvalidate();
     }
 
     public void setKSTextDisplayHandler(e eVar) {
-        this.f34689a = eVar;
+        this.f34690a = eVar;
     }
 
     public void setOnPressedListener(a aVar) {
-        this.f34690b = aVar;
+        this.f34691b = aVar;
     }
 
     @Override // android.view.View
@@ -158,14 +158,14 @@ public class EmojiTextView extends TextView {
         a aVar;
         boolean isPressed = isPressed();
         super.setPressed(z);
-        if (!(isPressed ^ z) || (aVar = this.f34690b) == null) {
+        if (!(isPressed ^ z) || (aVar = this.f34691b) == null) {
             return;
         }
         aVar.a(this, z);
     }
 
     public void setPreventDeadCycleInvalidate(boolean z) {
-        this.f34691c = z;
+        this.f34692c = z;
     }
 
     @Override // android.widget.TextView

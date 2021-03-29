@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40120a = 2;
+    public static int f40121a = 2;
 
     /* renamed from: a  reason: collision with other field name */
     public static Context f20a = null;
@@ -28,7 +28,7 @@ public abstract class b {
     public static final HashMap<Integer, Long> f24a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f40121b = new HashMap<>();
+    public static final HashMap<Integer, String> f40122b = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
     public static final Integer f22a = -1;
@@ -40,33 +40,33 @@ public abstract class b {
     public static class a implements LoggerInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40122a = b.f23a;
+        public String f40123a = b.f23a;
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void log(String str) {
-            Log.v(this.f40122a, str);
+            Log.v(this.f40123a, str);
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void log(String str, Throwable th) {
-            Log.v(this.f40122a, str, th);
+            Log.v(this.f40123a, str, th);
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void setTag(String str) {
-            this.f40122a = str;
+            this.f40123a = str;
         }
     }
 
     public static int a() {
-        return f40120a;
+        return f40121a;
     }
 
     public static Integer a(String str) {
-        if (f40120a <= 1) {
+        if (f40121a <= 1) {
             Integer valueOf = Integer.valueOf(f25a.incrementAndGet());
             f24a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-            f40121b.put(valueOf, str);
+            f40122b.put(valueOf, str);
             LoggerInterface loggerInterface = f21a;
             loggerInterface.log(str + " starts");
             return valueOf;
@@ -87,23 +87,23 @@ public abstract class b {
         if (i < 0 || i > 5) {
             a(2, "set log level as " + i);
         }
-        f40120a = i;
+        f40121a = i;
     }
 
     public static void a(int i, String str) {
-        if (i >= f40120a) {
+        if (i >= f40121a) {
             f21a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
-        if (i >= f40120a) {
+        if (i >= f40121a) {
             f21a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
-        if (i >= f40120a) {
+        if (i >= f40121a) {
             f21a.log("", th);
         }
     }
@@ -120,12 +120,12 @@ public abstract class b {
     }
 
     public static void a(Integer num) {
-        if (f40120a > 1 || !f24a.containsKey(num)) {
+        if (f40121a > 1 || !f24a.containsKey(num)) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() - f24a.remove(num).longValue();
         LoggerInterface loggerInterface = f21a;
-        loggerInterface.log(f40121b.remove(num) + " ends in " + currentTimeMillis + " ms");
+        loggerInterface.log(f40122b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
     /* renamed from: a  reason: collision with other method in class */

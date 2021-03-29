@@ -3,7 +3,7 @@ package d.b.g0.a.s0.k.e;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class s extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
     @Override // d.b.g0.a.s0.a
     @NonNull

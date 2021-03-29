@@ -8,7 +8,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.GenericDraweeHierarchyInflater;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeView extends DraweeView<GenericDraweeHierarchy> {
     public GenericDraweeView(Context context, GenericDraweeHierarchy genericDraweeHierarchy) {
         super(context);

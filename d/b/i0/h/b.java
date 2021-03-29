@@ -22,33 +22,33 @@ import java.util.Map;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f55045b;
+    public TbPageContext f55046b;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f55048e;
+    public String[] f55049e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f55049f;
+    public LinearLayout f55050f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f55050g;
+    public CompoundButton.OnCheckedChangeListener f55051g;
     public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
     public int j;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f55044a = false;
+    public boolean f55045a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<String> f55046c = null;
+    public SparseArray<String> f55047c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<String> f55047d = null;
+    public SparseArray<String> f55048d = null;
     public boolean k = false;
     public boolean l = true;
     public int m = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f55051h = new a();
+    public CompoundButton.OnCheckedChangeListener f55052h = new a();
 
     /* loaded from: classes4.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
@@ -89,49 +89,49 @@ public class b {
                     }
                 }
             }
-            if (b.this.f55050g != null) {
-                b.this.f55050g.onCheckedChanged(compoundButton, z);
+            if (b.this.f55051g != null) {
+                b.this.f55051g.onCheckedChanged(compoundButton, z);
             }
         }
     }
 
     /* renamed from: d.b.i0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1258b {
+    public class C1259b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f55053a;
+        public int f55054a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55054b;
+        public int f55055b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f55055c;
+        public String f55056c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f55056d;
+        public String f55057d;
 
-        public C1258b(b bVar, int i, int i2, String str) {
-            this.f55054b = i2;
+        public C1259b(b bVar, int i, int i2, String str) {
+            this.f55055b = i2;
             if (str != null && str.contains("%")) {
                 String[] split = str.split("%");
-                this.f55055c = split[0];
+                this.f55056c = split[0];
                 if (split.length > 1) {
-                    this.f55056d = split[1];
+                    this.f55057d = split[1];
                 }
             } else {
-                this.f55055c = str;
+                this.f55056c = str;
             }
-            this.f55053a = i;
+            this.f55054a = i;
         }
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f55045b = tbPageContext;
+        this.f55046b = tbPageContext;
         this.j = l.g(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
     }
 
-    public final View e(List<C1258b> list, boolean z, View view) {
+    public final View e(List<C1259b> list, boolean z, View view) {
         LinearLayout linearLayout;
         if (ListUtils.isEmpty(list)) {
             return null;
@@ -139,7 +139,7 @@ public class b {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.f55045b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f55049f, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.f55046b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f55050f, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
@@ -149,27 +149,27 @@ public class b {
         nEGFeedBackReasonCheckBox2.setChecked(false);
         this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
         this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-        C1258b c1258b = list.get(0);
-        if (c1258b != null) {
-            nEGFeedBackReasonCheckBox.setText(c1258b.f55055c);
-            nEGFeedBackReasonCheckBox.setTag(c1258b);
-            if (c1258b.f55053a == this.m) {
+        C1259b c1259b = list.get(0);
+        if (c1259b != null) {
+            nEGFeedBackReasonCheckBox.setText(c1259b.f55056c);
+            nEGFeedBackReasonCheckBox.setTag(c1259b);
+            if (c1259b.f55054a == this.m) {
                 nEGFeedBackReasonCheckBox.setEnabled(false);
             }
         }
         if (list.size() > 1 && list.get(1) != null) {
-            C1258b c1258b2 = list.get(1);
-            nEGFeedBackReasonCheckBox2.setText(c1258b2.f55055c);
+            C1259b c1259b2 = list.get(1);
+            nEGFeedBackReasonCheckBox2.setText(c1259b2.f55056c);
             nEGFeedBackReasonCheckBox2.setVisibility(0);
-            nEGFeedBackReasonCheckBox2.setTag(c1258b2);
-            if (c1258b2.f55053a == this.m) {
+            nEGFeedBackReasonCheckBox2.setTag(c1259b2);
+            if (c1259b2.f55054a == this.m) {
                 nEGFeedBackReasonCheckBox2.setEnabled(false);
             }
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(4);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f55051h);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f55051h);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f55052h);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f55052h);
         int i = z ? 0 : this.j;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
@@ -177,7 +177,7 @@ public class b {
         return linearLayout;
     }
 
-    public final View f(List<C1258b> list, boolean z, View view) {
+    public final View f(List<C1259b> list, boolean z, View view) {
         LinearLayout linearLayout;
         if (ListUtils.isEmpty(list)) {
             return null;
@@ -185,7 +185,7 @@ public class b {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.f55045b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f55049f, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.f55046b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f55050f, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
@@ -195,21 +195,21 @@ public class b {
         nEGFeedBackReasonCheckBox2.setChecked(false);
         this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
         this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-        C1258b c1258b = list.get(0);
-        if (c1258b != null) {
-            nEGFeedBackReasonCheckBox.setText(c1258b.f55055c);
-            nEGFeedBackReasonCheckBox.setTag(c1258b);
+        C1259b c1259b = list.get(0);
+        if (c1259b != null) {
+            nEGFeedBackReasonCheckBox.setText(c1259b.f55056c);
+            nEGFeedBackReasonCheckBox.setTag(c1259b);
         }
         if (list.size() > 1 && list.get(1) != null) {
-            C1258b c1258b2 = list.get(1);
-            nEGFeedBackReasonCheckBox2.setText(c1258b2.f55055c);
+            C1259b c1259b2 = list.get(1);
+            nEGFeedBackReasonCheckBox2.setText(c1259b2.f55056c);
             nEGFeedBackReasonCheckBox2.setVisibility(0);
-            nEGFeedBackReasonCheckBox2.setTag(c1258b2);
+            nEGFeedBackReasonCheckBox2.setTag(c1259b2);
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(8);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f55051h);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f55051h);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f55052h);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f55052h);
         int i = z ? 0 : this.j;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
@@ -218,12 +218,12 @@ public class b {
     }
 
     public View g() {
-        if (this.f55049f == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f55045b.getPageActivity());
-            this.f55049f = linearLayout;
+        if (this.f55050f == null) {
+            LinearLayout linearLayout = new LinearLayout(this.f55046b.getPageActivity());
+            this.f55050f = linearLayout;
             linearLayout.setOrientation(1);
         }
-        List<List<C1258b>> p = p();
+        List<List<C1259b>> p = p();
         if (ListUtils.isEmpty(p)) {
             return null;
         }
@@ -236,26 +236,26 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View e2 = e(p.get(i), i == size + (-1), this.f55049f.getChildAt(i));
+            View e2 = e(p.get(i), i == size + (-1), this.f55050f.getChildAt(i));
             if (e2 != null && e2.getParent() == null) {
-                this.f55049f.addView(e2);
+                this.f55050f.addView(e2);
             }
             i++;
         }
-        if (this.f55049f.getChildCount() > size) {
-            LinearLayout linearLayout2 = this.f55049f;
+        if (this.f55050f.getChildCount() > size) {
+            LinearLayout linearLayout2 = this.f55050f;
             linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
         }
-        return this.f55049f;
+        return this.f55050f;
     }
 
     public View h() {
-        if (this.f55049f == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f55045b.getPageActivity());
-            this.f55049f = linearLayout;
+        if (this.f55050f == null) {
+            LinearLayout linearLayout = new LinearLayout(this.f55046b.getPageActivity());
+            this.f55050f = linearLayout;
             linearLayout.setOrientation(1);
         }
-        List<List<C1258b>> s = s();
+        List<List<C1259b>> s = s();
         if (ListUtils.isEmpty(s)) {
             return null;
         }
@@ -268,17 +268,17 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View f2 = f(s.get(i), i == size + (-1), this.f55049f.getChildAt(i));
+            View f2 = f(s.get(i), i == size + (-1), this.f55050f.getChildAt(i));
             if (f2 != null && f2.getParent() == null) {
-                this.f55049f.addView(f2);
+                this.f55050f.addView(f2);
             }
             i++;
         }
-        if (this.f55049f.getChildCount() > size) {
-            LinearLayout linearLayout2 = this.f55049f;
+        if (this.f55050f.getChildCount() > size) {
+            LinearLayout linearLayout2 = this.f55050f;
             linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
         }
-        return this.f55049f;
+        return this.f55050f;
     }
 
     public void i(boolean z) {
@@ -289,12 +289,12 @@ public class b {
         if (v0Var == null) {
             return;
         }
-        this.f55046c = v0Var.b();
-        this.f55047d = v0Var.f50906g;
+        this.f55047c = v0Var.b();
+        this.f55048d = v0Var.f50907g;
     }
 
     public void k(String[] strArr) {
-        this.f55048e = strArr;
+        this.f55049e = strArr;
     }
 
     public void l(int i) {
@@ -302,7 +302,7 @@ public class b {
     }
 
     public void m(boolean z) {
-        this.f55044a = z;
+        this.f55045a = z;
     }
 
     public void n(boolean z) {
@@ -310,32 +310,32 @@ public class b {
     }
 
     public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.f55050g = onCheckedChangeListener;
+        this.f55051g = onCheckedChangeListener;
     }
 
-    public final List<List<C1258b>> p() {
-        SparseArray<String> sparseArray = this.f55046c;
+    public final List<List<C1259b>> p() {
+        SparseArray<String> sparseArray = this.f55047c;
         if (sparseArray != null && sparseArray.size() != 0) {
-            int size = this.f55046c.size();
+            int size = this.f55047c.size();
             ArrayList arrayList = new ArrayList();
             int i = 0;
             while (i < size) {
                 int i2 = i + 1;
                 int i3 = i + 2;
                 ArrayList arrayList2 = new ArrayList();
-                C1258b c1258b = new C1258b(this, i, this.f55046c.keyAt(i), this.f55046c.valueAt(i));
-                SparseArray<String> sparseArray2 = this.f55047d;
-                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f55046c.keyAt(i)))) {
-                    c1258b.f55056d = this.f55047d.get(this.f55046c.keyAt(i));
+                C1259b c1259b = new C1259b(this, i, this.f55047c.keyAt(i), this.f55047c.valueAt(i));
+                SparseArray<String> sparseArray2 = this.f55048d;
+                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f55047c.keyAt(i)))) {
+                    c1259b.f55057d = this.f55048d.get(this.f55047c.keyAt(i));
                 }
-                arrayList2.add(c1258b);
+                arrayList2.add(c1259b);
                 if (i2 > i && i2 < size) {
-                    C1258b c1258b2 = new C1258b(this, i2, this.f55046c.keyAt(i2), this.f55046c.valueAt(i2));
-                    SparseArray<String> sparseArray3 = this.f55047d;
-                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f55046c.keyAt(i)))) {
-                        c1258b2.f55056d = this.f55047d.get(this.f55046c.keyAt(i2));
+                    C1259b c1259b2 = new C1259b(this, i2, this.f55047c.keyAt(i2), this.f55047c.valueAt(i2));
+                    SparseArray<String> sparseArray3 = this.f55048d;
+                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f55047c.keyAt(i)))) {
+                        c1259b2.f55057d = this.f55048d.get(this.f55047c.keyAt(i2));
                     }
-                    arrayList2.add(c1258b2);
+                    arrayList2.add(c1259b2);
                 }
                 arrayList.add(arrayList2);
                 i = i3;
@@ -345,21 +345,21 @@ public class b {
         return q();
     }
 
-    public final List<List<C1258b>> q() {
-        String[] strArr = this.f55048e;
+    public final List<List<C1259b>> q() {
+        String[] strArr = this.f55049e;
         if (strArr == null || strArr.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.f55048e.length; i += 2) {
+        for (int i = 0; i < this.f55049e.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.f55048e[i])) {
-                arrayList2.add(new C1258b(this, i, i + 1, this.f55048e[i]));
+            if (!StringUtils.isNull(this.f55049e[i])) {
+                arrayList2.add(new C1259b(this, i, i + 1, this.f55049e[i]));
             }
             int i2 = i + 1;
-            String[] strArr2 = this.f55048e;
+            String[] strArr2 = this.f55049e;
             if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                arrayList2.add(new C1258b(this, i2, i + 2, this.f55048e[i2]));
+                arrayList2.add(new C1259b(this, i2, i + 2, this.f55049e[i2]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -368,21 +368,21 @@ public class b {
         return arrayList;
     }
 
-    public final List<List<C1258b>> r() {
-        String[] strArr = this.f55048e;
+    public final List<List<C1259b>> r() {
+        String[] strArr = this.f55049e;
         if (strArr == null || strArr.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.f55048e.length; i += 2) {
+        for (int i = 0; i < this.f55049e.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.f55048e[i])) {
-                arrayList2.add(new C1258b(this, i, 0, this.f55048e[i]));
+            if (!StringUtils.isNull(this.f55049e[i])) {
+                arrayList2.add(new C1259b(this, i, 0, this.f55049e[i]));
             }
             int i2 = i + 1;
-            String[] strArr2 = this.f55048e;
+            String[] strArr2 = this.f55049e;
             if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                arrayList2.add(new C1258b(this, i2, 0, this.f55048e[i2]));
+                arrayList2.add(new C1259b(this, i2, 0, this.f55049e[i2]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -391,16 +391,16 @@ public class b {
         return arrayList;
     }
 
-    public final List<List<C1258b>> s() {
+    public final List<List<C1259b>> s() {
         int i;
         int i2;
-        SparseArray<String> sparseArray = this.f55046c;
+        SparseArray<String> sparseArray = this.f55047c;
         if (sparseArray != null && sparseArray.size() != 0) {
-            int size = this.f55046c.size();
+            int size = this.f55047c.size();
             int i3 = 0;
             int i4 = -1;
-            int i5 = this.f55044a ? 0 : -1;
-            int i6 = this.f55044a ? size - 1 : size;
+            int i5 = this.f55045a ? 0 : -1;
+            int i6 = this.f55045a ? size - 1 : size;
             if (i6 > 1 && i6 % 2 == 1) {
                 i4 = i5 + 1;
             }
@@ -414,19 +414,19 @@ public class b {
                     i = i3 + 2;
                 }
                 ArrayList arrayList2 = new ArrayList();
-                C1258b c1258b = new C1258b(this, i3, this.f55046c.keyAt(i3), this.f55046c.valueAt(i3));
-                SparseArray<String> sparseArray2 = this.f55047d;
-                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f55046c.keyAt(i3)))) {
-                    c1258b.f55056d = this.f55047d.get(this.f55046c.keyAt(i3));
+                C1259b c1259b = new C1259b(this, i3, this.f55047c.keyAt(i3), this.f55047c.valueAt(i3));
+                SparseArray<String> sparseArray2 = this.f55048d;
+                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f55047c.keyAt(i3)))) {
+                    c1259b.f55057d = this.f55048d.get(this.f55047c.keyAt(i3));
                 }
-                arrayList2.add(c1258b);
+                arrayList2.add(c1259b);
                 if (i2 > i3 && i2 < size) {
-                    C1258b c1258b2 = new C1258b(this, i2, this.f55046c.keyAt(i2), this.f55046c.valueAt(i2));
-                    SparseArray<String> sparseArray3 = this.f55047d;
-                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f55046c.keyAt(i3)))) {
-                        c1258b2.f55056d = this.f55047d.get(this.f55046c.keyAt(i2));
+                    C1259b c1259b2 = new C1259b(this, i2, this.f55047c.keyAt(i2), this.f55047c.valueAt(i2));
+                    SparseArray<String> sparseArray3 = this.f55048d;
+                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f55047c.keyAt(i3)))) {
+                        c1259b2.f55057d = this.f55048d.get(this.f55047c.keyAt(i2));
                     }
-                    arrayList2.add(c1258b2);
+                    arrayList2.add(c1259b2);
                 }
                 arrayList.add(arrayList2);
                 i3 = i;

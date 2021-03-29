@@ -3,15 +3,15 @@ package d.b.i0.s.b.m;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f60115a;
+    public static volatile d f60116a;
 
     public static synchronized d a() {
         d dVar;
         synchronized (e.class) {
-            if (f60115a == null) {
-                f60115a = new d();
+            if (f60116a == null) {
+                f60116a = new d();
             }
-            dVar = f60115a;
+            dVar = f60116a;
         }
         return dVar;
     }

@@ -60,7 +60,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     g.this.p.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 0, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -69,24 +69,24 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f52519a;
+        public final /* synthetic */ ViewGroup f52520a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f52520b;
+        public final /* synthetic */ View f52521b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f52521c;
+        public final /* synthetic */ int f52522c;
 
         public c(g gVar, ViewGroup viewGroup, View view, int i) {
-            this.f52519a = viewGroup;
-            this.f52520b = view;
-            this.f52521c = i;
+            this.f52520a = viewGroup;
+            this.f52521b = view;
+            this.f52522c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f52519a, this.f52520b, this.f52521c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f52520a, this.f52521b, this.f52522c));
             }
         }
     }
@@ -104,8 +104,8 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         k0.b bVar = new k0.b(this.n.getPageActivity(), false);
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 5;
-        eVar.f50768h = 5;
+        eVar.f50763b = 5;
+        eVar.f50769h = 5;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(2);
@@ -124,7 +124,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

@@ -328,7 +328,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.b.i0.e.e.b, V
     @Override // d.b.i0.p0.m0
     public boolean isInScoreTab() {
         FrsTabController frsTabController = this.mTabController;
-        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().z2() == null || this.mTabController.M().z2().y() == null || this.mTabController.M().z2().y().f16655d != 16) ? false : true;
+        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().z2() == null || this.mTabController.M().z2().y() == null || this.mTabController.M().z2().y().f16656d != 16) ? false : true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

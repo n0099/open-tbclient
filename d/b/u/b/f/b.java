@@ -5,25 +5,25 @@ import java.nio.FloatBuffer;
 public class b extends a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final float[] f64702g;
+    public static final float[] f64703g;
     public static final FloatBuffer i;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float[] f64703h = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    public static final FloatBuffer j = d.b.u.b.h.a.b(f64703h);
+    public static final float[] f64704h = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+    public static final FloatBuffer j = d.b.u.b.h.a.b(f64704h);
 
     static {
         float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        f64702g = fArr;
+        f64703g = fArr;
         i = d.b.u.b.h.a.b(fArr);
     }
 
     public b() {
-        this.f64696a = i;
-        this.f64697b = j;
-        this.f64699d = 2;
-        this.f64700e = 2 * 4;
-        this.f64698c = f64702g.length / 2;
-        this.f64701f = 8;
+        this.f64697a = i;
+        this.f64698b = j;
+        this.f64700d = 2;
+        this.f64701e = 2 * 4;
+        this.f64699c = f64703g.length / 2;
+        this.f64702f = 8;
     }
 }

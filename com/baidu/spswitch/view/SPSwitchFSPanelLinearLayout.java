@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.spswitch.IPanelHeightTarget;
 import com.baidu.spswitch.handler.SPSwitchFSPanelLayoutHandler;
 import com.baidu.spswitch.utils.ViewUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements IPanelHeightTarget {
     public SPSwitchFSPanelLayoutHandler mPanelHandler;
 

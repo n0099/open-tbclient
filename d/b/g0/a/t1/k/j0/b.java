@@ -8,10 +8,10 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a(b bVar) {
         }
@@ -28,7 +28,7 @@ public class b extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("HideToastAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (eVar == null) {

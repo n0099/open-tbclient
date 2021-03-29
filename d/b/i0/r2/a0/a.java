@@ -13,47 +13,47 @@ import d.b.h0.r.d0.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AppPosInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f59746f;
+    public static a f59747f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59747a;
+    public String f59748a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59748b;
+    public String f59749b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f59749c;
+    public long f59750c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59750d;
+    public String f59751d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59751e = b.i().o("asp_shown_info", "");
+    public String f59752e = b.i().o("asp_shown_info", "");
 
     public static a e() {
-        if (f59746f == null) {
+        if (f59747f == null) {
             synchronized (d.b.i0.c3.m0.b.class) {
-                if (f59746f == null) {
-                    f59746f = new a();
+                if (f59747f == null) {
+                    f59747f = new a();
                 }
             }
         }
-        return f59746f;
+        return f59747f;
     }
 
     public AppPosInfo a() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
         builder.ap_mac = d();
         builder.ap_connected = Boolean.valueOf(j.H());
-        builder.latitude = this.f59748b;
-        builder.longitude = this.f59747a;
-        builder.addr_timestamp = Long.valueOf(this.f59749c);
+        builder.latitude = this.f59749b;
+        builder.longitude = this.f59748a;
+        builder.addr_timestamp = Long.valueOf(this.f59750c);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.f59751e;
+        builder.asp_shown_info = this.f59752e;
         MercatorModel.MercatorData e2 = MercatorModel.d().e();
         if (e2 != null) {
             builder.mercator_lat = e2.t();
@@ -92,10 +92,10 @@ public class a {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
         builder.ap_mac = d();
         builder.ap_connected = Boolean.valueOf(j.H());
-        String str = this.f59748b;
+        String str = this.f59749b;
         builder.latitude = str;
-        builder.longitude = this.f59747a;
-        if (k.isEmpty(str) || k.isEmpty(this.f59747a)) {
+        builder.longitude = this.f59748a;
+        if (k.isEmpty(str) || k.isEmpty(this.f59748a)) {
             String o = b.i().o("key_last_receive_location_latitude_and_longitude", "");
             if (!k.isEmpty(o)) {
                 String[] split = o.split(",");
@@ -105,9 +105,9 @@ public class a {
                 }
             }
         }
-        builder.addr_timestamp = Long.valueOf(this.f59749c);
+        builder.addr_timestamp = Long.valueOf(this.f59750c);
         builder.coordinate_type = "BD09LL";
-        builder.asp_shown_info = this.f59751e;
+        builder.asp_shown_info = this.f59752e;
         MercatorModel.MercatorData e2 = MercatorModel.d().e();
         if (e2 != null) {
             builder.mercator_lat = e2.t();
@@ -120,10 +120,10 @@ public class a {
     }
 
     public final String d() {
-        if (TextUtils.isEmpty(this.f59750d)) {
+        if (TextUtils.isEmpty(this.f59751d)) {
             f();
         }
-        return this.f59750d;
+        return this.f59751d;
     }
 
     public void f() {
@@ -132,9 +132,9 @@ public class a {
             try {
                 WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    this.f59750d = connectionInfo.getBSSID();
+                    this.f59751d = connectionInfo.getBSSID();
                 } else {
-                    this.f59750d = "";
+                    this.f59751d = "";
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -143,22 +143,22 @@ public class a {
     }
 
     public void g() {
-        b.i().w("asp_shown_info", this.f59751e);
+        b.i().w("asp_shown_info", this.f59752e);
     }
 
     public void h(String str) {
-        this.f59751e = str;
+        this.f59752e = str;
     }
 
     public void i(String str) {
-        this.f59748b = str;
+        this.f59749b = str;
     }
 
     public void j(String str) {
-        this.f59747a = str;
+        this.f59748a = str;
     }
 
     public void k(long j) {
-        this.f59749c = j;
+        this.f59750c = j;
     }
 }

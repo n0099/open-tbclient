@@ -6,16 +6,16 @@ import tbclient.BawuRoleInfoPub;
 public class b implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<BawuRoleInfoPub> f56977a = new ArrayList<>();
+    public ArrayList<BawuRoleInfoPub> f56978a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56978b = false;
+    public boolean f56979b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56979c = false;
+    public boolean f56980c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56980d;
+    public String f56981d;
 
     @Override // d.b.i0.n0.a.i
     public int a() {
@@ -23,34 +23,34 @@ public class b implements i {
     }
 
     public boolean b() {
-        return this.f56979c;
+        return this.f56980c;
     }
 
     public ArrayList<BawuRoleInfoPub> c() {
-        return this.f56977a;
+        return this.f56978a;
     }
 
     public String d() {
-        return this.f56980d;
+        return this.f56981d;
     }
 
     public boolean e() {
-        return this.f56978b;
+        return this.f56979b;
     }
 
     public void f(boolean z) {
-        this.f56979c = z;
+        this.f56980c = z;
     }
 
     public void g(boolean z) {
-        this.f56978b = z;
+        this.f56979b = z;
     }
 
     public void h(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.f56977a = arrayList;
+        this.f56978a = arrayList;
     }
 
     public void i(String str) {
-        this.f56980d = str;
+        this.f56981d = str;
     }
 }

@@ -17,16 +17,16 @@ import java.util.Random;
 public class AudioAnimationView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22017e;
+    public int f22018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f22018f;
+    public Paint f22019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Random f22019g;
+    public Random f22020g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22020h;
+    public int f22021h;
     public int i;
     public boolean j;
     public boolean k;
@@ -51,9 +51,9 @@ public class AudioAnimationView extends View {
 
     public AudioAnimationView(Context context) {
         super(context);
-        this.f22017e = 3;
-        this.f22019g = new Random();
-        this.f22020h = 0;
+        this.f22018e = 3;
+        this.f22020g = new Random();
+        this.f22021h = 0;
         this.i = 8;
         this.j = false;
         this.k = true;
@@ -78,11 +78,11 @@ public class AudioAnimationView extends View {
 
     public final void c() {
         Paint paint = new Paint();
-        this.f22018f = paint;
+        this.f22019f = paint;
         paint.setDither(true);
-        this.f22018f.setAntiAlias(true);
-        this.f22018f.setStyle(Paint.Style.FILL);
-        this.f22018f.setColor(SkinManager.getColor(this.q));
+        this.f22019f.setAntiAlias(true);
+        this.f22019f.setStyle(Paint.Style.FILL);
+        this.f22019f.setColor(SkinManager.getColor(this.q));
     }
 
     public final void d() {
@@ -94,15 +94,10 @@ public class AudioAnimationView extends View {
         for (int i = 0; i < this.i; i++) {
             int i2 = this.p * i * 2;
             if (this.k) {
-                double d2 = this.o[i % 22];
-                Double.isNaN(d2);
-                double d3 = 1.0d - (d2 / 10.0d);
-                double d4 = this.m;
-                Double.isNaN(d4);
-                nextInt = (int) (d3 * d4);
+                nextInt = (int) ((1.0d - (this.o[i % 22] / 10.0d)) * this.m);
             } else {
                 int i3 = this.m;
-                nextInt = i3 > 0 ? this.f22019g.nextInt(i3) : 0;
+                nextInt = i3 > 0 ? this.f22020g.nextInt(i3) : 0;
             }
             int i4 = this.p + i2;
             int i5 = this.m;
@@ -117,12 +112,12 @@ public class AudioAnimationView extends View {
 
     public void e(int i) {
         Paint paint;
-        if (i == this.f22017e || (paint = this.f22018f) == null) {
+        if (i == this.f22018e || (paint = this.f22019f) == null) {
             return;
         }
         paint.setColor(SkinManager.getColor(this.q));
         invalidate();
-        this.f22017e = i;
+        this.f22018e = i;
     }
 
     public void f() {
@@ -152,7 +147,7 @@ public class AudioAnimationView extends View {
                 if (i < this.n.length) {
                     canvas.save();
                     canvas.translate(0.0f, -(this.n[i].top / 2.0f));
-                    canvas.drawRoundRect(this.n[i], 10.0f, 10.0f, this.f22018f);
+                    canvas.drawRoundRect(this.n[i], 10.0f, 10.0f, this.f22019f);
                     canvas.restore();
                 }
             }
@@ -162,10 +157,10 @@ public class AudioAnimationView extends View {
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     public void onMeasure(int i, int i2) {
-        if (this.f22020h > 0) {
+        if (this.f22021h > 0) {
             int mode = View.MeasureSpec.getMode(i);
             int i3 = this.p;
-            int i4 = this.f22020h;
+            int i4 = this.f22021h;
             int i5 = i3 * ((i4 * 2) - 1);
             this.l = i5;
             this.i = i4;
@@ -175,19 +170,19 @@ public class AudioAnimationView extends View {
         this.m = getMeasuredHeight();
         int measuredWidth = getMeasuredWidth();
         this.l = measuredWidth;
-        if (this.f22020h <= 0) {
+        if (this.f22021h <= 0) {
             this.i = (measuredWidth / this.p) / 2;
         }
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.f22020h = i;
+            this.f22021h = i;
         }
     }
 
     public void setColumnColor(int i) {
-        Paint paint = this.f22018f;
+        Paint paint = this.f22019f;
         if (paint != null) {
             paint.setColor(SkinManager.getColor(i));
         }
@@ -203,9 +198,9 @@ public class AudioAnimationView extends View {
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22017e = 3;
-        this.f22019g = new Random();
-        this.f22020h = 0;
+        this.f22018e = 3;
+        this.f22020g = new Random();
+        this.f22021h = 0;
         this.i = 8;
         this.j = false;
         this.k = true;

@@ -6,10 +6,10 @@ import java.lang.Thread;
 public class g implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f8245a;
+    public final /* synthetic */ f f8246a;
 
     public g(f fVar) {
-        this.f8245a = fVar;
+        this.f8246a = fVar;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler

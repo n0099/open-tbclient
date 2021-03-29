@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f61762a;
+    public ArrayList<String> f61763a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61763b;
+    public String f61764b;
 
     public final void a(Spannable spannable) {
         Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
@@ -54,7 +54,7 @@ public class c {
     }
 
     public ArrayList<String> d() {
-        return this.f61762a;
+        return this.f61763a;
     }
 
     public int e(Spanned spanned) {
@@ -67,7 +67,7 @@ public class c {
     }
 
     public String f() {
-        return this.f61763b;
+        return this.f61764b;
     }
 
     public boolean g(Spannable spannable) {
@@ -106,14 +106,14 @@ public class c {
     }
 
     public final void k(Spannable spannable) {
-        if (spannable == null || ListUtils.isEmpty(this.f61762a)) {
+        if (spannable == null || ListUtils.isEmpty(this.f61763a)) {
             return;
         }
         String obj = spannable.toString();
         if (TextUtils.isEmpty(obj)) {
             return;
         }
-        Iterator<String> it = this.f61762a.iterator();
+        Iterator<String> it = this.f61763a.iterator();
         while (it.hasNext()) {
             l(spannable, obj, it.next());
         }
@@ -142,10 +142,10 @@ public class c {
     }
 
     public void n(ArrayList<String> arrayList) {
-        this.f61762a = arrayList;
+        this.f61763a = arrayList;
     }
 
     public void o(String str) {
-        this.f61763b = str;
+        this.f61764b = str;
     }
 }

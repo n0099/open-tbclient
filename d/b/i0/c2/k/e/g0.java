@@ -13,11 +13,11 @@ public class g0 extends PostData {
 
     public boolean A0() {
         c1 c1Var = this.w0;
-        if (c1Var == null || StringUtils.isNull(c1Var.f50735b)) {
+        if (c1Var == null || StringUtils.isNull(c1Var.f50736b)) {
             c1 c1Var2 = this.x0;
-            if (c1Var2 == null || StringUtils.isNull(c1Var2.f50735b)) {
+            if (c1Var2 == null || StringUtils.isNull(c1Var2.f50736b)) {
                 c1 c1Var3 = this.y0;
-                return (c1Var3 == null || StringUtils.isNull(c1Var3.f50735b)) ? false : true;
+                return (c1Var3 == null || StringUtils.isNull(c1Var3.f50736b)) ? false : true;
             }
             return true;
         }

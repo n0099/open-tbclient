@@ -18,25 +18,25 @@ import java.util.List;
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Presenter f32259a;
+    public Presenter f32260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f32260b;
+    public c f32261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f32261c;
+    public LinearLayout f32262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f32262d;
+    public Button f32263d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f32263e;
+    public List<a> f32264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.photo.f.c f32264f;
+    public com.kwad.sdk.contentalliance.detail.photo.f.c f32265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32265g;
+    public int f32266g;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -47,10 +47,10 @@ public class b extends LinearLayout {
 
     public b(Context context) {
         super(context);
-        this.f32261c = null;
-        this.f32262d = null;
-        this.f32263e = new ArrayList();
-        this.f32264f = new com.kwad.sdk.contentalliance.detail.photo.f.c() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.1
+        this.f32262c = null;
+        this.f32263d = null;
+        this.f32264e = new ArrayList();
+        this.f32265f = new com.kwad.sdk.contentalliance.detail.photo.f.c() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.1
             @Override // com.kwad.sdk.contentalliance.detail.photo.f.c
             public void a(com.kwad.sdk.contentalliance.detail.photo.f.d dVar) {
                 b.this.c();
@@ -61,22 +61,22 @@ public class b extends LinearLayout {
 
     private c b(@NonNull d dVar) {
         c cVar = new c();
-        cVar.f32271a = dVar;
-        cVar.f32272b = this.f32264f;
+        cVar.f32272a = dVar;
+        cVar.f32273b = this.f32265f;
         return cVar;
     }
 
     private void b() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_bottom_panel_2, (ViewGroup) this, true);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ksad_photo_bottom_panel_buttons_layout);
-        this.f32261c = linearLayout;
+        this.f32262c = linearLayout;
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
         Button button = (Button) findViewById(R.id.ksad_photo_bottom_panel_cancel_button);
-        this.f32262d = button;
+        this.f32263d = button;
         button.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -97,18 +97,18 @@ public class b extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.c(b.this);
-                if (b.this.f32265g > 10) {
+                if (b.this.f32266g > 10) {
                     i.a(b.this.getContext(), "ksad_debug_deviceId_and_gid", "did:" + ah.m() + "——————egid:" + com.kwad.sdk.core.b.e.a());
                     p.a(b.this.getContext(), "hello");
-                    b.this.f32265g = 0;
+                    b.this.f32266g = 0;
                 }
             }
         });
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i = bVar.f32265g;
-        bVar.f32265g = i + 1;
+        int i = bVar.f32266g;
+        bVar.f32266g = i + 1;
         return i;
     }
 
@@ -120,38 +120,38 @@ public class b extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        for (a aVar : this.f32263e) {
+        for (a aVar : this.f32264e) {
             aVar.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        this.f32265g = 0;
-        for (a aVar : this.f32263e) {
+        this.f32266g = 0;
+        for (a aVar : this.f32264e) {
             aVar.b();
         }
     }
 
     public void a() {
-        this.f32259a.j();
+        this.f32260a.j();
     }
 
     public void a(@NonNull a aVar) {
-        this.f32263e.add(aVar);
+        this.f32264e.add(aVar);
     }
 
     public void a(@NonNull d dVar) {
-        this.f32260b = b(dVar);
-        if (this.f32259a == null) {
+        this.f32261b = b(dVar);
+        if (this.f32260a == null) {
             Presenter c2 = c(dVar);
-            this.f32259a = c2;
-            c2.a((View) this.f32261c);
+            this.f32260a = c2;
+            c2.a((View) this.f32262c);
         }
-        this.f32259a.a(this.f32260b);
+        this.f32260a.a(this.f32261b);
     }
 
     public void b(@NonNull a aVar) {
-        this.f32263e.remove(aVar);
+        this.f32264e.remove(aVar);
     }
 }

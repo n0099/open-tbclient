@@ -10,21 +10,21 @@ import com.kwad.sdk.utils.s;
 public class KsAdContainer extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public s.a f34238a;
+    public s.a f34239a;
 
     public KsAdContainer(Context context) {
         super(context);
-        this.f34238a = new s.a();
+        this.f34239a = new s.a();
     }
 
     public KsAdContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f34238a = new s.a();
+        this.f34239a = new s.a();
     }
 
     public KsAdContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f34238a = new s.a();
+        this.f34239a = new s.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -32,16 +32,16 @@ public class KsAdContainer extends RelativeLayout {
         int action = motionEvent.getAction();
         if (action == 0) {
             s.a aVar = new s.a(getWidth(), getHeight());
-            this.f34238a = aVar;
+            this.f34239a = aVar;
             aVar.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f34238a.b(motionEvent.getX(), motionEvent.getY());
+            this.f34239a.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return this.f34238a;
+        return this.f34239a;
     }
 }

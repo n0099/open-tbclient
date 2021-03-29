@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileUtils {
     public static final String IMAGE_FILE_START = "image/";
     public static final String VIDEO_FILE_START = "video/";

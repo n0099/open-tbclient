@@ -9,7 +9,7 @@ import d.n.a.d;
 import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Integer DEFAULT_FPS;

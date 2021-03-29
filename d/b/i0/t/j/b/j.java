@@ -39,15 +39,15 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f60835e;
+        public final /* synthetic */ m f60836e;
 
         public a(m mVar) {
-            this.f60835e = mVar;
+            this.f60836e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.o0(this.f60835e);
+            j.this.o0(this.f60836e);
         }
     }
 
@@ -66,10 +66,10 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60837a;
+        public final /* synthetic */ TbPageContext f60838a;
 
         public c(TbPageContext tbPageContext) {
-            this.f60837a = tbPageContext;
+            this.f60838a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -79,12 +79,12 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
             String str3 = j.this.o ? j.this.r : null;
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.b.b.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60837a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60838a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
         }
     }
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.f60871f);
+        super(tbPageContext.getPageActivity(), m.f60872f);
         this.o = false;
         this.t = false;
         this.m = tbPageContext;
@@ -101,7 +101,7 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
         this.s = aVar.u();
         w0();
         aVar.z(8);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_center_publish_live));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_center_publish_live));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 

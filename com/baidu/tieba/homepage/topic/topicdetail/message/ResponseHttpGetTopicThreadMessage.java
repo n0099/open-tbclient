@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public List<n> mDataList;

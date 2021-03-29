@@ -8,13 +8,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Application.ActivityLifecycleCallbacks f56718a;
+    public static Application.ActivityLifecycleCallbacks f56719a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
         public b() {
         }
@@ -77,9 +77,9 @@ public class a {
     }
 
     public static void c(Application application) {
-        if (f56718a == null) {
-            f56718a = new b();
+        if (f56719a == null) {
+            f56719a = new b();
         }
-        application.registerActivityLifecycleCallbacks(f56718a);
+        application.registerActivityLifecycleCallbacks(f56719a);
     }
 }

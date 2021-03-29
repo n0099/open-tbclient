@@ -19,28 +19,28 @@ import java.util.List;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51024a;
+    public Context f51025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RoundLinearLayout f51025b;
+    public RoundLinearLayout f51026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f51026c;
+    public LinearLayout f51027c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f51027d;
+    public LinearLayout f51028d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f51028e;
+    public EMTextView f51029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51029f;
+    public View f51030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51030g;
+    public TextView f51031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f51031h;
+    public View f51032h;
     public String i;
     public SpannableStringBuilder j;
     public List<? extends k> k;
@@ -89,7 +89,7 @@ public class l {
         if (context == null) {
             return;
         }
-        this.f51024a = context;
+        this.f51025a = context;
         h();
     }
 
@@ -110,15 +110,15 @@ public class l {
         }
         i();
         this.k = list;
-        this.f51026c.removeAllViews();
-        this.f51027d.removeAllViews();
+        this.f51027c.removeAllViews();
+        this.f51028d.removeAllViews();
         if (list.size() < 2) {
             z = false;
         } else {
             z = ((h) list.get(0)).f() == -1;
             if (((h) list.get(1)).f() == -2) {
                 z2 = true;
-                this.f51029f.setVisibility(!z ? 0 : 8);
+                this.f51030f.setVisibility(!z ? 0 : 8);
                 int i = z ? 0 : z2 ? 4 : 3;
                 boolean z3 = list.size() - i > 4;
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -127,16 +127,16 @@ public class l {
                     hVar.e();
                     if (hVar != null) {
                         if (i2 < i) {
-                            this.f51026c.addView(hVar.getView());
+                            this.f51027c.addView(hVar.getView());
                         } else {
-                            this.f51027d.addView(hVar.getView());
+                            this.f51028d.addView(hVar.getView());
                         }
                     }
                 }
             }
         }
         z2 = false;
-        this.f51029f.setVisibility(!z ? 0 : 8);
+        this.f51030f.setVisibility(!z ? 0 : 8);
         if (z) {
         }
         if (list.size() - i > 4) {
@@ -148,14 +148,14 @@ public class l {
     public View c() {
         p();
         if (this.m != null) {
-            this.f51030g.setOnClickListener(new b());
+            this.f51031g.setOnClickListener(new b());
         }
         j();
-        return this.f51025b;
+        return this.f51026b;
     }
 
     public Context d() {
-        return this.f51024a;
+        return this.f51025a;
     }
 
     public e e() {
@@ -163,63 +163,63 @@ public class l {
     }
 
     public View f() {
-        return this.f51025b;
+        return this.f51026b;
     }
 
     public ViewGroup g() {
-        return this.f51026c;
+        return this.f51027c;
     }
 
     public final void h() {
-        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f51024a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-        this.f51025b = roundLinearLayout;
+        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f51025a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+        this.f51026b = roundLinearLayout;
         d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(roundLinearLayout);
         a2.h(R.string.J_X14);
         a2.c(R.color.CAM_X0204);
-        this.f51026c = (LinearLayout) this.f51025b.findViewById(R.id.content_view);
-        this.f51028e = (EMTextView) this.f51025b.findViewById(R.id.title);
-        View findViewById = this.f51025b.findViewById(R.id.title_divide_line);
-        this.f51029f = findViewById;
+        this.f51027c = (LinearLayout) this.f51026b.findViewById(R.id.content_view);
+        this.f51029e = (EMTextView) this.f51026b.findViewById(R.id.title);
+        View findViewById = this.f51026b.findViewById(R.id.title_divide_line);
+        this.f51030f = findViewById;
         findViewById.setVisibility(8);
-        this.f51031h = this.f51025b.findViewById(R.id.dialog_header);
+        this.f51032h = this.f51026b.findViewById(R.id.dialog_header);
         this.k = new ArrayList();
-        this.f51030g = (TextView) this.f51025b.findViewById(R.id.dialog_bottom_cancel_button);
+        this.f51031g = (TextView) this.f51026b.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
     public final void i() {
         this.n = true;
-        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f51024a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
-        this.f51025b = roundLinearLayout;
+        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f51025a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
+        this.f51026b = roundLinearLayout;
         d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(roundLinearLayout);
         a2.h(R.string.J_X14);
         a2.c(R.color.CAM_X0204);
-        this.f51026c = (LinearLayout) this.f51025b.findViewById(R.id.content_view);
-        this.f51027d = (LinearLayout) this.f51025b.findViewById(R.id.content_view_second);
-        this.f51028e = (EMTextView) this.f51025b.findViewById(R.id.title);
-        View findViewById = this.f51025b.findViewById(R.id.title_divide_line);
-        this.f51029f = findViewById;
+        this.f51027c = (LinearLayout) this.f51026b.findViewById(R.id.content_view);
+        this.f51028d = (LinearLayout) this.f51026b.findViewById(R.id.content_view_second);
+        this.f51029e = (EMTextView) this.f51026b.findViewById(R.id.title);
+        View findViewById = this.f51026b.findViewById(R.id.title_divide_line);
+        this.f51030f = findViewById;
         findViewById.setVisibility(8);
-        this.f51031h = this.f51025b.findViewById(R.id.dialog_header);
+        this.f51032h = this.f51026b.findViewById(R.id.dialog_header);
         this.k = new ArrayList();
-        this.f51030g = (TextView) this.f51025b.findViewById(R.id.dialog_bottom_cancel_button);
-        int k = (d.b.b.e.p.l.k(this.f51024a) - (h.q * 4)) / 2;
-        ((LinearLayout.LayoutParams) this.f51026c.getLayoutParams()).leftMargin = k;
-        ((LinearLayout.LayoutParams) this.f51026c.getLayoutParams()).rightMargin = k;
-        ((FrameLayout.LayoutParams) this.f51027d.getLayoutParams()).leftMargin = k;
-        ((FrameLayout.LayoutParams) this.f51027d.getLayoutParams()).rightMargin = k;
+        this.f51031g = (TextView) this.f51026b.findViewById(R.id.dialog_bottom_cancel_button);
+        int k = (d.b.b.e.p.l.k(this.f51025a) - (h.q * 4)) / 2;
+        ((LinearLayout.LayoutParams) this.f51027c.getLayoutParams()).leftMargin = k;
+        ((LinearLayout.LayoutParams) this.f51027c.getLayoutParams()).rightMargin = k;
+        ((FrameLayout.LayoutParams) this.f51028d.getLayoutParams()).leftMargin = k;
+        ((FrameLayout.LayoutParams) this.f51028d.getLayoutParams()).rightMargin = k;
     }
 
     public void j() {
         if (this.n) {
-            SkinManager.setBackgroundColor(this.f51029f, R.color.CAM_X0203);
+            SkinManager.setBackgroundColor(this.f51030f, R.color.CAM_X0203);
         } else {
-            SkinManager.setViewTextColor(this.f51028e, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.f51029f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f51029e, R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.f51030f, R.color.CAM_X0204);
         }
-        SkinManager.setBackgroundResource(this.f51028e, R.color.CAM_X0209);
-        SkinManager.setBackgroundResource(this.f51031h, R.color.CAM_X0209);
-        SkinManager.setBackgroundResource(this.f51030g, R.color.CAM_X0204);
-        SkinManager.setViewTextColorSelector(this.f51030g, R.color.CAM_X0107);
+        SkinManager.setBackgroundResource(this.f51029e, R.color.CAM_X0209);
+        SkinManager.setBackgroundResource(this.f51032h, R.color.CAM_X0209);
+        SkinManager.setBackgroundResource(this.f51031g, R.color.CAM_X0204);
+        SkinManager.setViewTextColorSelector(this.f51031g, R.color.CAM_X0107);
         List<? extends k> list = this.k;
         if (list != null) {
             for (k kVar : list) {
@@ -233,11 +233,11 @@ public class l {
             return;
         }
         this.k = list;
-        this.f51026c.removeAllViews();
+        this.f51027c.removeAllViews();
         for (int i = 0; i < list.size(); i++) {
             k kVar = list.get(i);
             if (kVar != null) {
-                this.f51026c.addView(kVar.getView());
+                this.f51027c.addView(kVar.getView());
             }
         }
     }
@@ -253,7 +253,7 @@ public class l {
     public void m(c cVar) {
         TextView textView;
         this.m = cVar;
-        if (cVar == null || (textView = this.f51030g) == null) {
+        if (cVar == null || (textView = this.f51031g) == null) {
             return;
         }
         textView.setOnClickListener(new a());
@@ -269,11 +269,11 @@ public class l {
 
     public void p() {
         if (!StringUtils.isNull(this.i)) {
-            this.f51028e.setVisibility(0);
-            this.f51028e.setText(this.i);
+            this.f51029e.setVisibility(0);
+            this.f51029e.setText(this.i);
         } else if (this.j != null) {
-            this.f51028e.setVisibility(0);
-            this.f51028e.setText(this.j);
+            this.f51029e.setVisibility(0);
+            this.f51029e.setText(this.j);
         }
     }
 

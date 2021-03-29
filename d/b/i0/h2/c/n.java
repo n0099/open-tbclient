@@ -10,28 +10,28 @@ import java.util.List;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public m f55158a;
+    public m f55159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f55159b;
+    public b f55160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f55160c;
+    public i f55161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f55161d;
+    public a f55162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f55162e;
+    public c f55163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f55163f;
+    public h f55164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f55164g;
+    public e f55165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f55165h;
+    public k f55166h;
     public d i;
     public d.b.i0.e2.h.d j;
     public d.b.i0.e2.h.a k;
@@ -55,17 +55,17 @@ public class n {
 
     public final void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.w = bdTypeRecyclerView;
-        this.f55158a = new m(tbPageContext);
-        this.f55159b = new b(tbPageContext);
-        this.f55160c = new i(tbPageContext);
-        this.f55161d = new a(tbPageContext);
-        this.f55162e = new c(tbPageContext);
-        this.f55163f = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.f55164g = new e(tbPageContext, d.b.i0.h2.e.g.l);
-        this.f55165h = new k(tbPageContext);
+        this.f55159a = new m(tbPageContext);
+        this.f55160b = new b(tbPageContext);
+        this.f55161c = new i(tbPageContext);
+        this.f55162d = new a(tbPageContext);
+        this.f55163e = new c(tbPageContext);
+        this.f55164f = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.f55165g = new e(tbPageContext, d.b.i0.h2.e.g.l);
+        this.f55166h = new k(tbPageContext);
         this.i = new d(tbPageContext);
-        this.j = new d.b.i0.e2.h.d(tbPageContext, d.b.i0.e2.h.f.f54546f);
-        this.k = new d.b.i0.e2.h.a(tbPageContext.getPageActivity(), d.b.i0.e2.d.f54519h);
+        this.j = new d.b.i0.e2.h.d(tbPageContext, d.b.i0.e2.h.f.f54547f);
+        this.k = new d.b.i0.e2.h.a(tbPageContext.getPageActivity(), d.b.i0.e2.d.f54520h);
         this.l = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
         this.m = new d.b.i0.h2.c.q.g(tbPageContext, d.b.i0.x.e0.k.l0);
         this.n = new d.b.i0.h2.c.q.d(tbPageContext, d.b.i0.x.e0.k.n0);
@@ -76,14 +76,14 @@ public class n {
         this.u = new d.b.i0.h2.c.q.f(tbPageContext, d.b.i0.x.e0.k.r0);
         this.q = new d.b.i0.h2.c.q.a(tbPageContext, d.b.i0.x.e0.e.M0);
         this.r = new d.b.i0.h2.c.q.c(tbPageContext, d.b.i0.x.e0.f.M0);
-        this.v.add(this.f55158a);
-        this.v.add(this.f55159b);
-        this.v.add(this.f55160c);
-        this.v.add(this.f55161d);
-        this.v.add(this.f55162e);
-        this.v.add(this.f55163f);
-        this.v.add(this.f55164g);
-        this.v.add(this.f55165h);
+        this.v.add(this.f55159a);
+        this.v.add(this.f55160b);
+        this.v.add(this.f55161c);
+        this.v.add(this.f55162d);
+        this.v.add(this.f55163e);
+        this.v.add(this.f55164f);
+        this.v.add(this.f55165g);
+        this.v.add(this.f55166h);
         this.v.add(this.i);
         this.v.add(this.j);
         this.v.add(this.k);
@@ -121,7 +121,7 @@ public class n {
 
     public void d(boolean z) {
         this.l.j0(z);
-        this.f55160c.m0(z);
+        this.f55161c.m0(z);
         this.m.n0(z);
         this.n.l0(z);
         this.o.m0(z);

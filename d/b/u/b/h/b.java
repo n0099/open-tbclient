@@ -10,31 +10,31 @@ import d.b.u.b.f.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64723a = "b";
+    public static final String f64724a = "b";
 
     /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64724a;
+        public static final /* synthetic */ int[] f64725a;
 
         static {
             int[] iArr = new int[ScaleType.values().length];
-            f64724a = iArr;
+            f64725a = iArr;
             try {
                 iArr[ScaleType.FIT_XY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f64724a[ScaleType.FIT_CENTER.ordinal()] = 2;
+                f64725a[ScaleType.FIT_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f64724a[ScaleType.CENTER_CROP.ordinal()] = 3;
+                f64725a[ScaleType.CENTER_CROP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f64724a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+                f64725a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -42,7 +42,7 @@ public class b {
 
     public static void a(float[] fArr, MirrorType mirrorType) {
         if (fArr == null) {
-            Log.e(f64723a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64724a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         }
         if (mirrorType == MirrorType.HORIZONTALLY) {
             Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
@@ -59,7 +59,7 @@ public class b {
 
     public static void c(float[] fArr, float f2) {
         if (fArr == null) {
-            Log.e(f64723a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64724a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         }
         Matrix.rotateM(fArr, 0, f2, 0.0f, 0.0f, 1.0f);
     }
@@ -83,12 +83,12 @@ public class b {
     public static void d(float[] fArr, d dVar, c cVar, ScaleType scaleType, float f2) {
         float f3;
         if (fArr == null) {
-            Log.e(f64723a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64724a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         } else if (dVar != null && dVar.f() > 0 && dVar.c() > 0) {
             if (cVar != null && cVar.d() > 0 && cVar.c() > 0) {
                 float f4 = (dVar.f() * 1.0f) / dVar.c();
                 float d2 = (cVar.d() * 1.0f) / cVar.c();
-                int i = a.f64724a[scaleType.ordinal()];
+                int i = a.f64725a[scaleType.ordinal()];
                 if (i != 1) {
                     if (i != 2) {
                         if (i != 3) {
@@ -105,9 +105,9 @@ public class b {
                 Matrix.scaleM(fArr, 0, f2, f3, 1.0f);
                 return;
             }
-            Log.e(f64723a, "scaleDraw2DMVP draw target error!!!");
+            Log.e(f64724a, "scaleDraw2DMVP draw target error!!!");
         } else {
-            Log.e(f64723a, "scaleDraw2DMVP source texture error!!!");
+            Log.e(f64724a, "scaleDraw2DMVP source texture error!!!");
         }
     }
 

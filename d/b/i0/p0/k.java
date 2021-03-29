@@ -72,7 +72,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.b.b.j.e.a
 
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f42357e = tbPageContext.getPageActivity();
+            this.f42358e = tbPageContext.getPageActivity();
             this.o = tbPageContext;
             this.i = bdUniqueId;
         }
@@ -97,11 +97,11 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.b.b.j.e.a
     }
 
     public void m0() {
-        this.f42357e = null;
+        this.f42358e = null;
         this.o = null;
         this.p = null;
-        this.f42358f = null;
-        this.f42359g = null;
+        this.f42359f = null;
+        this.f42360g = null;
         i iVar = this.s;
         if (iVar != null) {
             iVar.a();

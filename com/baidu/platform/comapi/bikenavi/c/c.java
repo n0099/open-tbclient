@@ -3,10 +3,10 @@ package com.baidu.platform.comapi.bikenavi.c;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9840a;
+    public final /* synthetic */ b f9841a;
 
     public c(b bVar) {
-        this.f9840a = bVar;
+        this.f9841a = bVar;
     }
 
     @Override // java.lang.Runnable

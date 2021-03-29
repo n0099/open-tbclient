@@ -330,7 +330,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x00d8  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01b2  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01b1  */
     /* JADX WARN: Type inference failed for: r17v0 */
     /* JADX WARN: Type inference failed for: r17v1, types: [boolean] */
     /* JADX WARN: Type inference failed for: r17v3 */
@@ -557,357 +557,357 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return fieldDeserializer;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:525:0x054e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:536:0x0538 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:565:0x0647 */
-    /* JADX WARN: Code restructure failed: missing block: B:220:0x02b5, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:525:0x054c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:536:0x0536 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:565:0x0645 */
+    /* JADX WARN: Code restructure failed: missing block: B:220:0x02b4, code lost:
         if (r12.matchStat == (-2)) goto L436;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:306:0x041b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:306:0x041a, code lost:
         r14 = r7;
         r0 = r18;
         r30 = 0;
         r1 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:370:0x0532, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:370:0x0530, code lost:
         r0 = r17;
         r5 = r18;
         r1 = (T) r20;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:371:0x0538, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:371:0x0536, code lost:
         if (r1 != null) goto L345;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:372:0x053a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:372:0x0538, code lost:
         if (r0 != null) goto L208;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:373:0x053c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:373:0x053a, code lost:
         r1 = (T) createInstance(r26, r27);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:374:0x0540, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:374:0x053e, code lost:
         if (r5 != null) goto L204;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:375:0x0542, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:375:0x0540, code lost:
         r5 = r26.setContext(r14, r1, r28);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:376:0x0546, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:376:0x0544, code lost:
         if (r5 == null) goto L206;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:377:0x0548, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:377:0x0546, code lost:
         r5.object = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:378:0x054a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:378:0x0548, code lost:
         r26.setContext(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:379:0x054d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:379:0x054b, code lost:
         return r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:380:0x054e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:380:0x054c, code lost:
         r2 = r25.beanInfo.creatorConstructorParameters;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:382:0x0556, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:382:0x0554, code lost:
         if (r2 == null) goto L298;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:383:0x0558, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:383:0x0556, code lost:
         r12 = new java.lang.Object[r2.length];
         r13 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:385:0x055d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:385:0x055b, code lost:
         if (r13 >= r2.length) goto L246;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:386:0x055f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:386:0x055d, code lost:
         r15 = r0.remove(r2[r13]);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:387:0x0565, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:387:0x0563, code lost:
         if (r15 != null) goto L245;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:388:0x0567, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:388:0x0565, code lost:
         r6 = r25.beanInfo.creatorConstructorParameterTypes[r13];
         r7 = r25.beanInfo.fields[r13];
      */
-    /* JADX WARN: Code restructure failed: missing block: B:389:0x0575, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:389:0x0573, code lost:
         if (r6 != java.lang.Byte.TYPE) goto L220;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:390:0x0577, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:390:0x0575, code lost:
         r15 = java.lang.Byte.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:391:0x057b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:391:0x0579, code lost:
         r4 = r21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:393:0x0580, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:393:0x057e, code lost:
         if (r6 != java.lang.Short.TYPE) goto L223;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:394:0x0582, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:394:0x0580, code lost:
         r15 = java.lang.Short.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:396:0x0589, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:396:0x0587, code lost:
         if (r6 != java.lang.Integer.TYPE) goto L226;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:397:0x058b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:397:0x0589, code lost:
         r15 = java.lang.Integer.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:399:0x0592, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:399:0x0590, code lost:
         if (r6 != java.lang.Long.TYPE) goto L229;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:400:0x0594, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:400:0x0592, code lost:
         r15 = 0L;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:402:0x059b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:402:0x0599, code lost:
         if (r6 != java.lang.Float.TYPE) goto L232;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:403:0x059d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:403:0x059b, code lost:
         r15 = java.lang.Float.valueOf(0.0f);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:405:0x05a5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:405:0x05a3, code lost:
         if (r6 != java.lang.Double.TYPE) goto L235;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:406:0x05a7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:406:0x05a5, code lost:
         r15 = java.lang.Double.valueOf(0.0d);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:408:0x05b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:408:0x05ae, code lost:
         if (r6 != java.lang.Boolean.TYPE) goto L238;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:409:0x05b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:409:0x05b0, code lost:
         r15 = java.lang.Boolean.FALSE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:410:0x05b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:410:0x05b3, code lost:
         r4 = r21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:411:0x05b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:411:0x05b5, code lost:
         if (r6 != r4) goto L243;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:413:0x05c0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:413:0x05be, code lost:
         if ((r7.parserFeatures & com.alibaba.fastjson.parser.Feature.InitStringFieldAsEmpty.mask) == 0) goto L243;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:414:0x05c2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:414:0x05c0, code lost:
         r15 = "";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:415:0x05c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:415:0x05c1, code lost:
         r12[r13] = r15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:416:0x05c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:416:0x05c3, code lost:
         r13 = r13 + 1;
         r21 = r4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:417:0x05ca, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:417:0x05c8, code lost:
         r4 = r21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:418:0x05cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:418:0x05ca, code lost:
         r6 = r25.beanInfo.fields;
         r7 = r6.length;
         r12 = new java.lang.Object[r7];
         r13 = 0;
         r1 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:419:0x05d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:419:0x05d2, code lost:
         if (r13 >= r7) goto L342;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:420:0x05d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:420:0x05d4, code lost:
         r15 = r6[r13];
         r10 = r0.get(r15.name);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:421:0x05de, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:421:0x05dc, code lost:
         if (r10 != null) goto L340;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:422:0x05e0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:422:0x05de, code lost:
         r11 = r15.fieldType;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:423:0x05e2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:423:0x05e0, code lost:
         r31 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:425:0x05e6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:425:0x05e4, code lost:
         if (r11 != java.lang.Byte.TYPE) goto L313;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:426:0x05e8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:426:0x05e6, code lost:
         r10 = java.lang.Byte.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:427:0x05ec, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:427:0x05ea, code lost:
         r17 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:430:0x05f3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:430:0x05f1, code lost:
         if (r11 != java.lang.Short.TYPE) goto L316;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:431:0x05f5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:431:0x05f3, code lost:
         r10 = java.lang.Short.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:433:0x05fc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:433:0x05fa, code lost:
         if (r11 != java.lang.Integer.TYPE) goto L319;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:434:0x05fe, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:434:0x05fc, code lost:
         r10 = java.lang.Integer.valueOf(r30);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:436:0x0605, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:436:0x0603, code lost:
         if (r11 != java.lang.Long.TYPE) goto L322;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:437:0x0607, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:437:0x0605, code lost:
         r17 = 0;
         r10 = 0L;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:438:0x060e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:438:0x060c, code lost:
         r17 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:439:0x0612, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:439:0x0610, code lost:
         if (r11 != java.lang.Float.TYPE) goto L325;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:440:0x0614, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:440:0x0612, code lost:
         r10 = java.lang.Float.valueOf(0.0f);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:442:0x061c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:442:0x061a, code lost:
         if (r11 != java.lang.Double.TYPE) goto L329;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:443:0x061e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:443:0x061c, code lost:
         r10 = java.lang.Double.valueOf(0.0d);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:445:0x0629, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:445:0x0627, code lost:
         if (r11 != java.lang.Boolean.TYPE) goto L333;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:446:0x062b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:446:0x0629, code lost:
         r10 = java.lang.Boolean.FALSE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:447:0x062e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:447:0x062c, code lost:
         if (r11 != r4) goto L339;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:449:0x0637, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:449:0x0635, code lost:
         if ((r15.parserFeatures & com.alibaba.fastjson.parser.Feature.InitStringFieldAsEmpty.mask) == 0) goto L338;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:450:0x0639, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:450:0x0637, code lost:
         r10 = "";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:451:0x063b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:451:0x0639, code lost:
         r31 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:452:0x063e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:452:0x063c, code lost:
         r12[r13] = r10;
         r13 = r13 + 1;
         r1 = (T) r31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:453:0x0647, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:453:0x0645, code lost:
         r31 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:454:0x064d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:454:0x064b, code lost:
         if (r25.beanInfo.creatorConstructor == null) goto L249;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:455:0x064f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:455:0x064d, code lost:
         r1 = r25.beanInfo.creatorConstructor.newInstance(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:456:0x0657, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:456:0x0655, code lost:
         if (r2 == null) goto L252;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:457:0x0659, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:457:0x0657, code lost:
         r0 = r0.entrySet().iterator();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:459:0x0665, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:459:0x0663, code lost:
         if (r0.hasNext() == false) goto L293;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:460:0x0667, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:460:0x0665, code lost:
         r2 = r0.next();
         r3 = getFieldDeserializer(r2.getKey());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:461:0x0677, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:461:0x0675, code lost:
         if (r3 == null) goto L292;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:462:0x0679, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:462:0x0677, code lost:
         r3.setValue(r1, r2.getValue());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:464:0x0681, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:464:0x067f, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:466:0x06a8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:466:0x06a6, code lost:
         throw new com.alibaba.fastjson.JSONException("create instance error, " + r2 + com.baidu.android.common.others.lang.StringUtil.ARRAY_ELEMENT_SEPARATOR + r25.beanInfo.creatorConstructor.toGenericString(), r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:468:0x06ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:468:0x06ab, code lost:
         if (r25.beanInfo.factoryMethod == null) goto L251;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:470:0x06b8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:470:0x06b6, code lost:
         r1 = (T) r25.beanInfo.factoryMethod.invoke(null, r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:471:0x06ba, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:471:0x06b8, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:473:0x06d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:473:0x06d7, code lost:
         throw new com.alibaba.fastjson.JSONException("create factory method error, " + r25.beanInfo.factoryMethod.toString(), r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:474:0x06da, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:474:0x06d8, code lost:
         r1 = (T) r31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:475:0x06dc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:475:0x06da, code lost:
         r5.object = r1;
         r1 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:476:0x06df, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:476:0x06dd, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:477:0x06e0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:477:0x06de, code lost:
         r1 = (T) r31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:478:0x06e4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:478:0x06e2, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:479:0x06e5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:479:0x06e3, code lost:
         r1 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:480:0x06e9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:480:0x06e7, code lost:
         r1 = r1;
         r1 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:481:0x06eb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:481:0x06e9, code lost:
         r0 = r25.beanInfo.buildMethod;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:482:0x06ef, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:482:0x06ed, code lost:
         if (r0 != null) goto L259;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:483:0x06f1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:483:0x06ef, code lost:
         if (r5 == null) goto L257;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:484:0x06f3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:484:0x06f1, code lost:
         r5.object = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:485:0x06f5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:485:0x06f3, code lost:
         r26.setContext(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:486:0x06f8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:486:0x06f6, code lost:
         return (T) r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:488:0x06fa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:488:0x06f8, code lost:
         r0 = (T) r0.invoke(r1, new java.lang.Object[0]);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:489:0x0700, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:489:0x06fe, code lost:
         if (r5 == null) goto L264;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:490:0x0702, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:490:0x0700, code lost:
         r5.object = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:491:0x0704, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:491:0x0702, code lost:
         r26.setContext(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:492:0x0707, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:492:0x0705, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:493:0x0708, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:493:0x0706, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:495:0x0710, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:495:0x070e, code lost:
         throw new com.alibaba.fastjson.JSONException("build object error", r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:496:0x0711, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:496:0x070f, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:506:0x075a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:506:0x0757, code lost:
         throw new com.alibaba.fastjson.JSONException("syntax error, unexpect token " + com.alibaba.fastjson.parser.JSONToken.name(r12.token()));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:513:0x076c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:513:0x0768, code lost:
         r15 = r5;
      */
-    /* JADX WARN: Removed duplicated region for block: B:228:0x02c6 A[Catch: all -> 0x0142, TryCatch #0 {all -> 0x0142, blocks: (B:87:0x0135, B:92:0x014d, B:97:0x015e, B:103:0x016a, B:228:0x02c6, B:230:0x02d0, B:232:0x02dc, B:235:0x02e7, B:242:0x02fa, B:244:0x0304, B:246:0x0310, B:267:0x0367, B:269:0x0372, B:274:0x0382, B:275:0x0389, B:247:0x0314, B:249:0x031c, B:251:0x0322, B:252:0x0325, B:253:0x0331, B:256:0x033a, B:258:0x033e, B:259:0x0341, B:261:0x0345, B:262:0x0348, B:263:0x0354, B:266:0x035c, B:276:0x038a, B:277:0x03a4, B:279:0x03a7, B:283:0x03b1, B:285:0x03bb, B:287:0x03ce, B:290:0x03d7, B:292:0x03df, B:294:0x03f5, B:296:0x03fd, B:298:0x0401, B:303:0x0410, B:305:0x0418, B:308:0x0438, B:309:0x0440, B:281:0x03ad, B:314:0x0451, B:316:0x0457, B:317:0x0461, B:319:0x0467, B:106:0x0174, B:111:0x017e, B:113:0x0182, B:116:0x018c, B:121:0x0196, B:124:0x01a0, B:129:0x01aa, B:132:0x01b4, B:135:0x01ba, B:140:0x01c4, B:145:0x01ce, B:150:0x01d8, B:152:0x01de, B:155:0x01ec, B:157:0x01f4, B:159:0x01f8, B:162:0x0207, B:167:0x0212, B:170:0x021c, B:175:0x0227, B:178:0x0231, B:183:0x023c, B:186:0x0246, B:189:0x024d, B:192:0x0257, B:195:0x0264, B:198:0x026a, B:201:0x0277, B:204:0x027d, B:207:0x028a, B:210:0x0290, B:213:0x029d, B:216:0x02a3, B:219:0x02b2), top: B:523:0x0135 }] */
-    /* JADX WARN: Removed duplicated region for block: B:311:0x0444  */
-    /* JADX WARN: Removed duplicated region for block: B:313:0x044f A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:316:0x0457 A[Catch: all -> 0x0142, TryCatch #0 {all -> 0x0142, blocks: (B:87:0x0135, B:92:0x014d, B:97:0x015e, B:103:0x016a, B:228:0x02c6, B:230:0x02d0, B:232:0x02dc, B:235:0x02e7, B:242:0x02fa, B:244:0x0304, B:246:0x0310, B:267:0x0367, B:269:0x0372, B:274:0x0382, B:275:0x0389, B:247:0x0314, B:249:0x031c, B:251:0x0322, B:252:0x0325, B:253:0x0331, B:256:0x033a, B:258:0x033e, B:259:0x0341, B:261:0x0345, B:262:0x0348, B:263:0x0354, B:266:0x035c, B:276:0x038a, B:277:0x03a4, B:279:0x03a7, B:283:0x03b1, B:285:0x03bb, B:287:0x03ce, B:290:0x03d7, B:292:0x03df, B:294:0x03f5, B:296:0x03fd, B:298:0x0401, B:303:0x0410, B:305:0x0418, B:308:0x0438, B:309:0x0440, B:281:0x03ad, B:314:0x0451, B:316:0x0457, B:317:0x0461, B:319:0x0467, B:106:0x0174, B:111:0x017e, B:113:0x0182, B:116:0x018c, B:121:0x0196, B:124:0x01a0, B:129:0x01aa, B:132:0x01b4, B:135:0x01ba, B:140:0x01c4, B:145:0x01ce, B:150:0x01d8, B:152:0x01de, B:155:0x01ec, B:157:0x01f4, B:159:0x01f8, B:162:0x0207, B:167:0x0212, B:170:0x021c, B:175:0x0227, B:178:0x0231, B:183:0x023c, B:186:0x0246, B:189:0x024d, B:192:0x0257, B:195:0x0264, B:198:0x026a, B:201:0x0277, B:204:0x027d, B:207:0x028a, B:210:0x0290, B:213:0x029d, B:216:0x02a3, B:219:0x02b2), top: B:523:0x0135 }] */
-    /* JADX WARN: Removed duplicated region for block: B:319:0x0467 A[Catch: all -> 0x0142, TRY_LEAVE, TryCatch #0 {all -> 0x0142, blocks: (B:87:0x0135, B:92:0x014d, B:97:0x015e, B:103:0x016a, B:228:0x02c6, B:230:0x02d0, B:232:0x02dc, B:235:0x02e7, B:242:0x02fa, B:244:0x0304, B:246:0x0310, B:267:0x0367, B:269:0x0372, B:274:0x0382, B:275:0x0389, B:247:0x0314, B:249:0x031c, B:251:0x0322, B:252:0x0325, B:253:0x0331, B:256:0x033a, B:258:0x033e, B:259:0x0341, B:261:0x0345, B:262:0x0348, B:263:0x0354, B:266:0x035c, B:276:0x038a, B:277:0x03a4, B:279:0x03a7, B:283:0x03b1, B:285:0x03bb, B:287:0x03ce, B:290:0x03d7, B:292:0x03df, B:294:0x03f5, B:296:0x03fd, B:298:0x0401, B:303:0x0410, B:305:0x0418, B:308:0x0438, B:309:0x0440, B:281:0x03ad, B:314:0x0451, B:316:0x0457, B:317:0x0461, B:319:0x0467, B:106:0x0174, B:111:0x017e, B:113:0x0182, B:116:0x018c, B:121:0x0196, B:124:0x01a0, B:129:0x01aa, B:132:0x01b4, B:135:0x01ba, B:140:0x01c4, B:145:0x01ce, B:150:0x01d8, B:152:0x01de, B:155:0x01ec, B:157:0x01f4, B:159:0x01f8, B:162:0x0207, B:167:0x0212, B:170:0x021c, B:175:0x0227, B:178:0x0231, B:183:0x023c, B:186:0x0246, B:189:0x024d, B:192:0x0257, B:195:0x0264, B:198:0x026a, B:201:0x0277, B:204:0x027d, B:207:0x028a, B:210:0x0290, B:213:0x029d, B:216:0x02a3, B:219:0x02b2), top: B:523:0x0135 }] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x047c  */
-    /* JADX WARN: Removed duplicated region for block: B:354:0x04e1  */
-    /* JADX WARN: Removed duplicated region for block: B:366:0x0525  */
-    /* JADX WARN: Removed duplicated region for block: B:367:0x0529 A[Catch: all -> 0x0764, TryCatch #1 {all -> 0x0764, blocks: (B:504:0x072a, B:364:0x051d, B:367:0x0529, B:369:0x052f, B:499:0x0717, B:501:0x071f, B:505:0x073b, B:506:0x075a, B:355:0x04fc, B:357:0x0502, B:359:0x0508, B:362:0x0515, B:507:0x075b, B:508:0x0763), top: B:524:0x072a }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0073 A[Catch: all -> 0x004b, TRY_LEAVE, TryCatch #4 {all -> 0x004b, blocks: (B:17:0x003b, B:19:0x0040, B:29:0x0056, B:31:0x0061, B:33:0x0069, B:39:0x0073, B:45:0x0082, B:50:0x008e, B:52:0x0098, B:55:0x009f, B:57:0x00a5, B:59:0x00b0, B:61:0x00ba, B:69:0x00cd, B:71:0x00d5, B:74:0x00df, B:76:0x0101, B:77:0x0109, B:78:0x011c, B:67:0x00c8, B:82:0x0122), top: B:529:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:517:0x0775  */
+    /* JADX WARN: Removed duplicated region for block: B:228:0x02c5 A[Catch: all -> 0x0141, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
+    /* JADX WARN: Removed duplicated region for block: B:311:0x0442  */
+    /* JADX WARN: Removed duplicated region for block: B:313:0x044d A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:316:0x0455 A[Catch: all -> 0x0141, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
+    /* JADX WARN: Removed duplicated region for block: B:319:0x0465 A[Catch: all -> 0x0141, TRY_LEAVE, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
+    /* JADX WARN: Removed duplicated region for block: B:324:0x047a  */
+    /* JADX WARN: Removed duplicated region for block: B:354:0x04df  */
+    /* JADX WARN: Removed duplicated region for block: B:366:0x0523  */
+    /* JADX WARN: Removed duplicated region for block: B:367:0x0527 A[Catch: all -> 0x0760, TryCatch #0 {all -> 0x0760, blocks: (B:504:0x0728, B:364:0x051b, B:367:0x0527, B:369:0x052d, B:499:0x0715, B:501:0x071d, B:505:0x0739, B:506:0x0757, B:355:0x04fa, B:357:0x0500, B:359:0x0506, B:362:0x0513, B:507:0x0758, B:508:0x075f), top: B:523:0x0728 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0073 A[Catch: all -> 0x004b, TRY_LEAVE, TryCatch #6 {all -> 0x004b, blocks: (B:17:0x003b, B:19:0x0040, B:29:0x0056, B:31:0x0061, B:33:0x0069, B:39:0x0073, B:45:0x0082, B:50:0x008e, B:52:0x0098, B:55:0x009f, B:57:0x00a5, B:59:0x00b0, B:61:0x00ba, B:69:0x00cd, B:71:0x00d5, B:74:0x00df, B:76:0x0100, B:77:0x0108, B:78:0x011b, B:67:0x00c8, B:82:0x0121), top: B:533:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:517:0x0771  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1044,7 +1044,6 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                     parseContext2 = parseContext4;
                                     parseContext = parseContext3;
                                     if (parseContext2 != null) {
-                                        parseContext2.object = obj3;
                                     }
                                     defaultJSONParser.setContext(parseContext);
                                     throw th;
@@ -1936,6 +1935,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                 parseContext2 = parseContext5;
                                 obj3 = obj5;
                                 if (parseContext2 != null) {
+                                    parseContext2.object = obj3;
                                 }
                                 defaultJSONParser.setContext(parseContext);
                                 throw th;

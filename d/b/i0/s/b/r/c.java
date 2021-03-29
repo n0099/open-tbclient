@@ -20,16 +20,16 @@ public class c implements p {
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.d.d.d f60129a;
+        public final /* synthetic */ d.b.g0.a.b1.d.d.d f60130a;
 
         public a(c cVar, d.b.g0.a.b1.d.d.d dVar) {
-            this.f60129a = dVar;
+            this.f60130a = dVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Bundle bundle = delegateResult.mResult;
-            d.b.g0.a.b1.d.d.d dVar = this.f60129a;
+            d.b.g0.a.b1.d.d.d dVar = this.f60130a;
             if (dVar != null) {
                 dVar.a(true, null, bundle.getParcelableArrayList("mediaModels"));
             }

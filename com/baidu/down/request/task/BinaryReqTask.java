@@ -29,12 +29,12 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BinaryReqTask extends AbstractTask {
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryReqTask";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }
@@ -537,7 +537,7 @@ public class BinaryReqTask extends AbstractTask {
             hashMap.put("Range", "bytes=" + j + "-" + (j3 - 1));
         } else {
             if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                hashMap.put("Range", "bytes=" + j + "-" + ((307200 + j) - 1));
+                hashMap.put("Range", "bytes=" + j + "-" + ((j + 307200) - 1));
             } else {
                 hashMap.put("Range", "bytes=" + j + "-");
             }

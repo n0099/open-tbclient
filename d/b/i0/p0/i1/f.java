@@ -16,24 +16,24 @@ import java.util.List;
 public class f implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f57614e;
+    public e f57615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f57615f;
+    public TbPageContext f57616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTypeListView f57616g;
+    public BdTypeListView f57617g;
     public boolean j;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<n> f57617h = new ArrayList();
+    public List<n> f57618h = new ArrayList();
     public final List<d.b.b.j.e.a> i = new ArrayList();
     public int k = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
         this.j = false;
-        this.f57615f = tbPageContext;
-        this.f57616g = bdTypeListView;
+        this.f57616f = tbPageContext;
+        this.f57617g = bdTypeListView;
         this.j = z;
         d();
     }
@@ -41,36 +41,36 @@ public class f implements a {
     @Override // d.b.i0.p0.i1.a
     public void a(int i) {
         this.k = i;
-        if (ListUtils.isEmpty(this.f57617h) || this.f57616g == null) {
+        if (ListUtils.isEmpty(this.f57618h) || this.f57617g == null) {
             return;
         }
-        for (n nVar : this.f57617h) {
+        for (n nVar : this.f57618h) {
             if (nVar instanceof g) {
                 ((g) nVar).F = false;
             }
         }
         if (j.H()) {
-            if (this.k < this.f57617h.size() - 1) {
-                List<n> list = this.f57617h;
+            if (this.k < this.f57618h.size() - 1) {
+                List<n> list = this.f57618h;
                 int i2 = this.k + 1;
                 this.k = i2;
                 if (list.get(i2) instanceof g) {
-                    ((g) this.f57617h.get(this.k)).F = true;
-                    BdTypeListView bdTypeListView = this.f57616g;
+                    ((g) this.f57618h.get(this.k)).F = true;
+                    BdTypeListView bdTypeListView = this.f57617g;
                     bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
                     g();
                 }
-            } else if (this.k == this.f57617h.size() - 1 && (this.f57617h.get(this.k) instanceof g)) {
-                ((g) this.f57617h.get(this.k)).F = false;
+            } else if (this.k == this.f57618h.size() - 1 && (this.f57618h.get(this.k) instanceof g)) {
+                ((g) this.f57618h.get(this.k)).F = false;
             }
         }
     }
 
     public void b() {
-        if (ListUtils.isEmpty(this.f57617h)) {
+        if (ListUtils.isEmpty(this.f57618h)) {
             return;
         }
-        Iterator<n> it = this.f57617h.iterator();
+        Iterator<n> it = this.f57618h.iterator();
         while (it.hasNext()) {
             ((g) it.next()).F = false;
         }
@@ -86,14 +86,14 @@ public class f implements a {
     }
 
     public final void d() {
-        e eVar = new e(this.f57615f, this, this.j);
-        this.f57614e = eVar;
+        e eVar = new e(this.f57616f, this, this.j);
+        this.f57615e = eVar;
         this.i.add(eVar);
-        this.f57616g.a(this.i);
+        this.f57617g.a(this.i);
     }
 
     public boolean e() {
-        return this.f57614e.m0();
+        return this.f57615e.m0();
     }
 
     public void f(String str, boolean z) {
@@ -103,9 +103,9 @@ public class f implements a {
             return;
         }
         boolean z2 = false;
-        for (n nVar : this.f57617h) {
-            if (nVar != null && (nVar instanceof g) && (bVar = (gVar = (g) nVar).y) != null && str.equals(bVar.f57628a)) {
-                gVar.y.f57632e = z;
+        for (n nVar : this.f57618h) {
+            if (nVar != null && (nVar instanceof g) && (bVar = (gVar = (g) nVar).y) != null && str.equals(bVar.f57629a)) {
+                gVar.y.f57633e = z;
                 z2 = true;
             }
         }
@@ -115,27 +115,27 @@ public class f implements a {
     }
 
     public void g() {
-        BdTypeListView bdTypeListView = this.f57616g;
-        if (bdTypeListView == null || bdTypeListView.getAdapter2() == null || !(this.f57616g.getAdapter2() instanceof BaseAdapter)) {
+        BdTypeListView bdTypeListView = this.f57617g;
+        if (bdTypeListView == null || bdTypeListView.getAdapter2() == null || !(this.f57617g.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        this.f57616g.getAdapter2().notifyDataSetChanged();
+        this.f57617g.getAdapter2().notifyDataSetChanged();
     }
 
     public void h(Configuration configuration) {
-        this.f57614e.n0(configuration);
+        this.f57615e.n0(configuration);
     }
 
     public void i() {
-        this.f57614e.onDestroy();
+        this.f57615e.onDestroy();
     }
 
     public boolean j(int i) {
-        return this.f57614e.q0(i);
+        return this.f57615e.q0(i);
     }
 
     public void k() {
-        this.f57614e.r0();
+        this.f57615e.r0();
     }
 
     public final void l() {
@@ -149,10 +149,10 @@ public class f implements a {
             return;
         }
         if (z) {
-            this.f57617h.clear();
+            this.f57618h.clear();
         }
-        this.f57617h.addAll(list);
-        this.f57616g.setData(this.f57617h);
+        this.f57618h.addAll(list);
+        this.f57617g.setData(this.f57618h);
         if (z && list.size() > 0 && this.j && j.H()) {
             l();
             list.get(0).F = true;
@@ -160,6 +160,6 @@ public class f implements a {
     }
 
     public void n() {
-        this.f57614e.s0();
+        this.f57615e.s0();
     }
 }

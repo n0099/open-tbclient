@@ -32,29 +32,29 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47272a = d.b.g0.a.k.f45050a;
+    public static final boolean f47273a = d.b.g0.a.k.f45051a;
 
     /* renamed from: d.b.g0.b.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0897a implements DelegateListener {
+    public static class C0898a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.m.a f47273a;
+        public final /* synthetic */ d.b.g0.a.m.a f47274a;
 
-        public C0897a(d.b.g0.a.m.a aVar) {
-            this.f47273a = aVar;
+        public C0898a(d.b.g0.a.m.a aVar) {
+            this.f47274a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            if (this.f47273a == null) {
+            if (this.f47274a == null) {
                 return;
             }
             if (!delegateResult.isOk()) {
-                this.f47273a.onResult(-1);
+                this.f47274a.onResult(-1);
                 return;
             }
-            this.f47273a.onResult(delegateResult.mResult.getInt("result_code", -1));
+            this.f47274a.onResult(delegateResult.mResult.getInt("result_code", -1));
         }
     }
 
@@ -62,10 +62,10 @@ public final class a {
     public static class b extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b.c f47274c;
+        public final /* synthetic */ b.c f47275c;
 
         public b(b.c cVar) {
-            this.f47274c = cVar;
+            this.f47275c = cVar;
         }
 
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.a
@@ -76,19 +76,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.c, d.b.g0.a.n1.a.b.c.a
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
-            if (a.f47272a) {
+            if (a.f47273a) {
                 Log.d("AccountUtils", "get openBduss messenger delegate observer receive event");
             }
             String str = null;
             if (bVar.a() != null) {
-                if (a.f47272a) {
+                if (a.f47273a) {
                     Log.d("AccountUtils", "get openBduss : result " + bVar.a());
                 }
                 str = bVar.a().getString("result");
-            } else if (a.f47272a) {
+            } else if (a.f47273a) {
                 Log.d("AccountUtils", "get openBduss : result null");
             }
-            this.f47274c.a(str);
+            this.f47275c.a(str);
         }
     }
 
@@ -96,10 +96,10 @@ public final class a {
     public static class c extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47275c;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47276c;
 
         public c(d.b.g0.a.i2.u0.b bVar) {
-            this.f47275c = bVar;
+            this.f47276c = bVar;
         }
 
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.a
@@ -110,19 +110,19 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.c, d.b.g0.a.n1.a.b.c.a
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
-            if (a.f47272a) {
+            if (a.f47273a) {
                 Log.d("AccountUtils", "get stoken messenger delegate observer receive event");
             }
             Bundle bundle = null;
             if (bVar.a() != null) {
-                if (a.f47272a) {
+                if (a.f47273a) {
                     Log.d("AccountUtils", "get stoken : result " + bVar.a());
                 }
                 bundle = bVar.a().getBundle("key_result_stokent");
-            } else if (a.f47272a) {
+            } else if (a.f47273a) {
                 Log.d("AccountUtils", "get stoken : result null");
             }
-            this.f47275c.onCallback(bundle);
+            this.f47276c.onCallback(bundle);
         }
     }
 
@@ -130,30 +130,30 @@ public final class a {
     public static class d implements l.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47276a;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47277a;
 
         public d(d.b.g0.a.i2.u0.b bVar) {
-            this.f47276a = bVar;
+            this.f47277a = bVar;
         }
 
         @Override // d.b.g0.b.i.l.a
         public void a(l lVar) {
-            if (lVar.f47289a != 0 || lVar.f47290b == null) {
-                this.f47276a.onCallback(null);
+            if (lVar.f47290a != 0 || lVar.f47291b == null) {
+                this.f47277a.onCallback(null);
             }
             Bundle bundle = new Bundle();
-            for (Map.Entry<String, String> entry : lVar.f47290b.entrySet()) {
+            for (Map.Entry<String, String> entry : lVar.f47291b.entrySet()) {
                 String key = entry.getKey();
                 if (!TextUtils.isEmpty(key)) {
                     bundle.putString(key, entry.getValue());
                 }
             }
-            this.f47276a.onCallback(bundle);
+            this.f47277a.onCallback(bundle);
         }
 
         @Override // d.b.g0.b.i.l.a
         public void b(l lVar) {
-            this.f47276a.onCallback(null);
+            this.f47277a.onCallback(null);
         }
 
         @Override // d.b.g0.b.i.l.a
@@ -169,26 +169,26 @@ public final class a {
     public static class e implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.n.a.b f47277a;
+        public final /* synthetic */ d.b.g0.a.n.a.b f47278a;
 
         public e(d.b.g0.a.n.a.b bVar) {
-            this.f47277a = bVar;
+            this.f47278a = bVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             String string = delegateResult.mResult.getString("address_info");
             if (TextUtils.isEmpty(string)) {
-                if (d.b.g0.a.k.f45050a) {
+                if (d.b.g0.a.k.f45051a) {
                     Log.e("AccountUtils", delegateResult.mResult.getString("errorMsg"));
                 }
-                this.f47277a.a(0);
+                this.f47278a.a(0);
                 return;
             }
-            if (d.b.g0.a.k.f45050a) {
+            if (d.b.g0.a.k.f45051a) {
                 Log.i("AccountUtils", string);
             }
-            this.f47277a.b(d.b.g0.a.i2.v.b(string));
+            this.f47278a.b(d.b.g0.a.i2.v.b(string));
         }
     }
 
@@ -196,37 +196,37 @@ public final class a {
     public static class f implements b0 {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bundle f47278a;
+        public final /* synthetic */ Bundle f47279a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47279b;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47280b;
 
         public f(Bundle bundle, d.b.g0.a.i2.u0.b bVar) {
-            this.f47278a = bundle;
-            this.f47279b = bVar;
+            this.f47279a = bundle;
+            this.f47280b = bVar;
         }
 
         @Override // d.b.g0.b.i.b0
         public void a(z zVar) {
-            if (a.f47272a) {
-                Log.d("AccountUtils", "callbackkey=" + zVar.f47305a);
+            if (a.f47273a) {
+                Log.d("AccountUtils", "callbackkey=" + zVar.f47306a);
             }
-            this.f47278a.putString("callbackKey", zVar.f47305a);
-            d.b.g0.a.i2.u0.b bVar = this.f47279b;
+            this.f47279a.putString("callbackKey", zVar.f47306a);
+            d.b.g0.a.i2.u0.b bVar = this.f47280b;
             if (bVar != null) {
-                bVar.onCallback(this.f47278a);
+                bVar.onCallback(this.f47279a);
             }
         }
 
         @Override // d.b.g0.b.i.b0
         public void onFailure(String str) {
-            if (a.f47272a) {
+            if (a.f47273a) {
                 Log.d("AccountUtils", "onFailure=" + str);
             }
-            this.f47278a.putString("failMsg", str);
-            d.b.g0.a.i2.u0.b bVar = this.f47279b;
+            this.f47279a.putString("failMsg", str);
+            d.b.g0.a.i2.u0.b bVar = this.f47280b;
             if (bVar != null) {
-                bVar.onCallback(this.f47278a);
+                bVar.onCallback(this.f47279a);
             }
         }
     }
@@ -235,16 +235,16 @@ public final class a {
     public static class g implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f47280a;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47281a;
 
         public g(d.b.g0.a.i2.u0.b bVar) {
-            this.f47280a = bVar;
+            this.f47281a = bVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Bundle bundle = delegateResult.mResult;
-            d.b.g0.a.i2.u0.b bVar = this.f47280a;
+            d.b.g0.a.i2.u0.b bVar = this.f47281a;
             if (bVar != null) {
                 bVar.onCallback(d.b.g0.a.i2.u.d(bundle, "result"));
             }
@@ -255,23 +255,23 @@ public final class a {
     public static class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f47281e;
+        public final /* synthetic */ Activity f47282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47282f;
+        public final /* synthetic */ String f47283f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47283g;
+        public final /* synthetic */ String f47284g;
 
         public h(Activity activity, String str, String str2) {
-            this.f47281e = activity;
-            this.f47282f = str;
-            this.f47283g = str2;
+            this.f47282e = activity;
+            this.f47283f = str;
+            this.f47284g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.R(this.f47281e, this.f47282f, this.f47283g);
+            a.R(this.f47282e, this.f47283f, this.f47284g);
         }
     }
 
@@ -279,15 +279,15 @@ public final class a {
     public static class i implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f47284e;
+        public final /* synthetic */ Activity f47285e;
 
         public i(Activity activity) {
-            this.f47284e = activity;
+            this.f47285e = activity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            a.P(this.f47284e, true, null, null);
+            a.P(this.f47285e, true, null, null);
         }
     }
 
@@ -302,8 +302,8 @@ public final class a {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, d.b.g0.b.i.i.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             a0 a0Var = new a0();
-            a0Var.f47285a = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-            a0Var.f47286b = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
+            a0Var.f47286a = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
+            a0Var.f47287b = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
             return a0Var;
         }
         return null;
@@ -411,7 +411,7 @@ public final class a {
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean("key_login_force", z);
         bundle2.putBundle("key_login_params", bundle);
-        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, k.class, bundle2, new C0897a(aVar));
+        DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, k.class, bundle2, new C0898a(aVar));
     }
 
     public static void R(Activity activity, String str, String str2) {

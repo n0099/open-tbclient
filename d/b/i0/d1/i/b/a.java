@@ -30,33 +30,33 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d<ForumDetailActivity> {
     public static final int p = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds364);
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumDetailActivity f53848a;
+    public ForumDetailActivity f53849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f53849b;
+    public View f53850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f53850c;
+    public LinearLayout f53851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f53851d;
+    public NavigationBar f53852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f53852e;
+    public NoNetworkView f53853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f53853f;
+    public NoDataView f53854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomScrollView f53854g;
+    public CustomScrollView f53855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemHeaderView f53855h;
+    public ItemHeaderView f53856h;
     public ItemInfoView i;
     public ItemMsgManage j;
     public ItemEmotionView k;
@@ -66,19 +66,19 @@ public class a extends d<ForumDetailActivity> {
     public View.OnClickListener o;
 
     /* renamed from: d.b.i0.d1.i.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1198a implements a.e {
-        public C1198a() {
+    /* loaded from: classes3.dex */
+    public class C1199a implements a.e {
+        public C1199a() {
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             a.this.n.dismiss();
-            a.this.f53848a.clearHistory();
+            a.this.f53849a.clearHistory();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b() {
         }
@@ -89,7 +89,7 @@ public class a extends d<ForumDetailActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnTouchListener {
         public c() {
         }
@@ -107,62 +107,62 @@ public class a extends d<ForumDetailActivity> {
             return false;
         }
 
-        public /* synthetic */ c(a aVar, C1198a c1198a) {
+        public /* synthetic */ c(a aVar, C1199a c1199a) {
             this();
         }
     }
 
     public a(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.f53848a = forumDetailActivity;
+        this.f53849a = forumDetailActivity;
         initUI();
     }
 
     public NoNetworkView h() {
-        return this.f53852e;
+        return this.f53853e;
     }
 
     public void i() {
-        this.f53848a.hideLoadingView(this.f53849b);
+        this.f53849a.hideLoadingView(this.f53850b);
     }
 
     public final void initUI() {
-        this.f53850c = (LinearLayout) this.f53848a.findViewById(R.id.scoll_view_ll);
-        TextView textView = new TextView(this.f53848a.getActivity());
+        this.f53851c = (LinearLayout) this.f53849a.findViewById(R.id.scoll_view_ll);
+        TextView textView = new TextView(this.f53849a.getActivity());
         textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.f53850c.addView(textView, 0);
-        NavigationBar navigationBar = (NavigationBar) this.f53848a.findViewById(R.id.view_navigation_bar);
-        this.f53851d = navigationBar;
-        navigationBar.setCenterTextTitle(this.f53848a.getPageContext().getString(R.string.forum_detail_title));
-        this.f53851d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f53851d.showBottomLine();
-        this.f53852e = (NoNetworkView) this.f53848a.findViewById(R.id.no_network_view);
-        CustomScrollView customScrollView = (CustomScrollView) this.f53848a.findViewById(R.id.scoll_view);
-        this.f53854g = customScrollView;
+        this.f53851c.addView(textView, 0);
+        NavigationBar navigationBar = (NavigationBar) this.f53849a.findViewById(R.id.view_navigation_bar);
+        this.f53852d = navigationBar;
+        navigationBar.setCenterTextTitle(this.f53849a.getPageContext().getString(R.string.forum_detail_title));
+        this.f53852d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f53852d.showBottomLine();
+        this.f53853e = (NoNetworkView) this.f53849a.findViewById(R.id.no_network_view);
+        CustomScrollView customScrollView = (CustomScrollView) this.f53849a.findViewById(R.id.scoll_view);
+        this.f53855g = customScrollView;
         customScrollView.setOnTouchListener(new c(this, null));
-        this.f53855h = (ItemHeaderView) this.f53848a.findViewById(R.id.item_header);
-        this.i = (ItemInfoView) this.f53848a.findViewById(R.id.item_info);
-        this.j = (ItemMsgManage) this.f53848a.findViewById(R.id.item_msg_manage);
-        this.k = (ItemEmotionView) this.f53848a.findViewById(R.id.item_emotion_manage);
-        this.l = (ItemHotThreadView) this.f53848a.findViewById(R.id.item_hot_thread);
-        ItemFootNavView itemFootNavView = (ItemFootNavView) this.f53848a.findViewById(R.id.item_foot_nav);
+        this.f53856h = (ItemHeaderView) this.f53849a.findViewById(R.id.item_header);
+        this.i = (ItemInfoView) this.f53849a.findViewById(R.id.item_info);
+        this.j = (ItemMsgManage) this.f53849a.findViewById(R.id.item_msg_manage);
+        this.k = (ItemEmotionView) this.f53849a.findViewById(R.id.item_emotion_manage);
+        this.l = (ItemHotThreadView) this.f53849a.findViewById(R.id.item_hot_thread);
+        ItemFootNavView itemFootNavView = (ItemFootNavView) this.f53849a.findViewById(R.id.item_foot_nav);
         this.m = itemFootNavView;
         itemFootNavView.setClickable(true);
-        this.f53849b = this.f53848a.findViewById(R.id.root_rl);
-        this.j.setMsgOnClickListener(this.f53848a);
-        this.k.setEmotionOnClickListener(this.f53848a);
-        this.j.setSwitchChangeListener(this.f53848a);
+        this.f53850b = this.f53849a.findViewById(R.id.root_rl);
+        this.j.setMsgOnClickListener(this.f53849a);
+        this.k.setEmotionOnClickListener(this.f53849a);
+        this.j.setSwitchChangeListener(this.f53849a);
     }
 
     public void k() {
-        NoDataView noDataView = this.f53853f;
+        NoDataView noDataView = this.f53854f;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
     }
 
     public void l() {
-        this.m.n(this.f53848a);
+        this.m.n(this.f53849a);
     }
 
     public void m(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
@@ -170,10 +170,10 @@ public class a extends d<ForumDetailActivity> {
     }
 
     public void n(RecommendForumInfo recommendForumInfo, boolean z, boolean z2, ManagerApplyInfo managerApplyInfo, PriManagerApplyInfo priManagerApplyInfo, ManagerElectionTab managerElectionTab, BzApplySwitch bzApplySwitch) {
-        this.f53855h.setData(recommendForumInfo);
+        this.f53856h.setData(recommendForumInfo);
         this.i.setData(recommendForumInfo);
         this.j.setData(recommendForumInfo, z, z2, managerApplyInfo, priManagerApplyInfo, managerElectionTab);
-        this.m.setData(recommendForumInfo, this.f53848a);
+        this.m.setData(recommendForumInfo, this.f53849a);
     }
 
     public void o(RecommendForumInfo recommendForumInfo, boolean z) {
@@ -181,15 +181,15 @@ public class a extends d<ForumDetailActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.f53848a.getLayoutMode().k(i == 1);
-        this.f53848a.getLayoutMode().j(this.f53849b);
-        this.f53851d.onChangeSkinType(getPageContext(), i);
-        this.f53852e.c(getPageContext(), i);
-        this.f53855h.b(this.f53848a, i);
-        this.i.b(this.f53848a, i);
-        this.j.b(this.f53848a, i);
-        this.l.d(this.f53848a, i);
-        this.m.m(this.f53848a, i);
+        this.f53849a.getLayoutMode().k(i == 1);
+        this.f53849a.getLayoutMode().j(this.f53850b);
+        this.f53852d.onChangeSkinType(getPageContext(), i);
+        this.f53853e.c(getPageContext(), i);
+        this.f53856h.b(this.f53849a, i);
+        this.i.b(this.f53849a, i);
+        this.j.b(this.f53849a, i);
+        this.l.d(this.f53849a, i);
+        this.m.m(this.f53849a, i);
     }
 
     public void q(View.OnClickListener onClickListener) {
@@ -206,28 +206,28 @@ public class a extends d<ForumDetailActivity> {
 
     public void u() {
         if (this.n == null) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f53848a.getPageContext().getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f53849a.getPageContext().getPageActivity());
             this.n = aVar;
             aVar.setMessageId(R.string.officical_bar_info_clean_alert);
-            this.n.setPositiveButton(R.string.alert_yes_button, new C1198a());
+            this.n.setPositiveButton(R.string.alert_yes_button, new C1199a());
             this.n.setNegativeButton(R.string.cancel, new b());
         }
         this.n.create(getPageContext()).show();
     }
 
     public void v() {
-        this.f53848a.showLoadingView(this.f53849b);
+        this.f53849a.showLoadingView(this.f53850b);
     }
 
     public void w(int i) {
-        if (this.f53853f == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.f53848a.getPageContext().getPageActivity(), this.f53850c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f53848a.getResources().getString(i)), null);
-            this.f53853f = a2;
+        if (this.f53854f == null) {
+            NoDataView a2 = NoDataViewFactory.a(this.f53849a.getPageContext().getPageActivity(), this.f53851c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f53849a.getResources().getString(i)), null);
+            this.f53854f = a2;
             a2.setOnClickListener(this.o);
         }
-        this.f53853f.setTextOption(NoDataViewFactory.e.d(null, this.f53848a.getResources().getString(i)));
-        this.f53853f.f(this.f53848a.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.f53853f.setVisibility(0);
+        this.f53854f.setTextOption(NoDataViewFactory.e.d(null, this.f53849a.getResources().getString(i)));
+        this.f53854f.f(this.f53849a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.f53854f.setVisibility(0);
     }
 
     public void x(RecommendForumInfo recommendForumInfo, boolean z) {

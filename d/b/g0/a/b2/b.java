@@ -21,13 +21,13 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43567a = k.f45050a;
+    public static final boolean f43568a = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends ProviderDelegation {
         @Nullable
         public static SwanCoreVersion b(Bundle bundle, int i) {
@@ -64,16 +64,16 @@ public final class b {
         if (file == null) {
             return;
         }
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(list.toArray()));
         }
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
-                if (f43567a) {
+                if (f43568a) {
                     Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores versionFolder: " + file2);
                 }
                 if (!j(file2, list)) {
-                    if (f43567a) {
+                    if (f43568a) {
                         Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores deleteFolder: " + file2);
                     }
                     d.f(file2);
@@ -96,7 +96,7 @@ public final class b {
     public static SwanCoreVersion d(int i) {
         long e2 = d.b.g0.a.b2.e.a.e(i);
         long d2 = d.b.g0.a.b2.f.a.d(i);
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "getSwanCoreVersion presetVer: " + e2 + " ,remoteVer: " + d2);
         }
         boolean z = i == 0;
@@ -111,7 +111,7 @@ public final class b {
         swanCoreVersion.swanCorePath = d.b.g0.a.b2.d.a.c().getPath();
         swanCoreVersion.swanCoreType = 2;
         swanCoreVersion.swanCoreVersion = d.b.g0.a.b2.d.a.b();
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "DebugSwanCoreMode");
         }
         return swanCoreVersion;
@@ -123,7 +123,7 @@ public final class b {
             return d(i);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null);
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + a.b(callOnMainWithContentProvider.mResult, i));
         }
         return a.b(callOnMainWithContentProvider.mResult, i);
@@ -137,7 +137,7 @@ public final class b {
         if (swanCoreVersion == null) {
             swanCoreVersion = d(i);
         }
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString version: " + swanCoreVersion.swanCoreVersion);
         }
         long j = swanCoreVersion.swanCoreVersion;
@@ -145,7 +145,7 @@ public final class b {
             return q(j);
         }
         String b2 = d.b.g0.a.b2.e.a.i(i).b();
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + b2);
         }
         return TextUtils.isEmpty(b2) ? "0" : b2;
@@ -163,13 +163,13 @@ public final class b {
                 j = (j << 16) | (i < p.length ? Integer.parseInt(p[i]) : 0L);
                 i++;
             } catch (NumberFormatException e2) {
-                if (f43567a) {
+                if (f43568a) {
                     throw e2;
                 }
                 return 0L;
             }
         }
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "getVersion version: " + str + " ,versionCode: " + j);
         }
         return j;
@@ -193,7 +193,7 @@ public final class b {
     }
 
     public static void k(int i, int i2) {
-        if (f43567a) {
+        if (f43568a) {
             Log.d("SwanAppSwanCoreManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
@@ -209,7 +209,7 @@ public final class b {
     }
 
     public static void m(int i, d.b.g0.a.i2.u0.b<Exception> bVar) {
-        b.C0616b b2 = b.C0616b.b();
+        b.C0617b b2 = b.C0617b.b();
         b2.c(true);
         b2.d("openSwanApp");
         n(b2.a(), i, bVar);
@@ -248,7 +248,7 @@ public final class b {
             }
         }
         String sb2 = sb.toString();
-        if (f43567a) {
+        if (f43568a) {
             StringBuilder sb3 = new StringBuilder();
             sb3.append("version code: ");
             sb3.append(j);

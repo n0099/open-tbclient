@@ -15,22 +15,22 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f42240b;
+    public static volatile a f42241b;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Integer> f42241a = new HashMap<>();
+    public HashMap<String, Integer> f42242a = new HashMap<>();
 
     public static synchronized a b() {
         a aVar;
         synchronized (a.class) {
-            if (f42240b == null) {
+            if (f42241b == null) {
                 synchronized (a.class) {
-                    if (f42240b == null) {
-                        f42240b = new a();
+                    if (f42241b == null) {
+                        f42241b = new a();
                     }
                 }
             }
-            aVar = f42240b;
+            aVar = f42241b;
         }
         return aVar;
     }
@@ -39,10 +39,10 @@ public class a {
         if (aVar == null) {
             return;
         }
-        for (Map.Entry<String, Integer> entry : this.f42241a.entrySet()) {
+        for (Map.Entry<String, Integer> entry : this.f42242a.entrySet()) {
             aVar.b(entry.getKey() + "_count", String.valueOf(entry.getValue()));
         }
-        this.f42241a.clear();
+        this.f42242a.clear();
     }
 
     public final d.b.b.e.n.a c() {
@@ -197,11 +197,11 @@ public class a {
         if (str == null) {
             return;
         }
-        Integer num = this.f42241a.get(str);
+        Integer num = this.f42242a.get(str);
         if (num == null) {
             num = 0;
         }
-        this.f42241a.put(str, Integer.valueOf(num.intValue() + 1));
+        this.f42242a.put(str, Integer.valueOf(num.intValue() + 1));
     }
 
     public void t(String str, String str2) {
@@ -216,7 +216,7 @@ public class a {
     }
 
     public void v() {
-        if (this.f42241a.size() == 0) {
+        if (this.f42242a.size() == 0) {
             return;
         }
         d.b.b.e.n.a c2 = c();

@@ -12,37 +12,37 @@ import java.util.concurrent.TimeUnit;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<WeakReference<ScheduledFuture<?>>> f64110a = new ArrayList();
+    public static List<WeakReference<ScheduledFuture<?>>> f64111a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f64111b = Executors.newFixedThreadPool(2);
+    public static ExecutorService f64112b = Executors.newFixedThreadPool(2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static ScheduledExecutorService f64112c = Executors.newScheduledThreadPool(2);
+    public static ScheduledExecutorService f64113c = Executors.newScheduledThreadPool(2);
 
     public static synchronized void a(Runnable runnable) {
         synchronized (b.class) {
-            if (f64112c == null || f64112c.isShutdown()) {
-                f64112c = Executors.newScheduledThreadPool(2);
+            if (f64113c == null || f64113c.isShutdown()) {
+                f64113c = Executors.newScheduledThreadPool(2);
             }
-            f64112c.execute(runnable);
+            f64113c.execute(runnable);
         }
     }
 
     public static synchronized void b(Runnable runnable, long j, long j2) {
         synchronized (b.class) {
-            if (f64112c == null || f64112c.isShutdown()) {
-                f64112c = Executors.newScheduledThreadPool(2);
+            if (f64113c == null || f64113c.isShutdown()) {
+                f64113c = Executors.newScheduledThreadPool(2);
             }
-            f64110a.add(new WeakReference<>(f64112c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            f64111a.add(new WeakReference<>(f64113c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static void c(Runnable runnable) {
-        ExecutorService executorService = f64111b;
+        ExecutorService executorService = f64112b;
         if (executorService == null || executorService.isShutdown()) {
-            f64111b = Executors.newFixedThreadPool(2);
+            f64112b = Executors.newFixedThreadPool(2);
         }
-        f64111b.execute(runnable);
+        f64112b.execute(runnable);
     }
 }

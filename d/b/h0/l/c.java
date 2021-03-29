@@ -70,7 +70,7 @@ public class c {
 
     /* renamed from: d.b.h0.l.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1066c implements UrlManager.UrlDealListener {
+    public static class C1067c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             Uri parse;
@@ -203,24 +203,24 @@ public class c {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50252e;
+        public final /* synthetic */ TbPageContext f50253e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f50253f;
+        public final /* synthetic */ String f50254f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f50254g;
+        public final /* synthetic */ String f50255g;
 
         public d(TbPageContext tbPageContext, String str, String str2) {
-            this.f50252e = tbPageContext;
-            this.f50253f = str;
-            this.f50254g = str2;
+            this.f50253e = tbPageContext;
+            this.f50254f = str;
+            this.f50255g = str2;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            d.b.h0.l.a.m(this.f50252e.getPageActivity(), this.f50253f, this.f50254g);
+            d.b.h0.l.a.m(this.f50253e.getPageActivity(), this.f50254f, this.f50255g);
         }
     }
 
@@ -428,7 +428,7 @@ public class c {
     }
 
     public static void i() {
-        UrlManager.getInstance().addListener(new C1066c());
+        UrlManager.getInstance().addListener(new C1067c());
     }
 
     public static void j() {

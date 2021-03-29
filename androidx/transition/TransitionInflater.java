@@ -50,7 +50,7 @@ public class TransitionInflater {
         throw new InflateException(str + " tag must have a 'class' attribute");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x0181, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x017d, code lost:
         return r3;
      */
     /*
@@ -128,7 +128,7 @@ public class TransitionInflater {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0054, code lost:
         return r1;
      */
     /*

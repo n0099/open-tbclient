@@ -20,16 +20,16 @@ import d.b.i0.v.e.d;
 public class VoteStatusCard extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15213e;
+    public Context f15214e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15214f;
+    public int f15215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f15215g;
+    public f f15216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15216h;
+    public e f15217h;
     public TextView i;
     public VoteStatusView j;
     public TextView k;
@@ -94,13 +94,13 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     public final void d() {
-        this.f15213e = getContext();
+        this.f15214e = getContext();
         setOrientation(1);
         setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
-        int g2 = l.g(this.f15213e, R.dimen.tbds56);
-        int g3 = l.g(this.f15213e, R.dimen.tbds52);
+        int g2 = l.g(this.f15214e, R.dimen.tbds56);
+        int g3 = l.g(this.f15214e, R.dimen.tbds52);
         setPadding(g2, g3, g2, g3);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         b();
@@ -123,11 +123,11 @@ public class VoteStatusCard extends LinearLayout {
         }
         TextView textView2 = this.m;
         if (textView2 != null) {
-            textView2.setTextColor(this.f15214f > d.f61958a ? color : color2);
+            textView2.setTextColor(this.f15215f > d.f61959a ? color : color2);
         }
         TextView textView3 = this.o;
         if (textView3 != null) {
-            if (this.f15214f <= d.f61959b) {
+            if (this.f15215f <= d.f61960b) {
                 color = color2;
             }
             textView3.setTextColor(color);
@@ -152,18 +152,18 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     public void setData(f fVar) {
-        this.f15215g = fVar;
+        this.f15216g = fVar;
         if (fVar != null && fVar.a() != null) {
-            e a2 = this.f15215g.a();
-            this.f15216h = a2;
+            e a2 = this.f15216g.a();
+            this.f15217h = a2;
             int g2 = a2.g();
-            this.f15214f = g2;
+            this.f15215f = g2;
             this.j.setStatus(g2);
-            long f2 = this.f15216h.f() * 1000;
-            this.l.setText(StringHelper.getDateStringMd(this.f15216h.c() * 1000));
-            this.n.setText(StringHelper.getDateStringMdHm(this.f15216h.h() * 1000));
-            this.p.setText(StringHelper.getDateStringMdHm(this.f15216h.d() * 1000));
-            if (this.f15214f == d.f61959b) {
+            long f2 = this.f15217h.f() * 1000;
+            this.l.setText(StringHelper.getDateStringMd(this.f15217h.c() * 1000));
+            this.n.setText(StringHelper.getDateStringMdHm(this.f15217h.h() * 1000));
+            this.p.setText(StringHelper.getDateStringMdHm(this.f15217h.d() * 1000));
+            if (this.f15215f == d.f61960b) {
                 this.r.setVisibility(0);
                 NewVoteCountDownView.b bVar = this.u;
                 if (bVar != null) {
@@ -184,7 +184,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15214f = d.f61959b;
+        this.f15215f = d.f61960b;
         this.u = new a();
         d();
     }

@@ -8,28 +8,28 @@ import java.util.Calendar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f39191a = d.C0516d.a("yy.MM.dd.HH");
+    public static SimpleDateFormat f39192a = d.C0517d.a("yy.MM.dd.HH");
 
     /* renamed from: g  reason: collision with root package name */
-    public File f39197g;
+    public File f39198g;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39192b = "Tracer.File";
+    public String f39193b = "Tracer.File";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39193c = Integer.MAX_VALUE;
+    public int f39194c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39194d = Integer.MAX_VALUE;
+    public int f39195d = Integer.MAX_VALUE;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39195e = 4096;
+    public int f39196e = 4096;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39196f = 10000;
+    public long f39197f = 10000;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39198h = 10;
+    public int f39199h = 10;
     public String i = ".log";
     public long j = Long.MAX_VALUE;
 
@@ -72,27 +72,27 @@ public class b {
     }
 
     public File e() {
-        return this.f39197g;
+        return this.f39198g;
     }
 
     public int f() {
-        return this.f39198h;
+        return this.f39199h;
     }
 
     public void a(String str) {
-        this.f39192b = str;
+        this.f39193b = str;
     }
 
     public void a(int i) {
-        this.f39193c = i;
+        this.f39194c = i;
     }
 
     public void b(int i) {
-        this.f39194d = i;
+        this.f39195d = i;
     }
 
     public void a(long j) {
-        this.f39196f = j;
+        this.f39197f = j;
     }
 
     public void b(String str) {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public void a(File file) {
-        this.f39197g = file;
+        this.f39198g = file;
     }
 
     public void b(long j) {
@@ -112,18 +112,18 @@ public class b {
     }
 
     public int d() {
-        return this.f39195e;
+        return this.f39196e;
     }
 
     public String c() {
-        return this.f39192b;
+        return this.f39193b;
     }
 
     public void d(int i) {
-        this.f39198h = i;
+        this.f39199h = i;
     }
 
     public void c(int i) {
-        this.f39195e = i;
+        this.f39196e = i;
     }
 }

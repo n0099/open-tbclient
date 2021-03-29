@@ -11,7 +11,7 @@ import com.baidu.cloudbase.download.exception.DownloadException;
 import d.b.k.b.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.cloudar.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.cloudar.download.ACTION_CANCEL_ALL";
@@ -25,51 +25,51 @@ public class CaptureDownloadService extends Service {
     public static final String TAG = "CaptureDownloadService";
     public d.b.k.b.a mDownloadManager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends d.b.k.b.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ac f4625a;
+        public ac f4626a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4626b;
+        public int f4627b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f4627c;
+        public long f4628c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LocalBroadcastManager f4628d;
+        public LocalBroadcastManager f4629d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4629e;
+        public int f4630e;
 
         public a(int i, ac acVar, Context context) {
-            this.f4629e = i;
-            this.f4625a = acVar;
-            this.f4628d = LocalBroadcastManager.getInstance(context);
+            this.f4630e = i;
+            this.f4626a = acVar;
+            this.f4629d = LocalBroadcastManager.getInstance(context);
         }
 
         public final boolean a(int i) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f4627c <= 300 || i == this.f4626b) {
+            if (currentTimeMillis - this.f4628c <= 300 || i == this.f4627b) {
                 return false;
             }
-            this.f4627c = currentTimeMillis;
-            this.f4626b = i;
+            this.f4628c = currentTimeMillis;
+            this.f4627b = i;
             return true;
         }
 
         public final void b(ac acVar) {
             Intent intent = new Intent();
             intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra("extra_position", this.f4629e);
+            intent.putExtra("extra_position", this.f4630e);
             intent.putExtra("extra_file_info", acVar.a().toString());
-            this.f4628d.sendBroadcast(intent);
+            this.f4629d.sendBroadcast(intent);
         }
 
         @Override // d.b.k.b.c.a
         public void onCompleted(String str) {
-            ac acVar = this.f4625a;
+            ac acVar = this.f4626a;
             acVar.f1404g = 6;
             acVar.f1402e = 100;
             acVar.f1405h = str;
@@ -78,7 +78,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // d.b.k.b.c.a
         public void onDownloadCanceled() {
-            ac acVar = this.f4625a;
+            ac acVar = this.f4626a;
             acVar.f1404g = 0;
             acVar.f1402e = 0;
             acVar.f1403f = "";
@@ -87,7 +87,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // d.b.k.b.c.a
         public void onDownloadPaused() {
-            ac acVar = this.f4625a;
+            ac acVar = this.f4626a;
             acVar.f1404g = 4;
             b(acVar);
         }
@@ -95,22 +95,22 @@ public class CaptureDownloadService extends Service {
         @Override // d.b.k.b.c.a
         public void onFailed(DownloadException downloadException) {
             downloadException.printStackTrace();
-            ac acVar = this.f4625a;
+            ac acVar = this.f4626a;
             acVar.f1404g = 5;
             b(acVar);
         }
 
         @Override // d.b.k.b.c.a
         public void onProgress(long j, long j2, int i) {
-            if (this.f4627c == 0) {
-                this.f4627c = System.currentTimeMillis();
+            if (this.f4628c == 0) {
+                this.f4628c = System.currentTimeMillis();
             }
-            ac acVar = this.f4625a;
+            ac acVar = this.f4626a;
             acVar.f1404g = 3;
             acVar.f1402e = i;
             acVar.f1403f = d.b.k.b.d.a.a(j, j2);
             if (a(i)) {
-                b(this.f4625a);
+                b(this.f4626a);
             }
         }
     }
@@ -198,7 +198,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0080, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x007e, code lost:
         if (r0.equals(com.baidu.cloudbase.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L8;
      */
     @Override // android.app.Service

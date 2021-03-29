@@ -165,7 +165,7 @@ public class FRSExtraStatic {
                             if (fragmentTabStructure == null) {
                                 return;
                             }
-                            fragmentTabStructure.f50154a.setArguments(new Bundle());
+                            fragmentTabStructure.f50155a.setArguments(new Bundle());
                         }
                     }
                 }
@@ -183,7 +183,7 @@ public class FRSExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.b.i0.p0.r1.c(null, l.f53485g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.b.i0.p0.r1.c(null, l.f53486g, true));
             }
         }
     }
@@ -206,7 +206,7 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
         a2.t3.set(true);
-        d.b.i0.p0.e.f57397a.set(new b1());
+        d.b.i0.p0.e.f57398a.set(new b1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

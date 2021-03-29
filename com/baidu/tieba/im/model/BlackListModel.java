@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BlackListModel extends BdBaseModel {
     public static final int ISMASK_FALSE_FROM_SERVER = 0;
     public static final int ISMASK_TRUE_FROM_SERVER = 1;

@@ -51,7 +51,7 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = f.f48888a;
+        DEBUG = f.f48889a;
         sIndex = new HashMap();
     }
 

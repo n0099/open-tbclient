@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UIUtils {
     public static int dip2px(int i, Context context) {
         return (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5f);

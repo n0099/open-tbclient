@@ -30,16 +30,16 @@ import d.b.i0.u3.n.a;
 public class EditorInfoContainer extends RelativeLayout implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public LocationInfoView f22276e;
+    public LocationInfoView f22277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f22277f;
+    public TBSpecificationBtn f22278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f22278g;
+    public TBSpecificationBtn f22279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditorTools f22279h;
+    public EditorTools f22280h;
     public int i;
     public boolean j;
     public String k;
@@ -50,19 +50,19 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AnimatorSet f22280e;
+        public final /* synthetic */ AnimatorSet f22281e;
 
         public a(AnimatorSet animatorSet) {
-            this.f22280e = animatorSet;
+            this.f22281e = animatorSet;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22278g.getStyleConfig()).q(R.color.CAM_X0302);
-            EditorInfoContainer.this.f22278g.getStyleConfig().h(R.color.CAM_X0302);
-            ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22276e.getLocationBtn().getStyleConfig()).q(R.color.CAM_X0302);
-            EditorInfoContainer.this.f22276e.getLocationBtn().getStyleConfig().h(R.color.CAM_X0302);
-            this.f22280e.start();
+            ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22279g.getStyleConfig()).q(R.color.CAM_X0302);
+            EditorInfoContainer.this.f22279g.getStyleConfig().h(R.color.CAM_X0302);
+            ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22277e.getLocationBtn().getStyleConfig()).q(R.color.CAM_X0302);
+            EditorInfoContainer.this.f22277e.getLocationBtn().getStyleConfig().h(R.color.CAM_X0302);
+            this.f22281e.start();
         }
     }
 
@@ -70,10 +70,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public class b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f22282e = 0;
+        public int f22283e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AnimatorSet f22283f;
+        public final /* synthetic */ AnimatorSet f22284f;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -82,27 +82,27 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
             @Override // java.lang.Runnable
             public void run() {
-                ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22278g.getStyleConfig()).r(R.color.CAM_X0105);
-                EditorInfoContainer.this.f22278g.getStyleConfig().h(R.color.CAM_X0110);
-                ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22276e.getLocationBtn().getStyleConfig()).r(R.color.CAM_X0105);
-                EditorInfoContainer.this.f22276e.getLocationBtn().getStyleConfig().h(R.color.CAM_X0110);
+                ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22279g.getStyleConfig()).r(R.color.CAM_X0105);
+                EditorInfoContainer.this.f22279g.getStyleConfig().h(R.color.CAM_X0110);
+                ((d.b.h0.r.f0.m.b) EditorInfoContainer.this.f22277e.getLocationBtn().getStyleConfig()).r(R.color.CAM_X0105);
+                EditorInfoContainer.this.f22277e.getLocationBtn().getStyleConfig().h(R.color.CAM_X0110);
             }
         }
 
         /* renamed from: com.baidu.tieba.write.editor.EditorInfoContainer$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0229b implements Runnable {
-            public RunnableC0229b() {
+        public class RunnableC0230b implements Runnable {
+            public RunnableC0230b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f22283f.start();
+                b.this.f22284f.start();
             }
         }
 
         public b(AnimatorSet animatorSet) {
-            this.f22283f = animatorSet;
+            this.f22284f = animatorSet;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -111,12 +111,12 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            int i = this.f22282e + 1;
-            this.f22282e = i;
+            int i = this.f22283e + 1;
+            this.f22283e = i;
             if (i > 1) {
                 EditorInfoContainer.this.postDelayed(new a(), 0L);
             } else {
-                EditorInfoContainer.this.postDelayed(new RunnableC0229b(), 1500L);
+                EditorInfoContainer.this.postDelayed(new RunnableC0230b(), 1500L);
             }
         }
 
@@ -133,23 +133,23 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f22287e;
+        public final /* synthetic */ i f22288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f22288f;
+        public final /* synthetic */ d.b.h0.r.s.a f22289f;
 
         public c(i iVar, d.b.h0.r.s.a aVar) {
-            this.f22287e = iVar;
-            this.f22288f = aVar;
+            this.f22288e = iVar;
+            this.f22289f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f22287e != null) {
+            if (this.f22288e != null) {
                 TiebaStatic.log(new StatisticItem("c13805").param("obj_locate", 2));
-                this.f22287e.a(true);
+                this.f22288e.a(true);
             }
-            this.f22288f.dismiss();
+            this.f22289f.dismiss();
         }
     }
 
@@ -157,23 +157,23 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f22290e;
+        public final /* synthetic */ i f22291e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f22291f;
+        public final /* synthetic */ d.b.h0.r.s.a f22292f;
 
         public d(i iVar, d.b.h0.r.s.a aVar) {
-            this.f22290e = iVar;
-            this.f22291f = aVar;
+            this.f22291e = iVar;
+            this.f22292f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f22290e != null) {
+            if (this.f22291e != null) {
                 TiebaStatic.log(new StatisticItem("c13805").param("obj_locate", 1));
-                this.f22290e.a(false);
+                this.f22291e.a(false);
             }
-            this.f22291f.dismiss();
+            this.f22292f.dismiss();
         }
     }
 
@@ -204,7 +204,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f22295e;
+        public final /* synthetic */ Context f22296e;
 
         /* loaded from: classes5.dex */
         public class a implements i {
@@ -223,7 +223,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     }
                 }
                 if (z) {
-                    int i = ((Integer) EditorInfoContainer.this.f22277f.f13600e).intValue() == 0 ? 1 : 0;
+                    int i = ((Integer) EditorInfoContainer.this.f22278f.f13601e).intValue() == 0 ? 1 : 0;
                     EditorInfoContainer.this.x(i);
                     if ("2".equals(EditorInfoContainer.this.k)) {
                         d.b.i0.u3.n.a.b(EditorInfoContainer.this.m, i);
@@ -233,14 +233,14 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         }
 
         public g(Context context) {
-            this.f22295e = context;
+            this.f22296e = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", ((Integer) EditorInfoContainer.this.f22277f.f13600e).intValue() == 0 ? 11 : 12));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", ((Integer) EditorInfoContainer.this.f22278f.f13601e).intValue() == 0 ? 11 : 12));
             EditorInfoContainer editorInfoContainer = EditorInfoContainer.this;
-            editorInfoContainer.w(this.f22295e, ((Integer) editorInfoContainer.f22277f.f13600e).intValue(), new a());
+            editorInfoContainer.w(this.f22296e, ((Integer) editorInfoContainer.f22278f.f13601e).intValue(), new a());
         }
     }
 
@@ -275,7 +275,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     @Override // d.b.h0.w.n
     public void d(d.b.h0.w.a aVar) {
-        EditorTools editorTools = this.f22279h;
+        EditorTools editorTools = this.f22280h;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -314,22 +314,22 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         bVar.i(R.drawable.ic_icon_pure_post_topic12, 0, TBSpecificationButtonConfig.IconType.WEBP);
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-        this.f22278g = tBSpecificationBtn;
+        this.f22279g = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f22278g.setTextSize(R.dimen.T_X09);
-        this.f22278g.setText(getContext().getString(R.string.add_topic));
-        this.f22278g.setOnClickListener(new f());
-        addView(this.f22278g, layoutParams);
+        this.f22279g.setTextSize(R.dimen.T_X09);
+        this.f22279g.setText(getContext().getString(R.string.add_topic));
+        this.f22279g.setOnClickListener(new f());
+        addView(this.f22279g, layoutParams);
     }
 
     public final void o(Context context) {
         LocationInfoView locationInfoView = new LocationInfoView(context);
-        this.f22276e = locationInfoView;
+        this.f22277e = locationInfoView;
         locationInfoView.setId(R.id.editor_id_location);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.f22276e.setLocationClickListener(new e());
-        addView(this.f22276e, layoutParams);
+        this.f22277e.setLocationClickListener(new e());
+        addView(this.f22277e, layoutParams);
     }
 
     @Override // d.b.h0.w.b
@@ -337,21 +337,21 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f51523a;
+        int i2 = aVar.f51524a;
         if (i2 == 19) {
-            LocationInfoView locationInfoView = this.f22276e;
+            LocationInfoView locationInfoView = this.f22277e;
             if (locationInfoView == null) {
                 return;
             }
-            Object obj = aVar.f51525c;
+            Object obj = aVar.f51526c;
             if (obj instanceof d.b.h0.w.u.a) {
                 d.b.h0.w.u.a aVar2 = (d.b.h0.w.u.a) obj;
-                locationInfoView.setState(aVar2.f51548a, aVar2.f51549b);
+                locationInfoView.setState(aVar2.f51549a, aVar2.f51550b);
                 return;
             }
             locationInfoView.setState(0, null);
         } else if (i2 == 20) {
-            LocationInfoView locationInfoView2 = this.f22276e;
+            LocationInfoView locationInfoView2 = this.f22277e;
             if (locationInfoView2 == null) {
                 return;
             }
@@ -366,15 +366,15 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     @Override // d.b.h0.w.n
     public void onChangeSkinType(int i2) {
-        LocationInfoView locationInfoView = this.f22276e;
+        LocationInfoView locationInfoView = this.f22277e;
         if (locationInfoView != null) {
             locationInfoView.b(i2);
         }
-        TBSpecificationBtn tBSpecificationBtn = this.f22277f;
+        TBSpecificationBtn tBSpecificationBtn = this.f22278f;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
-        TBSpecificationBtn tBSpecificationBtn2 = this.f22278g;
+        TBSpecificationBtn tBSpecificationBtn2 = this.f22279g;
         if (tBSpecificationBtn2 != null) {
             tBSpecificationBtn2.k();
         }
@@ -396,13 +396,13 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         bVar.m(l.g(getContext(), R.dimen.M_H_X002));
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-        this.f22277f = tBSpecificationBtn;
+        this.f22278f = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f22277f.setTextSize(R.dimen.T_X09);
+        this.f22278f.setTextSize(R.dimen.T_X09);
         x(0);
-        this.f22277f.setLayoutParams(layoutParams);
-        this.f22277f.setOnClickListener(new g(context));
-        addView(this.f22277f);
+        this.f22278f.setLayoutParams(layoutParams);
+        this.f22278f.setOnClickListener(new g(context));
+        addView(this.f22278f);
     }
 
     public void q(String str, int i2) {
@@ -423,7 +423,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     @Override // d.b.h0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f22279h = editorTools;
+        this.f22280h = editorTools;
     }
 
     public void setFrom(String str) {
@@ -437,16 +437,16 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     public boolean t() {
         TBSpecificationBtn tBSpecificationBtn;
-        TBSpecificationBtn tBSpecificationBtn2 = this.f22277f;
-        return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.f13600e).intValue() != 0) && (tBSpecificationBtn = this.f22277f) != null && ((Integer) tBSpecificationBtn.f13600e).intValue() == 1;
+        TBSpecificationBtn tBSpecificationBtn2 = this.f22278f;
+        return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.f13601e).intValue() != 0) && (tBSpecificationBtn = this.f22278f) != null && ((Integer) tBSpecificationBtn.f13601e).intValue() == 1;
     }
 
     public void u(long j) {
-        int left = this.f22276e.getLeft() + 10;
+        int left = this.f22277e.getLeft() + 10;
         float f2 = left + 10;
         float f3 = left - 10;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f22276e, "translationX", f2, f3, f2, f3);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f22278g, "translationX", f2, f3, f2, f3);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f22277e, "translationX", f2, f3, f2, f3);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f22279g, "translationX", f2, f3, f2, f3);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ofFloat2, ofFloat);
         animatorSet.setDuration(j / 4);
@@ -455,7 +455,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     }
 
     public void v(boolean z) {
-        TBSpecificationBtn tBSpecificationBtn = this.f22278g;
+        TBSpecificationBtn tBSpecificationBtn = this.f22279g;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setVisibility(z ? 0 : 8);
         }
@@ -490,10 +490,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     }
 
     public final void x(int i2) {
-        this.f22277f.setText(getResources().getString(R.string.public_to_all));
-        this.f22277f.getStyleConfig().i(i2 == 0 ? R.drawable.icon_pure_post_chosen12 : R.drawable.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-        this.f22277f.getStyleConfig().h(i2 == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
-        this.f22277f.f13600e = Integer.valueOf(i2);
+        this.f22278f.setText(getResources().getString(R.string.public_to_all));
+        this.f22278f.getStyleConfig().i(i2 == 0 ? R.drawable.icon_pure_post_chosen12 : R.drawable.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+        this.f22278f.getStyleConfig().h(i2 == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
+        this.f22278f.f13601e = Integer.valueOf(i2);
     }
 
     public EditorInfoContainer(Context context, String str, AttributeSet attributeSet) {

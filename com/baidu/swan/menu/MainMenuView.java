@@ -135,7 +135,7 @@ public class MainMenuView extends BaseMenuView {
         this.n = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.n.setPadding(0, (int) this.f12981e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.n.setPadding(0, (int) this.f12982e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
         this.k.addView(this.n, layoutParams);
         View view = new View(context);
         this.m = view;

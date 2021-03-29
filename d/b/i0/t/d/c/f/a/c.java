@@ -13,7 +13,7 @@ public class c extends d.b.b.j.e.a<k, LiveTabConcernItemViewLineHolder> {
     public i o;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k.f60341h);
+        super(tbPageContext.getPageActivity(), k.f60342h);
         this.m = tbPageContext;
     }
 
@@ -35,7 +35,7 @@ public class c extends d.b.b.j.e.a<k, LiveTabConcernItemViewLineHolder> {
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         d.b.i0.t.d.c.f.d.d dVar;
-        if (liveTabConcernItemViewLineHolder == null || (dVar = liveTabConcernItemViewLineHolder.f14796a) == null) {
+        if (liveTabConcernItemViewLineHolder == null || (dVar = liveTabConcernItemViewLineHolder.f14797a) == null) {
             return null;
         }
         dVar.n(kVar);

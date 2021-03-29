@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import d.b.i0.e1.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     public AtMeCacheModel(TbPageContext<AtMessageActivity> tbPageContext) {
         super(tbPageContext);

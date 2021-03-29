@@ -32,10 +32,11 @@ public class SpeedControl implements VideoPlayer.FrameCallback {
         if (j3 == 0) {
             j3 = j - this.mPrevPresentUsec;
         }
-        if (j3 < 0) {
+        int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (i < 0) {
             Log.w(TAG, "Weird, video times went backward");
         } else {
-            if (j3 == 0) {
+            if (i == 0) {
                 Log.w(TAG, "Warning: current frame and previous frame had same timestamp");
             } else if (j3 > 10000000) {
                 j2 = 5000000;

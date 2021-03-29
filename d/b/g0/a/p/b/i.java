@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i implements d.b.g0.a.p.c.w {
     @Override // d.b.g0.a.p.c.w
     public void a(HashMap<String, String> hashMap, File file, w.a aVar, String str) {

@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f40195a = new HashMap<>();
+    public static HashMap<String, String> f40196a = new HashMap<>();
 
     public static MiPushMessage a(String str) {
         MiPushMessage miPushMessage = new MiPushMessage();
@@ -110,7 +110,7 @@ public class i {
     public static synchronized String a(Context context, String str) {
         String str2;
         synchronized (i.class) {
-            str2 = f40195a.get(str);
+            str2 = f40196a.get(str);
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -119,7 +119,7 @@ public class i {
     }
 
     public static String a(e eVar) {
-        int i = k.f40197a[eVar.ordinal()];
+        int i = k.f40198a[eVar.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
@@ -143,7 +143,7 @@ public class i {
         if (TextUtils.isEmpty(a2)) {
             return hashMap;
         }
-        int i = k.f40197a[eVar.ordinal()];
+        int i = k.f40198a[eVar.ordinal()];
         String str = null;
         ApplicationInfo applicationInfo = null;
         if (i != 1) {
@@ -245,7 +245,7 @@ public class i {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.m51a("ASSEMBLE_PUSH : token is null");
             } else {
-                f40195a.put(a2, str);
+                f40196a.put(a2, str);
             }
         }
     }
@@ -271,7 +271,7 @@ public class i {
     }
 
     public static String b(e eVar) {
-        int i = k.f40197a[eVar.ordinal()];
+        int i = k.f40198a[eVar.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {

@@ -11,22 +11,22 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public IMBlackListActivity f54303e;
+    public IMBlackListActivity f54304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<BlackListItemData> f54304f;
+    public ArrayList<BlackListItemData> f54305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f54305g = new View$OnClickListenerC1229a();
+    public View.OnClickListener f54306g = new View$OnClickListenerC1230a();
 
     /* renamed from: d.b.i0.e1.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1229a implements View.OnClickListener {
-        public View$OnClickListenerC1229a() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1230a implements View.OnClickListener {
+        public View$OnClickListenerC1230a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -35,35 +35,35 @@ public class a extends BaseAdapter {
             if (tag == null || !(tag instanceof BlackListItemData)) {
                 return;
             }
-            a.this.f54303e.handler(view, (BlackListItemData) tag);
+            a.this.f54304e.handler(view, (BlackListItemData) tag);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f54307a;
+        public View f54308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f54308b;
+        public HeadImageView f54309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f54309c;
+        public TextView f54310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Button f54310d;
+        public Button f54311d;
 
         public b(a aVar) {
         }
 
-        public /* synthetic */ b(a aVar, View$OnClickListenerC1229a view$OnClickListenerC1229a) {
+        public /* synthetic */ b(a aVar, View$OnClickListenerC1230a view$OnClickListenerC1230a) {
             this(aVar);
         }
     }
 
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.f54303e = iMBlackListActivity;
+        this.f54304e = iMBlackListActivity;
     }
 
     public final b b(Object obj, BlackListItemData blackListItemData) {
@@ -74,35 +74,35 @@ public class a extends BaseAdapter {
             bVar = (b) obj;
         }
         d(bVar, blackListItemData.s());
-        bVar.f54309c.setText(blackListItemData.t());
-        bVar.f54310d.setTag(blackListItemData);
-        this.f54303e.getLayoutMode().j(bVar.f54307a);
+        bVar.f54310c.setText(blackListItemData.t());
+        bVar.f54311d.setTag(blackListItemData);
+        this.f54304e.getLayoutMode().j(bVar.f54308a);
         return bVar;
     }
 
     public final b c() {
         b bVar = new b(this, null);
-        View inflate = LayoutInflater.from(this.f54303e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-        bVar.f54307a = inflate;
+        View inflate = LayoutInflater.from(this.f54304e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+        bVar.f54308a = inflate;
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.header_view);
-        bVar.f54308b = headImageView;
+        bVar.f54309b = headImageView;
         headImageView.setIsRound(true);
-        bVar.f54309c = (TextView) bVar.f54307a.findViewById(R.id.user_name);
-        bVar.f54310d = (Button) bVar.f54307a.findViewById(R.id.remove_button);
-        bVar.f54307a.setTag(bVar);
-        bVar.f54310d.setOnClickListener(this.f54305g);
+        bVar.f54310c = (TextView) bVar.f54308a.findViewById(R.id.user_name);
+        bVar.f54311d = (Button) bVar.f54308a.findViewById(R.id.remove_button);
+        bVar.f54308a.setTag(bVar);
+        bVar.f54311d.setOnClickListener(this.f54306g);
         return bVar;
     }
 
     public final void d(b bVar, String str) {
         if (str != null) {
-            bVar.f54308b.setTag(str);
-            bVar.f54308b.W(str, 12, false);
+            bVar.f54309b.setTag(str);
+            bVar.f54309b.W(str, 12, false);
         }
     }
 
     public void e(BlackListItemData blackListItemData) {
-        ArrayList<BlackListItemData> arrayList = this.f54304f;
+        ArrayList<BlackListItemData> arrayList = this.f54305f;
         if (arrayList == null) {
             return;
         }
@@ -110,12 +110,12 @@ public class a extends BaseAdapter {
     }
 
     public void f(ArrayList<BlackListItemData> arrayList) {
-        this.f54304f = arrayList;
+        this.f54305f = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<BlackListItemData> arrayList = this.f54304f;
+        ArrayList<BlackListItemData> arrayList = this.f54305f;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -124,7 +124,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        ArrayList<BlackListItemData> arrayList = this.f54304f;
+        ArrayList<BlackListItemData> arrayList = this.f54305f;
         if (arrayList != null) {
             return arrayList.get(i);
         }
@@ -146,7 +146,7 @@ public class a extends BaseAdapter {
             bVar = null;
         }
         if (bVar != null) {
-            return bVar.f54307a;
+            return bVar.f54308a;
         }
         return null;
     }

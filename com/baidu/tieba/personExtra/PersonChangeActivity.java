@@ -268,14 +268,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public class g implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20334e;
+        public final /* synthetic */ String f20335e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f20335f;
+        public final /* synthetic */ String f20336f;
 
         public g(String str, String str2) {
-            this.f20334e = str;
-            this.f20335f = str2;
+            this.f20335e = str;
+            this.f20336f = str2;
         }
 
         @Override // d.b.h0.r.s.l.e
@@ -285,12 +285,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (this.f20334e.equals(textView.getText().toString())) {
+                if (this.f20335e.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 1;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20334e);
-                } else if (this.f20335f.equals(textView.getText().toString())) {
+                    PersonChangeActivity.this.mSexShow.setText(this.f20335e);
+                } else if (this.f20336f.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 2;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20335f);
+                    PersonChangeActivity.this.mSexShow.setText(this.f20336f);
                 }
                 if (PersonChangeActivity.this.mSex != PersonChangeActivity.this.mModel.s().getSex()) {
                     PersonChangeActivity.this.isUpdate = true;
@@ -552,20 +552,20 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public class u extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20350a = null;
+        public NetWork f20351a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonChangeModel f20351b;
+        public PersonChangeModel f20352b;
 
         public u(PersonChangeModel personChangeModel) {
-            this.f20351b = null;
-            this.f20351b = personChangeModel;
+            this.f20352b = null;
+            this.f20352b = personChangeModel;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             PersonChangeActivity.this.mModifyTask = null;
-            NetWork netWork = this.f20350a;
+            NetWork netWork = this.f20351a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -582,17 +582,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            if (this.f20351b == null) {
+            if (this.f20352b == null) {
                 return null;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_MODIFY);
-            this.f20350a = netWork;
-            netWork.addPostData("sex", String.valueOf(this.f20351b.s().getSex()));
-            this.f20350a.addPostData("intro", this.f20351b.s().getIntro());
-            this.f20350a.addPostData("birthday_time", String.valueOf(this.f20351b.s().getBirthdayTime()));
-            this.f20350a.addPostData("birthday_show_status", String.valueOf(this.f20351b.s().getBirthdayShowStatus()));
-            this.f20350a.postMultiNetData();
-            if (this.f20350a.getNetContext().getResponse().isRequestSuccess()) {
+            this.f20351a = netWork;
+            netWork.addPostData("sex", String.valueOf(this.f20352b.s().getSex()));
+            this.f20351a.addPostData("intro", this.f20352b.s().getIntro());
+            this.f20351a.addPostData("birthday_time", String.valueOf(this.f20352b.s().getBirthdayTime()));
+            this.f20351a.addPostData("birthday_show_status", String.valueOf(this.f20352b.s().getBirthdayShowStatus()));
+            this.f20351a.postMultiNetData();
+            if (this.f20351a.getNetContext().getResponse().isRequestSuccess()) {
                 d.b.i0.c3.n0.a.j();
             }
             return null;
@@ -603,14 +603,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPostExecute(String str) {
             PersonChangeActivity.this.mModifyTask = null;
             PersonChangeActivity.this.closeLoadingDialog();
-            NetWork netWork = this.f20350a;
+            NetWork netWork = this.f20351a;
             if (netWork != null) {
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     PersonChangeActivity personChangeActivity = PersonChangeActivity.this;
                     personChangeActivity.showToast(personChangeActivity.getPageContext().getString(R.string.success));
                     PersonChangeActivity.this.setDataAndFinish();
                 } else {
-                    PersonChangeActivity.this.showToast(this.f20350a.getErrorString());
+                    PersonChangeActivity.this.showToast(this.f20351a.getErrorString());
                 }
             }
             super.onPostExecute((u) str);
@@ -1133,9 +1133,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
         }
         PersonChangeModel personChangeModel2 = this.mModel;
-        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f20353e) != null && !personChangeData.canModifyAvatar()) {
-            if (!StringUtils.isNull(this.mModel.f20353e.getCantModifyAvatarDesc())) {
-                d.b.b.e.p.l.I(TbadkCoreApplication.getInst(), this.mModel.f20353e.getCantModifyAvatarDesc());
+        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f20354e) != null && !personChangeData.canModifyAvatar()) {
+            if (!StringUtils.isNull(this.mModel.f20354e.getCantModifyAvatarDesc())) {
+                d.b.b.e.p.l.I(TbadkCoreApplication.getInst(), this.mModel.f20354e.getCantModifyAvatarDesc());
                 return;
             } else {
                 d.b.b.e.p.l.H(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);

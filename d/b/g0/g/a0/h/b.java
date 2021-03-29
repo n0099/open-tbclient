@@ -5,18 +5,18 @@ import androidx.annotation.NonNull;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f47865a;
+    public long f47866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f47866b;
+    public long f47867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f47867c;
+    public long f47868c;
 
     public b(long j, long j2, long j3) {
-        this.f47865a = j;
-        this.f47866b = j2;
-        this.f47867c = j3;
+        this.f47866a = j;
+        this.f47867b = j2;
+        this.f47868c = j3;
     }
 
     @NonNull
@@ -27,19 +27,19 @@ public class b {
     public a a() {
         if (c()) {
             a aVar = new a();
-            aVar.f47863a = Math.max(this.f47865a - this.f47866b, 0L);
-            aVar.f47864b = this.f47865a + this.f47867c;
+            aVar.f47864a = Math.max(this.f47866a - this.f47867b, 0L);
+            aVar.f47865b = this.f47866a + this.f47868c;
             return aVar;
         }
         return null;
     }
 
     public boolean c() {
-        long j = this.f47865a;
+        long j = this.f47866a;
         if (j >= 0) {
-            long j2 = this.f47866b;
+            long j2 = this.f47867b;
             if (j2 >= 0) {
-                long j3 = this.f47867c;
+                long j3 = this.f47868c;
                 if (j3 >= 0 && j2 + j3 > 0 && j + j3 > 0) {
                     return true;
                 }
@@ -49,6 +49,6 @@ public class b {
     }
 
     public String toString() {
-        return "[ mBaseline = " + this.f47865a + "; mLeftOffset = " + this.f47866b + "; mRightOffset = " + this.f47867c + " ]";
+        return "[ mBaseline = " + this.f47866a + "; mLeftOffset = " + this.f47867b + "; mRightOffset = " + this.f47868c + " ]";
     }
 }

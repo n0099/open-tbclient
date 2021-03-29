@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, h> f48451a = new HashMap<>();
+    public HashMap<String, h> f48452a = new HashMap<>();
 
     public void a(h hVar, String... strArr) {
         if (strArr == null || strArr.length == 0) {
@@ -15,13 +15,13 @@ public class g {
         }
         for (String str : strArr) {
             if (!TextUtils.isEmpty(str)) {
-                this.f48451a.put(str, hVar);
+                this.f48452a.put(str, hVar);
             }
         }
     }
 
     public void b() {
-        this.f48451a.clear();
+        this.f48452a.clear();
     }
 
     public ArrayList<h> c(String... strArr) {
@@ -29,12 +29,12 @@ public class g {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    for (String str2 : this.f48451a.keySet()) {
+                    for (String str2 : this.f48452a.keySet()) {
                         if (str2.startsWith(str) || str.startsWith(str2)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList<>();
                             }
-                            arrayList.add(this.f48451a.get(str2));
+                            arrayList.add(this.f48452a.get(str2));
                         }
                     }
                 }
@@ -48,8 +48,8 @@ public class g {
             return;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.f48451a.get(str) == hVar) {
-                this.f48451a.remove(str);
+            if (!TextUtils.isEmpty(str) && this.f48452a.get(str) == hVar) {
+                this.f48452a.remove(str);
             }
         }
     }

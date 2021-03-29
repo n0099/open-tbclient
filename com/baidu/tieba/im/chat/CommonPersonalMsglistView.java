@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonPersonalMsglistView extends AbsMsglistView {
     public CommonPersonalMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);

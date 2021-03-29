@@ -16,16 +16,16 @@ import com.baidu.tieba.R;
 public class FRSRefreshButton extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14056e;
+    public int f14057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14057f;
+    public int f14058f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f14058g;
+    public Paint f14059g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14059h;
+    public int f14060h;
     public PorterDuffXfermode i;
     public PorterDuffXfermode j;
     public Drawable k;
@@ -39,9 +39,9 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public final void a(Canvas canvas) {
-        this.f14058g.setXfermode(this.i);
-        canvas.drawPaint(this.f14058g);
-        this.f14058g.setXfermode(this.j);
+        this.f14059g.setXfermode(this.i);
+        canvas.drawPaint(this.f14059g);
+        this.f14059g.setXfermode(this.j);
     }
 
     public void b() {
@@ -62,10 +62,10 @@ public class FRSRefreshButton extends ImageView {
 
     public final void c() {
         Paint paint = new Paint();
-        this.f14058g = paint;
+        this.f14059g = paint;
         paint.setAntiAlias(true);
-        this.f14058g.setStyle(Paint.Style.FILL);
-        this.f14058g.setAntiAlias(true);
+        this.f14059g.setStyle(Paint.Style.FILL);
+        this.f14059g.setAntiAlias(true);
         this.k = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         setLayerType(1, null);
     }
@@ -113,17 +113,17 @@ public class FRSRefreshButton extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f14056e <= 0 || this.f14057f <= 0) {
+        if (this.f14057e <= 0 || this.f14058f <= 0) {
             return;
         }
         int saveCount = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f14056e / 2, this.f14057f / 2);
-        this.f14058g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.f14058g.setColor(SkinManager.getColor(this.f14059h));
-        int i = this.f14056e;
-        canvas.drawCircle(i / 2, this.f14057f / 2, (i / 2) - 20, this.f14058g);
+        canvas.rotate(45.0f, this.f14057e / 2, this.f14058f / 2);
+        this.f14059g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+        this.f14059g.setColor(SkinManager.getColor(this.f14060h));
+        int i = this.f14057e;
+        canvas.drawCircle(i / 2, this.f14058f / 2, (i / 2) - 20, this.f14059g);
         e(canvas);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -134,8 +134,8 @@ public class FRSRefreshButton extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f14056e = getMeasuredWidth();
-        this.f14057f = getMeasuredHeight();
+        this.f14057e = getMeasuredWidth();
+        this.f14058f = getMeasuredHeight();
     }
 
     public FRSRefreshButton(Context context, AttributeSet attributeSet) {
@@ -144,7 +144,7 @@ public class FRSRefreshButton extends ImageView {
 
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14059h = R.color.CAM_X0211;
+        this.f14060h = R.color.CAM_X0211;
         this.i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.j = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.l = 3;

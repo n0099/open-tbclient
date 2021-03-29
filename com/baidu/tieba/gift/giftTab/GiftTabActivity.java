@@ -66,15 +66,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16879e;
+        public final /* synthetic */ d.b.h0.r.s.a f16880e;
 
         public a(d.b.h0.r.s.a aVar) {
-            this.f16879e = aVar;
+            this.f16880e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16879e.dismiss();
+            this.f16880e.dismiss();
         }
     }
 
@@ -82,15 +82,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16881e;
+        public final /* synthetic */ d.b.h0.r.s.a f16882e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f16881e = aVar;
+            this.f16882e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16881e.dismiss();
+            this.f16882e.dismiss();
         }
     }
 
@@ -98,15 +98,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16883e;
+        public final /* synthetic */ d.b.h0.r.s.a f16884e;
 
         public c(d.b.h0.r.s.a aVar) {
-            this.f16883e = aVar;
+            this.f16884e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16883e.dismiss();
+            this.f16884e.dismiss();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(GiftTabActivity.this.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
         }
     }
@@ -115,15 +115,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16885e;
+        public final /* synthetic */ d.b.h0.r.s.a f16886e;
 
         public d(d.b.h0.r.s.a aVar) {
-            this.f16885e = aVar;
+            this.f16886e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16885e.dismiss();
+            this.f16886e.dismiss();
         }
     }
 
@@ -131,15 +131,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16887e;
+        public final /* synthetic */ d.b.h0.r.s.a f16888e;
 
         public e(d.b.h0.r.s.a aVar) {
-            this.f16887e = aVar;
+            this.f16888e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16887e.dismiss();
+            this.f16888e.dismiss();
             if (StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
                 return;
             }
@@ -363,11 +363,11 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void hideAnimation() {
-        this.mView.f16901h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16902h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.mView.f16901h.startAnimation(alphaAnimation);
+        this.mView.f16902h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -380,10 +380,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         if (i0Var == null || i2 <= 0) {
             return false;
         }
-        int i3 = i0Var.f50813f;
+        int i3 = i0Var.f50814f;
         if (i3 == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis < i0Var.f50815h) {
+            if (currentTimeMillis < i0Var.f50816h) {
                 new d.b.h0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
                 return false;
             } else if (currentTimeMillis > i0Var.i) {
@@ -433,10 +433,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void showAnimation() {
-        this.mView.f16901h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16902h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.mView.f16901h.startAnimation(alphaAnimation);
+        this.mView.f16902h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);

@@ -191,7 +191,7 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:81:0x014b  */
     /* JADX WARN: Removed duplicated region for block: B:83:0x0150  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -479,11 +479,7 @@ public class VideoPlayer {
 
     public void setLoopSection(long j, long j2) {
         this.mStartFrameTimeUs = 1000 * j;
-        double d2 = j2 - j;
-        Double.isNaN(d2);
-        double d3 = this.mFps;
-        Double.isNaN(d3);
-        this.mPlayFrames = ((int) ((d2 / 1000.0d) * d3)) + 1;
+        this.mPlayFrames = ((int) (((j2 - j) / 1000.0d) * this.mFps)) + 1;
     }
 
     public void setLooping(boolean z) {
@@ -527,26 +523,16 @@ public class VideoPlayer {
     }
 
     public void setLoopSection(long j) {
-        double d2 = this.mDurationUs;
-        Double.isNaN(d2);
-        setLoopSection(j, (long) (d2 / 1000.0d));
+        setLoopSection(j, (long) (this.mDurationUs / 1000.0d));
     }
 
     public void setLoopSection(int i, int i2) {
-        double d2 = this.mFps;
-        Double.isNaN(d2);
-        double d3 = i;
-        Double.isNaN(d3);
-        this.mStartFrameTimeUs = (long) ((1000.0d / d2) * d3 * 1000.0d);
+        this.mStartFrameTimeUs = (long) ((1000.0d / this.mFps) * i * 1000.0d);
         this.mPlayFrames = (i2 - i) + 1;
     }
 
     public void setLoopSection(int i) {
-        double d2 = this.mDurationUs;
-        Double.isNaN(d2);
-        double d3 = this.mFps;
-        Double.isNaN(d3);
-        setLoopSection(i, (int) ((d2 / 1000000.0d) * d3));
+        setLoopSection(i, (int) ((this.mDurationUs / 1000000.0d) * this.mFps));
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {

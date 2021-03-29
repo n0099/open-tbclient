@@ -23,8 +23,8 @@ public class a extends k<d.b.i0.s0.b, GameRankListViewHolder> implements d {
 
     /* renamed from: d.b.i0.p0.t1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1439a implements GameRankHorizontalLayout.b {
-        public C1439a() {
+    public class C1440a implements GameRankHorizontalLayout.b {
+        public C1440a() {
         }
 
         @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
@@ -33,7 +33,7 @@ public class a extends k<d.b.i0.s0.b, GameRankListViewHolder> implements d {
                 return;
             }
             if (a.this.w != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", a.this.w.f57701c).param("obj_locate", i + 1));
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", a.this.w.f57702c).param("obj_locate", i + 1));
             }
             if (StringUtils.isNull(aVar.c())) {
                 return;
@@ -70,7 +70,7 @@ public class a extends k<d.b.i0.s0.b, GameRankListViewHolder> implements d {
     @Override // d.b.b.j.e.a
     /* renamed from: v0 */
     public GameRankListViewHolder R(ViewGroup viewGroup) {
-        return new GameRankListViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
+        return new GameRankListViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,14 +83,14 @@ public class a extends k<d.b.i0.s0.b, GameRankListViewHolder> implements d {
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
         if (this.w != null) {
-            TiebaStatic.log(new StatisticItem("c12104").param("fid", this.w.f57701c));
+            TiebaStatic.log(new StatisticItem("c12104").param("fid", this.w.f57702c));
         }
-        GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.f16365a;
+        GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.f16366a;
         if (gameRankHorizontalLayout != null) {
             gameRankHorizontalLayout.setData(bVar);
-            gameRankListViewHolder.f16365a.setOnCardClickListener(new C1439a());
+            gameRankListViewHolder.f16366a.setOnCardClickListener(new C1440a());
         }
-        TextView textView = gameRankListViewHolder.f16366b;
+        TextView textView = gameRankListViewHolder.f16367b;
         if (textView != null) {
             textView.setOnClickListener(new b(this));
         }

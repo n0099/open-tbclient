@@ -37,7 +37,7 @@ public class f extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
             if (view == null || a2Var == null) {
                 return;
             }
-            BdToast.i(f.this.f42357e, f.this.f42357e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+            BdToast.i(f.this.f42358e, f.this.f42358e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
 
@@ -48,7 +48,7 @@ public class f extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
 
         @Override // d.b.b.j.e.w
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            BdToast.i(f.this.f42357e, f.this.f42357e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+            BdToast.i(f.this.f42358e, f.this.f42358e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
 
@@ -122,9 +122,9 @@ public class f extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50763c = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50764c = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(1);
@@ -134,7 +134,7 @@ public class f extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
             m0Var.c(4);
         }
         bVar.m(m0Var);
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds28));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds28));
         d.b.i.k0 i = bVar.i();
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(i);
         threadCardViewHolder.k(this.i);

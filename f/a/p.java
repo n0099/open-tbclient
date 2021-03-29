@@ -8,50 +8,50 @@ import java.util.concurrent.TimeUnit;
 public abstract class p {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f67455e = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
+    public static final long f67460e = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
     /* loaded from: classes7.dex */
     public static final class a implements f.a.t.b, Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f67456e;
+        public final Runnable f67461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c f67457f;
+        public final c f67462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Thread f67458g;
+        public Thread f67463g;
 
         public a(Runnable runnable, c cVar) {
-            this.f67456e = runnable;
-            this.f67457f = cVar;
+            this.f67461e = runnable;
+            this.f67462f = cVar;
         }
 
         @Override // f.a.t.b
         public void dispose() {
-            if (this.f67458g == Thread.currentThread()) {
-                c cVar = this.f67457f;
+            if (this.f67463g == Thread.currentThread()) {
+                c cVar = this.f67462f;
                 if (cVar instanceof f.a.x.g.a) {
                     ((f.a.x.g.a) cVar).f();
                     return;
                 }
             }
-            this.f67457f.dispose();
+            this.f67462f.dispose();
         }
 
         @Override // f.a.t.b
         public boolean isDisposed() {
-            return this.f67457f.isDisposed();
+            return this.f67462f.isDisposed();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f67458g = Thread.currentThread();
+            this.f67463g = Thread.currentThread();
             try {
-                this.f67456e.run();
+                this.f67461e.run();
             } finally {
                 dispose();
-                this.f67458g = null;
+                this.f67463g = null;
             }
         }
     }
@@ -60,40 +60,40 @@ public abstract class p {
     public static class b implements f.a.t.b, Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f67459e;
+        public final Runnable f67464e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c f67460f;
+        public final c f67465f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f67461g;
+        public volatile boolean f67466g;
 
         public b(Runnable runnable, c cVar) {
-            this.f67459e = runnable;
-            this.f67460f = cVar;
+            this.f67464e = runnable;
+            this.f67465f = cVar;
         }
 
         @Override // f.a.t.b
         public void dispose() {
-            this.f67461g = true;
-            this.f67460f.dispose();
+            this.f67466g = true;
+            this.f67465f.dispose();
         }
 
         @Override // f.a.t.b
         public boolean isDisposed() {
-            return this.f67461g;
+            return this.f67466g;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f67461g) {
+            if (this.f67466g) {
                 return;
             }
             try {
-                this.f67459e.run();
+                this.f67464e.run();
             } catch (Throwable th) {
                 f.a.u.a.a(th);
-                this.f67460f.dispose();
+                this.f67465f.dispose();
                 throw ExceptionHelper.c(th);
             }
         }
@@ -106,23 +106,23 @@ public abstract class p {
         public final class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Runnable f67462e;
+            public final Runnable f67467e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final SequentialDisposable f67463f;
+            public final SequentialDisposable f67468f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final long f67464g;
+            public final long f67469g;
 
             /* renamed from: h  reason: collision with root package name */
-            public long f67465h;
+            public long f67470h;
             public long i;
             public long j;
 
             public a(long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
-                this.f67462e = runnable;
-                this.f67463f = sequentialDisposable;
-                this.f67464g = j3;
+                this.f67467e = runnable;
+                this.f67468f = sequentialDisposable;
+                this.f67469g = j3;
                 this.i = j2;
                 this.j = j;
             }
@@ -130,32 +130,32 @@ public abstract class p {
             @Override // java.lang.Runnable
             public void run() {
                 long j;
-                this.f67462e.run();
-                if (this.f67463f.isDisposed()) {
+                this.f67467e.run();
+                if (this.f67468f.isDisposed()) {
                     return;
                 }
                 long a2 = c.this.a(TimeUnit.NANOSECONDS);
-                long j2 = p.f67455e;
+                long j2 = p.f67460e;
                 long j3 = this.i;
                 if (a2 + j2 >= j3) {
-                    long j4 = this.f67464g;
+                    long j4 = this.f67469g;
                     if (a2 < j3 + j4 + j2) {
                         long j5 = this.j;
-                        long j6 = this.f67465h + 1;
-                        this.f67465h = j6;
+                        long j6 = this.f67470h + 1;
+                        this.f67470h = j6;
                         j = j5 + (j6 * j4);
                         this.i = a2;
-                        this.f67463f.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
+                        this.f67468f.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
                     }
                 }
-                long j7 = this.f67464g;
+                long j7 = this.f67469g;
                 long j8 = a2 + j7;
-                long j9 = this.f67465h + 1;
-                this.f67465h = j9;
+                long j9 = this.f67470h + 1;
+                this.f67470h = j9;
                 this.j = j8 - (j7 * j9);
                 j = j8;
                 this.i = a2;
-                this.f67463f.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
+                this.f67468f.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
             }
         }
 

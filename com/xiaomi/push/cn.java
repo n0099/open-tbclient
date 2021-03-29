@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class cn {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40321a;
+    public int f40322a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f186a;
@@ -15,34 +15,34 @@ public class cn {
     public String f187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f40322b;
+    public long f40323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40323c;
+    public long f40324c;
 
     public cn() {
         this(0, 0L, 0L, null);
     }
 
     public cn(int i, long j, long j2, Exception exc) {
-        this.f40321a = i;
+        this.f40322a = i;
         this.f186a = j;
-        this.f40323c = j2;
-        this.f40322b = System.currentTimeMillis();
+        this.f40324c = j2;
+        this.f40323b = System.currentTimeMillis();
         if (exc != null) {
             this.f187a = exc.getClass().getSimpleName();
         }
     }
 
     public int a() {
-        return this.f40321a;
+        return this.f40322a;
     }
 
     public cn a(JSONObject jSONObject) {
         this.f186a = jSONObject.getLong("cost");
-        this.f40323c = jSONObject.getLong("size");
-        this.f40322b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
-        this.f40321a = jSONObject.getInt("wt");
+        this.f40324c = jSONObject.getLong("size");
+        this.f40323b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.f40322a = jSONObject.getInt("wt");
         this.f187a = jSONObject.optString("expt");
         return this;
     }
@@ -51,9 +51,9 @@ public class cn {
     public JSONObject m199a() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("cost", this.f186a);
-        jSONObject.put("size", this.f40323c);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f40322b);
-        jSONObject.put("wt", this.f40321a);
+        jSONObject.put("size", this.f40324c);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f40323b);
+        jSONObject.put("wt", this.f40322a);
         jSONObject.put("expt", this.f187a);
         return jSONObject;
     }

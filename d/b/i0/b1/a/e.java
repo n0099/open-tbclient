@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.holder.HotTopicIntervalItemHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.b.j.e.a<d.b.i0.b1.c.g, HotTopicIntervalItemHolder> {
     public int m;
 
@@ -26,11 +26,11 @@ public class e extends d.b.b.j.e.a<d.b.i0.b1.c.g, HotTopicIntervalItemHolder> {
     }
 
     public final void h0(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, d.b.i0.b1.c.g gVar) {
-        if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f52115e)) {
-            hotTopicIntervalItemHolder.f17586c.setVisibility(0);
-            hotTopicIntervalItemHolder.f17586c.setText(gVar.f52115e);
+        if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f52116e)) {
+            hotTopicIntervalItemHolder.f17587c.setVisibility(0);
+            hotTopicIntervalItemHolder.f17587c.setText(gVar.f52116e);
         } else if (hotTopicIntervalItemHolder != null) {
-            hotTopicIntervalItemHolder.f17586c.setVisibility(8);
+            hotTopicIntervalItemHolder.f17587c.setVisibility(8);
         }
     }
 
@@ -40,11 +40,11 @@ public class e extends d.b.b.j.e.a<d.b.i0.b1.c.g, HotTopicIntervalItemHolder> {
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (hotTopicIntervalItemHolder.f17584a != skinType) {
-            hotTopicIntervalItemHolder.f17584a = skinType;
+        if (hotTopicIntervalItemHolder.f17585a != skinType) {
+            hotTopicIntervalItemHolder.f17585a = skinType;
             SkinManager.setBackgroundColor(hotTopicIntervalItemHolder.a(), R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(hotTopicIntervalItemHolder.f17585b, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(hotTopicIntervalItemHolder.f17586c, R.color.CAM_X0108, 1);
+            SkinManager.setBackgroundColor(hotTopicIntervalItemHolder.f17586b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(hotTopicIntervalItemHolder.f17587c, R.color.CAM_X0108, 1);
         }
     }
 
@@ -52,7 +52,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.b1.c.g, HotTopicIntervalItemHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public HotTopicIntervalItemHolder R(ViewGroup viewGroup) {
-        return new HotTopicIntervalItemHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.hot_topic_interval, viewGroup, false));
+        return new HotTopicIntervalItemHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.hot_topic_interval, viewGroup, false));
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, d.b.i0.b1.c.g gVar, HotTopicIntervalItemHolder hotTopicIntervalItemHolder) {

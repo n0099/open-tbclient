@@ -16,17 +16,17 @@ import d.b.h0.r.q.a2;
 import tbclient.AgreeList;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseCardInfo {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f54478e;
+    public BdUniqueId f54479e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54480g;
+    public String f54481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f54481h;
+    public long f54482h;
     public String i;
     public String j;
     public OriginalThreadInfo k;
@@ -48,11 +48,11 @@ public class a extends BaseCardInfo {
     public static final BdUniqueId B = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public MetaData f54479f = new MetaData();
+    public MetaData f54480f = new MetaData();
     public boolean u = false;
 
     public long A() {
-        return this.f54481h;
+        return this.f54482h;
     }
 
     public String B() {
@@ -76,8 +76,8 @@ public class a extends BaseCardInfo {
         if (feedData == null) {
             return;
         }
-        this.f54479f = feedData.getReplyer();
-        this.f54481h = feedData.getTime();
+        this.f54480f = feedData.getReplyer();
+        this.f54482h = feedData.getTime();
         this.p = feedData.getPost_id();
         if (!feedData.isHideForumName()) {
             this.l = feedData.getFname();
@@ -86,7 +86,7 @@ public class a extends BaseCardInfo {
         this.n = feedData.getThread_Type();
         this.i = feedData.getContent();
         this.r = feedData.getIsFloor();
-        this.f54480g = feedData.getPostFrom();
+        this.f54481g = feedData.getPostFrom();
         this.s = feedData.getQuote_pid();
         this.t = feedData.isNew();
         this.m = feedData.getThreadAuthor();
@@ -94,9 +94,9 @@ public class a extends BaseCardInfo {
         this.v = feedData.getBaijiahaoData();
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         this.k = originalThreadInfo;
-        originalThreadInfo.f13215f = this.o;
+        originalThreadInfo.f13216f = this.o;
         originalThreadInfo.k = this.n;
-        originalThreadInfo.f13212c = feedData.getThreadImgUrl();
+        originalThreadInfo.f13213c = feedData.getThreadImgUrl();
         OriginalThreadInfo originalThreadInfo2 = this.k;
         originalThreadInfo2.o = this.u;
         originalThreadInfo2.p = this.v;
@@ -110,24 +110,24 @@ public class a extends BaseCardInfo {
             } else {
                 str = feedData.getQuote_user().getName_show();
             }
-            this.k.f13216g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
-            if (TextUtils.isGraphic(this.k.f13216g)) {
+            this.k.f13217g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
+            if (TextUtils.isGraphic(this.k.f13217g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.k;
-                originalThreadInfo3.f13216g = originalThreadInfo3.f13216g.replace("\n", " ");
+                originalThreadInfo3.f13217g = originalThreadInfo3.f13217g.replace("\n", " ");
             }
             if (feedData.getIsFloor()) {
-                this.f54478e = z;
+                this.f54479e = z;
             } else {
-                this.f54478e = A;
+                this.f54479e = A;
             }
         } else {
             this.k.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.k.f13216g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f13211b});
+                this.k.f13217g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f13212b});
             } else {
-                this.k.f13216g = feedData.getTitle();
+                this.k.f13217g = feedData.getTitle();
             }
-            this.f54478e = B;
+            this.f54479e = B;
         }
         this.k.n();
     }
@@ -139,9 +139,9 @@ public class a extends BaseCardInfo {
         }
         this.q = agreeList.id.longValue();
         MetaData metaData = new MetaData();
-        this.f54479f = metaData;
+        this.f54480f = metaData;
         metaData.parserProtobuf(agreeList.agreeer);
-        this.f54481h = agreeList.time.intValue() * 1000;
+        this.f54482h = agreeList.time.intValue() * 1000;
         Post post = agreeList.post_info;
         if (post != null) {
             this.p = String.valueOf(post.id);
@@ -165,7 +165,7 @@ public class a extends BaseCardInfo {
         this.v = a2Var.V();
         this.w = "c12927";
         if (agreeList.type.intValue() == 3) {
-            this.f54478e = x;
+            this.f54479e = x;
             this.i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
             if (this.u) {
                 this.i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
@@ -173,7 +173,7 @@ public class a extends BaseCardInfo {
             }
             return;
         }
-        this.f54478e = y;
+        this.f54479e = y;
         this.i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
     }
 
@@ -187,7 +187,7 @@ public class a extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return this.f54478e;
+        return this.f54479e;
     }
 
     public String j() {
@@ -203,7 +203,7 @@ public class a extends BaseCardInfo {
     }
 
     public String s() {
-        return this.f54480g;
+        return this.f54481g;
     }
 
     public String t() {
@@ -215,7 +215,7 @@ public class a extends BaseCardInfo {
     }
 
     public MetaData v() {
-        return this.f54479f;
+        return this.f54480f;
     }
 
     public String w() {

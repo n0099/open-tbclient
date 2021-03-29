@@ -3,18 +3,18 @@ package d.b.g0.a.i2.t0;
 public abstract class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f44784e;
+    public b f44785e;
 
     public void a() {
-        b bVar = this.f44784e;
+        b bVar = this.f44785e;
         if (bVar != null) {
             bVar.a(this);
-            this.f44784e = null;
+            this.f44785e = null;
         }
     }
 
     public a b(b bVar) {
-        this.f44784e = bVar;
+        this.f44785e = bVar;
         return this;
     }
 }

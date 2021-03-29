@@ -17,7 +17,7 @@ import d.b.h0.r.q.a2;
 import d.b.i.d;
 import d.b.i.h0;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -25,7 +25,7 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     public NEGFeedBackView.b p;
     public d.b.i0.x.b0<d.b.i0.x.e0.k> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b {
         public a(q qVar) {
         }
@@ -44,7 +44,7 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.j.e.w {
         public b() {
         }
@@ -53,17 +53,17 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             d.b.i0.x.e0.k kVar;
             a2 a2Var;
-            if (!(nVar instanceof d.b.i0.x.e0.k) || (kVar = (d.b.i0.x.e0.k) nVar) == null || (a2Var = kVar.f62196e) == null || a2Var.j1() == null) {
+            if (!(nVar instanceof d.b.i0.x.e0.k) || (kVar = (d.b.i0.x.e0.k) nVar) == null || (a2Var = kVar.f62197e) == null || a2Var.j1() == null) {
                 return;
             }
-            q.this.q0(kVar.f62196e, view);
+            q.this.q0(kVar.f62197e, view);
             TiebaStatic.log(kVar.K());
             TiebaStatic.log(kVar.C());
-            q.this.l0(kVar.f62196e, kVar.E());
+            q.this.l0(kVar.f62197e, kVar.E());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends d.b.i0.x.b0<d.b.i0.x.e0.k> {
         public c() {
         }
@@ -73,13 +73,13 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         /* renamed from: d */
         public boolean c(View view, d.b.i0.x.e0.k kVar, String str) {
             a2 a2Var;
-            if (kVar == null || (a2Var = kVar.f62196e) == null || a2Var.j1() == null) {
+            if (kVar == null || (a2Var = kVar.f62197e) == null || a2Var.j1() == null) {
                 return false;
             }
-            q.this.q0(kVar.f62196e, view);
+            q.this.q0(kVar.f62197e, view);
             TiebaStatic.log(kVar.K());
             TiebaStatic.log(kVar.C());
-            q.this.l0(kVar.f62196e, kVar.E());
+            q.this.l0(kVar.f62197e, kVar.E());
             return true;
         }
     }
@@ -144,7 +144,7 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: o0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
@@ -154,7 +154,7 @@ public class q extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         threadCardViewHolder.b().p(this.q);
         d.b.i0.x.t.b().a(kVar.L());
         d.b.i0.m.d.c().i("page_recommend", "show_", kVar.L());
-        m0(kVar.f62196e, kVar.E());
+        m0(kVar.f62197e, kVar.E());
         return threadCardViewHolder.a();
     }
 

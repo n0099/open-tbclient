@@ -24,26 +24,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.holder.HotRankListNormaItemHolder;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.b.j.e.a<d.b.i0.b1.c.c, HotRankListNormaItemHolder> {
     public int m;
     public TbPageContext n;
     public String o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.c f52006e;
+        public final /* synthetic */ d.b.i0.b1.c.c f52007e;
 
         public a(d.b.i0.b1.c.c cVar) {
-            this.f52006e = cVar;
+            this.f52007e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (c.this.n != null) {
-                String j = this.f52006e.j();
+                String j = this.f52007e.j();
                 if (!StringUtils.isNull(j)) {
                     UrlManager.getInstance().dealOneLink(c.this.n, new String[]{j});
                 }
@@ -52,20 +52,20 @@ public class c extends d.b.b.j.e.a<d.b.i0.b1.c.c, HotRankListNormaItemHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.c f52008e;
+        public final /* synthetic */ d.b.i0.b1.c.c f52009e;
 
         public b(d.b.i0.b1.c.c cVar) {
-            this.f52008e = cVar;
+            this.f52009e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f52008e.e()), this.f52008e.g(), "5")));
-            TiebaStatic.log(new StatisticItem("c11237").param("obj_id", String.valueOf(this.f52008e.e())).param("obj_locate", c.this.o));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f52009e.e()), this.f52009e.g(), "5")));
+            TiebaStatic.log(new StatisticItem("c11237").param("obj_id", String.valueOf(this.f52009e.e())).param("obj_locate", c.this.o));
         }
     }
 
@@ -85,47 +85,47 @@ public class c extends d.b.b.j.e.a<d.b.i0.b1.c.c, HotRankListNormaItemHolder> {
         if (hotRankListNormaItemHolder == null || cVar == null) {
             return;
         }
-        hotRankListNormaItemHolder.f17583h.setVisibility(8);
+        hotRankListNormaItemHolder.f17584h.setVisibility(8);
         if (cVar.n() == 1) {
-            hotRankListNormaItemHolder.f17577b.setText("");
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17577b, R.drawable.icon_grade_shaitu1);
-            hotRankListNormaItemHolder.f17583h.setVisibility(0);
-            hotRankListNormaItemHolder.i.setText(o0(StringUtils.isNull(cVar.f()) ? this.f42357e.getResources().getString(R.string.hot_topic_hot_list) : cVar.f(), StringUtils.isNull(cVar.l()) ? this.f42357e.getResources().getString(R.string.hot_topic_update_time) : cVar.l()));
-            hotRankListNormaItemHolder.f17580e.setVisibility(0);
+            hotRankListNormaItemHolder.f17578b.setText("");
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17578b, R.drawable.icon_grade_shaitu1);
+            hotRankListNormaItemHolder.f17584h.setVisibility(0);
+            hotRankListNormaItemHolder.i.setText(o0(StringUtils.isNull(cVar.f()) ? this.f42358e.getResources().getString(R.string.hot_topic_hot_list) : cVar.f(), StringUtils.isNull(cVar.l()) ? this.f42358e.getResources().getString(R.string.hot_topic_update_time) : cVar.l()));
+            hotRankListNormaItemHolder.f17581e.setVisibility(0);
             SkinManager.setBackgroundResource(hotRankListNormaItemHolder.l, R.drawable.hot_topic_ranklist_bg);
             hotRankListNormaItemHolder.l.setOnClickListener(new a(cVar));
         } else if (cVar.n() == 2) {
-            hotRankListNormaItemHolder.f17577b.setText("");
-            hotRankListNormaItemHolder.f17580e.setVisibility(8);
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17577b, R.drawable.icon_grade_shaitu2);
+            hotRankListNormaItemHolder.f17578b.setText("");
+            hotRankListNormaItemHolder.f17581e.setVisibility(8);
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17578b, R.drawable.icon_grade_shaitu2);
         } else if (cVar.n() == 3) {
-            hotRankListNormaItemHolder.f17577b.setText("");
-            hotRankListNormaItemHolder.f17580e.setVisibility(8);
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17577b, R.drawable.icon_grade_shaitu3);
+            hotRankListNormaItemHolder.f17578b.setText("");
+            hotRankListNormaItemHolder.f17581e.setVisibility(8);
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17578b, R.drawable.icon_grade_shaitu3);
         } else {
             String str = "" + cVar.n();
             if (cVar.n() < 10) {
                 str = "0" + str;
             }
-            hotRankListNormaItemHolder.f17577b.setText(str);
-            hotRankListNormaItemHolder.f17580e.setVisibility(8);
-            hotRankListNormaItemHolder.f17577b.setBackgroundDrawable(null);
+            hotRankListNormaItemHolder.f17578b.setText(str);
+            hotRankListNormaItemHolder.f17581e.setVisibility(8);
+            hotRankListNormaItemHolder.f17578b.setBackgroundDrawable(null);
         }
         if (cVar.k() == 1) {
-            hotRankListNormaItemHolder.f17582g.setVisibility(0);
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17582g, R.drawable.icon_topic_ranklist_new);
+            hotRankListNormaItemHolder.f17583g.setVisibility(0);
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17583g, R.drawable.icon_topic_ranklist_new);
         } else if (cVar.k() == 2) {
-            hotRankListNormaItemHolder.f17582g.setVisibility(0);
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17582g, R.drawable.icon_topic_ranklist_hot);
+            hotRankListNormaItemHolder.f17583g.setVisibility(0);
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17583g, R.drawable.icon_topic_ranklist_hot);
         } else if (cVar.k() == 3) {
-            hotRankListNormaItemHolder.f17582g.setVisibility(0);
-            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17582g, R.drawable.icon_topic_ranklist_tuijian);
+            hotRankListNormaItemHolder.f17583g.setVisibility(0);
+            SkinManager.setBackgroundResource(hotRankListNormaItemHolder.f17583g, R.drawable.icon_topic_ranklist_tuijian);
         } else {
-            hotRankListNormaItemHolder.f17582g.setVisibility(8);
+            hotRankListNormaItemHolder.f17583g.setVisibility(8);
         }
         String numFormat9999W = StringHelper.numFormat9999W(cVar.a());
-        hotRankListNormaItemHolder.f17578c.setText(TextUtils.isEmpty(cVar.g()) ? "" : UtilHelper.getFixedText(cVar.g(), 10));
-        hotRankListNormaItemHolder.f17579d.setText(numFormat9999W);
+        hotRankListNormaItemHolder.f17579c.setText(TextUtils.isEmpty(cVar.g()) ? "" : UtilHelper.getFixedText(cVar.g(), 10));
+        hotRankListNormaItemHolder.f17580d.setText(numFormat9999W);
         hotRankListNormaItemHolder.k.setOnClickListener(new b(cVar));
     }
 
@@ -135,14 +135,14 @@ public class c extends d.b.b.j.e.a<d.b.i0.b1.c.c, HotRankListNormaItemHolder> {
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (hotRankListNormaItemHolder.f17576a != skinType) {
-            hotRankListNormaItemHolder.f17576a = skinType;
+        if (hotRankListNormaItemHolder.f17577a != skinType) {
+            hotRankListNormaItemHolder.f17577a = skinType;
             SkinManager.setBackgroundColor(hotRankListNormaItemHolder.a(), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17577b, R.color.CAM_X0110, 1);
-            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17578c, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17579d, R.color.CAM_X0110, 1);
-            SkinManager.setBackgroundColor(hotRankListNormaItemHolder.f17580e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(hotRankListNormaItemHolder.f17581f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17578b, R.color.CAM_X0110, 1);
+            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17579c, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(hotRankListNormaItemHolder.f17580d, R.color.CAM_X0110, 1);
+            SkinManager.setBackgroundColor(hotRankListNormaItemHolder.f17581e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(hotRankListNormaItemHolder.f17582f, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(hotRankListNormaItemHolder.k, R.drawable.hot_topic_ranklist_bg);
             SkinManager.setViewTextColor(hotRankListNormaItemHolder.j, R.color.CAM_X0302, 1);
             SkinManager.setViewTextColor(hotRankListNormaItemHolder.i, R.color.CAM_X0109, 1);
@@ -153,7 +153,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.b1.c.c, HotRankListNormaItemHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public HotRankListNormaItemHolder R(ViewGroup viewGroup) {
-        return new HotRankListNormaItemHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.hot_topic_ranklist_normal_item, viewGroup, false));
+        return new HotRankListNormaItemHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.hot_topic_ranklist_normal_item, viewGroup, false));
     }
 
     public View n0(int i, View view, ViewGroup viewGroup, d.b.i0.b1.c.c cVar, HotRankListNormaItemHolder hotRankListNormaItemHolder) {

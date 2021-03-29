@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class b extends a0 {
     public b(j jVar, String str) {
         super(jVar, str);
@@ -27,14 +27,14 @@ public abstract class b extends a0 {
         if (eVar == null) {
             d.b.g0.a.c0.c.b("componentFullScreen", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b.g0.a.c0.c.b("componentFullScreen", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
             }
             return false;

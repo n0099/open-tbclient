@@ -7,25 +7,25 @@ import java.lang.ref.WeakReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<WeakReference<View>> f49876a;
+    public SparseArray<WeakReference<View>> f49877a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f49877b;
+    public View f49878b;
 
     public c(View view) {
         this(view, -1);
     }
 
     public View a() {
-        return this.f49877b;
+        return this.f49878b;
     }
 
     public <T extends View> T b(int i) {
-        WeakReference<View> weakReference = this.f49876a.get(i);
+        WeakReference<View> weakReference = this.f49877a.get(i);
         if (weakReference == null) {
-            T t = (T) this.f49877b.findViewById(i);
+            T t = (T) this.f49878b.findViewById(i);
             if (t != null) {
-                this.f49876a.put(i, new WeakReference<>(t));
+                this.f49877a.put(i, new WeakReference<>(t));
                 return t;
             }
             return t;
@@ -34,12 +34,12 @@ public class c {
     }
 
     public c c(View.OnClickListener onClickListener) {
-        this.f49877b.setOnClickListener(onClickListener);
+        this.f49878b.setOnClickListener(onClickListener);
         return this;
     }
 
     public c(View view, int i) {
-        this.f49877b = view;
-        this.f49876a = new SparseArray<>();
+        this.f49878b = view;
+        this.f49877a = new SparseArray<>();
     }
 }

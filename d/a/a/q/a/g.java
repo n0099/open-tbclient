@@ -19,32 +19,32 @@ import d.a.a.q.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class g implements d, a.InterfaceC0528a, j {
+public class g implements d, a.InterfaceC0529a, j {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41236a;
+    public final String f41237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.a.s.k.a f41237b;
+    public final d.a.a.s.k.a f41238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LongSparseArray<LinearGradient> f41238c = new LongSparseArray<>();
+    public final LongSparseArray<LinearGradient> f41239c = new LongSparseArray<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final LongSparseArray<RadialGradient> f41239d = new LongSparseArray<>();
+    public final LongSparseArray<RadialGradient> f41240d = new LongSparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Matrix f41240e = new Matrix();
+    public final Matrix f41241e = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Path f41241f = new Path();
+    public final Path f41242f = new Path();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f41242g = new Paint(1);
+    public final Paint f41243g = new Paint(1);
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f41243h = new RectF();
+    public final RectF f41244h = new RectF();
     public final List<l> i = new ArrayList();
     public final GradientType j;
     public final d.a.a.q.b.a<d.a.a.s.j.c, d.a.a.s.j.c> k;
@@ -57,11 +57,11 @@ public class g implements d, a.InterfaceC0528a, j {
     public final int q;
 
     public g(d.a.a.f fVar, d.a.a.s.k.a aVar, d.a.a.s.j.d dVar) {
-        this.f41237b = aVar;
-        this.f41236a = dVar.f();
+        this.f41238b = aVar;
+        this.f41237a = dVar.f();
         this.p = fVar;
         this.j = dVar.e();
-        this.f41241f.setFillType(dVar.c());
+        this.f41242f.setFillType(dVar.c());
         this.q = (int) (fVar.l().d() / 32.0f);
         d.a.a.q.b.a<d.a.a.s.j.c, d.a.a.s.j.c> a2 = dVar.d().a();
         this.k = a2;
@@ -81,7 +81,7 @@ public class g implements d, a.InterfaceC0528a, j {
         aVar.h(this.n);
     }
 
-    @Override // d.a.a.q.b.a.InterfaceC0528a
+    @Override // d.a.a.q.b.a.InterfaceC0529a
     public void a() {
         this.p.invalidateSelf();
     }
@@ -98,11 +98,11 @@ public class g implements d, a.InterfaceC0528a, j {
 
     @Override // d.a.a.q.a.d
     public void c(RectF rectF, Matrix matrix) {
-        this.f41241f.reset();
+        this.f41242f.reset();
         for (int i = 0; i < this.i.size(); i++) {
-            this.f41241f.addPath(this.i.get(i).getPath(), matrix);
+            this.f41242f.addPath(this.i.get(i).getPath(), matrix);
         }
-        this.f41241f.computeBounds(rectF, false);
+        this.f41242f.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 
@@ -116,7 +116,7 @@ public class g implements d, a.InterfaceC0528a, j {
             d.a.a.q.b.p pVar = new d.a.a.q.b.p(cVar);
             this.o = pVar;
             pVar.a(this);
-            this.f41237b.h(this.o);
+            this.f41238b.h(this.o);
         }
     }
 
@@ -140,36 +140,36 @@ public class g implements d, a.InterfaceC0528a, j {
     public void g(Canvas canvas, Matrix matrix, int i) {
         Shader i2;
         d.a.a.c.a("GradientFillContent#draw");
-        this.f41241f.reset();
+        this.f41242f.reset();
         for (int i3 = 0; i3 < this.i.size(); i3++) {
-            this.f41241f.addPath(this.i.get(i3).getPath(), matrix);
+            this.f41242f.addPath(this.i.get(i3).getPath(), matrix);
         }
-        this.f41241f.computeBounds(this.f41243h, false);
+        this.f41242f.computeBounds(this.f41244h, false);
         if (this.j == GradientType.Linear) {
             i2 = h();
         } else {
             i2 = i();
         }
-        this.f41240e.set(matrix);
-        i2.setLocalMatrix(this.f41240e);
-        this.f41242g.setShader(i2);
+        this.f41241e.set(matrix);
+        i2.setLocalMatrix(this.f41241e);
+        this.f41243g.setShader(i2);
         d.a.a.q.b.a<ColorFilter, ColorFilter> aVar = this.o;
         if (aVar != null) {
-            this.f41242g.setColorFilter(aVar.h());
+            this.f41243g.setColorFilter(aVar.h());
         }
-        this.f41242g.setAlpha(d.a.a.v.e.c((int) ((((i / 255.0f) * this.l.h().intValue()) / 100.0f) * 255.0f), 0, 255));
-        canvas.drawPath(this.f41241f, this.f41242g);
+        this.f41243g.setAlpha(d.a.a.v.e.c((int) ((((i / 255.0f) * this.l.h().intValue()) / 100.0f) * 255.0f), 0, 255));
+        canvas.drawPath(this.f41242f, this.f41243g);
         d.a.a.c.c("GradientFillContent#draw");
     }
 
     @Override // d.a.a.q.a.b
     public String getName() {
-        return this.f41236a;
+        return this.f41237a;
     }
 
     public final LinearGradient h() {
         long f2 = f();
-        LinearGradient linearGradient = this.f41238c.get(f2);
+        LinearGradient linearGradient = this.f41239c.get(f2);
         if (linearGradient != null) {
             return linearGradient;
         }
@@ -177,7 +177,7 @@ public class g implements d, a.InterfaceC0528a, j {
         PointF h3 = this.n.h();
         d.a.a.s.j.c h4 = this.k.h();
         LinearGradient linearGradient2 = new LinearGradient(h2.x, h2.y, h3.x, h3.y, h4.a(), h4.b(), Shader.TileMode.CLAMP);
-        this.f41238c.put(f2, linearGradient2);
+        this.f41239c.put(f2, linearGradient2);
         return linearGradient2;
     }
 
@@ -185,7 +185,7 @@ public class g implements d, a.InterfaceC0528a, j {
         float f2;
         float f3;
         long f4 = f();
-        RadialGradient radialGradient = this.f41239d.get(f4);
+        RadialGradient radialGradient = this.f41240d.get(f4);
         if (radialGradient != null) {
             return radialGradient;
         }
@@ -195,7 +195,7 @@ public class g implements d, a.InterfaceC0528a, j {
         int[] a2 = h4.a();
         float[] b2 = h4.b();
         RadialGradient radialGradient2 = new RadialGradient(h2.x, h2.y, (float) Math.hypot(h3.x - f2, h3.y - f3), a2, b2, Shader.TileMode.CLAMP);
-        this.f41239d.put(f4, radialGradient2);
+        this.f41240d.put(f4, radialGradient2);
         return radialGradient2;
     }
 }

@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import d.b.i0.z0.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends CustomMessageTask {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<c> {
         public b() {
         }

@@ -3,21 +3,21 @@ package d.b.i0.l2;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f56742a;
+    public final boolean f56743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f56743b;
+    public final int f56744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f56744c;
+    public final boolean f56745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f56745d;
+    public final String f56746d;
 
     public e(boolean z, int i, boolean z2, String str) {
-        this.f56742a = z;
-        this.f56743b = i;
-        this.f56744c = z2;
-        this.f56745d = str;
+        this.f56743a = z;
+        this.f56744b = i;
+        this.f56745c = z2;
+        this.f56746d = str;
     }
 }

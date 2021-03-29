@@ -38,7 +38,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f59339a.equals("0")) {
+                        if (getTCodeResMessage.getTCodeInfo().f59340a.equals("0")) {
                             MemberExchangeActivity.this.showToast(R.string.exchange_success);
                             return;
                         } else {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends c {
     public ArrayList<d.b.g0.a.a1.c.h.c> D;
     public int[] E = {0, 0, 0, 0};
@@ -45,6 +45,6 @@ public class b extends c {
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
         ArrayList<d.b.g0.a.a1.c.h.c> arrayList;
-        return (TextUtils.isEmpty(this.f43113g) || TextUtils.isEmpty(this.f43112f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true;
+        return (TextUtils.isEmpty(this.f43114g) || TextUtils.isEmpty(this.f43113f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true;
     }
 }

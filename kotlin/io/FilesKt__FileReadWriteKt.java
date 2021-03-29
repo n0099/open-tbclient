@@ -315,7 +315,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: java.io.FileInputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.Object, byte[]] */
     public static final void forEachBlock(File file, int i, Function2<? super byte[], ? super Integer, Unit> function2) {
         ?? r2 = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
         FileInputStream fileInputStream = new FileInputStream(file);

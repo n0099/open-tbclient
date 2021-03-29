@@ -9,27 +9,27 @@ public class d<D> {
     public interface a<D> {
     }
 
-    public String a(D d2) {
+    /* loaded from: classes3.dex */
+    public interface b<D> {
+    }
+
+    public abstract String a(D d2);
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract void c(int i, b<D> bVar);
+
+    public abstract void d(a<D> aVar);
+
+    public abstract void e();
+
+    public final void f() {
         throw null;
     }
 
-    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        throw null;
-    }
+    public abstract void g();
 
-    public void c(int i, a<D> aVar) {
-        throw null;
-    }
+    public abstract void h(b<D> bVar);
 
-    public void d() {
-        throw null;
-    }
-
-    public final void e() {
-        throw null;
-    }
-
-    public void f(a<D> aVar) {
-        throw null;
-    }
+    public abstract void i(a<D> aVar);
 }

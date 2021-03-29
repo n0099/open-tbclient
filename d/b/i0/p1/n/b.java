@@ -15,15 +15,15 @@ public class b implements LiveShowPlayerService {
     public class a implements CyberPlayerManager.InstallListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerCallback f58808a;
+        public final /* synthetic */ LiveShowPlayerCallback f58809a;
 
         public a(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
-            this.f58808a = liveShowPlayerCallback;
+            this.f58809a = liveShowPlayerCallback;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallError(int i, int i2, String str) {
-            LiveShowPlayerCallback liveShowPlayerCallback = this.f58808a;
+            LiveShowPlayerCallback liveShowPlayerCallback = this.f58809a;
             if (liveShowPlayerCallback != null) {
                 liveShowPlayerCallback.cyberInitCallBack(-1, str);
             }
@@ -35,7 +35,7 @@ public class b implements LiveShowPlayerService {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallSuccess(int i, String str) {
-            LiveShowPlayerCallback liveShowPlayerCallback = this.f58808a;
+            LiveShowPlayerCallback liveShowPlayerCallback = this.f58809a;
             if (liveShowPlayerCallback != null) {
                 liveShowPlayerCallback.cyberInitCallBack(0, str);
             }
@@ -44,18 +44,18 @@ public class b implements LiveShowPlayerService {
 
     /* renamed from: d.b.i0.p1.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1451b extends d.b.i0.p1.n.c {
+    public class C1452b extends d.b.i0.p1.n.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerCallback f58809a;
+        public final /* synthetic */ LiveShowPlayerCallback f58810a;
 
-        public C1451b(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
-            this.f58809a = liveShowPlayerCallback;
+        public C1452b(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
+            this.f58810a = liveShowPlayerCallback;
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onInfo(int i, int i2) {
-            LiveShowPlayerCallback liveShowPlayerCallback = this.f58809a;
+            LiveShowPlayerCallback liveShowPlayerCallback = this.f58810a;
             if (liveShowPlayerCallback != null) {
                 liveShowPlayerCallback.playerCallBack(i, Integer.valueOf(i2));
             }
@@ -66,10 +66,10 @@ public class b implements LiveShowPlayerService {
     public class c implements TbLiveVideoView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerStatusCallback f58810a;
+        public final /* synthetic */ LiveShowPlayerStatusCallback f58811a;
 
         public c(b bVar, LiveShowPlayerStatusCallback liveShowPlayerStatusCallback) {
-            this.f58810a = liveShowPlayerStatusCallback;
+            this.f58811a = liveShowPlayerStatusCallback;
         }
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
@@ -78,7 +78,7 @@ public class b implements LiveShowPlayerService {
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
         public void onCompletion() {
-            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58810a;
+            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58811a;
             if (liveShowPlayerStatusCallback != null) {
                 liveShowPlayerStatusCallback.onEnded();
             }
@@ -86,7 +86,7 @@ public class b implements LiveShowPlayerService {
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
         public void onError(int i, int i2) {
-            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58810a;
+            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58811a;
             if (liveShowPlayerStatusCallback != null) {
                 liveShowPlayerStatusCallback.onError(i, i2);
             }
@@ -94,7 +94,7 @@ public class b implements LiveShowPlayerService {
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
         public void onInfo(int i, int i2) {
-            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58810a;
+            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58811a;
             if (liveShowPlayerStatusCallback != null) {
                 liveShowPlayerStatusCallback.onInfo(i, i2);
             }
@@ -102,7 +102,7 @@ public class b implements LiveShowPlayerService {
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
         public void onPrepared() {
-            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58810a;
+            LiveShowPlayerStatusCallback liveShowPlayerStatusCallback = this.f58811a;
             if (liveShowPlayerStatusCallback != null) {
                 liveShowPlayerStatusCallback.onStart();
             }
@@ -246,7 +246,7 @@ public class b implements LiveShowPlayerService {
     @Override // com.baidu.searchbox.live.interfaces.service.LiveShowPlayerService
     public void setPlayerCallback(Object obj, LiveShowPlayerCallback liveShowPlayerCallback) {
         if (obj instanceof f) {
-            ((f) obj).setPlayerListener(new C1451b(this, liveShowPlayerCallback));
+            ((f) obj).setPlayerListener(new C1452b(this, liveShowPlayerCallback));
         }
     }
 

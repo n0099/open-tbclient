@@ -4,18 +4,18 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public UnitedSchemeEntity f43180a;
+    public UnitedSchemeEntity f43181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f43181b;
+    public CallbackHandler f43182b;
 
     public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.f43180a = unitedSchemeEntity;
-        this.f43181b = callbackHandler;
+        this.f43181a = unitedSchemeEntity;
+        this.f43182b = callbackHandler;
     }
 
     public static b a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -23,19 +23,19 @@ public class b {
     }
 
     public void b(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.f43181b, this.f43180a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.f43182b, this.f43181a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
     public void c(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.f43181b, this.f43180a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.f43182b, this.f43181a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 
     public void d(int i) {
-        this.f43180a.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.f43181a.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
     public void e(JSONObject jSONObject) {
-        UnitedSchemeEntity unitedSchemeEntity = this.f43180a;
-        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f43181b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        UnitedSchemeEntity unitedSchemeEntity = this.f43181a;
+        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f43182b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 }

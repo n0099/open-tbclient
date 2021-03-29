@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import d.b.b.e.p.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class StatisticItem {
     public String key;
     public List<Object> params = new ArrayList();

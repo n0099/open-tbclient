@@ -13,24 +13,24 @@ import d.b.g0.a.v1.c.i.b;
 public class e implements PermissionProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48203a = k.f45050a;
+    public static final boolean f48204a = k.f45051a;
 
     /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48204e;
+        public final /* synthetic */ String f48205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48205f;
+        public final /* synthetic */ String f48206f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f48206g;
+        public final /* synthetic */ PermissionListener f48207g;
 
         public a(String str, String str2, PermissionListener permissionListener) {
-            this.f48204e = str;
-            this.f48205f = str2;
-            this.f48206g = permissionListener;
+            this.f48205e = str;
+            this.f48206f = str2;
+            this.f48207g = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,9 +38,9 @@ public class e implements PermissionProxy {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                e.this.b(this.f48204e, this.f48205f, this.f48206g);
+                e.this.b(this.f48205e, this.f48206f, this.f48207g);
             } else {
-                this.f48206g.onPermissionResult(this.f48204e, 2);
+                this.f48207g.onPermissionResult(this.f48205e, 2);
             }
         }
     }
@@ -49,24 +49,24 @@ public class e implements PermissionProxy {
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f48208a;
+        public final /* synthetic */ PermissionListener f48209a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f48209b;
+        public final /* synthetic */ String f48210b;
 
         public b(e eVar, PermissionListener permissionListener, String str) {
-            this.f48208a = permissionListener;
-            this.f48209b = str;
+            this.f48209a = permissionListener;
+            this.f48210b = str;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            this.f48208a.onPermissionResult(this.f48209b, 0);
+            this.f48209a.onPermissionResult(this.f48210b, 0);
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            this.f48208a.onPermissionResult(this.f48209b, 1);
+            this.f48209a.onPermissionResult(this.f48210b, 1);
         }
     }
 
@@ -99,11 +99,11 @@ public class e implements PermissionProxy {
 
     @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
     public void requestPermission(String str, PermissionListener permissionListener) {
-        if (f48203a) {
+        if (f48204a) {
             Log.d("V8PermissionDelegate", "requestPermission : " + str);
         }
         if (permissionListener == null) {
-            if (f48203a) {
+            if (f48204a) {
                 Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
                 return;
             }

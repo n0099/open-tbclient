@@ -30,8 +30,8 @@ public class a extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
 
     /* renamed from: d.b.i0.i0.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1290a extends b0<a2> {
-        public C1290a() {
+    public class C1291a extends b0<a2> {
+        public C1291a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class a extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.r = new C1290a();
+        this.r = new C1291a();
         this.o = tbPageContext;
         this.m = bdUniqueId2;
         this.n = str;
@@ -67,7 +67,7 @@ public class a extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
             d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) nVar;
             eVar.k = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), 2, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
         }
     }
 
@@ -84,8 +84,8 @@ public class a extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
         bVar.h(new d.b.i.k(this.o.getPageActivity()));
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.A(3);

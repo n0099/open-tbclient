@@ -10,7 +10,7 @@ import d.b.g0.a.c;
 public class b implements d.b.g0.i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f45039a = null;
+    public FrameLayout f45040a = null;
 
     @Override // d.b.g0.i.a
     public void a(BaseMenuView baseMenuView) {
@@ -26,22 +26,22 @@ public class b implements d.b.g0.i.a {
 
     public final void b(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.f45039a == null) {
+            if (this.f45040a == null) {
                 FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.f45039a = frameLayout;
+                this.f45040a = frameLayout;
                 frameLayout.setBackgroundResource(c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.f45039a);
-            viewGroup.addView(this.f45039a, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.f45040a);
+            viewGroup.addView(this.f45040a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public final void c(ViewGroup viewGroup) {
         FrameLayout frameLayout;
-        if (viewGroup == null || (frameLayout = this.f45039a) == null) {
+        if (viewGroup == null || (frameLayout = this.f45040a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f45039a = null;
+        this.f45040a = null;
     }
 }

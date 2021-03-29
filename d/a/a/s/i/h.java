@@ -10,6 +10,6 @@ public class h extends n<d.a.a.s.j.h, Path> {
 
     @Override // d.a.a.s.i.m
     public d.a.a.q.b.a<d.a.a.s.j.h, Path> a() {
-        return new d.a.a.q.b.l(this.f41363a);
+        return new d.a.a.q.b.l(this.f41364a);
     }
 }

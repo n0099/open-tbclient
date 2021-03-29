@@ -15,28 +15,28 @@ import java.util.List;
 public class InnerAdapter<T> extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Class<?>> f24075a = new ArrayList();
+    public List<Class<?>> f24076a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24076b;
+    public Context f24077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseListAdapter<T> f24077c;
+    public BaseListAdapter<T> f24078c;
 
     public InnerAdapter(Context context, BaseListAdapter<T> baseListAdapter) {
-        this.f24076b = context;
-        this.f24077c = baseListAdapter;
+        this.f24077b = context;
+        this.f24078c = baseListAdapter;
     }
 
     private void a(int i, T t, BaseListAdapter.BaseViewHolder baseViewHolder, BaseListAdapter<T> baseListAdapter) {
-        baseViewHolder.setView(t, i, this.f24076b, baseListAdapter);
+        baseViewHolder.setView(t, i, this.f24077b, baseListAdapter);
     }
 
     public int getBindItemViewResId(int i) {
-        if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24077c.useItemTrueType() ? this.f24077c.getItemTrueType(i) : this.f24077c.getItemViewType(i))).equals("NOT_USE_XML")) {
+        if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24078c.useItemTrueType() ? this.f24078c.getItemTrueType(i) : this.f24078c.getItemViewType(i))).equals("NOT_USE_XML")) {
             return -1;
         }
-        return ResUtils.layout(this.f24076b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24077c.useItemTrueType() ? this.f24077c.getItemTrueType(i) : this.f24077c.getItemViewType(i))));
+        return ResUtils.layout(this.f24077b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f24078c.useItemTrueType() ? this.f24078c.getItemTrueType(i) : this.f24078c.getItemViewType(i))));
     }
 
     @Override // android.widget.Adapter
@@ -65,14 +65,14 @@ public class InnerAdapter<T> extends BaseAdapter {
             baseViewHolder = (BaseListAdapter.BaseViewHolder) view.getTag();
         }
         if (view != null && view.getTag() != null) {
-            a(i, this.f24077c.getItem(i), baseViewHolder, this.f24077c);
+            a(i, this.f24078c.getItem(i), baseViewHolder, this.f24078c);
             return view;
         }
         throw new NullPointerException(" creatview fails");
     }
 
     public List<Class<?>> getViewBundles() {
-        return a(this.f24075a);
+        return a(this.f24076a);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -84,7 +84,7 @@ public class InnerAdapter<T> extends BaseAdapter {
     }
 
     public BaseListAdapter.BaseViewHolder onCreateViewHolder(int i, List<Class<?>> list) {
-        return (BaseListAdapter.BaseViewHolder) a(list.get(this.f24077c.useItemTrueType() ? this.f24077c.getItemTrueType(i) : this.f24077c.getItemViewType(i)));
+        return (BaseListAdapter.BaseViewHolder) a(list.get(this.f24078c.useItemTrueType() ? this.f24078c.getItemTrueType(i) : this.f24078c.getItemViewType(i)));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.wallet.base.widget.listview.internal.InnerAdapter<T> */
@@ -92,9 +92,9 @@ public class InnerAdapter<T> extends BaseAdapter {
     private View a(int i, BaseListAdapter.BaseViewHolder baseViewHolder) {
         View inflate;
         if (getBindItemViewResId(i) == -1) {
-            inflate = baseViewHolder.createView(this.f24076b);
+            inflate = baseViewHolder.createView(this.f24077b);
         } else {
-            inflate = View.inflate(this.f24076b, getBindItemViewResId(i), null);
+            inflate = View.inflate(this.f24077b, getBindItemViewResId(i), null);
             ViewMappingUtil.mapView(baseViewHolder, inflate);
         }
         handleViewHolder(baseViewHolder, new Object[0]);
@@ -115,7 +115,7 @@ public class InnerAdapter<T> extends BaseAdapter {
 
     private List<Class<?>> a(List<Class<?>> list) {
         if (list.size() <= 0) {
-            this.f24077c.onBindViewHolder(list);
+            this.f24078c.onBindViewHolder(list);
         }
         return list;
     }

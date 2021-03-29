@@ -11,16 +11,16 @@ import java.util.zip.GZIPOutputStream;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f26911a;
+    public byte[] f26912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26912b;
+    public int f26913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26913c;
+    public int f26914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f26914d;
+    public byte[] f26915d;
 
     /* loaded from: classes5.dex */
     public static class a extends GZIPOutputStream {
@@ -34,7 +34,7 @@ public final class d {
     }
 
     public d(String str) {
-        this.f26914d = str.getBytes();
+        this.f26915d = str.getBytes();
     }
 
     public static byte[] b(byte[] bArr) {
@@ -61,19 +61,19 @@ public final class d {
     }
 
     public final void a() {
-        byte[] bArr = this.f26914d;
-        this.f26912b = 0;
-        this.f26913c = 0;
-        if (this.f26911a == null) {
-            this.f26911a = new byte[256];
+        byte[] bArr = this.f26915d;
+        this.f26913b = 0;
+        this.f26914c = 0;
+        if (this.f26912a == null) {
+            this.f26912a = new byte[256];
         }
         for (int i = 0; i < 256; i++) {
-            this.f26911a[i] = (byte) i;
+            this.f26912a[i] = (byte) i;
         }
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < 256; i4++) {
-            byte[] bArr2 = this.f26911a;
+            byte[] bArr2 = this.f26912a;
             i3 = ((bArr[i2] & 255) + bArr2[i4] + i3) & 255;
             byte b2 = bArr2[i4];
             bArr2[i4] = bArr2[i3];
@@ -91,11 +91,11 @@ public final class d {
             throw new RuntimeException("output buffer too short");
         }
         for (int i3 = 0; i3 < i; i3++) {
-            int i4 = (this.f26912b + 1) & 255;
-            this.f26912b = i4;
-            byte[] bArr3 = this.f26911a;
-            int i5 = (bArr3[i4] + this.f26913c) & 255;
-            this.f26913c = i5;
+            int i4 = (this.f26913b + 1) & 255;
+            this.f26913b = i4;
+            byte[] bArr3 = this.f26912a;
+            int i5 = (bArr3[i4] + this.f26914c) & 255;
+            this.f26914c = i5;
             byte b2 = bArr3[i4];
             bArr3[i4] = bArr3[i5];
             bArr3[i5] = b2;

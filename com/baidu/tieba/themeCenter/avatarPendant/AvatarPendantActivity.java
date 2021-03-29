@@ -219,9 +219,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.i0.i3.c.f56218a) {
+        if (i == d.b.i0.i3.c.f56219a) {
             d.b.i0.i3.b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-        } else if (i == d.b.i0.i3.c.f56219b) {
+        } else if (i == d.b.i0.i3.c.f56220b) {
             d.b.i0.i3.b.c(getPageContext(), 7, str, i3);
         }
     }

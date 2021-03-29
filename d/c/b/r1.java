@@ -7,20 +7,20 @@ import java.lang.reflect.Method;
 public final class r1 implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f65064a;
+    public static Object f65065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f65065b;
+    public static Class<?> f65066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f65066c;
+    public static Method f65067c;
 
     static {
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f65065b = cls;
-            f65064a = cls.newInstance();
-            f65066c = f65065b.getMethod("getOAID", Context.class);
+            f65066b = cls;
+            f65065a = cls.newInstance();
+            f65067c = f65066b.getMethod("getOAID", Context.class);
         } catch (Exception e2) {
             String str = f1.j;
             y0.g(str, "Api#static reflect exception! " + e2.getMessage());
@@ -28,7 +28,7 @@ public final class r1 implements g1 {
     }
 
     public static boolean b() {
-        return (f65065b == null || f65064a == null || f65066c == null) ? false : true;
+        return (f65066b == null || f65065a == null || f65067c == null) ? false : true;
     }
 
     @Override // d.c.b.g1
@@ -37,7 +37,7 @@ public final class r1 implements g1 {
     }
 
     public static String a(Context context, Method method) {
-        Object obj = f65064a;
+        Object obj = f65065a;
         if (obj == null || method == null) {
             return null;
         }
@@ -56,7 +56,7 @@ public final class r1 implements g1 {
     public g1.a b(Context context) {
         try {
             g1.a aVar = new g1.a();
-            aVar.f64995a = a(context, f65066c);
+            aVar.f64996a = a(context, f65067c);
             return aVar;
         } catch (Exception e2) {
             e2.printStackTrace();

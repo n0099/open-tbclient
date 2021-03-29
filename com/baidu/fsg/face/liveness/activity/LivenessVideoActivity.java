@@ -68,25 +68,25 @@ import org.json.JSONObject;
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5788b = "CONSTRASTBEANTAG";
+    public static final String f5789b = "CONSTRASTBEANTAG";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5789c = "LivenessVideoActivity";
+    public static final String f5790c = "LivenessVideoActivity";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5790d = -1;
+    public static final int f5791d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5791e = 0;
+    public static final int f5792e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5792f = 1;
+    public static final int f5793f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5793g = 2;
+    public static final int f5794g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5794h = 3;
+    public static final int f5795h = 3;
     public static final int i = 4;
     public int B;
     public int C;
@@ -275,7 +275,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         if (livenessVideoXfordView != null) {
             livenessVideoXfordView.release();
         }
-        BeanManager.getInstance().removeAllBeans(f5789c);
+        BeanManager.getInstance().removeAllBeans(f5790c);
         BeanManager.getInstance().removeAllBeans("CONSTRASTBEANTAG");
     }
 
@@ -465,7 +465,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 } else {
                     RimStatisticsUtil.onEventStart(d.W);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f5789c);
+                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f5790c);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.contentType = "video/mp4";
                     uploadFileModel.filedata = bArr;
@@ -846,7 +846,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f5601a = rect;
+        this.faceRectGroup.f5602a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();
@@ -996,8 +996,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         this.W = i3;
         this.X = cameraInfo.orientation;
         b bVar = this.faceRectGroup;
-        bVar.f5603c = i2;
-        bVar.f5604d = i3;
+        bVar.f5604c = i2;
+        bVar.f5605d = i3;
         GetFPResponse.LivenessConfig livenessConfig = this.v;
         if (livenessConfig == null || TextUtils.isEmpty(livenessConfig.min_face_size)) {
             if (this.V > 640 && this.W > 480) {

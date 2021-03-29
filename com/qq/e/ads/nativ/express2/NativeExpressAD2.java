@@ -18,19 +18,19 @@ import java.util.List;
 public class NativeExpressAD2 extends AbstractAD<NEIADI> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38170a;
+    public int f38171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38171b;
+    public int f38172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoOption2 f38172c;
+    public VideoOption2 f38173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdLoadListener f38173d;
+    public AdLoadListener f38174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f38174e = Collections.synchronizedList(new ArrayList());
+    public List<Integer> f38175e = Collections.synchronizedList(new ArrayList());
 
     /* loaded from: classes6.dex */
     public interface AdLoadListener extends AbstractAD.BasicADListener {
@@ -41,28 +41,28 @@ public class NativeExpressAD2 extends AbstractAD<NEIADI> {
     public static class AdLoadListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdLoadListener f38175a;
+        public AdLoadListener f38176a;
 
         public AdLoadListenerAdapter(AdLoadListener adLoadListener) {
-            this.f38175a = adLoadListener;
+            this.f38176a = adLoadListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (this.f38175a != null) {
+            if (this.f38176a != null) {
                 int type = aDEvent.getType();
                 if (type != 1) {
                     if (type != 2) {
                         return;
                     }
                     if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                        this.f38175a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        this.f38176a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                     } else {
                         GDTLogger.e("ADEvent.Params error for NativeExpressSecondAD(" + aDEvent + SmallTailInfo.EMOTION_SUFFIX);
                     }
                 }
                 if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof List)) {
-                    this.f38175a.onLoadSuccess((List) aDEvent.getParas()[0]);
+                    this.f38176a.onLoadSuccess((List) aDEvent.getParas()[0]);
                     return;
                 }
                 GDTLogger.e("ADEvent.Params error for NativeExpressSecondAD(" + aDEvent + SmallTailInfo.EMOTION_SUFFIX);
@@ -85,24 +85,24 @@ public class NativeExpressAD2 extends AbstractAD<NEIADI> {
             a(adLoadListener, 2001);
             return;
         }
-        this.f38173d = adLoadListener;
+        this.f38174d = adLoadListener;
         a(context, appid, str, adLoadListener);
     }
 
     /* JADX DEBUG: Return type fixed from 'com.qq.e.comm.pi.ADI' to match base method */
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ NEIADI a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getNativeExpressADDelegate2(context, str, str2, new AdLoadListenerAdapter(this.f38173d));
+        return pOFactory.getNativeExpressADDelegate2(context, str, str2, new AdLoadListenerAdapter(this.f38174d));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.qq.e.comm.pi.ADI] */
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ void a(NEIADI neiadi) {
         NEIADI neiadi2 = neiadi;
-        neiadi2.setAdSize(this.f38170a, this.f38171b);
-        neiadi2.setVideoOption(this.f38172c);
-        synchronized (this.f38174e) {
-            for (Integer num : this.f38174e) {
+        neiadi2.setAdSize(this.f38171a, this.f38172b);
+        neiadi2.setVideoOption(this.f38173c);
+        synchronized (this.f38175e) {
+            for (Integer num : this.f38175e) {
                 loadAd(num.intValue());
             }
         }
@@ -112,7 +112,7 @@ public class NativeExpressAD2 extends AbstractAD<NEIADI> {
         if (!c()) {
             GDTLogger.e("AD init Paras OR Context error,details in logs produced while init NativeAD");
         } else if (!b()) {
-            this.f38174e.add(Integer.valueOf(i));
+            this.f38175e.add(Integer.valueOf(i));
         } else {
             NEIADI a2 = a();
             if (a2 != null) {
@@ -124,8 +124,8 @@ public class NativeExpressAD2 extends AbstractAD<NEIADI> {
     }
 
     public void setAdSize(int i, int i2) {
-        this.f38170a = i;
-        this.f38171b = i2;
+        this.f38171a = i;
+        this.f38172b = i2;
         NEIADI a2 = a();
         if (a2 != null) {
             a2.setAdSize(i, i2);
@@ -133,7 +133,7 @@ public class NativeExpressAD2 extends AbstractAD<NEIADI> {
     }
 
     public void setVideoOption2(VideoOption2 videoOption2) {
-        this.f38172c = videoOption2;
+        this.f38173c = videoOption2;
         NEIADI a2 = a();
         if (a2 != null) {
             a2.setVideoOption(videoOption2);

@@ -9,25 +9,25 @@ import java.util.List;
 public class i implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f58310a;
+    public h f58311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoMiddleModel f58311b;
+    public VideoMiddleModel f58312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58312c;
+    public String f58313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58313d;
+    public String f58314d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58314e;
+    public boolean f58315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoSerializeVideoThreadInfo f58315f;
+    public VideoSerializeVideoThreadInfo f58316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoMiddleModel.b f58316g = new a();
+    public VideoMiddleModel.b f58317g = new a();
 
     /* loaded from: classes4.dex */
     public class a implements VideoMiddleModel.b {
@@ -36,42 +36,42 @@ public class i implements g {
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void a(String str) {
-            if (i.this.f58310a == null) {
+            if (i.this.f58311a == null) {
                 return;
             }
-            i.this.f58310a.n();
-            i.this.f58310a.c(str);
-            i.this.f58310a.onLoadFail();
+            i.this.f58311a.n();
+            i.this.f58311a.c(str);
+            i.this.f58311a.onLoadFail();
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void b(List<BaseCardInfo> list, boolean z) {
-            if (i.this.f58310a == null) {
+            if (i.this.f58311a == null) {
                 return;
             }
-            i.this.f58310a.n();
-            i.this.f58314e = z;
-            i.this.f58310a.a(list, z, false);
+            i.this.f58311a.n();
+            i.this.f58315e = z;
+            i.this.f58311a.a(list, z, false);
         }
     }
 
     public i(h hVar) {
         if (hVar instanceof VideoMiddlePageFragment) {
-            this.f58310a = hVar;
+            this.f58311a = hVar;
             hVar.c0(this);
-            this.f58311b = new VideoMiddleModel(((VideoMiddlePageFragment) hVar).getPageContext(), this.f58316g);
+            this.f58312b = new VideoMiddleModel(((VideoMiddlePageFragment) hVar).getPageContext(), this.f58317g);
         }
     }
 
     public void c() {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             videoMiddleModel.cancelLoadData();
         }
     }
 
     public int d() {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             return videoMiddleModel.w();
         }
@@ -79,55 +79,55 @@ public class i implements g {
     }
 
     public VideoSerializeVideoThreadInfo e() {
-        return this.f58315f;
+        return this.f58316f;
     }
 
     public void f() {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
-        if (videoMiddleModel == null || !this.f58314e) {
+        VideoMiddleModel videoMiddleModel = this.f58312b;
+        if (videoMiddleModel == null || !this.f58315e) {
             return;
         }
-        videoMiddleModel.setFrom(this.f58313d);
-        this.f58311b.LoadData();
+        videoMiddleModel.setFrom(this.f58314d);
+        this.f58312b.LoadData();
     }
 
     public void g() {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
-            videoMiddleModel.setFrom(this.f58313d);
-            this.f58311b.LoadData();
+            videoMiddleModel.setFrom(this.f58314d);
+            this.f58312b.LoadData();
         }
     }
 
     public void h(String str) {
-        this.f58313d = str;
+        this.f58314d = str;
     }
 
     public void i(String str) {
-        this.f58312c = str;
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        this.f58313c = str;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             videoMiddleModel.x(str);
         }
     }
 
     public void j(String str) {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             videoMiddleModel.y(str);
         }
     }
 
     public void k(String str) {
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             videoMiddleModel.z(str);
         }
     }
 
     public void l(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.f58315f = videoSerializeVideoThreadInfo;
-        VideoMiddleModel videoMiddleModel = this.f58311b;
+        this.f58316f = videoSerializeVideoThreadInfo;
+        VideoMiddleModel videoMiddleModel = this.f58312b;
         if (videoMiddleModel != null) {
             videoMiddleModel.A(videoSerializeVideoThreadInfo);
         }

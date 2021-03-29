@@ -8,16 +8,16 @@ public class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> CREATOR = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2159f;
+    public boolean f2160f;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f2158e = null;
+    public View f2159e = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2160g = 255;
+    public int f2161g = 255;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2161h = -1;
+    public int f2162h = -1;
     public int i = -1;
     public int j = 17170444;
     public boolean k = true;
@@ -32,8 +32,8 @@ public class Configuration implements Parcelable {
         /* renamed from: a */
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
-            configuration.f2160g = parcel.readInt();
-            configuration.f2161h = parcel.readInt();
+            configuration.f2161g = parcel.readInt();
+            configuration.f2162h = parcel.readInt();
             configuration.i = parcel.readInt();
             configuration.j = parcel.readInt();
             configuration.k = parcel.readByte() == 1;
@@ -56,8 +56,8 @@ public class Configuration implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2160g);
-        parcel.writeInt(this.f2161h);
+        parcel.writeInt(this.f2161g);
+        parcel.writeInt(this.f2162h);
         parcel.writeInt(this.i);
         parcel.writeInt(this.j);
         parcel.writeByte(this.k ? (byte) 1 : (byte) 0);

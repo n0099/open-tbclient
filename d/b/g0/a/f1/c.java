@@ -29,62 +29,62 @@ import java.io.File;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44412a = k.f45050a;
+    public static final boolean f44413a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44413b;
+    public static final boolean f44414b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements SwanAppNetworkUtils.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44414a;
+        public final /* synthetic */ String f44415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44415b;
+        public final /* synthetic */ String f44416b;
 
         public a(String str, String str2) {
-            this.f44414a = str;
-            this.f44415b = str2;
+            this.f44415a = str;
+            this.f44416b = str2;
         }
 
         @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
         public void onResult(int i) {
             if (i == 1) {
-                d.b.g0.a.e0.f.d(this.f44414a + "; 网络：正常");
-                d.b.g0.a.e0.d.c("white_screen", this.f44415b, FrsActivityConfig.GOOD);
+                d.b.g0.a.e0.f.d(this.f44415a + "; 网络：正常");
+                d.b.g0.a.e0.d.c("white_screen", this.f44416b, FrsActivityConfig.GOOD);
                 d.b.g0.a.e0.c.f(h.swanapp_tip_load_fail);
             } else if (i == 2) {
-                d.b.g0.a.e0.f.d(this.f44414a + "; 网络：较差");
-                d.b.g0.a.e0.d.c("white_screen", this.f44415b, "bad");
+                d.b.g0.a.e0.f.d(this.f44415a + "; 网络：较差");
+                d.b.g0.a.e0.d.c("white_screen", this.f44416b, "bad");
                 d.b.g0.a.e0.c.f(h.swanapp_tip_net_unavailable);
             } else if (i != 3) {
-                d.b.g0.a.e0.f.d(this.f44414a + "; 网络：未知");
-                d.b.g0.a.e0.d.c("white_screen", this.f44415b, "unknown");
+                d.b.g0.a.e0.f.d(this.f44415a + "; 网络：未知");
+                d.b.g0.a.e0.d.c("white_screen", this.f44416b, "unknown");
                 d.b.g0.a.e0.c.f(h.swanapp_tip_load_fail);
             } else {
-                d.b.g0.a.e0.f.d(this.f44414a + "; 网络：离线");
-                d.b.g0.a.e0.d.c("white_screen", this.f44415b, "offline");
+                d.b.g0.a.e0.f.d(this.f44415a + "; 网络：离线");
+                d.b.g0.a.e0.d.c("white_screen", this.f44416b, "offline");
                 d.b.g0.a.e0.c.f(h.swanapp_tip_net_unavailable);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements w.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ File[] f44416a;
+            public final /* synthetic */ File[] f44417a;
 
             public a(b bVar, File[] fileArr) {
-                this.f44416a = fileArr;
+                this.f44417a = fileArr;
             }
 
             @Override // d.b.g0.a.p.c.w.a
@@ -92,7 +92,7 @@ public class c {
                 if (str == null || !str.contains("success")) {
                     return;
                 }
-                for (File file : this.f44416a) {
+                for (File file : this.f44417a) {
                     d.b.g0.p.d.w(file);
                 }
             }
@@ -121,7 +121,7 @@ public class c {
 
     static {
         d.b.g0.a.w0.a.N().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
-        f44413b = false;
+        f44414b = false;
     }
 
     public static void a() {
@@ -147,25 +147,25 @@ public class c {
         int[] iArr2 = new int[2];
         D1.getLocationOnScreen(iArr2);
         iArr[1] = Math.max(iArr[1], iArr2[1] + D1.getHeight() + 1);
-        if (f44413b) {
-            if (f44412a) {
+        if (f44414b) {
+            if (f44413a) {
                 Log.d("MonitorUtils", "getCheckRect: hit webview widget process bar calibrate");
             }
             d.b.g0.a.p.d.b T2 = eVar.T2();
             if (T2 != null) {
                 d.b.g0.a.p.d.e n = T2.n();
                 if (n instanceof SwanAppWebViewWidget) {
-                    if (f44412a) {
+                    if (f44413a) {
                         Log.d("MonitorUtils", "getCheckRect: hit webview widget");
                     }
                     int y1 = ((SwanAppWebViewWidget) n).y1();
-                    if (f44412a) {
+                    if (f44413a) {
                         Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + y1);
                     }
                     if (y1 > 0) {
                         iArr[1] = iArr[1] + y1 + 1;
                     }
-                    if (f44412a) {
+                    if (f44413a) {
                         Log.d("MonitorUtils", "getCheckRect: webview widget newY=" + iArr[1]);
                     }
                 }
@@ -187,7 +187,7 @@ public class c {
         if (eVar != null) {
             d.b.g0.a.r1.n.c y1 = eVar.y1();
             if (y1 != null) {
-                return y1.f45774e;
+                return y1.f45775e;
             }
             FrameLayout b3 = eVar.b3();
             if (b3 != null) {

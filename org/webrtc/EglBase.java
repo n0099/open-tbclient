@@ -2,7 +2,7 @@ package org.webrtc;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public interface EglBase {
     public static final int EGL_OPENGL_ES2_BIT = 4;
     public static final int EGL_RECORDABLE_ANDROID = 12610;

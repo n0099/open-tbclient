@@ -5,9 +5,9 @@ import android.util.Log;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends f {
-    public static final boolean F = k.f45050a;
+    public static final boolean F = k.f45051a;
     public String A;
     public String B;
     public String C;
@@ -26,32 +26,32 @@ public class c extends f {
 
     @Override // d.b.g0.a.z1.k.f, d.b.g0.a.z1.k.e
     public JSONObject f() {
-        if (this.f47256g == null) {
-            this.f47256g = new JSONObject();
+        if (this.f47257g == null) {
+            this.f47257g = new JSONObject();
         }
         try {
             if (TextUtils.equals(this.C, "1") || TextUtils.equals(this.C, "2")) {
-                this.f47256g.put("errorno", this.w);
+                this.f47257g.put("errorno", this.w);
             }
             String a2 = d.b.g0.a.z1.g.a(this.x);
             this.x = a2;
-            this.f47256g.put("url", a2);
-            this.f47256g.put("netStatus", this.z);
+            this.f47257g.put("url", a2);
+            this.f47257g.put("netStatus", this.z);
             if (!TextUtils.isEmpty(this.y)) {
-                this.f47256g.put("msg", this.y);
+                this.f47257g.put("msg", this.y);
             }
             if (!TextUtils.isEmpty(this.A)) {
-                this.f47256g.put("pagetype", this.A);
+                this.f47257g.put("pagetype", this.A);
             }
             if (!TextUtils.isEmpty(this.B)) {
-                this.f47256g.put("curpage", this.B);
+                this.f47257g.put("curpage", this.B);
             }
             if (!TextUtils.isEmpty(this.C)) {
-                this.f47256g.put("requesttype", this.C);
+                this.f47257g.put("requesttype", this.C);
             }
             if (this.E - this.D > 0) {
-                this.f47256g.put("startTime", this.D);
-                this.f47256g.put("endTime", this.E);
+                this.f47257g.put("startTime", this.D);
+                this.f47257g.put("endTime", this.E);
             }
         } catch (JSONException e2) {
             if (F) {

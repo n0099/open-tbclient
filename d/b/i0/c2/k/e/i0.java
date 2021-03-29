@@ -42,7 +42,7 @@ public class i0 extends m<g0, PbPageNewsInfoHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public PbPageNewsInfoHolder R(ViewGroup viewGroup) {
-        return new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f42357e).inflate(R.layout.pb_page_news, viewGroup, false), this.t);
+        return new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f42358e).inflate(R.layout.pb_page_news, viewGroup, false), this.t);
     }
 
     public View m0(int i, View view, ViewGroup viewGroup, g0 g0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {

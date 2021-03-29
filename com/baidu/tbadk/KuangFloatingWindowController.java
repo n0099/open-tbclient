@@ -143,9 +143,7 @@ public class KuangFloatingWindowController {
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        double heightPx = getHeightPx();
-        Double.isNaN(heightPx);
-        layoutParams.y = (int) (heightPx * 0.75d);
+        layoutParams.y = (int) (getHeightPx() * 0.75d);
         layoutParams.width = -2;
         layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         layoutParams.gravity = 51;

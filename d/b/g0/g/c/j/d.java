@@ -8,13 +8,13 @@ import java.io.File;
 public class d implements d.b.g0.g.c.j.c {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47994f;
+    public String f47995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47995g;
+    public boolean f47996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f47996h;
+    public float f47997h;
     public int i;
     public MediaPlayer.OnPreparedListener j;
     public MediaPlayer.OnCompletionListener k;
@@ -23,7 +23,7 @@ public class d implements d.b.g0.g.c.j.c {
     public d.b.g0.j.a.c n;
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAudioPlayer f47993e = SwanAudioPlayer.getInstance();
+    public SwanAudioPlayer f47994e = SwanAudioPlayer.getInstance();
     public Handler o = d.b.g0.g.c.j.b.h().e();
 
     /* loaded from: classes3.dex */
@@ -33,8 +33,8 @@ public class d implements d.b.g0.g.c.j.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 != d.this.f47993e.getState(d.this.i)) {
-                d.this.f47993e.play(d.this.i, d.this.f47996h, d.this.f47995g);
+            if (2 != d.this.f47994e.getState(d.this.i)) {
+                d.this.f47994e.play(d.this.i, d.this.f47997h, d.this.f47996g);
             }
         }
     }
@@ -46,7 +46,7 @@ public class d implements d.b.g0.g.c.j.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47993e.pause(d.this.i);
+            d.this.f47994e.pause(d.this.i);
         }
     }
 
@@ -54,27 +54,27 @@ public class d implements d.b.g0.g.c.j.c {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f47999e;
+        public final /* synthetic */ float f48000e;
 
         public c(float f2) {
-            this.f47999e = f2;
+            this.f48000e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47993e.seek(d.this.i, (int) this.f47999e);
+            d.this.f47994e.seek(d.this.i, (int) this.f48000e);
         }
     }
 
     /* renamed from: d.b.g0.g.c.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0955d implements Runnable {
-        public RunnableC0955d() {
+    public class RunnableC0956d implements Runnable {
+        public RunnableC0956d() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47993e.stop(d.this.i);
+            d.this.f47994e.stop(d.this.i);
         }
     }
 
@@ -82,7 +82,7 @@ public class d implements d.b.g0.g.c.j.c {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48002e;
+        public final /* synthetic */ String f48003e;
 
         /* loaded from: classes3.dex */
         public class a implements MediaPlayer.OnPreparedListener {
@@ -125,8 +125,8 @@ public class d implements d.b.g0.g.c.j.c {
 
         /* renamed from: d.b.g0.g.c.j.d$e$d  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0956d implements MediaPlayer.OnErrorListener {
-            public C0956d() {
+        public class C0957d implements MediaPlayer.OnErrorListener {
+            public C0957d() {
             }
 
             @Override // android.media.MediaPlayer.OnErrorListener
@@ -140,8 +140,8 @@ public class d implements d.b.g0.g.c.j.c {
 
         /* renamed from: d.b.g0.g.c.j.d$e$e  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0957e implements d.b.g0.j.a.c {
-            public C0957e() {
+        public class C0958e implements d.b.g0.j.a.c {
+            public C0958e() {
             }
 
             @Override // d.b.g0.j.a.c
@@ -153,24 +153,24 @@ public class d implements d.b.g0.g.c.j.c {
         }
 
         public e(String str) {
-            this.f48002e = str;
+            this.f48003e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47994f = this.f48002e;
-            File file = new File(this.f48002e);
+            d.this.f47995f = this.f48003e;
+            File file = new File(this.f48003e);
             if (!file.exists() || file.isDirectory()) {
                 return;
             }
             d dVar = d.this;
-            dVar.i = dVar.f47993e.setDataSource(this.f48002e, (int) file.length());
-            d.this.f47993e.setOnPreparedListener(d.this.i, new a());
-            d.this.f47993e.setOnCompletionListener(d.this.i, new b());
-            d.this.f47993e.setOnSeekCompleteListener(d.this.i, new c());
-            d.this.f47993e.setOnErrorListener(d.this.i, new C0956d());
-            d.this.f47993e.setOnPauseListener(d.this.i, new C0957e());
-            d.this.f47993e.prepare(d.this.i);
+            dVar.i = dVar.f47994e.setDataSource(this.f48003e, (int) file.length());
+            d.this.f47994e.setOnPreparedListener(d.this.i, new a());
+            d.this.f47994e.setOnCompletionListener(d.this.i, new b());
+            d.this.f47994e.setOnSeekCompleteListener(d.this.i, new c());
+            d.this.f47994e.setOnErrorListener(d.this.i, new C0957d());
+            d.this.f47994e.setOnPauseListener(d.this.i, new C0958e());
+            d.this.f47994e.prepare(d.this.i);
         }
     }
 
@@ -178,18 +178,18 @@ public class d implements d.b.g0.g.c.j.c {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48009e;
+        public final /* synthetic */ boolean f48010e;
 
         public f(boolean z) {
-            this.f48009e = z;
+            this.f48010e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 == d.this.f47993e.getState(d.this.i)) {
-                d.this.f47993e.setLoop(d.this.i, this.f48009e);
+            if (2 == d.this.f47994e.getState(d.this.i)) {
+                d.this.f47994e.setLoop(d.this.i, this.f48010e);
             }
-            d.this.f47995g = this.f48009e;
+            d.this.f47996g = this.f48010e;
         }
     }
 
@@ -197,18 +197,18 @@ public class d implements d.b.g0.g.c.j.c {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f48011e;
+        public final /* synthetic */ float f48012e;
 
         public g(float f2) {
-            this.f48011e = f2;
+            this.f48012e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 == d.this.f47993e.getState(d.this.i)) {
-                d.this.f47993e.setVolume(d.this.i, this.f48011e);
+            if (2 == d.this.f47994e.getState(d.this.i)) {
+                d.this.f47994e.setVolume(d.this.i, this.f48012e);
             }
-            d.this.f47996h = this.f48011e;
+            d.this.f47997h = this.f48012e;
         }
     }
 
@@ -223,7 +223,7 @@ public class d implements d.b.g0.g.c.j.c {
 
     @Override // d.b.g0.g.c.a
     public void destroy() {
-        this.f47993e.release(this.i);
+        this.f47994e.release(this.i);
         stop();
     }
 
@@ -234,7 +234,7 @@ public class d implements d.b.g0.g.c.j.c {
 
     @Override // d.b.g0.g.c.a
     public int getDuration() {
-        return this.f47993e.getDuration(this.i);
+        return this.f47994e.getDuration(this.i);
     }
 
     @Override // d.b.g0.g.c.j.c
@@ -278,7 +278,7 @@ public class d implements d.b.g0.g.c.j.c {
 
     @Override // d.b.g0.g.c.a
     public void stop() {
-        this.o.post(new RunnableC0955d());
+        this.o.post(new RunnableC0956d());
     }
 
     @Override // d.b.g0.g.c.j.c
@@ -288,7 +288,7 @@ public class d implements d.b.g0.g.c.j.c {
 
     @Override // d.b.g0.g.c.a
     public int u() {
-        return this.f47993e.getPosition(this.i);
+        return this.f47994e.getPosition(this.i);
     }
 
     @Override // d.b.g0.g.c.j.c

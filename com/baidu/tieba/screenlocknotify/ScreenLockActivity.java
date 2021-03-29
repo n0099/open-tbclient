@@ -83,7 +83,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         public void onReceive(Context context, Intent intent) {
             String stringExtra;
             if (intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra("reason")) != null && stringExtra.equals("homekey")) {
-                d.b.i0.t2.a.j().f61100d.d();
+                d.b.i0.t2.a.j().f61101d.d();
                 ScreenLockActivity.this.finish();
             }
         }
@@ -101,7 +101,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 TiebaStatic.log(new StatisticItem("c11704").param("msg_id", item.m / 100).param("task_id", item.s));
             }
             ScreenLockActivity.this.finish();
-            d.b.i0.t2.a.j().f61100d.d();
+            d.b.i0.t2.a.j().f61101d.d();
         }
     }
 
@@ -143,22 +143,22 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             if (ScreenLockActivity.this.headerView == null || StringUtils.isNull(ScreenLockActivity.this.headerView.getInputMsg()) || (data = ScreenLockActivity.this.headerView.getData()) == null) {
                 return;
             }
-            if (data.f61124h == 4) {
+            if (data.f61125h == 4) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("msg_id", data.m / 100).param("task_id", data.s).param("service_id", data.t).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, data.q).param("app_version", TbConfig.getVersion()).param("obj_source", 2).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1));
             }
-            int i = data.f61124h;
+            int i = data.f61125h;
             if (i == 1) {
                 MessageUtils.createGroupChatMessage(1, ScreenLockActivity.this.headerView.getInputMsg(), d.b.b.e.m.b.f(data.j, 0L));
                 d.b.h0.s.d.b.g0().s(data.j);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.j, 1)));
             } else if (i == 2) {
-                MessageUtils.createPersonalChatMessage(1, ScreenLockActivity.this.headerView.getInputMsg(), d.b.b.e.m.b.f(data.j, 0L), data.f61118b, data.f61119c, data.k);
+                MessageUtils.createPersonalChatMessage(1, ScreenLockActivity.this.headerView.getInputMsg(), d.b.b.e.m.b.f(data.j, 0L), data.f61119b, data.f61120c, data.k);
                 d.b.h0.s.d.b.g0().s(data.j);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.j, 2)));
                 MessageUtils.sendHasReadMessage(data.j, 2);
             }
             new PvThread("lockscreen_reply", true).start();
-            d.b.i0.t2.a.j().f61100d.d();
+            d.b.i0.t2.a.j().f61101d.d();
             ScreenLockActivity.this.finish();
         }
     }
@@ -329,7 +329,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         if (dVar == null) {
             return;
         }
-        int i = dVar.f61124h;
+        int i = dVar.f61125h;
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("msg_id", dVar.m / 100).param("task_id", dVar.s).param("service_id", dVar.t).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, dVar.q).param("app_version", TbConfig.getVersion()).param("obj_source", (i == 1 || i == 2) ? 3 : i != 4 ? i != 5 ? 0 : 1 : 2).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1));
         if (!j.z()) {
             showToast(getResources().getString(R.string.neterror));
@@ -339,43 +339,43 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             d.b.i0.t2.a.j().h(dVar);
             finish();
         } else {
-            int i2 = dVar.f61124h;
+            int i2 = dVar.f61125h;
             if (i2 == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(dVar.j, 0L), dVar.f61117a, 0L, "from_lock")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(dVar.j, 0L), dVar.f61118a, 0L, "from_lock")));
                 d.b.i0.t2.a.j().h(dVar);
-                d.b.i0.t2.a.j().f61100d.d();
-                if (!d.b.i0.t2.a.j().f61100d.b()) {
-                    d.b.i0.t2.a.j().f61100d.e();
+                d.b.i0.t2.a.j().f61101d.d();
+                if (!d.b.i0.t2.a.j().f61101d.b()) {
+                    d.b.i0.t2.a.j().f61101d.e();
                 }
-                d.b.i0.t2.a.j().f61101e = 0;
+                d.b.i0.t2.a.j().f61102e = 0;
                 finish();
             } else if (i2 == 2) {
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(this.showItem.j, 0L), dVar.f61117a, dVar.f61119c, dVar.k, 0, dVar.o ? 1 : 0);
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(this.showItem.j, 0L), dVar.f61118a, dVar.f61120c, dVar.k, 0, dVar.o ? 1 : 0);
                 personalChatActivityConfig.setFollowStatus(dVar.p);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
                 d.b.i0.t2.a.j().h(dVar);
-                d.b.i0.t2.a.j().f61101e = 0;
-                d.b.i0.t2.a.j().f61100d.d();
-                if (!d.b.i0.t2.a.j().f61100d.b()) {
-                    d.b.i0.t2.a.j().f61100d.e();
+                d.b.i0.t2.a.j().f61102e = 0;
+                d.b.i0.t2.a.j().f61101d.d();
+                if (!d.b.i0.t2.a.j().f61101d.b()) {
+                    d.b.i0.t2.a.j().f61101d.e();
                 }
                 finish();
             } else if (i2 == 4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(this.showItem.j, 0L), dVar.f61117a, dVar.k, 0, 4)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.f(this.showItem.j, 0L), dVar.f61118a, dVar.k, 0, 4)));
                 d.b.i0.t2.a.j().h(dVar);
-                d.b.i0.t2.a.j().f61101e = 0;
-                d.b.i0.t2.a.j().f61100d.d();
-                if (!d.b.i0.t2.a.j().f61100d.b()) {
-                    d.b.i0.t2.a.j().f61100d.e();
+                d.b.i0.t2.a.j().f61102e = 0;
+                d.b.i0.t2.a.j().f61101d.d();
+                if (!d.b.i0.t2.a.j().f61101d.b()) {
+                    d.b.i0.t2.a.j().f61101d.e();
                 }
                 finish();
             } else {
                 TiebaStatic.log("c11962");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(getPageContext().getContext(), 2)));
                 d.b.i0.t2.a.j().h(dVar);
-                d.b.i0.t2.a.j().f61100d.d();
-                if (!d.b.i0.t2.a.j().f61100d.b()) {
-                    d.b.i0.t2.a.j().f61100d.e();
+                d.b.i0.t2.a.j().f61101d.d();
+                if (!d.b.i0.t2.a.j().f61101d.b()) {
+                    d.b.i0.t2.a.j().f61101d.e();
                 }
                 finish();
             }
@@ -392,7 +392,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         this.mChatList.setAdapter((ListAdapter) cVar);
         this.mChatList.setOnItemClickListener(this.mOnItemClickListener);
         registerReceiver(this.mHomeReceiver, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
-        d.b.i0.t2.a.j().f61103g = false;
+        d.b.i0.t2.a.j().f61104g = false;
         this.mChatList.setMaxHeight(this.mListViewMaxHeight);
         this.mChatList.setTranscriptMode(0);
         this.mChatList.setOnScrollListener(new c());
@@ -429,18 +429,18 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         super.onDestroy();
         unregisterReceiver(this.mHomeReceiver);
         d.b.i0.t2.a.j().s();
-        d.b.i0.t2.a.j().f61102f = 0;
+        d.b.i0.t2.a.j().f61103f = 0;
         this.background = null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            d.b.i0.t2.a.j().f61100d.d();
+            d.b.i0.t2.a.j().f61101d.d();
             finish();
             return true;
         } else if (i == 82) {
-            d.b.i0.t2.a.j().f61100d.d();
+            d.b.i0.t2.a.j().f61101d.d();
             finish();
             return true;
         } else {
@@ -451,8 +451,8 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.b.i0.t2.a.j().f61102f = 0;
-        d.b.i0.t2.a.j().f61101e = 0;
+        d.b.i0.t2.a.j().f61103f = 0;
+        d.b.i0.t2.a.j().f61102e = 0;
         if (this.headerView != null) {
             HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.headerView.getEditText());
         }
@@ -461,13 +461,13 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.t2.a.j().f61102f = 1;
-        d.b.i0.t2.a.j().f61101e = 0;
+        d.b.i0.t2.a.j().f61103f = 1;
+        d.b.i0.t2.a.j().f61102e = 0;
         List<d.b.i0.t2.d> m = d.b.i0.t2.a.j().m();
         d.b.i0.t2.d l = d.b.i0.t2.a.j().l();
         d.b.i0.t2.a.j().s();
         if ((m == null || m.isEmpty()) && l == null && this.mAdapter.getCount() == 0 && this.mChatList.getHeaderViewsCount() == 0) {
-            d.b.i0.t2.a.j().f61100d.d();
+            d.b.i0.t2.a.j().f61101d.d();
             finish();
             return;
         }

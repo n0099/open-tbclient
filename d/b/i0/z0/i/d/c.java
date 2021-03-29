@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -16,7 +16,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> {
     public NEGFeedBackView.b q;
     public b0<d.b.i0.x.e0.j> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.j> {
         public a() {
         }
@@ -34,7 +34,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> {
                 i = 0;
             }
             if (i != 0) {
-                d.b.i0.z0.g.m.a.a(jVar.f62196e, c.this.m, jVar.E(), i);
+                d.b.i0.z0.g.m.a.a(jVar.f62197e, c.this.m, jVar.E(), i);
             }
             d.b.i0.z0.i.b.d(view, jVar, c.this.o);
         }
@@ -72,7 +72,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> {
         b2.n(jVar);
         b2.q(this.r);
         b2.B(this.q);
-        d.b.i0.z0.g.m.a.c(jVar.f62196e, this.m, jVar.E());
+        d.b.i0.z0.g.m.a.c(jVar.f62197e, this.m, jVar.E());
         d.b.i0.z0.i.b.e(jVar, this.o);
         return cardViewHolder.a();
     }

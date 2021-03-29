@@ -27,27 +27,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f4582a;
+    public static a f4583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4583b;
+    public static Context f4584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4584c;
+    public static String f4585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4585d;
+    public static String f4586d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f4586f;
+    public static String f4587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f4587g;
+    public static String f4588g;
     public static String l;
     public static String m;
     public static String n;
@@ -56,10 +56,10 @@ public final class a {
     public d B;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4588e;
+    public String f4589e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4589h;
+    public String f4590h;
     public String j;
     public String o;
     public String p;
@@ -76,7 +76,7 @@ public final class a {
 
     public a(Context context) {
         Context applicationContext = context.getApplicationContext();
-        f4583b = applicationContext;
+        f4584b = applicationContext;
         this.B = d.a(applicationContext);
         d();
     }
@@ -84,10 +84,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f4582a == null) {
-                f4582a = new a(context);
+            if (f4583a == null) {
+                f4583a = new a(context);
             }
-            aVar = f4582a;
+            aVar = f4583a;
         }
         return aVar;
     }
@@ -105,7 +105,7 @@ public final class a {
         stringBuffer.append("_");
         stringBuffer.append(str);
         stringBuffer.append("_");
-        stringBuffer.append(f4584c);
+        stringBuffer.append(f4585c);
         stringBuffer.append("_");
         stringBuffer.append(i3);
         String stringBuffer2 = stringBuffer.toString();
@@ -122,7 +122,7 @@ public final class a {
             return "WF";
         }
         int subtype = activeNetworkInfo.getSubtype();
-        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3873b : subtype == 13 ? "4G" : "2G";
+        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3874b : subtype == 13 ? "4G" : "2G";
     }
 
     public static boolean c(String str) {
@@ -130,20 +130,20 @@ public final class a {
     }
 
     private void d() {
-        this.f4588e = f4583b.getPackageName();
-        this.s = (ActivityManager) f4583b.getSystemService("activity");
+        this.f4589e = f4584b.getPackageName();
+        this.s = (ActivityManager) f4584b.getSystemService("activity");
         try {
-            PackageInfo packageInfo = f4583b.getPackageManager().getPackageInfo(this.f4588e, 64);
-            f4584c = packageInfo.versionName;
-            f4585d = String.valueOf(packageInfo.versionCode);
+            PackageInfo packageInfo = f4584b.getPackageManager().getPackageInfo(this.f4589e, 64);
+            f4585c = packageInfo.versionName;
+            f4586d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
         }
-        w = j.a(f4583b, this.f4588e);
-        f4586f = g();
-        this.f4589h = f();
-        f4587g = b(f4583b);
+        w = j.a(f4584b, this.f4589e);
+        f4587f = g();
+        this.f4590h = f();
+        f4588g = b(f4584b);
     }
 
     private void e() {
@@ -208,9 +208,9 @@ public final class a {
 
     private String g() {
         String str;
-        if (TextUtils.isEmpty(f4586f)) {
+        if (TextUtils.isEmpty(f4587f)) {
             try {
-                str = CommonParam.getCUID(f4583b);
+                str = CommonParam.getCUID(f4584b);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = System.currentTimeMillis() + "";
@@ -218,7 +218,7 @@ public final class a {
             LogUtil.logD("BaiduParamManager", "new generated uid " + str);
             return str;
         }
-        return f4586f;
+        return f4587f;
     }
 
     private String h() {
@@ -242,7 +242,7 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) f4583b.getSystemService("activity")).getMemoryInfo(memoryInfo);
+            ((ActivityManager) f4584b.getSystemService("activity")).getMemoryInfo(memoryInfo);
             return Long.toHexString(memoryInfo.totalMem);
         }
         try {
@@ -285,7 +285,7 @@ public final class a {
 
     public void a(String str) {
         this.v = str;
-        f4587g = b(f4583b);
+        f4588g = b(f4584b);
     }
 
     public void a(String str, String str2) {
@@ -299,25 +299,25 @@ public final class a {
     public String b() {
         StringBuilder sb = new StringBuilder();
         A = sb;
-        sb.append("{\"cid\":\"" + f4586f + "\",");
+        sb.append("{\"cid\":\"" + f4587f + "\",");
         StringBuilder sb2 = A;
         sb2.append("\"pl\":\"" + l + "\",");
         StringBuilder sb3 = A;
-        sb3.append("\"os\":\"" + f4587g + "\",");
+        sb3.append("\"os\":\"" + f4588g + "\",");
         StringBuilder sb4 = A;
         sb4.append("\"ot\":\"" + m + "\",");
         StringBuilder sb5 = A;
         sb5.append("\"cl\":\"" + n + "\",");
         StringBuilder sb6 = A;
-        sb6.append("\"cvn\":\"" + f4584c + "\",");
+        sb6.append("\"cvn\":\"" + f4585c + "\",");
         StringBuilder sb7 = A;
-        sb7.append("\"cvc\":\"" + f4585d + "\",");
+        sb7.append("\"cvc\":\"" + f4586d + "\",");
         StringBuilder sb8 = A;
         sb8.append("\"csz\":\"" + x + "\",");
         StringBuilder sb9 = A;
         sb9.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4583b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4583b).b();
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4584b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4584b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -343,14 +343,14 @@ public final class a {
     public String b(String str) {
         try {
             b bVar = new b(a() + str);
-            bVar.a("versioncode", f4585d);
-            bVar.a("versionname", f4584c);
-            bVar.a("pkgname", this.f4588e);
-            bVar.a("cuid", f4586f);
-            bVar.a("ua", f4587g);
-            bVar.a("ut", this.f4589h);
+            bVar.a("versioncode", f4586d);
+            bVar.a("versionname", f4585c);
+            bVar.a("pkgname", this.f4589e);
+            bVar.a("cuid", f4587f);
+            bVar.a("ua", f4588g);
+            bVar.a("ut", this.f4590h);
             bVar.a("auto", String.valueOf(this.i));
-            String c2 = c(f4583b);
+            String c2 = c(f4584b);
             this.j = c2;
             bVar.a("network", c2);
             String h2 = h();
@@ -371,7 +371,7 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            String a2 = j.a(f4583b, "com.baidu.appsearch");
+            String a2 = j.a(f4584b, "com.baidu.appsearch");
             this.y = a2;
             if (!TextUtils.isEmpty(a2)) {
                 bVar.a("appsearchmd5", this.y);
@@ -396,16 +396,16 @@ public final class a {
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4583b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4584b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 
     public void d(String str) {
-        f4584c = str;
+        f4585c = str;
     }
 
     public void e(String str) {
-        f4585d = str;
+        f4586d = str;
     }
 
     public void f(String str) {

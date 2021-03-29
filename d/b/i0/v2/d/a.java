@@ -34,36 +34,36 @@ import java.net.URISyntaxException;
 public abstract class a implements d.b.i0.v2.e.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f62047e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+    public static String f62048e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f62048f = "temp_video_thumb.png";
+    public static String f62049f = "temp_video_thumb.png";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f62049g = "_temp_share_pic.png";
+    public static String f62050g = "_temp_share_pic.png";
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f62050a;
+    public BdUniqueId f62051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f62051b;
+    public Context f62052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62052c;
+    public String f62053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62053d;
+    public String f62054d;
 
     public a(Context context) {
-        this.f62051b = context;
+        this.f62052b = context;
     }
 
     public void b(int i, int i2) {
         ShareEvent shareEvent = new ShareEvent();
         shareEvent.status = i;
-        shareEvent.tid = this.f62052c;
+        shareEvent.tid = this.f62053c;
         shareEvent.channel = i2;
-        shareEvent.extLiveInfo = this.f62053d;
+        shareEvent.extLiveInfo = this.f62054d;
         g.g(shareEvent);
     }
 
@@ -89,8 +89,8 @@ public abstract class a implements d.b.i0.v2.e.a {
 
     public BdUniqueId h() {
         i c2;
-        BdUniqueId bdUniqueId = this.f62050a;
-        return (bdUniqueId == null && (c2 = j.c(this.f62051b)) != null) ? c2.getUniqueId() : bdUniqueId;
+        BdUniqueId bdUniqueId = this.f62051a;
+        return (bdUniqueId == null && (c2 = j.c(this.f62052b)) != null) ? c2.getUniqueId() : bdUniqueId;
     }
 
     public Bitmap i(Bitmap bitmap, int i) {
@@ -163,18 +163,18 @@ public abstract class a implements d.b.i0.v2.e.a {
     }
 
     public void q(BdUniqueId bdUniqueId) {
-        this.f62050a = bdUniqueId;
+        this.f62051a = bdUniqueId;
     }
 
     public Bitmap r(Bitmap bitmap, ShareEntity shareEntity, boolean z) {
         if (bitmap == null) {
             return null;
         }
-        Bitmap i = i(bitmap, (l.g(this.f62051b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+        Bitmap i = i(bitmap, (l.g(this.f62052b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
         Bitmap createBitmap = Bitmap.createBitmap(i.getWidth(), i.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(i, 0.0f, 0.0f, (Paint) null);
-        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i.getHeight(), this.f62051b.getResources().getColor(R.color.CAM_X0601), this.f62051b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
+        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i.getHeight(), this.f62052b.getResources().getColor(R.color.CAM_X0601), this.f62052b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
         Paint paint = new Paint();
         paint.setShader(linearGradient);
         canvas.drawRect(0.0f, 0.0f, i.getWidth(), i.getHeight(), paint);
@@ -187,7 +187,7 @@ public abstract class a implements d.b.i0.v2.e.a {
             pureDrawable.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = FileHelper.saveFileAsPNG(f62047e, f62048f, createBitmap, 100);
+            String saveFileAsPNG = FileHelper.saveFileAsPNG(f62048e, f62049f, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.u(Uri.parse(saveFileAsPNG));
             }
@@ -196,11 +196,11 @@ public abstract class a implements d.b.i0.v2.e.a {
     }
 
     public void s(String str) {
-        this.f62053d = str;
+        this.f62054d = str;
     }
 
     public void t(String str) {
-        this.f62052c = str;
+        this.f62053c = str;
     }
 
     public void u(String str) {
@@ -232,9 +232,9 @@ public abstract class a implements d.b.i0.v2.e.a {
             }
             u(str);
         }
-        if (!TextUtils.isEmpty(this.f62052c)) {
+        if (!TextUtils.isEmpty(this.f62053c)) {
             b(i, i2);
-        } else if (StringUtils.isNull(this.f62053d)) {
+        } else if (StringUtils.isNull(this.f62054d)) {
         } else {
             b(i, i2);
         }

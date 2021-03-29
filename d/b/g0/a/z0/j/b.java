@@ -1,10 +1,10 @@
 package d.b.g0.a.z0.j;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements d.b.g0.a.z0.j.a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.c.i.a<d.b.g0.a.p.d.d> {
         public a(b bVar) {
         }
@@ -18,9 +18,9 @@ public class b implements d.b.g0.a.z0.j.a {
     }
 
     /* renamed from: d.b.g0.a.z0.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0892b implements d.b.g0.c.i.a<d.b.g0.a.p.d.d> {
-        public C0892b(b bVar) {
+    /* loaded from: classes2.dex */
+    public class C0893b implements d.b.g0.c.i.a<d.b.g0.a.p.d.d> {
+        public C0893b(b bVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,6 +46,6 @@ public class b implements d.b.g0.a.z0.j.a {
 
     @Override // d.b.g0.a.z0.j.a
     public void onResume() {
-        a(new C0892b(this));
+        a(new C0893b(this));
     }
 }

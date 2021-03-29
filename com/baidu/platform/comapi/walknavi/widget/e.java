@@ -6,16 +6,16 @@ import android.view.animation.Animation;
 public class e implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f10233a;
+    public final /* synthetic */ d f10234a;
 
     public e(d dVar) {
-        this.f10233a = dVar;
+        this.f10234a = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.f10233a.f10231e;
+        view = this.f10234a.f10232e;
         view.setVisibility(0);
     }
 

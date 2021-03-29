@@ -16,53 +16,53 @@ import java.util.TreeMap;
 public class n implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Bitmap.Config[] f35501a;
+    public static final Bitmap.Config[] f35502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Bitmap.Config[] f35502b;
+    public static final Bitmap.Config[] f35503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Bitmap.Config[] f35503c;
+    public static final Bitmap.Config[] f35504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Bitmap.Config[] f35504d;
+    public static final Bitmap.Config[] f35505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Bitmap.Config[] f35505e;
+    public static final Bitmap.Config[] f35506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f35506f = new b();
+    public final b f35507f = new b();
 
     /* renamed from: g  reason: collision with root package name */
-    public final h<a, Bitmap> f35507g = new h<>();
+    public final h<a, Bitmap> f35508g = new h<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> f35508h = new HashMap();
+    public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> f35509h = new HashMap();
 
     /* renamed from: com.kwad.sdk.glide.load.engine.bitmap_recycle.n$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35509a;
+        public static final /* synthetic */ int[] f35510a;
 
         static {
             int[] iArr = new int[Bitmap.Config.values().length];
-            f35509a = iArr;
+            f35510a = iArr;
             try {
                 iArr[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f35509a[Bitmap.Config.RGB_565.ordinal()] = 2;
+                f35510a[Bitmap.Config.RGB_565.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f35509a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                f35510a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f35509a[Bitmap.Config.ALPHA_8.ordinal()] = 4;
+                f35510a[Bitmap.Config.ALPHA_8.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -73,44 +73,44 @@ public class n implements l {
     public static final class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35510a;
+        public int f35511a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f35511b;
+        public final b f35512b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap.Config f35512c;
+        public Bitmap.Config f35513c;
 
         public a(b bVar) {
-            this.f35511b = bVar;
+            this.f35512b = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f35511b.a(this);
+            this.f35512b.a(this);
         }
 
         public void a(int i, Bitmap.Config config) {
-            this.f35510a = i;
-            this.f35512c = config;
+            this.f35511a = i;
+            this.f35513c = config;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f35510a == aVar.f35510a && com.kwad.sdk.glide.g.k.a(this.f35512c, aVar.f35512c);
+                return this.f35511a == aVar.f35511a && com.kwad.sdk.glide.g.k.a(this.f35513c, aVar.f35513c);
             }
             return false;
         }
 
         public int hashCode() {
-            int i = this.f35510a * 31;
-            Bitmap.Config config = this.f35512c;
+            int i = this.f35511a * 31;
+            Bitmap.Config config = this.f35513c;
             return i + (config != null ? config.hashCode() : 0);
         }
 
         public String toString() {
-            return n.a(this.f35510a, this.f35512c);
+            return n.a(this.f35511a, this.f35513c);
         }
     }
 
@@ -137,11 +137,11 @@ public class n implements l {
             configArr = (Bitmap.Config[]) Arrays.copyOf(configArr, 3);
             configArr[configArr.length - 1] = Bitmap.Config.RGBA_F16;
         }
-        f35501a = configArr;
-        f35502b = configArr;
-        f35503c = new Bitmap.Config[]{Bitmap.Config.RGB_565};
-        f35504d = new Bitmap.Config[]{Bitmap.Config.ARGB_4444};
-        f35505e = new Bitmap.Config[]{Bitmap.Config.ALPHA_8};
+        f35502a = configArr;
+        f35503b = configArr;
+        f35504c = new Bitmap.Config[]{Bitmap.Config.RGB_565};
+        f35505d = new Bitmap.Config[]{Bitmap.Config.ARGB_4444};
+        f35506e = new Bitmap.Config[]{Bitmap.Config.ALPHA_8};
     }
 
     public static String a(int i, Bitmap.Config config) {
@@ -149,10 +149,10 @@ public class n implements l {
     }
 
     private NavigableMap<Integer, Integer> a(Bitmap.Config config) {
-        NavigableMap<Integer, Integer> navigableMap = this.f35508h.get(config);
+        NavigableMap<Integer, Integer> navigableMap = this.f35509h.get(config);
         if (navigableMap == null) {
             TreeMap treeMap = new TreeMap();
-            this.f35508h.put(config, treeMap);
+            this.f35509h.put(config, treeMap);
             return treeMap;
         }
         return navigableMap;
@@ -175,7 +175,7 @@ public class n implements l {
 
     private a b(int i, Bitmap.Config config) {
         Bitmap.Config[] b2;
-        a a2 = this.f35506f.a(i, config);
+        a a2 = this.f35507f.a(i, config);
         for (Bitmap.Config config2 : b(config)) {
             Integer ceilingKey = a(config2).ceilingKey(Integer.valueOf(i));
             if (ceilingKey != null && ceilingKey.intValue() <= i * 8) {
@@ -188,8 +188,8 @@ public class n implements l {
                         return a2;
                     }
                 }
-                this.f35506f.a(a2);
-                return this.f35506f.a(ceilingKey.intValue(), config2);
+                this.f35507f.a(a2);
+                return this.f35507f.a(ceilingKey.intValue(), config2);
             }
         }
         return a2;
@@ -197,16 +197,16 @@ public class n implements l {
 
     public static Bitmap.Config[] b(Bitmap.Config config) {
         if (Build.VERSION.SDK_INT < 26 || !Bitmap.Config.RGBA_F16.equals(config)) {
-            int i = AnonymousClass1.f35509a[config.ordinal()];
-            return i != 1 ? i != 2 ? i != 3 ? i != 4 ? new Bitmap.Config[]{config} : f35505e : f35504d : f35503c : f35501a;
+            int i = AnonymousClass1.f35510a[config.ordinal()];
+            return i != 1 ? i != 2 ? i != 3 ? i != 4 ? new Bitmap.Config[]{config} : f35506e : f35505d : f35504c : f35502a;
         }
-        return f35502b;
+        return f35503b;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     @Nullable
     public Bitmap a() {
-        Bitmap a2 = this.f35507g.a();
+        Bitmap a2 = this.f35508g.a();
         if (a2 != null) {
             a(Integer.valueOf(com.kwad.sdk.glide.g.k.a(a2)), a2);
         }
@@ -217,9 +217,9 @@ public class n implements l {
     @Nullable
     public Bitmap a(int i, int i2, Bitmap.Config config) {
         a b2 = b(com.kwad.sdk.glide.g.k.a(i, i2, config), config);
-        Bitmap a2 = this.f35507g.a((h<a, Bitmap>) b2);
+        Bitmap a2 = this.f35508g.a((h<a, Bitmap>) b2);
         if (a2 != null) {
-            a(Integer.valueOf(b2.f35510a), a2);
+            a(Integer.valueOf(b2.f35511a), a2);
             a2.reconfigure(i, i2, config);
         }
         return a2;
@@ -227,11 +227,11 @@ public class n implements l {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public void a(Bitmap bitmap) {
-        a a2 = this.f35506f.a(com.kwad.sdk.glide.g.k.a(bitmap), bitmap.getConfig());
-        this.f35507g.a(a2, bitmap);
+        a a2 = this.f35507f.a(com.kwad.sdk.glide.g.k.a(bitmap), bitmap.getConfig());
+        this.f35508g.a(a2, bitmap);
         NavigableMap<Integer, Integer> a3 = a(bitmap.getConfig());
-        Integer num = (Integer) a3.get(Integer.valueOf(a2.f35510a));
-        a3.put(Integer.valueOf(a2.f35510a), Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+        Integer num = (Integer) a3.get(Integer.valueOf(a2.f35511a));
+        a3.put(Integer.valueOf(a2.f35511a), Integer.valueOf(num != null ? 1 + num.intValue() : 1));
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
@@ -252,15 +252,15 @@ public class n implements l {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("SizeConfigStrategy{groupedMap=");
-        sb.append(this.f35507g);
+        sb.append(this.f35508g);
         sb.append(", sortedSizes=(");
-        for (Map.Entry<Bitmap.Config, NavigableMap<Integer, Integer>> entry : this.f35508h.entrySet()) {
+        for (Map.Entry<Bitmap.Config, NavigableMap<Integer, Integer>> entry : this.f35509h.entrySet()) {
             sb.append(entry.getKey());
             sb.append('[');
             sb.append(entry.getValue());
             sb.append("], ");
         }
-        if (!this.f35508h.isEmpty()) {
+        if (!this.f35509h.isEmpty()) {
             sb.replace(sb.length() - 2, sb.length(), "");
         }
         sb.append(")}");

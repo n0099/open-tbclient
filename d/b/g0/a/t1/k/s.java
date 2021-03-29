@@ -7,22 +7,22 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.i2.h0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class s extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.p.d.c f46562e;
+        public final /* synthetic */ d.b.g0.a.p.d.c f46563e;
 
         public a(s sVar, d.b.g0.a.p.d.c cVar) {
-            this.f46562e = cVar;
+            this.f46563e = cVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            this.f46562e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+            this.f46563e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
         }
     }
 

@@ -11,7 +11,7 @@ public class ag extends ae {
     public void a(d dVar) {
         int i = 0;
         while (true) {
-            byte[] bArr = dVar.f36142d;
+            byte[] bArr = dVar.f36143d;
             if (i >= bArr.length) {
                 i = -1;
                 break;
@@ -21,14 +21,14 @@ public class ag extends ae {
                 i++;
             }
         }
-        if (i < 0 || i > dVar.f36142d.length - 2) {
+        if (i < 0 || i > dVar.f36143d.length - 2) {
             com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: no separator found"));
         }
-        ((ae) this).f36130h = b.a(dVar.f36142d, 0, i);
-        if (dVar.f36142d[i + 1] != 0) {
+        ((ae) this).f36131h = b.a(dVar.f36143d, 0, i);
+        if (dVar.f36143d[i + 1] != 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: unknown compression method"));
         }
-        byte[] bArr2 = dVar.f36142d;
+        byte[] bArr2 = dVar.f36143d;
         this.i = b.a(b.a(bArr2, i + 2, (bArr2.length - i) - 2, false));
     }
 }

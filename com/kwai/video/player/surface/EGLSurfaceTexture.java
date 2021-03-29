@@ -48,7 +48,7 @@ public final class EGLSurfaceTexture implements SurfaceTexture.OnFrameAvailableL
 
     @Documented
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface SecureMode {
     }
 

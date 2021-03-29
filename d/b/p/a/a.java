@@ -15,35 +15,35 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.view.TextureRegistry;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f64226e;
+    public MethodChannel f64227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f64227f;
+    public Context f64228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f64228g;
+    public d f64229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LongSparseArray<d.b.p.a.c> f64229h;
+    public LongSparseArray<d.b.p.a.c> f64230h;
     public final BroadcastReceiver i = new c();
 
     /* renamed from: d.b.p.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C1738a implements c.a {
-        public C1738a() {
+    /* loaded from: classes.dex */
+    public class C1739a implements c.a {
+        public C1739a() {
         }
 
         @Override // d.b.p.a.c.a
         public void a(long j) {
-            a.this.f64229h.delete(j);
+            a.this.f64230h.delete(j);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements CyberPlayerManager.OnDeleteListener {
         public b() {
         }
@@ -53,11 +53,11 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             HashMap hashMap = new HashMap();
             hashMap.put("result", Integer.valueOf(i));
             hashMap.put("freeSpaceSize", Long.valueOf(j));
-            a.this.f64226e.invokeMethod("onDeleteComplete", hashMap);
+            a.this.f64227e.invokeMethod("onDeleteComplete", hashMap);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c extends BroadcastReceiver {
         public c() {
         }
@@ -68,8 +68,8 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 int intExtra = intent.getIntExtra("state", 0);
                 boolean z = true;
                 z = (intExtra == 0 || intExtra != 1) ? false : false;
-                for (int i = 0; i < a.this.f64229h.size(); i++) {
-                    d.b.p.a.c valueAt = a.this.f64229h.valueAt(i);
+                for (int i = 0; i < a.this.f64230h.size(); i++) {
+                    d.b.p.a.c valueAt = a.this.f64230h.valueAt(i);
                     if (valueAt != null) {
                         valueAt.b(z);
                     }
@@ -78,22 +78,22 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f64232a;
+        public final Context f64233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final BinaryMessenger f64233b;
+        public final BinaryMessenger f64234b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final TextureRegistry f64234c;
+        public final TextureRegistry f64235c;
 
         public d(Context context, BinaryMessenger binaryMessenger, TextureRegistry textureRegistry) {
-            this.f64232a = context;
-            this.f64233b = binaryMessenger;
-            this.f64234c = textureRegistry;
+            this.f64233a = context;
+            this.f64234b = binaryMessenger;
+            this.f64235c = textureRegistry;
         }
     }
 
@@ -102,7 +102,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             return;
         }
         try {
-            CyberPlayerManager.install(this.f64227f, str, str2, i, CyberRemotePlayerService.class, hashMap, null);
+            CyberPlayerManager.install(this.f64228f, str, str2, i, CyberRemotePlayerService.class, hashMap, null);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -114,23 +114,23 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        this.f64228g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
+        this.f64229g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
         MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "cyberplayer");
-        this.f64226e = methodChannel;
+        this.f64227e = methodChannel;
         methodChannel.setMethodCallHandler(this);
-        this.f64227f = flutterPluginBinding.getApplicationContext();
-        this.f64229h = new LongSparseArray<>();
+        this.f64228f = flutterPluginBinding.getApplicationContext();
+        this.f64230h = new LongSparseArray<>();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
-        this.f64227f.registerReceiver(this.i, intentFilter);
+        this.f64228f.registerReceiver(this.i, intentFilter);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        this.f64226e.setMethodCallHandler(null);
-        this.f64227f.unregisterReceiver(this.i);
-        for (int i = 0; i < this.f64229h.size(); i++) {
-            d.b.p.a.c valueAt = this.f64229h.valueAt(i);
+        this.f64227e.setMethodCallHandler(null);
+        this.f64228f.unregisterReceiver(this.i);
+        for (int i = 0; i < this.f64230h.size(); i++) {
+            d.b.p.a.c valueAt = this.f64230h.valueAt(i);
             if (valueAt != null) {
                 valueAt.a();
             }
@@ -145,10 +145,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             String str2 = (String) methodCall.argument("clarityInfo");
             int intValue = ((Integer) methodCall.argument("switchMediaSource")).intValue();
             HashMap hashMap = (HashMap) methodCall.argument("options");
-            TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f64228g.f64234c.createSurfaceTexture();
-            d.b.p.a.c cVar = new d.b.p.a.c(this.f64228g.f64232a, this.f64228g.f64233b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
-            cVar.e(new C1738a());
-            this.f64229h.put(createSurfaceTexture.id(), cVar);
+            TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f64229g.f64235c.createSurfaceTexture();
+            d.b.p.a.c cVar = new d.b.p.a.c(this.f64229g.f64233a, this.f64229g.f64234b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
+            cVar.e(new C1739a());
+            this.f64230h.put(createSurfaceTexture.id(), cVar);
             result.success(Long.valueOf(createSurfaceTexture.id()));
         } else if (methodCall.method.equals("init")) {
             HashMap hashMap2 = (HashMap) methodCall.arguments;

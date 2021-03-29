@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
     public FragmentManager.FragmentLifecycleCallbacks mSupportFragmentCallbacks;
 

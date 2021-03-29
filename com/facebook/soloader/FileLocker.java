@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileLock;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class FileLocker implements Closeable {
     @Nullable
     public final FileLock mLock;

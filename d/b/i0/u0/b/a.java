@@ -12,39 +12,39 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f61243a;
+    public d f61244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GodSquareRecGodAdapter f61244b;
+    public GodSquareRecGodAdapter f61245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GodSquareHotGodAdapter f61245c;
+    public GodSquareHotGodAdapter f61246c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f61246d = new ArrayList();
+    public List<d.b.b.j.e.a> f61247d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f61247e;
+    public BdTypeListView f61248e;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.f61247e = bdTypeListView;
-        this.f61243a = new d(tbPageContext);
-        this.f61244b = new GodSquareRecGodAdapter(tbPageContext);
-        this.f61245c = new GodSquareHotGodAdapter(tbPageContext);
-        this.f61246d.add(this.f61243a);
-        this.f61246d.add(this.f61244b);
-        this.f61246d.add(this.f61245c);
+        this.f61248e = bdTypeListView;
+        this.f61244a = new d(tbPageContext);
+        this.f61245b = new GodSquareRecGodAdapter(tbPageContext);
+        this.f61246c = new GodSquareHotGodAdapter(tbPageContext);
+        this.f61247d.add(this.f61244a);
+        this.f61247d.add(this.f61245b);
+        this.f61247d.add(this.f61246c);
     }
 
     public List<d.b.b.j.e.a> a() {
-        return this.f61246d;
+        return this.f61247d;
     }
 
     public void b() {
-        BdTypeListView bdTypeListView = this.f61247e;
+        BdTypeListView bdTypeListView = this.f61248e;
         if (bdTypeListView == null || !(bdTypeListView.getAdapter2() instanceof e)) {
             return;
         }
-        this.f61247e.getAdapter2().notifyDataSetChanged();
+        this.f61248e.getAdapter2().notifyDataSetChanged();
     }
 }

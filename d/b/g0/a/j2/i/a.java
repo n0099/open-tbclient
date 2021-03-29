@@ -16,54 +16,54 @@ import d.b.g0.a.p.d.c;
 public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2.f.a, PullToRefreshBaseWebView.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f45040g = k.f45050a;
+    public static final boolean f45041g = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f45041a;
+    public FrameLayout f45042a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f45042b;
+    public FrameLayout f45043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f45043c;
+    public T f45044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PullToRefreshBaseWebView f45044d;
+    public PullToRefreshBaseWebView f45045d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45045e;
+    public Context f45046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.p.d.b f45046f;
+    public d.b.g0.a.p.d.b f45047f;
 
     public a(Context context, @NonNull d.b.g0.a.p.d.b<T> bVar, @NonNull FrameLayout frameLayout) {
-        this.f45045e = context;
-        this.f45041a = frameLayout;
-        this.f45046f = bVar;
+        this.f45046e = context;
+        this.f45042a = frameLayout;
+        this.f45047f = bVar;
         e(bVar);
     }
 
     @Override // com.baidu.swan.apps.core.container.PullToRefreshBaseWebView.a
     public void a(int i, int i2, int i3, int i4) {
-        this.f45042b.scrollTo(i, i2);
+        this.f45043b.scrollTo(i, i2);
     }
 
     @Override // d.b.g0.a.j2.f.a
     public boolean b(View view, d.b.g0.a.e1.d.a.a aVar) {
-        if (view == null || this.f45042b == null || aVar == null) {
+        if (view == null || this.f45043b == null || aVar == null) {
             return false;
         }
-        if (f45040g) {
+        if (f45041g) {
             Log.d("NAParentViewManager", "updateView pos: " + aVar);
         }
-        if (d(view, this.f45042b)) {
+        if (d(view, this.f45043b)) {
             Object tag = view.getTag(f.aiapps_na_root_view_tag);
             if (tag instanceof b) {
                 b bVar = (b) tag;
                 c.a(bVar, aVar);
                 view.setTag(f.aiapps_na_root_view_tag, bVar);
             }
-            this.f45042b.updateViewLayout(view, c.b(this.f45043c, aVar));
+            this.f45043b.updateViewLayout(view, c.b(this.f45044c, aVar));
         } else if (!g(view)) {
             return false;
         } else {
@@ -73,24 +73,24 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
                 c.a(bVar2, aVar);
                 view.setTag(f.aiapps_na_root_view_tag, bVar2);
             }
-            ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f45043c, aVar));
+            ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f45044c, aVar));
         }
         return true;
     }
 
     @Override // d.b.g0.a.j2.f.a
     public boolean c(View view, d.b.g0.a.e1.d.a.a aVar) {
-        if (this.f45045e != null && aVar != null) {
+        if (this.f45046e != null && aVar != null) {
             b bVar = new b();
             c.a(bVar, aVar);
             view.setTag(f.aiapps_na_root_view_tag, bVar);
-            if (this.f45042b.indexOfChild(view) >= 0) {
+            if (this.f45043b.indexOfChild(view) >= 0) {
                 d.b.g0.a.a0.g.a.a("NAParentViewManager", "repeat insert view!");
-                this.f45042b.removeView(view);
+                this.f45043b.removeView(view);
             }
-            this.f45042b.addView(view, c.b(this.f45043c, aVar));
+            this.f45043b.addView(view, c.b(this.f45044c, aVar));
             return true;
-        } else if (f45040g) {
+        } else if (f45041g) {
             Log.d("NAParentViewManager", "insertView failed");
             return false;
         } else {
@@ -103,22 +103,22 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
     }
 
     public final boolean e(d.b.g0.a.p.d.b<T> bVar) {
-        if (f45040g) {
+        if (f45041g) {
             Log.d("NAParentViewManager", "createViewAndListener");
         }
         bVar.F(this);
         T webView = bVar.getWebView();
-        this.f45043c = webView;
+        this.f45044c = webView;
         if (webView == null) {
             return false;
         }
-        SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f45045e);
-        this.f45041a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
-        this.f45042b = new FrameLayout(this.f45045e);
-        swanAppNARootViewScrollView.addView(this.f45042b, new FrameLayout.LayoutParams(-1, -1));
+        SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f45046e);
+        this.f45042a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
+        this.f45043b = new FrameLayout(this.f45046e);
+        swanAppNARootViewScrollView.addView(this.f45043b, new FrameLayout.LayoutParams(-1, -1));
         swanAppNARootViewScrollView.setFillViewport(true);
         PullToRefreshBaseWebView Y = bVar.Y();
-        this.f45044d = Y;
+        this.f45045d = Y;
         if (Y != null) {
             Y.setOnPullToRefreshScrollChangeListener(this);
         }
@@ -126,7 +126,7 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
     }
 
     public void f() {
-        this.f45046f.H(this);
+        this.f45047f.H(this);
     }
 
     public final boolean g(View view) {
@@ -137,17 +137,17 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
     }
 
     public void h(int i) {
-        this.f45042b.setVisibility(i);
+        this.f45043b.setVisibility(i);
     }
 
     @Override // d.b.g0.a.e0.n.c
     public void onScrollChanged(int i, int i2, int i3, int i4) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f45042b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f45043b.getLayoutParams();
         marginLayoutParams.leftMargin = -i;
         marginLayoutParams.topMargin = -i2;
-        this.f45042b.setLayoutParams(marginLayoutParams);
-        for (int i5 = 0; i5 < this.f45042b.getChildCount(); i5++) {
-            View childAt = this.f45042b.getChildAt(i5);
+        this.f45043b.setLayoutParams(marginLayoutParams);
+        for (int i5 = 0; i5 < this.f45043b.getChildCount(); i5++) {
+            View childAt = this.f45043b.getChildAt(i5);
             if (childAt != null) {
                 Object tag = childAt.getTag(f.aiapps_na_root_view_tag);
                 b bVar = tag instanceof b ? (b) tag : null;
@@ -163,11 +163,11 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
 
     @Override // d.b.g0.a.j2.f.a
     public boolean removeView(View view) {
-        if (d(view, this.f45042b)) {
+        if (d(view, this.f45043b)) {
             try {
-                this.f45042b.removeView(view);
+                this.f45043b.removeView(view);
             } catch (Exception e2) {
-                if (f45040g) {
+                if (f45041g) {
                     e2.printStackTrace();
                 }
             }
@@ -176,7 +176,7 @@ public class a<T extends d.b.g0.a.p.d.c> implements d.b.g0.a.e0.n.c, d.b.g0.a.j2
             try {
                 ((ViewGroup) view.getParent()).removeView(view);
             } catch (Exception e3) {
-                if (f45040g) {
+                if (f45041g) {
                     e3.printStackTrace();
                 }
             }

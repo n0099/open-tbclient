@@ -8,13 +8,13 @@ import d.b.g0.g.c0.d;
 public class b {
     public static void a(String str, String str2, long j) {
         a aVar = new a();
-        aVar.f47251b = str;
-        aVar.f47253d = str2;
+        aVar.f47252b = str;
+        aVar.f47254d = str2;
         if (e.y() != null && e.y().L() != null) {
             b.a L = e.y().L();
-            aVar.f47250a = h.n(L.F());
-            aVar.f47254e = L.G();
-            aVar.f47252c = L.S();
+            aVar.f47251a = h.n(L.F());
+            aVar.f47255e = L.G();
+            aVar.f47253c = L.S();
             aVar.a("play_time", Long.valueOf(j));
         }
         h.v("916", "68", aVar);
@@ -22,26 +22,26 @@ public class b {
 
     public static void b(String str, String str2) {
         a aVar = new a();
-        aVar.f47251b = str;
-        aVar.f47253d = str2;
+        aVar.f47252b = str;
+        aVar.f47254d = str2;
         if (e.y() != null && e.y().L() != null) {
             b.a L = e.y().L();
-            aVar.f47250a = h.n(L.F());
-            aVar.f47254e = L.G();
-            aVar.f47252c = L.S();
+            aVar.f47251a = h.n(L.F());
+            aVar.f47255e = L.G();
+            aVar.f47253c = L.S();
         }
         h.v("916", "68", aVar);
     }
 
     public static void c(String str, String str2, String str3) {
         a aVar = new a();
-        aVar.f47251b = str;
-        aVar.f47253d = str2;
+        aVar.f47252b = str;
+        aVar.f47254d = str2;
         if (e.y() != null && e.y().L() != null) {
             b.a L = e.y().L();
-            aVar.f47250a = h.n(L.F());
-            aVar.f47254e = L.G();
-            aVar.f47252c = L.S();
+            aVar.f47251a = h.n(L.F());
+            aVar.f47255e = L.G();
+            aVar.f47253c = L.S();
         }
         aVar.j = str3;
         h.v("916", "68", aVar);
@@ -49,13 +49,13 @@ public class b {
 
     public static void d(String str) {
         a aVar = new a();
-        aVar.f47251b = str;
-        aVar.f47253d = "show";
+        aVar.f47252b = str;
+        aVar.f47254d = "show";
         if (e.y() != null && e.y().L() != null) {
             b.a L = e.y().L();
-            aVar.f47250a = h.n(L.F());
-            aVar.f47254e = L.G();
-            aVar.f47252c = L.S();
+            aVar.f47251a = h.n(L.F());
+            aVar.f47255e = L.G();
+            aVar.f47253c = L.S();
         }
         aVar.a("early", e() ? "0" : "1");
         h.v("916", "68", aVar);

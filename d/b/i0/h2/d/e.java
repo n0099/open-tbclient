@@ -6,24 +6,24 @@ import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 public abstract class e {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55213e;
+    public boolean f55214e;
 
     public e(boolean z) {
-        this.f55213e = z;
+        this.f55214e = z;
     }
 
     public PersonStatus g(UserData userData) {
         if (userData == null) {
-            if (this.f55213e) {
+            if (this.f55214e) {
                 return PersonStatus.HOST_DEFAULT;
             }
             return PersonStatus.GUEST_DEFAULT;
         } else if (userData.isBaijiahaoUser()) {
-            if (this.f55213e) {
+            if (this.f55214e) {
                 return PersonStatus.HOST_BJH;
             }
             return PersonStatus.GUEST_BJH;
-        } else if (this.f55213e) {
+        } else if (this.f55214e) {
             return PersonStatus.HOST_DEFAULT;
         } else {
             return PersonStatus.GUEST_DEFAULT;
@@ -34,7 +34,7 @@ public abstract class e {
         if (aVar != null && aVar.j() != null) {
             return g(aVar.j());
         }
-        if (this.f55213e) {
+        if (this.f55214e) {
             return PersonStatus.HOST_DEFAULT;
         }
         return PersonStatus.GUEST_DEFAULT;

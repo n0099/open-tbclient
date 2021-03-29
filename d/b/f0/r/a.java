@@ -1,5 +1,5 @@
 package d.b.f0.r;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static String a(String str, String str2) {
         try {

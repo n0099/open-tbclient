@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ReplayProcessor<T> extends f.a.b0.a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final a<T> f68098f;
+    public final a<T> f68103f;
 
     /* loaded from: classes7.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
@@ -45,14 +45,13 @@ public final class ReplayProcessor<T> extends f.a.b0.a<T> {
             }
             this.cancelled = true;
             this.state.d(this);
-            throw null;
         }
 
         @Override // g.d.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
-                this.state.f68098f.a(this);
+                this.state.f68103f.a(this);
             }
         }
     }
@@ -74,7 +73,5 @@ public final class ReplayProcessor<T> extends f.a.b0.a<T> {
         void a(ReplaySubscription<T> replaySubscription);
     }
 
-    public void d(ReplaySubscription<T> replaySubscription) {
-        throw null;
-    }
+    public abstract void d(ReplaySubscription<T> replaySubscription);
 }

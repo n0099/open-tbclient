@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static final String TAG = "IMMediaFetchMsgHttpRequest";
     public long mBeginMsgTime;

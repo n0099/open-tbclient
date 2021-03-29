@@ -14,9 +14,9 @@ import d.b.g0.a.i2.u;
 import d.b.g0.a.k;
 import d.b.g0.a.p.d.c;
 import d.b.g0.a.p.d.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final int INVALID_ANIM = 0;
     public static final String TAG = "ScopeDetailActivity";
     public c mNgWebView;
@@ -25,7 +25,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public int mEnterAnimWhenFinishing = 0;
     public int mExitAnimWhenFinishing = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -36,7 +36,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b extends d.b.g0.a.e0.n.a {
         public b() {
         }

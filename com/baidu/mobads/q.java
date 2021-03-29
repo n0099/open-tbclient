@@ -7,10 +7,10 @@ import com.baidu.mobads.component.XAdView;
 public class q implements XAdView.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InterstitialAd f8505a;
+    public final /* synthetic */ InterstitialAd f8506a;
 
     public q(InterstitialAd interstitialAd) {
-        this.f8505a = interstitialAd;
+        this.f8506a = interstitialAd;
     }
 
     @Override // com.baidu.mobads.component.XAdView.Listener
@@ -25,7 +25,7 @@ public class q implements XAdView.Listener {
     @Override // com.baidu.mobads.component.XAdView.Listener
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         com.baidu.mobads.production.e.a aVar;
-        aVar = this.f8505a.f8138c;
+        aVar = this.f8506a.f8139c;
         return aVar.a(i, keyEvent);
     }
 

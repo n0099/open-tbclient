@@ -16,46 +16,46 @@ public class a {
     public static a m;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f41749a = 10000;
+    public long f41750a = 10000;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41750b = 0;
+    public long f41751b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f41751c = 300000;
+    public long f41752c = 300000;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41752d = false;
+    public boolean f41753d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41753e = false;
+    public boolean f41754e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41754f = false;
+    public boolean f41755f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41755g = 4;
+    public int f41756g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f41756h = null;
+    public Address f41757h = null;
     public ArrayList<SoftReference<c>> i = null;
     public ArrayList<d.b.b.e.i.b> j = new ArrayList<>();
     public Handler k = null;
-    public d l = new C0536a();
+    public d l = new C0537a();
 
     /* renamed from: d.b.b.e.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0536a implements d {
-        public C0536a() {
+    public class C0537a implements d {
+        public C0537a() {
         }
 
         @Override // d.b.b.e.i.a.d
         public void a(int i, String str, Address address, long j, boolean z) {
             a aVar = a.this;
-            aVar.f41750b = j;
-            aVar.f41756h = address;
-            a.this.f41752d = z;
-            a.this.f41755g = i;
+            aVar.f41751b = j;
+            aVar.f41757h = address;
+            a.this.f41753d = z;
+            a.this.f41756g = i;
             a.this.s();
             if (i != 1) {
                 if (i != 2) {
@@ -88,7 +88,7 @@ public class a {
                 return false;
             }
             a.this.s();
-            int i = a.this.f41755g;
+            int i = a.this.f41756g;
             if (i == 1) {
                 string = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
             } else if (i == 2) {
@@ -101,7 +101,7 @@ public class a {
                 string = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
             }
             a aVar = a.this;
-            aVar.g(aVar.f41755g, string, null);
+            aVar.g(aVar.f41756g, string, null);
             return false;
         }
     }
@@ -155,19 +155,19 @@ public class a {
     }
 
     public Address j(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.f41750b > this.f41751c) {
-            this.f41756h = null;
+        if (System.currentTimeMillis() - this.f41751b > this.f41752c) {
+            this.f41757h = null;
         }
-        if (this.f41756h != null && !z && ((z2 && this.f41752d) || !z2)) {
-            return this.f41756h;
+        if (this.f41757h != null && !z && ((z2 && this.f41753d) || !z2)) {
+            return this.f41757h;
         }
-        this.f41756h = null;
-        boolean z3 = this.f41754f;
+        this.f41757h = null;
+        boolean z3 = this.f41755f;
         if (!z3) {
             r(z2);
             return null;
         }
-        if (z3 && z2 && !this.f41753e) {
+        if (z3 && z2 && !this.f41754e) {
             s();
             r(z2);
         }
@@ -177,14 +177,14 @@ public class a {
     public Address k(boolean z, boolean z2, c cVar) {
         boolean z3;
         c cVar2;
-        if (System.currentTimeMillis() - this.f41750b > this.f41751c) {
-            this.f41756h = null;
+        if (System.currentTimeMillis() - this.f41751b > this.f41752c) {
+            this.f41757h = null;
         }
-        if (this.f41756h != null && !z && ((z2 && this.f41752d) || !z2)) {
+        if (this.f41757h != null && !z && ((z2 && this.f41753d) || !z2)) {
             if (cVar != null) {
-                cVar.onLocationGeted(0, "", this.f41756h);
+                cVar.onLocationGeted(0, "", this.f41757h);
             }
-            return this.f41756h;
+            return this.f41757h;
         }
         if (cVar != null) {
             synchronized (this.i) {
@@ -208,11 +208,11 @@ public class a {
                     this.i.add(new SoftReference<>(cVar));
                 }
             }
-            boolean z4 = this.f41754f;
+            boolean z4 = this.f41755f;
             if (!z4) {
                 r(z2);
                 return null;
-            } else if (z4 && z2 && !this.f41753e) {
+            } else if (z4 && z2 && !this.f41754e) {
                 s();
                 r(z2);
                 return null;
@@ -222,7 +222,7 @@ public class a {
     }
 
     public long m() {
-        return this.f41749a;
+        return this.f41750a;
     }
 
     public final void n() {
@@ -268,9 +268,9 @@ public class a {
         if (this.k.hasMessages(0)) {
             this.k.removeMessages(0);
         }
-        this.f41755g = 4;
-        this.f41753e = z;
-        this.f41754f = true;
+        this.f41756g = 4;
+        this.f41754e = z;
+        this.f41755f = true;
         ArrayList<d.b.b.e.i.b> arrayList = this.j;
         if (arrayList != null && !arrayList.isEmpty()) {
             Iterator<d.b.b.e.i.b> it = this.j.iterator();
@@ -285,10 +285,10 @@ public class a {
                 }
             }
             Handler handler = this.k;
-            handler.sendMessageDelayed(handler.obtainMessage(0), this.f41749a);
+            handler.sendMessageDelayed(handler.obtainMessage(0), this.f41750a);
             return;
         }
-        this.f41755g = 6;
+        this.f41756g = 6;
         Handler handler2 = this.k;
         handler2.sendMessage(handler2.obtainMessage(0));
     }
@@ -297,7 +297,7 @@ public class a {
         if (this.k.hasMessages(0)) {
             this.k.removeMessages(0);
         }
-        this.f41754f = false;
+        this.f41755f = false;
         Iterator<d.b.b.e.i.b> it = this.j.iterator();
         while (it.hasNext()) {
             d.b.b.e.i.b next = it.next();

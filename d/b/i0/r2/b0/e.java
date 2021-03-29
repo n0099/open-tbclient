@@ -10,13 +10,13 @@ import d.b.b.e.p.j;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f59766c;
+    public static e f59767c;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f59768b = new a(2000994);
+    public CustomMessageListener f59769b = new a(2000994);
 
     /* renamed from: a  reason: collision with root package name */
-    public f f59767a = new i();
+    public f f59768a = new i();
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -27,26 +27,26 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !j.z() || e.this.f59767a == null) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !j.z() || e.this.f59768a == null) {
                 return;
             }
-            e.this.f59767a.c();
+            e.this.f59768a.c();
         }
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.f59768b);
+        MessageManager.getInstance().registerListener(this.f59769b);
     }
 
     public static e b() {
-        if (f59766c == null) {
+        if (f59767c == null) {
             synchronized (e.class) {
-                if (f59766c == null) {
-                    f59766c = new e();
+                if (f59767c == null) {
+                    f59767c = new e();
                 }
             }
         }
-        return f59766c;
+        return f59767c;
     }
 
     public final boolean c() {
@@ -54,11 +54,11 @@ public class e {
     }
 
     public void d(c cVar) {
-        if (c() && this.f59767a != null) {
+        if (c() && this.f59768a != null) {
             if (j.z()) {
-                this.f59767a.a(cVar);
+                this.f59768a.a(cVar);
             } else {
-                this.f59767a.b(cVar);
+                this.f59768a.b(cVar);
             }
         }
     }

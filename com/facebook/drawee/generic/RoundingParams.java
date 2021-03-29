@@ -4,7 +4,7 @@ import androidx.annotation.ColorInt;
 import com.facebook.common.internal.Preconditions;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class RoundingParams {
     public RoundingMethod mRoundingMethod = RoundingMethod.BITMAP_ONLY;
     public boolean mRoundAsCircle = false;

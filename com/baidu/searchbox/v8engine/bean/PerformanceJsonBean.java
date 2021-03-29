@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerformanceJsonBean {
     public static final String KEY_GAP = "gap";
     public static final String KEY_ID = "id";
@@ -15,7 +15,7 @@ public class PerformanceJsonBean {
     public static final String TAG = "PerformanceJsonBean";
     public List<PerformanceJsonObject> mPerformanceJsonObjectList = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PerformanceJsonObject {
         public String name;
         public long time;

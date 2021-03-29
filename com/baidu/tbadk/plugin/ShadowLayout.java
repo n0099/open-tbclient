@@ -14,16 +14,16 @@ import com.baidu.tieba.R;
 public class ShadowLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f13996e;
+    public Paint f13997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f13997f;
+    public RectF f13998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13998g;
+    public int f13999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13999h;
+    public int f14000h;
     public int i;
     public int j;
     public int k;
@@ -38,35 +38,35 @@ public class ShadowLayout extends FrameLayout {
         setWillNotDraw(false);
         setLayerType(1, null);
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        this.f13998g = dimensionPixelSize;
+        this.f13999g = dimensionPixelSize;
         setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-        this.f13999h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.f14000h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
         this.j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
         this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
         Paint paint = new Paint();
-        this.f13996e = paint;
+        this.f13997e = paint;
         paint.setColor(0);
-        this.f13996e.setShadowLayer(this.f13999h, this.i, this.j, this.k);
-        this.f13997f = new RectF();
+        this.f13997e.setShadowLayer(this.f14000h, this.i, this.j, this.k);
+        this.f13998f = new RectF();
     }
 
     public final void b() {
-        this.f13996e.setShadowLayer(this.f13999h, this.i, this.j, this.k);
+        this.f13997e.setShadowLayer(this.f14000h, this.i, this.j, this.k);
         postInvalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f13997f.left = getPaddingLeft();
-        this.f13997f.right = getWidth() - getPaddingRight();
-        this.f13997f.bottom = getHeight() - getPaddingBottom();
-        this.f13997f.top = getPaddingTop();
-        RectF rectF = this.f13997f;
+        this.f13998f.left = getPaddingLeft();
+        this.f13998f.right = getWidth() - getPaddingRight();
+        this.f13998f.bottom = getHeight() - getPaddingBottom();
+        this.f13998f.top = getPaddingTop();
+        RectF rectF = this.f13998f;
         int i = this.l;
-        canvas.drawRoundRect(rectF, i, i, this.f13996e);
+        canvas.drawRoundRect(rectF, i, i, this.f13997e);
     }
 
     public void setShadowColor(int i) {

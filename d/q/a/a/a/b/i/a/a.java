@@ -5,26 +5,26 @@ import android.database.ContentObserver;
 public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67332a;
+    public String f67337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67333b;
+    public int f67338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f67334c;
+    public b f67339c;
 
     public a(b bVar, int i, String str) {
         super(null);
-        this.f67334c = bVar;
-        this.f67333b = i;
-        this.f67332a = str;
+        this.f67339c = bVar;
+        this.f67338b = i;
+        this.f67337a = str;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
-        b bVar = this.f67334c;
+        b bVar = this.f67339c;
         if (bVar != null) {
-            bVar.e(this.f67333b, this.f67332a);
+            bVar.e(this.f67338b, this.f67337a);
         }
     }
 }

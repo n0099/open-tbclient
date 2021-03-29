@@ -14,28 +14,28 @@ import java.util.concurrent.TimeUnit;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f65513a;
+    public final int f65514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f65514b;
+    public final long f65515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f65515c;
+    public final Runnable f65516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Deque<d.c.c.a.b.a.c.c> f65516d;
+    public final Deque<d.c.c.a.b.a.c.c> f65517d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.c.c.a.b.a.c.d f65517e;
+    public final d.c.c.a.b.a.c.d f65518e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65518f;
+    public boolean f65519f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f65512h = !n.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f65513h = !n.class.desiredAssertionStatus();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Executor f65511g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), d.c.c.a.b.a.e.o("OkHttp ConnectionPool", true));
+    public static final Executor f65512g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), d.c.c.a.b.a.e.o("OkHttp ConnectionPool", true));
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -75,11 +75,11 @@ public final class n {
             if (reference.get() != null) {
                 i++;
             } else {
-                d.c.c.a.b.a.i.e.j().g("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((f.a) reference).f65215a);
+                d.c.c.a.b.a.i.e.j().g("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((f.a) reference).f65216a);
                 list.remove(i);
                 cVar.k = true;
                 if (list.isEmpty()) {
-                    cVar.o = j - this.f65514b;
+                    cVar.o = j - this.f65515b;
                     return 0;
                 }
             }
@@ -93,7 +93,7 @@ public final class n {
             long j2 = Long.MIN_VALUE;
             int i = 0;
             int i2 = 0;
-            for (d.c.c.a.b.a.c.c cVar2 : this.f65516d) {
+            for (d.c.c.a.b.a.c.c cVar2 : this.f65517d) {
                 if (a(cVar2, j) > 0) {
                     i2++;
                 } else {
@@ -105,25 +105,25 @@ public final class n {
                     }
                 }
             }
-            if (j2 < this.f65514b && i <= this.f65513a) {
+            if (j2 < this.f65515b && i <= this.f65514a) {
                 if (i > 0) {
-                    return this.f65514b - j2;
+                    return this.f65515b - j2;
                 } else if (i2 > 0) {
-                    return this.f65514b;
+                    return this.f65515b;
                 } else {
-                    this.f65518f = false;
+                    this.f65519f = false;
                     return -1L;
                 }
             }
-            this.f65516d.remove(cVar);
+            this.f65517d.remove(cVar);
             d.c.c.a.b.a.e.r(cVar.m());
             return 0L;
         }
     }
 
     public d.c.c.a.b.a.c.c c(b bVar, d.c.c.a.b.a.c.f fVar, e eVar) {
-        if (f65512h || Thread.holdsLock(this)) {
-            for (d.c.c.a.b.a.c.c cVar : this.f65516d) {
+        if (f65513h || Thread.holdsLock(this)) {
+            for (d.c.c.a.b.a.c.c cVar : this.f65517d) {
                 if (cVar.j(bVar, eVar)) {
                     fVar.g(cVar, true);
                     return cVar;
@@ -135,8 +135,8 @@ public final class n {
     }
 
     public Socket d(b bVar, d.c.c.a.b.a.c.f fVar) {
-        if (f65512h || Thread.holdsLock(this)) {
-            for (d.c.c.a.b.a.c.c cVar : this.f65516d) {
+        if (f65513h || Thread.holdsLock(this)) {
+            for (d.c.c.a.b.a.c.c cVar : this.f65517d) {
                 if (cVar.j(bVar, null) && cVar.o() && cVar != fVar.j()) {
                     return fVar.e(cVar);
                 }
@@ -147,34 +147,34 @@ public final class n {
     }
 
     public void e(d.c.c.a.b.a.c.c cVar) {
-        if (!f65512h && !Thread.holdsLock(this)) {
+        if (!f65513h && !Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        if (!this.f65518f) {
-            this.f65518f = true;
-            f65511g.execute(this.f65515c);
+        if (!this.f65519f) {
+            this.f65519f = true;
+            f65512g.execute(this.f65516c);
         }
-        this.f65516d.add(cVar);
+        this.f65517d.add(cVar);
     }
 
     public boolean f(d.c.c.a.b.a.c.c cVar) {
-        if (f65512h || Thread.holdsLock(this)) {
-            if (!cVar.k && this.f65513a != 0) {
+        if (f65513h || Thread.holdsLock(this)) {
+            if (!cVar.k && this.f65514a != 0) {
                 notifyAll();
                 return false;
             }
-            this.f65516d.remove(cVar);
+            this.f65517d.remove(cVar);
             return true;
         }
         throw new AssertionError();
     }
 
     public n(int i, long j, TimeUnit timeUnit) {
-        this.f65515c = new a();
-        this.f65516d = new ArrayDeque();
-        this.f65517e = new d.c.c.a.b.a.c.d();
-        this.f65513a = i;
-        this.f65514b = timeUnit.toNanos(j);
+        this.f65516c = new a();
+        this.f65517d = new ArrayDeque();
+        this.f65518e = new d.c.c.a.b.a.c.d();
+        this.f65514a = i;
+        this.f65515b = timeUnit.toNanos(j);
         if (j > 0) {
             return;
         }

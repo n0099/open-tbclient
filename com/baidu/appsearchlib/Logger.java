@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Logger {
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
     public static final HashSet<Integer> LOG_TIMES;

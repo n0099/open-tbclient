@@ -16,13 +16,13 @@ import java.util.ArrayList;
 public class CommonTabWidgetView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabHorizonScrollView f13925e;
+    public CommonTabHorizonScrollView f13926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13926f;
+    public ImageView f13927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f13927g;
+    public EditorTools f13928g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -31,8 +31,8 @@ public class CommonTabWidgetView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (CommonTabWidgetView.this.f13927g != null) {
-                CommonTabWidgetView.this.f13927g.A(new d.b.h0.w.a(3, 3, null));
+            if (CommonTabWidgetView.this.f13928g != null) {
+                CommonTabWidgetView.this.f13928g.A(new d.b.h0.w.a(3, 3, null));
             }
         }
     }
@@ -48,36 +48,36 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void b(a.b bVar) {
-        this.f13925e.b(bVar);
+        this.f13926e.b(bVar);
     }
 
     public final void c(Context context) {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(R.layout.common_tab_widget, (ViewGroup) this, true);
-        this.f13925e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
+        this.f13926e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
         ImageView imageView = (ImageView) findViewById(R.id.privilege_tab_delete);
-        this.f13926f = imageView;
+        this.f13927f = imageView;
         imageView.setOnClickListener(new a());
     }
 
     public void d(int i) {
         SkinManager.setBackgroundColor(this, R.color.common_color_10223, i);
-        this.f13925e.e(i);
-        SkinManager.setImageResource(this.f13926f, R.drawable.but_face_close, i);
-        SkinManager.setBackgroundColor(this.f13926f, R.color.common_color_10224, i);
+        this.f13926e.e(i);
+        SkinManager.setImageResource(this.f13927f, R.drawable.but_face_close, i);
+        SkinManager.setBackgroundColor(this.f13927f, R.color.common_color_10224, i);
     }
 
     public void e() {
-        this.f13925e.f();
+        this.f13926e.f();
     }
 
     public void setCurrentTab(int i) {
-        this.f13925e.setCurrentTab(i);
+        this.f13926e.setCurrentTab(i);
     }
 
     public void setDatas(ArrayList<d.b.h0.w.y.a> arrayList) {
-        this.f13925e.setDatas(arrayList);
+        this.f13926e.setDatas(arrayList);
         if (arrayList != null && arrayList.size() > 1) {
             setVisibility(0);
         } else {
@@ -86,18 +86,18 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.f13927g = editorTools;
+        this.f13928g = editorTools;
     }
 
     public void setOnTabSelectedListener(b bVar) {
-        this.f13925e.setOnTabSelectedListener(bVar);
+        this.f13926e.setOnTabSelectedListener(bVar);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.f13926f.setVisibility(0);
+            this.f13927f.setVisibility(0);
         } else {
-            this.f13926f.setVisibility(8);
+            this.f13927f.setVisibility(8);
         }
     }
 

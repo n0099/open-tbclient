@@ -24,7 +24,7 @@ import java.util.Map;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44792a = d.b.g0.a.k.f45050a;
+    public static final boolean f44793a = d.b.g0.a.k.f45051a;
 
     public static Map<String, ComponentName> a() {
         HashMap hashMap = new HashMap();
@@ -57,7 +57,7 @@ public class y {
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
-                    if (f44792a) {
+                    if (f44793a) {
                         e.printStackTrace();
                     }
                     d.b.g0.p.d.a(bufferedReader);
@@ -83,7 +83,7 @@ public class y {
         try {
             return context.getPackageManager().getPackageInfo(str, 0);
         } catch (Exception e2) {
-            if (f44792a) {
+            if (f44793a) {
                 e2.printStackTrace();
             }
             return null;
@@ -98,7 +98,7 @@ public class y {
         try {
             list = context.getPackageManager().queryIntentActivities(intent, 0);
         } catch (Exception e2) {
-            if (f44792a) {
+            if (f44793a) {
                 e2.printStackTrace();
             }
             list = null;
@@ -125,7 +125,7 @@ public class y {
             return;
         }
         String lowerCase = str.toLowerCase();
-        if (f44792a) {
+        if (f44793a) {
             Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
         }
         if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
@@ -154,7 +154,7 @@ public class y {
             intent.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, context.getPackageName());
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (f44792a) {
+            if (f44793a) {
                 e2.printStackTrace();
             }
             f(context);
@@ -163,7 +163,7 @@ public class y {
 
     public static void i(Context context) {
         String c2 = c();
-        if (f44792a) {
+        if (f44793a) {
             Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + c2);
         }
         Intent intent = new Intent();
@@ -193,12 +193,12 @@ public class y {
             try {
                 i = ContextCompat.checkSelfPermission(context, str);
             } catch (Exception e2) {
-                if (f44792a) {
+                if (f44793a) {
                     throw e2;
                 }
             }
             return i == 0;
-        } else if (f44792a) {
+        } else if (f44793a) {
             throw new IllegalArgumentException("context or permission is null");
         } else {
             return false;
@@ -210,11 +210,11 @@ public class y {
             try {
                 context.startActivity(intent);
             } catch (Exception e2) {
-                if (f44792a) {
+                if (f44793a) {
                     e2.printStackTrace();
                 }
             }
-        } else if (f44792a) {
+        } else if (f44793a) {
             Log.e("SwanAppPermissionHelper", "context or intent is null");
         }
     }
@@ -225,7 +225,7 @@ public class y {
             intent.setComponent(componentName);
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (f44792a) {
+            if (f44793a) {
                 e2.printStackTrace();
             }
             f(context);
@@ -249,7 +249,7 @@ public class y {
             intent.setComponent(new ComponentName(e2.activityInfo.packageName, e2.activityInfo.name));
             context.startActivity(intent);
         } catch (Exception e3) {
-            if (f44792a) {
+            if (f44793a) {
                 e3.printStackTrace();
             }
             f(context);

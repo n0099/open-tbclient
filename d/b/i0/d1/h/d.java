@@ -15,17 +15,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f53777a;
+    public static d f53778a;
 
     public static d f() {
-        if (f53777a == null) {
-            f53777a = new d();
+        if (f53778a == null) {
+            f53778a = new d();
         }
-        return f53777a;
+        return f53778a;
     }
 
     public boolean a(String str) {

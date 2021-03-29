@@ -24,63 +24,63 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class k implements l.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66639a;
+    public long f66644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f f66640b;
+    public c.f f66645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66641c = false;
+    public boolean f66646c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f66642d;
+    public e f66647d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f66643a;
+        public final /* synthetic */ q f66648a;
 
         public a(q qVar) {
-            this.f66643a = qVar;
+            this.f66648a = qVar;
         }
 
         @Override // d.o.a.a.a.a.q
         public void a() {
-            this.f66643a.a();
+            this.f66648a.a();
         }
 
         @Override // d.o.a.a.a.a.q
         public void a(String str) {
-            n.n().a(1, n.a(), k.this.f66640b.f66543b, "您已禁止使用存储权限，请授权后再下载", null, 1);
-            j.c.a().x(k.this.f66639a, 1);
-            this.f66643a.a(str);
+            n.n().a(1, n.a(), k.this.f66645b.f66544b, "您已禁止使用存储权限，请授权后再下载", null, 1);
+            j.c.a().x(k.this.f66644a, 1);
+            this.f66648a.a(str);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements e {
         public c() {
         }
 
         @Override // d.o.a.d.f.k.e
         public void a(DownloadInfo downloadInfo) {
-            j.c.a().d(k.this.f66639a, 2, downloadInfo);
+            j.c.a().d(k.this.f66644a, 2, downloadInfo);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d extends d.o.a.e.b.f.c {
 
         /* renamed from: b  reason: collision with root package name */
-        public d.o.a.d.n.l f66647b;
+        public d.o.a.d.n.l f66652b;
 
         public d(d.o.a.d.n.l lVar) {
-            this.f66647b = lVar;
+            this.f66652b = lVar;
         }
 
         @Override // d.o.a.e.b.f.t
@@ -128,11 +128,11 @@ public class k implements l.a {
             obtain.what = 3;
             obtain.obj = downloadInfo;
             obtain.arg1 = i;
-            this.f66647b.sendMessage(obtain);
+            this.f66652b.sendMessage(obtain);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(DownloadInfo downloadInfo);
     }
@@ -181,7 +181,7 @@ public class k implements l.a {
         if (context == null) {
             return 0;
         }
-        Map<String, String> j = this.f66640b.f66543b.j();
+        Map<String, String> j = this.f66645b.f66544b.j();
         ArrayList arrayList = new ArrayList();
         if (j != null) {
             for (Map.Entry<String, String> entry : j.entrySet()) {
@@ -190,37 +190,37 @@ public class k implements l.a {
                 }
             }
         }
-        String a2 = d.o.a.d.n.d.a(String.valueOf(this.f66640b.f66543b.d()), this.f66640b.f66543b.c(), this.f66640b.f66543b.k(), String.valueOf(this.f66640b.f66543b.A()));
-        d.o.a.e.b.j.a g2 = d.o.a.d.n.e.g(this.f66640b.f66543b);
-        this.f66640b.f66543b.F();
-        int i = (this.f66640b.f66543b.t() || l.i(this.f66640b.f66543b)) ? 4 : 4;
+        String a2 = d.o.a.d.n.d.a(String.valueOf(this.f66645b.f66544b.d()), this.f66645b.f66544b.c(), this.f66645b.f66544b.k(), String.valueOf(this.f66645b.f66544b.A()));
+        d.o.a.e.b.j.a g2 = d.o.a.d.n.e.g(this.f66645b.f66544b);
+        this.f66645b.f66544b.F();
+        int i = (this.f66645b.f66544b.t() || l.i(this.f66645b.f66544b)) ? 4 : 4;
         String c2 = c(g2);
-        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(d.o.a.e.b.g.d.s(this.f66640b.f66543b.a(), c2));
-        if (f2 != null && 3 == this.f66640b.f66543b.A()) {
+        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(d.o.a.e.b.g.d.s(this.f66645b.f66544b.a(), c2));
+        if (f2 != null && 3 == this.f66645b.f66544b.A()) {
             f2.t2(true);
             d.o.a.e.b.l.e.u(f2);
         }
-        d.o.a.e.a.i iVar = new d.o.a.e.a.i(context, this.f66640b.f66543b.a());
-        iVar.V(this.f66640b.f66543b.b());
-        iVar.J(this.f66640b.f66543b.h());
+        d.o.a.e.a.i iVar = new d.o.a.e.a.i(context, this.f66645b.f66544b.a());
+        iVar.V(this.f66645b.f66544b.b());
+        iVar.J(this.f66645b.f66544b.h());
         iVar.c0(a2);
         iVar.K(arrayList);
-        iVar.M(this.f66640b.f66543b.l());
-        iVar.Z(this.f66640b.f66543b.m());
-        iVar.U(this.f66640b.f66543b.o());
+        iVar.M(this.f66645b.f66544b.l());
+        iVar.Z(this.f66645b.f66544b.m());
+        iVar.U(this.f66645b.f66544b.o());
         iVar.Y(c2);
-        iVar.w0(this.f66640b.f66543b.w());
-        iVar.n0(this.f66640b.f66543b.e());
-        iVar.t0(this.f66640b.f66543b.I());
-        iVar.B(this.f66640b.f66543b.f());
+        iVar.w0(this.f66645b.f66544b.w());
+        iVar.n0(this.f66645b.f66544b.e());
+        iVar.t0(this.f66645b.f66544b.I());
+        iVar.B(this.f66645b.f66544b.f());
         iVar.D(bVar);
-        iVar.B0(this.f66640b.f66543b.q() || g2.b("need_independent_process", 0) == 1);
-        iVar.G(this.f66640b.f66543b.D());
-        iVar.W(this.f66640b.f66543b.C());
-        iVar.k0(this.f66640b.f66543b.v());
+        iVar.B0(this.f66645b.f66544b.q() || g2.b("need_independent_process", 0) == 1);
+        iVar.G(this.f66645b.f66544b.D());
+        iVar.W(this.f66645b.f66544b.C());
+        iVar.k0(this.f66645b.f66544b.v());
         iVar.b0(1000);
         iVar.f0(100);
-        iVar.L(d.o.a.d.n.e.e(this.f66640b.f66543b));
+        iVar.L(d.o.a.d.n.e.e(this.f66645b.f66544b));
         iVar.u0(true);
         iVar.x0(true);
         iVar.T(g2.b("retry_count", 5));
@@ -232,11 +232,11 @@ public class k implements l.a {
         iVar.o0(g2.b("need_retry_delay", 0) == 1);
         iVar.q0(g2.t("retry_delay_time_array"));
         iVar.z0(g2.b("need_reuse_runnable", 0) == 1);
-        iVar.I(g.d(this.f66640b.f66543b.a(), this.f66640b.f66543b.p()));
-        iVar.H(g.b(this.f66640b.f66543b.p()));
+        iVar.I(g.d(this.f66645b.f66544b.a(), this.f66645b.f66544b.p()));
+        iVar.H(g.b(this.f66645b.f66544b.p()));
         iVar.j0(i);
-        if (!TextUtils.isEmpty(this.f66640b.f66543b.i())) {
-            iVar.g0(this.f66640b.f66543b.i());
+        if (!TextUtils.isEmpty(this.f66645b.f66544b.i())) {
+            iVar.g0(this.f66645b.f66544b.i());
         } else {
             iVar.g0("application/vnd.android.package-archive");
         }
@@ -249,7 +249,7 @@ public class k implements l.a {
             aVar = new d.o.a.d.f.d.a();
             iVar.F(aVar);
         }
-        int a3 = l.a(this.f66640b, t(), iVar);
+        int a3 = l.a(this.f66645b, t(), iVar);
         if (aVar != null) {
             aVar.c(a3);
         }
@@ -261,10 +261,10 @@ public class k implements l.a {
     }
 
     public final String c(d.o.a.e.b.j.a aVar) {
-        if (!TextUtils.isEmpty(this.f66640b.f66543b.n())) {
-            return this.f66640b.f66543b.n();
+        if (!TextUtils.isEmpty(this.f66645b.f66544b.n())) {
+            return this.f66645b.f66544b.n();
         }
-        DownloadInfo e2 = d.o.a.e.a.e.F().e(n.a(), this.f66640b.f66543b.a());
+        DownloadInfo e2 = d.o.a.e.a.e.F().e(n.a(), this.f66645b.f66544b.a());
         boolean e3 = d.o.a.d.n.i.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
         String p = p();
         if (e2 != null && !TextUtils.isEmpty(e2.F0())) {
@@ -289,7 +289,7 @@ public class k implements l.a {
         } catch (JSONException e5) {
             e5.printStackTrace();
         }
-        j.c.a().v("label_external_permission", jSONObject, this.f66640b);
+        j.c.a().v("label_external_permission", jSONObject, this.f66645b);
         String str = null;
         try {
             str = d.o.a.e.a.d.F();
@@ -315,15 +315,15 @@ public class k implements l.a {
     }
 
     public void e() {
-        if (this.f66642d == null) {
-            this.f66642d = new c();
+        if (this.f66647d == null) {
+            this.f66647d = new c();
         }
     }
 
     public void f(long j) {
-        this.f66639a = j;
+        this.f66644a = j;
         c.f v = c.g.e().v(j);
-        this.f66640b = v;
+        this.f66645b = v;
         if (v.w()) {
             d.o.a.d.n.k.B();
         }
@@ -339,8 +339,8 @@ public class k implements l.a {
         if (i != 1 && i != 6 && i == 2) {
             if (downloadInfo.d0()) {
                 d.o.a.d.k b2 = d.o.a.d.k.b();
-                c.f fVar = this.f66640b;
-                b2.f(fVar.f66543b, fVar.f66545d, fVar.f66544c);
+                c.f fVar = this.f66645b;
+                b2.f(fVar.f66544b, fVar.f66546d, fVar.f66545c);
                 downloadInfo.t2(false);
             }
             j.c.a().i(downloadInfo);
@@ -351,10 +351,10 @@ public class k implements l.a {
         long Q0 = downloadInfo.Q0();
         if (Q0 > 0) {
             i2 = (int) ((downloadInfo.E() * 100) / Q0);
-            e eVar2 = this.f66642d;
+            e eVar2 = this.f66647d;
             if (eVar2 != null) {
                 eVar2.a(downloadInfo);
-                this.f66642d = null;
+                this.f66647d = null;
             }
         }
         for (d.o.a.a.a.c.e eVar3 : d(map)) {
@@ -367,7 +367,7 @@ public class k implements l.a {
                     } else if (downloadInfo.H0() == -1) {
                         eVar3.a(eVar);
                     } else if (downloadInfo.H0() == -3) {
-                        if (d.o.a.d.n.k.w(this.f66640b.f66543b)) {
+                        if (d.o.a.d.n.k.w(this.f66645b.f66544b)) {
                             eVar3.b(eVar);
                         } else {
                             eVar3.c(eVar);
@@ -385,8 +385,8 @@ public class k implements l.a {
     }
 
     public void h(@NonNull q qVar) {
-        if (!TextUtils.isEmpty(this.f66640b.f66543b.n())) {
-            String n = this.f66640b.f66543b.n();
+        if (!TextUtils.isEmpty(this.f66645b.f66544b.n())) {
+            String n = this.f66645b.f66544b.n();
             if (n.startsWith(Environment.getDataDirectory().getAbsolutePath())) {
                 qVar.a();
                 return;
@@ -403,11 +403,11 @@ public class k implements l.a {
     }
 
     public void i(DownloadInfo downloadInfo) {
-        this.f66641c = false;
-        e eVar = this.f66642d;
+        this.f66646c = false;
+        e eVar = this.f66647d;
         if (eVar != null) {
             eVar.a(downloadInfo);
-            this.f66642d = null;
+            this.f66647d = null;
         }
     }
 
@@ -435,8 +435,8 @@ public class k implements l.a {
                     switch (downloadInfo.H0()) {
                         case -4:
                         case 0:
-                            if (d.o.a.d.n.k.w(this.f66640b.f66543b)) {
-                                eVar.f66386b = -3;
+                            if (d.o.a.d.n.k.w(this.f66645b.f66544b)) {
+                                eVar.f66387b = -3;
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -444,7 +444,7 @@ public class k implements l.a {
                                 break;
                             }
                         case -3:
-                            if (d.o.a.d.n.k.w(this.f66640b.f66543b)) {
+                            if (d.o.a.d.n.k.w(this.f66645b.f66544b)) {
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -493,42 +493,42 @@ public class k implements l.a {
     }
 
     public void k(DownloadInfo downloadInfo, boolean z) {
-        if (this.f66640b.f66543b == null || downloadInfo == null || downloadInfo.c0() == 0) {
+        if (this.f66645b.f66544b == null || downloadInfo == null || downloadInfo.c0() == 0) {
             return;
         }
         int H0 = downloadInfo.H0();
         if (H0 != -1 && H0 != -4) {
-            if (l.f(this.f66640b.f66543b)) {
-                j.c.a().c(this.f66639a, 2);
+            if (l.f(this.f66645b.f66544b)) {
+                j.c.a().c(this.f66644a, 2);
             } else if (z && j.e.a().f() && (H0 == -2 || H0 == -3)) {
-                j.c.a().c(this.f66639a, 2);
+                j.c.a().c(this.f66644a, 2);
             }
         } else {
-            j.c.a().c(this.f66639a, 2);
+            j.c.a().c(this.f66644a, 2);
         }
         switch (H0) {
             case -4:
             case -1:
                 e();
                 c.g e2 = c.g.e();
-                c.f fVar = this.f66640b;
-                e2.j(new d.o.a.b.a.c.b(fVar.f66543b, fVar.f66544c, fVar.f66545d, downloadInfo.c0()));
+                c.f fVar = this.f66645b;
+                e2.j(new d.o.a.b.a.c.b(fVar.f66544b, fVar.f66545c, fVar.f66546d, downloadInfo.c0()));
                 return;
             case -3:
-                if (d.o.a.d.n.k.w(this.f66640b.f66543b)) {
+                if (d.o.a.d.n.k.w(this.f66645b.f66544b)) {
                     d.o.a.d.n.k.B();
                     return;
                 }
-                j.c.a().d(this.f66639a, 5, downloadInfo);
-                if (z && j.e.a().c() && !j.e.a().d(this.f66639a, this.f66640b.f66543b.u())) {
-                    j.c.a().c(this.f66639a, 2);
+                j.c.a().d(this.f66644a, 5, downloadInfo);
+                if (z && j.e.a().c() && !j.e.a().d(this.f66644a, this.f66645b.f66544b.u())) {
+                    j.c.a().c(this.f66644a, 2);
                     return;
                 }
                 return;
             case -2:
-                j.c.a().d(this.f66639a, 4, downloadInfo);
-                if (z && j.e.a().c() && !j.e.a().d(this.f66639a, this.f66640b.f66543b.u())) {
-                    j.c.a().c(this.f66639a, 2);
+                j.c.a().d(this.f66644a, 4, downloadInfo);
+                if (z && j.e.a().c() && !j.e.a().d(this.f66644a, this.f66645b.f66544b.u())) {
+                    j.c.a().c(this.f66644a, 2);
                     return;
                 }
                 return;
@@ -543,34 +543,34 @@ public class k implements l.a {
             case 5:
             case 7:
             case 8:
-                j.c.a().d(this.f66639a, 3, downloadInfo);
+                j.c.a().d(this.f66644a, 3, downloadInfo);
                 return;
         }
     }
 
     public final boolean l(int i) {
-        if (this.f66640b.f66545d.b() == 2 && i == 2) {
+        if (this.f66645b.f66546d.b() == 2 && i == 2) {
             return true;
         }
-        return this.f66640b.f66545d.b() == 2 && i == 1 && n.s().optInt("disable_lp_if_market", 0) == 1;
+        return this.f66645b.f66546d.b() == 2 && i == 1 && n.s().optInt("disable_lp_if_market", 0) == 1;
     }
 
     public boolean m(Context context, int i, boolean z) {
-        if (d.o.a.d.n.k.w(this.f66640b.f66543b)) {
-            d.o.a.b.a.c.b u = c.g.e().u(this.f66640b.f66542a);
+        if (d.o.a.d.n.k.w(this.f66645b.f66544b)) {
+            d.o.a.b.a.c.b u = c.g.e().u(this.f66645b.f66543a);
             if (u != null) {
                 d.o.a.e.b.p.b.a().m(u.s());
             }
-            return g.b.g(this.f66640b);
-        } else if (!l(i) || TextUtils.isEmpty(this.f66640b.f66543b.v()) || n.s().optInt("disable_market") == 1) {
+            return g.b.g(this.f66645b);
+        } else if (!l(i) || TextUtils.isEmpty(this.f66645b.f66544b.v()) || n.s().optInt("disable_market") == 1) {
             return false;
         } else {
-            return g.b.h(this.f66640b, i);
+            return g.b.h(this.f66645b, i);
         }
     }
 
     public boolean n(boolean z) {
-        return !z && this.f66640b.f66545d.b() == 1;
+        return !z && this.f66645b.f66546d.b() == 1;
     }
 
     @Nullable
@@ -597,11 +597,11 @@ public class k implements l.a {
     }
 
     public void s(DownloadInfo downloadInfo) {
-        if (!l.f(this.f66640b.f66543b) || this.f66641c) {
+        if (!l.f(this.f66645b.f66544b) || this.f66646c) {
             return;
         }
-        j.c.a().k("file_status", (downloadInfo == null || !d.o.a.d.n.k.E(downloadInfo.K0())) ? 2 : 1, this.f66640b);
-        this.f66641c = true;
+        j.c.a().k("file_status", (downloadInfo == null || !d.o.a.d.n.k.E(downloadInfo.K0())) ? 2 : 1, this.f66645b);
+        this.f66646c = true;
     }
 
     public final boolean t() {
@@ -613,16 +613,16 @@ public class k implements l.a {
     }
 
     public final boolean v() {
-        d.o.a.a.a.c.d dVar = this.f66640b.f66543b;
-        return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f66640b.f66543b.a())) ? false : true;
+        d.o.a.a.a.c.d dVar = this.f66645b.f66544b;
+        return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f66645b.f66544b.a())) ? false : true;
     }
 
     public final boolean w(DownloadInfo downloadInfo) {
-        return y(downloadInfo) && !d.o.a.d.n.k.w(this.f66640b.f66543b);
+        return y(downloadInfo) && !d.o.a.d.n.k.w(this.f66645b.f66544b);
     }
 
     public final boolean x() {
-        return this.f66640b.f66545d.d();
+        return this.f66645b.f66546d.d();
     }
 
     public final boolean y(DownloadInfo downloadInfo) {
@@ -630,22 +630,22 @@ public class k implements l.a {
     }
 
     public final boolean z() {
-        return d.o.a.d.n.k.w(this.f66640b.f66543b) && l.e(this.f66640b.f66545d.a());
+        return d.o.a.d.n.k.w(this.f66645b.f66544b) && l.e(this.f66645b.f66546d.a());
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f66645a;
+        public final /* synthetic */ q f66650a;
 
         public b(k kVar, q qVar) {
-            this.f66645a = qVar;
+            this.f66650a = qVar;
         }
 
         @Override // d.o.a.d.n.i.a
         public void a() {
-            q qVar = this.f66645a;
+            q qVar = this.f66650a;
             if (qVar != null) {
                 qVar.a();
             }
@@ -653,7 +653,7 @@ public class k implements l.a {
 
         @Override // d.o.a.d.n.i.a
         public void a(String str) {
-            q qVar = this.f66645a;
+            q qVar = this.f66650a;
             if (qVar != null) {
                 qVar.a(str);
             }

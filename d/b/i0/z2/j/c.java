@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class c extends d.b.i0.z2.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public d f63540c;
+    public d f63541c;
 
     @Override // d.b.i0.z2.f.a
     public void d(JSONObject jSONObject) throws Exception {
@@ -18,11 +18,11 @@ public class c extends d.b.i0.z2.f.a {
     }
 
     public d h() {
-        return this.f63540c;
+        return this.f63541c;
     }
 
     public void i(d dVar) {
-        this.f63540c = dVar;
+        this.f63541c = dVar;
         g(null);
     }
 }

@@ -9,33 +9,33 @@ import com.win.opensdk.core.Info;
 public class h2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39941a;
+    public Context f39942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f39942b;
+    public WebView f39943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f39943c;
+    public Info f39944c;
 
     public h2(Context context) {
-        this.f39941a = context;
-        if (this.f39942b == null) {
-            WebView webView = new WebView(this.f39941a);
-            this.f39942b = webView;
+        this.f39942a = context;
+        if (this.f39943b == null) {
+            WebView webView = new WebView(this.f39942a);
+            this.f39943b = webView;
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
             settings.setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f39942b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f39942b.removeJavascriptInterface("accessibility");
-                this.f39942b.removeJavascriptInterface("accessibilityTraversal");
+                this.f39943b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f39943b.removeJavascriptInterface("accessibility");
+                this.f39943b.removeJavascriptInterface("accessibilityTraversal");
             }
-            this.f39942b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.f39942b.getSettings().setBlockNetworkImage(true);
-            this.f39942b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.f39942b.getSettings().setCacheMode(2);
-            this.f39942b.getSettings().setAppCacheEnabled(true);
-            this.f39942b.setScrollBarStyle(0);
+            this.f39943b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f39943b.getSettings().setBlockNetworkImage(true);
+            this.f39943b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f39943b.getSettings().setCacheMode(2);
+            this.f39943b.getSettings().setAppCacheEnabled(true);
+            this.f39943b.setScrollBarStyle(0);
             settings.setDomStorageEnabled(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
             settings.setEnableSmoothTransition(true);
@@ -43,10 +43,10 @@ public class h2 {
                 settings.setMixedContentMode(1);
             }
             settings.setNeedInitialFocus(false);
-            this.f39942b.clearCache(true);
-            this.f39942b.clearHistory();
-            this.f39942b.setWebChromeClient(new e2(this));
-            this.f39942b.setWebViewClient(new f2(this));
+            this.f39943b.clearCache(true);
+            this.f39943b.clearHistory();
+            this.f39943b.setWebChromeClient(new e2(this));
+            this.f39943b.setWebViewClient(new f2(this));
         }
     }
 }

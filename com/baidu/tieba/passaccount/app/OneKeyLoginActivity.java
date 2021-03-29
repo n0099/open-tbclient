@@ -14,7 +14,7 @@ import d.b.i0.a2.b.d;
 import d.b.i0.a2.b.e;
 import d.b.i0.a2.b.f;
 import d.b.i0.a2.b.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public a controller;
     public c oneKeyLoginData;
@@ -25,10 +25,10 @@ public class OneKeyLoginActivity extends BaseActivity {
         this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
         c cVar = new c();
         this.oneKeyLoginData = cVar;
-        cVar.f51921a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-        this.oneKeyLoginData.f51922b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-        this.oneKeyLoginData.f51923c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-        this.oneKeyLoginData.f51924d = this.shareModelJSONStr;
+        cVar.f51922a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+        this.oneKeyLoginData.f51923b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+        this.oneKeyLoginData.f51924c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+        this.oneKeyLoginData.f51925d = this.shareModelJSONStr;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity

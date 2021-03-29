@@ -29,7 +29,7 @@ import d.b.i0.f0.a;
 import d.b.i0.i1.o.l.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoListView extends FrameLayout implements BdListView.p, AbsListView.OnScrollListener {
     public CustomMessageListener A;
     public CustomMessageListener B;
@@ -39,16 +39,16 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     public View.OnTouchListener F;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.r.f0.g f18546e;
+    public d.b.h0.r.f0.g f18547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f18547f;
+    public BdListView f18548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f18548g;
+    public PbListView f18549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.i1.n.a f18549h;
+    public d.b.i0.i1.n.a f18550h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -68,7 +68,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -78,14 +78,14 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13692a) {
+            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13693a) {
                 return;
             }
             LegoListView.this.k(updateAttentionMessage.getData());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -98,13 +98,13 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = true;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = true;
             LegoListView.this.k(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -117,13 +117,13 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = false;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = false;
             LegoListView.this.k(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -139,7 +139,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -150,7 +150,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements a.b {
         public f() {
         }
@@ -163,14 +163,14 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         public void b(int i, int i2) {
             LegoListView.this.y = false;
             LegoListView legoListView = LegoListView.this;
-            legoListView.f18549h.H(legoListView.y);
+            legoListView.f18550h.H(legoListView.y);
         }
 
         @Override // d.b.i0.f0.a.b
         public void c(int i, int i2) {
             LegoListView.this.y = true;
             LegoListView legoListView = LegoListView.this;
-            legoListView.f18549h.H(legoListView.y);
+            legoListView.f18550h.H(legoListView.y);
         }
 
         @Override // d.b.i0.f0.a.b
@@ -178,14 +178,14 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnTouchListener {
         public g() {
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (view != LegoListView.this.f18547f || LegoListView.this.v == null) {
+            if (view != LegoListView.this.f18548f || LegoListView.this.v == null) {
                 return false;
             }
             LegoListView.this.v.c(motionEvent);
@@ -193,7 +193,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements AbsListView.RecyclerListener {
         public h() {
         }
@@ -206,7 +206,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements f.g {
         public i() {
         }
@@ -231,7 +231,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     private void setHasMore(boolean z) {
         PbListView pbListView;
         this.l = z;
-        if (this.f18547f == null || (pbListView = this.f18548g) == null) {
+        if (this.f18548f == null || (pbListView = this.f18549g) == null) {
             return;
         }
         if (!this.i) {
@@ -244,7 +244,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     }
 
     public BdListView getListView() {
-        return this.f18547f;
+        return this.f18548f;
     }
 
     public n getPlaySwitchController() {
@@ -253,7 +253,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
 
     public final void k(Object obj) {
         d.b.i0.i1.p.c cVar;
-        if (this.f18549h == null || (cVar = this.t) == null || cVar.e() == null) {
+        if (this.f18550h == null || (cVar = this.t) == null || cVar.e() == null) {
             return;
         }
         boolean z = false;
@@ -263,7 +263,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             }
         }
         if (z) {
-            this.f18549h.notifyDataSetChanged();
+            this.f18550h.notifyDataSetChanged();
         }
     }
 
@@ -273,14 +273,14 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             gVar.dettachView(view);
             this.o = null;
         }
-        d.b.h0.r.f0.g gVar2 = this.f18546e;
+        d.b.h0.r.f0.g gVar2 = this.f18547e;
         if (gVar2 != null) {
             gVar2.B(true);
         }
-        d.b.i0.i1.n.a aVar = this.f18549h;
+        d.b.i0.i1.n.a aVar = this.f18550h;
         if (aVar != null) {
             aVar.G(true);
-            this.f18549h.notifyDataSetChanged();
+            this.f18550h.notifyDataSetChanged();
         }
     }
 
@@ -293,47 +293,47 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             this.r = (TbPageContext) a2;
         }
         BdListView bdListView = new BdListView(context);
-        this.f18547f = bdListView;
+        this.f18548f = bdListView;
         bdListView.setDividerHeight(0);
-        this.f18547f.setSelector(17170445);
-        addView(this.f18547f);
+        this.f18548f.setSelector(17170445);
+        addView(this.f18548f);
         if (!z) {
-            this.f18547f.setVerticalScrollBarEnabled(true);
+            this.f18548f.setVerticalScrollBarEnabled(true);
             n(context);
         } else {
-            this.f18547f.setTranscriptMode(1);
-            this.f18547f.setVerticalScrollBarEnabled(false);
+            this.f18548f.setTranscriptMode(1);
+            this.f18548f.setVerticalScrollBarEnabled(false);
         }
-        this.f18547f.setOnSrollToBottomListener(this);
-        this.f18547f.setOnScrollListener(this);
+        this.f18548f.setOnSrollToBottomListener(this);
+        this.f18548f.setOnScrollListener(this);
         o();
         d.b.i0.i1.n.a aVar = new d.b.i0.i1.n.a(this.r);
-        this.f18549h = aVar;
-        this.f18547f.setAdapter((ListAdapter) aVar);
+        this.f18550h = aVar;
+        this.f18548f.setAdapter((ListAdapter) aVar);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds120);
         s(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void n(Context context) {
         d.b.h0.r.f0.g gVar = new d.b.h0.r.f0.g(this.r);
-        this.f18546e = gVar;
-        this.f18547f.setPullRefresh(gVar);
+        this.f18547e = gVar;
+        this.f18548f.setPullRefresh(gVar);
         PbListView pbListView = new PbListView(context);
-        this.f18548g = pbListView;
+        this.f18549g = pbListView;
         pbListView.a();
-        this.f18548g.o(R.color.CAM_X0204);
-        this.f18548g.C(SkinManager.getColor(R.color.CAM_X0109));
-        this.f18548g.d(TbadkCoreApplication.getInst().getSkinType());
-        this.f18546e.b(new i(this, null));
+        this.f18549g.o(R.color.CAM_X0204);
+        this.f18549g.C(SkinManager.getColor(R.color.CAM_X0109));
+        this.f18549g.d(TbadkCoreApplication.getInst().getSkinType());
+        this.f18547e.b(new i(this, null));
     }
 
     public final void o() {
-        this.u = new n(this.r, this.f18547f);
+        this.u = new n(this.r, this.f18548f);
         d.b.i0.f0.a aVar = new d.b.i0.f0.a();
         this.v = aVar;
         aVar.d(this.E);
-        this.f18547f.setOnTouchListener(this.F);
-        this.f18547f.setRecyclerListener(new h());
+        this.f18548f.setOnTouchListener(this.F);
+        this.f18548f.setRecyclerListener(new h());
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -349,7 +349,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, -1));
             d.b.i0.i1.g gVar = this.p;
             if (gVar != null && (eVar = this.q) != null) {
-                gVar.a(eVar, this.f18547f.getFirstVisiblePosition());
+                gVar.a(eVar, this.f18548f.getFirstVisiblePosition());
             }
             r();
         }
@@ -359,7 +359,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     public void onScrollToBottom() {
         if (this.l && l.C() && !this.m) {
             this.m = true;
-            PbListView pbListView = this.f18548g;
+            PbListView pbListView = this.f18549g;
             if (pbListView != null) {
                 pbListView.O();
             }
@@ -367,31 +367,31 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             if (dVar == null) {
                 return;
             }
-            if (this.f18549h == null) {
+            if (this.f18550h == null) {
                 d.b.i0.i1.p.e eVar = this.q;
-                dVar.a(1, eVar.f56030a, eVar.f56031b, "");
+                dVar.a(1, eVar.f56031a, eVar.f56032b, "");
                 return;
             }
             d.b.i0.i1.p.c cVar = this.t;
             if (cVar != null) {
                 d.b.i0.i1.d dVar2 = this.n;
                 d.b.i0.i1.p.e eVar2 = this.q;
-                dVar2.a(cVar.a() + 1, eVar2.f56030a, eVar2.f56031b, this.t.g());
+                dVar2.a(cVar.a() + 1, eVar2.f56031a, eVar2.f56032b, this.t.g());
             }
         }
     }
 
     public boolean p(long j, String str) {
         d.b.i0.i1.p.e eVar = this.q;
-        return eVar != null && j == eVar.f56030a && TextUtils.equals(str, eVar.f56031b);
+        return eVar != null && j == eVar.f56031a && TextUtils.equals(str, eVar.f56032b);
     }
 
     public final void q(boolean z) {
-        if (this.f18547f == null) {
+        if (this.f18548f == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f18547f.getChildCount(); i2++) {
-            View childAt = this.f18547f.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f18548f.getChildCount(); i2++) {
+            View childAt = this.f18548f.getChildAt(i2);
             if (childAt instanceof d.b.i0.i1.o.l.e) {
                 if (z) {
                     ((d.b.i0.i1.o.l.e) childAt).f();
@@ -403,11 +403,11 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     }
 
     public final void r() {
-        if (this.f18547f == null) {
+        if (this.f18548f == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f18547f.getChildCount(); i2++) {
-            View childAt = this.f18547f.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f18548f.getChildCount(); i2++) {
+            View childAt = this.f18548f.getChildAt(i2);
             if (childAt instanceof d.b.i0.i1.o.l.e) {
                 ((d.b.i0.i1.o.l.e) childAt).e();
             }
@@ -421,16 +421,16 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     @SuppressLint({"ResourceAsColor"})
     public void s(int i2) {
         d.b.h0.s0.a.a(this.r, this);
-        SkinManager.setBackgroundColor(this.f18547f, R.color.CAM_X0204, i2);
-        d.b.i0.i1.n.a aVar = this.f18549h;
+        SkinManager.setBackgroundColor(this.f18548f, R.color.CAM_X0204, i2);
+        d.b.i0.i1.n.a aVar = this.f18550h;
         if (aVar != null) {
             aVar.notifyDataSetChanged();
         }
-        d.b.h0.r.f0.g gVar = this.f18546e;
+        d.b.h0.r.f0.g gVar = this.f18547e;
         if (gVar != null) {
             gVar.I(i2);
         }
-        PbListView pbListView = this.f18548g;
+        PbListView pbListView = this.f18549g;
         if (pbListView != null) {
             pbListView.d(i2);
         }
@@ -441,7 +441,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     }
 
     public void setFriction(float f2) {
-        BdListView bdListView = this.f18547f;
+        BdListView bdListView = this.f18548f;
         if (bdListView != null) {
             bdListView.setFriction(f2);
         }
@@ -469,9 +469,9 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             return;
         }
         if (this.i && !l.C()) {
-            if (this.f18549h.isEmpty()) {
-                this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.neterror), null, null);
-                this.f18549h.notifyDataSetChanged();
+            if (this.f18550h.isEmpty()) {
+                this.f18550h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.neterror), null, null);
+                this.f18550h.notifyDataSetChanged();
             }
         } else if (this.z) {
             this.z = false;
@@ -489,19 +489,19 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
     }
 
     public void u(d.b.i0.i1.p.c cVar, boolean z) {
-        BdListView bdListView = this.f18547f;
+        BdListView bdListView = this.f18548f;
         if (bdListView != null) {
             bdListView.z();
         }
-        PbListView pbListView = this.f18548g;
+        PbListView pbListView = this.f18549g;
         if (pbListView != null) {
             pbListView.f();
         }
         if (cVar == null) {
             setHasMore(false);
             l(this);
-            this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
-            this.f18549h.notifyDataSetChanged();
+            this.f18550h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
+            this.f18550h.notifyDataSetChanged();
             return;
         }
         this.t = cVar;
@@ -512,33 +512,33 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         this.q = cVar.i();
         setHasMore(cVar.b());
         List<ICardInfo> e2 = cVar.e();
-        if (this.f18549h != null) {
+        if (this.f18550h != null) {
             if (e2 != null && e2.size() > 0) {
-                PbListView pbListView2 = this.f18548g;
+                PbListView pbListView2 = this.f18549g;
                 if (pbListView2 != null) {
                     if (pbListView2.b().getParent() == null) {
-                        this.f18547f.setNextPage(this.f18548g);
+                        this.f18548f.setNextPage(this.f18549g);
                     }
                     if (this.l) {
-                        this.f18548g.A(getContext().getString(R.string.pb_load_more));
+                        this.f18549g.A(getContext().getString(R.string.pb_load_more));
                     } else if (e2.get(e2.size() - 1) instanceof WebViewCard) {
-                        this.f18548g.A("");
+                        this.f18549g.A("");
                     } else {
-                        this.f18548g.A(getContext().getString(R.string.list_no_more));
+                        this.f18549g.A(getContext().getString(R.string.list_no_more));
                     }
                 }
             } else {
                 if (this.i && this.j) {
-                    this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
+                    this.f18550h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
                 } else {
-                    this.f18549h.F(null, null, null, null);
+                    this.f18550h.F(null, null, null, null);
                 }
                 setHasMore(false);
             }
-            this.f18549h.C(e2);
+            this.f18550h.C(e2);
         }
         if (z) {
-            this.f18547f.setSelection(cVar.h());
+            this.f18548f.setSelection(cVar.h());
         }
         if (this.j || !(e2 == null || e2.isEmpty())) {
             l(this);
@@ -549,7 +549,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         if (bdUniqueId == null) {
             return;
         }
-        d.b.h0.r.f0.g gVar = this.f18546e;
+        d.b.h0.r.f0.g gVar = this.f18547e;
         if (gVar != null) {
             gVar.Z(bdUniqueId);
         }
@@ -572,14 +572,14 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             this.o.onChangeSkinType();
         }
         this.o.attachView(view, z);
-        d.b.h0.r.f0.g gVar = this.f18546e;
+        d.b.h0.r.f0.g gVar = this.f18547e;
         if (gVar != null) {
             gVar.B(false);
         }
-        d.b.i0.i1.n.a aVar = this.f18549h;
+        d.b.i0.i1.n.a aVar = this.f18550h;
         if (aVar != null) {
             aVar.G(false);
-            this.f18549h.notifyDataSetChanged();
+            this.f18550h.notifyDataSetChanged();
         }
     }
 
@@ -587,27 +587,27 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
         if (this.i) {
             d.b.i0.i1.d dVar = this.n;
             d.b.i0.i1.p.e eVar = this.q;
-            dVar.a(1, eVar.f56030a, eVar.f56031b, "");
+            dVar.a(1, eVar.f56031a, eVar.f56032b, "");
             return;
         }
         d.b.i0.i1.d dVar2 = this.n;
         d.b.i0.i1.p.e eVar2 = this.q;
-        dVar2.b(eVar2.f56030a, eVar2.f56031b);
+        dVar2.b(eVar2.f56031a, eVar2.f56032b);
     }
 
     public void z(String str) {
-        BdListView bdListView = this.f18547f;
+        BdListView bdListView = this.f18548f;
         if (bdListView != null) {
             bdListView.z();
         }
         this.m = false;
-        PbListView pbListView = this.f18548g;
+        PbListView pbListView = this.f18549g;
         if (pbListView != null) {
             pbListView.f();
         }
-        if (this.f18549h.getCount() <= 0 && this.i) {
-            this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.c(str), null, null);
-            this.f18549h.C(new ArrayList());
+        if (this.f18550h.getCount() <= 0 && this.i) {
+            this.f18550h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.c(str), null, null);
+            this.f18550h.C(new ArrayList());
         }
         l(this);
     }

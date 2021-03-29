@@ -33,17 +33,17 @@ public class d {
 
     @Modify(description = "吧推荐卡片是否显示hottext字段")
     public static boolean C() {
-        return d(p.f49734c, "11_9_discover_hot_card_hot_text");
+        return d(p.f49735c, "11_9_discover_hot_card_hot_text");
     }
 
     @Modify(description = "吧推荐卡片是否显示slogan字段")
     public static boolean D() {
-        return d(p.f49734c, "11_9_discover_hot_card_slogan");
+        return d(p.f49735c, "11_9_discover_hot_card_slogan");
     }
 
     @Modify(description = "isSearchLoginTestA")
     public static boolean E() {
-        return d(q.f49737c, "12_3_search_login_a");
+        return d(q.f49738c, "12_3_search_login_a");
     }
 
     @Modify(description = "是否命中发贴显示标题小流量abtest")
@@ -52,11 +52,11 @@ public class d {
     }
 
     public static boolean G() {
-        return d(r.f49740c, "12_3_staticopt_a");
+        return d(r.f49741c, "12_3_staticopt_a");
     }
 
     public static boolean H() {
-        return d(t.f49746c, "12_3_video_release_a");
+        return d(t.f49747c, "12_3_video_release_a");
     }
 
     public static boolean I() {
@@ -64,7 +64,7 @@ public class d {
     }
 
     public static boolean J() {
-        return d(t.f49746c, "12_3_video_release_b");
+        return d(t.f49747c, "12_3_video_release_b");
     }
 
     public static boolean K() {
@@ -72,15 +72,15 @@ public class d {
     }
 
     public static boolean L() {
-        return d(t.f49746c, "12_3_video_release_c");
+        return d(t.f49747c, "12_3_video_release_c");
     }
 
     public static boolean M() {
-        return d(t.f49746c, "12_3_video_release_d");
+        return d(t.f49747c, "12_3_video_release_d");
     }
 
     public static boolean N() {
-        return d(t.f49746c, "12_3_video_release_e");
+        return d(t.f49747c, "12_3_video_release_e");
     }
 
     public static boolean O() {
@@ -89,7 +89,7 @@ public class d {
 
     @Modify(description = "是否需要显示frs引导弹窗")
     public static boolean P() {
-        return d(d.b.h0.b.f.e.f49704c, "11_9_frs_page_guide_a");
+        return d(d.b.h0.b.f.e.f49705c, "11_9_frs_page_guide_a");
     }
 
     @Modify(description = "是否需要显示吧推荐卡片")
@@ -107,7 +107,7 @@ public class d {
     }
 
     public static boolean a() {
-        return d(o.f49731c, "12_4_profile_a");
+        return d(o.f49732c, "12_4_profile_a");
     }
 
     public static e b(BdUniqueId bdUniqueId) {
@@ -123,9 +123,9 @@ public class d {
     }
 
     public static boolean e(e eVar, String... strArr) {
-        if (eVar != null && !TextUtils.isEmpty(eVar.f49694a)) {
+        if (eVar != null && !TextUtils.isEmpty(eVar.f49695a)) {
             for (String str : strArr) {
-                if (eVar.f49694a.equalsIgnoreCase(str)) {
+                if (eVar.f49695a.equalsIgnoreCase(str)) {
                     return true;
                 }
             }
@@ -134,7 +134,7 @@ public class d {
     }
 
     public static boolean f() {
-        return d(d.b.h0.b.f.b.f49695c, "11_9_backuser_a");
+        return d(d.b.h0.b.f.b.f49696c, "11_9_backuser_a");
     }
 
     @Modify(description = "是否命中12.0b UI通栏小流量")
@@ -144,20 +144,20 @@ public class d {
 
     @Modify(description = "关注是否使用新样式")
     public static boolean h() {
-        return d(d.b.h0.b.f.c.f49698c, "11_10_user_like_tab_a") || d(d.b.h0.b.f.c.f49698c, "11_10_user_like_tab_b");
+        return d(d.b.h0.b.f.c.f49699c, "11_10_user_like_tab_a") || d(d.b.h0.b.f.c.f49699c, "11_10_user_like_tab_b");
     }
 
     public static boolean i(String str) {
         e b2 = c.d().b(str);
-        return (b2 == null || TextUtils.isEmpty(b2.f49694a) || !b2.f49694a.equalsIgnoreCase(str)) ? false : true;
+        return (b2 == null || TextUtils.isEmpty(b2.f49695a) || !b2.f49695a.equalsIgnoreCase(str)) ? false : true;
     }
 
     public static boolean j() {
-        return d(d.b.h0.b.f.d.f49701c, "12_4_launch_login_a");
+        return d(d.b.h0.b.f.d.f49702c, "12_4_launch_login_a");
     }
 
     public static boolean k() {
-        return d(d.b.h0.b.f.d.f49701c, "12_4_launch_login_b");
+        return d(d.b.h0.b.f.d.f49702c, "12_4_launch_login_b");
     }
 
     @Modify(description = "是否命中frs页小熊广告sdk小流量abtest")
@@ -166,7 +166,7 @@ public class d {
     }
 
     public static boolean m() {
-        return d(f.f49707c, "12_2_frs_default_sort_a");
+        return d(f.f49708c, "12_2_frs_default_sort_a");
     }
 
     public static boolean n() {
@@ -174,15 +174,15 @@ public class d {
     }
 
     public static boolean o() {
-        return d(g.f49710c, "12_2_frs_default_tab_a");
+        return d(g.f49711c, "12_2_frs_default_tab_a");
     }
 
     public static boolean p() {
-        return d(g.f49710c, "12_2_frs_default_tab_b");
+        return d(g.f49711c, "12_2_frs_default_tab_b");
     }
 
     public static boolean q() {
-        return d(g.f49710c, "12_2_frs_default_tab_c");
+        return d(g.f49711c, "12_2_frs_default_tab_c");
     }
 
     public static boolean r() {
@@ -190,37 +190,37 @@ public class d {
     }
 
     public static boolean s() {
-        return d(i.f49716c, "12_4_promote_login_a");
+        return d(i.f49717c, "12_4_promote_login_a");
     }
 
     public static boolean t() {
-        return d(j.f49719c, "11_8_hot_b");
+        return d(j.f49720c, "11_8_hot_b");
     }
 
     public static boolean u() {
-        return d(l.f49722c, "12_2_pb_picpage_a");
+        return d(l.f49723c, "12_2_pb_picpage_a");
     }
 
     public static boolean v() {
-        return d(l.f49722c, "12_2_pb_picpage_b");
+        return d(l.f49723c, "12_2_pb_picpage_b");
     }
 
     @Modify(description = "pb操作区, 策略a, 出右上角点点点，弹框网格")
     public static boolean w() {
-        return d(n.f49728c, "12_4_pb_a");
+        return d(n.f49729c, "12_4_pb_a");
     }
 
     @Modify(description = "pb操作区, 策略b, 出右上角点点点，强制出回复,弹框网格,发帖时间下移")
     public static boolean x() {
-        return d(n.f49728c, "12_4_pb_b");
+        return d(n.f49729c, "12_4_pb_b");
     }
 
     @Modify(description = "pb操作区, 策略c, 整个操作区左移，回复修改")
     public static boolean y() {
-        return d(n.f49728c, "12_4_pb_c");
+        return d(n.f49729c, "12_4_pb_c");
     }
 
     public static boolean z() {
-        return d(m.f49725c, "12_3_pb_outer_item_a");
+        return d(m.f49726c, "12_3_pb_outer_item_a");
     }
 }

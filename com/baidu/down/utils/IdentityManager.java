@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.util.CommonParam;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IdentityManager {
     public static final boolean DEBUG = false;
     public static final String TAG = "IdentityManager";

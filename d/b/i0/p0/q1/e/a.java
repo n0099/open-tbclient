@@ -18,17 +18,17 @@ public class a {
 
     /* renamed from: d.b.i0.p0.q1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1425a extends ShapeDrawable {
+    public static class C1426a extends ShapeDrawable {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f58370a;
+        public int f58371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58371b;
+        public int f58372b;
 
-        public C1425a(int i, int i2, int i3, int i4) {
-            this.f58370a = i3;
-            this.f58371b = i4;
+        public C1426a(int i, int i2, int i3, int i4) {
+            this.f58371a = i3;
+            this.f58372b = i4;
             setDither(false);
             getPaint().setColor(i);
             setIntrinsicWidth(i2);
@@ -36,7 +36,7 @@ public class a {
 
         @Override // android.graphics.drawable.Drawable
         public void setBounds(int i, int i2, int i3, int i4) {
-            super.setBounds(i, i2 + this.f58370a, i3, i4 + this.f58371b);
+            super.setBounds(i, i2 + this.f58371a, i3, i4 + this.f58372b);
         }
     }
 
@@ -70,8 +70,8 @@ public class a {
             declaredField.setAccessible(true);
             declaredField2.setAccessible(true);
             Object obj = declaredField2.get(declaredField.get(editText));
-            Array.set(obj, 0, new C1425a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            Array.set(obj, 1, new C1425a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 0, new C1426a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 1, new C1426a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
         } catch (Exception unused) {
         }
     }

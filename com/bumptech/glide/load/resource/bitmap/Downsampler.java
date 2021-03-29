@@ -80,14 +80,8 @@ public final class Downsampler {
 
     public static int adjustTargetDensityForError(double d2) {
         int densityMultiplier = getDensityMultiplier(d2);
-        double d3 = densityMultiplier;
-        Double.isNaN(d3);
-        int round = round(d3 * d2);
-        double d4 = round / densityMultiplier;
-        Double.isNaN(d4);
-        double d5 = round;
-        Double.isNaN(d5);
-        return round((d2 / d4) * d5);
+        int round = round(densityMultiplier * d2);
+        return round((d2 / (round / densityMultiplier)) * round);
     }
 
     private void calculateConfig(ImageReader imageReader, DecodeFormat decodeFormat, boolean z, boolean z2, BitmapFactory.Options options, int i, int i2) {

@@ -15,79 +15,79 @@ import org.apache.http.message.BasicNameValuePair;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageTask.HTTP_METHOD f41790b;
+    public HttpMessageTask.HTTP_METHOD f41791b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41789a = "";
+    public String f41790a = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f41791c = new HashMap();
+    public Map<String, String> f41792c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f41792d = new LinkedList<>();
+    public LinkedList<BasicNameValuePair> f41793d = new LinkedList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, byte[]> f41793e = new HashMap<>();
+    public HashMap<String, byte[]> f41794e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41794f = false;
+    public boolean f41795f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41795g = false;
+    public boolean f41796g = false;
 
     public void a(String str, String str2) {
-        Map<String, String> map = this.f41791c;
+        Map<String, String> map = this.f41792c;
         if (map != null) {
             map.put(str, str2);
         }
     }
 
     public void b(String str, String str2) {
-        this.f41792d.add(new BasicNameValuePair(str, str2));
+        this.f41793d.add(new BasicNameValuePair(str, str2));
     }
 
     public void c(String str, byte[] bArr) {
-        this.f41793e.put(str, bArr);
+        this.f41794e.put(str, bArr);
     }
 
     public void d(BasicNameValuePair basicNameValuePair) {
-        this.f41792d.add(basicNameValuePair);
+        this.f41793d.add(basicNameValuePair);
     }
 
     public boolean e() {
-        return this.f41794f;
+        return this.f41795f;
     }
 
     public String f(d dVar) {
-        if (this.f41792d.size() == 0) {
+        if (this.f41793d.size() == 0) {
             if (dVar != null) {
-                dVar.f41777a = this.f41789a.length();
+                dVar.f41778a = this.f41790a.length();
             }
-            return this.f41789a;
+            return this.f41790a;
         }
         StringBuilder sb = new StringBuilder(30);
-        sb.append(this.f41789a);
-        if (this.f41789a.indexOf("?") < 0) {
+        sb.append(this.f41790a);
+        if (this.f41790a.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.f41789a.endsWith("?") && !this.f41789a.endsWith("&")) {
+        } else if (!this.f41790a.endsWith("?") && !this.f41790a.endsWith("&")) {
             sb.append("&");
         }
-        for (int i = 0; i < this.f41792d.size(); i++) {
+        for (int i = 0; i < this.f41793d.size(); i++) {
             if (i != 0) {
                 sb.append("&");
             }
-            sb.append(this.f41792d.get(i).getName());
+            sb.append(this.f41793d.get(i).getName());
             sb.append("=");
-            sb.append(k.getUrlEncode(this.f41792d.get(i).getValue()));
+            sb.append(k.getUrlEncode(this.f41793d.get(i).getValue()));
         }
         if (dVar != null) {
-            dVar.f41777a = sb.length();
+            dVar.f41778a = sb.length();
         }
         return sb.toString();
     }
 
     public String g(String str) {
-        Map<String, String> map = this.f41791c;
+        Map<String, String> map = this.f41792c;
         if (map != null) {
             return map.get(str);
         }
@@ -95,25 +95,25 @@ public class f {
     }
 
     public HttpMessageTask.HTTP_METHOD h() {
-        return this.f41790b;
+        return this.f41791b;
     }
 
     public String i() {
-        return this.f41789a;
+        return this.f41790a;
     }
 
     public boolean j() {
-        HashMap<String, byte[]> hashMap = this.f41793e;
+        HashMap<String, byte[]> hashMap = this.f41794e;
         return hashMap != null && hashMap.size() > 0;
     }
 
     public boolean k() {
-        return this.f41795g;
+        return this.f41796g;
     }
 
     public final StringBuilder l() {
         StringBuilder sb = new StringBuilder(1024);
-        LinkedList<BasicNameValuePair> linkedList = this.f41792d;
+        LinkedList<BasicNameValuePair> linkedList = this.f41793d;
         if (linkedList != null) {
             int i = 0;
             Iterator<BasicNameValuePair> it = linkedList.iterator();
@@ -138,19 +138,19 @@ public class f {
     }
 
     public void n(boolean z) {
-        this.f41795g = z;
+        this.f41796g = z;
     }
 
     public void o(boolean z) {
-        this.f41794f = z;
+        this.f41795f = z;
     }
 
     public void p(HashMap<String, String> hashMap) {
-        this.f41791c = hashMap;
+        this.f41792c = hashMap;
     }
 
     public void q(HttpMessageTask.HTTP_METHOD http_method) {
-        this.f41790b = http_method;
+        this.f41791b = http_method;
     }
 
     public void r(List<Map.Entry<String, Object>> list) {
@@ -159,9 +159,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.f41792d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.f41793d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.f41793e.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.f41794e.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -172,15 +172,15 @@ public class f {
 
     public void s(String str) {
         if (str == null) {
-            this.f41789a = "";
+            this.f41790a = "";
         } else {
-            this.f41789a = str;
+            this.f41790a = str;
         }
     }
 
     public void t(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
-        if (httpURLConnection == null || (map = this.f41791c) == null) {
+        if (httpURLConnection == null || (map = this.f41792c) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -206,7 +206,7 @@ public class f {
             i = 0;
         }
         if (dVar != null) {
-            dVar.f41777a = i;
+            dVar.f41778a = i;
         }
     }
 
@@ -216,8 +216,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.f41792d != null) {
-                    Iterator<BasicNameValuePair> it = this.f41792d.iterator();
+                if (this.f41793d != null) {
+                    Iterator<BasicNameValuePair> it = this.f41793d.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -234,8 +234,8 @@ public class f {
                         }
                     }
                 }
-                if (this.f41793e != null) {
-                    for (Map.Entry<String, byte[]> entry : this.f41793e.entrySet()) {
+                if (this.f41794e != null) {
+                    for (Map.Entry<String, byte[]> entry : this.f41794e.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -257,7 +257,7 @@ public class f {
             i = 0;
         }
         if (dVar != null) {
-            dVar.f41777a = i;
+            dVar.f41778a = i;
         }
     }
 }

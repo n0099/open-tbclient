@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.MotionEventCompat;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public boolean mCanSlide;
     public boolean mForceActivityTransparent;

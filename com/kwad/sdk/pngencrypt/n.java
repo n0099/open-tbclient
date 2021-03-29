@@ -7,13 +7,13 @@ import java.nio.charset.Charset;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f36195a = Charset.forName("ISO-8859-1");
+    public static Charset f36196a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f36196b = Charset.forName("UTF-8");
+    public static Charset f36197b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f36197c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal<Boolean> f36198c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */
@@ -23,9 +23,7 @@ public final class n {
     };
 
     public static double a(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return d2 / 100000.0d;
+        return i / 100000.0d;
     }
 
     public static final int a(int i, int i2, int i3) {

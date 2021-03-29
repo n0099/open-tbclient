@@ -8,40 +8,40 @@ import tbclient.TbBookrack;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54548a;
+    public String f54549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54549b;
+    public int f54550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f54550c;
+    public List<b> f54551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54551d;
+    public String f54552d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54552e;
+    public String f54553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54553f;
+    public String f54554f;
 
     public void a(TbBookrack tbBookrack) {
         if (tbBookrack == null) {
             return;
         }
-        this.f54548a = tbBookrack.booktown;
-        this.f54549b = tbBookrack.num.intValue();
-        this.f54551d = tbBookrack.title;
-        this.f54552e = tbBookrack.icon;
-        this.f54553f = tbBookrack.tip;
-        this.f54550c = new ArrayList();
+        this.f54549a = tbBookrack.booktown;
+        this.f54550b = tbBookrack.num.intValue();
+        this.f54552d = tbBookrack.title;
+        this.f54553e = tbBookrack.icon;
+        this.f54554f = tbBookrack.tip;
+        this.f54551c = new ArrayList();
         List<BookInfo> list = tbBookrack.book_list;
         if (list != null) {
             for (BookInfo bookInfo : list) {
                 if (bookInfo != null) {
                     b bVar = new b();
                     bVar.a(bookInfo);
-                    this.f54550c.add(bVar);
+                    this.f54551c.add(bVar);
                 }
             }
         }

@@ -21,47 +21,47 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f42633e;
+    public static volatile a f42634e;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42634a;
+    public long f42635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.poly.a.l.c f42635b;
+    public com.baidu.poly.a.l.c f42636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.c0.p.c f42636c;
+    public d.b.c0.p.c f42637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.c0.p.c f42637d;
+    public d.b.c0.p.c f42638d;
 
     /* renamed from: d.b.c0.k.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0566a extends d.b.c0.k.a.a<JSONObject> {
+    public class C0567a extends d.b.c0.k.a.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f42638a;
+        public final /* synthetic */ m f42639a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f42639b;
+        public final /* synthetic */ boolean f42640b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f42640c;
+        public final /* synthetic */ Context f42641c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Bundle f42641d;
+        public final /* synthetic */ Bundle f42642d;
 
-        public C0566a(m mVar, boolean z, Context context, Bundle bundle) {
-            this.f42638a = mVar;
-            this.f42639b = z;
-            this.f42640c = context;
-            this.f42641d = bundle;
+        public C0567a(m mVar, boolean z, Context context, Bundle bundle) {
+            this.f42639a = mVar;
+            this.f42640b = z;
+            this.f42641c = context;
+            this.f42642d = bundle;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
             a.this.j("2", str);
-            m mVar = this.f42638a;
+            m mVar = this.f42639a;
             mVar.m("get trade state failed : " + str, null);
         }
 
@@ -72,11 +72,11 @@ public class a {
             int optInt = jSONObject.optInt("payStatus", 3);
             a.this.j("1", String.valueOf(optInt));
             if (optInt == 2) {
-                this.f42638a.g(0, d.b.c0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
-            } else if (this.f42639b) {
-                a.this.c(this.f42640c, this.f42641d, this.f42638a);
+                this.f42639a.g(0, d.b.c0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
+            } else if (this.f42640b) {
+                a.this.c(this.f42641c, this.f42642d, this.f42639a);
             } else {
-                a.this.e(this.f42640c, this.f42638a);
+                a.this.e(this.f42641c, this.f42639a);
             }
         }
     }
@@ -85,19 +85,19 @@ public class a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f42643e;
+        public final /* synthetic */ m f42644e;
 
         public b(m mVar) {
-            this.f42643e = mVar;
+            this.f42644e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f42636c.q();
+            a.this.f42637c.q();
             d.b.c0.k.h.b bVar = new d.b.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
             bVar.c("1");
             d.b.c0.k.h.d.b(bVar);
-            this.f42643e.g(3, "pay failed , click choose window");
+            this.f42644e.g(3, "pay failed , click choose window");
         }
     }
 
@@ -105,27 +105,27 @@ public class a {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f42645e;
+        public final /* synthetic */ Context f42646e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f42646f;
+        public final /* synthetic */ Bundle f42647f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f42647g;
+        public final /* synthetic */ m f42648g;
 
         public c(Context context, Bundle bundle, m mVar) {
-            this.f42645e = context;
-            this.f42646f = bundle;
-            this.f42647g = mVar;
+            this.f42646e = context;
+            this.f42647f = bundle;
+            this.f42648g = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f42636c.q();
+            a.this.f42637c.q();
             d.b.c0.k.h.b bVar = new d.b.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
             bVar.c("2");
             d.b.c0.k.h.d.b(bVar);
-            a.this.d(this.f42645e, this.f42646f, this.f42647g, false);
+            a.this.d(this.f42646e, this.f42647f, this.f42648g, false);
         }
     }
 
@@ -136,10 +136,10 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f42637d == null || !a.this.f42637d.u()) {
+            if (a.this.f42638d == null || !a.this.f42638d.u()) {
                 return;
             }
-            a.this.f42637d.q();
+            a.this.f42638d.q();
         }
     }
 
@@ -147,27 +147,27 @@ public class a {
     public class e implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f42650a;
+        public final /* synthetic */ m f42651a;
 
         public e(a aVar, m mVar) {
-            this.f42650a = mVar;
+            this.f42651a = mVar;
         }
 
         @Override // d.b.c0.p.c.b
         public void onDismiss() {
-            this.f42650a.g(3, "pay failed , click error window");
+            this.f42651a.g(3, "pay failed , click error window");
         }
     }
 
     public static a k() {
-        if (f42633e == null) {
+        if (f42634e == null) {
             synchronized (a.class) {
-                if (f42633e == null) {
-                    f42633e = new a();
+                if (f42634e == null) {
+                    f42634e = new a();
                 }
             }
         }
-        return f42633e;
+        return f42634e;
     }
 
     public final View a(Activity activity) {
@@ -180,12 +180,12 @@ public class a {
     public final void c(Context context, Bundle bundle, m mVar) {
         View inflate = View.inflate(mVar.getContext(), g.pay_confirm, null);
         d.b.c0.p.c cVar = new d.b.c0.p.c(inflate, -1, -1, true);
-        this.f42636c = cVar;
+        this.f42637c = cVar;
         cVar.y(false);
-        this.f42636c.C(false);
+        this.f42637c.C(false);
         ((TextView) inflate.findViewById(f.bt_pay_meet_problems)).setOnClickListener(new b(mVar));
         ((TextView) inflate.findViewById(f.bt_pay_already_finish)).setOnClickListener(new c(context, bundle, mVar));
-        this.f42636c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.f42637c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         d.b.c0.k.h.d.b(new d.b.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY));
     }
 
@@ -195,9 +195,9 @@ public class a {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.f42635b = d.b.c0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
-        this.f42634a = System.currentTimeMillis();
-        d.b.c0.k.b.b.j().g(bundle, new C0566a(mVar, z, context, bundle));
+        this.f42636b = d.b.c0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
+        this.f42635a = System.currentTimeMillis();
+        d.b.c0.k.b.b.j().g(bundle, new C0567a(mVar, z, context, bundle));
     }
 
     public final void e(Context context, m mVar) {
@@ -205,19 +205,19 @@ public class a {
         ((TextView) inflate.findViewById(f.pop_title)).setText(h.pay_failed);
         ((TextView) inflate.findViewById(f.pop_tips)).setText(h.pay_failed_sub_text);
         d.b.c0.p.c cVar = new d.b.c0.p.c(inflate, -1, -1, true);
-        this.f42637d = cVar;
+        this.f42638d = cVar;
         cVar.y(false);
-        this.f42637d.C(false);
-        this.f42637d.x(new ColorDrawable(0));
+        this.f42638d.C(false);
+        this.f42638d.x(new ColorDrawable(0));
         ((TextView) inflate.findViewById(f.pop_button)).setOnClickListener(new d());
-        this.f42637d.h(new e(this, mVar));
-        this.f42637d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.f42638d.h(new e(this, mVar));
+        this.f42638d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
     }
 
     public final void j(String str, String str2) {
-        d.b.c0.k.k.a.c(this.f42635b);
+        d.b.c0.k.k.a.c(this.f42636b);
         try {
-            if (this.f42634a == 0) {
+            if (this.f42635a == 0) {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
@@ -227,7 +227,7 @@ public class a {
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("msg", str2);
             }
-            Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f42634a);
+            Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f42635a);
             if (valueOf.longValue() >= 0) {
                 jSONObject.put("du", String.valueOf(valueOf));
             }
@@ -235,11 +235,11 @@ public class a {
             bVar.b(jSONObject);
             d.b.c0.k.h.d.b(bVar);
         } catch (JSONException e2) {
-            if (d.b.c0.n.d.f42679d) {
+            if (d.b.c0.n.d.f42680d) {
                 e2.printStackTrace();
             }
         } finally {
-            this.f42634a = 0L;
+            this.f42635a = 0L;
         }
     }
 }

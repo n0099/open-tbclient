@@ -32,26 +32,26 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     private void w() {
-        IXAdContainer iXAdContainer = this.f8440h;
+        IXAdContainer iXAdContainer = this.f8441h;
         MobRewardVideoImpl.mAdContainer = (IXRewardVideoAdContainer) iXAdContainer;
         MobRewardVideoImpl.mContext = iXAdContainer.getAdContainerContext();
-        Intent intent = new Intent(this.f8438f, MobRewardVideoImpl.getActivityClass());
-        Context context = this.f8438f;
+        Intent intent = new Intent(this.f8439f, MobRewardVideoImpl.getActivityClass());
+        Context context = this.f8439f;
         if (context != null && !(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
         intent.putExtra("orientation", x());
         intent.putExtra("useSurfaceView", this.C);
-        this.f8438f.startActivity(intent);
+        this.f8439f.startActivity(intent);
     }
 
     private String x() {
-        Context context = this.f8438f;
+        Context context = this.f8439f;
         return (context == null || context.getResources().getConfiguration().orientation != 2) ? "portrait" : "landscape";
     }
 
     public boolean a() {
-        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8441h;
         this.A = iXRewardVideoAdContainer;
         if (iXRewardVideoAdContainer != null) {
             return iXRewardVideoAdContainer.isExpired();
@@ -68,7 +68,7 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     public boolean b() {
-        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8441h;
         this.A = iXRewardVideoAdContainer;
         if (iXRewardVideoAdContainer != null) {
             return iXRewardVideoAdContainer.isVideoDownloaded();
@@ -78,7 +78,7 @@ public class a extends com.baidu.mobads.production.a {
 
     @Override // com.baidu.mobads.production.a
     public void c() {
-        this.f8440h.load();
+        this.f8441h.load();
     }
 
     @Override // com.baidu.mobads.production.a
@@ -100,7 +100,7 @@ public class a extends com.baidu.mobads.production.a {
 
     public boolean s() {
         try {
-            IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+            IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8441h;
             this.A = iXRewardVideoAdContainer;
             if (iXRewardVideoAdContainer != null) {
                 return !iXRewardVideoAdContainer.getAdContainerContext().getAdInstanceInfo().getAdHasDisplayed();
@@ -114,7 +114,7 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     public boolean t() {
-        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8441h;
         this.A = iXRewardVideoAdContainer;
         return (iXRewardVideoAdContainer == null || iXRewardVideoAdContainer.getAdContainerContext() == null || this.A.getAdContainerContext().getAdInstanceInfo() == null || TextUtils.isEmpty(this.A.getAdContainerContext().getAdInstanceInfo().getVideoUrl())) ? false : true;
     }

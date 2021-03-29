@@ -12,16 +12,16 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
     public static final MaybeDisposable[] j = new MaybeDisposable[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public T f68108g;
+    public T f68113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Throwable f68109h;
+    public Throwable f68114h;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f68107f = new AtomicBoolean();
+    public final AtomicBoolean f68112f = new AtomicBoolean();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<MaybeDisposable<T>[]> f68106e = new AtomicReference<>(i);
+    public final AtomicReference<MaybeDisposable<T>[]> f68111e = new AtomicReference<>(i);
 
     /* loaded from: classes7.dex */
     public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements b {
@@ -58,12 +58,12 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
             }
             return;
         }
-        Throwable th = this.f68109h;
+        Throwable th = this.f68114h;
         if (th != null) {
             iVar.onError(th);
             return;
         }
-        Object obj = (T) this.f68108g;
+        Object obj = (T) this.f68113g;
         if (obj == null) {
             iVar.onComplete();
         } else {
@@ -75,7 +75,7 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
         MaybeDisposable<T>[] maybeDisposableArr;
         MaybeDisposable<T>[] maybeDisposableArr2;
         do {
-            maybeDisposableArr = this.f68106e.get();
+            maybeDisposableArr = this.f68111e.get();
             if (maybeDisposableArr == j) {
                 return false;
             }
@@ -83,7 +83,7 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
             maybeDisposableArr2 = new MaybeDisposable[length + 1];
             System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr2, 0, length);
             maybeDisposableArr2[length] = maybeDisposable;
-        } while (!this.f68106e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
+        } while (!this.f68111e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
         return true;
     }
 
@@ -93,7 +93,7 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
         MaybeDisposable<T>[] maybeDisposableArr;
         MaybeDisposable[] maybeDisposableArr2;
         do {
-            maybeDisposableArr = this.f68106e.get();
+            maybeDisposableArr = this.f68111e.get();
             int length = maybeDisposableArr.length;
             if (length == 0) {
                 return;
@@ -121,13 +121,13 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
                 System.arraycopy(maybeDisposableArr, i2 + 1, maybeDisposableArr3, i2, (length - i2) - 1);
                 maybeDisposableArr2 = maybeDisposableArr3;
             }
-        } while (!this.f68106e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
+        } while (!this.f68111e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
     }
 
     @Override // f.a.i
     public void onComplete() {
-        if (this.f68107f.compareAndSet(false, true)) {
-            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+        if (this.f68112f.compareAndSet(false, true)) {
+            for (MaybeDisposable<T> maybeDisposable : this.f68111e.getAndSet(j)) {
                 maybeDisposable.actual.onComplete();
             }
         }
@@ -136,9 +136,9 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
     @Override // f.a.i
     public void onError(Throwable th) {
         a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68107f.compareAndSet(false, true)) {
-            this.f68109h = th;
-            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+        if (this.f68112f.compareAndSet(false, true)) {
+            this.f68114h = th;
+            for (MaybeDisposable<T> maybeDisposable : this.f68111e.getAndSet(j)) {
                 maybeDisposable.actual.onError(th);
             }
             return;
@@ -148,7 +148,7 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
 
     @Override // f.a.i
     public void onSubscribe(b bVar) {
-        if (this.f68106e.get() == j) {
+        if (this.f68111e.get() == j) {
             bVar.dispose();
         }
     }
@@ -156,9 +156,9 @@ public final class MaybeSubject<T> extends h<T> implements i<T> {
     @Override // f.a.i
     public void onSuccess(T t) {
         a.b(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68107f.compareAndSet(false, true)) {
-            this.f68108g = t;
-            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+        if (this.f68112f.compareAndSet(false, true)) {
+            this.f68113g = t;
+            for (MaybeDisposable<T> maybeDisposable : this.f68111e.getAndSet(j)) {
                 maybeDisposable.actual.onSuccess(t);
             }
         }

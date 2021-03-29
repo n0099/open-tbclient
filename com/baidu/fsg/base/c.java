@@ -1,5 +1,5 @@
 package com.baidu.fsg.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static com.baidu.fsg.base.restnet.b.a a() {
         return new com.baidu.fsg.base.restnet.b.a();

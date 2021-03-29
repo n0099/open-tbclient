@@ -500,40 +500,40 @@ public class PathParser {
             double d16 = d12 * sin;
             double d17 = d5 * cos;
             double d18 = (sin2 * d16) + (cos2 * d17);
-            double d19 = ceil;
-            Double.isNaN(d19);
-            double d20 = d10 / d19;
-            double d21 = d9;
-            double d22 = d18;
-            double d23 = d15;
+            double d19 = d10 / ceil;
+            double d20 = d9;
+            double d21 = d18;
+            double d22 = d15;
             int i = 0;
-            double d24 = d6;
-            double d25 = d7;
+            double d23 = d6;
+            double d24 = d7;
             while (i < ceil) {
-                double d26 = d21 + d20;
-                double sin3 = Math.sin(d26);
-                double cos3 = Math.cos(d26);
-                double d27 = (d2 + ((d11 * cos) * cos3)) - (d14 * sin3);
-                double d28 = d3 + (d11 * sin * cos3) + (d17 * sin3);
-                double d29 = (d13 * sin3) - (d14 * cos3);
-                double d30 = (sin3 * d16) + (cos3 * d17);
-                double d31 = d26 - d21;
-                double tan = Math.tan(d31 / 2.0d);
-                double sin4 = (Math.sin(d31) * (Math.sqrt(((tan * 3.0d) * tan) + 4.0d) - 1.0d)) / 3.0d;
-                double d32 = d24 + (d23 * sin4);
+                double d25 = d20 + d19;
+                double sin3 = Math.sin(d25);
+                double cos3 = Math.cos(d25);
+                double d26 = (d2 + ((d11 * cos) * cos3)) - (d14 * sin3);
+                double d27 = d3 + (d11 * sin * cos3) + (d17 * sin3);
+                double d28 = (d13 * sin3) - (d14 * cos3);
+                double d29 = (sin3 * d16) + (cos3 * d17);
+                double d30 = d25 - d20;
+                double tan = Math.tan(d30 / 2.0d);
+                double sin4 = (Math.sin(d30) * (Math.sqrt(((tan * 3.0d) * tan) + 4.0d) - 1.0d)) / 3.0d;
+                double d31 = d23 + (d22 * sin4);
+                double d32 = cos;
+                double d33 = sin;
                 path.rLineTo(0.0f, 0.0f);
-                path.cubicTo((float) d32, (float) (d25 + (d22 * sin4)), (float) (d27 - (sin4 * d29)), (float) (d28 - (sin4 * d30)), (float) d27, (float) d28);
+                path.cubicTo((float) d31, (float) (d24 + (d21 * sin4)), (float) (d26 - (sin4 * d28)), (float) (d27 - (sin4 * d29)), (float) d26, (float) d27);
                 i++;
-                d20 = d20;
-                sin = sin;
-                d24 = d27;
+                d19 = d19;
+                sin = d33;
+                d23 = d26;
                 d16 = d16;
-                cos = cos;
-                d21 = d26;
-                d22 = d30;
-                d23 = d29;
+                cos = d32;
+                d20 = d25;
+                d21 = d29;
+                d22 = d28;
                 ceil = ceil;
-                d25 = d28;
+                d24 = d27;
                 d11 = d4;
             }
         }
@@ -545,66 +545,50 @@ public class PathParser {
             double cos = Math.cos(radians);
             double sin = Math.sin(radians);
             double d4 = f2;
-            Double.isNaN(d4);
             double d5 = d4 * cos;
             double d6 = f3;
-            Double.isNaN(d6);
             double d7 = f6;
-            Double.isNaN(d7);
             double d8 = (d5 + (d6 * sin)) / d7;
-            double d9 = -f2;
-            Double.isNaN(d9);
-            Double.isNaN(d6);
-            double d10 = f7;
-            Double.isNaN(d10);
-            double d11 = ((d9 * sin) + (d6 * cos)) / d10;
-            double d12 = f4;
-            Double.isNaN(d12);
-            double d13 = f5;
-            Double.isNaN(d13);
-            Double.isNaN(d7);
-            double d14 = ((d12 * cos) + (d13 * sin)) / d7;
-            double d15 = -f4;
-            Double.isNaN(d15);
-            Double.isNaN(d13);
-            Double.isNaN(d10);
-            double d16 = ((d15 * sin) + (d13 * cos)) / d10;
-            double d17 = d8 - d14;
-            double d18 = d11 - d16;
-            double d19 = (d8 + d14) / 2.0d;
-            double d20 = (d11 + d16) / 2.0d;
-            double d21 = (d17 * d17) + (d18 * d18);
-            if (d21 == 0.0d) {
+            double d9 = f7;
+            double d10 = (((-f2) * sin) + (d6 * cos)) / d9;
+            double d11 = f5;
+            double d12 = ((f4 * cos) + (d11 * sin)) / d7;
+            double d13 = (((-f4) * sin) + (d11 * cos)) / d9;
+            double d14 = d8 - d12;
+            double d15 = d10 - d13;
+            double d16 = (d8 + d12) / 2.0d;
+            double d17 = (d10 + d13) / 2.0d;
+            double d18 = (d14 * d14) + (d15 * d15);
+            if (d18 == 0.0d) {
                 Log.w(PathParser.LOGTAG, " Points are coincident");
                 return;
             }
-            double d22 = (1.0d / d21) - 0.25d;
-            if (d22 < 0.0d) {
-                Log.w(PathParser.LOGTAG, "Points are too far apart " + d21);
-                float sqrt = (float) (Math.sqrt(d21) / 1.99999d);
+            double d19 = (1.0d / d18) - 0.25d;
+            if (d19 < 0.0d) {
+                Log.w(PathParser.LOGTAG, "Points are too far apart " + d18);
+                float sqrt = (float) (Math.sqrt(d18) / 1.99999d);
                 drawArc(path, f2, f3, f4, f5, f6 * sqrt, f7 * sqrt, f8, z, z2);
                 return;
             }
-            double sqrt2 = Math.sqrt(d22);
-            double d23 = d17 * sqrt2;
-            double d24 = sqrt2 * d18;
+            double sqrt2 = Math.sqrt(d19);
+            double d20 = d14 * sqrt2;
+            double d21 = sqrt2 * d15;
             if (z == z2) {
-                d2 = d19 - d24;
-                d3 = d20 + d23;
+                d2 = d16 - d21;
+                d3 = d17 + d20;
             } else {
-                d2 = d19 + d24;
-                d3 = d20 - d23;
+                d2 = d16 + d21;
+                d3 = d17 - d20;
             }
-            double atan2 = Math.atan2(d11 - d3, d8 - d2);
-            double atan22 = Math.atan2(d16 - d3, d14 - d2) - atan2;
-            if (z2 != (atan22 >= 0.0d)) {
-                atan22 = atan22 > 0.0d ? atan22 - 6.283185307179586d : atan22 + 6.283185307179586d;
+            double atan2 = Math.atan2(d10 - d3, d8 - d2);
+            double atan22 = Math.atan2(d13 - d3, d12 - d2) - atan2;
+            int i = (atan22 > 0.0d ? 1 : (atan22 == 0.0d ? 0 : -1));
+            if (z2 != (i >= 0)) {
+                atan22 = i > 0 ? atan22 - 6.283185307179586d : atan22 + 6.283185307179586d;
             }
-            Double.isNaN(d7);
-            double d25 = d2 * d7;
-            Double.isNaN(d10);
-            double d26 = d3 * d10;
-            arcToBezier(path, (d25 * cos) - (d26 * sin), (d25 * sin) + (d26 * cos), d7, d10, d4, d6, radians, atan2, atan22);
+            double d22 = d2 * d7;
+            double d23 = d3 * d9;
+            arcToBezier(path, (d22 * cos) - (d23 * sin), (d22 * sin) + (d23 * cos), d7, d9, d4, d6, radians, atan2, atan22);
         }
 
         public static void nodesToPath(PathDataNode[] pathDataNodeArr, Path path) {

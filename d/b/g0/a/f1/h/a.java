@@ -6,21 +6,21 @@ import android.util.Log;
 import d.b.g0.a.k;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44446c = k.f45050a;
+    public static final boolean f44447c = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f44447a = 1.0d;
+    public double f44448a = 1.0d;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<Integer> f44448b;
+    public Set<Integer> f44449b;
 
     /* renamed from: d.b.g0.a.f1.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0690a {
+    /* loaded from: classes2.dex */
+    public static class C0691a {
         public static a a(String str) {
             return b(str, 0.5d);
         }
@@ -76,15 +76,15 @@ public abstract class a {
     }
 
     public void c(int i) {
-        Set<Integer> set = this.f44448b;
+        Set<Integer> set = this.f44449b;
         if (set == null) {
-            this.f44448b = new TreeSet();
+            this.f44449b = new TreeSet();
         } else {
             set.clear();
         }
-        if (f44446c) {
+        if (f44447c) {
             Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.f44448b.add(Integer.valueOf(i));
+        this.f44449b.add(Integer.valueOf(i));
     }
 }

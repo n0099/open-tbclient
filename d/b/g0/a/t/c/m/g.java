@@ -7,14 +7,14 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends d.b.g0.a.t.b.d {
     public g(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
         if (k()) {

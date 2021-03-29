@@ -9,34 +9,34 @@ import org.json.JSONObject;
 public class r extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65060e;
+    public final Context f65061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f65061f;
+    public final i f65062f;
 
     public r(Context context, i iVar) {
         super(false, false);
-        this.f65060e = context;
-        this.f65061f = iVar;
+        this.f65061e = context;
+        this.f65062f = iVar;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
         int i;
         int i2;
-        String packageName = this.f65060e.getPackageName();
+        String packageName = this.f65061e.getPackageName();
         PackageInfo packageInfo = null;
-        if (TextUtils.isEmpty(this.f65061f.p())) {
+        if (TextUtils.isEmpty(this.f65062f.p())) {
             jSONObject.put("package", packageName);
         } else {
-            if (r0.f65063b) {
+            if (r0.f65064b) {
                 r0.a("has zijie pkg", null);
             }
-            jSONObject.put("package", this.f65061f.p());
+            jSONObject.put("package", this.f65062f.p());
             jSONObject.put("real_package_name", packageName);
         }
         try {
-            packageInfo = this.f65060e.getPackageManager().getPackageInfo(packageName, 0);
+            packageInfo = this.f65061e.getPackageManager().getPackageInfo(packageName, 0);
         } catch (Throwable unused) {
         }
         if (packageInfo != null) {
@@ -49,41 +49,41 @@ public class r extends h2 {
         } else {
             i = 0;
         }
-        if (!TextUtils.isEmpty(this.f65061f.g())) {
-            jSONObject.put("app_version", this.f65061f.g());
+        if (!TextUtils.isEmpty(this.f65062f.g())) {
+            jSONObject.put("app_version", this.f65062f.g());
         } else {
             jSONObject.put("app_version", packageInfo != null ? packageInfo.versionName : "");
         }
-        if (!TextUtils.isEmpty(this.f65061f.l())) {
-            jSONObject.put("app_version_minor", this.f65061f.l());
+        if (!TextUtils.isEmpty(this.f65062f.l())) {
+            jSONObject.put("app_version_minor", this.f65062f.l());
         } else {
             jSONObject.put("app_version_minor", "");
         }
-        if (this.f65061f.d() != 0) {
-            jSONObject.put("version_code", this.f65061f.d());
+        if (this.f65062f.d() != 0) {
+            jSONObject.put("version_code", this.f65062f.d());
         } else {
             jSONObject.put("version_code", i);
         }
-        if (this.f65061f.e() != 0) {
-            jSONObject.put("update_version_code", this.f65061f.e());
+        if (this.f65062f.e() != 0) {
+            jSONObject.put("update_version_code", this.f65062f.e());
         } else {
             jSONObject.put("update_version_code", i);
         }
-        if (this.f65061f.f() != 0) {
-            jSONObject.put("manifest_version_code", this.f65061f.f());
+        if (this.f65062f.f() != 0) {
+            jSONObject.put("manifest_version_code", this.f65062f.f());
         } else {
             jSONObject.put("manifest_version_code", i);
         }
-        if (!TextUtils.isEmpty(this.f65061f.c())) {
-            jSONObject.put(DpStatConstants.KEY_APP_NAME, this.f65061f.c());
+        if (!TextUtils.isEmpty(this.f65062f.c())) {
+            jSONObject.put(DpStatConstants.KEY_APP_NAME, this.f65062f.c());
         }
-        if (!TextUtils.isEmpty(this.f65061f.h())) {
-            jSONObject.put("tweaked_channel", this.f65061f.h());
+        if (!TextUtils.isEmpty(this.f65062f.h())) {
+            jSONObject.put("tweaked_channel", this.f65062f.h());
         }
         if (packageInfo == null || packageInfo.applicationInfo == null || (i2 = packageInfo.applicationInfo.labelRes) <= 0) {
             return true;
         }
-        jSONObject.put("display_name", this.f65060e.getString(i2));
+        jSONObject.put("display_name", this.f65061e.getString(i2));
         return true;
     }
 }

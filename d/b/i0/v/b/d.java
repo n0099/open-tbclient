@@ -6,28 +6,28 @@ import tbclient.Myrecord;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61904a;
+    public int f61905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61905b;
+    public int f61906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61906c;
+    public long f61907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61907d;
+    public long f61908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61908e;
+    public String f61909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61909f;
+    public String f61910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61910g;
+    public int f61911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61911h;
+    public int f61912h;
     public int i;
     public int j;
     public int k;
@@ -82,15 +82,15 @@ public class d {
     }
 
     public void B(long j) {
-        this.f61907d = j;
+        this.f61908d = j;
     }
 
     public void C(long j) {
-        this.f61906c = j;
+        this.f61907c = j;
     }
 
     public void D(int i) {
-        this.f61911h = i;
+        this.f61912h = i;
     }
 
     public int a() {
@@ -102,15 +102,15 @@ public class d {
     }
 
     public int c() {
-        return this.f61904a;
+        return this.f61905a;
     }
 
     public int d() {
-        return this.f61910g;
+        return this.f61911g;
     }
 
     public String e() {
-        return this.f61909f;
+        return this.f61910f;
     }
 
     public int f() {
@@ -118,7 +118,7 @@ public class d {
     }
 
     public String g() {
-        return this.f61908e;
+        return this.f61909e;
     }
 
     public int h() {
@@ -126,7 +126,7 @@ public class d {
     }
 
     public int i() {
-        return this.f61905b;
+        return this.f61906b;
     }
 
     public int j() {
@@ -134,15 +134,15 @@ public class d {
     }
 
     public long k() {
-        return this.f61907d;
+        return this.f61908d;
     }
 
     public long l() {
-        return this.f61906c;
+        return this.f61907c;
     }
 
     public int m() {
-        return this.f61911h;
+        return this.f61912h;
     }
 
     public boolean n() {
@@ -158,7 +158,7 @@ public class d {
     }
 
     public void s(int i) {
-        this.f61904a = i;
+        this.f61905a = i;
     }
 
     public void t(boolean z) {
@@ -166,11 +166,11 @@ public class d {
     }
 
     public void u(int i) {
-        this.f61910g = i;
+        this.f61911g = i;
     }
 
     public void v(String str) {
-        this.f61909f = str;
+        this.f61910f = str;
     }
 
     public void w(int i) {
@@ -178,7 +178,7 @@ public class d {
     }
 
     public void x(String str) {
-        this.f61908e = str;
+        this.f61909e = str;
     }
 
     public void y(int i) {
@@ -186,6 +186,6 @@ public class d {
     }
 
     public void z(int i) {
-        this.f61905b = i;
+        this.f61906b = i;
     }
 }

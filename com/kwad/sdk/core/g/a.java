@@ -12,7 +12,7 @@ import org.json.JSONArray;
 public class a extends com.kwad.sdk.core.network.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.g.a.f f33628b;
+    public com.kwad.sdk.core.g.a.f f33629b;
 
     public a(com.kwad.sdk.core.g.a.f fVar, com.kwad.sdk.core.g.a.l lVar) {
         this(fVar, null, false, lVar);
@@ -20,7 +20,7 @@ public class a extends com.kwad.sdk.core.network.d {
 
     public a(com.kwad.sdk.core.g.a.f fVar, @Nullable List<String> list, boolean z, com.kwad.sdk.core.g.a.l lVar) {
         DevelopMangerPlugin.DevelopValue a2;
-        this.f33628b = fVar;
+        this.f33629b = fVar;
         JSONArray jSONArray = new JSONArray();
         com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);

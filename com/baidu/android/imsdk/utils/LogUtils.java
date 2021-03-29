@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LogUtils {
     public static int LOG_LEVEL_D = 3;
     public static int LOG_LEVEL_E = 0;

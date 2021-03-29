@@ -13,7 +13,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NetWorkUtils {
     public static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -26,7 +26,7 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_WIFI = "wifi";
     public static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -233,7 +233,7 @@ public class NetWorkUtils {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3873b;
+                        return g.f3874b;
                     case 13:
                         return "4G";
                     default:

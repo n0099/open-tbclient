@@ -9,42 +9,42 @@ import d.o.a.e.b.g.d;
 public class b extends n {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66849b;
+    public Context f66854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66850c;
+    public int f66855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66851d;
+    public String f66856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66852e;
+    public String f66857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66853f;
+    public String f66858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66854g;
+    public String f66859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.p.a f66855h;
+    public d.o.a.e.b.p.a f66860h;
 
     public b(Context context, int i, String str, String str2, String str3, String str4) {
         if (context != null) {
-            this.f66849b = context.getApplicationContext();
+            this.f66854b = context.getApplicationContext();
         } else {
-            this.f66849b = d.l();
+            this.f66854b = d.l();
         }
-        this.f66850c = i;
-        this.f66851d = str;
-        this.f66852e = str2;
-        this.f66853f = str3;
-        this.f66854g = str4;
+        this.f66855c = i;
+        this.f66856d = str;
+        this.f66857e = str2;
+        this.f66858f = str3;
+        this.f66859g = str4;
     }
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void b(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || this.f66849b == null) {
+        if (downloadInfo == null || this.f66854b == null) {
             return;
         }
         if (downloadInfo.e() && !downloadInfo.c1()) {
@@ -71,7 +71,7 @@ public class b extends n {
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void e(DownloadInfo downloadInfo, BaseException baseException) {
-        if (downloadInfo == null || this.f66849b == null || !downloadInfo.e() || downloadInfo.c1()) {
+        if (downloadInfo == null || this.f66854b == null || !downloadInfo.e() || downloadInfo.c1()) {
             return;
         }
         super.e(downloadInfo, baseException);
@@ -96,14 +96,14 @@ public class b extends n {
     @Override // d.o.a.e.b.f.n
     public d.o.a.e.b.p.a n() {
         Context context;
-        if (this.f66855h == null && (context = this.f66849b) != null) {
-            return new a(context, this.f66850c, this.f66851d, this.f66852e, this.f66853f, this.f66854g);
+        if (this.f66860h == null && (context = this.f66854b) != null) {
+            return new a(context, this.f66855c, this.f66856d, this.f66857e, this.f66858f, this.f66859g);
         }
-        return this.f66855h;
+        return this.f66860h;
     }
 
     public b(d.o.a.e.b.p.a aVar) {
-        this.f66849b = d.l();
-        this.f66855h = aVar;
+        this.f66854b = d.l();
+        this.f66860h = aVar;
     }
 }

@@ -25,32 +25,32 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final IXAdLogger f8166a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    public final IXAdLogger f8167a = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f8167e;
+    public Context f8168e;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f8165d = new a();
+    public static a f8166d = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f8163b = "";
+    public static volatile String f8164b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f8164c = "";
+    public static volatile String f8165c = "";
 
     public static a a() {
-        return f8165d;
+        return f8166d;
     }
 
     private String b() {
-        String str = com.baidu.mobads.constants.a.f8205c;
+        String str = com.baidu.mobads.constants.a.f8206c;
         if ("0.0".equals(str)) {
             try {
-                double a2 = g.a(this.f8167e, g.a(this.f8167e));
+                double a2 = g.a(this.f8168e, g.a(this.f8168e));
                 return a2 > 0.0d ? String.valueOf(a2) : str;
             } catch (Throwable th) {
-                this.f8166a.d(th);
+                this.f8167a.d(th);
                 return str;
             }
         }
@@ -58,8 +58,8 @@ public class a {
     }
 
     public void a(Context context) {
-        if (this.f8167e == null) {
-            this.f8167e = context;
+        if (this.f8168e == null) {
+            this.f8168e = context;
         }
     }
 
@@ -70,7 +70,7 @@ public class a {
             hashMap.put("stacktrace", str2);
             a(str, "404", hashMap);
         } catch (Exception e2) {
-            this.f8166a.d(e2);
+            this.f8167a.d(e2);
         }
     }
 
@@ -111,7 +111,7 @@ public class a {
                 }
             }
         } catch (Throwable th) {
-            this.f8166a.d(th);
+            this.f8167a.d(th);
         }
         b bVar = new b("https://mobads-logs.baidu.com/brwhis.log", "");
         bVar.a(builder);
@@ -184,7 +184,7 @@ public class a {
             }
             a(a(context, String.valueOf(i), hashMap));
         } catch (Throwable th) {
-            this.f8166a.d(th);
+            this.f8167a.d(th);
         }
     }
 
@@ -195,7 +195,7 @@ public class a {
     private void a(int i, String str) {
         com.baidu.mobads.openad.b.a aVar = new com.baidu.mobads.openad.b.a();
         b bVar = new b(str, "");
-        bVar.f8413e = i;
+        bVar.f8414e = i;
         aVar.a(bVar, Boolean.TRUE);
     }
 
@@ -220,14 +220,14 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            IXAdLogger iXAdLogger = this.f8166a;
+            IXAdLogger iXAdLogger = this.f8167a;
             iXAdLogger.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + "&");
-            IXAdLogger iXAdLogger2 = this.f8166a;
+            IXAdLogger iXAdLogger2 = this.f8167a;
             iXAdLogger2.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e2) {
-            this.f8166a.d(e2);
+            this.f8167a.d(e2);
             return "";
         }
     }

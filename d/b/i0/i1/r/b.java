@@ -5,18 +5,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import d.b.i0.i1.p.e;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<a> f56058a = new AtomicReference<>(null);
+    public static final AtomicReference<a> f56059a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f56059b = new b();
+    public static final a f56060b = new b();
 
     public static a d() {
-        a aVar = f56058a.get();
-        return aVar == null ? f56059b : aVar;
+        a aVar = f56059a.get();
+        return aVar == null ? f56060b : aVar;
     }
 
     @Override // d.b.i0.i1.r.a

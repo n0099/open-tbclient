@@ -10,22 +10,22 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class g extends Thread implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedBlockingQueue<a> f6006a;
+    public LinkedBlockingQueue<a> f6007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f6007b;
+    public f f6008b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6009d;
+    public int f6010d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6010e;
+    public int f6011e;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f6012g;
+    public d f6013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6013h;
+    public boolean f6014h;
     public boolean i;
     public int j;
     public int k;
@@ -34,10 +34,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public long o;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6008c = false;
+    public boolean f6009c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<byte[]> f6011f = new LinkedList<>();
+    public LinkedList<byte[]> f6012f = new LinkedList<>();
     public long p = -1;
     public int n = 0;
 
@@ -45,10 +45,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f6014a;
+        public long f6015a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f6015b;
+        public byte[] f6016b;
     }
 
     public g(int i, int i2, int i3, int i4, int i5, String str, MediaMuxer mediaMuxer, CountDownLatch countDownLatch) {
@@ -56,25 +56,25 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         this.k = i2;
         setPriority(10);
         setName("VideoMediaEncoderThread");
-        this.f6006a = new LinkedBlockingQueue<>();
-        this.f6010e = i4;
+        this.f6007a = new LinkedBlockingQueue<>();
+        this.f6011e = i4;
         a(i, i2, i3, i4, i5, str, mediaMuxer);
     }
 
     public void a(int i, int i2, int i3, int i4, int i5, String str, MediaMuxer mediaMuxer) {
-        this.f6007b = new f(i, i2, i3, i4, i5, mediaMuxer);
+        this.f6008b = new f(i, i2, i3, i4, i5, mediaMuxer);
     }
 
     public boolean b() {
-        return this.f6013h;
+        return this.f6014h;
     }
 
     public void c() {
         a aVar = new a();
-        aVar.f6015b = null;
-        aVar.f6014a = 0L;
-        this.f6006a.add(aVar);
-        this.f6008c = true;
+        aVar.f6016b = null;
+        aVar.f6015a = 0L;
+        this.f6007a.add(aVar);
+        this.f6009c = true;
         this.l = null;
         this.m = 0L;
     }
@@ -82,19 +82,19 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     @Deprecated
     public void d() {
         a aVar = new a();
-        aVar.f6015b = null;
-        aVar.f6014a = 0L;
-        this.f6006a.clear();
-        this.f6006a.add(aVar);
-        this.f6008c = true;
+        aVar.f6016b = null;
+        aVar.f6015a = 0L;
+        this.f6007a.clear();
+        this.f6007a.add(aVar);
+        this.f6009c = true;
     }
 
     public int e() {
-        return this.f6009d + 1;
+        return this.f6010d + 1;
     }
 
     public int f() {
-        LinkedBlockingQueue<a> linkedBlockingQueue = this.f6006a;
+        LinkedBlockingQueue<a> linkedBlockingQueue = this.f6007a;
         if (linkedBlockingQueue == null) {
             return 0;
         }
@@ -108,39 +108,39 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
             Thread.currentThread().setUncaughtExceptionHandler(this);
             this.i = true;
             LogUtil.i("+initInThread");
-            this.f6007b.a();
+            this.f6008b.a();
             LogUtil.i("-initInThread");
         }
         while (true) {
             try {
                 LogUtil.i("+mQueue.take");
-                take = this.f6006a.take();
+                take = this.f6007a.take();
                 LogUtil.i("-mQueue.take");
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
                 LogUtil.e(e2.toString());
             }
-            if (take.f6015b == null) {
-                this.f6011f.clear();
-                this.f6006a.clear();
-                this.f6007b.b();
-                this.f6013h = true;
+            if (take.f6016b == null) {
+                this.f6012f.clear();
+                this.f6007a.clear();
+                this.f6008b.b();
+                this.f6014h = true;
                 return;
             }
             LogUtil.i("+encodeFrame");
             long currentTimeMillis = System.currentTimeMillis();
-            this.f6007b.a(take.f6015b, take.f6014a);
+            this.f6008b.a(take.f6016b, take.f6015a);
             long currentTimeMillis2 = System.currentTimeMillis();
             LogUtil.i("-encodeFrame");
-            synchronized (this.f6011f) {
-                this.f6011f.add(take.f6015b);
+            synchronized (this.f6012f) {
+                this.f6012f.add(take.f6016b);
             }
-            this.f6009d++;
+            this.f6010d++;
             LogUtil.i("mRecorder.encodeFrame:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
             if (this.p < 0) {
-                this.p = take.f6014a / 1000;
+                this.p = take.f6015a / 1000;
             }
-            this.o = (take.f6014a / 1000) - this.p;
+            this.o = (take.f6015a / 1000) - this.p;
         }
     }
 
@@ -151,12 +151,12 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
 
     public void a(byte[] bArr, long j) {
         byte[] bArr2;
-        if (this.f6008c || this.f6006a == null) {
+        if (this.f6009c || this.f6007a == null) {
             return;
         }
-        if (this.f6011f.size() > 0) {
-            synchronized (this.f6011f) {
-                bArr2 = this.f6011f.pop();
+        if (this.f6012f.size() > 0) {
+            synchronized (this.f6012f) {
+                bArr2 = this.f6012f.pop();
             }
             if (bArr.length != bArr2.length) {
                 try {
@@ -180,10 +180,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         a aVar = new a();
         this.l = bArr2;
         this.m = j;
-        aVar.f6015b = bArr2;
-        aVar.f6014a = j;
-        if (this.f6006a.size() < 50) {
-            this.f6006a.add(aVar);
+        aVar.f6016b = bArr2;
+        aVar.f6015a = j;
+        if (this.f6007a.size() < 50) {
+            this.f6007a.add(aVar);
         }
     }
 
@@ -192,17 +192,17 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     }
 
     public void a(d dVar) {
-        this.f6012g = dVar;
+        this.f6013g = dVar;
     }
 
     public void a(Throwable th) {
-        d dVar = this.f6012g;
+        d dVar = this.f6013g;
         if (dVar != null) {
             dVar.a(th);
         }
         th.printStackTrace();
         LogUtil.e(th.toString());
-        f fVar = this.f6007b;
+        f fVar = this.f6008b;
         if (fVar != null) {
             fVar.b();
         }

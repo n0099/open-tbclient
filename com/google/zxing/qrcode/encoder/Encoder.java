@@ -99,7 +99,7 @@ public final class Encoder {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0035 A[LOOP:0: B:4:0x0008->B:17:0x0035, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0044 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0044 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

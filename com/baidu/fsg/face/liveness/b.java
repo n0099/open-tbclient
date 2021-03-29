@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5869a;
+    public long f5870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5870b;
+    public int f5871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5871c;
+    public int f5872c;
     public long i;
     public long j;
     public long k;
@@ -28,21 +28,21 @@ public class b {
     public LivenessRecogDTO t;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f5874f = 0;
+    public long f5875f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f5875g = 0;
+    public long f5876g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5876h = 0;
+    public long f5877h = 0;
     public ArrayList<String> p = new ArrayList<>();
     public StringBuilder q = new StringBuilder();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5872d = "";
+    public String f5873d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5873e = "";
+    public String f5874e = "";
 
     public b() {
     }
@@ -66,8 +66,8 @@ public class b {
         ArrayList arrayList = new ArrayList();
         if (d.t.equals(str)) {
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(this.f5870b + "");
-            arrayList2.add(this.f5871c + "");
+            arrayList2.add(this.f5871b + "");
+            arrayList2.add(this.f5872c + "");
             arrayList2.add(spno);
             RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
         } else if (d.r.equals(str)) {
@@ -76,10 +76,10 @@ public class b {
             arrayList.add(b() + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-        } else if (d.f5978f.equals(str)) {
-            arrayList.add(((System.currentTimeMillis() - this.f5869a) / 1000) + "");
+        } else if (d.f5979f.equals(str)) {
+            arrayList.add(((System.currentTimeMillis() - this.f5870a) / 1000) + "");
             arrayList.add(spno);
-            RimStatisticsUtil.onEventWithValues(d.f5978f, arrayList);
+            RimStatisticsUtil.onEventWithValues(d.f5979f, arrayList);
         } else if (d.u.equals(str)) {
             if (this.o > 0) {
                 str2 = (this.n / this.o) + "";
@@ -99,17 +99,17 @@ public class b {
                 } else {
                     this.p.add("");
                 }
-                this.p.add(this.f5870b + "*" + this.f5871c);
+                this.p.add(this.f5871b + "*" + this.f5872c);
                 this.p.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, this.p);
             }
         } else if (d.l.equals(str)) {
-            arrayList.add(this.f5873e);
-            arrayList.add(this.f5872d);
+            arrayList.add(this.f5874e);
+            arrayList.add(this.f5873d);
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         } else if (d.o.equals(str)) {
-            arrayList.add((System.currentTimeMillis() - this.f5869a) + "");
+            arrayList.add((System.currentTimeMillis() - this.f5870a) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         }
@@ -125,53 +125,53 @@ public class b {
     }
 
     private long b() {
-        long j = this.f5876h;
+        long j = this.f5877h;
         if (j >= 2) {
-            return (this.f5875g - this.f5874f) / j;
+            return (this.f5876g - this.f5875f) / j;
         }
         return 0L;
     }
 
     public void b(String str) {
-        this.f5872d += str;
+        this.f5873d += str;
     }
 
     public void b(FaceTracker.ErrCode errCode) {
         if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-            this.f5873e += "0";
+            this.f5874e += "0";
         } else if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
-            this.f5873e += "1";
+            this.f5874e += "1";
         } else if (errCode == FaceTracker.ErrCode.LIVENESS_NOT_SUCCEED) {
-            this.f5873e += "2";
+            this.f5874e += "2";
         } else if (errCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-            this.f5873e += "3";
+            this.f5874e += "3";
         } else {
             FaceTracker.ErrCode errCode2 = FaceTracker.ErrCode.NO_FACE_DETECTED;
             if (errCode == errCode2) {
                 FaceTracker.ErrCode errCode3 = this.r;
                 if (errCode3 == null) {
-                    this.f5873e += "4";
+                    this.f5874e += "4";
                     this.s = 0;
                 } else if (errCode3 == errCode2) {
                     int i = this.s;
                     if (i == 3) {
-                        this.f5873e += "4";
+                        this.f5874e += "4";
                         this.s = 0;
                     } else {
                         this.s = i + 1;
                     }
                 } else {
-                    this.f5873e += "4";
+                    this.f5874e += "4";
                     this.s = 0;
                 }
             } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
-                this.f5873e += "5";
+                this.f5874e += "5";
             } else if (errCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
-                this.f5873e += "6";
+                this.f5874e += "6";
             } else if (errCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
-                this.f5873e += "7";
+                this.f5874e += "7";
             } else if (errCode == FaceTracker.ErrCode.UNKNOW_TYPE) {
-                this.f5873e += "8";
+                this.f5874e += "8";
             }
         }
         this.r = errCode;
@@ -182,11 +182,11 @@ public class b {
     }
 
     public void a() {
-        if (this.f5874f == 0) {
-            this.f5874f = System.currentTimeMillis();
+        if (this.f5875f == 0) {
+            this.f5875f = System.currentTimeMillis();
         }
-        this.f5875g = System.currentTimeMillis();
-        this.f5876h++;
+        this.f5876g = System.currentTimeMillis();
+        this.f5877h++;
     }
 
     public void a(long j) {

@@ -16,14 +16,14 @@ import tbclient.App;
 public class s implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<r> f59847a = new AtomicReference<>(null);
+    public static final AtomicReference<r> f59848a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final r f59848b = new s();
+    public static final r f59849b = new s();
 
     public static r o() {
-        r rVar = f59847a.get();
-        return rVar == null ? f59848b : rVar;
+        r rVar = f59848a.get();
+        return rVar == null ? f59849b : rVar;
     }
 
     @Override // d.b.i0.r2.r

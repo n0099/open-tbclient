@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
 import d.b.h0.r.f0.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends g implements BigdaySwipeRefreshLayout.k, PersonalizePageView.a0 {
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);

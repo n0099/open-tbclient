@@ -12,7 +12,7 @@ import java.util.List;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30357a;
+    public static String f30358a;
 
     public static boolean a(Context context) {
         if (context == null) {
@@ -22,21 +22,21 @@ public class aa {
     }
 
     public static String b(Context context) {
-        if (!TextUtils.isEmpty(f30357a)) {
-            return f30357a;
+        if (!TextUtils.isEmpty(f30358a)) {
+            return f30358a;
         }
         String a2 = a();
-        f30357a = a2;
+        f30358a = a2;
         if (!TextUtils.isEmpty(a2)) {
-            return f30357a;
+            return f30358a;
         }
         String b2 = b();
-        f30357a = b2;
+        f30358a = b2;
         if (!TextUtils.isEmpty(b2)) {
-            return f30357a;
+            return f30358a;
         }
         String c2 = c(context);
-        f30357a = c2;
+        f30358a = c2;
         return c2;
     }
 

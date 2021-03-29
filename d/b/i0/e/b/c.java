@@ -3,35 +3,35 @@ package d.b.i0.e.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f54187a;
+    public Object f54188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54188b;
+    public int f54189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54189c;
+    public int f54190c;
 
     public Object a() {
-        return this.f54187a;
+        return this.f54188a;
     }
 
     public int b() {
-        return this.f54189c;
+        return this.f54190c;
     }
 
     public int c() {
-        return this.f54188b;
+        return this.f54189b;
     }
 
     public void d(Object obj) {
-        this.f54187a = obj;
+        this.f54188a = obj;
     }
 
     public void e(int i) {
-        this.f54189c = i;
+        this.f54190c = i;
     }
 
     public void f(int i) {
-        this.f54188b = i;
+        this.f54189b = i;
     }
 }

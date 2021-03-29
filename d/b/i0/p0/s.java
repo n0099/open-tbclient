@@ -29,7 +29,7 @@ public class s extends k<t, FrsNoListItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: t0 */
     public FrsNoListItemViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams u = u(viewGroup);
         u.width = -1;
         u.height = this.w;
@@ -40,12 +40,12 @@ public class s extends k<t, FrsNoListItemViewHolder> {
     public View u0(int i, View view, ViewGroup viewGroup, t tVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
         super.X(i, view, viewGroup, tVar, frsNoListItemViewHolder);
         if (tVar.a() == 6) {
-            frsNoListItemViewHolder.f16068d.setText(R.string.attention_no_post_tip);
+            frsNoListItemViewHolder.f16069d.setText(R.string.attention_no_post_tip);
         } else {
-            frsNoListItemViewHolder.f16068d.setText(R.string.no_data_common_txt);
+            frsNoListItemViewHolder.f16069d.setText(R.string.no_data_common_txt);
         }
-        SkinManager.setViewTextColor(frsNoListItemViewHolder.f16068d, R.color.CAM_X0107, 1);
-        SkinManager.setImageResource(frsNoListItemViewHolder.f16069e, R.drawable.new_pic_emotion_06);
+        SkinManager.setViewTextColor(frsNoListItemViewHolder.f16069d, R.color.CAM_X0107, 1);
+        SkinManager.setImageResource(frsNoListItemViewHolder.f16070e, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

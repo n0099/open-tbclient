@@ -25,7 +25,7 @@ public class d extends a {
             intent.setAction("android.intent.action.SEND");
             intent.putExtra("android.intent.extra.TEXT", str);
             intent.setType("text/plain");
-            Context context = this.f62051b;
+            Context context = this.f62052b;
             if (d.b.i0.v2.f.a.a(context, Intent.createChooser(intent, context.getString(R.string.share_to)))) {
                 if (bVar != null) {
                     bVar.onShare(0, 1);

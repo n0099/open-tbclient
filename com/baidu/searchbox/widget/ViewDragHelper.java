@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.ScrollerCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ViewDragHelper {
     public static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -66,7 +66,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Callback {
         public int clampViewPositionHorizontal(View view, int i, int i2) {
             return 0;
@@ -249,9 +249,7 @@ public class ViewDragHelper {
     }
 
     private float distanceInfluenceForSnapDuration(float f2) {
-        double d2;
-        Double.isNaN(f2 - 0.5f);
-        return (float) Math.sin((float) (d2 * 0.4712389167638204d));
+        return (float) Math.sin((float) ((f2 - 0.5f) * 0.4712389167638204d));
     }
 
     private void dragTo(int i, int i2, int i3, int i4) {
@@ -897,6 +895,6 @@ public class ViewDragHelper {
         this.mInitialEdgesTouched[i] = 0;
         this.mEdgeDragsInProgress[i] = 0;
         this.mEdgeDragsLocked[i] = 0;
-        this.mPointersDown = ((1 << i) ^ (-1)) & this.mPointersDown;
+        this.mPointersDown = (~(1 << i)) & this.mPointersDown;
     }
 }

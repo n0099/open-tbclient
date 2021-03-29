@@ -11,14 +11,14 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f48088a;
+    public final String f48089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f48089b;
+    public final Object f48090b;
 
     public d(String str, Object obj) {
-        this.f48088a = str;
-        this.f48089b = obj;
+        this.f48089a = str;
+        this.f48090b = obj;
     }
 
     public static Object a(d.b.g0.g.i.b bVar, String str, String str2, d dVar) {
@@ -78,14 +78,14 @@ public class d {
     }
 
     public Object d() {
-        return this.f48089b;
+        return this.f48090b;
     }
 
     public String e() {
-        return this.f48088a;
+        return this.f48089a;
     }
 
     public boolean g() {
-        return this.f48088a == null;
+        return this.f48089a == null;
     }
 }

@@ -5,22 +5,22 @@ import android.content.Context;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f50413a = null;
+    public static a f50414a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f50414b = 0;
+    public static int f50415b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f50415c = 0;
+    public static int f50416c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f50416d = 0;
+    public static int f50417d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f50417e = 1;
+    public static int f50418e = 1;
 
     public static int a() {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return -1;
         }
@@ -28,7 +28,7 @@ public class b {
     }
 
     public static Class<?> b() {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return null;
         }
@@ -36,7 +36,7 @@ public class b {
     }
 
     public static String c() {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class b {
     }
 
     public static void d(Context context) {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return;
         }
@@ -52,7 +52,7 @@ public class b {
     }
 
     public static void e(Context context, int i) {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return;
         }
@@ -60,7 +60,7 @@ public class b {
     }
 
     public static void f(Context context, int i, boolean z) {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return;
         }
@@ -68,7 +68,7 @@ public class b {
     }
 
     public static void g(Context context, int i, boolean z) {
-        a aVar = f50413a;
+        a aVar = f50414a;
         if (aVar == null) {
             return;
         }
@@ -76,6 +76,6 @@ public class b {
     }
 
     public static void h(a aVar) {
-        f50413a = aVar;
+        f50414a = aVar;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         if (context == null || drawable == null) {

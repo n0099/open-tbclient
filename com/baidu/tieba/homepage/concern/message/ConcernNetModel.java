@@ -12,23 +12,23 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipReqMessage;
 import d.b.b.a.f;
 import d.b.b.e.p.k;
 import tbclient.Userlike.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f17032e;
+    public d f17033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f17033f;
+    public c f17034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17034g;
+    public boolean f17035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f17035h;
+    public d.b.b.c.g.a f17036h;
     public d.b.b.c.g.a i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -36,11 +36,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || ConcernNetModel.this.f17032e == null) {
+            if (responsedMessage == null || ConcernNetModel.this.f17033e == null) {
                 return;
             }
             boolean z = false;
-            ConcernNetModel.this.f17034g = false;
+            ConcernNetModel.this.f17035g = false;
             if (responsedMessage.getOrginalMessage() != null) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof ConcernPageRequestMessage) {
@@ -48,7 +48,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             if (responsedMessage.getError() != 0) {
-                ConcernNetModel.this.f17032e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                ConcernNetModel.this.f17033e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
             DataRes dataRes = null;
@@ -57,11 +57,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
             }
-            ConcernNetModel.this.f17032e.b(dataRes, z);
+            ConcernNetModel.this.f17033e.b(dataRes, z);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends d.b.b.c.g.a {
         public b(int i, int i2) {
             super(i, i2);
@@ -71,7 +71,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
             boolean isShowRedNotify;
-            if (responsedMessage == null || ConcernNetModel.this.f17033f == null || responsedMessage.getError() != 0) {
+            if (responsedMessage == null || ConcernNetModel.this.f17034f == null || responsedMessage.getError() != 0) {
                 return;
             }
             if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
@@ -86,19 +86,19 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
                 isShowRedNotify = false;
             }
-            ConcernNetModel.this.f17033f.a(false);
+            ConcernNetModel.this.f17034f.a(false);
             if (isShowRedNotify && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                 ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(int i, String str);
 
@@ -107,33 +107,33 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     public ConcernNetModel(f<BaseFragmentActivity> fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f17034g = false;
-        this.f17035h = new a(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
+        this.f17035g = false;
+        this.f17036h = new a(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
         this.i = new b(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
         setUniqueId(bdUniqueId);
         x();
         y();
-        registerListener(this.f17035h);
+        registerListener(this.f17036h);
         registerListener(this.i);
     }
 
     public void A(d dVar) {
-        this.f17032e = dVar;
+        this.f17033e = dVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f17034g) {
+        if (this.f17035g) {
             return true;
         }
-        this.f17034g = true;
+        this.f17035g = true;
         sendMessage(new ConcernPageRequestMessage());
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.f17034g = false;
+        this.f17035g = false;
         cancelMessage();
         return false;
     }
@@ -146,10 +146,10 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void w(String str, d.b.h0.z0.c cVar) {
-        if (this.f17034g) {
+        if (this.f17035g) {
             return;
         }
-        this.f17034g = true;
+        this.f17035g = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
@@ -180,6 +180,6 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void z(c cVar) {
-        this.f17033f = cVar;
+        this.f17034f = cVar;
     }
 }

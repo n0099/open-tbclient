@@ -9,25 +9,25 @@ import java.util.concurrent.TimeUnit;
 public final class i implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadFactory f38439a = new j();
+    public static final ThreadFactory f38440a = new j();
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f38440b;
+    public final BlockingQueue<Runnable> f38441b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadPoolExecutor f38441c;
+    public final ThreadPoolExecutor f38442c;
 
     public i() {
         this(5);
     }
 
     public i(int i) {
-        this.f38440b = new l();
-        this.f38441c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f38440b, f38439a);
+        this.f38441b = new l();
+        this.f38442c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f38441b, f38440a);
     }
 
     @Override // java.util.concurrent.Executor
     public final void execute(Runnable runnable) {
-        this.f38441c.execute(runnable);
+        this.f38442c.execute(runnable);
     }
 }

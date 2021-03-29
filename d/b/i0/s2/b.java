@@ -5,24 +5,24 @@ import android.util.SparseArray;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<a> f60186a;
+    public SparseArray<a> f60187a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f60187a;
+        public boolean f60188a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f60188b;
+        public int f60189b;
 
         public a(boolean z, int i) {
-            this.f60187a = z;
-            this.f60188b = i;
+            this.f60188a = z;
+            this.f60189b = i;
         }
     }
 
     public b(SparseArray<a> sparseArray) {
-        this.f60186a = sparseArray;
+        this.f60187a = sparseArray;
     }
 }

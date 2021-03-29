@@ -26,16 +26,16 @@ public class i implements View.OnClickListener {
     public static final int r = R.drawable.shape_new_complete_toast_bg;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51010e;
+    public Context f51011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f51011f;
+    public ViewGroup f51012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51012g;
+    public TextView f51013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51013h;
+    public TextView f51014h;
     public TbImageView i;
     public WindowManager j;
     public WindowManager.LayoutParams k;
@@ -61,14 +61,14 @@ public class i implements View.OnClickListener {
         if (context == null) {
             return;
         }
-        this.f51010e = context;
+        this.f51011e = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.new_task_completed_toast_layout, (ViewGroup) null);
-        this.f51011f = viewGroup;
-        this.f51012g = (TextView) viewGroup.findViewById(R.id.toast_message_content);
-        TextView textView = (TextView) this.f51011f.findViewById(R.id.toast_btn);
-        this.f51013h = textView;
+        this.f51012f = viewGroup;
+        this.f51013g = (TextView) viewGroup.findViewById(R.id.toast_message_content);
+        TextView textView = (TextView) this.f51012f.findViewById(R.id.toast_btn);
+        this.f51014h = textView;
         textView.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) this.f51011f.findViewById(R.id.toast_bg);
+        TbImageView tbImageView = (TbImageView) this.f51012f.findViewById(R.id.toast_bg);
         this.i = tbImageView;
         tbImageView.setDefaultBgResource(r);
         this.i.setDrawCorner(true);
@@ -76,8 +76,8 @@ public class i implements View.OnClickListener {
         this.i.setRadius(d.b.b.e.p.l.g(context, R.dimen.tbds20));
         this.m = d.b.b.e.p.l.g(context, R.dimen.tbds176);
         this.l = d.b.b.e.p.l.g(context, R.dimen.tbds29);
-        SkinManager.setBackgroundResource(this.f51011f, R.drawable.layerlist_new_complete_task_toast_shadow);
-        this.j = (WindowManager) this.f51010e.getSystemService("window");
+        SkinManager.setBackgroundResource(this.f51012f, R.drawable.layerlist_new_complete_task_toast_shadow);
+        this.j = (WindowManager) this.f51011e.getSystemService("window");
         h();
         this.p = new a();
     }
@@ -89,7 +89,7 @@ public class i implements View.OnClickListener {
     }
 
     public final i a(d.b.h0.a.b0.a aVar) {
-        if (this.f51010e == null) {
+        if (this.f51011e == null) {
             return this;
         }
         if (aVar == null) {
@@ -97,28 +97,28 @@ public class i implements View.OnClickListener {
             return this;
         }
         this.q = aVar;
-        if (d.b.b.e.p.k.isEmpty(aVar.f49514e)) {
-            this.f51012g.setText(this.f51010e.getResources().getString(R.string.task_already_finish));
+        if (d.b.b.e.p.k.isEmpty(aVar.f49515e)) {
+            this.f51013g.setText(this.f51011e.getResources().getString(R.string.task_already_finish));
         } else {
-            this.f51012g.setText(aVar.f49514e);
+            this.f51013g.setText(aVar.f49515e);
         }
-        if (d.b.b.e.p.k.isEmpty(aVar.f49515f)) {
-            this.f51013h.setText(this.f51010e.getResources().getString(R.string.back));
+        if (d.b.b.e.p.k.isEmpty(aVar.f49516f)) {
+            this.f51014h.setText(this.f51011e.getResources().getString(R.string.back));
         } else {
-            this.f51013h.setText(aVar.f49515f);
+            this.f51014h.setText(aVar.f49516f);
         }
         if (d.b.b.e.p.k.isEmpty(aVar.p)) {
-            SkinManager.setViewTextColor(this.f51012g, R.color.CAM_X0302, 1);
+            SkinManager.setViewTextColor(this.f51013g, R.color.CAM_X0302, 1);
         } else {
-            this.f51012g.setTextColor(d.b.i0.i1.o.k.b.b(aVar.p));
+            this.f51013g.setTextColor(d.b.i0.i1.o.k.b.b(aVar.p));
         }
         if (d.b.b.e.p.k.isEmpty(aVar.q)) {
-            SkinManager.setViewTextColor(this.f51013h, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.f51014h, R.color.CAM_X0101, 1);
         } else {
-            this.f51013h.setTextColor(d.b.i0.i1.o.k.b.b(aVar.q));
+            this.f51014h.setTextColor(d.b.i0.i1.o.k.b.b(aVar.q));
         }
         if (!d.b.b.e.p.k.isEmpty(aVar.o)) {
-            this.f51013h.setBackgroundDrawable(b(aVar.o));
+            this.f51014h.setBackgroundDrawable(b(aVar.o));
         }
         if (!d.b.b.e.p.k.isEmpty(aVar.j)) {
             this.i.W(aVar.j, 10, false);
@@ -134,9 +134,9 @@ public class i implements View.OnClickListener {
 
     public final StateListDrawable b(String str) {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable drawable = this.f51010e.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
+        Drawable drawable = this.f51011e.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(d.b.b.e.p.l.g(this.f51010e, R.dimen.tbds10));
+        gradientDrawable.setCornerRadius(d.b.b.e.p.l.g(this.f51011e, R.dimen.tbds10));
         gradientDrawable.setColor(d.b.i0.i1.o.k.b.b(str));
         stateListDrawable.addState(new int[]{16842919}, drawable);
         stateListDrawable.addState(new int[0], gradientDrawable);
@@ -144,10 +144,10 @@ public class i implements View.OnClickListener {
     }
 
     public final i c() {
-        this.f51012g.setText(this.f51010e.getResources().getString(R.string.task_already_finish));
-        this.f51013h.setText(this.f51010e.getResources().getString(R.string.back));
-        SkinManager.setViewTextColor(this.f51012g, R.color.CAM_X0302, 1);
-        SkinManager.setViewTextColor(this.f51013h, R.color.CAM_X0101, 1);
+        this.f51013g.setText(this.f51011e.getResources().getString(R.string.task_already_finish));
+        this.f51014h.setText(this.f51011e.getResources().getString(R.string.back));
+        SkinManager.setViewTextColor(this.f51013g, R.color.CAM_X0302, 1);
+        SkinManager.setViewTextColor(this.f51014h, R.color.CAM_X0101, 1);
         j();
         return this;
     }
@@ -171,20 +171,20 @@ public class i implements View.OnClickListener {
     }
 
     public void f() {
-        if (this.f51010e != null) {
-            if (this.f51011f.getWindowToken() != null) {
-                this.j.removeView(this.f51011f);
+        if (this.f51011e != null) {
+            if (this.f51012f.getWindowToken() != null) {
+                this.j.removeView(this.f51012f);
             }
             d.b.b.e.m.e.a().removeCallbacks(this.p);
         }
-        this.f51010e = null;
+        this.f51011e = null;
     }
 
     public final void h() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.k = layoutParams;
-        layoutParams.width = d.b.b.e.p.l.k(this.f51010e) - (this.l * 2);
-        this.k.height = d.b.b.e.p.l.g(this.f51010e, R.dimen.tbds196);
+        layoutParams.width = d.b.b.e.p.l.k(this.f51011e) - (this.l * 2);
+        this.k.height = d.b.b.e.p.l.g(this.f51011e, R.dimen.tbds196);
         WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.type = 1000;
         layoutParams2.format = -3;
@@ -200,12 +200,12 @@ public class i implements View.OnClickListener {
     }
 
     public i k() {
-        if (this.f51010e != null) {
-            this.j.addView(this.f51011f, this.k);
+        if (this.f51011e != null) {
+            this.j.addView(this.f51012f, this.k);
             d.b.b.e.m.e.a().removeCallbacks(this.p);
             d.b.b.e.m.e.a().postDelayed(this.p, this.o);
             if (this.q != null) {
-                TiebaStatic.log(new StatisticItem("c13317").param("obj_source", this.q.f49510a).param("obj_type", this.q.f49511b));
+                TiebaStatic.log(new StatisticItem("c13317").param("obj_source", this.q.f49511a).param("obj_type", this.q.f49512b));
             }
         }
         return this;
@@ -217,7 +217,7 @@ public class i implements View.OnClickListener {
         if (aVar == null) {
             return;
         }
-        int i = aVar.f49513d;
+        int i = aVar.f49514d;
         if (i == d.b.h0.a.b0.a.H) {
             if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.q.l) && !d.b.b.e.p.k.isEmpty(this.q.k)) {
                 d(this.q.k);
@@ -225,6 +225,6 @@ public class i implements View.OnClickListener {
         } else if (i == d.b.h0.a.b0.a.I && !d.b.b.e.p.k.isEmpty(aVar.k)) {
             d(this.q.k);
         }
-        TiebaStatic.log(new StatisticItem("c13318").param("obj_source", this.q.f49510a).param("obj_type", this.q.f49511b));
+        TiebaStatic.log(new StatisticItem("c13318").param("obj_source", this.q.f49511a).param("obj_type", this.q.f49512b));
     }
 }

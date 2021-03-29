@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.j {
     public MessageCenterFragment mFragment;
     public int mSkinType = 3;

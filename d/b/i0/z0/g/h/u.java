@@ -26,7 +26,7 @@ import d.b.i.k0;
 import d.b.i.m0;
 import d.b.i.o0;
 import d.b.i.u0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> implements d.b.i0.m.f {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -39,7 +39,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     public d.b.b.e.k.b<GifView> v;
     public d.b.i0.x.b0<d.b.i0.x.e0.k> w;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.e.k.c<ImageView> {
         public a() {
         }
@@ -128,7 +128,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<GifView> {
         public b() {
         }
@@ -207,7 +207,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends d.b.i0.x.b0<d.b.i0.x.e0.k> {
         public c() {
         }
@@ -229,7 +229,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements d.b {
         public d(u uVar) {
         }
@@ -248,21 +248,21 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements a.InterfaceC1115a {
+    /* loaded from: classes3.dex */
+    public class e implements a.InterfaceC1116a {
         public e() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, u.this.f42357e, 2);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, u.this.f42358e, 2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements d.b.b.j.e.w {
         public f() {
         }
@@ -277,7 +277,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                     u.this.w.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -340,8 +340,8 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         bVar.h(new d.b.i.k(this.o.getPageActivity()));
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.A(3);
@@ -359,7 +359,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: q0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
@@ -372,7 +372,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         threadCardViewHolder.b().p(this.w);
         d.b.i0.x.t.b().a(kVar.L());
         d.b.i0.m.d.c().a(kVar.L());
-        d.b.i0.z0.g.m.a.c(kVar.f62196e, this.n, kVar.E());
+        d.b.i0.z0.g.m.a.c(kVar.f62197e, this.n, kVar.E());
         return threadCardViewHolder.a();
     }
 
@@ -421,7 +421,7 @@ public class u extends d.b.i0.z0.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
             i = 1;
         }
         if (i != 0) {
-            d.b.i0.z0.g.m.a.a(kVar.f62196e, this.n, kVar.E(), i);
+            d.b.i0.z0.g.m.a.a(kVar.f62197e, this.n, kVar.E(), i);
         }
     }
 

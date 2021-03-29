@@ -42,17 +42,17 @@ public class a implements d.b.h0.b1.e.c {
     public g X;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f49831a;
+    public View f49832a;
     public m b0;
     public l c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49834d;
+    public int f49835d;
     public h d0;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f49836f;
+    public DataSetObserver f49837f;
     public ListView g0;
     public d.b.h0.b1.e.d h0;
     public int i;
@@ -70,19 +70,19 @@ public class a implements d.b.h0.b1.e.c {
     public f z;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f49832b = new Point();
+    public Point f49833b = new Point();
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f49833c = new Point();
+    public Point f49834c = new Point();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49835e = false;
+    public boolean f49836e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f49837g = 1.0f;
+    public float f49838g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49838h = 1.0f;
+    public float f49839h = 1.0f;
     public boolean l = false;
     public boolean s = true;
     public int t = 0;
@@ -92,7 +92,7 @@ public class a implements d.b.h0.b1.e.c {
     public float A = 0.33333334f;
     public float B = 0.33333334f;
     public float I = 0.5f;
-    public e J = new C1047a();
+    public e J = new C1048a();
     public int N = 0;
     public boolean O = false;
     public boolean P = false;
@@ -109,8 +109,8 @@ public class a implements d.b.h0.b1.e.c {
 
     /* renamed from: d.b.h0.b1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1047a implements e {
-        public C1047a() {
+    public class C1048a implements e {
+        public C1048a() {
         }
 
         @Override // d.b.h0.b1.e.a.e
@@ -145,12 +145,12 @@ public class a implements d.b.h0.b1.e.c {
     public class c extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public ListAdapter f49841e;
+        public ListAdapter f49842e;
 
         /* renamed from: d.b.h0.b1.e.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1048a extends DataSetObserver {
-            public C1048a(a aVar) {
+        public class C1049a extends DataSetObserver {
+            public C1049a(a aVar) {
             }
 
             @Override // android.database.DataSetObserver
@@ -165,33 +165,33 @@ public class a implements d.b.h0.b1.e.c {
         }
 
         public c(ListAdapter listAdapter) {
-            this.f49841e = listAdapter;
-            listAdapter.registerDataSetObserver(new C1048a(a.this));
+            this.f49842e = listAdapter;
+            listAdapter.registerDataSetObserver(new C1049a(a.this));
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean areAllItemsEnabled() {
-            return this.f49841e.areAllItemsEnabled();
+            return this.f49842e.areAllItemsEnabled();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f49841e.getCount();
+            return this.f49842e.getCount();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            return this.f49841e.getItem(i);
+            return this.f49842e.getItem(i);
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
-            return this.f49841e.getItemId(i);
+            return this.f49842e.getItemId(i);
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public int getItemViewType(int i) {
-            return this.f49841e.getItemViewType(i);
+            return this.f49842e.getItemViewType(i);
         }
 
         @Override // android.widget.Adapter
@@ -201,7 +201,7 @@ public class a implements d.b.h0.b1.e.c {
             if (view != null) {
                 dragSortItemView2 = (DragSortItemView) view;
                 View childAt = dragSortItemView2.getChildAt(0);
-                View view2 = this.f49841e.getView(i, childAt, a.this.g0);
+                View view2 = this.f49842e.getView(i, childAt, a.this.g0);
                 if (view2 != childAt) {
                     if (childAt != null) {
                         dragSortItemView2.removeViewAt(0);
@@ -209,7 +209,7 @@ public class a implements d.b.h0.b1.e.c {
                     dragSortItemView2.addView(view2);
                 }
             } else {
-                View view3 = this.f49841e.getView(i, null, a.this.g0);
+                View view3 = this.f49842e.getView(i, null, a.this.g0);
                 if (view3 instanceof Checkable) {
                     dragSortItemView = new DragSortItemViewCheckable(a.this.g0.getContext());
                 } else {
@@ -226,22 +226,22 @@ public class a implements d.b.h0.b1.e.c {
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public int getViewTypeCount() {
-            return this.f49841e.getViewTypeCount();
+            return this.f49842e.getViewTypeCount();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean hasStableIds() {
-            return this.f49841e.hasStableIds();
+            return this.f49842e.hasStableIds();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean isEmpty() {
-            return this.f49841e.isEmpty();
+            return this.f49842e.isEmpty();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean isEnabled(int i) {
-            return this.f49841e.isEnabled(i);
+            return this.f49842e.isEnabled(i);
         }
     }
 
@@ -259,16 +259,16 @@ public class a implements d.b.h0.b1.e.c {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f49844e;
+        public boolean f49845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f49845f;
+        public long f49846f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f49846g;
+        public long f49847g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f49847h;
+        public int f49848h;
         public float i;
         public long j;
         public int k;
@@ -293,11 +293,11 @@ public class a implements d.b.h0.b1.e.c {
             if (this.m) {
                 return;
             }
-            this.f49844e = false;
+            this.f49845e = false;
             this.m = true;
             long uptimeMillis = SystemClock.uptimeMillis();
             this.j = uptimeMillis;
-            this.f49845f = uptimeMillis;
+            this.f49846f = uptimeMillis;
             this.k = i;
             a.this.g0.post(this);
         }
@@ -308,19 +308,19 @@ public class a implements d.b.h0.b1.e.c {
                 this.m = false;
                 return;
             }
-            this.f49844e = true;
+            this.f49845e = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.f49844e) {
+            if (!this.f49845e) {
                 int firstVisiblePosition = a.this.g0.getFirstVisiblePosition();
                 int lastVisiblePosition = a.this.g0.getLastVisiblePosition();
                 int count = a.this.g0.getCount();
                 int paddingTop = a.this.g0.getPaddingTop();
                 int height = (a.this.g0.getHeight() - paddingTop) - a.this.g0.getPaddingBottom();
-                int min = Math.min(a.this.L, a.this.f49834d + a.this.w);
-                int max = Math.max(a.this.L, a.this.f49834d - a.this.w);
+                int min = Math.min(a.this.L, a.this.f49835d + a.this.w);
+                int max = Math.max(a.this.L, a.this.f49835d - a.this.w);
                 if (this.k == 0) {
                     View childAt = a.this.g0.getChildAt(0);
                     if (childAt == null) {
@@ -330,7 +330,7 @@ public class a implements d.b.h0.b1.e.c {
                         this.m = false;
                         return;
                     } else {
-                        this.l = a.this.J.a((a.this.F - max) / a.this.G, this.f49845f);
+                        this.l = a.this.J.a((a.this.F - max) / a.this.G, this.f49846f);
                     }
                 } else {
                     View childAt2 = a.this.g0.getChildAt(lastVisiblePosition - firstVisiblePosition);
@@ -341,23 +341,23 @@ public class a implements d.b.h0.b1.e.c {
                         this.m = false;
                         return;
                     } else {
-                        this.l = -a.this.J.a((min - a.this.E) / a.this.H, this.f49845f);
+                        this.l = -a.this.J.a((min - a.this.E) / a.this.H, this.f49846f);
                     }
                 }
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f49846g = uptimeMillis;
-                float f2 = (float) (uptimeMillis - this.f49845f);
+                this.f49847g = uptimeMillis;
+                float f2 = (float) (uptimeMillis - this.f49846f);
                 this.i = f2;
                 int round = Math.round(this.l * f2);
-                this.f49847h = round;
+                this.f49848h = round;
                 if (round >= 0) {
-                    this.f49847h = Math.min(height, round);
+                    this.f49848h = Math.min(height, round);
                     lastVisiblePosition = firstVisiblePosition;
                 } else {
-                    this.f49847h = Math.max(-height, round);
+                    this.f49848h = Math.max(-height, round);
                 }
                 View childAt3 = a.this.g0.getChildAt(lastVisiblePosition - firstVisiblePosition);
-                int top = childAt3.getTop() + this.f49847h;
+                int top = childAt3.getTop() + this.f49848h;
                 if (lastVisiblePosition == 0 && top > paddingTop) {
                     top = paddingTop;
                 }
@@ -367,7 +367,7 @@ public class a implements d.b.h0.b1.e.c {
                 a.this.g0.invalidate();
                 a.this.Y = false;
                 a.this.X(lastVisiblePosition, childAt3, false);
-                this.f49845f = this.f49846g;
+                this.f49846f = this.f49847g;
                 a.this.g0.post(this);
                 return;
             }
@@ -379,28 +379,28 @@ public class a implements d.b.h0.b1.e.c {
     public class g {
 
         /* renamed from: b  reason: collision with root package name */
-        public File f49849b;
+        public File f49850b;
 
         /* renamed from: a  reason: collision with root package name */
-        public StringBuilder f49848a = new StringBuilder();
+        public StringBuilder f49849a = new StringBuilder();
 
         /* renamed from: c  reason: collision with root package name */
-        public int f49850c = 0;
+        public int f49851c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f49851d = 0;
+        public int f49852d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f49852e = false;
+        public boolean f49853e = false;
 
         public g() {
             File file = new File(Environment.getExternalStorageDirectory(), "dslv_state.txt");
-            this.f49849b = file;
+            this.f49850b = file;
             if (file.exists()) {
                 return;
             }
             try {
-                this.f49849b.createNewFile();
+                this.f49850b.createNewFile();
                 Log.d("mobeta", "file created");
             } catch (IOException e2) {
                 Log.w("mobeta", "Could not create dslv_state.txt");
@@ -409,116 +409,116 @@ public class a implements d.b.h0.b1.e.c {
         }
 
         public void a() {
-            if (this.f49852e) {
-                this.f49848a.append("<DSLVState>\n");
+            if (this.f49853e) {
+                this.f49849a.append("<DSLVState>\n");
                 int childCount = a.this.g0.getChildCount();
                 int firstVisiblePosition = a.this.g0.getFirstVisiblePosition();
-                this.f49848a.append("    <Positions>");
+                this.f49849a.append("    <Positions>");
                 for (int i = 0; i < childCount; i++) {
-                    StringBuilder sb = this.f49848a;
+                    StringBuilder sb = this.f49849a;
                     sb.append(firstVisiblePosition + i);
                     sb.append(",");
                 }
-                this.f49848a.append("</Positions>\n");
-                this.f49848a.append("    <Tops>");
+                this.f49849a.append("</Positions>\n");
+                this.f49849a.append("    <Tops>");
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    StringBuilder sb2 = this.f49848a;
+                    StringBuilder sb2 = this.f49849a;
                     sb2.append(a.this.g0.getChildAt(i2).getTop());
                     sb2.append(",");
                 }
-                this.f49848a.append("</Tops>\n");
-                this.f49848a.append("    <Bottoms>");
+                this.f49849a.append("</Tops>\n");
+                this.f49849a.append("    <Bottoms>");
                 for (int i3 = 0; i3 < childCount; i3++) {
-                    StringBuilder sb3 = this.f49848a;
+                    StringBuilder sb3 = this.f49849a;
                     sb3.append(a.this.g0.getChildAt(i3).getBottom());
                     sb3.append(",");
                 }
-                this.f49848a.append("</Bottoms>\n");
-                StringBuilder sb4 = this.f49848a;
+                this.f49849a.append("</Bottoms>\n");
+                StringBuilder sb4 = this.f49849a;
                 sb4.append("    <FirstExpPos>");
                 sb4.append(a.this.j);
                 sb4.append("</FirstExpPos>\n");
-                StringBuilder sb5 = this.f49848a;
+                StringBuilder sb5 = this.f49849a;
                 sb5.append("    <FirstExpBlankHeight>");
                 a aVar = a.this;
                 int f0 = aVar.f0(aVar.j);
                 a aVar2 = a.this;
                 sb5.append(f0 - aVar2.d0(aVar2.j));
                 sb5.append("</FirstExpBlankHeight>\n");
-                StringBuilder sb6 = this.f49848a;
+                StringBuilder sb6 = this.f49849a;
                 sb6.append("    <SecondExpPos>");
                 sb6.append(a.this.k);
                 sb6.append("</SecondExpPos>\n");
-                StringBuilder sb7 = this.f49848a;
+                StringBuilder sb7 = this.f49849a;
                 sb7.append("    <SecondExpBlankHeight>");
                 a aVar3 = a.this;
                 int f02 = aVar3.f0(aVar3.k);
                 a aVar4 = a.this;
                 sb7.append(f02 - aVar4.d0(aVar4.k));
                 sb7.append("</SecondExpBlankHeight>\n");
-                StringBuilder sb8 = this.f49848a;
+                StringBuilder sb8 = this.f49849a;
                 sb8.append("    <SrcPos>");
                 sb8.append(a.this.m);
                 sb8.append("</SrcPos>\n");
-                StringBuilder sb9 = this.f49848a;
+                StringBuilder sb9 = this.f49849a;
                 sb9.append("    <SrcHeight>");
                 sb9.append(a.this.v + a.this.g0.getDividerHeight());
                 sb9.append("</SrcHeight>\n");
-                StringBuilder sb10 = this.f49848a;
+                StringBuilder sb10 = this.f49849a;
                 sb10.append("    <ViewHeight>");
                 sb10.append(a.this.g0.getHeight());
                 sb10.append("</ViewHeight>\n");
-                StringBuilder sb11 = this.f49848a;
+                StringBuilder sb11 = this.f49849a;
                 sb11.append("    <LastY>");
                 sb11.append(a.this.M);
                 sb11.append("</LastY>\n");
-                StringBuilder sb12 = this.f49848a;
+                StringBuilder sb12 = this.f49849a;
                 sb12.append("    <FloatY>");
-                sb12.append(a.this.f49834d);
+                sb12.append(a.this.f49835d);
                 sb12.append("</FloatY>\n");
-                this.f49848a.append("    <ShuffleEdges>");
+                this.f49849a.append("    <ShuffleEdges>");
                 for (int i4 = 0; i4 < childCount; i4++) {
-                    StringBuilder sb13 = this.f49848a;
+                    StringBuilder sb13 = this.f49849a;
                     a aVar5 = a.this;
                     sb13.append(aVar5.g0(firstVisiblePosition + i4, aVar5.g0.getChildAt(i4).getTop()));
                     sb13.append(",");
                 }
-                this.f49848a.append("</ShuffleEdges>\n");
-                this.f49848a.append("</DSLVState>\n");
-                int i5 = this.f49850c + 1;
-                this.f49850c = i5;
+                this.f49849a.append("</ShuffleEdges>\n");
+                this.f49849a.append("</DSLVState>\n");
+                int i5 = this.f49851c + 1;
+                this.f49851c = i5;
                 if (i5 > 1000) {
                     b();
-                    this.f49850c = 0;
+                    this.f49851c = 0;
                 }
             }
         }
 
         public void b() {
-            if (this.f49852e) {
+            if (this.f49853e) {
                 try {
-                    FileWriter fileWriter = new FileWriter(this.f49849b, this.f49851d != 0);
-                    fileWriter.write(this.f49848a.toString());
-                    this.f49848a.delete(0, this.f49848a.length());
+                    FileWriter fileWriter = new FileWriter(this.f49850b, this.f49852d != 0);
+                    fileWriter.write(this.f49849a.toString());
+                    this.f49849a.delete(0, this.f49849a.length());
                     fileWriter.flush();
                     fileWriter.close();
-                    this.f49851d++;
+                    this.f49852d++;
                 } catch (IOException unused) {
                 }
             }
         }
 
         public void c() {
-            this.f49848a.append("<DSLVStates>\n");
-            this.f49851d = 0;
-            this.f49852e = true;
+            this.f49849a.append("<DSLVStates>\n");
+            this.f49852d = 0;
+            this.f49853e = true;
         }
 
         public void d() {
-            if (this.f49852e) {
-                this.f49848a.append("</DSLVStates>\n");
+            if (this.f49853e) {
+                this.f49849a.append("</DSLVStates>\n");
                 b();
-                this.f49852e = false;
+                this.f49853e = false;
             }
         }
     }
@@ -539,8 +539,8 @@ public class a implements d.b.h0.b1.e.c {
             this.n = a.this.i;
             this.o = a.this.m;
             a.this.t = 2;
-            this.p = a.this.f49832b.y - f();
-            this.q = a.this.f49832b.x - a.this.g0.getPaddingLeft();
+            this.p = a.this.f49833b.y - f();
+            this.q = a.this.f49833b.x - a.this.g0.getPaddingLeft();
         }
 
         @Override // d.b.h0.b1.e.a.o
@@ -551,11 +551,11 @@ public class a implements d.b.h0.b1.e.c {
         @Override // d.b.h0.b1.e.a.o
         public void c(float f2, float f3) {
             int f4 = f();
-            float paddingLeft = a.this.f49832b.x - a.this.g0.getPaddingLeft();
+            float paddingLeft = a.this.f49833b.x - a.this.g0.getPaddingLeft();
             float f5 = 1.0f - f3;
-            if (f5 < Math.abs((a.this.f49832b.y - f4) / this.p) || f5 < Math.abs(paddingLeft / this.q)) {
-                a.this.f49832b.y = f4 + ((int) (this.p * f5));
-                a.this.f49832b.x = a.this.g0.getPaddingLeft() + ((int) (this.q * f5));
+            if (f5 < Math.abs((a.this.f49833b.y - f4) / this.p) || f5 < Math.abs(paddingLeft / this.q)) {
+                a.this.f49833b.y = f4 + ((int) (this.p * f5));
+                a.this.f49833b.x = a.this.g0.getPaddingLeft() + ((int) (this.q * f5));
                 a.this.Y(true);
             }
         }
@@ -602,42 +602,42 @@ public class a implements d.b.h0.b1.e.c {
     public class k {
 
         /* renamed from: a  reason: collision with root package name */
-        public SparseIntArray f49854a;
+        public SparseIntArray f49855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<Integer> f49855b;
+        public ArrayList<Integer> f49856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f49856c;
+        public int f49857c;
 
         public k(a aVar, int i) {
-            this.f49854a = new SparseIntArray(i);
-            this.f49855b = new ArrayList<>(i);
-            this.f49856c = i;
+            this.f49855a = new SparseIntArray(i);
+            this.f49856b = new ArrayList<>(i);
+            this.f49857c = i;
         }
 
         public void a(int i, int i2) {
-            int i3 = this.f49854a.get(i, -1);
+            int i3 = this.f49855a.get(i, -1);
             if (i3 != i2) {
                 if (i3 == -1) {
-                    if (this.f49854a.size() == this.f49856c) {
-                        this.f49854a.delete(this.f49855b.remove(0).intValue());
+                    if (this.f49855a.size() == this.f49857c) {
+                        this.f49855a.delete(this.f49856b.remove(0).intValue());
                     }
                 } else {
-                    this.f49855b.remove(Integer.valueOf(i));
+                    this.f49856b.remove(Integer.valueOf(i));
                 }
-                this.f49854a.put(i, i2);
-                this.f49855b.add(Integer.valueOf(i));
+                this.f49855a.put(i, i2);
+                this.f49856b.add(Integer.valueOf(i));
             }
         }
 
         public void b() {
-            this.f49854a.clear();
-            this.f49855b.clear();
+            this.f49855a.clear();
+            this.f49856b.clear();
         }
 
         public int c(int i) {
-            return this.f49854a.get(i, -1);
+            return this.f49855a.get(i, -1);
         }
     }
 
@@ -669,7 +669,7 @@ public class a implements d.b.h0.b1.e.c {
             this.t = a.this.k;
             int unused = a.this.m;
             a.this.t = 1;
-            this.n = a.this.f49832b.x;
+            this.n = a.this.f49833b.x;
             if (a.this.e0) {
                 float width = a.this.g0.getWidth() * 2.0f;
                 if (a.this.f0 == 0.0f) {
@@ -705,7 +705,7 @@ public class a implements d.b.h0.b1.e.c {
             int firstVisiblePosition = a.this.g0.getFirstVisiblePosition();
             View childAt2 = a.this.g0.getChildAt(this.s - firstVisiblePosition);
             if (a.this.e0) {
-                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f49857e)) / 1000.0f;
+                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f49858e)) / 1000.0f;
                 if (uptimeMillis == 0.0f) {
                     return;
                 }
@@ -716,11 +716,11 @@ public class a implements d.b.h0.b1.e.c {
                 float f7 = width;
                 aVar.f0 = aVar.f0 + (f6 * f7);
                 this.n += f5;
-                Point point = a.this.f49832b;
+                Point point = a.this.f49833b;
                 float f8 = this.n;
                 point.x = (int) f8;
                 if (f8 < f7 && f8 > (-width)) {
-                    this.f49857e = SystemClock.uptimeMillis();
+                    this.f49858e = SystemClock.uptimeMillis();
                     a.this.Y(true);
                     return;
                 }
@@ -758,58 +758,52 @@ public class a implements d.b.h0.b1.e.c {
     public class o implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f49857e;
+        public long f49858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f49858f;
+        public float f49859f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f49859g;
+        public float f49860g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f49860h;
+        public float f49861h;
         public float i;
         public float j;
         public float k;
         public boolean l;
 
         public o(float f2, int i) {
-            this.f49859g = f2;
-            this.f49858f = i;
+            this.f49860g = f2;
+            this.f49859f = i;
             float f3 = 1.0f / ((f2 * 2.0f) * (1.0f - f2));
             this.k = f3;
-            this.f49860h = f3;
+            this.f49861h = f3;
             this.i = f2 / ((f2 - 1.0f) * 2.0f);
             this.j = 1.0f / (1.0f - f2);
         }
 
-        public void a() {
-            throw null;
-        }
+        public abstract void a();
 
-        public void b() {
-            throw null;
-        }
+        public abstract void b();
 
-        public void c(float f2, float f3) {
-            throw null;
-        }
+        public abstract void c(float f2, float f3);
 
         public void cancel() {
             this.l = true;
         }
 
         public void d() {
-            this.f49857e = SystemClock.uptimeMillis();
+            this.f49858e = SystemClock.uptimeMillis();
             this.l = false;
             a();
             a.this.g0.post(this);
         }
 
         public float e(float f2) {
-            float f3 = this.f49859g;
+            float f3 = this.f49860g;
             if (f2 < f3) {
-                return this.f49860h * f2 * f2;
+                return this.f49861h * f2 * f2;
             }
             if (f2 < 1.0f - f3) {
                 return this.i + (this.j * f2);
@@ -823,7 +817,7 @@ public class a implements d.b.h0.b1.e.c {
             if (this.l) {
                 return;
             }
-            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f49857e)) / this.f49858f;
+            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f49858e)) / this.f49859f;
             if (uptimeMillis >= 1.0f) {
                 c(1.0f, 1.0f);
                 b();
@@ -840,7 +834,7 @@ public class a implements d.b.h0.b1.e.c {
     }
 
     public boolean A0(boolean z, float f2) {
-        if (this.f49831a != null) {
+        if (this.f49832a != null) {
             this.z.d(true);
             if (z) {
                 n0(this.m - this.g0.getHeaderViewsCount(), f2);
@@ -869,17 +863,17 @@ public class a implements d.b.h0.b1.e.c {
         int i2;
         int i3;
         if (this.Q != null) {
-            this.f49833c.set(this.K, this.L);
-            this.Q.c(this.f49831a, this.f49832b, this.f49833c);
+            this.f49834c.set(this.K, this.L);
+            this.Q.c(this.f49832a, this.f49833b, this.f49834c);
         }
-        Point point = this.f49832b;
+        Point point = this.f49833b;
         int i4 = point.x;
         int i5 = point.y;
         int paddingLeft = this.g0.getPaddingLeft();
         if ((this.N & 1) == 0 && i4 > paddingLeft) {
-            this.f49832b.x = paddingLeft;
+            this.f49833b.x = paddingLeft;
         } else if ((this.N & 2) == 0 && i4 < paddingLeft) {
-            this.f49832b.x = paddingLeft;
+            this.f49833b.x = paddingLeft;
         }
         int headerViewsCount = this.g0.getHeaderViewsCount();
         int footerViewsCount = this.g0.getFooterViewsCount();
@@ -901,14 +895,14 @@ public class a implements d.b.h0.b1.e.c {
             height = Math.min(this.g0.getChildAt(i2 - firstVisiblePosition).getBottom(), height);
         }
         if (i5 < paddingTop) {
-            this.f49832b.y = paddingTop;
+            this.f49833b.y = paddingTop;
         } else {
             int i6 = this.v;
             if (i5 + i6 > height) {
-                this.f49832b.y = height - i6;
+                this.f49833b.y = height - i6;
             }
         }
-        this.f49834d = this.f49832b.y + this.w;
+        this.f49835d = this.f49833b.y + this.w;
     }
 
     public final boolean D0() {
@@ -925,7 +919,7 @@ public class a implements d.b.h0.b1.e.c {
         int height = childAt.getHeight();
         int g0 = g0(i4, top);
         int dividerHeight = this.g0.getDividerHeight();
-        if (this.f49834d < g0) {
+        if (this.f49835d < g0) {
             while (i4 >= 0) {
                 i4--;
                 int f0 = f0(i4);
@@ -938,7 +932,7 @@ public class a implements d.b.h0.b1.e.c {
                 }
                 top -= f0 + dividerHeight;
                 int g02 = g0(i4, top);
-                if (this.f49834d >= g02) {
+                if (this.f49835d >= g02) {
                     i3 = g0;
                     g0 = g02;
                     break;
@@ -960,7 +954,7 @@ public class a implements d.b.h0.b1.e.c {
                 int i6 = i4 + 1;
                 int f02 = f0(i6);
                 int g03 = g0(i6, top);
-                if (this.f49834d < g03) {
+                if (this.f49835d < g03) {
                     i3 = g0;
                     g0 = g03;
                     break;
@@ -979,7 +973,7 @@ public class a implements d.b.h0.b1.e.c {
         float f2 = this.U;
         if (this.l) {
             int abs = Math.abs(g0 - i3);
-            if (this.f49834d < g0) {
+            if (this.f49835d < g0) {
                 int i9 = g0;
                 g0 = i3;
                 i3 = i9;
@@ -988,7 +982,7 @@ public class a implements d.b.h0.b1.e.c {
             float f3 = i10;
             int i11 = g0 + i10;
             int i12 = i3 - i10;
-            int i13 = this.f49834d;
+            int i13 = this.f49835d;
             if (i13 < i11) {
                 this.j = i4 - 1;
                 this.k = i4;
@@ -1071,7 +1065,7 @@ public class a implements d.b.h0.b1.e.c {
         }
         int visibility = view.getVisibility();
         int i4 = 0;
-        if (i2 == this.m && this.f49831a != null) {
+        if (i2 == this.m && this.f49832a != null) {
             i4 = 4;
         }
         if (i4 != visibility) {
@@ -1166,12 +1160,12 @@ public class a implements d.b.h0.b1.e.c {
     }
 
     public final void U(int i2, int i3) {
-        Point point = this.f49832b;
+        Point point = this.f49833b;
         point.x = i2 - this.n;
         point.y = i3 - this.o;
         Y(true);
-        int min = Math.min(i3, this.f49834d + this.w);
-        int max = Math.max(i3, this.f49834d - this.w);
+        int min = Math.min(i3, this.f49835d + this.w);
+        int max = Math.max(i3, this.f49835d - this.w);
         int a2 = this.z.a();
         if (min > this.M && min > this.D && a2 != 1) {
             if (a2 != -1) {
@@ -1190,14 +1184,14 @@ public class a implements d.b.h0.b1.e.c {
     }
 
     public final void V() {
-        View view = this.f49831a;
+        View view = this.f49832a;
         if (view != null) {
             view.setVisibility(8);
             j jVar = this.Q;
             if (jVar != null) {
-                jVar.a(this.f49831a);
+                jVar.a(this.f49832a);
             }
-            this.f49831a = null;
+            this.f49832a = null;
             this.g0.invalidate();
         }
     }
@@ -1208,7 +1202,7 @@ public class a implements d.b.h0.b1.e.c {
         if (this.t == 3) {
             this.t = 0;
         }
-        this.f49838h = this.f49837g;
+        this.f49839h = this.f49838g;
         this.j0 = false;
         this.a0.b();
     }
@@ -1247,14 +1241,14 @@ public class a implements d.b.h0.b1.e.c {
     @Override // d.b.h0.b1.e.c
     public void a() {
         this.h0.a();
-        View view = this.f49831a;
+        View view = this.f49832a;
         if (view != null) {
-            if (view.isLayoutRequested() && !this.f49835e) {
+            if (view.isLayoutRequested() && !this.f49836e) {
                 j0();
             }
-            View view2 = this.f49831a;
-            view2.layout(0, 0, view2.getMeasuredWidth(), this.f49831a.getMeasuredHeight());
-            this.f49835e = false;
+            View view2 = this.f49832a;
+            view2.layout(0, 0, view2.getMeasuredWidth(), this.f49832a.getMeasuredHeight());
+            this.f49836e = false;
         }
     }
 
@@ -1288,11 +1282,11 @@ public class a implements d.b.h0.b1.e.c {
                 b0(i3, canvas);
             }
         }
-        View view = this.f49831a;
+        View view = this.f49832a;
         if (view != null) {
             int width = view.getWidth();
-            int height = this.f49831a.getHeight();
-            int i4 = this.f49832b.x;
+            int height = this.f49832a.getHeight();
+            int i4 = this.f49833b.x;
             int width2 = this.g0.getWidth();
             if (i4 < 0) {
                 i4 = -i4;
@@ -1304,11 +1298,11 @@ public class a implements d.b.h0.b1.e.c {
                 f2 = 0.0f;
             }
             canvas.save();
-            Point point = this.f49832b;
+            Point point = this.f49833b;
             canvas.translate(point.x, point.y);
             canvas.clipRect(0, 0, width, height);
-            canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f49838h * 255.0f * f2), 31);
-            this.f49831a.draw(canvas);
+            canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f49839h * 255.0f * f2), 31);
+            this.f49832a.draw(canvas);
             canvas.restore();
             canvas.restore();
         }
@@ -1349,7 +1343,7 @@ public class a implements d.b.h0.b1.e.c {
     public void c(ListAdapter listAdapter) {
         if (listAdapter != null) {
             this.V = new c(listAdapter);
-            listAdapter.registerDataSetObserver(this.f49836f);
+            listAdapter.registerDataSetObserver(this.f49837f);
             if (listAdapter instanceof i) {
                 u0((i) listAdapter);
             }
@@ -1396,9 +1390,9 @@ public class a implements d.b.h0.b1.e.c {
             if (z) {
                 this.X = new g();
             }
-            float f2 = obtainStyledAttributes.getFloat(R$styleable.DragSort_float_alpha, this.f49837g);
-            this.f49837g = f2;
-            this.f49838h = f2;
+            float f2 = obtainStyledAttributes.getFloat(R$styleable.DragSort_float_alpha, this.f49838g);
+            this.f49838g = f2;
+            this.f49839h = f2;
             this.s = obtainStyledAttributes.getBoolean(R$styleable.DragSort_drag_enabled, this.s);
             float max = Math.max(0.0f, Math.min(1.0f, 1.0f - obtainStyledAttributes.getFloat(R$styleable.DragSort_slide_shuffle_speed, 0.75f)));
             this.T = max;
@@ -1438,7 +1432,7 @@ public class a implements d.b.h0.b1.e.c {
             this.d0 = new h(0.5f, i2);
         }
         this.R = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
-        this.f49836f = new b();
+        this.f49837f = new b();
     }
 
     public final int d0(int i2) {
@@ -1558,10 +1552,10 @@ public class a implements d.b.h0.b1.e.c {
     }
 
     public final void j0() {
-        View view = this.f49831a;
+        View view = this.f49832a;
         if (view != null) {
             k0(view);
-            int measuredHeight = this.f49831a.getMeasuredHeight();
+            int measuredHeight = this.f49832a.getMeasuredHeight();
             this.v = measuredHeight;
             this.w = measuredHeight / 2;
         }
@@ -1685,7 +1679,7 @@ public class a implements d.b.h0.b1.e.c {
             }
             this.P = true;
         }
-        if (this.f49831a != null) {
+        if (this.f49832a != null) {
             z = true;
         } else {
             if (this.h0.onInterceptTouchEvent(motionEvent)) {
@@ -1711,12 +1705,12 @@ public class a implements d.b.h0.b1.e.c {
     @Override // d.b.h0.b1.e.c
     public void onMeasure(int i2, int i3) {
         this.h0.onMeasure(i2, i3);
-        View view = this.f49831a;
+        View view = this.f49832a;
         if (view != null) {
             if (view.isLayoutRequested()) {
                 j0();
             }
-            this.f49835e = true;
+            this.f49836e = true;
         }
         this.x = i2;
     }
@@ -1822,7 +1816,7 @@ public class a implements d.b.h0.b1.e.c {
     }
 
     public boolean y0(int i2, View view, int i3, int i4, int i5) {
-        if (this.t == 0 && this.P && this.f49831a == null && view != null && this.s) {
+        if (this.t == 0 && this.P && this.f49832a == null && view != null && this.s) {
             if (this.g0.getParent() != null) {
                 this.g0.getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -1834,12 +1828,12 @@ public class a implements d.b.h0.b1.e.c {
             this.t = 4;
             this.N = 0;
             this.N = i3 | 0;
-            this.f49831a = view;
+            this.f49832a = view;
             j0();
             this.n = i4;
             this.o = i5;
             int i6 = this.L;
-            Point point = this.f49832b;
+            Point point = this.f49833b;
             point.x = this.K - i4;
             point.y = i6 - i5;
             ListView listView = this.g0;

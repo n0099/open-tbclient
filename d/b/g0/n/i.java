@@ -7,52 +7,52 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49245a;
+    public String f49246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49246b;
+    public String f49247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49247c;
+    public int f49248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49248d;
+    public String f49249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f49249e;
+    public JSONObject f49250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49250f;
+    public long f49251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49251g;
+    public int f49252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49252h;
+    public String f49253h;
     public String i;
     public boolean j;
     public String k;
 
     public i(String str, String str2, int i) {
-        this.f49248d = "";
+        this.f49249d = "";
         this.j = false;
         this.k = "";
-        this.f49245a = str;
-        this.f49246b = str;
-        this.f49247c = -1;
-        this.f49248d = str2;
-        this.f49251g = i;
+        this.f49246a = str;
+        this.f49247b = str;
+        this.f49248c = -1;
+        this.f49249d = str2;
+        this.f49252g = i;
         if ((i & 2) == 0) {
-            this.f49250f = System.currentTimeMillis();
+            this.f49251f = System.currentTimeMillis();
         }
         try {
-            this.f49249e = new JSONObject(this.f49248d);
+            this.f49250e = new JSONObject(this.f49249d);
         } catch (JSONException unused) {
         }
     }
 
     public String a() {
-        JSONObject jSONObject = this.f49249e;
+        JSONObject jSONObject = this.f49250e;
         return jSONObject != null ? jSONObject.optString("bizId") : "";
     }
 
@@ -61,11 +61,11 @@ public class i {
     }
 
     public String c() {
-        return this.f49248d;
+        return this.f49249d;
     }
 
     public String d() {
-        return this.f49252h;
+        return this.f49253h;
     }
 
     public String e() {
@@ -73,27 +73,27 @@ public class i {
     }
 
     public int f() {
-        return this.f49247c;
+        return this.f49248c;
     }
 
     public String g() {
-        return this.f49246b;
+        return this.f49247b;
     }
 
     public String h() {
-        return this.f49245a;
+        return this.f49246a;
     }
 
     public JSONObject i() {
-        return this.f49249e;
+        return this.f49250e;
     }
 
     public int j() {
-        return this.f49251g;
+        return this.f49252g;
     }
 
     public long k() {
-        return this.f49250f;
+        return this.f49251f;
     }
 
     public boolean l() {
@@ -109,65 +109,65 @@ public class i {
     }
 
     public void o() {
-        String str = this.f49245a;
-        if (str != null && str.equals(this.f49246b) && d.g().a(this.f49245a)) {
-            this.f49252h = e.g().i();
+        String str = this.f49246a;
+        if (str != null && str.equals(this.f49247b) && d.g().a(this.f49246a)) {
+            this.f49253h = e.g().i();
         }
     }
 
     public i(String str, JSONObject jSONObject, int i) {
-        this.f49248d = "";
+        this.f49249d = "";
         this.j = false;
         this.k = "";
-        this.f49245a = str;
-        this.f49246b = str;
-        this.f49247c = -1;
-        this.f49249e = jSONObject;
-        this.f49251g = i;
+        this.f49246a = str;
+        this.f49247b = str;
+        this.f49248c = -1;
+        this.f49250e = jSONObject;
+        this.f49252g = i;
         if ((i & 2) == 0) {
-            this.f49250f = System.currentTimeMillis();
+            this.f49251f = System.currentTimeMillis();
         }
     }
 
     public i(String str, String str2, int i, String str3, int i2) {
-        this.f49248d = "";
+        this.f49249d = "";
         this.j = false;
         this.k = "";
-        this.f49245a = str2;
-        this.f49246b = str;
-        this.f49247c = i;
-        this.f49248d = str3;
-        this.f49251g = i2;
+        this.f49246a = str2;
+        this.f49247b = str;
+        this.f49248c = i;
+        this.f49249d = str3;
+        this.f49252g = i2;
         if ((i2 & 2) == 0) {
-            this.f49250f = System.currentTimeMillis();
+            this.f49251f = System.currentTimeMillis();
         }
         try {
-            this.f49249e = new JSONObject(this.f49248d);
+            this.f49250e = new JSONObject(this.f49249d);
         } catch (JSONException unused) {
         }
     }
 
     public i(String str, String str2, int i, String str3, long j, int i2) {
-        this.f49248d = "";
+        this.f49249d = "";
         this.j = false;
         this.k = "";
-        this.f49245a = str2;
-        this.f49246b = str;
-        this.f49247c = i;
-        this.f49248d = str3;
-        this.f49251g = i2;
+        this.f49246a = str2;
+        this.f49247b = str;
+        this.f49248c = i;
+        this.f49249d = str3;
+        this.f49252g = i2;
         if ((i2 & 2) == 0) {
             if (j > 0) {
-                this.f49250f = j;
+                this.f49251f = j;
             } else {
-                this.f49250f = System.currentTimeMillis();
+                this.f49251f = System.currentTimeMillis();
             }
         }
-        if (TextUtils.isEmpty(this.f49248d)) {
+        if (TextUtils.isEmpty(this.f49249d)) {
             return;
         }
         try {
-            this.f49249e = new JSONObject(this.f49248d);
+            this.f49250e = new JSONObject(this.f49249d);
         } catch (JSONException unused) {
         }
     }

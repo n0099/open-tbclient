@@ -20,7 +20,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
 import d.b.i.m0;
 import d.b.i.u0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -30,7 +30,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     public NEGFeedBackView.b r;
     public d.b.i0.x.b0<d.b.i0.x.e0.k> s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.i0.x.b0<d.b.i0.x.e0.k> {
         public a() {
         }
@@ -52,7 +52,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.j.e.w {
         public b() {
         }
@@ -67,43 +67,43 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                     r.this.s.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 2, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f63155a;
+        public final /* synthetic */ ViewGroup f63156a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f63156b;
+        public final /* synthetic */ View f63157b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f63157c;
+        public final /* synthetic */ int f63158c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.x.e0.k f63158d;
+        public final /* synthetic */ d.b.i0.x.e0.k f63159d;
 
         public c(r rVar, ViewGroup viewGroup, View view, int i, d.b.i0.x.e0.k kVar) {
-            this.f63155a = viewGroup;
-            this.f63156b = view;
-            this.f63157c = i;
-            this.f63158d = kVar;
+            this.f63156a = viewGroup;
+            this.f63157b = view;
+            this.f63158c = i;
+            this.f63159d = kVar;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f63155a, this.f63156b, this.f63157c));
-                if (this.f63158d.n() == null || this.f63158d.n().j1() == null) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f63156a, this.f63157b, this.f63158c));
+                if (this.f63159d.n() == null || this.f63159d.n().j1() == null) {
                     return;
                 }
-                StatisticItem G = this.f63158d.G(d.b.i0.x.e0.k.g0);
-                G.param("obj_type", this.f63158d.n().j1().id);
-                G.param("obj_name", this.f63158d.n().j1().name);
+                StatisticItem G = this.f63159d.G(d.b.i0.x.e0.k.g0);
+                G.param("obj_type", this.f63159d.n().j1().id);
+                G.param("obj_name", this.f63159d.n().j1().name);
                 TiebaStatic.log(G);
             }
         }
@@ -137,8 +137,8 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         k0.b bVar = new k0.b(this.n.getPageActivity(), false);
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.B("personalize_page");
@@ -158,7 +158,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: n0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
@@ -173,7 +173,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         threadCardViewHolder.b().p(this.s);
         d.b.i0.x.t.b().a(kVar.L());
         d.b.i0.m.d.c().a(kVar.L());
-        d.b.i0.z0.g.m.a.c(kVar.f62196e, this.m, kVar.E());
+        d.b.i0.z0.g.m.a.c(kVar.f62197e, this.m, kVar.E());
         return threadCardViewHolder.a();
     }
 
@@ -223,7 +223,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                         i = 0;
                     }
                     if (i != 0) {
-                        d.b.i0.z0.g.m.a.a(kVar.f62196e, this.m, kVar.E(), i);
+                        d.b.i0.z0.g.m.a.a(kVar.f62197e, this.m, kVar.E(), i);
                         return;
                     }
                     return;
@@ -233,7 +233,7 @@ public class r extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                 }
             }
         } else {
-            if (d.b.i0.x.e0.l.d0(kVar.f62196e)) {
+            if (d.b.i0.x.e0.l.d0(kVar.f62197e)) {
                 K = kVar.N();
                 TiebaStatic.log(K);
             } else {

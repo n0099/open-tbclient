@@ -8,7 +8,7 @@ import d.b.i0.d1.w.b;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 import protobuf.CommitPersonalMsg.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static final int CANT_CHAT = 2230303;
     public String toUserId;

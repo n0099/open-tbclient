@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveFileJob extends IRetrieveJob {
     public static final String FETCH_FILE_ZIP = ".im_fetch_file_zip";
     public static final long MAX_SIZE = 1048576;
@@ -34,7 +34,7 @@ public class RetrieveFileJob extends IRetrieveJob {
     public final AtomicInteger mRetryCount = new AtomicInteger(0);
 
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
         public final /* synthetic */ Context val$context;
         public final /* synthetic */ RetrieveFileData.RetrieveFileBean val$fileBean;

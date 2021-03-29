@@ -43,7 +43,7 @@ public class v extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
             a2 a2Var = ((z1) nVar).w;
             a2Var.objType = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), this.x, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             d.b.i0.p0.j2.a.b(a2Var, 1, this.i, d.b.i0.p0.j2.d.J0, i0());
         }
     }

@@ -183,22 +183,22 @@ public class ActivityChooserModel extends DataSetObservable {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:10:0x006d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:10:0x006b, code lost:
             if (r15 != null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x006f, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x006d, code lost:
             r15.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:18:0x0092, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:18:0x0090, code lost:
             if (r15 == null) goto L13;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x00b2, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x00b0, code lost:
             if (r15 == null) goto L13;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x00d2, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x00d0, code lost:
             if (r15 == null) goto L13;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d5, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d3, code lost:
             return null;
          */
         @Override // android.os.AsyncTask
@@ -239,16 +239,16 @@ public class ActivityChooserModel extends DataSetObservable {
                             }
                             throw th;
                         }
-                    } catch (IllegalStateException e2) {
+                    } catch (IOException e2) {
                         String str2 = ActivityChooserModel.LOG_TAG;
                         Log.e(str2, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e2);
                         ActivityChooserModel.this.mCanReadHistoricalData = true;
                     }
-                } catch (IOException e3) {
+                } catch (IllegalArgumentException e3) {
                     String str3 = ActivityChooserModel.LOG_TAG;
                     Log.e(str3, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e3);
                     ActivityChooserModel.this.mCanReadHistoricalData = true;
-                } catch (IllegalArgumentException e4) {
+                } catch (IllegalStateException e4) {
                     String str4 = ActivityChooserModel.LOG_TAG;
                     Log.e(str4, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e4);
                     ActivityChooserModel.this.mCanReadHistoricalData = true;
@@ -354,21 +354,22 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private void readHistoricalDataImpl() {
-        FileInputStream fileInputStream;
         XmlPullParser newPullParser;
         try {
+            FileInputStream openFileInput = this.mContext.openFileInput(this.mHistoryFileName);
             try {
-                FileInputStream openFileInput = this.mContext.openFileInput(this.mHistoryFileName);
                 try {
-                    newPullParser = Xml.newPullParser();
-                    newPullParser.setInput(openFileInput, "UTF-8");
-                    for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
-                    }
-                } catch (IOException e2) {
-                    String str = LOG_TAG;
-                    Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
-                    if (openFileInput == null) {
-                        return;
+                    try {
+                        newPullParser = Xml.newPullParser();
+                        newPullParser.setInput(openFileInput, "UTF-8");
+                        for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
+                        }
+                    } catch (IOException e2) {
+                        String str = LOG_TAG;
+                        Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
+                        if (openFileInput == null) {
+                            return;
+                        }
                     }
                 } catch (XmlPullParserException e3) {
                     String str2 = LOG_TAG;
@@ -401,16 +402,16 @@ public class ActivityChooserModel extends DataSetObservable {
                 } else {
                     throw new XmlPullParserException("Share records file does not start with historical-records tag.");
                 }
-            } catch (FileNotFoundException unused2) {
-            }
-        } catch (Throwable th) {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException unused3) {
+            } catch (Throwable th) {
+                if (openFileInput != null) {
+                    try {
+                        openFileInput.close();
+                    } catch (IOException unused2) {
+                    }
                 }
+                throw th;
             }
-            throw th;
+        } catch (FileNotFoundException unused3) {
         }
     }
 

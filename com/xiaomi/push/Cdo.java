@@ -4,14 +4,14 @@ package com.xiaomi.push;
 public class Cdo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dn f40368a;
+    public final /* synthetic */ dn f40369a;
 
     public Cdo(dn dnVar) {
-        this.f40368a = dnVar;
+        this.f40369a = dnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f40368a.b();
+        this.f40369a.b();
     }
 }

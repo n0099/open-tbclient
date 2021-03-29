@@ -25,10 +25,10 @@ import java.util.Queue;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35850a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35851a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k.a f35851b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
+    public static final k.a f35852b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a() {
         }
@@ -39,34 +39,30 @@ public final class j {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Queue<BitmapFactory.Options> f35852c = com.kwad.sdk.glide.g.k.a(0);
+    public static final Queue<BitmapFactory.Options> f35853c = com.kwad.sdk.glide.g.k.a(0);
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35853d;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35854d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final DisplayMetrics f35854e;
+    public final DisplayMetrics f35855e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35855f;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35856f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<ImageHeaderParser> f35856g;
+    public final List<ImageHeaderParser> f35857g;
 
     public j(List<ImageHeaderParser> list, DisplayMetrics displayMetrics, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f35856g = list;
-        this.f35854e = (DisplayMetrics) com.kwad.sdk.glide.g.j.a(displayMetrics);
-        this.f35853d = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar);
-        this.f35855f = (com.kwad.sdk.glide.load.engine.bitmap_recycle.b) com.kwad.sdk.glide.g.j.a(bVar);
+        this.f35857g = list;
+        this.f35855e = (DisplayMetrics) com.kwad.sdk.glide.g.j.a(displayMetrics);
+        this.f35854d = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar);
+        this.f35856f = (com.kwad.sdk.glide.load.engine.bitmap_recycle.b) com.kwad.sdk.glide.g.j.a(bVar);
     }
 
     public static int a(double d2) {
         int b2 = b(1.0E9d * d2);
-        double d3 = b2 / 1.0E9f;
-        Double.isNaN(d3);
-        double d4 = b2;
-        Double.isNaN(d4);
-        return b((d2 / d3) * d4);
+        return b((d2 / (b2 / 1.0E9f)) * b2);
     }
 
     private Bitmap a(InputStream inputStream, BitmapFactory.Options options, DownsampleStrategy downsampleStrategy, DecodeFormat decodeFormat, boolean z, int i, int i2, boolean z2, k.a aVar) {
@@ -75,18 +71,18 @@ public final class j {
         int round2;
         int i3;
         long a2 = com.kwad.sdk.glide.g.f.a();
-        int[] a3 = a(inputStream, options, aVar, this.f35853d);
+        int[] a3 = a(inputStream, options, aVar, this.f35854d);
         int i4 = a3[0];
         int i5 = a3[1];
         String str = options.outMimeType;
         boolean z3 = (i4 == -1 || i5 == -1) ? false : z;
-        int b2 = com.kwad.sdk.glide.load.b.b(this.f35856g, inputStream, this.f35855f);
+        int b2 = com.kwad.sdk.glide.load.b.b(this.f35857g, inputStream, this.f35856f);
         int a4 = t.a(b2);
         boolean b3 = t.b(b2);
         int i6 = i == Integer.MIN_VALUE ? i4 : i;
         int i7 = i2 == Integer.MIN_VALUE ? i5 : i2;
-        ImageHeaderParser.ImageType a5 = com.kwad.sdk.glide.load.b.a(this.f35856g, inputStream, this.f35855f);
-        a(a5, inputStream, aVar, this.f35853d, downsampleStrategy, a4, i4, i5, i6, i7, options);
+        ImageHeaderParser.ImageType a5 = com.kwad.sdk.glide.load.b.a(this.f35857g, inputStream, this.f35856f);
+        a(a5, inputStream, aVar, this.f35854d, downsampleStrategy, a4, i4, i5, i6, i7, options);
         a(inputStream, decodeFormat, z3, b3, options, i6, i7);
         boolean z4 = Build.VERSION.SDK_INT >= 19;
         if (options.inSampleSize == 1 || z4) {
@@ -106,14 +102,14 @@ public final class j {
                     }
                 }
                 if (round > 0 && round2 > 0) {
-                    a(options, jVar.f35853d, round, round2);
+                    a(options, jVar.f35854d, round, round2);
                 }
             }
         } else {
             jVar = this;
         }
-        Bitmap b4 = b(inputStream, options, aVar, jVar.f35853d);
-        aVar.a(jVar.f35853d, b4);
+        Bitmap b4 = b(inputStream, options, aVar, jVar.f35854d);
+        aVar.a(jVar.f35854d, b4);
         if (Log.isLoggable("WebpDownsampler", 2)) {
             i3 = b2;
             a(i4, i5, str, options, b4, i, i2, a2);
@@ -122,10 +118,10 @@ public final class j {
         }
         Bitmap bitmap = null;
         if (b4 != null) {
-            b4.setDensity(jVar.f35854e.densityDpi);
-            bitmap = t.a(jVar.f35853d, b4, i3);
+            b4.setDensity(jVar.f35855e.densityDpi);
+            bitmap = t.a(jVar.f35854d, b4, i3);
             if (!b4.equals(bitmap)) {
-                jVar.f35853d.a(b4);
+                jVar.f35854d.a(b4);
             }
         }
         return bitmap;
@@ -134,8 +130,8 @@ public final class j {
     public static synchronized BitmapFactory.Options a() {
         BitmapFactory.Options poll;
         synchronized (j.class) {
-            synchronized (f35852c) {
-                poll = f35852c.poll();
+            synchronized (f35853c) {
+                poll = f35853c.poll();
             }
             if (poll == null) {
                 poll = new BitmapFactory.Options();
@@ -251,7 +247,7 @@ public final class j {
         }
         boolean z3 = false;
         try {
-            z3 = com.kwad.sdk.glide.load.b.a(this.f35856g, inputStream, this.f35855f).hasAlpha();
+            z3 = com.kwad.sdk.glide.load.b.a(this.f35857g, inputStream, this.f35856f).hasAlpha();
         } catch (IOException e2) {
             if (Log.isLoggable("WebpDownsampler", 3)) {
                 Log.d("WebpDownsampler", "Cannot determine whether the image has alpha or not from header, format " + decodeFormat, e2);
@@ -334,8 +330,8 @@ public final class j {
 
     public static void c(BitmapFactory.Options options) {
         d(options);
-        synchronized (f35852c) {
-            f35852c.offer(options);
+        synchronized (f35853c) {
+            f35853c.offer(options);
         }
     }
 
@@ -356,33 +352,33 @@ public final class j {
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar) {
-        return a(inputStream, i, i2, eVar, f35851b);
+        return a(inputStream, i, i2, eVar, f35852b);
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar, k.a aVar) {
         com.kwad.sdk.glide.g.j.a(inputStream.markSupported(), "You must provide an InputStream that supports mark()");
-        byte[] bArr = (byte[]) this.f35855f.a(65536, byte[].class);
+        byte[] bArr = (byte[]) this.f35856f.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35667a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35668a);
         try {
-            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35668b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35670d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35670d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35669c)).booleanValue(), aVar), this.f35853d);
+            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35669b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35671d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35671d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f35670c)).booleanValue(), aVar), this.f35854d);
         } finally {
             c(a2);
-            this.f35855f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr, (Class<com.kwad.sdk.glide.load.engine.bitmap_recycle.b>) byte[].class);
+            this.f35856f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr, (Class<com.kwad.sdk.glide.load.engine.bitmap_recycle.b>) byte[].class);
         }
     }
 
     public boolean a(InputStream inputStream, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f35850a)).booleanValue() || WebpHeaderParser.f35802a) {
+        if (((Boolean) eVar.a(f35851a)).booleanValue() || WebpHeaderParser.f35803a) {
             return false;
         }
-        WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(inputStream, this.f35855f);
+        WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(inputStream, this.f35856f);
         return WebpHeaderParser.a(a2) && a2 != WebpHeaderParser.WebpImageType.WEBP_SIMPLE;
     }
 
     public boolean a(ByteBuffer byteBuffer, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f35850a)).booleanValue() || WebpHeaderParser.f35802a) {
+        if (((Boolean) eVar.a(f35851a)).booleanValue() || WebpHeaderParser.f35803a) {
             return false;
         }
         WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(byteBuffer);

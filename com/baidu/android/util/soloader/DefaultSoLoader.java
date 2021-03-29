@@ -1,5 +1,5 @@
 package com.baidu.android.util.soloader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DefaultSoLoader implements ICallingSoLoader {
     public static DefaultSoLoader getDefaultSoLoader() {
         return new DefaultSoLoader();

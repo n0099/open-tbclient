@@ -21,15 +21,15 @@ public class d {
     public static volatile d x;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f64737b;
+    public Context f64738b;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f64739d;
+    public HandlerThread f64740d;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.u.c.g.d f64743h;
+    public d.b.u.c.g.d f64744h;
     public e i;
-    public HandlerC1772d j;
+    public HandlerC1773d j;
     public d.b.u.c.g.e k;
     public f l;
     public d.b.u.c.f.a m;
@@ -40,19 +40,19 @@ public class d {
     public int t;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64736a = 0;
+    public int f64737a = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64738c = false;
+    public boolean f64739c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f64740e = false;
+    public volatile boolean f64741e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f64741f = false;
+    public boolean f64742f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64742g = 0;
+    public long f64743g = 0;
     public volatile boolean o = false;
     public volatile boolean r = false;
 
@@ -142,8 +142,8 @@ public class d {
 
     /* renamed from: d.b.u.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC1772d extends Handler {
-        public HandlerC1772d(Looper looper) {
+    public class HandlerC1773d extends Handler {
+        public HandlerC1773d(Looper looper) {
             super(looper);
         }
 
@@ -154,7 +154,7 @@ public class d {
                     if (d.this.i != null) {
                         d.this.i.d(((Boolean) message.obj).booleanValue());
                     }
-                    d.this.f64740e = false;
+                    d.this.f64741e = false;
                     break;
                 case 7002:
                     if (d.this.i != null) {
@@ -164,7 +164,7 @@ public class d {
                     break;
                 case 7003:
                     if (d.this.i != null) {
-                        d.this.i.b(((Boolean) message.obj).booleanValue(), d.this.f64743h != null ? d.this.f64743h.f() : null);
+                        d.this.i.b(((Boolean) message.obj).booleanValue(), d.this.f64744h != null ? d.this.f64744h.f() : null);
                         break;
                     }
                     break;
@@ -178,7 +178,7 @@ public class d {
                     d.this.R();
                     break;
                 case 7006:
-                    d.this.f64740e = false;
+                    d.this.f64741e = false;
                     d.this.U();
                     break;
             }
@@ -213,29 +213,29 @@ public class d {
         if (Build.VERSION.SDK_INT >= 18) {
             this.k = new d.b.u.c.g.e();
         }
-        if (this.f64743h.o()) {
+        if (this.f64744h.o()) {
             this.m = new d.b.u.c.f.a();
         } else {
             w = true;
         }
         this.p = new d.b.u.c.f.b();
-        this.f64736a = 0;
-        if (!this.f64738c && this.f64739d == null) {
+        this.f64737a = 0;
+        if (!this.f64739c && this.f64740d == null) {
             HandlerThread handlerThread = new HandlerThread(u);
-            this.f64739d = handlerThread;
+            this.f64740d = handlerThread;
             handlerThread.start();
         }
-        HandlerC1772d handlerC1772d = this.j;
-        if (handlerC1772d == null) {
-            if (this.f64739d != null) {
-                this.j = new HandlerC1772d(this.f64739d.getLooper());
+        HandlerC1773d handlerC1773d = this.j;
+        if (handlerC1773d == null) {
+            if (this.f64740d != null) {
+                this.j = new HandlerC1773d(this.f64740d.getLooper());
             } else {
-                this.j = new HandlerC1772d(this.f64737b.getMainLooper());
+                this.j = new HandlerC1773d(this.f64738b.getMainLooper());
             }
         } else {
-            handlerC1772d.removeCallbacksAndMessages(null);
+            handlerC1773d.removeCallbacksAndMessages(null);
         }
-        this.f64743h.h();
+        this.f64744h.h();
     }
 
     public final synchronized boolean B() {
@@ -243,8 +243,8 @@ public class d {
         String str = u;
         Log.i(str, "isMovieRecordStarted sMovieRecordState = " + v);
         i = (v ^ 1) ^ 2;
-        if (this.f64743h != null) {
-            if (this.f64743h.o()) {
+        if (this.f64744h != null) {
+            if (this.f64744h.o()) {
                 i ^= 4;
             }
         }
@@ -256,22 +256,22 @@ public class d {
     }
 
     public final boolean D() {
-        d.b.u.c.g.d dVar = this.f64743h;
+        d.b.u.c.g.d dVar = this.f64744h;
         if (dVar == null) {
             return false;
         }
         if (dVar.o()) {
-            if (this.f64736a == 3) {
+            if (this.f64737a == 3) {
                 return true;
             }
-        } else if (this.f64736a == 2) {
+        } else if (this.f64737a == 2) {
             return true;
         }
         return false;
     }
 
     public final boolean E() {
-        return this.f64736a == 0;
+        return this.f64737a == 0;
     }
 
     public void F(ByteBuffer byteBuffer, int i, long j) {
@@ -287,19 +287,19 @@ public class d {
             arrayList.clear();
             this.s = null;
         }
-        this.f64737b = null;
-        this.f64743h = null;
+        this.f64738b = null;
+        this.f64744h = null;
         N(0);
         K();
-        HandlerC1772d handlerC1772d = this.j;
-        if (handlerC1772d != null) {
-            handlerC1772d.removeCallbacksAndMessages(null);
+        HandlerC1773d handlerC1773d = this.j;
+        if (handlerC1773d != null) {
+            handlerC1773d.removeCallbacksAndMessages(null);
             this.j = null;
         }
-        HandlerThread handlerThread = this.f64739d;
+        HandlerThread handlerThread = this.f64740d;
         if (handlerThread != null) {
             handlerThread.quit();
-            this.f64739d = null;
+            this.f64740d = null;
         }
     }
 
@@ -335,8 +335,8 @@ public class d {
             this.p.v();
             z = false;
         }
-        d.b.u.c.g.d dVar = this.f64743h;
-        if (dVar == null || this.k.b(dVar.f(), this.f64743h.g(), this.l)) {
+        d.b.u.c.g.d dVar = this.f64744h;
+        if (dVar == null || this.k.b(dVar.f(), this.f64744h.g(), this.l)) {
             return z;
         }
         Log.e(u, "prepareMovieRecorder movieMuxerInit error!!!");
@@ -345,11 +345,11 @@ public class d {
 
     public final void L() {
         String str = u;
-        Log.i(str, "restartRecorder mRestartTried = " + this.f64741f);
-        HandlerC1772d handlerC1772d = this.j;
-        if (handlerC1772d != null) {
-            this.f64741f = true;
-            handlerC1772d.sendMessageDelayed(handlerC1772d.obtainMessage(7005), 500L);
+        Log.i(str, "restartRecorder mRestartTried = " + this.f64742f);
+        HandlerC1773d handlerC1773d = this.j;
+        if (handlerC1773d != null) {
+            this.f64742f = true;
+            handlerC1773d.sendMessageDelayed(handlerC1773d.obtainMessage(7005), 500L);
         }
     }
 
@@ -357,20 +357,20 @@ public class d {
         if (z) {
             v = i | v;
         }
-        this.f64736a++;
+        this.f64737a++;
     }
 
     public final void P() {
         d.b.u.c.f.a aVar = this.m;
         if (aVar != null) {
-            aVar.q(this.f64743h, this.k, this.n);
+            aVar.q(this.f64744h, this.k, this.n);
         }
     }
 
     public final void Q() {
-        HandlerC1772d handlerC1772d = this.j;
-        if (handlerC1772d != null) {
-            handlerC1772d.sendMessageDelayed(handlerC1772d.obtainMessage(7001, Boolean.FALSE), 500L);
+        HandlerC1773d handlerC1773d = this.j;
+        if (handlerC1773d != null) {
+            handlerC1773d.sendMessageDelayed(handlerC1773d.obtainMessage(7001, Boolean.FALSE), 500L);
         }
     }
 
@@ -380,7 +380,7 @@ public class d {
         if (J()) {
             P();
             T();
-        } else if (!this.f64741f) {
+        } else if (!this.f64742f) {
             L();
         } else {
             Q();
@@ -389,42 +389,42 @@ public class d {
 
     public void S(Context context, d.b.u.c.g.d dVar, e eVar) {
         String str = u;
-        Log.i(str, "startRecorder mStarting = " + this.f64740e);
-        if (this.f64740e) {
+        Log.i(str, "startRecorder mStarting = " + this.f64741e);
+        if (this.f64741e) {
             Q();
             return;
         }
-        this.f64740e = true;
-        this.f64737b = context;
-        this.f64743h = dVar;
+        this.f64741e = true;
+        this.f64738b = context;
+        this.f64744h = dVar;
         this.i = eVar;
         R();
     }
 
     public final void T() {
         Y();
-        this.p.w(this.s, this.f64743h, this.k, this.q);
+        this.p.w(this.s, this.f64744h, this.k, this.q);
     }
 
     public void U() {
-        HandlerC1772d handlerC1772d;
+        HandlerC1773d handlerC1773d;
         String str = u;
-        Log.i(str, "stopRecorder mStarting = " + this.f64740e);
-        if (this.f64740e) {
-            if (!B() && (handlerC1772d = this.j) != null) {
-                handlerC1772d.sendMessage(handlerC1772d.obtainMessage(7004, 4002));
+        Log.i(str, "stopRecorder mStarting = " + this.f64741e);
+        if (this.f64741e) {
+            if (!B() && (handlerC1773d = this.j) != null) {
+                handlerC1773d.sendMessage(handlerC1773d.obtainMessage(7004, 4002));
             }
             Log.d(u, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
-            HandlerC1772d handlerC1772d2 = this.j;
-            if (handlerC1772d2 != null) {
-                handlerC1772d2.sendMessageDelayed(handlerC1772d2.obtainMessage(7006), 500L);
+            HandlerC1773d handlerC1773d2 = this.j;
+            if (handlerC1773d2 != null) {
+                handlerC1773d2.sendMessageDelayed(handlerC1773d2.obtainMessage(7006), 500L);
                 return;
             }
             return;
         }
         this.o = false;
         this.r = false;
-        this.f64742g = 0L;
+        this.f64743g = 0L;
         d.b.u.c.f.a aVar = this.m;
         if (aVar != null && aVar.o()) {
             this.m.s();
@@ -437,7 +437,7 @@ public class d {
     }
 
     public void V(long j) {
-        this.f64742g *= 1000000;
+        this.f64743g *= 1000000;
         e eVar = this.i;
         if (eVar != null) {
             eVar.c(j);
@@ -532,7 +532,7 @@ public class d {
         if (z) {
             v = i ^ v;
         }
-        this.f64736a--;
+        this.f64737a--;
     }
 
     public long y() {

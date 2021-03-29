@@ -127,8 +127,8 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
 
     /* renamed from: d.b.i0.i0.l.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1291b implements d.b.b.e.k.c<GifView> {
-        public C1291b() {
+    public class C1292b implements d.b.b.e.k.c<GifView> {
+        public C1292b() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -234,7 +234,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     b.this.t.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -243,7 +243,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.p = true;
         this.r = new d.b.b.e.k.b<>(new a(), 12, 0);
-        this.s = new d.b.b.e.k.b<>(new C1291b(), 20, 0);
+        this.s = new d.b.b.e.k.b<>(new C1292b(), 20, 0);
         this.t = new c();
         this.o = tbPageContext;
         this.m = bdUniqueId2;

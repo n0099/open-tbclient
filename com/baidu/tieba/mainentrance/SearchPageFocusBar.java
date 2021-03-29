@@ -16,16 +16,16 @@ import com.baidu.tieba.R;
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f18797e;
+    public RelativeLayout f18798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18798f;
+    public TextView f18799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f18799g;
+    public TbPageContext<?> f18800g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f18800h;
+    public Context f18801h;
     public TextView i;
 
     public SearchPageFocusBar(Context context) {
@@ -34,17 +34,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        this.f18800h = context;
+        this.f18801h = context;
         LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-        this.f18797e = (RelativeLayout) findViewById(R.id.focusbar_container);
+        this.f18798e = (RelativeLayout) findViewById(R.id.focusbar_container);
         TextView textView = (TextView) findViewById(R.id.focusbar_hint);
         this.i = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
         this.i.setVisibility(8);
         TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
-        this.f18798f = textView2;
+        this.f18799f = textView2;
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-        this.f18798f.setVisibility(8);
+        this.f18799f.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
@@ -54,7 +54,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f18799g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18799g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.f18800g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18800g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 

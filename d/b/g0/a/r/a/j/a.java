@@ -15,15 +15,15 @@ import d.b.g0.a.t1.k.a0;
 import d.b.g0.p.h;
 import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends a0 {
 
     /* renamed from: d.b.g0.a.r.a.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class RunnableC0772a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static final class RunnableC0773a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final RunnableC0772a f45699e = new RunnableC0772a();
+        public static final RunnableC0773a f45700e = new RunnableC0773a();
 
         @Override // java.lang.Runnable
         public final void run() {
@@ -38,9 +38,9 @@ public final class a extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f.f45696d.h(true);
+        f.f45697d.h(true);
         if (optParamsAsJo == null) {
-            d.b.g0.a.m.a c2 = f.f45696d.c();
+            d.b.g0.a.m.a c2 = f.f45697d.c();
             if (c2 != null) {
                 c2.onResult(-1);
             }
@@ -49,9 +49,9 @@ public final class a extends a0 {
         }
         int optInt = optParamsAsJo.optInt("errno");
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        k0.T(RunnableC0772a.f45699e);
+        k0.T(RunnableC0773a.f45700e);
         if (optInt != 0) {
-            d.b.g0.a.m.a c3 = f.f45696d.c();
+            d.b.g0.a.m.a c3 = f.f45697d.c();
             if (c3 != null) {
                 c3.onResult(-1);
             }
@@ -60,17 +60,17 @@ public final class a extends a0 {
         } else if (optJSONObject != null) {
             String str = h.c(CookieManager.getInstance().getCookie(Domains.BAIDU)).get("OPENBDUSS");
             if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {
-                d.b.g0.a.r.a.h.f45698a.a(optInt, optJSONObject);
+                d.b.g0.a.r.a.h.f45699a.a(optInt, optJSONObject);
                 d.b.g0.a.r.a.a.b(context, str);
-                f.f45696d.f(true);
-                d.b.g0.a.m.a c4 = f.f45696d.c();
+                f.f45697d.f(true);
+                d.b.g0.a.m.a c4 = f.f45697d.c();
                 if (c4 != null) {
                     c4.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            d.b.g0.a.m.a c5 = f.f45696d.c();
+            d.b.g0.a.m.a c5 = f.f45697d.c();
             if (c5 != null) {
                 c5.onResult(-1);
             }

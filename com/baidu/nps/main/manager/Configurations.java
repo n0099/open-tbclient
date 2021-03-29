@@ -8,7 +8,7 @@ import com.baidu.nps.interfa.ISignatureVerifier;
 import com.baidu.nps.interfa.IStatisticManager;
 import com.baidu.nps.interfa.IThreadManager;
 import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Configurations {
     public IAlertManager alertManager;
     public boolean debug;
@@ -20,7 +20,7 @@ public class Configurations {
     public IThreadManager threadManager;
     public IWebViewDataDirectoryManager webViewDataDirectoryManager;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public boolean debug;
         public IAlertManager alertManager = null;

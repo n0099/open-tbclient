@@ -7,17 +7,17 @@ import tbclient.FrsPage.Yule;
 public class l2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50842a = 0;
+    public int f50843a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public k2 f50843b = new k2();
+    public k2 f50844b = new k2();
 
     public boolean a() {
-        return this.f50842a != 0;
+        return this.f50843a != 0;
     }
 
     public k2 b() {
-        return this.f50843b;
+        return this.f50844b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -25,8 +25,8 @@ public class l2 {
             return;
         }
         try {
-            this.f50842a = jSONObject.optInt("activity_show");
-            this.f50843b.d(jSONObject.optJSONObject("yule_activity"));
+            this.f50843a = jSONObject.optInt("activity_show");
+            this.f50844b.d(jSONObject.optJSONObject("yule_activity"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -36,7 +36,7 @@ public class l2 {
         if (yule == null) {
             return;
         }
-        this.f50842a = yule.activity_show.intValue();
-        this.f50843b.e(yule.yule_activity);
+        this.f50843a = yule.activity_show.intValue();
+        this.f50844b.e(yule.yule_activity);
     }
 }

@@ -66,7 +66,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (d.g().a(newDiskPicOperate)) {
             int i = j.H() ? 500 : 2000;
@@ -178,7 +178,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         d.g().a(newDiskPicOperate);
     }
@@ -284,7 +284,7 @@ public class BigImageLoaderProc implements e<a> {
                     z = true;
                     webClient = new WebClient();
                     if (bVar != null) {
-                        bVar.f41847a = webClient;
+                        bVar.f41848a = webClient;
                     }
                     downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                     needCache = webClient.needCache();

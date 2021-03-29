@@ -18,7 +18,7 @@ public final class ObservableFlatMapSingle$FlatMapSingleObserver<T, R> extends A
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68060d;
+    public b f68065d;
     public final boolean delayErrors;
     public final h<? super T, ? extends s<? extends R>> mapper;
     public final a set = new a();
@@ -75,7 +75,7 @@ public final class ObservableFlatMapSingle$FlatMapSingleObserver<T, R> extends A
     @Override // f.a.t.b
     public void dispose() {
         this.cancelled = true;
-        this.f68060d.dispose();
+        this.f68065d.dispose();
         this.set.dispose();
     }
 
@@ -138,7 +138,7 @@ public final class ObservableFlatMapSingle$FlatMapSingleObserver<T, R> extends A
         this.set.c(innerObserver);
         if (this.errors.addThrowable(th)) {
             if (!this.delayErrors) {
-                this.f68060d.dispose();
+                this.f68065d.dispose();
                 this.set.dispose();
             }
             this.active.decrementAndGet();
@@ -220,15 +220,15 @@ public final class ObservableFlatMapSingle$FlatMapSingleObserver<T, R> extends A
             sVar.a(innerObserver);
         } catch (Throwable th) {
             f.a.u.a.a(th);
-            this.f68060d.dispose();
+            this.f68065d.dispose();
             onError(th);
         }
     }
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68060d, bVar)) {
-            this.f68060d = bVar;
+        if (DisposableHelper.validate(this.f68065d, bVar)) {
+            this.f68065d = bVar;
             this.actual.onSubscribe(this);
         }
     }

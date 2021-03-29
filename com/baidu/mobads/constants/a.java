@@ -3,28 +3,28 @@ package com.baidu.mobads.constants;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8203a;
+    public static final boolean f8204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f8204b;
+    public static final int f8205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8205c;
+    public static String f8206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f8206d;
+    public static final Object f8207d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f8207e;
+    public static final Object f8208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Object f8208f;
+    public static final Object f8209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object f8209g;
+    public static final Object f8210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Object f8210h;
+    public static final Object f8211h;
     public static int i;
     public static int j;
     public static int k;
@@ -40,14 +40,14 @@ public final class a {
 
     static {
         boolean booleanValue = XAdSDKProxyVersion.DEBUG.booleanValue();
-        f8203a = booleanValue;
-        f8204b = booleanValue ? 2 : 4;
-        f8205c = "0.0";
-        f8206d = "android";
-        f8207e = "androidlunpan";
-        f8208f = "androidinter";
-        f8209g = "androidintin";
-        f8210h = "androidlite";
+        f8204a = booleanValue;
+        f8205b = booleanValue ? 2 : 4;
+        f8206c = "0.0";
+        f8207d = "android";
+        f8208e = "androidlunpan";
+        f8209f = "androidinter";
+        f8210g = "androidintin";
+        f8211h = "androidlite";
         i = 5;
         j = 3468;
         k = 0;

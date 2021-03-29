@@ -12,7 +12,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends a0 {
     public e(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/file/getSavedFileList");
@@ -32,7 +32,7 @@ public class e extends a0 {
                         jSONObject.put("filePath", d.b.g0.a.a2.b.r(aVar.b(), d.b.g0.a.r1.e.T()));
                         jSONObject.put("createTime", aVar.a());
                         jSONObject.put("size", aVar.c());
-                        if (a0.f46287b) {
+                        if (a0.f46288b) {
                             Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
                         }
                     } catch (JSONException e2) {
@@ -49,7 +49,7 @@ public class e extends a0 {
                 } catch (JSONException e3) {
                     d.b.g0.a.c0.c.b("getSavedFileList", "file list to json fail");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d.b.g0.a.t1.f.a(2003)));
-                    if (a0.f46287b) {
+                    if (a0.f46288b) {
                         Log.d("GetSavedFileListAction", "——> handle: jsonException " + e3.getMessage());
                     }
                     return false;

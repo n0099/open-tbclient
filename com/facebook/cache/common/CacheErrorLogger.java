@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public interface CacheErrorLogger {
 
     /* loaded from: classes6.dex */

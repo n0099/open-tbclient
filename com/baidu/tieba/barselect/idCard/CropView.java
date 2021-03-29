@@ -21,16 +21,16 @@ import java.io.IOException;
 public class CropView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f15166e;
+    public float f15167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f15167f;
+    public float f15168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f15168g;
+    public float[] f15169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f15169h;
+    public Matrix f15170h;
     public Bitmap i;
     public GestureDetector j;
     public ScaleGestureDetector k;
@@ -56,7 +56,7 @@ public class CropView extends View {
         @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
         public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
             float scaleFactor = scaleGestureDetector.getScaleFactor();
-            CropView.this.f15169h.postScale(scaleFactor, scaleFactor);
+            CropView.this.f15170h.postScale(scaleFactor, scaleFactor);
             CropView.this.invalidate();
         }
     }
@@ -98,10 +98,10 @@ public class CropView extends View {
 
     public CropView(Context context) {
         super(context);
-        this.f15166e = 0.2f;
-        this.f15167f = 4.0f;
-        this.f15168g = new float[9];
-        this.f15169h = new Matrix();
+        this.f15167e = 0.2f;
+        this.f15168f = 4.0f;
+        this.f15169g = new float[9];
+        this.f15170h = new Matrix();
         this.l = new a();
         f();
     }
@@ -111,17 +111,17 @@ public class CropView extends View {
     }
 
     private float getScale() {
-        this.f15169h.getValues(this.f15168g);
-        float f2 = this.f15168g[0];
+        this.f15170h.getValues(this.f15169g);
+        float f2 = this.f15169g[0];
         if (Math.abs(f2) <= 0.1d) {
-            f2 = this.f15168g[1];
+            f2 = this.f15169g[1];
         }
         return Math.abs(f2);
     }
 
     private void setBitmap(Bitmap bitmap) {
         this.i = bitmap;
-        this.f15169h.reset();
+        this.f15170h.reset();
         d(getWidth(), getHeight());
         invalidate();
     }
@@ -132,9 +132,9 @@ public class CropView extends View {
             return;
         }
         float min = Math.min((i2 * 1.0f) / bitmap.getHeight(), (i * 1.0f) / this.i.getWidth());
-        this.f15169h.setTranslate(0.0f, 0.0f);
-        this.f15169h.setScale(min, min, this.i.getWidth() / 2, this.i.getHeight() / 2);
-        this.f15169h.postTranslate((i - this.i.getWidth()) / 2, (i2 - this.i.getHeight()) / 2);
+        this.f15170h.setTranslate(0.0f, 0.0f);
+        this.f15170h.setScale(min, min, this.i.getWidth() / 2, this.i.getHeight() / 2);
+        this.f15170h.postTranslate((i - this.i.getWidth()) / 2, (i2 - this.i.getHeight()) / 2);
         invalidate();
     }
 
@@ -143,7 +143,7 @@ public class CropView extends View {
         float[] fArr = {rect.left, rect.top};
         float[] fArr2 = {0.0f, 0.0f};
         Matrix matrix = new Matrix();
-        this.f15169h.invert(matrix);
+        this.f15170h.invert(matrix);
         matrix.mapPoints(fArr2, fArr);
         Matrix matrix2 = new Matrix();
         Bitmap createBitmap = Bitmap.createBitmap((int) (rect.width() / scale), (int) (rect.height() / scale), Bitmap.Config.RGB_565);
@@ -181,21 +181,21 @@ public class CropView extends View {
     public final void h(ScaleGestureDetector scaleGestureDetector) {
         float scaleFactor = scaleGestureDetector.getScaleFactor();
         float scale = getScale();
-        float f2 = this.f15166e;
+        float f2 = this.f15167e;
         if (scale * scaleFactor < f2) {
             scaleFactor = f2 / scale;
         }
-        float f3 = this.f15167f;
+        float f3 = this.f15168f;
         if (scale * scaleFactor > f3) {
             scaleFactor = f3 / scale;
         }
-        this.f15169h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+        this.f15170h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
         invalidate();
     }
 
     public final void i(float f2, float f3) {
-        this.f15169h.getValues(this.f15168g);
-        float[] fArr = this.f15168g;
+        this.f15170h.getValues(this.f15169g);
+        float[] fArr = this.f15169g;
         float f4 = fArr[2];
         float f5 = fArr[5];
         Rect restrictedBound = getRestrictedBound();
@@ -224,7 +224,7 @@ public class CropView extends View {
                 }
             }
         }
-        this.f15169h.postTranslate(-f2, -f3);
+        this.f15170h.postTranslate(-f2, -f3);
         invalidate();
     }
 
@@ -233,7 +233,7 @@ public class CropView extends View {
         super.onDraw(canvas);
         Bitmap bitmap = this.i;
         if (bitmap != null) {
-            canvas.drawBitmap(bitmap, this.f15169h, null);
+            canvas.drawBitmap(bitmap, this.f15170h, null);
         }
     }
 
@@ -289,11 +289,11 @@ public class CropView extends View {
     }
 
     public void setMaximumScale(float f2) {
-        this.f15167f = f2;
+        this.f15168f = f2;
     }
 
     public void setMinimumScale(float f2) {
-        this.f15166e = f2;
+        this.f15167e = f2;
     }
 
     public void setRestrictBound(Rect rect) {
@@ -302,20 +302,20 @@ public class CropView extends View {
 
     public CropView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15166e = 0.2f;
-        this.f15167f = 4.0f;
-        this.f15168g = new float[9];
-        this.f15169h = new Matrix();
+        this.f15167e = 0.2f;
+        this.f15168f = 4.0f;
+        this.f15169g = new float[9];
+        this.f15170h = new Matrix();
         this.l = new a();
         f();
     }
 
     public CropView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15166e = 0.2f;
-        this.f15167f = 4.0f;
-        this.f15168g = new float[9];
-        this.f15169h = new Matrix();
+        this.f15167e = 0.2f;
+        this.f15168f = 4.0f;
+        this.f15169g = new float[9];
+        this.f15170h = new Matrix();
         this.l = new a();
         f();
     }

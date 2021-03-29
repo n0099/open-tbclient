@@ -149,7 +149,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             if (string != null && string.equals("0")) {
                 AccessibilityBridge.this.accessibilityFeatureFlags |= AccessibilityFeature.DISABLE_ANIMATIONS.value;
             } else {
-                AccessibilityBridge.this.accessibilityFeatureFlags &= AccessibilityFeature.DISABLE_ANIMATIONS.value ^ (-1);
+                AccessibilityBridge.this.accessibilityFeatureFlags &= ~AccessibilityFeature.DISABLE_ANIMATIONS.value;
             }
             AccessibilityBridge.this.sendLatestAccessibilityFlagsToFlutter();
         }
@@ -437,7 +437,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             if (hasFlag(Flag.IS_FOCUSABLE)) {
                 return true;
             }
-            return ((((((Action.SCROLL_RIGHT.value | Action.SCROLL_LEFT.value) | Action.SCROLL_UP.value) | Action.SCROLL_DOWN.value) ^ (-1)) & this.actions) == 0 && this.flags == 0 && ((str = this.label) == null || str.isEmpty()) && (((str2 = this.value) == null || str2.isEmpty()) && ((str3 = this.hint) == null || str3.isEmpty()))) ? false : true;
+            return (((~(((Action.SCROLL_RIGHT.value | Action.SCROLL_LEFT.value) | Action.SCROLL_UP.value) | Action.SCROLL_DOWN.value)) & this.actions) == 0 && this.flags == 0 && ((str = this.label) == null || str.isEmpty()) && (((str2 = this.value) == null || str2.isEmpty()) && ((str3 = this.hint) == null || str3.isEmpty()))) ? false : true;
         }
 
         private void log(@NonNull String str, boolean z) {
@@ -621,7 +621,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                         AccessibilityBridge.this.accessibilityFeatureFlags |= AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
                     } else {
                         AccessibilityBridge.this.onTouchExplorationExit();
-                        AccessibilityBridge.this.accessibilityFeatureFlags &= AccessibilityFeature.ACCESSIBLE_NAVIGATION.value ^ (-1);
+                        AccessibilityBridge.this.accessibilityFeatureFlags &= ~AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
                     }
                     AccessibilityBridge.this.sendLatestAccessibilityFlagsToFlutter();
                     if (AccessibilityBridge.this.onAccessibilityChangeListener != null) {

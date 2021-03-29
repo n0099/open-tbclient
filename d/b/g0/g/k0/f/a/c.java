@@ -10,7 +10,7 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class c {
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public static PathType a(String str) {

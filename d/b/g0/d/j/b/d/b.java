@@ -31,23 +31,23 @@ import org.apache.http.protocol.HTTP;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f47527b;
+    public static b f47528b;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f47528a = c();
+    public OkHttpClient f47529a = c();
 
     /* loaded from: classes3.dex */
     public class a implements Interceptor {
 
         /* renamed from: d.b.g0.d.j.b.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0923a extends RequestBody {
+        public class C0924a extends RequestBody {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ RequestBody f47529a;
+            public final /* synthetic */ RequestBody f47530a;
 
-            public C0923a(a aVar, RequestBody requestBody) {
-                this.f47529a = requestBody;
+            public C0924a(a aVar, RequestBody requestBody) {
+                this.f47530a = requestBody;
             }
 
             @Override // okhttp3.RequestBody
@@ -57,14 +57,14 @@ public class b {
 
             @Override // okhttp3.RequestBody
             public MediaType contentType() {
-                return this.f47529a.contentType();
+                return this.f47530a.contentType();
             }
 
             @Override // okhttp3.RequestBody
             public void writeTo(@NonNull BufferedSink bufferedSink) {
                 BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
                 try {
-                    this.f47529a.writeTo(buffer);
+                    this.f47530a.writeTo(buffer);
                     buffer.close();
                 } catch (IOException unused) {
                 }
@@ -75,7 +75,7 @@ public class b {
         }
 
         public final RequestBody a(RequestBody requestBody) {
-            return new C0923a(this, requestBody);
+            return new C0924a(this, requestBody);
         }
 
         @Override // okhttp3.Interceptor
@@ -89,10 +89,10 @@ public class b {
     }
 
     public static b d() {
-        if (f47527b == null) {
-            f47527b = new b();
+        if (f47528b == null) {
+            f47528b = new b();
         }
-        return f47527b;
+        return f47528b;
     }
 
     @NonNull
@@ -138,9 +138,9 @@ public class b {
     public final String[] f(@NonNull byte[] bArr) {
         try {
             Bimlog$LogResponse parseFrom = Bimlog$LogResponse.parseFrom(bArr);
-            if (this.f47528a.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.f47528a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.f47528a = this.f47528a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.f47529a.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.f47529a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.f47529a = this.f47529a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException unused) {
@@ -153,16 +153,16 @@ public class b {
             return;
         }
         Request e2 = e(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-        if (this.f47528a == null) {
-            this.f47528a = c();
+        if (this.f47529a == null) {
+            this.f47529a = c();
         }
         try {
-            Response execute = this.f47528a.newCall(e2).execute();
+            Response execute = this.f47529a.newCall(e2).execute();
             try {
                 if (execute.body() != null) {
                     String[] f2 = f(execute.body().bytes());
-                    cVar.f47530a = Integer.valueOf(f2[0]).intValue();
-                    cVar.f47531b = f2[1];
+                    cVar.f47531a = Integer.valueOf(f2[0]).intValue();
+                    cVar.f47532b = f2[1];
                 }
             } catch (IOException unused) {
             }
@@ -171,8 +171,8 @@ public class b {
             if (e3 instanceof SocketException) {
                 str2 = "Request SocketException :" + e3.toString();
             }
-            cVar.f47530a = -1;
-            cVar.f47531b = str2;
+            cVar.f47531a = -1;
+            cVar.f47532b = str2;
         }
     }
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f66101a;
+    public static d f66102a;
 
     public abstract void a(d.g.c.d.a aVar) throws IOException;
 }

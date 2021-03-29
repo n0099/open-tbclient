@@ -1268,7 +1268,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         if ((i2 & 4) != 0) {
             this.mDisplayHomeAsUpSet = true;
         }
-        this.mDecorToolbar.setDisplayOptions((i & i2) | ((i2 ^ (-1)) & displayOptions));
+        this.mDecorToolbar.setDisplayOptions((i & i2) | ((~i2) & displayOptions));
     }
 
     @Override // androidx.appcompat.app.ActionBar

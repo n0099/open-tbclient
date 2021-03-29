@@ -7,9 +7,9 @@ import d.b.g0.a.e0.k.a;
 import d.b.g0.a.k;
 import d.b.g0.a.n1.c.f.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppPreloadJsBridge {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
     public a mJSContainer;

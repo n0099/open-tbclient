@@ -176,8 +176,8 @@ public class BosClient extends AbstractBceClient {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0072 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:85:0x009c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x005a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x009c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x005a */
     /* JADX DEBUG: Multi-variable search result rejected for r2v10, resolved type: byte[] */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: byte[] */
     /* JADX DEBUG: Multi-variable search result rejected for r2v8, resolved type: byte[] */
@@ -185,8 +185,8 @@ public class BosClient extends AbstractBceClient {
     /* JADX DEBUG: Multi-variable search result rejected for r9v17, resolved type: byte[] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:42:0x009f A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x00fd A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x00fd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

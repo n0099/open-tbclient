@@ -6,7 +6,7 @@ import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static String a(Context context, String str) {
         if (context != null && str != null) {

@@ -13,37 +13,37 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59527a;
+    public View f59528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59528b;
+    public ImageView f59529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f59529c;
+    public Context f59530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59530d;
+    public TextView f59531d;
 
     public void a(TbPageContext<?> tbPageContext) {
         tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f59527a);
+        tbPageContext.getLayoutMode().j(this.f59528a);
     }
 
     public View b(Context context) {
-        this.f59529c = context;
+        this.f59530c = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_management_add_item, (ViewGroup) null);
-        this.f59527a = inflate;
+        this.f59528a = inflate;
         inflate.setTag(this);
-        this.f59530d = (TextView) this.f59527a.findViewById(R.id.tail_management_new_text);
-        this.f59528b = (ImageView) this.f59527a.findViewById(R.id.tail_management_new_button);
-        return this.f59527a;
+        this.f59531d = (TextView) this.f59528a.findViewById(R.id.tail_management_new_text);
+        this.f59529b = (ImageView) this.f59528a.findViewById(R.id.tail_management_new_button);
+        return this.f59528a;
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.f59528b.setOnClickListener(onClickListener);
+        this.f59529b.setOnClickListener(onClickListener);
     }
 
     public void d(int i) {
-        this.f59530d.setText(String.format(this.f59529c.getString(R.string.tail_management_available), Integer.valueOf(i)));
+        this.f59531d.setText(String.format(this.f59530c.getString(R.string.tail_management_available), Integer.valueOf(i)));
     }
 }

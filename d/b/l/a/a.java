@@ -10,73 +10,73 @@ import d.b.l.c.f;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f64005d = AppConfig.isDebug();
+    public static boolean f64006d = AppConfig.isDebug();
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f64006e;
+    public static a f64007e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64007a;
+    public String f64008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64008b;
+    public String f64009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f64009c;
+    public SharedPreferences f64010c;
 
     public a() {
         d();
     }
 
     public static a b() {
-        if (f64006e == null) {
+        if (f64007e == null) {
             synchronized (a.class) {
-                if (f64006e == null) {
-                    f64006e = new a();
+                if (f64007e == null) {
+                    f64007e = new a();
                 }
             }
         }
-        return f64006e;
+        return f64007e;
     }
 
     public String a() {
-        return this.f64008b;
+        return this.f64009b;
     }
 
     public String c() {
-        return this.f64007a;
+        return this.f64008a;
     }
 
     public final void d() {
-        this.f64009c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+        this.f64010c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
         f();
         e();
     }
 
     public final void e() {
         String g2 = g();
-        this.f64008b = g2;
-        if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f64007a)) {
+        this.f64009b = g2;
+        if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f64008a)) {
             return;
         }
-        this.f64008b = this.f64007a;
+        this.f64009b = this.f64008a;
         j();
     }
 
     public final void f() {
         String i = i();
-        this.f64007a = i;
+        this.f64008a = i;
         if (TextUtils.isEmpty(i)) {
-            this.f64007a = h();
+            this.f64008a = h();
         }
     }
 
     public final String g() {
-        return this.f64009c.getString("channel", null);
+        return this.f64010c.getString("channel", null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x0080 A[Catch: Exception -> 0x007c, TRY_LEAVE, TryCatch #4 {Exception -> 0x007c, blocks: (B:45:0x0078, B:49:0x0080), top: B:59:0x0078 }] */
@@ -112,7 +112,7 @@ public class a {
                     try {
                         inputStream.close();
                     } catch (Exception e3) {
-                        if (f64005d) {
+                        if (f64006d) {
                             Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
                             return str2;
                         }
@@ -127,14 +127,14 @@ public class a {
                 inputStream2 = inputStream;
                 str = str3;
                 try {
-                    if (f64005d) {
+                    if (f64006d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
                     }
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
                         } catch (Exception e5) {
-                            if (f64005d) {
+                            if (f64006d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
                             }
                             return str;
@@ -152,7 +152,7 @@ public class a {
                         try {
                             inputStream.close();
                         } catch (Exception e6) {
-                            if (f64005d) {
+                            if (f64006d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
                             }
                             throw th;
@@ -193,7 +193,7 @@ public class a {
                     bufferedReader.close();
                     return readLine;
                 } catch (Exception e2) {
-                    if (f64005d) {
+                    if (f64006d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e2);
                         return readLine;
                     }
@@ -204,21 +204,21 @@ public class a {
                     openRawResource.close();
                     bufferedReader.close();
                 } catch (Exception e3) {
-                    if (f64005d) {
+                    if (f64006d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
                     }
                 }
                 throw th;
             }
         } catch (Exception e4) {
-            if (f64005d) {
+            if (f64006d) {
                 Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e4);
             }
             try {
                 openRawResource.close();
                 bufferedReader.close();
             } catch (Exception e5) {
-                if (f64005d) {
+                if (f64006d) {
                     Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e5);
                 }
             }
@@ -227,6 +227,6 @@ public class a {
     }
 
     public final void j() {
-        this.f64009c.edit().putString("channel", this.f64008b).apply();
+        this.f64010c.edit().putString("channel", this.f64009b).apply();
     }
 }

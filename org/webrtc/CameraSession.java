@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public interface CameraSession {
 
     /* loaded from: classes7.dex */

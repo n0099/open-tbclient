@@ -12,23 +12,23 @@ import d.b.i0.i2.f;
 public class a implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaVideoContainer f62191e;
+    public AlaVideoContainer f62192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a2 f62192f;
+    public a2 f62193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlaInfoData f62193g;
+    public AlaInfoData f62194g;
     public f i;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62194h = false;
-    public f.b j = new C1652a();
+    public boolean f62195h = false;
+    public f.b j = new C1653a();
 
     /* renamed from: d.b.i0.x.d0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1652a implements f.b {
-        public C1652a() {
+    public class C1653a implements f.b {
+        public C1653a() {
         }
 
         @Override // d.b.i0.i2.f.b
@@ -38,11 +38,11 @@ public class a implements e {
     }
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.f62191e = alaVideoContainer;
+        this.f62192e = alaVideoContainer;
         if (alaVideoContainer != null) {
             f fVar = new f();
             this.i = fVar;
-            fVar.l(this.f62191e.getVideoView());
+            fVar.l(this.f62192e.getVideoView());
             this.i.i(this.j);
         }
     }
@@ -53,13 +53,13 @@ public class a implements e {
     }
 
     public final void b() {
-        a2 a2Var = this.f62192f;
+        a2 a2Var = this.f62193f;
         if (a2Var == null || a2Var.u1() == null) {
         }
     }
 
     public void c() {
-        AlaVideoContainer alaVideoContainer = this.f62191e;
+        AlaVideoContainer alaVideoContainer = this.f62192e;
         if (alaVideoContainer != null) {
             alaVideoContainer.q();
         }
@@ -69,43 +69,43 @@ public class a implements e {
         if (a2Var == null) {
             return;
         }
-        this.f62192f = a2Var;
-        if (this.f62191e == null || a2Var.q1() == null) {
+        this.f62193f = a2Var;
+        if (this.f62192e == null || a2Var.q1() == null) {
             return;
         }
-        AlaInfoData q1 = this.f62192f.q1();
-        this.f62193g = q1;
-        this.f62191e.setVideoThumbnail(q1.cover);
+        AlaInfoData q1 = this.f62193f.q1();
+        this.f62194g = q1;
+        this.f62192e.setVideoThumbnail(q1.cover);
         if (z) {
-            this.f62191e.setTitle(this.f62192f.x1());
+            this.f62192e.setTitle(this.f62193f.x1());
         } else {
-            this.f62191e.setTitle("");
+            this.f62192e.setTitle("");
         }
-        AlaVideoContainer alaVideoContainer = this.f62191e;
-        alaVideoContainer.setPlayCount(String.format(alaVideoContainer.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.f62192f.q1().audience_count)));
+        AlaVideoContainer alaVideoContainer = this.f62192e;
+        alaVideoContainer.setPlayCount(String.format(alaVideoContainer.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.f62193f.q1().audience_count)));
     }
 
     @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        AlaVideoContainer alaVideoContainer = this.f62191e;
+        AlaVideoContainer alaVideoContainer = this.f62192e;
         if (alaVideoContainer == null || alaVideoContainer.getVideoView() == null) {
             return 0;
         }
-        return this.f62191e.getVideoView().getCurrentPositionSync();
+        return this.f62192e.getVideoView().getCurrentPositionSync();
     }
 
     @Override // d.b.i0.i2.e
     public String getPlayUrl() {
-        a2 a2Var = this.f62192f;
+        a2 a2Var = this.f62193f;
         if (a2Var == null || a2Var.u1() == null) {
             return null;
         }
-        return this.f62192f.u1().video_url;
+        return this.f62193f.u1().video_url;
     }
 
     @Override // d.b.i0.i2.e
     public View getVideoContainer() {
-        AlaVideoContainer alaVideoContainer = this.f62191e;
+        AlaVideoContainer alaVideoContainer = this.f62192e;
         if (alaVideoContainer != null) {
             return alaVideoContainer.getView();
         }
@@ -114,7 +114,7 @@ public class a implements e {
 
     @Override // d.b.i0.i2.e
     public boolean isPlayStarted() {
-        return this.f62194h;
+        return this.f62195h;
     }
 
     @Override // d.b.i0.i2.e
@@ -128,15 +128,15 @@ public class a implements e {
 
     @Override // d.b.i0.i2.e
     public void stopPlay() {
-        AlaVideoContainer alaVideoContainer = this.f62191e;
+        AlaVideoContainer alaVideoContainer = this.f62192e;
         if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-            this.f62191e.getVideoView().stopPlayback();
-            this.f62191e.p();
+            this.f62192e.getVideoView().stopPlayback();
+            this.f62192e.p();
             f fVar = this.i;
             if (fVar != null) {
                 fVar.n();
             }
         }
-        this.f62194h = false;
+        this.f62195h = false;
     }
 }

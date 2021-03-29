@@ -23,11 +23,9 @@ public final class PublishProcessor<T> extends a<T> {
 
         @Override // g.d.d
         public void cancel() {
-            if (getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
-                return;
+            if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+                this.parent.d(this);
             }
-            this.parent.d(this);
-            throw null;
         }
 
         public boolean isCancelled() {
@@ -74,7 +72,5 @@ public final class PublishProcessor<T> extends a<T> {
         }
     }
 
-    public void d(PublishSubscription<T> publishSubscription) {
-        throw null;
-    }
+    public abstract void d(PublishSubscription<T> publishSubscription);
 }

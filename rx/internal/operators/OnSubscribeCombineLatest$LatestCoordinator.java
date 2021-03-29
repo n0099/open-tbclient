@@ -100,7 +100,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                 i3++;
                 this.complete = i3;
             } else {
-                this.latest[i] = NotificationLite.d(obj);
+                this.latest[i] = NotificationLite.e(obj);
             }
             boolean z2 = false;
             z = i2 == length;
@@ -220,9 +220,10 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
 
     @Override // h.f
     public void request(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("n >= required but it was " + j);
-        } else if (j != 0) {
+        } else if (i != 0) {
             a.b(this.requested, j);
             drain();
         }

@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public @interface ImageOrigin {
     public static final int DISK = 3;
     public static final int LOCAL = 6;

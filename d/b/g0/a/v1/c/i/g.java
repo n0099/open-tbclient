@@ -8,9 +8,9 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends h<JSONObject> {
-    public static final boolean p = k.f45050a;
+    public static final boolean p = k.f45051a;
     public final Activity l;
     public final String m;
     public final String n;
@@ -27,7 +27,7 @@ public class g extends h<JSONObject> {
         JSONObject jSONObject = new JSONObject();
         try {
             d.b.g0.a.r1.e G = G();
-            jSONObject.put("ma_id", G.f45739f);
+            jSONObject.put("ma_id", G.f45740f);
             jSONObject.put("scope", this.m);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", d.b.g0.a.v1.c.c.g());

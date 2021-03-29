@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgCacheData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -100392737471140589L;
     public int is_left;

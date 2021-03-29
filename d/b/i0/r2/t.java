@@ -32,45 +32,45 @@ import java.util.List;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f59849a = null;
+    public static List<String> f59850a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f59850b = {BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", com.baidu.sapi2.utils.l.f11527a, "alipays"};
+    public static final String[] f59851b = {BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", com.baidu.sapi2.utils.l.f11528a, "alipays"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f59851c = false;
+    public static volatile boolean f59852c = false;
 
     /* loaded from: classes5.dex */
     public static class a implements TbImageView.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f59852a;
+        public final /* synthetic */ TbImageView f59853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59853b;
+        public final /* synthetic */ int f59854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ float f59854c;
+        public final /* synthetic */ float f59855c;
 
         public a(TbImageView tbImageView, int i, float f2) {
-            this.f59852a = tbImageView;
-            this.f59853b = i;
-            this.f59854c = f2;
+            this.f59853a = tbImageView;
+            this.f59854b = i;
+            this.f59855c = f2;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            ViewGroup.LayoutParams layoutParams = this.f59852a.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f59853a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.height = this.f59853b;
-                float f2 = this.f59854c;
+                layoutParams.height = this.f59854b;
+                float f2 = this.f59855c;
                 if (f2 <= 0.0f) {
                     f2 = 2.0f;
                 }
                 layoutParams.width = (int) (layoutParams.height * f2);
-                this.f59852a.setLayoutParams(layoutParams);
+                this.f59853a.setLayoutParams(layoutParams);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.f59852a.setAlpha(0.8f);
+                    this.f59853a.setAlpha(0.8f);
                 }
             }
         }
@@ -180,7 +180,7 @@ public class t {
         }
         String str = advertAppInfo.F3;
         if (StringUtils.isNull(str) && (aVar = advertAppInfo.U3) != null) {
-            str = aVar.f13203b;
+            str = aVar.f13204b;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -200,7 +200,7 @@ public class t {
         String str5 = advertAppInfo.I3;
         int intValue = d.b.i0.r2.x.e.o(str4).intValue();
         AdvertAppInfo.a aVar = advertAppInfo.U3;
-        n.E(str4, str5, str3, i, intValue, null, true, false, true, aVar.f13204c, downloadStaticsData, aVar.f13203b);
+        n.E(str4, str5, str3, i, intValue, null, true, false, true, aVar.f13205c, downloadStaticsData, aVar.f13204b);
         return true;
     }
 
@@ -356,15 +356,15 @@ public class t {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (d.b.i0.i1.o.k.a.e(f59849a)) {
+        if (d.b.i0.i1.o.k.a.e(f59850a)) {
             List<String> a2 = d.b.h0.s.c.g.a();
-            f59849a = a2;
+            f59850a = a2;
             if (a2 == null) {
-                f59849a = new ArrayList();
+                f59850a = new ArrayList();
             }
-            f59849a.addAll(Arrays.asList(f59850b));
+            f59850a.addAll(Arrays.asList(f59851b));
         }
-        for (String str2 : f59849a) {
+        for (String str2 : f59850a) {
             if (str.startsWith(str2)) {
                 return s(context, Uri.parse(str)) == 1000;
             }
@@ -385,10 +385,10 @@ public class t {
     }
 
     public static void z() {
-        if (d.b.i0.a.e().i() || f59851c) {
+        if (d.b.i0.a.e().i() || f59852c) {
             return;
         }
-        f59851c = true;
+        f59852c = true;
         String[] strArr = {"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"};
         for (int i = 0; i < 2; i++) {
             try {

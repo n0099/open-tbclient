@@ -17,76 +17,76 @@ import d.b.g0.a.y0.e.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f46354d = "SwanAppPageForbidden";
+    public static String f46355d = "SwanAppPageForbidden";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f46355e = k.f45050a;
+    public static boolean f46356e = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f46356a;
+    public boolean f46357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f46357b;
+    public List<String> f46358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46358c;
+    public String f46359c;
 
     /* renamed from: d.b.g0.a.t1.k.g0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0834a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0835a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f46359e;
+        public final /* synthetic */ f f46360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46360f;
+        public final /* synthetic */ String f46361f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f46361g;
+        public final /* synthetic */ d f46362g;
 
-        public RunnableC0834a(a aVar, f fVar, String str, d dVar) {
-            this.f46359e = fVar;
-            this.f46360f = str;
-            this.f46361g = dVar;
+        public RunnableC0835a(a aVar, f fVar, String str, d dVar) {
+            this.f46360e = fVar;
+            this.f46361f = str;
+            this.f46362g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.b i = this.f46359e.i(this.f46360f);
-            i.n(f.f44012g, f.i);
-            i.j(this.f46361g);
+            f.b i = this.f46360e.i(this.f46361f);
+            i.n(f.f44013g, f.i);
+            i.j(this.f46362g);
             i.b();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f46362a = new a(null);
+        public static final a f46363a = new a(null);
     }
 
-    public /* synthetic */ a(RunnableC0834a runnableC0834a) {
+    public /* synthetic */ a(RunnableC0835a runnableC0835a) {
         this();
     }
 
     public static a c() {
-        return b.f46362a;
+        return b.f46363a;
     }
 
     public boolean a(d.b.g0.a.e1.b bVar) {
         boolean z = false;
         if (bVar != null && d.b.g0.a.u.a.e(d.b.g0.a.r1.d.e().s().L())) {
-            if (!this.f46356a) {
+            if (!this.f46357a) {
                 i();
             }
-            z = (g(bVar.f44361a) || g(bVar.f44364d)) ? true : true;
-            if (f46355e) {
-                String str = f46354d;
+            z = (g(bVar.f44362a) || g(bVar.f44365d)) ? true : true;
+            if (f46356e) {
+                String str = f46355d;
                 Log.d(str, "check, hitPath = " + z + " params = " + bVar.toString());
             }
             return z;
@@ -100,12 +100,12 @@ public class a {
             if (!TextUtils.isEmpty(d2) && d2.startsWith("/")) {
                 d2 = d2.substring(1);
             }
-            if (!this.f46356a) {
+            if (!this.f46357a) {
                 i();
             }
             boolean g2 = g(d2);
-            if (f46355e) {
-                String str2 = f46354d;
+            if (f46356e) {
+                String str2 = f46355d;
                 Log.d(str2, "check, hitPath = " + g2 + " path = " + str);
             }
             return g2;
@@ -118,7 +118,7 @@ public class a {
     }
 
     public String e() {
-        return this.f46358c;
+        return this.f46359c;
     }
 
     public final String f(String str) {
@@ -127,10 +127,10 @@ public class a {
 
     public final boolean g(String str) {
         List<String> list;
-        if (TextUtils.isEmpty(str) || (list = this.f46357b) == null || list.isEmpty()) {
+        if (TextUtils.isEmpty(str) || (list = this.f46358b) == null || list.isEmpty()) {
             return false;
         }
-        return this.f46357b.contains(str);
+        return this.f46358b.contains(str);
     }
 
     public void h(String str, d.b.g0.a.e1.b bVar) {
@@ -139,13 +139,13 @@ public class a {
         if (bVar == null || (W = d.b.g0.a.z0.f.V().W()) == null || (W.m() instanceof d)) {
             return;
         }
-        if (g(bVar.f44364d)) {
+        if (g(bVar.f44365d)) {
             a2 = d.b.g0.a.e1.b.b(bVar);
         } else {
             a2 = d.b.g0.a.e1.b.a(bVar);
         }
-        if (f46355e) {
-            String str2 = f46354d;
+        if (f46356e) {
+            String str2 = f46355d;
             Log.d(str2, "jump from " + str + " ; path = " + a2);
         }
         e s = d.b.g0.a.r1.d.e().s();
@@ -159,45 +159,45 @@ public class a {
         forbiddenInfo.launchPath = a2;
         forbiddenInfo.enableSlidingFlag = 0;
         k(forbiddenInfo);
-        k0.X(new RunnableC0834a(this, W, str, d.E2(SwanAppErrorActivity.TYPE_PATH_FORBIDDEN, forbiddenInfo)));
+        k0.X(new RunnableC0835a(this, W, str, d.E2(SwanAppErrorActivity.TYPE_PATH_FORBIDDEN, forbiddenInfo)));
     }
 
     public final void i() {
         d.b.g0.a.a2.g.b a2 = h.a();
         String B = d.b.g0.a.r1.d.e().s().B();
         String string = a2.getString(d(B), null);
-        if (f46355e) {
-            String str = f46354d;
-            Log.d(str, "readDataSwanKv, appKey = " + B + " ; tips = " + this.f46358c + " ; path = " + string);
+        if (f46356e) {
+            String str = f46355d;
+            Log.d(str, "readDataSwanKv, appKey = " + B + " ; tips = " + this.f46359c + " ; path = " + string);
         }
         if (TextUtils.isEmpty(string)) {
-            this.f46357b = null;
-            this.f46358c = null;
+            this.f46358b = null;
+            this.f46359c = null;
         } else {
             JSONArray c2 = v.c(string);
             int length = c2.length();
-            this.f46357b = new ArrayList();
+            this.f46358b = new ArrayList();
             for (int i = 0; i < length; i++) {
                 String optString = c2.optString(i);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f46357b.add(optString);
+                    this.f46358b.add(optString);
                 }
             }
-            this.f46358c = a2.getString(f(B), null);
+            this.f46359c = a2.getString(f(B), null);
         }
-        this.f46356a = true;
+        this.f46357a = true;
     }
 
     public void j() {
-        if (f46355e) {
-            Log.d(f46354d, "releaseData");
+        if (f46356e) {
+            Log.d(f46355d, "releaseData");
         }
-        this.f46356a = false;
-        this.f46358c = null;
-        List<String> list = this.f46357b;
+        this.f46357a = false;
+        this.f46359c = null;
+        List<String> list = this.f46358b;
         if (list != null) {
             list.clear();
-            this.f46357b = null;
+            this.f46358b = null;
         }
     }
 
@@ -228,21 +228,21 @@ public class a {
         if (jSONArray != null && jSONArray.length() != 0) {
             String jSONArray2 = jSONArray.toString();
             h.a().edit().putString(d2, jSONArray2).putString(f2, str).apply();
-            if (f46355e) {
-                String str3 = f46354d;
+            if (f46356e) {
+                String str3 = f46355d;
                 Log.d(str3, "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str + " ; path = " + jSONArray2);
                 return;
             }
             return;
         }
         h.a().edit().remove(d2).remove(f2).apply();
-        if (f46355e) {
-            String str4 = f46354d;
+        if (f46356e) {
+            String str4 = f46355d;
             Log.d(str4, "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str);
         }
     }
 
     public a() {
-        this.f46356a = false;
+        this.f46357a = false;
     }
 }

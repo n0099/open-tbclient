@@ -5,14 +5,14 @@ import android.content.DialogInterface;
 public class i implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10135a;
+    public final /* synthetic */ a f10136a;
 
     public i(a aVar) {
-        this.f10135a = aVar;
+        this.f10136a = aVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.f10135a.R();
+        this.f10136a.R();
     }
 }

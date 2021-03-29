@@ -11,19 +11,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f59258b;
+    public static a f59259b;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f59259a = f();
+    public b f59260a = f();
 
     /* renamed from: d.b.i0.q0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1476a implements d {
-        public C1476a(a aVar) {
+    public class C1477a implements d {
+        public C1477a(a aVar) {
         }
 
         @Override // d.b.i0.q0.a.d
@@ -64,10 +64,10 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f59260a;
+        public String f59261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59261b;
+        public String f59262b;
     }
 
     /* loaded from: classes4.dex */
@@ -104,31 +104,31 @@ public class a {
 
     public static c a(String str, String str2) {
         c cVar = new c();
-        cVar.f59260a = str;
-        cVar.f59261b = str2;
+        cVar.f59261a = str;
+        cVar.f59262b = str2;
         return cVar;
     }
 
     public static a h() {
-        if (f59258b == null) {
+        if (f59259b == null) {
             synchronized (a.class) {
-                if (f59258b == null) {
-                    f59258b = new a();
+                if (f59259b == null) {
+                    f59259b = new a();
                 }
             }
         }
-        return f59258b;
+        return f59259b;
     }
 
     public void b(String str) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.d(str);
         }
     }
 
     public void c(String str) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.destroyAd(str);
         }
@@ -151,7 +151,7 @@ public class a {
     }
 
     public ViewGroup g(Activity activity, String str) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             return bVar.a(activity, str);
         }
@@ -159,7 +159,7 @@ public class a {
     }
 
     public Object i(@NonNull Activity activity, @NonNull String str) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             return bVar.b(activity, str);
         }
@@ -167,7 +167,7 @@ public class a {
     }
 
     public void j() {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar == null) {
             return;
         }
@@ -175,33 +175,33 @@ public class a {
     }
 
     public boolean k(String str) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         return bVar != null && bVar.isAdReady(str);
     }
 
     public void l(Activity activity, String str, d dVar, c cVar) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.c(activity, str, dVar, cVar);
         }
     }
 
     public void m(Activity activity, String str, d dVar, c cVar) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.g(activity, str, dVar, cVar);
         }
     }
 
     public void n(Activity activity, String str, ViewGroup viewGroup, e eVar, c cVar) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.h(activity, str, viewGroup, eVar, cVar);
         }
     }
 
     public void o(Activity activity, @NonNull Object obj, e eVar, ViewGroup viewGroup, List<View> list, List<View> list2, c cVar) {
-        b bVar = this.f59259a;
+        b bVar = this.f59260a;
         if (bVar != null) {
             bVar.f(activity, obj, eVar, viewGroup, list, list2, cVar);
         }
@@ -209,11 +209,11 @@ public class a {
 
     public boolean p(Activity activity) {
         b bVar;
-        if (!d.b.h0.b.d.l() || (bVar = this.f59259a) == null) {
+        if (!d.b.h0.b.d.l() || (bVar = this.f59260a) == null) {
             return false;
         }
         boolean isAdReady = bVar.isAdReady("6051001773-1862514716");
-        this.f59259a.g(activity, "6051001773-1862514716", new C1476a(this), a("frs", d.b.h0.b.d.l() ? "1" : "0"));
+        this.f59260a.g(activity, "6051001773-1862514716", new C1477a(this), a("frs", d.b.h0.b.d.l() ? "1" : "0"));
         return isAdReady;
     }
 }

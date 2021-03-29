@@ -26,15 +26,15 @@ import java.util.HashMap;
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public static MethodChannel f64854e;
+    public static MethodChannel f64855e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static CustomMessageListener f64855f = new C1778a(2000994);
+    public static CustomMessageListener f64856f = new C1779a(2000994);
 
     /* renamed from: d.b.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1778a extends CustomMessageListener {
-        public C1778a(int i) {
+    public static class C1779a extends CustomMessageListener {
+        public C1779a(int i) {
             super(i);
         }
 
@@ -47,7 +47,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                a.f64854e.invokeMethod("setNetInfo", a.c());
+                a.f64855e.invokeMethod("setNetInfo", a.c());
             }
         }
     }
@@ -64,7 +64,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     public static void d() {
-        MessageManager.getInstance().registerListener(f64855f);
+        MessageManager.getInstance().registerListener(f64856f);
     }
 
     public final HashMap b(String str) throws Exception {
@@ -119,7 +119,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "network_info");
-        f64854e = methodChannel;
+        f64855e = methodChannel;
         methodChannel.setMethodCallHandler(new a());
         d();
     }

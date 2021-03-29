@@ -7,16 +7,16 @@ import org.brotli.dec.BrotliRuntimeException;
 public class b extends InputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f67576e;
+    public byte[] f67581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67577f;
+    public int f67582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67578g;
+    public int f67583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final j f67579h;
+    public final j f67584h;
 
     public b(InputStream inputStream) throws IOException {
         this(inputStream, 16384, null);
@@ -24,39 +24,39 @@ public class b extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        j.a(this.f67579h);
+        j.a(this.f67584h);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (this.f67578g >= this.f67577f) {
-            byte[] bArr = this.f67576e;
+        if (this.f67583g >= this.f67582f) {
+            byte[] bArr = this.f67581e;
             int read = read(bArr, 0, bArr.length);
-            this.f67577f = read;
-            this.f67578g = 0;
+            this.f67582f = read;
+            this.f67583g = 0;
             if (read == -1) {
                 return -1;
             }
         }
-        byte[] bArr2 = this.f67576e;
-        int i = this.f67578g;
-        this.f67578g = i + 1;
+        byte[] bArr2 = this.f67581e;
+        int i = this.f67583g;
+        this.f67583g = i + 1;
         return bArr2[i] & 255;
     }
 
     public b(InputStream inputStream, int i, byte[] bArr) throws IOException {
         j jVar = new j();
-        this.f67579h = jVar;
+        this.f67584h = jVar;
         if (i <= 0) {
             throw new IllegalArgumentException("Bad buffer size:" + i);
         } else if (inputStream != null) {
-            this.f67576e = new byte[i];
-            this.f67577f = 0;
-            this.f67578g = 0;
+            this.f67581e = new byte[i];
+            this.f67582f = 0;
+            this.f67583g = 0;
             try {
                 j.c(jVar, inputStream);
                 if (bArr != null) {
-                    d.s(this.f67579h, bArr);
+                    d.s(this.f67584h, bArr);
                 }
             } catch (BrotliRuntimeException e2) {
                 throw new IOException("Brotli decoder initialization failed", e2);
@@ -77,11 +77,11 @@ public class b extends InputStream {
             } else if (i2 == 0) {
                 return 0;
             } else {
-                int max = Math.max(this.f67577f - this.f67578g, 0);
+                int max = Math.max(this.f67582f - this.f67583g, 0);
                 if (max != 0) {
                     max = Math.min(max, i2);
-                    System.arraycopy(this.f67576e, this.f67578g, bArr, i, max);
-                    this.f67578g += max;
+                    System.arraycopy(this.f67581e, this.f67583g, bArr, i, max);
+                    this.f67583g += max;
                     i += max;
                     i2 -= max;
                     if (i2 == 0) {
@@ -89,15 +89,15 @@ public class b extends InputStream {
                     }
                 }
                 try {
-                    this.f67579h.Z = bArr;
-                    this.f67579h.U = i;
-                    this.f67579h.V = i2;
-                    this.f67579h.W = 0;
-                    d.i(this.f67579h);
-                    if (this.f67579h.W == 0) {
+                    this.f67584h.Z = bArr;
+                    this.f67584h.U = i;
+                    this.f67584h.V = i2;
+                    this.f67584h.W = 0;
+                    d.i(this.f67584h);
+                    if (this.f67584h.W == 0) {
                         return -1;
                     }
-                    return this.f67579h.W + max;
+                    return this.f67584h.W + max;
                 } catch (BrotliRuntimeException e2) {
                     throw new IOException("Brotli stream decoding failed", e2);
                 }

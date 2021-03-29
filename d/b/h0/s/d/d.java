@@ -6,33 +6,33 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static d n = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51267a = 300;
+    public int f51268a = 300;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51268b = true;
+    public boolean f51269b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51269c = false;
+    public boolean f51270c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f51270d = true;
+    public boolean f51271d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51271e = true;
+    public boolean f51272e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51272f = true;
+    public boolean f51273f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51273g = true;
+    public boolean f51274g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51274h = false;
+    public boolean f51275h = false;
     public boolean i = true;
     public boolean j = true;
     public boolean k = false;
@@ -53,22 +53,22 @@ public class d {
     }
 
     public void C(boolean z) {
-        this.f51270d = z;
+        this.f51271d = z;
         b();
     }
 
     public void D(boolean z) {
-        this.f51268b = z;
+        this.f51269b = z;
         b();
     }
 
     public void E(int i) {
         if (i == 0) {
-            this.f51267a = i;
+            this.f51268a = i;
             b.g0().a0(0);
             b.g0().d0(0);
         } else {
-            this.f51267a = 300;
+            this.f51268a = 300;
         }
         b();
     }
@@ -78,12 +78,12 @@ public class d {
     }
 
     public void G(boolean z) {
-        this.f51273g = z;
+        this.f51274g = z;
         b();
     }
 
     public void H(boolean z) {
-        this.f51271e = z;
+        this.f51272e = z;
         b();
     }
 
@@ -92,11 +92,11 @@ public class d {
     }
 
     public void J(boolean z) {
-        this.f51274h = z;
+        this.f51275h = z;
     }
 
     public void K(boolean z) {
-        this.f51272f = z;
+        this.f51273f = z;
         b();
     }
 
@@ -133,7 +133,7 @@ public class d {
     }
 
     public void T(boolean z) {
-        this.f51269c = z;
+        this.f51270c = z;
     }
 
     public void U() {
@@ -161,9 +161,9 @@ public class d {
     }
 
     public int c() {
-        if (this.i || this.f51274h) {
-            if (!this.i || this.f51274h) {
-                return (this.i || !this.f51274h) ? 3 : 2;
+        if (this.i || this.f51275h) {
+            if (!this.i || this.f51275h) {
+                return (this.i || !this.f51275h) ? 3 : 2;
             }
             return 1;
         }
@@ -171,7 +171,7 @@ public class d {
     }
 
     public int e() {
-        return this.f51267a;
+        return this.f51268a;
     }
 
     public String f() {
@@ -212,11 +212,11 @@ public class d {
     }
 
     public boolean o() {
-        return this.f51270d;
+        return this.f51271d;
     }
 
     public boolean p() {
-        return this.f51268b;
+        return this.f51269b;
     }
 
     public boolean q() {
@@ -224,15 +224,15 @@ public class d {
     }
 
     public boolean r() {
-        return this.f51273g;
+        return this.f51274g;
     }
 
     public boolean s() {
-        return this.f51267a > 0;
+        return this.f51268a > 0;
     }
 
     public boolean t() {
-        return this.f51271e;
+        return this.f51272e;
     }
 
     public boolean u() {
@@ -240,11 +240,11 @@ public class d {
     }
 
     public boolean v() {
-        return this.f51274h;
+        return this.f51275h;
     }
 
     public boolean w() {
-        return this.f51272f;
+        return this.f51273f;
     }
 
     public boolean x() {
@@ -256,6 +256,6 @@ public class d {
     }
 
     public boolean z() {
-        return this.f51269c;
+        return this.f51270c;
     }
 }

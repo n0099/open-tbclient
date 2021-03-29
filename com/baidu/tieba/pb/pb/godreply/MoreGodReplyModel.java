@@ -16,16 +16,16 @@ import java.util.List;
 public class MoreGodReplyModel extends BdBaseModel<f> {
 
     /* renamed from: e  reason: collision with root package name */
-    public PbModel f19493e;
+    public PbModel f19494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19494f;
+    public boolean f19495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19495g;
+    public int f19496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19496h;
+    public int f19497h;
     public c0.b i;
     public final c0.b j;
 
@@ -36,7 +36,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
 
         @Override // d.b.i0.c2.k.e.c0.b
         public void a(int i, String str, String str2) {
-            MoreGodReplyModel.this.f19494f = false;
+            MoreGodReplyModel.this.f19495f = false;
             if (MoreGodReplyModel.this.i != null) {
                 MoreGodReplyModel.this.i.a(i, str, str2);
             }
@@ -45,9 +45,9 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         @Override // d.b.i0.c2.k.e.c0.b
         public void onSuccess(List<PostData> list) {
             s P;
-            MoreGodReplyModel.this.f19494f = false;
-            if (MoreGodReplyModel.this.f19493e != null && MoreGodReplyModel.this.f19493e.y0() != null && (P = MoreGodReplyModel.this.f19493e.y0().P()) != null) {
-                List<PostData> list2 = P.f52470a;
+            MoreGodReplyModel.this.f19495f = false;
+            if (MoreGodReplyModel.this.f19494e != null && MoreGodReplyModel.this.f19494e.y0() != null && (P = MoreGodReplyModel.this.f19494e.y0().P()) != null) {
+                List<PostData> list2 = P.f52471a;
                 int size = list2.size();
                 if (!ListUtils.isEmpty(list)) {
                     for (PostData postData : list) {
@@ -56,11 +56,11 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                         }
                     }
                 }
-                MoreGodReplyModel.this.f19493e.z1(MoreGodReplyModel.this.f19493e.y0(), size);
+                MoreGodReplyModel.this.f19494e.z1(MoreGodReplyModel.this.f19494e.y0(), size);
             }
-            if (MoreGodReplyModel.this.f19495g > 0) {
+            if (MoreGodReplyModel.this.f19496g > 0) {
                 MoreGodReplyModel moreGodReplyModel = MoreGodReplyModel.this;
-                moreGodReplyModel.f19496h = moreGodReplyModel.f19495g;
+                moreGodReplyModel.f19497h = moreGodReplyModel.f19496g;
             }
             if (MoreGodReplyModel.this.i != null) {
                 MoreGodReplyModel.this.i.onSuccess(list);
@@ -70,14 +70,14 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
 
     public MoreGodReplyModel(f fVar, PbModel pbModel) {
         super(fVar);
-        this.f19494f = false;
-        this.f19495g = -1;
-        this.f19496h = -1;
+        this.f19495f = false;
+        this.f19496g = -1;
+        this.f19497h = -1;
         this.j = new a();
         if (pbModel == null) {
             return;
         }
-        this.f19493e = pbModel;
+        this.f19494e = pbModel;
         c0 u0 = pbModel.u0();
         if (u0 != null) {
             u0.f(this.j);
@@ -102,45 +102,45 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     }
 
     public PbModel A() {
-        return this.f19493e;
+        return this.f19494e;
     }
 
     public boolean B() {
         e y0;
         s P;
-        PbModel pbModel = this.f19493e;
+        PbModel pbModel = this.f19494e;
         if (pbModel == null || (y0 = pbModel.y0()) == null || (P = y0.P()) == null) {
             return false;
         }
-        if (this.f19496h < 0) {
-            this.f19496h = P.a();
+        if (this.f19497h < 0) {
+            this.f19497h = P.a();
         }
-        return P.f52471b.size() > this.f19496h && P.f52470a.size() < 100;
+        return P.f52472b.size() > this.f19497h && P.f52471a.size() < 100;
     }
 
     public boolean C() {
-        return this.f19494f;
+        return this.f19495f;
     }
 
     public boolean D() {
         s P;
-        e y0 = this.f19493e.y0();
+        e y0 = this.f19494e.y0();
         if (y0 == null || (P = y0.P()) == null) {
             return false;
         }
-        if (this.f19496h < 0) {
-            this.f19496h = P.a();
+        if (this.f19497h < 0) {
+            this.f19497h = P.a();
         }
-        List<Long> list = P.f52471b;
+        List<Long> list = P.f52472b;
         int size = list.size();
-        int i = this.f19496h;
-        if (size <= i || P.f52470a.size() >= 100) {
+        int i = this.f19497h;
+        if (size <= i || P.f52471a.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.f19495g = min;
-        this.f19494f = true;
-        this.f19493e.u0().c(list.subList(i, min));
+        this.f19496g = min;
+        this.f19495f = true;
+        this.f19494e.u0().c(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -156,21 +156,21 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.f19494f = false;
+        this.f19495f = false;
         return false;
     }
 
     public List<n> z() {
-        PbModel pbModel = this.f19493e;
+        PbModel pbModel = this.f19494e;
         ArrayList arrayList = null;
         if (pbModel == null) {
             return null;
         }
         e y0 = pbModel.y0();
-        if (y0 != null && y0.P() != null && !ListUtils.isEmpty(y0.P().f52470a)) {
+        if (y0 != null && y0.P() != null && !ListUtils.isEmpty(y0.P().f52471a)) {
             s P = y0.P();
             arrayList = new ArrayList();
-            List<PostData> list = P.f52470a;
+            List<PostData> list = P.f52471a;
             int size = list.size();
             int i = 0;
             while (i < size) {

@@ -11,47 +11,47 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f56889a = new ArrayList();
+    public List<a> f56890a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public z0 f56890b = new z0();
+    public z0 f56891b = new z0();
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f56891a;
+        public long f56892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56892b;
+        public String f56893b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f56893c;
+        public long f56894c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f56894d;
+        public String f56895d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f56895e;
+        public String f56896e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f56896f;
+        public long f56897f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f56897g;
+        public int f56898g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f56898h;
+        public int f56899h;
         public String i;
     }
 
     public boolean a() {
-        List<a> list = this.f56889a;
+        List<a> list = this.f56890a;
         return (list == null || list.size() == 0) ? false : true;
     }
 
     public boolean b() {
-        z0 z0Var = this.f56890b;
+        z0 z0Var = this.f56891b;
         return z0Var != null && z0Var.b() == 1;
     }
 
@@ -64,12 +64,12 @@ public class b {
             return;
         }
         try {
-            this.f56890b.i(jSONObject.getJSONObject("page"));
+            this.f56891b.i(jSONObject.getJSONObject("page"));
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return;
             }
-            this.f56889a.clear();
+            this.f56890a.clear();
             int i2 = 0;
             while (i2 < optJSONArray.length()) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
@@ -94,16 +94,16 @@ public class b {
                     i = i2;
                     if (jSONObject2.optInt("thread_type", 0) != 33) {
                         a aVar = new a();
-                        aVar.f56891a = optLong;
-                        aVar.f56892b = optString2;
-                        aVar.f56893c = optLong2;
-                        aVar.f56894d = optString3;
-                        aVar.f56895e = optString4;
-                        aVar.f56896f = optLong3;
-                        aVar.f56897g = optInt;
-                        aVar.f56898h = optInt2;
+                        aVar.f56892a = optLong;
+                        aVar.f56893b = optString2;
+                        aVar.f56894c = optLong2;
+                        aVar.f56895d = optString3;
+                        aVar.f56896e = optString4;
+                        aVar.f56897f = optLong3;
+                        aVar.f56898g = optInt;
+                        aVar.f56899h = optInt2;
                         aVar.i = optString;
-                        this.f56889a.add(aVar);
+                        this.f56890a.add(aVar);
                     }
                 }
                 i2 = i + 1;

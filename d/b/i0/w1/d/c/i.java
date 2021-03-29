@@ -19,7 +19,7 @@ import d.b.i.o0;
 import d.b.i.p0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> implements d.b.i0.m.f {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -27,7 +27,7 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
     public boolean q;
     public b0<d.b.i0.x.e0.k> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.k> {
         public a() {
         }
@@ -40,7 +40,7 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b {
         public b(i iVar) {
         }
@@ -59,7 +59,7 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -74,7 +74,7 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
                     i.this.r.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 17, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -108,8 +108,8 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
         bVar.h(nVar);
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 9;
-        eVar.f50768h = 9;
+        eVar.f50763b = 9;
+        eVar.f50769h = 9;
         m0Var.v(eVar);
         m0Var.w(9);
         m0Var.A(4);
@@ -127,7 +127,7 @@ public class i extends d.b.i0.w1.d.c.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

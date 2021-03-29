@@ -14,35 +14,35 @@ import java.nio.ByteOrder;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f59104a = false;
+    public static boolean f59105a = false;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f59105a = 48000;
+        public int f59106a = 48000;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59106b = 1;
+        public int f59107b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59107c = 16;
+        public int f59108c = 16;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f59108d = 0;
+        public int f59109d = 0;
 
         public boolean a() {
-            int i = this.f59108d;
+            int i = this.f59109d;
             return i == 5 || i == 6 || i == 8 || i == 9;
         }
 
         public boolean b() {
-            int i = this.f59108d;
+            int i = this.f59109d;
             return i == 3 || i == 4 || i == 8 || i == 9;
         }
 
         public boolean c() {
-            int i = this.f59108d;
+            int i = this.f59109d;
             return i == 1 || i == 4 || i == 6 || i == 9;
         }
     }
@@ -63,14 +63,14 @@ public class g {
                 byte[] bArr2 = new byte[i3];
                 for (int i4 = 0; i4 < i3; i4++) {
                     int i5 = i4 * 2;
-                    bArr2[i4] = (byte) (f(bArr[i5], bArr[i5 + 1], f59104a) / 256);
+                    bArr2[i4] = (byte) (f(bArr[i5], bArr[i5 + 1], f59105a) / 256);
                 }
                 return bArr2;
             }
         } else if (i2 == 2) {
             byte[] bArr3 = new byte[length * 2];
             for (int i6 = 0; i6 < length; i6++) {
-                byte[] e2 = e((short) (bArr[i6] * 256), f59104a);
+                byte[] e2 = e((short) (bArr[i6] * 256), f59105a);
                 int i7 = i6 * 2;
                 bArr3[i7] = e2[0];
                 bArr3[i7 + 1] = e2[1];
@@ -101,7 +101,7 @@ public class g {
                     } else if (i3 == 2) {
                         for (int i7 = 0; i7 < i5; i7 += 2) {
                             int i8 = i7 * 2;
-                            byte[] a2 = a(bArr[i8], bArr[i8 + 1], bArr[i8 + 2], bArr[i8 + 3], f59104a);
+                            byte[] a2 = a(bArr[i8], bArr[i8 + 1], bArr[i8 + 2], bArr[i8 + 3], f59105a);
                             bArr2[i7] = a2[0];
                             bArr2[i7 + 1] = a2[1];
                         }
@@ -161,9 +161,9 @@ public class g {
                 return null;
             }
             a aVar = new a();
-            aVar.f59105a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
-            aVar.f59106b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.f59107c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.f59106a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
+            aVar.f59107b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+            aVar.f59108c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e2) {
@@ -196,9 +196,9 @@ public class g {
 
     public static void g() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            f59104a = true;
+            f59105a = true;
         } else {
-            f59104a = false;
+            f59105a = false;
         }
     }
 
@@ -209,16 +209,16 @@ public class g {
         }
         boolean z = true;
         for (int i = 1; i < aVarArr.length; i++) {
-            if (aVar.f59105a != aVarArr[i].f59105a) {
-                aVarArr[i].f59108d++;
+            if (aVar.f59106a != aVarArr[i].f59106a) {
+                aVarArr[i].f59109d++;
                 z = false;
             }
-            if (aVar.f59106b != aVarArr[i].f59106b) {
-                aVarArr[i].f59108d += 3;
+            if (aVar.f59107b != aVarArr[i].f59107b) {
+                aVarArr[i].f59109d += 3;
                 z = false;
             }
-            if (aVar.f59107c != aVarArr[i].f59107c) {
-                aVarArr[i].f59108d += 5;
+            if (aVar.f59108c != aVarArr[i].f59108c) {
+                aVarArr[i].f59109d += 5;
                 z = false;
             }
         }

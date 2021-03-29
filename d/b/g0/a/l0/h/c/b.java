@@ -3,7 +3,7 @@ package d.b.g0.a.l0.h.c;
 import androidx.annotation.NonNull;
 import d.b.g0.a.u0.d;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class b implements a {
     static {
         String str = d.d() + File.separator + "extension_core";

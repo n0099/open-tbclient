@@ -31,7 +31,7 @@ public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a
     }
 
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.l.f60870f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.l.f60871f);
         this.m = tbPageContext;
     }
 
@@ -44,7 +44,7 @@ public class i extends d.b.b.j.e.a<d.b.i0.t.j.d.l, CardViewHolder<d.b.i0.t.j.h.a
         this.o = g2.b().user_id;
         n0(g2, aVar);
         aVar.z(8);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_privilege));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 

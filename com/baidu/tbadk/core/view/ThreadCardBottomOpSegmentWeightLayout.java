@@ -30,25 +30,25 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void J() {
-        this.f13492h.setVisibilityListener(this.k0);
-        this.f13492h.j(true);
+        this.f13493h.setVisibilityListener(this.k0);
+        this.f13493h.j(true);
     }
 
     public final void S(boolean z) {
         if (T()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13492h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13493h.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f2;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f13492h.setLayoutParams(layoutParams);
+            this.f13493h.setLayoutParams(layoutParams);
         }
     }
 
     public final boolean T() {
-        boolean q = this.f13492h.q();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13492h.getLayoutParams();
+        boolean q = this.f13493h.q();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13493h.getLayoutParams();
         return (layoutParams.weight == (q ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
     }
 
@@ -60,7 +60,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(View view) {
         super.p(view);
-        this.f13492h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+        this.f13493h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {

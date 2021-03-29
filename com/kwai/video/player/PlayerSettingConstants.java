@@ -46,39 +46,39 @@ public interface PlayerSettingConstants {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface AudioMonoType {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface DeviceOut {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface KFlvSwitchMode {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface LogLevel {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MaxBufferStrategy {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface OptionType {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface OverlayFormat {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface ScalingMode {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface UseHardwareDecoderFlag {
     }
 }

@@ -27,16 +27,16 @@ public class j extends Dialog {
     public static int n = 1000;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51015e;
+    public Context f51016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.a.f f51016f;
+    public d.b.b.a.f f51017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51017g;
+    public View f51018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f51018h;
+    public LinearLayout f51019h;
     public float i;
     public boolean j;
     public l k;
@@ -100,10 +100,10 @@ public class j extends Dialog {
 
             @Override // java.lang.Runnable
             public void run() {
-                if (j.this.f51016f == null || j.this.f51016f.getPageActivity() == null) {
+                if (j.this.f51017f == null || j.this.f51017f.getPageActivity() == null) {
                     return;
                 }
-                Activity pageActivity = j.this.f51016f.getPageActivity();
+                Activity pageActivity = j.this.f51017f.getPageActivity();
                 if (pageActivity.isFinishing() || pageActivity.getWindow() == null) {
                     return;
                 }
@@ -117,7 +117,7 @@ public class j extends Dialog {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             j.this.j = false;
-            j.this.f51018h.post(new a());
+            j.this.f51019h.post(new a());
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -136,40 +136,40 @@ public class j extends Dialog {
         this.j = false;
         this.l = true;
         this.m = new a(2001304);
-        this.f51016f = fVar;
-        this.f51015e = fVar.getPageActivity();
+        this.f51017f = fVar;
+        this.f51016e = fVar.getPageActivity();
         this.k = lVar;
-        this.f51017g = lVar.c();
+        this.f51018g = lVar.c();
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (this.f51018h == null || this.j || !isShowing()) {
+        if (this.f51019h == null || this.j || !isShowing()) {
             return;
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f51015e, R.anim.pop_exit_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f51016e, R.anim.pop_exit_anim);
         loadAnimation.setFillAfter(true);
         loadAnimation.setAnimationListener(new d());
-        this.f51018h.startAnimation(loadAnimation);
+        this.f51019h.startAnimation(loadAnimation);
         MessageManager.getInstance().unRegisterListener(this.m);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
     }
 
     public View f() {
-        return this.f51017g;
+        return this.f51018g;
     }
 
     public LinearLayout g() {
-        return this.f51018h;
+        return this.f51019h;
     }
 
     public void h(l lVar) {
         this.k = lVar;
-        this.f51017g = lVar.c();
+        this.f51018g = lVar.c();
     }
 
     public void i(String str, String[] strArr, l.e eVar) {
-        this.k = new l(this.f51015e);
+        this.k = new l(this.f51016e);
         if (!StringUtils.isNull(str)) {
             this.k.q(str);
         }
@@ -180,7 +180,7 @@ public class j extends Dialog {
         this.k.k(arrayList);
         this.k.n(eVar);
         setCanceledOnTouchOutside(true);
-        this.f51017g = this.k.c();
+        this.f51018g = this.k.c();
     }
 
     public void j(SpannableStringBuilder spannableStringBuilder) {
@@ -200,12 +200,12 @@ public class j extends Dialog {
         if (isShowing()) {
             super.dismiss();
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(d.b.b.e.m.g.j(this, this.f51016f))));
-        if (this.f51018h != null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f51015e, R.anim.bomb_pop_enter_anim);
+        MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(d.b.b.e.m.g.j(this, this.f51017f))));
+        if (this.f51019h != null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f51016e, R.anim.bomb_pop_enter_anim);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new c());
-            this.f51018h.startAnimation(loadAnimation);
+            this.f51019h.startAnimation(loadAnimation);
         }
     }
 
@@ -223,7 +223,7 @@ public class j extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(R.layout.popup_dialog);
-        Display defaultDisplay = ((WindowManager) this.f51015e.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.f51016e.getSystemService("window")).getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         attributes.height = defaultDisplay.getHeight();
@@ -239,43 +239,43 @@ public class j extends Dialog {
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-        this.f51018h = linearLayout;
+        this.f51019h = linearLayout;
         linearLayout.setOnClickListener(new b());
-        View view = this.f51017g;
+        View view = this.f51018g;
         if (view == null) {
             return;
         }
-        this.f51018h.removeView(view);
+        this.f51019h.removeView(view);
         if (this.l) {
-            View view2 = this.f51017g;
+            View view2 = this.f51018g;
             if ((view2 instanceof ViewGroup) && ((ViewGroup) view2).getChildAt(((ViewGroup) view2).getChildCount() - 1).getId() != n) {
                 View view3 = new View(getContext());
                 view3.setId(n);
                 view3.setLayoutParams(new ViewGroup.LayoutParams(-1, d.b.b.e.p.l.g(getContext(), R.dimen.bottom_enter_anim_place_holder_height)));
                 SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-                ((ViewGroup) this.f51017g).addView(view3);
+                ((ViewGroup) this.f51018g).addView(view3);
             }
         }
-        if (this.f51017g.getParent() != null) {
-            if (this.f51017g.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f51017g.getParent()).removeView(this.f51017g);
-                this.f51018h.addView(this.f51017g);
+        if (this.f51018g.getParent() != null) {
+            if (this.f51018g.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f51018g.getParent()).removeView(this.f51018g);
+                this.f51019h.addView(this.f51018g);
                 return;
             }
             return;
         }
-        this.f51018h.addView(this.f51017g);
+        this.f51019h.addView(this.f51018g);
     }
 
     @Override // android.app.Dialog
     public void setContentView(View view) {
-        this.f51017g = view;
+        this.f51018g = view;
     }
 
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        this.f51016f.registerListener(this.m);
+        this.f51017f.registerListener(this.m);
     }
 
     public j(d.b.b.a.f fVar) {
@@ -284,7 +284,7 @@ public class j extends Dialog {
         this.j = false;
         this.l = true;
         this.m = new a(2001304);
-        this.f51015e = fVar.getPageActivity();
-        this.f51016f = fVar;
+        this.f51016e = fVar.getPageActivity();
+        this.f51017f = fVar;
     }
 }

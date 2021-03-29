@@ -26,7 +26,7 @@ import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
 import d.b.i0.d1.h.m;
 import d.b.i0.e1.a.b.b.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements f.e, BdSwitchView.b {
     public d.b.i0.e1.a.b.b.f mModel;
     public d.b.i0.k3.a mUserReportController;
@@ -34,25 +34,25 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public d.b.b.c.g.c switchListener = new i(104102);
     public long userId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f18212e;
+        public final /* synthetic */ boolean f18213e;
 
         public a(boolean z) {
-            this.f18212e = z;
+            this.f18213e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PersonalTalkSettingActivity.this.mView.e(null);
-            PersonalTalkSettingActivity.this.mView.b(!this.f18212e);
+            PersonalTalkSettingActivity.this.mView.b(!this.f18213e);
             PersonalTalkSettingActivity.this.mView.e(PersonalTalkSettingActivity.this);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b() {
         }
@@ -63,7 +63,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -75,7 +75,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements a.e {
         public d() {
         }
@@ -86,10 +86,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements a.e {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a extends f0<Boolean> {
             public a() {
             }
@@ -102,7 +102,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements n<Boolean> {
             public b() {
             }
@@ -129,7 +129,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements a.e {
         public f() {
         }
@@ -140,7 +140,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements a.e {
         public g() {
         }
@@ -153,23 +153,23 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18222e;
+        public final /* synthetic */ d.b.h0.r.s.a f18223e;
 
         public h(d.b.h0.r.s.a aVar) {
-            this.f18222e = aVar;
+            this.f18223e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18222e.dismiss();
+            this.f18223e.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i extends d.b.b.c.g.c {
         public i(int i) {
             super(i);
@@ -189,20 +189,20 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f18225a;
+        public final /* synthetic */ boolean f18226a;
 
         public j(boolean z) {
-            this.f18225a = z;
+            this.f18226a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (!this.f18225a) {
+            if (!this.f18226a) {
                 d.b.i0.d1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
                 return null;
             }

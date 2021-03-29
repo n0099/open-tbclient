@@ -14,41 +14,41 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsADFragment f57559a;
+    public FrsADFragment f57560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f57560b;
+    public BdTypeRecyclerView f57561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f57561c;
+    public d f57562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public s f57562d;
+    public s f57563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f57563e = new ArrayList();
+    public List<d.b.b.j.e.a> f57564e = new ArrayList();
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f57559a = frsADFragment;
-        this.f57560b = bdTypeRecyclerView;
+        this.f57560a = frsADFragment;
+        this.f57561b = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
-        this.f57561c = new d(this.f57559a.getPageContext(), c.l, this.f57559a.getUniqueId());
-        this.f57562d = new s(this.f57559a.getPageContext(), t.f58578f);
-        this.f57563e.add(this.f57561c);
-        this.f57563e.add(this.f57562d);
+        this.f57562c = new d(this.f57560a.getPageContext(), c.l, this.f57560a.getUniqueId());
+        this.f57563d = new s(this.f57560a.getPageContext(), t.f58579f);
+        this.f57564e.add(this.f57562c);
+        this.f57564e.add(this.f57563d);
         e();
-        this.f57560b.a(this.f57563e);
+        this.f57561b.a(this.f57564e);
     }
 
     public void b() {
-        this.f57560b.getAdapter().notifyDataSetChanged();
+        this.f57561b.getAdapter().notifyDataSetChanged();
     }
 
     public void c() {
-        for (d.b.b.j.e.a aVar : this.f57563e) {
+        for (d.b.b.j.e.a aVar : this.f57564e) {
             if (aVar instanceof k) {
                 ((k) aVar).m0();
             }
@@ -56,26 +56,26 @@ public class a {
     }
 
     public void d(ArrayList<n> arrayList) {
-        this.f57560b.setData(arrayList);
+        this.f57561b.setData(arrayList);
     }
 
     public final void e() {
-        if (ListUtils.isEmpty(this.f57563e) || this.f57559a == null) {
+        if (ListUtils.isEmpty(this.f57564e) || this.f57560a == null) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f57563e) {
+        for (d.b.b.j.e.a aVar : this.f57564e) {
             if (aVar instanceof k) {
-                ((k) aVar).r0(this.f57559a.getTbPageTag());
+                ((k) aVar).r0(this.f57560a.getTbPageTag());
             }
         }
     }
 
     public void f(w wVar) {
-        List<d.b.b.j.e.a> list = this.f57563e;
+        List<d.b.b.j.e.a> list = this.f57564e;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f57563e) {
+        for (d.b.b.j.e.a aVar : this.f57564e) {
             if (aVar != null && (aVar instanceof k)) {
                 aVar.c0(wVar);
             }

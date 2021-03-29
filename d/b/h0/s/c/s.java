@@ -6,14 +6,14 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public Hashtable<String, String> f51221a = new Hashtable<>();
+    public Hashtable<String, String> f51222a = new Hashtable<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, String> f51222b = new Hashtable<>();
+    public Hashtable<String, String> f51223b = new Hashtable<>();
 
     public final void a(Hashtable hashtable, JSONArray jSONArray) {
         int length = jSONArray.length();
@@ -39,9 +39,9 @@ public class s {
         }
         String str2 = null;
         if (i == 1) {
-            str2 = this.f51222b.get(str);
+            str2 = this.f51223b.get(str);
         } else if (i == 2) {
-            str2 = this.f51221a.get(str);
+            str2 = this.f51222a.get(str);
         }
         if (StringUtils.isNull(str2)) {
             return true;
@@ -57,10 +57,10 @@ public class s {
             JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
             BdLog.e("consumepath is:" + jSONObject.toString());
-            a(this.f51221a, optJSONArray);
-            a(this.f51222b, optJSONArray2);
-            BdLog.e("pay mPayCashierType:" + this.f51221a.toString());
-            BdLog.e("pay mPayCashierType:" + this.f51222b.toString());
+            a(this.f51222a, optJSONArray);
+            a(this.f51223b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.f51222a.toString());
+            BdLog.e("pay mPayCashierType:" + this.f51223b.toString());
         } catch (Exception e2) {
             e2.printStackTrace();
         }

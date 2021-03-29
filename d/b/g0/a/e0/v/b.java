@@ -14,99 +14,99 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44299a = k.f45050a;
+    public static final boolean f44300a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LinkedList<c> f44300b = new LinkedList<>();
+    public static LinkedList<c> f44301b = new LinkedList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, d.b.g0.a.p.d.b> f44301c = new TreeMap();
+    public static Map<String, d.b.g0.a.p.d.b> f44302c = new TreeMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (b.f44299a) {
+            if (b.f44300a) {
                 Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
             }
             b.h(f.V().getActivity());
-            if (b.f44299a) {
+            if (b.f44300a) {
                 Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
             }
         }
     }
 
     /* renamed from: d.b.g0.a.e0.v.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0683b extends g {
+    /* loaded from: classes2.dex */
+    public static class C0684b extends g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f44302a;
+        public final /* synthetic */ c f44303a;
 
-        public C0683b(c cVar) {
-            this.f44302a = cVar;
+        public C0684b(c cVar) {
+            this.f44303a = cVar;
         }
 
         @Override // d.b.g0.a.e0.g
         public void a(String str) {
-            if (b.f44299a) {
-                Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + this.f44302a.f44303a.c() + " url: " + str);
+            if (b.f44300a) {
+                Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + this.f44303a.f44304a.c() + " url: " + str);
             }
-            this.f44302a.f44307e = System.currentTimeMillis();
-            c cVar = this.f44302a;
-            cVar.f44304b = true;
-            if (cVar.f44305c.isEmpty()) {
+            this.f44303a.f44308e = System.currentTimeMillis();
+            c cVar = this.f44303a;
+            cVar.f44305b = true;
+            if (cVar.f44306c.isEmpty()) {
                 return;
             }
-            Iterator<d> it = this.f44302a.f44305c.iterator();
+            Iterator<d> it = this.f44303a.f44306c.iterator();
             while (it.hasNext()) {
                 d next = it.next();
                 if (next != null) {
                     next.onReady();
                 }
             }
-            this.f44302a.f44305c.clear();
+            this.f44303a.f44306c.clear();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.g0.a.p.d.b f44303a;
+        public d.b.g0.a.p.d.b f44304a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f44304b;
+        public boolean f44305b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ArrayList<d> f44305c = new ArrayList<>();
+        public final ArrayList<d> f44306c = new ArrayList<>();
 
         /* renamed from: d  reason: collision with root package name */
-        public long f44306d;
+        public long f44307d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f44307e;
+        public long f44308e;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void onReady();
     }
 
     public static void b() {
-        f44300b.clear();
-        f44301c.clear();
+        f44301b.clear();
+        f44302c.clear();
     }
 
     public static c c(Context context) {
         c cVar = new c();
-        cVar.f44306d = System.currentTimeMillis();
-        cVar.f44304b = false;
-        cVar.f44303a = d.b.g0.a.e0.w.d.L().r0(context, new C0683b(cVar));
+        cVar.f44307d = System.currentTimeMillis();
+        cVar.f44305b = false;
+        cVar.f44304a = d.b.g0.a.e0.w.d.L().r0(context, new C0684b(cVar));
         return cVar;
     }
 
@@ -115,21 +115,21 @@ public final class b {
     }
 
     public static c e(@Nullable Activity activity, boolean z) {
-        if (f44299a) {
+        if (f44300a) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (f44300b.isEmpty()) {
+        if (f44301b.isEmpty()) {
             return c(g(activity));
         }
-        if (f44299a) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + f44300b.getFirst());
+        if (f44300a) {
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + f44301b.getFirst());
         }
-        c removeFirst = f44300b.removeFirst();
-        d.b.g0.a.p.d.b bVar = removeFirst.f44303a;
+        c removeFirst = f44301b.removeFirst();
+        d.b.g0.a.p.d.b bVar = removeFirst.f44304a;
         if (bVar != null && activity != null) {
             bVar.d(activity);
         }
-        if (f44299a) {
+        if (f44300a) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
         }
         if (!z) {
@@ -139,9 +139,9 @@ public final class b {
     }
 
     public static d.b.g0.a.p.d.b f(@NonNull String str) {
-        d.b.g0.a.p.d.b bVar = f44301c.get(str != null ? str : "");
+        d.b.g0.a.p.d.b bVar = f44302c.get(str != null ? str : "");
         if (bVar != null) {
-            f44301c.remove(str);
+            f44302c.remove(str);
         }
         return bVar;
     }
@@ -154,21 +154,21 @@ public final class b {
     }
 
     public static void h(Context context) {
-        if (f44300b.size() < 2) {
-            if (f44299a) {
+        if (f44301b.size() < 2) {
+            if (f44300a) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            f44300b.add(c(g(context)));
-        } else if (f44299a) {
+            f44301b.add(c(g(context)));
+        } else if (f44300a) {
             Log.e("SwanAppSlavePool", "preloadSlaveManager max size exceeded");
         }
-        if (f44299a) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + f44300b.size());
+        if (f44300a) {
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + f44301b.size());
         }
     }
 
     public static void i(@NonNull String str, d.b.g0.a.p.d.b bVar) {
-        Map<String, d.b.g0.a.p.d.b> map = f44301c;
+        Map<String, d.b.g0.a.p.d.b> map = f44302c;
         if (str == null) {
             str = "";
         }
@@ -179,10 +179,10 @@ public final class b {
         if (dVar == null) {
             return;
         }
-        if (cVar.f44304b) {
+        if (cVar.f44305b) {
             dVar.onReady();
         } else {
-            cVar.f44305c.add(dVar);
+            cVar.f44306c.add(dVar);
         }
     }
 }

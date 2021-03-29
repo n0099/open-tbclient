@@ -28,20 +28,20 @@ public class b extends d.b.g0.g.w.a {
     public class a implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f48620a;
+        public final /* synthetic */ String f48621a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.w.b f48621b;
+        public final /* synthetic */ d.b.g0.g.w.b f48622b;
 
         public a(String str, d.b.g0.g.w.b bVar) {
-            this.f48620a = str;
-            this.f48621b = bVar;
+            this.f48621a = str;
+            this.f48622b = bVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            this.f48621b.cancelTag(b.this.f48586g);
-            b.this.Z(this.f48620a, 0, iOException.getMessage());
+            this.f48622b.cancelTag(b.this.f48587g);
+            b.this.Z(this.f48621a, 0, iOException.getMessage());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x0078  */
@@ -65,7 +65,7 @@ public class b extends d.b.g0.g.w.a {
                         if (d.b.g0.g.w.a.i) {
                             Log.d("UploadFileTask", Log.getStackTraceString(e));
                         }
-                        b.this.F(this.f48620a, -1, e.getMessage());
+                        b.this.F(this.f48621a, -1, e.getMessage());
                     }
                 }
                 d.b.g0.g.w.h.a aVar = new d.b.g0.g.w.h.a();
@@ -80,36 +80,36 @@ public class b extends d.b.g0.g.w.a {
                 e = e4;
                 if (d.b.g0.g.w.a.i) {
                 }
-                b.this.F(this.f48620a, -1, e.getMessage());
+                b.this.F(this.f48621a, -1, e.getMessage());
             }
         }
     }
 
     /* renamed from: d.b.g0.g.w.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0996b implements d.b.g0.a.g1.n.a {
+    public class C0997b implements d.b.g0.a.g1.n.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f48623a;
+        public final /* synthetic */ long f48624a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f48624b;
+        public final /* synthetic */ String f48625b;
 
-        public C0996b(long j, String str) {
-            this.f48623a = j;
-            this.f48624b = str;
+        public C0997b(long j, String str) {
+            this.f48624a = j;
+            this.f48625b = str;
         }
 
         @Override // d.b.g0.a.g1.n.a
         public void a(long j) {
-            b.this.Y(this.f48623a, j, this.f48624b);
+            b.this.Y(this.f48624a, j, this.f48625b);
         }
     }
 
     public b(d.b.g0.g.i.b bVar, d.b.g0.g.e.d.c cVar) {
         super(bVar, cVar);
         this.l = 0L;
-        this.f48584e = 3;
+        this.f48585e = 3;
     }
 
     public static void b0(MultipartBody.Builder builder, d.b.g0.g.e.d.c cVar) {
@@ -135,28 +135,28 @@ public class b extends d.b.g0.g.w.a {
     public final Request W() {
         String C = C();
         if (!TextUtils.isEmpty(C)) {
-            String B = this.f48585f.B("filePath");
+            String B = this.f48586f.B("filePath");
             if (TextUtils.isEmpty(B)) {
                 F(C, -1, "uploadFile:filePath is empty or invalid");
                 return null;
             } else if (d.o(B)) {
                 F(C, -1, "uploadFile:filePath is empty or invalid");
                 return null;
-            } else if (this.f48585f.b("header") && this.f48585f.i("header") != 9) {
+            } else if (this.f48586f.b("header") && this.f48586f.i("header") != 9) {
                 F(C, -1, "uploadFile:header is invalid");
                 return null;
             } else {
                 File X = X(C, B);
                 if (X != null) {
-                    d.b.g0.g.e.d.c w = this.f48585f.w("formData");
+                    d.b.g0.g.e.d.c w = this.f48586f.w("formData");
                     Request.Builder builder = new Request.Builder();
-                    d.b.g0.a.g1.c cVar = new d.b.g0.a.g1.c(X, IMAudioTransRequest.CONTENT_TYPE, new C0996b(X.length(), C));
+                    d.b.g0.a.g1.c cVar = new d.b.g0.a.g1.c(X, IMAudioTransRequest.CONTENT_TYPE, new C0997b(X.length(), C));
                     MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
                     b0(type, w);
-                    type.addFormDataPart(this.f48585f.B("name"), X.getName(), cVar);
+                    type.addFormDataPart(this.f48586f.B("name"), X.getName(), cVar);
                     MultipartBody build = type.build();
-                    J(builder, this.f48585f.w("header"), new HashMap(), false);
-                    return builder.url(C).tag(this.f48586g).post(build).build();
+                    J(builder, this.f48586f.w("header"), new HashMap(), false);
+                    return builder.url(C).tag(this.f48587g).post(build).build();
                 }
             }
         }
@@ -171,10 +171,10 @@ public class b extends d.b.g0.g.w.a {
                 if (file.length() > 26214400) {
                     F(str, -1, "request:file size > 25 MB");
                     return null;
-                } else if (TextUtils.isEmpty(this.f48585f.B("name"))) {
+                } else if (TextUtils.isEmpty(this.f48586f.B("name"))) {
                     F(str, -1, "uploadFile:name is invalid");
                     return null;
-                } else if (!this.f48585f.b("formData") || this.f48585f.i("formData") == 9) {
+                } else if (!this.f48586f.b("formData") || this.f48586f.i("formData") == 9) {
                     return file;
                 } else {
                     F(str, -1, "uploadFile:formData is invalid");
@@ -225,7 +225,7 @@ public class b extends d.b.g0.g.w.a {
 
     public void start() {
         Request W;
-        if (this.f48585f == null || (W = W()) == null) {
+        if (this.f48586f == null || (W = W()) == null) {
             return;
         }
         if (d.b.g0.a.r1.e.y() == null) {

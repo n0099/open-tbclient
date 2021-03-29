@@ -9,13 +9,13 @@ public enum CpuLpFontSize {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8372a;
+    public String f8373a;
 
     CpuLpFontSize(String str) {
-        this.f8372a = str;
+        this.f8373a = str;
     }
 
     public String getValue() {
-        return this.f8372a;
+        return this.f8373a;
     }
 }

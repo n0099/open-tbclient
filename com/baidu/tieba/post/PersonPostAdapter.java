@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 public class PersonPostAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f20566a;
+    public int[] f20567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f20567b;
+    public PersonThreadFragment f20568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f20568c;
+    public PersonReplyFragment f20569c;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -23,15 +23,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f20568c = personReplyFragment;
+        this.f20569c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f20568c.V0(personPostActivity);
+        this.f20569c.V0(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f20567b = personThreadFragment;
+        this.f20568b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f20567b.U0(personPostActivity);
-        this.f20567b.T0(personPostActivity);
-        this.f20566a = new int[]{0, 1};
+        this.f20568b.U0(personPostActivity);
+        this.f20568b.T0(personPostActivity);
+        this.f20567a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -45,16 +45,16 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             if (i != 1) {
                 return null;
             }
-            return this.f20568c;
+            return this.f20569c;
         }
-        return this.f20567b;
+        return this.f20568b;
     }
 
     public int i(int i) {
-        return this.f20566a[i];
+        return this.f20567a[i];
     }
 
     public PersonThreadFragment j() {
-        return this.f20567b;
+        return this.f20568b;
     }
 }

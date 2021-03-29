@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f63865a;
+    public static String f63866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63866b;
+    public static String f63867b;
 
     public static String a() {
-        return TextUtils.isEmpty(f63866b) ? "armeabi-v7a" : f63866b;
+        return TextUtils.isEmpty(f63867b) ? "armeabi-v7a" : f63867b;
     }
 
     public static String b(Context context) {
@@ -54,15 +54,15 @@ public class a {
 
     public static String f() {
         String str = "https://b.bdstatic.com/searchbox/androidvideo/" + h();
-        f63865a = str;
+        f63866a = str;
         return str;
     }
 
     public static String g(Context context) {
-        if (TextUtils.isEmpty(f63865a)) {
+        if (TextUtils.isEmpty(f63866a)) {
             f();
         }
-        return c(context, f63865a) + File.separator + "jniLibs" + File.separator + a();
+        return c(context, f63866a) + File.separator + "jniLibs" + File.separator + a();
     }
 
     public static String h() {
@@ -101,6 +101,6 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        f63866b = str;
+        f63867b = str;
     }
 }

@@ -22,13 +22,13 @@ public class h {
         if (httpMessage == null || oVar == null) {
             return;
         }
-        httpMessage.addParam("tid", oVar.f56165c);
-        httpMessage.addParam("fid", oVar.f56166d);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, oVar.f56169g);
+        httpMessage.addParam("tid", oVar.f56166c);
+        httpMessage.addParam("fid", oVar.f56167d);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, oVar.f56170g);
         httpMessage.addParam("obj_id", oVar.k);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, oVar.f56170h);
-        httpMessage.addParam("obj_source", oVar.f56168f);
-        httpMessage.addParam("obj_locate", oVar.f56163a);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, oVar.f56171h);
+        httpMessage.addParam("obj_source", oVar.f56169f);
+        httpMessage.addParam("obj_locate", oVar.f56164a);
         httpMessage.addParam("obj_param1", oVar.i);
         if (!StringUtils.isNull(oVar.n)) {
             httpMessage.addParam("topic_type", oVar.n);

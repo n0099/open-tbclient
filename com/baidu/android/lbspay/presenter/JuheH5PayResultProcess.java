@@ -20,7 +20,7 @@ import com.baidu.wallet.paysdk.payresult.presenter.H5PayResultProcess;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class JuheH5PayResultProcess extends H5PayResultProcess {
     public String mCallbackParam;
     public H5LifeCycleCallback mH5LifeCycleCb = null;

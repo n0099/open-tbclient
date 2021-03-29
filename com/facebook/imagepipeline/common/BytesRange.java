@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class BytesRange {
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;
     @Nullable

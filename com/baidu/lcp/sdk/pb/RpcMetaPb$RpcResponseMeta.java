@@ -47,16 +47,16 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6416e;
+        public int f6417e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6417f;
+        public long f6418f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6418g;
+        public long f6419g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6419h;
+        public long f6420h;
         public int i;
         public Object j = "";
 
@@ -104,17 +104,17 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /* renamed from: n */
         public RpcMetaPb$RpcResponseMeta buildPartial() {
             RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this);
-            int i = this.f6416e;
+            int i = this.f6417e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcResponseMeta.serviceId = this.f6417f;
+            rpcMetaPb$RpcResponseMeta.serviceId = this.f6418f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            rpcMetaPb$RpcResponseMeta.methodId = this.f6418g;
+            rpcMetaPb$RpcResponseMeta.methodId = this.f6419g;
             if ((i & 4) == 4) {
                 i2 |= 4;
             }
-            rpcMetaPb$RpcResponseMeta.logId = this.f6419h;
+            rpcMetaPb$RpcResponseMeta.logId = this.f6420h;
             if ((i & 8) == 8) {
                 i2 |= 8;
             }
@@ -129,20 +129,20 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
 
         public b o() {
             super.clear();
-            this.f6417f = 0L;
-            int i = this.f6416e & (-2);
-            this.f6416e = i;
-            this.f6418g = 0L;
+            this.f6418f = 0L;
+            int i = this.f6417e & (-2);
+            this.f6417e = i;
+            this.f6419g = 0L;
             int i2 = i & (-3);
-            this.f6416e = i2;
-            this.f6419h = 0L;
+            this.f6417e = i2;
+            this.f6420h = 0L;
             int i3 = i2 & (-5);
-            this.f6416e = i3;
+            this.f6417e = i3;
             this.i = 0;
             int i4 = i3 & (-9);
-            this.f6416e = i4;
+            this.f6417e = i4;
             this.j = "";
-            this.f6416e = i4 & (-17);
+            this.f6417e = i4 & (-17);
             return this;
         }
 
@@ -179,7 +179,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 u(rpcMetaPb$RpcResponseMeta.getErrorCode());
             }
             if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
-                this.f6416e |= 16;
+                this.f6417e |= 16;
                 this.j = rpcMetaPb$RpcResponseMeta.errorText;
             }
             return this;
@@ -220,26 +220,26 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
 
         public b u(int i) {
-            this.f6416e |= 8;
+            this.f6417e |= 8;
             this.i = i;
             return this;
         }
 
         public b v(long j) {
-            this.f6416e |= 4;
-            this.f6419h = j;
+            this.f6417e |= 4;
+            this.f6420h = j;
             return this;
         }
 
         public b w(long j) {
-            this.f6416e |= 2;
-            this.f6418g = j;
+            this.f6417e |= 2;
+            this.f6419g = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6416e |= 1;
-            this.f6417f = j;
+            this.f6417e |= 1;
+            this.f6418f = j;
             return this;
         }
 

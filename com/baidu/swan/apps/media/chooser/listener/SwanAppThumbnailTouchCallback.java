@@ -5,18 +5,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import d.b.g0.a.b1.d.d.f;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f12337a;
+    public f f12338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f12338b;
+    public SwanAppThumbnailAdapter f12339b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.f12337a = fVar;
-        this.f12338b = swanAppThumbnailAdapter;
+        this.f12338a = fVar;
+        this.f12339b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -46,17 +46,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.f12338b.m() == null) {
+        if (this.f12339b.m() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f12338b;
+        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f12339b;
         if (swanAppThumbnailAdapter != null) {
             Collections.swap(swanAppThumbnailAdapter.m(), adapterPosition, adapterPosition2);
-            this.f12338b.notifyItemMoved(adapterPosition, adapterPosition2);
+            this.f12339b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        f fVar = this.f12337a;
+        f fVar = this.f12338a;
         if (fVar != null) {
             fVar.onMove(adapterPosition, adapterPosition2);
             return true;

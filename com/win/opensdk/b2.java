@@ -9,10 +9,10 @@ import org.json.JSONException;
 public class b2 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d2 f39888a;
+    public final /* synthetic */ d2 f39889a;
 
     public b2(d2 d2Var) {
-        this.f39888a = d2Var;
+        this.f39889a = d2Var;
     }
 
     @Override // android.os.Handler
@@ -24,19 +24,19 @@ public class b2 extends Handler {
             if (i != 11) {
                 if (i == 12) {
                     str = (String) message.obj;
-                    context = this.f39888a.f39917a;
+                    context = this.f39889a.f39918a;
                 }
             }
             str = (String) message.obj;
-            Z0 a2 = a1.a(this.f39888a.f39917a);
+            Z0 a2 = a1.a(this.f39889a.f39918a);
             try {
-                a2.f39849b = a1.a("ps", new b1(this.f39888a.f39918b));
+                a2.f39850b = a1.a("ps", new b1(this.f39889a.f39919b));
                 a2.a("co", 2002);
                 a2.a("msg", str);
             } catch (JSONException unused) {
             }
             a2.a();
-            context = this.f39888a.f39917a;
+            context = this.f39889a.f39918a;
             a2.a(context, Uri.parse(str));
         } catch (Exception unused2) {
         }

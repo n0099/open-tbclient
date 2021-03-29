@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m extends a0 {
     public m(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/isLoginSync");

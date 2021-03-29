@@ -13,16 +13,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f21669e;
+    public List<d> f21670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21670f;
+    public e f21671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.b.i0.i3.h.a> f21671g;
+    public List<d.b.i0.i3.h.a> f21672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21672h;
+    public b f21673h;
     public boolean i;
     public d.b.b.c.g.a j = new a(CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
 
@@ -40,25 +40,25 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             boolean z = responsedMessage instanceof DressupCenterHttpResponseMessage;
             if (z || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (DressupCenterModel.this.f21672h != null) {
-                        DressupCenterModel.this.f21672h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21671g, DressupCenterModel.this.f21670f, DressupCenterModel.this.f21669e);
+                    if (DressupCenterModel.this.f21673h != null) {
+                        DressupCenterModel.this.f21673h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21672g, DressupCenterModel.this.f21671f, DressupCenterModel.this.f21670e);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     DressupCenterHttpResponseMessage dressupCenterHttpResponseMessage = (DressupCenterHttpResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21669e = dressupCenterHttpResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21670f = dressupCenterHttpResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21671g = dressupCenterHttpResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21670e = dressupCenterHttpResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21671f = dressupCenterHttpResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21672g = dressupCenterHttpResponseMessage.getThemeCarouselList();
                 } else if (responsedMessage instanceof DressupCenterSocketResponseMessage) {
                     DressupCenterSocketResponseMessage dressupCenterSocketResponseMessage = (DressupCenterSocketResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21669e = dressupCenterSocketResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21670f = dressupCenterSocketResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21671g = dressupCenterSocketResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21670e = dressupCenterSocketResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21671f = dressupCenterSocketResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21672g = dressupCenterSocketResponseMessage.getThemeCarouselList();
                 }
-                if (DressupCenterModel.this.f21672h != null) {
-                    DressupCenterModel.this.f21672h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21671g, DressupCenterModel.this.f21670f, DressupCenterModel.this.f21669e);
+                if (DressupCenterModel.this.f21673h != null) {
+                    DressupCenterModel.this.f21673h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21672g, DressupCenterModel.this.f21671f, DressupCenterModel.this.f21670e);
                 }
             }
         }
@@ -76,7 +76,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public void A(b bVar) {
-        this.f21672h = bVar;
+        this.f21673h = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

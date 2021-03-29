@@ -6,21 +6,21 @@ import d.b.b.j.e.n;
 public class b implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f53093f = BdUniqueId.gen();
+    public static final BdUniqueId f53094f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53094e = 0;
+    public int f53095e = 0;
 
     public int a() {
-        return this.f53094e;
+        return this.f53095e;
     }
 
     public void e(int i) {
-        this.f53094e = i;
+        this.f53095e = i;
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f53093f;
+        return f53094f;
     }
 }

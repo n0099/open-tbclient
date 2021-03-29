@@ -13,38 +13,38 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47245a = k.f45050a;
+    public static final boolean f47246a = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f47246e;
+        public final /* synthetic */ HashMap f47247e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f47247f;
+        public final /* synthetic */ File f47248f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47248g;
+        public final /* synthetic */ String f47249g;
 
         public a(HashMap hashMap, File file, String str) {
-            this.f47246e = hashMap;
-            this.f47247f = file;
-            this.f47248g = str;
+            this.f47247e = hashMap;
+            this.f47248f = file;
+            this.f47249g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             w q = d.b.g0.a.w0.a.q();
             if (q != null) {
-                q.a(this.f47246e, this.f47247f, null, "error_js");
-                if (i.f47245a) {
-                    Log.d("V8StabilityHelper", "extraData :" + this.f47246e.toString());
-                    Log.d("V8StabilityHelper", "filePath :" + this.f47248g);
+                q.a(this.f47247e, this.f47248f, null, "error_js");
+                if (i.f47246a) {
+                    Log.d("V8StabilityHelper", "extraData :" + this.f47247e.toString());
+                    Log.d("V8StabilityHelper", "filePath :" + this.f47249g);
                 }
             }
         }
@@ -52,7 +52,7 @@ public class i {
 
     public static void b(V8ExceptionInfo v8ExceptionInfo) {
         if (v8ExceptionInfo == null) {
-            if (f47245a) {
+            if (f47246a) {
                 Log.d("V8StabilityHelper", "empty exceptionInfo");
                 return;
             }
@@ -64,7 +64,7 @@ public class i {
 
     public static void c(V8ExceptionInfo v8ExceptionInfo) {
         if (!d.b.g0.a.w0.a.N().s()) {
-            if (f47245a) {
+            if (f47246a) {
                 Log.d("V8StabilityHelper", "stability switch off");
                 return;
             }
@@ -93,7 +93,7 @@ public class i {
             }
             dVar.e(jSONObject);
         } catch (JSONException e2) {
-            if (f47245a) {
+            if (f47246a) {
                 e2.printStackTrace();
             }
         }
@@ -102,14 +102,14 @@ public class i {
 
     public static void d(V8ExceptionInfo v8ExceptionInfo) {
         if (!d.b.g0.a.w0.a.N().M()) {
-            if (f47245a) {
+            if (f47246a) {
                 Log.d("V8StabilityHelper", "upload js switch off");
             }
         } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
         } else {
             String str = v8ExceptionInfo.filePath;
             if (str.startsWith("script:")) {
-                if (f47245a) {
+                if (f47246a) {
                     Log.d("V8StabilityHelper", "file path start with js code prefix");
                     return;
                 }
@@ -120,7 +120,7 @@ public class i {
                 return;
             }
             if (!str.startsWith(d2.swanCorePath)) {
-                if (f47245a) {
+                if (f47246a) {
                     Log.d("V8StabilityHelper", "file path is not swan core path");
                     return;
                 }

@@ -5,18 +5,18 @@ import java.io.ByteArrayOutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64448a;
+    public String f64449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64449b;
+    public boolean f64450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64450c;
+    public boolean f64451c;
 
     public b(String str, boolean z, boolean z2) {
-        this.f64448a = str;
-        this.f64449b = z;
-        this.f64450c = z2;
+        this.f64449a = str;
+        this.f64450b = z;
+        this.f64451c = z2;
     }
 
     public static int a(int i) {
@@ -66,14 +66,14 @@ public class b {
                 if (i6 >= i) {
                     break;
                 }
-                char charAt = this.f64448a.charAt(iArr[i6]);
-                if (this.f64450c) {
+                char charAt = this.f64449a.charAt(iArr[i6]);
+                if (this.f64451c) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
                 i6++;
             }
-            if (this.f64449b) {
+            if (this.f64450b) {
                 while (i < 8) {
                     byteArrayOutputStream.write(61);
                     i++;

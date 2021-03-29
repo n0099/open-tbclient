@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.b.e.p.m;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class EmotionUtil {
     public static final String NEW_EMOTION_SHARPTEXT_PREFIX = "#(meme,";
     public static final String NEW_EMOTION_SHARPTEXT_PREFIX_SHORT = "meme,";

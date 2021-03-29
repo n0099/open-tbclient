@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d implements a {
     @Override // d.b.g0.a.j0.h.a
     @Nullable
@@ -18,7 +18,7 @@ public class d implements a {
             return list;
         }
         list.removeAll(i);
-        if (a.f44812a) {
+        if (a.f44813a) {
             Log.d("IDiskCleanStrategy", "共" + i.size() + "个历史，尝试过滤");
         }
         return list;

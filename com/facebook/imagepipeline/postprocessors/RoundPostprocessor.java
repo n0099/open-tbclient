@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.filter.InPlaceRoundFilter;
 import com.facebook.imagepipeline.filter.XferRoundFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class RoundPostprocessor extends BasePostprocessor {
     public static final boolean ENABLE_ANTI_ALIASING = true;
     public static final boolean canUseXferRoundFilter = XferRoundFilter.canUseXferRoundFilter();

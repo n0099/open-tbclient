@@ -27,15 +27,15 @@ public class e extends d.b.i0.x.b<d.b.i0.h2.e.g> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.h2.e.g f55393e;
+        public final /* synthetic */ d.b.i0.h2.e.g f55394e;
 
         public a(d.b.i0.h2.e.g gVar) {
-            this.f55393e = gVar;
+            this.f55394e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.v(this.f55393e);
+            e.this.v(this.f55394e);
         }
     }
 
@@ -71,7 +71,7 @@ public class e extends d.b.i0.x.b<d.b.i0.h2.e.g> {
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.m.showToast(R.string.gift_load_fail);
         } else if (ViewHelper.checkUpIsLogin(this.m.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.m.getPageActivity(), gVar.f55288g, gVar.f55289h, gVar.i, gVar.j)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.m.getPageActivity(), gVar.f55289g, gVar.f55290h, gVar.i, gVar.j)));
         }
     }
 
@@ -85,9 +85,9 @@ public class e extends d.b.i0.x.b<d.b.i0.h2.e.g> {
             this.n.setOnClickListener(aVar);
             this.r.b(aVar);
             this.q.setData(x(gVar.k));
-            if (gVar.f55286e) {
+            if (gVar.f55287e) {
                 this.p.setText(R.string.gift_received_by_me);
-            } else if (gVar.f55287f) {
+            } else if (gVar.f55288f) {
                 this.p.setText(R.string.gift_received_by_him);
             } else {
                 this.p.setText(R.string.gift_received_by_her);
@@ -104,13 +104,13 @@ public class e extends d.b.i0.x.b<d.b.i0.h2.e.g> {
             return list;
         }
         List<d.b.b.j.e.n> arrayList = new ArrayList<>(list);
-        int g2 = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds100);
-        int g3 = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds32);
+        int g2 = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds100);
+        int g3 = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds32);
         if (count > 7) {
             arrayList = arrayList.subList(0, 7);
             d.b.i0.h2.e.h hVar = new d.b.i0.h2.e.h();
-            hVar.f55292f = g2;
-            hVar.f55291e = g2;
+            hVar.f55293f = g2;
+            hVar.f55292e = g2;
             ListUtils.add(arrayList, hVar);
         }
         d.b.i0.e2.d dVar = new d.b.i0.e2.d(g3, g2);

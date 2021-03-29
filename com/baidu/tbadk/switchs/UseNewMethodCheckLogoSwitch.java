@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import d.b.b.e.f.a;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class UseNewMethodCheckLogoSwitch extends a {
     public static final String KEY = "android_use_new_method_check_logo";
     public static final int TYPE_CLOSE = 0;

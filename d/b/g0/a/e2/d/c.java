@@ -17,7 +17,7 @@ public class c extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -39,7 +39,7 @@ public class c extends a0 {
         bVar.g(optParamsAsJo);
         d.b.g0.a.a0.b.c G = aVar.G(bVar);
         if (!G.a()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43116b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f43117b);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

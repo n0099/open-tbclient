@@ -106,28 +106,28 @@ public class AdvertAppInfo extends a2 implements m0 {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13202a;
+        public int f13203a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13203b;
+        public String f13204b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13204c;
+        public String f13205c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13205d;
+        public String f13206d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f13206e;
+        public String f13207e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f13207f;
+        public String f13208f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f13208g;
+        public String f13209g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f13209h;
+        public int f13210h;
         public String i;
         public String j;
         public List<String> k = new ArrayList(3);
@@ -171,13 +171,13 @@ public class AdvertAppInfo extends a2 implements m0 {
             if (goodsInfo == null) {
                 return;
             }
-            this.f13202a = goodsInfo.id.intValue();
-            this.f13203b = goodsInfo.user_name;
-            this.f13204c = goodsInfo.user_portrait;
-            this.f13205d = StringHelper.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
-            this.f13207f = goodsInfo.thread_pic;
-            this.f13208g = goodsInfo.pop_window_text;
-            this.f13209h = goodsInfo.goods_style.intValue();
+            this.f13203a = goodsInfo.id.intValue();
+            this.f13204b = goodsInfo.user_name;
+            this.f13205c = goodsInfo.user_portrait;
+            this.f13206d = StringHelper.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
+            this.f13208f = goodsInfo.thread_pic;
+            this.f13209g = goodsInfo.pop_window_text;
+            this.f13210h = goodsInfo.goods_style.intValue();
             String str = goodsInfo.card_desc;
             String str2 = goodsInfo.card_tag;
             this.i = goodsInfo.button_text;
@@ -252,7 +252,7 @@ public class AdvertAppInfo extends a2 implements m0 {
     public boolean A4() {
         a aVar;
         a aVar2 = this.U3;
-        if (aVar2 == null || aVar2.f13209h != 1001) {
+        if (aVar2 == null || aVar2.f13210h != 1001) {
             ILegoAdvert iLegoAdvert = this.W3;
             if (iLegoAdvert != null && iLegoAdvert.getGoodsStyle() == 11) {
                 int i = this.G3;
@@ -260,7 +260,7 @@ public class AdvertAppInfo extends a2 implements m0 {
             } else if (this.G3 != 3 || TextUtils.isEmpty(this.J3.trim()) || TextUtils.isEmpty(this.I3.trim()) || (aVar = this.U3) == null) {
                 return false;
             } else {
-                return ((TextUtils.isEmpty(aVar.f13203b) || TextUtils.isEmpty(this.U3.f13203b.trim())) && TextUtils.isEmpty(this.U3.l)) ? false : true;
+                return ((TextUtils.isEmpty(aVar.f13204b) || TextUtils.isEmpty(this.U3.f13204b.trim())) && TextUtils.isEmpty(this.U3.l)) ? false : true;
             }
         }
         return false;
@@ -277,9 +277,9 @@ public class AdvertAppInfo extends a2 implements m0 {
 
     public boolean C4() {
         a aVar = this.U3;
-        if (aVar == null || aVar.f13209h != 1001) {
+        if (aVar == null || aVar.f13210h != 1001) {
             a aVar2 = this.U3;
-            if (aVar2 == null || aVar2.f13209h != -1001) {
+            if (aVar2 == null || aVar2.f13210h != -1001) {
                 ILegoAdvert iLegoAdvert = this.W3;
                 if (iLegoAdvert == null || iLegoAdvert.getGoodsStyle() != 11) {
                     return this.G3 == 1 && !((TextUtils.isEmpty(this.H3) || TextUtils.isEmpty(this.H3.trim())) && TextUtils.isEmpty(this.U3.l));
@@ -304,7 +304,7 @@ public class AdvertAppInfo extends a2 implements m0 {
                 return 28;
             }
             a aVar = this.U3;
-            if (aVar == null || aVar.f13209h != 1001) {
+            if (aVar == null || aVar.f13210h != 1001) {
                 a aVar2 = this.U3;
                 if (aVar2 == null || TextUtils.isEmpty(aVar2.l)) {
                     return 11;
@@ -465,7 +465,7 @@ public class AdvertAppInfo extends a2 implements m0 {
     @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
         ILegoAdvert iLegoAdvert;
-        int i = this.U3.f13209h;
+        int i = this.U3.f13210h;
         if (i != 1001 && i != -1001) {
             if (!d.b.h0.r.k.c().g() && (iLegoAdvert = this.W3) != null && !iLegoAdvert.isNoPicAd()) {
                 return h4;
@@ -544,7 +544,7 @@ public class AdvertAppInfo extends a2 implements m0 {
         builder.da_cpid = String.valueOf(this.N3);
         builder.da_ext_info = this.T3;
         builder.da_fid = Integer.valueOf(b.d(str, 0));
-        builder.da_good_id = String.valueOf(this.U3.f13202a);
+        builder.da_good_id = String.valueOf(this.U3.f13203a);
         builder.da_locate = String.valueOf(this.K3);
         builder.da_obj_id = this.E3;
         builder.da_page = str2;

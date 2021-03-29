@@ -15,13 +15,13 @@ import java.io.InputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10009a = "";
+    public static String f10010a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10010b = "";
+    public static String f10011b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10011c = "";
+    public static String f10012c = "";
 
     public static long a(Context context) {
         FileReader fileReader;

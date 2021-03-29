@@ -5,9 +5,9 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class c {
-    /* JADX WARN: Removed duplicated region for block: B:43:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

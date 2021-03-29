@@ -24,16 +24,16 @@ import d.b.b.e.p.l;
 public class EBusinessProtocolView extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22051e;
+    public Context f22052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22052f;
+    public View f22053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22053g;
+    public TextView f22054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WebView f22054h;
+    public WebView f22055h;
     public TBSpecificationBtn i;
     public TBSpecificationBtn j;
     public TextView k;
@@ -61,8 +61,8 @@ public class EBusinessProtocolView extends Dialog {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             String str2 = "javascript:setContentTextColor(" + EBusinessProtocolView.this.r + SmallTailInfo.EMOTION_SUFFIX;
-            if (EBusinessProtocolView.this.f22054h != null) {
-                EBusinessProtocolView.this.f22054h.loadUrl(str2);
+            if (EBusinessProtocolView.this.f22055h != null) {
+                EBusinessProtocolView.this.f22055h.loadUrl(str2);
             }
         }
     }
@@ -112,17 +112,17 @@ public class EBusinessProtocolView extends Dialog {
     public static /* synthetic */ class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f22059a;
+        public static final /* synthetic */ int[] f22060a;
 
         static {
             int[] iArr = new int[WindowType.values().length];
-            f22059a = iArr;
+            f22060a = iArr;
             try {
                 iArr[WindowType.TIP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f22059a[WindowType.PROTOCOL.ordinal()] = 2;
+                f22060a[WindowType.PROTOCOL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -138,13 +138,13 @@ public class EBusinessProtocolView extends Dialog {
         this.m = false;
         this.r = 0;
         this.t = new a();
-        this.f22051e = context;
+        this.f22052e = context;
         this.q = windowType;
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.f22052f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
+        this.f22053f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
     }
 
     public final void f() {
@@ -154,25 +154,25 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     public final void g() {
-        this.f22053g = (TextView) this.f22052f.findViewById(R.id.protocol_title);
-        this.f22054h = (WebView) this.f22052f.findViewById(R.id.protocol_content);
-        this.j = (TBSpecificationBtn) this.f22052f.findViewById(R.id.agree_protocol);
-        this.i = (TBSpecificationBtn) this.f22052f.findViewById(R.id.cancel_protocol);
-        this.k = (TextView) this.f22052f.findViewById(R.id.tip_content);
+        this.f22054g = (TextView) this.f22053f.findViewById(R.id.protocol_title);
+        this.f22055h = (WebView) this.f22053f.findViewById(R.id.protocol_content);
+        this.j = (TBSpecificationBtn) this.f22053f.findViewById(R.id.agree_protocol);
+        this.i = (TBSpecificationBtn) this.f22053f.findViewById(R.id.cancel_protocol);
+        this.k = (TextView) this.f22053f.findViewById(R.id.tip_content);
         this.l = (TBSpecificationBtn) findViewById(R.id.tip_known);
         h();
         f();
     }
 
     public final void h() {
-        this.f22053g.setText(this.n);
-        int i = e.f22059a[this.q.ordinal()];
+        this.f22054g.setText(this.n);
+        int i = e.f22060a[this.q.ordinal()];
         if (i == 1) {
             this.k.setVisibility(0);
             this.l.setVisibility(0);
             setCanceledOnTouchOutside(true);
             this.k.setText(this.o);
-            this.l.setText(this.f22051e.getResources().getString(R.string.tip_known));
+            this.l.setText(this.f22052e.getResources().getString(R.string.tip_known));
             d.b.h0.r.f0.m.c cVar = new d.b.h0.r.f0.m.c();
             cVar.o(R.color.CAM_X0302);
             this.l.setTextSize(R.dimen.T_X08);
@@ -180,21 +180,21 @@ public class EBusinessProtocolView extends Dialog {
         } else if (i != 2) {
         } else {
             n();
-            this.f22054h.setVisibility(0);
+            this.f22055h.setVisibility(0);
             this.j.setVisibility(0);
             this.i.setVisibility(0);
-            this.f22054h.loadUrl(this.p);
+            this.f22055h.loadUrl(this.p);
             d.b.h0.r.f0.m.c cVar2 = new d.b.h0.r.f0.m.c();
             cVar2.o(R.color.CAM_X0107);
             this.i.setConfig(cVar2);
             this.i.setTextSize(R.dimen.tbds42);
-            this.i.setText(this.f22051e.getResources().getString(R.string.protocol_cancel));
+            this.i.setText(this.f22052e.getResources().getString(R.string.protocol_cancel));
             this.j.setTextSize(R.dimen.tbds42);
             d.b.h0.r.f0.m.c cVar3 = new d.b.h0.r.f0.m.c();
             cVar3.o(R.color.CAM_X0302);
             this.j.setConfig(cVar3);
             this.j.setTextSize(R.dimen.tbds42);
-            this.j.setText(this.f22051e.getResources().getString(R.string.protocol_agree));
+            this.j.setText(this.f22052e.getResources().getString(R.string.protocol_agree));
         }
     }
 
@@ -205,8 +205,8 @@ public class EBusinessProtocolView extends Dialog {
     public void j(int i) {
         l(i);
         this.r = i;
-        SkinManager.setViewTextColor(this.f22053g, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.f22054h, R.color.CAM_X0211);
+        SkinManager.setViewTextColor(this.f22054g, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f22055h, R.color.CAM_X0211);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0108);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0303);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
@@ -221,7 +221,7 @@ public class EBusinessProtocolView extends Dialog {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(dimensionPixelSize);
         gradientDrawable.setColor(SkinManager.getColor(i, R.color.CAM_X0211));
-        this.f22052f.setBackgroundDrawable(gradientDrawable);
+        this.f22053f.setBackgroundDrawable(gradientDrawable);
     }
 
     public void m(f fVar) {
@@ -229,11 +229,11 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     public final void n() {
-        WebSettings settings = this.f22054h.getSettings();
+        WebSettings settings = this.f22055h.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
-        this.f22054h.setWebViewClient(this.t);
+        this.f22055h.setWebViewClient(this.t);
         settings.setTextZoom(115);
     }
 
@@ -245,9 +245,9 @@ public class EBusinessProtocolView extends Dialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.width = this.f22051e.getResources().getDisplayMetrics().widthPixels - l.g(this.f22051e, R.dimen.tbds90);
-        layoutParams.height = l.g(this.f22051e, R.dimen.tbds879);
-        setContentView(this.f22052f, layoutParams);
+        layoutParams.width = this.f22052e.getResources().getDisplayMetrics().widthPixels - l.g(this.f22052e, R.dimen.tbds90);
+        layoutParams.height = l.g(this.f22052e, R.dimen.tbds879);
+        setContentView(this.f22053f, layoutParams);
         setCanceledOnTouchOutside(true);
         g();
         j(TbadkCoreApplication.getInst().getSkinType());

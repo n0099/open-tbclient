@@ -5,14 +5,14 @@ import java.util.Queue;
 public class q implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Queue<Object> f41651a;
+    public Queue<Object> f41652a;
 
     public q(Queue<Object> queue) {
-        this.f41651a = queue;
+        this.f41652a = queue;
     }
 
     @Override // d.b.b.e.b.b.a.d.h
     public Object a(d.b.b.e.b.b.a.e.c cVar) {
-        return d.b.b.e.b.b.a.e.b.d(this.f41651a, cVar);
+        return d.b.b.e.b.b.a.e.b.d(this.f41652a, cVar);
     }
 }

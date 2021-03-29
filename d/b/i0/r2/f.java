@@ -16,28 +16,28 @@ import java.util.Set;
 public class f implements d.b.i0.e.b.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Object> f59834a;
+    public List<Object> f59835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.e.e.c f59835b;
+    public d.b.i0.e.e.c f59836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f59836c;
+    public q f59837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.j.e.a f59837d;
+    public d.b.b.j.e.a f59838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.j.e.a f59838e;
+    public d.b.b.j.e.a f59839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.j.e.a f59839f;
+    public d.b.b.j.e.a f59840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.j.e.a f59840g;
+    public d.b.b.j.e.a f59841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.j.e.a f59841h;
+    public d.b.b.j.e.a f59842h;
 
     @Override // d.b.i0.e.b.d
     public void a(int i) {
@@ -60,11 +60,11 @@ public class f implements d.b.i0.e.b.d {
 
     @Override // d.b.i0.e.b.d
     public void f(List<d.b.i0.e.b.c> list, int i) {
-        if (d.b.i0.i1.o.k.a.e(this.f59834a)) {
+        if (d.b.i0.i1.o.k.a.e(this.f59835a)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.f59834a) {
+        for (Object obj : this.f59835a) {
             if (obj instanceof AdvertAppInfo) {
                 d.b.i0.i1.o.k.a.a(arrayList, (AdvertAppInfo) obj);
             }
@@ -97,7 +97,7 @@ public class f implements d.b.i0.e.b.d {
             if (D4 != 0) {
                 d.b.i0.r2.b0.d.f(advertAppInfo, i, D4);
                 if (D4 != 28 && D4 != 31) {
-                    advertAppInfo.U3.f13209h = -1001;
+                    advertAppInfo.U3.f13210h = -1001;
                 }
                 i5++;
                 i2 = 0;
@@ -168,15 +168,15 @@ public class f implements d.b.i0.e.b.d {
                     if (advertAppInfo.Y3 == null) {
                         d.b.h0.r.q.d dVar = new d.b.h0.r.q.d();
                         advertAppInfo.Y3 = dVar;
-                        dVar.f50748a = "FRS";
-                        dVar.f50750c = String.valueOf(z);
+                        dVar.f50749a = "FRS";
+                        dVar.f50751c = String.valueOf(z);
                         d.b.h0.r.q.d dVar2 = advertAppInfo.Y3;
-                        dVar2.f50749b = i;
-                        dVar2.f50751d = str;
-                        dVar2.f50752e = str2;
-                        dVar2.f50753f = str3;
-                        dVar2.f50754g = str4;
-                        dVar2.f50755h = advertAppInfo.T3;
+                        dVar2.f50750b = i;
+                        dVar2.f50752d = str;
+                        dVar2.f50753e = str2;
+                        dVar2.f50754f = str3;
+                        dVar2.f50755g = str4;
+                        dVar2.f50756h = advertAppInfo.T3;
                         dVar2.i = false;
                         hashSet.add(advertAppInfo);
                     }
@@ -189,7 +189,7 @@ public class f implements d.b.i0.e.b.d {
 
     @Override // d.b.i0.e.b.d
     public void i(List<Object> list) {
-        this.f59834a = list;
+        this.f59835a = list;
     }
 
     @Override // d.b.i0.e.b.d
@@ -199,15 +199,15 @@ public class f implements d.b.i0.e.b.d {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
             BdUniqueId type = advertAppInfo.getType();
             if (type == AdvertAppInfo.k4) {
-                aVar = this.f59838e;
+                aVar = this.f59839e;
             } else if (type == AdvertAppInfo.h4) {
-                aVar = this.f59837d;
+                aVar = this.f59838d;
             } else if (type == AdvertAppInfo.o4) {
-                aVar = this.f59839f;
+                aVar = this.f59840f;
             } else if (type == AdvertAppInfo.p4) {
-                aVar = this.f59840g;
+                aVar = this.f59841g;
             } else {
-                aVar = type == AdvertAppInfo.q4 ? this.f59841h : null;
+                aVar = type == AdvertAppInfo.q4 ? this.f59842h : null;
             }
             if (aVar != null) {
                 return aVar.I(i, view, viewGroup, advertAppInfo);
@@ -223,15 +223,15 @@ public class f implements d.b.i0.e.b.d {
             d.b.b.j.e.a aVar = null;
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.k4) {
-                aVar = this.f59838e;
+                aVar = this.f59839e;
             } else if (type == AdvertAppInfo.h4) {
-                aVar = this.f59837d;
+                aVar = this.f59838d;
             } else if (type == AdvertAppInfo.o4) {
-                aVar = this.f59839f;
+                aVar = this.f59840f;
             } else if (type == AdvertAppInfo.p4) {
-                aVar = this.f59840g;
+                aVar = this.f59841g;
             } else if (type == AdvertAppInfo.q4) {
-                aVar = this.f59841h;
+                aVar = this.f59842h;
             }
             if (aVar != null) {
                 aVar.Y(i, viewGroup, viewHolder, obj);
@@ -245,11 +245,11 @@ public class f implements d.b.i0.e.b.d {
         int i2;
         int i3;
         int d2;
-        if (d.b.i0.i1.o.k.a.e(this.f59834a)) {
+        if (d.b.i0.i1.o.k.a.e(this.f59835a)) {
             return;
         }
         ArrayList arrayList2 = new ArrayList();
-        for (Object obj : this.f59834a) {
+        for (Object obj : this.f59835a) {
             if (obj instanceof AdvertAppInfo) {
                 d.b.i0.i1.o.k.a.a(arrayList2, (AdvertAppInfo) obj);
             }
@@ -287,7 +287,7 @@ public class f implements d.b.i0.e.b.d {
             if (D4 != 0) {
                 d.b.i0.r2.b0.d.f(advertAppInfo, i, D4);
                 if (D4 != 28 && D4 != 31) {
-                    advertAppInfo.U3.f13209h = -1001;
+                    advertAppInfo.U3.f13210h = -1001;
                 }
                 arrayList = arrayList2;
                 i8++;
@@ -384,15 +384,15 @@ public class f implements d.b.i0.e.b.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.k4) {
-                aVar = this.f59838e;
+                aVar = this.f59839e;
             } else if (type == AdvertAppInfo.h4) {
-                aVar = this.f59837d;
+                aVar = this.f59838d;
             } else if (type == AdvertAppInfo.o4) {
-                aVar = this.f59839f;
+                aVar = this.f59840f;
             } else if (type == AdvertAppInfo.p4) {
-                aVar = this.f59840g;
+                aVar = this.f59841g;
             } else {
-                aVar = type == AdvertAppInfo.q4 ? this.f59841h : null;
+                aVar = type == AdvertAppInfo.q4 ? this.f59842h : null;
             }
             if (aVar != null) {
                 return aVar.S(viewGroup, obj);
@@ -406,15 +406,15 @@ public class f implements d.b.i0.e.b.d {
     @Override // d.b.i0.e.e.a
     /* renamed from: p */
     public void n(d.b.i0.e.e.c cVar) {
-        this.f59835b = cVar;
+        this.f59836b = cVar;
         if (cVar == null || !(cVar.a() instanceof q)) {
             return;
         }
-        this.f59836c = (q) this.f59835b.a();
-        this.f59837d = new d.b.i0.r2.w.c(this.f59836c, AdvertAppInfo.h4);
-        this.f59838e = new d.b.i0.r2.w.d(this.f59836c, AdvertAppInfo.k4);
-        this.f59839f = new d.b.i0.r2.w.d(this.f59836c, AdvertAppInfo.o4);
-        this.f59840g = new d.b.i0.r2.w.d(this.f59836c, AdvertAppInfo.p4);
-        this.f59841h = new d.b.i0.r2.w.d(this.f59836c, AdvertAppInfo.q4);
+        this.f59837c = (q) this.f59836b.a();
+        this.f59838d = new d.b.i0.r2.w.c(this.f59837c, AdvertAppInfo.h4);
+        this.f59839e = new d.b.i0.r2.w.d(this.f59837c, AdvertAppInfo.k4);
+        this.f59840f = new d.b.i0.r2.w.d(this.f59837c, AdvertAppInfo.o4);
+        this.f59841g = new d.b.i0.r2.w.d(this.f59837c, AdvertAppInfo.p4);
+        this.f59842h = new d.b.i0.r2.w.d(this.f59837c, AdvertAppInfo.q4);
     }
 }

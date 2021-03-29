@@ -35,25 +35,25 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
     public static final jg f507a = new jg("OnlineConfigItem");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40682a = new iy("", (byte) 8, 1);
+    public static final iy f40683a = new iy("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f40683b = new iy("", (byte) 8, 2);
+    public static final iy f40684b = new iy("", (byte) 8, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f40684c = new iy("", (byte) 2, 3);
+    public static final iy f40685c = new iy("", (byte) 2, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f40685d = new iy("", (byte) 8, 4);
+    public static final iy f40686d = new iy("", (byte) 8, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f40686e = new iy("", (byte) 10, 5);
+    public static final iy f40687e = new iy("", (byte) 10, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f40687f = new iy("", (byte) 11, 6);
+    public static final iy f40688f = new iy("", (byte) 11, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f40688g = new iy("", (byte) 2, 7);
+    public static final iy f40689g = new iy("", (byte) 2, 7);
 
     public int a() {
         return this.f508a;
@@ -144,7 +144,7 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
         jbVar.m505a();
         while (true) {
             iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40866a;
+            byte b2 = m501a.f40867a;
             if (b2 == 0) {
                 jbVar.f();
                 m375a();
@@ -273,37 +273,37 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
         m375a();
         jbVar.a(f507a);
         if (m376a()) {
-            jbVar.a(f40682a);
+            jbVar.a(f40683a);
             jbVar.a(this.f508a);
             jbVar.b();
         }
         if (m378b()) {
-            jbVar.a(f40683b);
+            jbVar.a(f40684b);
             jbVar.a(this.f513b);
             jbVar.b();
         }
         if (m379c()) {
-            jbVar.a(f40684c);
+            jbVar.a(f40685c);
             jbVar.a(this.f512a);
             jbVar.b();
         }
         if (d()) {
-            jbVar.a(f40685d);
+            jbVar.a(f40686d);
             jbVar.a(this.f515c);
             jbVar.b();
         }
         if (e()) {
-            jbVar.a(f40686e);
+            jbVar.a(f40687e);
             jbVar.a(this.f509a);
             jbVar.b();
         }
         if (this.f510a != null && f()) {
-            jbVar.a(f40687f);
+            jbVar.a(f40688f);
             jbVar.a(this.f510a);
             jbVar.b();
         }
         if (h()) {
-            jbVar.a(f40688g);
+            jbVar.a(f40689g);
             jbVar.a(this.f514b);
             jbVar.b();
         }

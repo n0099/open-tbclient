@@ -15,22 +15,22 @@ import d.b.h0.r.q.z0;
 import d.b.i0.b1.c.d;
 import d.b.i0.b1.c.e;
 import d.b.i0.b1.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f17543e;
+    public BaseActivity<?> f17544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f17544f;
+    public c f17545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f17545g;
+    public b f17546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f17546h;
+    public d.b.b.c.g.a f17547h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -38,8 +38,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (HotRelateThreadModel.this.f17545g != null) {
-                HotRelateThreadModel.this.f17545g.complete();
+            if (HotRelateThreadModel.this.f17546g != null) {
+                HotRelateThreadModel.this.f17546g.complete();
             }
             if (responsedMessage == null) {
                 return;
@@ -54,19 +54,19 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    HotRelateThreadModel.this.f17543e.showToast(responsedMessage.getErrorString());
+                    HotRelateThreadModel.this.f17544e.showToast(responsedMessage.getErrorString());
                 }
-                HotRelateThreadModel.this.f17544f.hotRelateThreadCallback(false, null, i);
+                HotRelateThreadModel.this.f17545f.hotRelateThreadCallback(false, null, i);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void complete();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void hotRelateThreadCallback(boolean z, d dVar, int i);
     }
@@ -74,13 +74,13 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public HotRelateThreadModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
         a aVar = new a(CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
-        this.f17546h = aVar;
-        this.f17543e = baseActivity;
+        this.f17547h = aVar;
+        this.f17544e = baseActivity;
         registerListener(aVar);
     }
 
     public void A(b bVar) {
-        this.f17545g = bVar;
+        this.f17546g = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -117,7 +117,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                 dVar = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
             }
         }
-        this.f17544f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
+        this.f17545f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
     }
 
     public final void y(e eVar, int i) {
@@ -130,8 +130,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
         double d2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int k = l.k(TbadkCoreApplication.getInst().getApp());
         int i2 = l.i(TbadkCoreApplication.getInst().getApp());
-        requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(d.b.b.e.m.b.f(h2.f52110e, 0L)));
-        requestGetTopicRelateThreadMessage.setTopicName(h2.f52111f);
+        requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(d.b.b.e.m.b.f(h2.f52111e, 0L)));
+        requestGetTopicRelateThreadMessage.setTopicName(h2.f52112f);
         Long l = h2.o;
         if (l != null && h2.p != null) {
             requestGetTopicRelateThreadMessage.setPmy_topic_id(l);
@@ -156,6 +156,6 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     public void z(c cVar) {
-        this.f17544f = cVar;
+        this.f17545f = cVar;
     }
 }

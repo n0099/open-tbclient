@@ -867,6 +867,6 @@ public class ViewDragHelper {
         this.mInitialEdgesTouched[i] = 0;
         this.mEdgeDragsInProgress[i] = 0;
         this.mEdgeDragsLocked[i] = 0;
-        this.mPointersDown = ((1 << i) ^ (-1)) & this.mPointersDown;
+        this.mPointersDown = (~(1 << i)) & this.mPointersDown;
     }
 }

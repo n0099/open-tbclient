@@ -18,16 +18,16 @@ import d.b.i0.q1.c.b.d;
 public class CategoryView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18906e;
+    public Context f18907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18907f;
+    public View f18908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18908g;
+    public TextView f18909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18909h;
+    public TextView f18910h;
     public ImageView i;
     public d j;
     public View.OnClickListener k;
@@ -50,38 +50,38 @@ public class CategoryView extends LinearLayout {
             } else if (a2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f18906e), new String[]{CategoryView.this.j.c()});
+            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f18907e), new String[]{CategoryView.this.j.c()});
         }
     }
 
     public CategoryView(Context context) {
         super(context);
         this.k = new a();
-        this.f18906e = context;
+        this.f18907e = context;
         c();
     }
 
     public final void c() {
-        View inflate = LayoutInflater.from(this.f18906e).inflate(R.layout.index_category, this);
-        this.f18907f = inflate;
-        this.f18908g = (TextView) inflate.findViewById(R.id.class_name);
-        this.f18909h = (TextView) this.f18907f.findViewById(R.id.sprend_name);
-        this.i = (ImageView) this.f18907f.findViewById(R.id.spread_icon);
-        this.f18907f.setOnClickListener(this.k);
+        View inflate = LayoutInflater.from(this.f18907e).inflate(R.layout.index_category, this);
+        this.f18908f = inflate;
+        this.f18909g = (TextView) inflate.findViewById(R.id.class_name);
+        this.f18910h = (TextView) this.f18908f.findViewById(R.id.sprend_name);
+        this.i = (ImageView) this.f18908f.findViewById(R.id.spread_icon);
+        this.f18908f.setOnClickListener(this.k);
         this.i.setOnClickListener(this.k);
     }
 
     public CategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18906e = context;
+        this.f18907e = context;
         c();
     }
 
     public CategoryView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18906e = context;
+        this.f18907e = context;
         c();
     }
 }

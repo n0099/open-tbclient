@@ -9,7 +9,7 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.b.e.h.b;
 import d.b.b.j.e.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public TbPageContext<MsglistActivity<?>> m;
     public d.b.b.e.h.a n;
@@ -19,19 +19,19 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public boolean r;
     public int s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f17763a;
+        public T f17764a;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.f17763a = t;
+            this.f17764a = t;
         }
 
         public T b() {
-            return this.f17763a;
+            return this.f17764a;
         }
     }
 

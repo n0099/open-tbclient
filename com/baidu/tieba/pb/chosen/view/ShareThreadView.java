@@ -14,16 +14,16 @@ import d.b.b.e.p.k;
 public final class ShareThreadView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f19486e;
+    public LinearLayout f19487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f19487f;
+    public EditText f19488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19488g;
+    public TbImageView f19489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19489h;
+    public TextView f19490h;
     public TextView i;
 
     public ShareThreadView(Context context, AttributeSet attributeSet) {
@@ -32,41 +32,41 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public void a() {
-        this.f19486e.setFocusable(true);
-        this.f19486e.setFocusableInTouchMode(true);
-        this.f19486e.requestFocus();
+        this.f19487e.setFocusable(true);
+        this.f19487e.setFocusableInTouchMode(true);
+        this.f19487e.requestFocus();
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.f19486e = (LinearLayout) findViewById(R.id.share_content);
+        this.f19487e = (LinearLayout) findViewById(R.id.share_content);
         TextView textView = (TextView) findViewById(R.id.share_title_view);
         this.i = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-        this.f19487f = (EditText) findViewById(R.id.chat_msg);
-        this.f19488g = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f19489h = (TextView) findViewById(R.id.chat_group_desc);
-        SkinManager.setViewTextColor(this.f19487f, R.color.CAM_X0105, 2);
-        SkinManager.setViewTextColor(this.f19489h, R.color.CAM_X0106, 1);
-        this.f19487f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f19487f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        this.f19488f = (EditText) findViewById(R.id.chat_msg);
+        this.f19489g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f19490h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f19488f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f19490h, R.color.CAM_X0106, 1);
+        this.f19488f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f19488f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         a();
     }
 
     public void c(String str, boolean z) {
-        TbImageView tbImageView = this.f19488g;
+        TbImageView tbImageView = this.f19489g;
         if (tbImageView != null) {
             tbImageView.W(str, z ? 17 : 18, false);
         }
     }
 
     public EditText getChatMsgView() {
-        return this.f19487f;
+        return this.f19488f;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f19487f;
+        EditText editText = this.f19488f;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }
@@ -74,7 +74,7 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public void setDesc(String str) {
-        TextView textView = this.f19489h;
+        TextView textView = this.f19490h;
         if (textView != null) {
             textView.setText(str);
         }

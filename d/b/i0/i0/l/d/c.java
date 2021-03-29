@@ -6,11 +6,11 @@ import tbclient.ShortUserInfo;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ShortUserInfo> f55714a;
+    public List<ShortUserInfo> f55715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55715b;
+    public String f55716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55716c;
+    public String f55717c;
 }

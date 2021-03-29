@@ -11,26 +11,26 @@ import org.json.JSONException;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f29765a = new ConcurrentLinkedQueue<>();
+    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f29766a = new ConcurrentLinkedQueue<>();
 
     public static void a(a aVar, long j, long j2) {
         if (aVar == null) {
             return;
         }
-        f29765a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
+        f29766a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
         a(false);
     }
 
     public static void a(boolean z) {
         int valueOf;
         c g2 = e.g();
-        if ((z || f29765a.size() >= 60) && g2 != null) {
-            synchronized (f29765a) {
-                if (f29765a.isEmpty()) {
+        if ((z || f29766a.size() >= 60) && g2 != null) {
+            synchronized (f29766a) {
+                if (f29766a.isEmpty()) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f29765a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f29765a.size()]);
-                f29765a.clear();
+                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f29766a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f29766a.size()]);
+                f29766a.clear();
                 int i = 0;
                 if (aVarArr.length != 0) {
                     HashMap hashMap = new HashMap();

@@ -3,86 +3,86 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28234a;
+    public String f28235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28235b;
+    public String f28236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28236c;
+    public String f28237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28237d;
+    public String f28238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28238e;
+    public String f28239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28239f;
+    public String f28240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Long f28240g;
+    public Long f28241g;
 
     public String a() {
-        return this.f28234a;
+        return this.f28235a;
     }
 
     public String b() {
-        return this.f28235b;
+        return this.f28236b;
     }
 
     public String c() {
-        return this.f28236c;
+        return this.f28237c;
     }
 
     public String d() {
-        return this.f28237d;
+        return this.f28238d;
     }
 
     public String e() {
-        return this.f28238e;
+        return this.f28239e;
     }
 
     public String f() {
-        return this.f28239f;
+        return this.f28240f;
     }
 
     public Long g() {
-        return this.f28240g;
+        return this.f28241g;
     }
 
     public t a(String str) {
-        this.f28234a = str;
+        this.f28235a = str;
         return this;
     }
 
     public t b(String str) {
-        this.f28235b = str;
+        this.f28236b = str;
         return this;
     }
 
     public t c(String str) {
-        this.f28236c = str;
+        this.f28237c = str;
         return this;
     }
 
     public t d(String str) {
-        this.f28237d = str;
+        this.f28238d = str;
         return this;
     }
 
     public t e(String str) {
-        this.f28238e = str;
+        this.f28239e = str;
         return this;
     }
 
     public t f(String str) {
-        this.f28239f = str;
+        this.f28240f = str;
         return this;
     }
 
     public t a(Long l) {
-        this.f28240g = l;
+        this.f28241g = l;
         return this;
     }
 }

@@ -18,22 +18,22 @@ import com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout;
 public class RotateLoadingLayout extends LoadingLayout {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f24160c = 1200;
+    public static final int f24161c = 1200;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Animation f24161d;
+    public final Animation f24162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ObjectAnimator f24162e;
+    public final ObjectAnimator f24163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f24163f;
+    public final Matrix f24164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f24164g;
+    public float f24165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f24165h;
+    public float f24166h;
     public final boolean i;
 
     public RotateLoadingLayout(Context context, LoadingLayout.Mode mode, LoadingLayout.Orientation orientation, TypedArray typedArray) {
@@ -41,22 +41,22 @@ public class RotateLoadingLayout extends LoadingLayout {
         this.i = true;
         this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        this.f24163f = matrix;
+        this.f24164f = matrix;
         this.mHeaderImage.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.f24161d = rotateAnimation;
-        rotateAnimation.setInterpolator(LoadingLayout.f24143b);
-        this.f24161d.setDuration(IMLikeRequest.TIME_INTERVAL);
-        this.f24161d.setRepeatCount(-1);
-        this.f24161d.setRepeatMode(1);
-        this.f24162e = getRotateYAnim(this.mHeaderImage);
+        this.f24162d = rotateAnimation;
+        rotateAnimation.setInterpolator(LoadingLayout.f24144b);
+        this.f24162d.setDuration(IMLikeRequest.TIME_INTERVAL);
+        this.f24162d.setRepeatCount(-1);
+        this.f24162d.setRepeatMode(1);
+        this.f24163e = getRotateYAnim(this.mHeaderImage);
     }
 
     private void a() {
-        Matrix matrix = this.f24163f;
+        Matrix matrix = this.f24164f;
         if (matrix != null) {
             matrix.reset();
-            this.mHeaderImage.setImageMatrix(this.f24163f);
+            this.mHeaderImage.setImageMatrix(this.f24164f);
         }
     }
 
@@ -95,8 +95,8 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
     public void onLoadingDrawableSet(Drawable drawable) {
         if (drawable != null) {
-            this.f24164g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-            this.f24165h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+            this.f24165g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+            this.f24166h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
         }
     }
 
@@ -108,8 +108,8 @@ public class RotateLoadingLayout extends LoadingLayout {
             this.mHeaderImage.invalidate();
             return;
         }
-        this.f24163f.setRotate(f2 * 90.0f, this.f24164g, this.f24165h);
-        this.mHeaderImage.setImageMatrix(this.f24163f);
+        this.f24164f.setRotate(f2 * 90.0f, this.f24165g, this.f24166h);
+        this.mHeaderImage.setImageMatrix(this.f24164f);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
@@ -119,9 +119,9 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
     public void refreshingImpl() {
         if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-            this.f24162e.start();
+            this.f24163e.start();
         } else {
-            this.mHeaderImage.startAnimation(this.f24161d);
+            this.mHeaderImage.startAnimation(this.f24162d);
         }
     }
 
@@ -132,7 +132,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
     public void resetImpl() {
         if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-            this.f24162e.cancel();
+            this.f24163e.cancel();
             this.mHeaderImage.setRotationY(0.0f);
         } else {
             this.mHeaderImage.clearAnimation();

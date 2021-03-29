@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class z extends d.b.b.j.e.a<d.b.i0.x.e0.o, CardViewHolder<d.b.i0.x.s>> {
     public TbPageContext<?> m;
 
@@ -30,7 +30,7 @@ public class z extends d.b.b.j.e.a<d.b.i0.x.e0.o, CardViewHolder<d.b.i0.x.s>> {
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.o oVar, CardViewHolder cardViewHolder) {
         cardViewHolder.b().n(oVar);
         cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
-        d.b.i0.x.t.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(oVar.f62224e)));
+        d.b.i0.x.t.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(oVar.f62225e)));
         return cardViewHolder.a();
     }
 }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
+public abstract class a implements d.a.a.q.a.d, a.InterfaceC0529a, d.a.a.s.f {
     public final String l;
     public final d.a.a.f n;
     public final Layer o;
@@ -35,28 +35,28 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
     public final o u;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f41406a = new Path();
+    public final Path f41407a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Matrix f41407b = new Matrix();
+    public final Matrix f41408b = new Matrix();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Paint f41408c = new Paint(1);
+    public final Paint f41409c = new Paint(1);
 
     /* renamed from: d  reason: collision with root package name */
-    public final Paint f41409d = new Paint(1);
+    public final Paint f41410d = new Paint(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f41410e = new Paint(1);
+    public final Paint f41411e = new Paint(1);
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f41411f = new Paint(1);
+    public final Paint f41412f = new Paint(1);
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f41412g = new Paint();
+    public final Paint f41413g = new Paint();
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f41413h = new RectF();
+    public final RectF f41414h = new RectF();
     public final RectF i = new RectF();
     public final RectF j = new RectF();
     public final RectF k = new RectF();
@@ -66,18 +66,18 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
 
     /* renamed from: d.a.a.s.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0529a implements a.InterfaceC0528a {
+    public class C0530a implements a.InterfaceC0529a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.q.b.c f41414a;
+        public final /* synthetic */ d.a.a.q.b.c f41415a;
 
-        public C0529a(d.a.a.q.b.c cVar) {
-            this.f41414a = cVar;
+        public C0530a(d.a.a.q.b.c cVar) {
+            this.f41415a = cVar;
         }
 
-        @Override // d.a.a.q.b.a.InterfaceC0528a
+        @Override // d.a.a.q.b.a.InterfaceC0529a
         public void a() {
-            a.this.A(this.f41414a.h().floatValue() == 1.0f);
+            a.this.A(this.f41415a.h().floatValue() == 1.0f);
         }
     }
 
@@ -85,54 +85,54 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41416a;
+        public static final /* synthetic */ int[] f41417a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41417b;
+        public static final /* synthetic */ int[] f41418b;
 
         static {
             int[] iArr = new int[Mask.MaskMode.values().length];
-            f41417b = iArr;
+            f41418b = iArr;
             try {
                 iArr[Mask.MaskMode.MaskModeSubtract.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41417b[Mask.MaskMode.MaskModeIntersect.ordinal()] = 2;
+                f41418b[Mask.MaskMode.MaskModeIntersect.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41417b[Mask.MaskMode.MaskModeAdd.ordinal()] = 3;
+                f41418b[Mask.MaskMode.MaskModeAdd.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[Layer.LayerType.values().length];
-            f41416a = iArr2;
+            f41417a = iArr2;
             try {
                 iArr2[Layer.LayerType.Shape.ordinal()] = 1;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f41416a[Layer.LayerType.PreComp.ordinal()] = 2;
+                f41417a[Layer.LayerType.PreComp.ordinal()] = 2;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f41416a[Layer.LayerType.Solid.ordinal()] = 3;
+                f41417a[Layer.LayerType.Solid.ordinal()] = 3;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f41416a[Layer.LayerType.Image.ordinal()] = 4;
+                f41417a[Layer.LayerType.Image.ordinal()] = 4;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f41416a[Layer.LayerType.Null.ordinal()] = 5;
+                f41417a[Layer.LayerType.Null.ordinal()] = 5;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f41416a[Layer.LayerType.Text.ordinal()] = 6;
+                f41417a[Layer.LayerType.Text.ordinal()] = 6;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f41416a[Layer.LayerType.Unknown.ordinal()] = 7;
+                f41417a[Layer.LayerType.Unknown.ordinal()] = 7;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -142,13 +142,13 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         this.n = fVar;
         this.o = layer;
         this.l = layer.g() + "#draw";
-        this.f41412g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.f41409d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.f41410e.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f41413g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f41410d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f41411e.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         if (layer.f() == Layer.MatteType.Invert) {
-            this.f41411f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f41412f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
-            this.f41411f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.f41412f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
         o b2 = layer.u().b();
         this.u = b2;
@@ -169,7 +169,7 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
 
     @Nullable
     public static a n(Layer layer, d.a.a.f fVar, d.a.a.d dVar) {
-        switch (b.f41416a[layer.d().ordinal()]) {
+        switch (b.f41417a[layer.d().ordinal()]) {
             case 1:
                 return new e(fVar, layer);
             case 2:
@@ -199,7 +199,7 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         if (!this.o.c().isEmpty()) {
             d.a.a.q.b.c cVar = new d.a.a.q.b.c(this.o.c());
             cVar.k();
-            cVar.a(new C0529a(cVar));
+            cVar.a(new C0530a(cVar));
             A(cVar.h().floatValue() == 1.0f);
             h(cVar);
             return;
@@ -207,7 +207,7 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         A(true);
     }
 
-    @Override // d.a.a.q.b.a.InterfaceC0528a
+    @Override // d.a.a.q.b.a.InterfaceC0529a
     public void a() {
         t();
     }
@@ -253,43 +253,43 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         }
         k();
         d.a.a.c.a("Layer#parentMatrix");
-        this.f41407b.reset();
-        this.f41407b.set(matrix);
+        this.f41408b.reset();
+        this.f41408b.set(matrix);
         for (int size = this.s.size() - 1; size >= 0; size--) {
-            this.f41407b.preConcat(this.s.get(size).u.e());
+            this.f41408b.preConcat(this.s.get(size).u.e());
         }
         d.a.a.c.c("Layer#parentMatrix");
         int intValue = (int) ((((i / 255.0f) * this.u.g().h().intValue()) / 100.0f) * 255.0f);
         if (!q() && !p()) {
-            this.f41407b.preConcat(this.u.e());
+            this.f41408b.preConcat(this.u.e());
             d.a.a.c.a("Layer#drawLayer");
-            m(canvas, this.f41407b, intValue);
+            m(canvas, this.f41408b, intValue);
             d.a.a.c.c("Layer#drawLayer");
             u(d.a.a.c.c(this.l));
             return;
         }
         d.a.a.c.a("Layer#computeBounds");
-        this.f41413h.set(0.0f, 0.0f, 0.0f, 0.0f);
-        c(this.f41413h, this.f41407b);
-        s(this.f41413h, this.f41407b);
-        this.f41407b.preConcat(this.u.e());
-        r(this.f41413h, this.f41407b);
-        this.f41413h.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+        this.f41414h.set(0.0f, 0.0f, 0.0f, 0.0f);
+        c(this.f41414h, this.f41408b);
+        s(this.f41414h, this.f41408b);
+        this.f41408b.preConcat(this.u.e());
+        r(this.f41414h, this.f41408b);
+        this.f41414h.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         d.a.a.c.c("Layer#computeBounds");
         d.a.a.c.a("Layer#saveLayer");
-        w(canvas, this.f41413h, this.f41408c, true);
+        w(canvas, this.f41414h, this.f41409c, true);
         d.a.a.c.c("Layer#saveLayer");
         l(canvas);
         d.a.a.c.a("Layer#drawLayer");
-        m(canvas, this.f41407b, intValue);
+        m(canvas, this.f41408b, intValue);
         d.a.a.c.c("Layer#drawLayer");
         if (p()) {
-            i(canvas, this.f41407b);
+            i(canvas, this.f41408b);
         }
         if (q()) {
             d.a.a.c.a("Layer#drawMatte");
             d.a.a.c.a("Layer#saveLayer");
-            w(canvas, this.f41413h, this.f41411f, false);
+            w(canvas, this.f41414h, this.f41412f, false);
             d.a.a.c.c("Layer#saveLayer");
             l(canvas);
             this.q.g(canvas, matrix, intValue);
@@ -322,10 +322,10 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
     public final void j(Canvas canvas, Matrix matrix, Mask.MaskMode maskMode) {
         Paint paint;
         boolean z = true;
-        if (b.f41417b[maskMode.ordinal()] != 1) {
-            paint = this.f41409d;
+        if (b.f41418b[maskMode.ordinal()] != 1) {
+            paint = this.f41410d;
         } else {
-            paint = this.f41410e;
+            paint = this.f41411e;
         }
         int size = this.p.b().size();
         int i = 0;
@@ -342,17 +342,17 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         if (z) {
             d.a.a.c.a("Layer#drawMask");
             d.a.a.c.a("Layer#saveLayer");
-            w(canvas, this.f41413h, paint, false);
+            w(canvas, this.f41414h, paint, false);
             d.a.a.c.c("Layer#saveLayer");
             l(canvas);
             for (int i2 = 0; i2 < size; i2++) {
                 if (this.p.b().get(i2).a() == maskMode) {
-                    this.f41406a.set(this.p.a().get(i2).h());
-                    this.f41406a.transform(matrix);
-                    int alpha = this.f41408c.getAlpha();
-                    this.f41408c.setAlpha((int) (this.p.c().get(i2).h().intValue() * 2.55f));
-                    canvas.drawPath(this.f41406a, this.f41408c);
-                    this.f41408c.setAlpha(alpha);
+                    this.f41407a.set(this.p.a().get(i2).h());
+                    this.f41407a.transform(matrix);
+                    int alpha = this.f41409c.getAlpha();
+                    this.f41409c.setAlpha((int) (this.p.c().get(i2).h().intValue() * 2.55f));
+                    canvas.drawPath(this.f41407a, this.f41409c);
+                    this.f41409c.setAlpha(alpha);
                 }
             }
             d.a.a.c.a("Layer#restoreLayer");
@@ -378,8 +378,8 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
 
     public final void l(Canvas canvas) {
         d.a.a.c.a("Layer#clearLayer");
-        RectF rectF = this.f41413h;
-        canvas.drawRect(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f, this.f41412g);
+        RectF rectF = this.f41414h;
+        canvas.drawRect(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f, this.f41413g);
         d.a.a.c.c("Layer#clearLayer");
     }
 
@@ -403,13 +403,13 @@ public abstract class a implements d.a.a.q.a.d, a.InterfaceC0528a, d.a.a.s.f {
         if (p()) {
             int size = this.p.b().size();
             for (int i = 0; i < size; i++) {
-                this.f41406a.set(this.p.a().get(i).h());
-                this.f41406a.transform(matrix);
-                int i2 = b.f41417b[this.p.b().get(i).a().ordinal()];
+                this.f41407a.set(this.p.a().get(i).h());
+                this.f41407a.transform(matrix);
+                int i2 = b.f41418b[this.p.b().get(i).a().ordinal()];
                 if (i2 == 1 || i2 == 2) {
                     return;
                 }
-                this.f41406a.computeBounds(this.k, false);
+                this.f41407a.computeBounds(this.k, false);
                 if (i == 0) {
                     this.i.set(this.k);
                 } else {

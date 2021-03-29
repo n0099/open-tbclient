@@ -9,11 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMDatabase {
     public static DbOpenHelper mDbHelper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public Context mContext;
 

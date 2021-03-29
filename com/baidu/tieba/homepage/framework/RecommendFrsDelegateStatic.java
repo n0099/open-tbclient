@@ -15,13 +15,13 @@ import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import d.b.h0.e0.c;
 import d.b.h0.e0.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecommendFrsDelegateStatic extends d.b.h0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f17080a;
+    public MessageRedDotView f17081a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -36,14 +36,14 @@ public class RecommendFrsDelegateStatic extends d.b.h0.e0.b {
             }
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
             ((d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f50154a.isAdded()) {
+            if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f50155a.isAdded()) {
                 return;
             }
-            fragmentTabStructure.f50154a.setArguments(new Bundle());
+            fragmentTabStructure.f50155a.setArguments(new Bundle());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -61,11 +61,11 @@ public class RecommendFrsDelegateStatic extends d.b.h0.e0.b {
                 return;
             }
             if (intValue <= 0) {
-                RecommendFrsDelegateStatic.this.f17080a.setVisibility(8);
+                RecommendFrsDelegateStatic.this.f17081a.setVisibility(8);
                 return;
             }
-            RecommendFrsDelegateStatic.this.f17080a.f(0);
-            RecommendFrsDelegateStatic.this.f17080a.setVisibility(0);
+            RecommendFrsDelegateStatic.this.f17081a.f(0);
+            RecommendFrsDelegateStatic.this.f17081a.setVisibility(0);
             d2.b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -79,23 +79,23 @@ public class RecommendFrsDelegateStatic extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50154a = new RecommendFrsControlFragment();
-        cVar.f50158e = 2;
-        cVar.f50155b = R.string.home_recommend;
-        cVar.f50159f = R.raw.lottie_tab_home;
-        cVar.f50161h = c.k;
+        cVar.f50155a = new RecommendFrsControlFragment();
+        cVar.f50159e = 2;
+        cVar.f50156b = R.string.home_recommend;
+        cVar.f50160f = R.raw.lottie_tab_home;
+        cVar.f50162h = c.k;
         return cVar;
     }
 
     @Override // d.b.h0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f17080a = new MessageRedDotView(context);
+        this.f17081a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13960f = this.mIndicator;
-        aVar.f13957c = l.e(context, 12.0f);
-        MessageRedDotView messageRedDotView = this.f17080a;
-        aVar.f13955a = messageRedDotView;
+        aVar.f13961f = this.mIndicator;
+        aVar.f13958c = l.e(context, 12.0f);
+        MessageRedDotView messageRedDotView = this.f17081a;
+        aVar.f13956a = messageRedDotView;
         messageRedDotView.setVisibility(8);
         this.mIndicator.b("godFeed", aVar);
         return this.mIndicator;

@@ -10,30 +10,30 @@ import d.b.i0.i1.o.l.e;
 public abstract class a implements e<AdCard> {
 
     /* renamed from: e  reason: collision with root package name */
-    public AdCard f59988e;
+    public AdCard f59989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdvertAppInfo f59989f;
+    public AdvertAppInfo f59990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59990g;
+    public boolean f59991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f59991h;
+    public Context f59992h;
     public TbPageContext i;
     public d.b.i0.i1.o.a j;
 
     public a(TbPageContext tbPageContext) {
         this.i = tbPageContext;
-        this.f59991h = tbPageContext.getPageActivity();
+        this.f59992h = tbPageContext.getPageActivity();
     }
 
     @Override // d.b.i0.i1.o.l.e
     public void c(Object obj) {
         if (obj instanceof AdCard) {
-            this.f59988e = (AdCard) obj;
+            this.f59989e = (AdCard) obj;
             d();
-            g(this.f59988e);
+            g(this.f59989e);
         }
     }
 
@@ -48,8 +48,8 @@ public abstract class a implements e<AdCard> {
     }
 
     public void g(AdCard adCard) {
-        this.f59988e = adCard;
-        this.f59989f = adCard.getAdvertAppInfo();
+        this.f59989e = adCard;
+        this.f59990f = adCard.getAdvertAppInfo();
     }
 
     @Override // d.b.i0.i1.o.l.e
@@ -79,7 +79,7 @@ public abstract class a implements e<AdCard> {
 
     @Override // d.b.i0.i1.o.l.e
     public void setFromCDN(boolean z) {
-        this.f59990g = z;
+        this.f59991g = z;
     }
 
     @Override // d.b.i0.i1.o.l.e

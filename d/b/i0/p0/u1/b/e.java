@@ -13,7 +13,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.d0.e, CardViewHolder<g>> {
     public String o;
 
     public e(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), d.b.i0.d0.e.f53631f);
+        super(tbPageContext.getPageActivity(), d.b.i0.d0.e.f53632f);
         this.m = tbPageContext;
         this.o = str;
     }

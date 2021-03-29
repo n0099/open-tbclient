@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class AppCuidHelper {
     public static final boolean DEBUG = false;
     public static final String TAG = "AppCuidHelper";
@@ -13,7 +13,7 @@ public final class AppCuidHelper {
     public String mUid;
     public volatile String mUidFromGalaxy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Singleton {
         public static final AppCuidHelper INSTANCE = new AppCuidHelper();
     }

@@ -53,8 +53,8 @@ public class z extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 } else if (view.getId() == R.id.share_num_container) {
                     d.b.i0.p0.j2.a.b(a2Var, 14, z.this.i, d.b.i0.p0.j2.d.J0, z.this.i0());
                 } else if (view instanceof TbImageView) {
-                    if (z.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) z.this.A.f62183a).booleanValue()) {
+                    if (z.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) z.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, z.this.i, d.b.i0.p0.j2.d.J0, z.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, z.this.i, d.b.i0.p0.j2.d.J0, z.this.i0());
@@ -73,8 +73,8 @@ public class z extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     d.b.i0.p0.m2.l.a(d.b.i0.p0.j2.d.J0, a2Var.V0());
                     return;
                 } else if (view instanceof TbImageView) {
-                    if (z.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) z.this.A.f62183a).booleanValue()) {
+                    if (z.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) z.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 1);
                             return;
                         } else {
@@ -120,7 +120,7 @@ public class z extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     z.this.A.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 3, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -176,11 +176,11 @@ public class z extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         threadCardViewHolder.b().p(this.A);
         z1Var.w.x4();
         d.b.i.y yVar = (d.b.i.y) threadCardViewHolder.b().f();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.j.f4480h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.j.f4481h.getLayoutParams();
         layoutParams.width = z1Var.x;
         layoutParams.height = z1Var.y;
-        if (yVar.j.f4480h.getVisibility() != 8) {
-            yVar.j.f4480h.setLayoutParams(layoutParams);
+        if (yVar.j.f4481h.getVisibility() != 8) {
+            yVar.j.f4481h.setLayoutParams(layoutParams);
         }
         return threadCardViewHolder.a();
     }

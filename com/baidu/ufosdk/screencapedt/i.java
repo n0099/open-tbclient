@@ -13,10 +13,10 @@ import java.util.HashMap;
 public final class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f22987a;
+    public final WeakReference f22988a;
 
     public i(ScreenCapEditActivity screenCapEditActivity) {
-        this.f22987a = new WeakReference(screenCapEditActivity);
+        this.f22988a = new WeakReference(screenCapEditActivity);
     }
 
     @Override // android.os.Handler
@@ -29,7 +29,7 @@ public final class i extends Handler {
         TextView textView2;
         RelativeLayout relativeLayout2;
         super.handleMessage(message);
-        ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f22987a.get();
+        ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f22988a.get();
         if (screenCapEditActivity != null && message.what == 0) {
             com.baidu.ufosdk.f.c.c("msg.what==0");
             hashMap = screenCapEditActivity.t;

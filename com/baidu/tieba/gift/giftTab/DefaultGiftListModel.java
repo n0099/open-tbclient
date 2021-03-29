@@ -13,16 +13,16 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.i0.t0.b.a> f16870e;
+    public ArrayList<d.b.i0.t0.b.a> f16871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<i0> f16871f;
+    public ArrayList<i0> f16872f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f16872g;
+    public ArrayList<e> f16873g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16873h;
+    public String f16874h;
     public int i;
     public b j;
     public d.b.b.c.g.a k;
@@ -53,10 +53,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16870e = defaultGiftListHttpResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16871f = defaultGiftListHttpResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16872g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16873h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16871e = defaultGiftListHttpResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16872f = defaultGiftListHttpResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16873g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16874h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 DefaultGiftListModel.this.i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
                 j0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
@@ -64,16 +64,16 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 j0Var = null;
                 i = 0;
                 if (DefaultGiftListModel.this.j == null) {
-                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.i, DefaultGiftListModel.this.f16873h, i, j0Var, DefaultGiftListModel.this.f16870e, DefaultGiftListModel.this.f16871f, DefaultGiftListModel.this.f16872g);
+                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.i, DefaultGiftListModel.this.f16874h, i, j0Var, DefaultGiftListModel.this.f16871e, DefaultGiftListModel.this.f16872f, DefaultGiftListModel.this.f16873g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16870e = defaultGiftListSocketResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16871f = defaultGiftListSocketResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16872g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16873h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16871e = defaultGiftListSocketResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16872f = defaultGiftListSocketResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16873g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16874h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 DefaultGiftListModel.this.i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
                 j0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;

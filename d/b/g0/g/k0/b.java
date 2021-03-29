@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f48238a = new ArrayList<>();
+    public ArrayList<a> f48239a = new ArrayList<>();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,21 +29,21 @@ public class b {
     }
 
     public synchronized void b() {
-        Iterator<a> it = this.f48238a.iterator();
+        Iterator<a> it = this.f48239a.iterator();
         while (it.hasNext()) {
             it.next().b();
         }
-        this.f48238a.clear();
+        this.f48239a.clear();
     }
 
     public synchronized void c(a aVar) {
-        if (!this.f48238a.contains(aVar)) {
-            this.f48238a.add(aVar);
+        if (!this.f48239a.contains(aVar)) {
+            this.f48239a.add(aVar);
         }
     }
 
     public synchronized void d(int i) {
-        Iterator<a> it = this.f48238a.iterator();
+        Iterator<a> it = this.f48239a.iterator();
         while (it.hasNext()) {
             it.next().a(i);
         }

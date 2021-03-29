@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(boolean z);
 

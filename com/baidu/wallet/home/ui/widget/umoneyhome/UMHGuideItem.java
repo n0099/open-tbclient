@@ -13,13 +13,13 @@ import com.baidu.wallet.home.ui.widget.b;
 public class UMHGuideItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24802a;
+    public NetImageView f24803a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24803b;
+    public MaskTextView f24804b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24804c;
+    public MaskTextView f24805c;
 
     public UMHGuideItem(Context context) {
         super(context);
@@ -32,18 +32,18 @@ public class UMHGuideItem extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_guide_item"), this);
-        this.f24802a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
-        this.f24803b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
-        this.f24804c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
+        this.f24803a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
+        this.f24804b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
+        this.f24805c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24802a, getData().logo);
-        this.f24803b.setMaskText(getData().name);
-        this.f24804c.setMaskText(getData().desc);
+        setNetImageViewUrl(this.f24803a, getData().logo);
+        this.f24804b.setMaskText(getData().name);
+        this.f24805c.setMaskText(getData().desc);
         handlePoint();
     }
 

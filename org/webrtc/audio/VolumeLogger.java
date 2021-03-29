@@ -8,7 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class VolumeLogger {
     public static final String TAG = "VolumeLogger";
     public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";

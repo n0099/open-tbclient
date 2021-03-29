@@ -6,17 +6,17 @@ import org.json.JSONObject;
 public final class k {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47741b = d.b.g0.a.k.f45050a;
+    public static final boolean f47742b = d.b.g0.a.k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.e.d.a f47742a;
+    public d.b.g0.g.e.d.a f47743a;
 
     public static k d(d.b.g0.g.e.d.c cVar) {
         if (cVar == null) {
             return null;
         }
         k kVar = new k();
-        kVar.f47742a = d.b.g0.g.e.d.a.e(cVar);
+        kVar.f47743a = d.b.g0.g.e.d.a.e(cVar);
         return kVar;
     }
 
@@ -27,7 +27,7 @@ public final class k {
             jSONObject.put("errMsg", "fail");
             jSONObject.put("errDes", d.b.g0.e.a.q.b.a(str));
         } catch (Exception e2) {
-            if (f47741b) {
+            if (f47742b) {
                 e2.printStackTrace();
             }
         }
@@ -36,14 +36,14 @@ public final class k {
 
     public void b(String str) {
         JSONObject a2 = a(str);
-        d.b.g0.g.e.d.a aVar = this.f47742a;
+        d.b.g0.g.e.d.a aVar = this.f47743a;
         if (aVar != null) {
             aVar.b(a2);
         }
     }
 
     public void c() {
-        d.b.g0.g.e.d.a aVar = this.f47742a;
+        d.b.g0.g.e.d.a aVar = this.f47743a;
         if (aVar != null) {
             aVar.c();
         }

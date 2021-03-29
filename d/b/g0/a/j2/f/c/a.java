@@ -13,7 +13,7 @@ public class a {
             jSONObject.put("slaveId", str);
             jSONObject.put("type", str2);
         } catch (JSONException e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }
@@ -34,7 +34,7 @@ public class a {
             jSONObject2.put("type", "abilityMessage");
             jSONObject2.put("value", jSONObject4);
         } catch (JSONException e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }
@@ -44,14 +44,14 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
     public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
-        gVar.f45068b = b(str, str2, str3, str4, jSONObject);
+        gVar.f45069b = b(str, str2, str3, str4, jSONObject);
         f.V().N(gVar);
     }
 
     /* JADX WARN: Type inference failed for: r2v1, types: [org.json.JSONObject, T] */
     public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
-        gVar.f45068b = b(str, str2, str3, str4, jSONObject);
+        gVar.f45069b = b(str, str2, str3, str4, jSONObject);
         f.V().z(str, gVar);
     }
 }

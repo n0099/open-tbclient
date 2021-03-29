@@ -13,9 +13,9 @@ public class a extends m {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
         this.q = true;
         this.r = true;
-        this.f51532d = R.drawable.icon_pure_post_link24;
-        this.f51535g = false;
-        this.f51536h = true;
+        this.f51533d = R.drawable.icon_pure_post_link24;
+        this.f51536g = false;
+        this.f51537h = true;
         this.i = false;
         this.n = new int[]{21};
     }

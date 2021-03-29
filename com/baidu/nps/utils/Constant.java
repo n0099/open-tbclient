@@ -91,7 +91,7 @@ public class Constant {
         public static final int SILENT_DOWNLOAD_ALERT = 1;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class MSG {
         public static String retMsgBundleNotReady(int i) {
             return i != 41 ? i != 44 ? i != 46 ? "unkown errcode" : "bundle is broken" : "bundle need to force update" : "bundle is ready";

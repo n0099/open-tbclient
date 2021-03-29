@@ -29,16 +29,16 @@ import d.b.b.e.p.j;
 public class MemberCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18926e;
+    public NoNetworkView f18927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18927f;
+    public NavigationBar f18928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18928g;
+    public View f18929g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18929h;
+    public View f18930h;
     public QuickWebView i;
     public String j;
     public boolean k = false;
@@ -129,15 +129,15 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     public void H0() {
-        NavigationBar navigationBar = (NavigationBar) this.f18928g.findViewById(R.id.view_navigation_bar);
-        this.f18927f = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f18929g.findViewById(R.id.view_navigation_bar);
+        this.f18928f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18927f.setTitleText(R.string.member_center);
-        SkinManager.setNavbarTitleColor(this.f18927f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.f18927f.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18927f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f18928f.setTitleText(R.string.member_center);
+        SkinManager.setNavbarTitleColor(this.f18928f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        if (this.f18928f.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18928f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.f18927f.showBottomLine(false);
+        this.f18928f.showBottomLine(false);
     }
 
     public final void I0() {
@@ -156,21 +156,21 @@ public class MemberCenterFragment extends BaseFragment {
 
     public final void K0() {
         QuickWebView quickWebView = this.i;
-        if (quickWebView == null || this.f18927f == null) {
+        if (quickWebView == null || this.f18928f == null) {
             return;
         }
         quickWebView.setVisibility(8);
-        this.f18927f.setVisibility(0);
-        showNetRefreshView(this.f18929h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+        this.f18928f.setVisibility(0);
+        showNetRefreshView(this.f18930h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
     }
 
     public final void L0() {
-        if (this.i == null || this.f18927f == null) {
+        if (this.i == null || this.f18928f == null) {
             return;
         }
-        hideNetRefreshView(this.f18929h);
+        hideNetRefreshView(this.f18930h);
         this.i.setVisibility(0);
-        this.f18927f.setVisibility(8);
+        this.f18928f.setVisibility(8);
     }
 
     public void loadData() {
@@ -194,8 +194,8 @@ public class MemberCenterFragment extends BaseFragment {
                 G0(this.j);
             }
         }
-        this.f18927f.onChangeSkinType(getPageContext(), i);
-        this.f18926e.c(getPageContext(), i);
+        this.f18928f.onChangeSkinType(getPageContext(), i);
+        this.f18927e.c(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -206,16 +206,16 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.f18928g = inflate;
-        this.f18926e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f18927f = (NavigationBar) this.f18928g.findViewById(R.id.view_navigation_bar);
+        this.f18929g = inflate;
+        this.f18927e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f18928f = (NavigationBar) this.f18929g.findViewById(R.id.view_navigation_bar);
         H0();
-        this.f18929h = this.f18928g.findViewById(R.id.member_content_layout);
-        this.i = (QuickWebView) this.f18928g.findViewById(R.id.webview);
+        this.f18930h = this.f18929g.findViewById(R.id.member_content_layout);
+        this.i = (QuickWebView) this.f18929g.findViewById(R.id.webview);
         I0();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log("c10387");
-        return this.f18928g;
+        return this.f18929g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

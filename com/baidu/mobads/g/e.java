@@ -9,47 +9,47 @@ import org.json.JSONObject;
 public class e implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Parcelable.Creator<e> f8270a = new f();
+    public static final Parcelable.Creator<e> f8271a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f8271b;
+    public JSONObject f8272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f8272c;
+    public double f8273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8273d;
+    public String f8274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8274e;
+    public String f8275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8275f;
+    public String f8276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f8276g;
+    public int f8277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f8277h;
+    public int f8278h;
 
     public /* synthetic */ e(Parcel parcel, f fVar) {
         this(parcel);
     }
 
     public Boolean a() {
-        return Boolean.valueOf(this.f8277h == 1);
+        return Boolean.valueOf(this.f8278h == 1);
     }
 
     public double b() {
-        return this.f8272c;
+        return this.f8273c;
     }
 
     public String c() {
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().replaceURLWithSupportProtocol(this.f8273d);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().replaceURLWithSupportProtocol(this.f8274d);
     }
 
     public String d() {
-        return this.f8274e;
+        return this.f8275e;
     }
 
     @Override // android.os.Parcelable
@@ -58,54 +58,54 @@ public class e implements Parcelable {
     }
 
     public String e() {
-        return this.f8275f;
+        return this.f8276f;
     }
 
     public String toString() {
-        return this.f8271b.toString();
+        return this.f8272b.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f8274e);
-        parcel.writeInt(this.f8277h);
-        parcel.writeString(this.f8273d);
-        parcel.writeDouble(this.f8272c);
-        parcel.writeString(this.f8275f);
-        parcel.writeInt(this.f8276g);
+        parcel.writeString(this.f8275e);
+        parcel.writeInt(this.f8278h);
+        parcel.writeString(this.f8274d);
+        parcel.writeDouble(this.f8273c);
+        parcel.writeString(this.f8276f);
+        parcel.writeInt(this.f8277g);
     }
 
     public e(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f8271b = jSONObject;
-            this.f8272c = jSONObject.getDouble("version");
-            this.f8273d = this.f8271b.getString("url");
-            this.f8274e = this.f8271b.getString("sign");
-            this.f8277h = 1;
-            this.f8275f = "";
-            this.f8276g = 0;
+            this.f8272b = jSONObject;
+            this.f8273c = jSONObject.getDouble("version");
+            this.f8274d = this.f8272b.getString("url");
+            this.f8275e = this.f8272b.getString("sign");
+            this.f8278h = 1;
+            this.f8276f = "";
+            this.f8277g = 0;
         } catch (JSONException unused) {
-            this.f8277h = 0;
+            this.f8278h = 0;
         }
-        this.f8277h = c() == null ? 0 : 1;
+        this.f8278h = c() == null ? 0 : 1;
     }
 
     public e(e eVar, String str, Boolean bool) {
-        this.f8272c = eVar.b();
-        this.f8273d = eVar.c();
-        this.f8274e = eVar.d();
-        this.f8277h = eVar.a().booleanValue() ? 1 : 0;
-        this.f8275f = str;
-        this.f8276g = bool.booleanValue() ? 1 : 0;
+        this.f8273c = eVar.b();
+        this.f8274d = eVar.c();
+        this.f8275e = eVar.d();
+        this.f8278h = eVar.a().booleanValue() ? 1 : 0;
+        this.f8276f = str;
+        this.f8277g = bool.booleanValue() ? 1 : 0;
     }
 
     public e(Parcel parcel) {
-        this.f8274e = parcel.readString();
-        this.f8277h = parcel.readInt();
-        this.f8273d = parcel.readString();
-        this.f8272c = parcel.readDouble();
-        this.f8275f = parcel.readString();
-        this.f8276g = parcel.readInt();
+        this.f8275e = parcel.readString();
+        this.f8278h = parcel.readInt();
+        this.f8274d = parcel.readString();
+        this.f8273c = parcel.readDouble();
+        this.f8276f = parcel.readString();
+        this.f8277g = parcel.readInt();
     }
 }

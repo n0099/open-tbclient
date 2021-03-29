@@ -9,7 +9,7 @@ import com.baidu.swan.apps.res.ui.FloatButton;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideOpenAppGuide");
@@ -17,7 +17,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
         }
         d.b.g0.a.t1.k.i0.a d2 = d.b.g0.a.t1.k.i0.a.d();

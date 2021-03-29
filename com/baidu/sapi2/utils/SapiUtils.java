@@ -107,22 +107,22 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11418a = "cmd";
+    public static final String f11419a = "cmd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11419b = "error";
+    public static final String f11420b = "error";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11420c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f11421c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11421d = Character.toString(2);
+    public static final String f11422d = Character.toString(2);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11422e = Character.toString(3);
+    public static final String f11423e = Character.toString(3);
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11423f;
+    public static String f11424f;
 
     @TargetApi(3)
     public static String a(Context context) {
@@ -373,8 +373,8 @@ public class SapiUtils implements NoProguard {
 
     public static String getIccid(Context context) {
         if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-            if (!TextUtils.isEmpty(f11423f)) {
-                return f11423f;
+            if (!TextUtils.isEmpty(f11424f)) {
+                return f11424f;
             }
             try {
                 if (Build.VERSION.SDK_INT >= 22) {
@@ -386,22 +386,22 @@ public class SapiUtils implements NoProguard {
                     for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
                         if (Build.VERSION.SDK_INT >= 30) {
                             sb.append(subscriptionInfo.getSubscriptionId());
-                            sb.append(f11421d);
+                            sb.append(f11422d);
                         } else {
                             sb.append(subscriptionInfo.getIccId());
-                            sb.append(f11421d);
+                            sb.append(f11422d);
                         }
                     }
                     if (sb.length() > 0) {
                         String substring = sb.toString().substring(0, sb.length() - 1);
-                        f11423f = substring;
+                        f11424f = substring;
                         return substring;
                     }
                 } else {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
                         String simSerialNumber = telephonyManager.getSimSerialNumber();
-                        f11423f = simSerialNumber;
+                        f11424f = simSerialNumber;
                         return simSerialNumber;
                     }
                 }
@@ -519,7 +519,7 @@ public class SapiUtils implements NoProguard {
                     case 12:
                     case 14:
                     case 15:
-                        return com.baidu.apollon.statistics.g.f3873b;
+                        return com.baidu.apollon.statistics.g.f3874b;
                     case 13:
                         return "4G";
                     default:
@@ -657,20 +657,20 @@ public class SapiUtils implements NoProguard {
                         if (i2 >= 10) {
                             break;
                         }
-                        stringBuffer.append(f11421d);
+                        stringBuffer.append(f11422d);
                         stringBuffer.append(replace);
-                        stringBuffer.append(f11422e);
+                        stringBuffer.append(f11423e);
                         stringBuffer.append(abs);
-                        stringBuffer.append(f11422e);
+                        stringBuffer.append(f11423e);
                         stringBuffer.append(str5);
-                        stringBuffer.append(f11422e);
+                        stringBuffer.append(f11423e);
                         stringBuffer.append("2");
                         i2++;
                     }
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                str3 = f11421d + str + f11422e + i + f11422e + str2 + f11422e + '1';
+                str3 = f11422d + str + f11423e + i + f11423e + str2 + f11423e + '1';
             }
         } catch (Exception e2) {
             Log.e(e2);

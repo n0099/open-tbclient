@@ -9,31 +9,31 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f58523a;
+    public String f58524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58524b;
+    public int f58525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58525c;
+    public int f58526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f58526d;
+    public List<n> f58527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58527e;
+    public boolean f58528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58528f;
+    public int f58529f;
 
     public int a(List<n> list) {
         boolean z;
         if (ListUtils.isEmpty(list)) {
             return 0;
         }
-        if (ListUtils.isEmpty(this.f58526d)) {
+        if (ListUtils.isEmpty(this.f58527d)) {
             LinkedList linkedList = new LinkedList();
-            this.f58526d = linkedList;
+            this.f58527d = linkedList;
             linkedList.addAll(list);
             return list.size();
         }
@@ -42,11 +42,11 @@ public class c {
             n nVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.f58526d.size()) {
+                if (i2 >= this.f58527d.size()) {
                     z = false;
                     break;
                 }
-                n nVar2 = this.f58526d.get(i2);
+                n nVar2 = this.f58527d.get(i2);
                 if (nVar != null && (nVar instanceof b) && nVar2 != null && (nVar2 instanceof b)) {
                     a2 g2 = ((b) nVar).g();
                     a2 g3 = ((b) nVar2).g();
@@ -62,7 +62,7 @@ public class c {
             }
         }
         if (linkedList2.size() != 0) {
-            ListUtils.addAll(this.f58526d, 0, linkedList2);
+            ListUtils.addAll(this.f58527d, 0, linkedList2);
         }
         return linkedList2.size();
     }

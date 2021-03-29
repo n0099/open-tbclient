@@ -6,25 +6,25 @@ import java.io.OutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54104a;
+    public int f54105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54105b;
+    public int f54106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f54106c;
+    public byte[] f54107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54107d;
+    public int f54108d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54108e;
+    public int f54109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54109f;
+    public int f54110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54110g;
+    public int f54111g;
     public int i;
     public int p;
     public int q;
@@ -32,7 +32,7 @@ public class b {
     public int v;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54111h = 12;
+    public int f54112h = 12;
     public int j = 4096;
     public int[] k = new int[5003];
     public int[] l = new int[5003];
@@ -45,10 +45,10 @@ public class b {
     public byte[] w = new byte[256];
 
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.f54104a = i;
-        this.f54105b = i2;
-        this.f54106c = bArr;
-        this.f54107d = Math.max(2, i3);
+        this.f54105a = i;
+        this.f54106b = i2;
+        this.f54107c = bArr;
+        this.f54108d = Math.max(2, i3);
     }
 
     public final int a(int i) {
@@ -85,7 +85,7 @@ public class b {
         this.p = i;
         int i2 = 0;
         this.o = false;
-        this.f54110g = i;
+        this.f54111g = i;
         this.i = a(i);
         int i3 = 1 << (i - 1);
         this.q = i3;
@@ -103,7 +103,7 @@ public class b {
         while (true) {
             int h3 = h();
             if (h3 != -1) {
-                int i7 = (h3 << this.f54111h) + h2;
+                int i7 = (h3 << this.f54112h) + h2;
                 int i8 = (h3 << i5) ^ h2;
                 int[] iArr2 = this.k;
                 if (iArr2[i8] == i7) {
@@ -147,10 +147,10 @@ public class b {
     }
 
     public void f(OutputStream outputStream) throws IOException {
-        outputStream.write(this.f54107d);
-        this.f54108e = this.f54104a * this.f54105b;
-        this.f54109f = 0;
-        e(this.f54107d + 1, outputStream);
+        outputStream.write(this.f54108d);
+        this.f54109e = this.f54105a * this.f54106b;
+        this.f54110f = 0;
+        e(this.f54108d + 1, outputStream);
         outputStream.write(0);
     }
 
@@ -164,14 +164,14 @@ public class b {
     }
 
     public final int h() {
-        int i = this.f54108e;
+        int i = this.f54109e;
         if (i == 0) {
             return -1;
         }
-        this.f54108e = i - 1;
-        byte[] bArr = this.f54106c;
-        int i2 = this.f54109f;
-        this.f54109f = i2 + 1;
+        this.f54109e = i - 1;
+        byte[] bArr = this.f54107c;
+        int i2 = this.f54110f;
+        this.f54110f = i2 + 1;
         return bArr[i2] & 255;
     }
 
@@ -186,7 +186,7 @@ public class b {
         } else {
             this.s = i;
         }
-        this.t += this.f54110g;
+        this.t += this.f54111g;
         while (this.t >= 8) {
             b((byte) (this.s & 255), outputStream);
             this.s >>= 8;
@@ -195,13 +195,13 @@ public class b {
         if (this.n > this.i || this.o) {
             if (this.o) {
                 int i5 = this.p;
-                this.f54110g = i5;
+                this.f54111g = i5;
                 this.i = a(i5);
                 this.o = false;
             } else {
-                int i6 = this.f54110g + 1;
-                this.f54110g = i6;
-                if (i6 == this.f54111h) {
+                int i6 = this.f54111g + 1;
+                this.f54111g = i6;
+                if (i6 == this.f54112h) {
                     this.i = this.j;
                 } else {
                     this.i = a(i6);

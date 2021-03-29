@@ -26,9 +26,9 @@ import d.b.g0.a.i2.e;
 import d.b.g0.a.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
     public static final String KEY_FROM = "BOX_ACTIVITY_DIALOG_FROM";
     public static final String KEY_NIGHT_MODE = "BOX_ACTIVITY_DIALOG_NIGHT_MODE";
@@ -51,7 +51,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public SwanAppScrollView mScrollView;
     public TextView mTitle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -66,7 +66,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -81,34 +81,34 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public static HashMap<String, c> t = new HashMap<>();
         public static ArrayList u = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12596a;
+        public String f12597a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f12597b;
+        public CharSequence f12598b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12598c;
+        public String f12599c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12599d;
+        public String f12600d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f12600e;
+        public View f12601e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Drawable f12601f;
+        public Drawable f12602f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f12602g;
+        public boolean f12603g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12603h;
+        public int f12604h;
         public Bundle i;
         public DialogInterface.OnClickListener j;
         public DialogInterface.OnClickListener k;
@@ -121,14 +121,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public Object r;
         public boolean s;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f12604e;
+            public final /* synthetic */ boolean f12605e;
 
             public a(boolean z) {
-                this.f12604e = z;
+                this.f12605e = z;
             }
 
             @Override // java.lang.Runnable
@@ -138,7 +138,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     c.this.o = BaseActivityDialog.class;
                 }
                 Intent intent = new Intent(appContext, c.this.o);
-                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f12604e);
+                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f12605e);
                 String valueOf = String.valueOf(intent.hashCode());
                 intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
                 if (!TextUtils.isEmpty(c.this.q)) {
@@ -153,18 +153,18 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public DialogInterface f12606a;
+            public DialogInterface f12607a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f12607b;
+            public int f12608b;
 
             public b(DialogInterface dialogInterface, int i) {
-                this.f12606a = dialogInterface;
-                this.f12607b = i;
+                this.f12607a = dialogInterface;
+                this.f12608b = i;
             }
         }
 
@@ -198,7 +198,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c B(String str) {
-            this.f12596a = str;
+            this.f12597a = str;
             return this;
         }
 
@@ -215,14 +215,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
             DialogInterface.OnClickListener onClickListener = null;
-            int i = bVar.f12607b;
+            int i = bVar.f12608b;
             if (i == -2) {
                 onClickListener = this.k;
             } else if (i == -1) {
                 onClickListener = this.j;
             }
             if (onClickListener != null) {
-                onClickListener.onClick(bVar.f12606a, bVar.f12607b);
+                onClickListener.onClick(bVar.f12607a, bVar.f12608b);
             }
         }
 
@@ -232,8 +232,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.k = null;
             this.l = null;
             this.m = null;
-            this.f12600e = null;
-            this.f12601f = null;
+            this.f12601e = null;
+            this.f12602f = null;
         }
 
         public c t(int i) {
@@ -242,7 +242,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c u(String str) {
-            this.f12597b = str;
+            this.f12598b = str;
             return this;
         }
 
@@ -252,7 +252,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c w(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f12599d = str;
+            this.f12600d = str;
             this.k = onClickListener;
             return this;
         }
@@ -268,13 +268,13 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c z(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f12598c = str;
+            this.f12599c = str;
             this.j = onClickListener;
             return this;
         }
 
         public c(Class<? extends Activity> cls) {
-            this.f12602g = true;
+            this.f12603g = true;
             this.p = -1;
             this.n = AppRuntime.getAppContext();
             this.o = cls;
@@ -501,14 +501,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (cVar == null) {
             return;
         }
-        setTitle(cVar.f12596a);
-        setIcon(cVar.f12601f);
-        setMessage(cVar.f12597b);
-        setView(cVar.f12600e);
-        setPositiveEnable(cVar.f12602g);
-        setPositiveTextColor(cVar.f12603h);
-        setPositiveButton(cVar.f12598c);
-        setNegativeButton(cVar.f12599d);
+        setTitle(cVar.f12597a);
+        setIcon(cVar.f12602f);
+        setMessage(cVar.f12598b);
+        setView(cVar.f12601e);
+        setPositiveEnable(cVar.f12603g);
+        setPositiveTextColor(cVar.f12604h);
+        setPositiveButton(cVar.f12599c);
+        setNegativeButton(cVar.f12600d);
         setBtnsPanlVisible(cVar.s);
     }
 

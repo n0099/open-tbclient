@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMSendMsgRequest extends BaseHttpRequest {
     public static final String TAG = "IMSendMsgRequest";
     public String key;

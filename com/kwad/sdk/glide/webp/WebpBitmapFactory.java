@@ -62,7 +62,7 @@ public class WebpBitmapFactory {
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
         if (r1 == null) goto L11;
      */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0032 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0032 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

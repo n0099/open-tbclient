@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PmsManagerImpl implements IPmsManager {
     @Override // com.baidu.searchbox.pms.init.IPmsManager
     public void deletePackageInfo(String str, String str2) {

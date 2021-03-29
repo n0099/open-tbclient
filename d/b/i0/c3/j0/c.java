@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, e> f53455a;
+    public static HashMap<String, e> f53456a;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -29,34 +29,34 @@ public class c {
 
     static {
         MessageManager.getInstance().registerListener(new a(2001011));
-        f53455a = new HashMap<>();
+        f53456a = new HashMap<>();
     }
 
     public static void a(int i) {
-        for (String str : f53455a.keySet()) {
-            b(f53455a.get(str), i);
+        for (String str : f53456a.keySet()) {
+            b(f53456a.get(str), i);
         }
     }
 
     public static void b(e eVar, int i) {
-        d dVar = eVar.f53463d;
-        d dVar2 = eVar.f53464e;
-        d dVar3 = eVar.f53465f;
-        if (dVar.f53457b + dVar2.f53457b + dVar3.f53457b >= i) {
+        d dVar = eVar.f53464d;
+        d dVar2 = eVar.f53465e;
+        d dVar3 = eVar.f53466f;
+        if (dVar.f53458b + dVar2.f53458b + dVar3.f53458b >= i) {
             d.b.b.e.n.a aVar = new d.b.b.e.n.a("dbg");
-            aVar.b("act", eVar.f53462c);
-            aVar.b("httpTimeCost", String.valueOf(dVar.f53456a));
-            aVar.b("httpNum", String.valueOf(dVar.f53457b));
-            aVar.b("httpFailnum", String.valueOf(dVar.f53458c));
-            aVar.b("httpSize", String.valueOf(dVar.f53459d));
-            aVar.b("socketTimeCost", String.valueOf(dVar2.f53456a));
-            aVar.b("socketNum", String.valueOf(dVar2.f53457b));
-            aVar.b("socketFailnum", String.valueOf(dVar2.f53458c));
-            aVar.b("socketSize", String.valueOf(dVar2.f53459d));
-            aVar.b("abortTimeCost", String.valueOf(dVar3.f53456a));
-            aVar.b("abortNum", String.valueOf(dVar3.f53457b));
-            aVar.b("netType", eVar.f53461b);
-            aVar.b("isJson", eVar.f53460a ? "1" : "0");
+            aVar.b("act", eVar.f53463c);
+            aVar.b("httpTimeCost", String.valueOf(dVar.f53457a));
+            aVar.b("httpNum", String.valueOf(dVar.f53458b));
+            aVar.b("httpFailnum", String.valueOf(dVar.f53459c));
+            aVar.b("httpSize", String.valueOf(dVar.f53460d));
+            aVar.b("socketTimeCost", String.valueOf(dVar2.f53457a));
+            aVar.b("socketNum", String.valueOf(dVar2.f53458b));
+            aVar.b("socketFailnum", String.valueOf(dVar2.f53459c));
+            aVar.b("socketSize", String.valueOf(dVar2.f53460d));
+            aVar.b("abortTimeCost", String.valueOf(dVar3.f53457a));
+            aVar.b("abortNum", String.valueOf(dVar3.f53458b));
+            aVar.b("netType", eVar.f53462b);
+            aVar.b("isJson", eVar.f53461a ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.a();
             dVar2.a();
@@ -69,10 +69,10 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (f53455a.containsKey(str3)) {
+        if (f53456a.containsKey(str3)) {
             return;
         }
-        f53455a.put(str3, new e(str, str2, z));
+        f53456a.put(str3, new e(str, str2, z));
     }
 
     public static void d() {
@@ -83,9 +83,9 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!f53455a.containsKey(str3)) {
-            f53455a.put(str3, new e(str, str2, z));
+        if (!f53456a.containsKey(str3)) {
+            f53456a.put(str3, new e(str, str2, z));
         }
-        return f53455a.get(str3);
+        return f53456a.get(str3);
     }
 }

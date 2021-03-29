@@ -166,7 +166,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
     }
 
@@ -212,7 +212,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (!d.b.b.e.a.d.g().a(createDiskPicOperate)) {
             d.b.b.e.l.a.f(false, 0L);
@@ -304,7 +304,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f41847a = webClient;
+                    bVar.f41848a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(str3, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -363,14 +363,14 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     webClient2 = webClient;
                     i3 = 1;
                     c2 = 0;
-                    if (!webClient2.getResponse().f41796a) {
+                    if (!webClient2.getResponse().f41797a) {
                         d.b.b.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
                         ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (webClient2.getResponse().f41796a) {
+                    if (webClient2.getResponse().f41797a) {
                         return null;
                     }
                     d.b.b.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);

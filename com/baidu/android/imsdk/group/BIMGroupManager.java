@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMGroupManager extends BaseManager {
     public static void addGroupMembers(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {

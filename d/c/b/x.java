@@ -28,22 +28,22 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f65095b;
+    public static JSONObject f65096b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65094a = {"GET", "POST"};
+    public static final String[] f65095a = {"GET", "POST"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f65096c = {"aid", "app_version", "tt_data"};
+    public static final String[] f65097c = {"aid", "app_version", "tt_data"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f65097d = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
+    public static final String[] f65098d = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f65098e = {"tt_data", "device_platform"};
+    public static final String[] f65099e = {"tt_data", "device_platform"};
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.c.b.c2.a f65099f = d.c.b.c2.a.a(0);
+    public static d.c.b.c2.a f65100f = d.c.b.c2.a.a(0);
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -102,7 +102,7 @@ public class x {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("server_time", optLong);
                     jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                    f65095b = jSONObject2;
+                    f65096b = jSONObject2;
                 }
             } catch (Exception e4) {
                 r0.b(e4);
@@ -134,11 +134,11 @@ public class x {
     }
 
     public static d.c.b.c2.a b() {
-        return f65099f;
+        return f65100f;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x01d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x01dc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x01d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x01dc A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:92:0x01e4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -152,7 +152,7 @@ public class x {
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
         String str4;
-        if (r0.f65063b) {
+        if (r0.f65064b) {
             r0.a("http: " + str, null);
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -174,7 +174,7 @@ public class x {
             } else {
                 r0.b(null);
             }
-            httpURLConnection.setRequestMethod(f65094a[i]);
+            httpURLConnection.setRequestMethod(f65095a[i]);
             if (hashMap != null && !hashMap.isEmpty()) {
                 for (Map.Entry<String, String> entry2 : hashMap.entrySet()) {
                     if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
@@ -200,15 +200,11 @@ public class x {
                     th = th;
                     try {
                         r0.b(th);
-                        if (dataOutputStream != null) {
-                        }
-                        if (bufferedReader != null) {
-                        }
                         str3 = str2;
-                        if (r0.f65063b) {
+                        if (r0.f65064b) {
                         }
                         return str3;
-                    } catch (Throwable th2) {
+                    } finally {
                         if (dataOutputStream != null) {
                             try {
                                 dataOutputStream.close();
@@ -221,7 +217,6 @@ public class x {
                             } catch (IOException unused2) {
                             }
                         }
-                        throw th2;
                     }
                 }
             }
@@ -248,35 +243,29 @@ public class x {
                             JSONObject jSONObject = new JSONObject(sb.toString());
                             jSONObject.put("http_code", 200);
                             str3 = jSONObject.toString();
-                        } catch (Throwable th3) {
+                        } catch (Throwable th2) {
                             bufferedReader3 = bufferedReader2;
                             dataOutputStream = dataOutputStream2;
-                            th = th3;
+                            th = th2;
                             str2 = str4;
                             bufferedReader = bufferedReader3;
                             r0.b(th);
-                            if (dataOutputStream != null) {
-                                try {
-                                    dataOutputStream.close();
-                                } catch (IOException unused3) {
-                                }
-                            }
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (IOException unused4) {
+                                } catch (IOException unused3) {
                                 }
                             }
                             str3 = str2;
-                            if (r0.f65063b) {
+                            if (r0.f65064b) {
                             }
                             return str3;
                         }
-                    } catch (Throwable th4) {
+                    } catch (Throwable th3) {
                         str2 = null;
                         bufferedReader3 = bufferedReader2;
                         dataOutputStream = dataOutputStream2;
-                        th = th4;
+                        th = th3;
                     }
                 } else {
                     r0.b(null);
@@ -289,18 +278,14 @@ public class x {
                     new RuntimeException("HttpCode:" + responseCode).printStackTrace();
                     str3 = jSONObject2;
                     bufferedReader2 = null;
-                } catch (Throwable th5) {
+                } catch (Throwable th4) {
                     str2 = jSONObject2;
                     dataOutputStream = dataOutputStream2;
-                    th = th5;
+                    th = th4;
                     bufferedReader = null;
                     r0.b(th);
-                    if (dataOutputStream != null) {
-                    }
-                    if (bufferedReader != null) {
-                    }
                     str3 = str2;
-                    if (r0.f65063b) {
+                    if (r0.f65064b) {
                     }
                     return str3;
                 }
@@ -308,22 +293,22 @@ public class x {
             if (dataOutputStream2 != null) {
                 try {
                     dataOutputStream2.close();
-                } catch (IOException unused5) {
+                } catch (IOException unused4) {
                 }
             }
             if (bufferedReader2 != null) {
                 try {
                     bufferedReader2.close();
-                } catch (IOException unused6) {
+                } catch (IOException unused5) {
                 }
             }
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th5) {
+            th = th5;
             dataOutputStream = null;
             bufferedReader = null;
             str2 = null;
         }
-        if (r0.f65063b) {
+        if (r0.f65064b) {
             r0.a("http response: " + str3, null);
         }
         return str3;
@@ -335,7 +320,7 @@ public class x {
             Uri parse = Uri.parse(str);
             String query = parse.getQuery();
             ArrayList<Pair> arrayList = new ArrayList();
-            for (String str2 : f65096c) {
+            for (String str2 : f65097c) {
                 String queryParameter = parse.getQueryParameter(str2);
                 if (!TextUtils.isEmpty(queryParameter)) {
                     arrayList.add(new Pair(str2, queryParameter));
@@ -392,7 +377,7 @@ public class x {
     }
 
     public static void g(int i) {
-        f65099f = d.c.b.c2.a.a(i);
+        f65100f = d.c.b.c2.a.a(i);
     }
 
     public static void h(StringBuilder sb, String str, String str2) {

@@ -10,40 +10,40 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class LogUtil {
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3960a = "apollon_rest";
+    public static final String f3961a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f3961b;
+    public static final boolean f3962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f3962c;
+    public static final boolean f3963c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f3963d;
+    public static final boolean f3964d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f3964e;
+    public static final boolean f3965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f3965f;
+    public static final boolean f3966f;
 
     static {
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f3961b = z;
-        f3962c = z;
-        f3963d = z;
-        f3964e = z;
-        f3965f = z;
+        f3962b = z;
+        f3963c = z;
+        f3964d = z;
+        f3965e = z;
+        f3966f = z;
     }
 
     public static void d(String str, String str2) {
-        if (f3962c) {
+        if (f3963c) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -56,7 +56,7 @@ public final class LogUtil {
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f3965f) {
+        if (f3966f) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -89,7 +89,7 @@ public final class LogUtil {
     }
 
     public static void i(String str, String str2) {
-        if (f3963d) {
+        if (f3964d) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -115,7 +115,7 @@ public final class LogUtil {
 
     public static void saveLog(Context context, String str) {
         String absolutePath;
-        if (f3962c) {
+        if (f3963c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + "\n";
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -159,7 +159,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f3961b) {
+        if (f3962b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -172,7 +172,7 @@ public final class LogUtil {
     }
 
     public static void w(String str, String str2) {
-        if (f3964e) {
+        if (f3965e) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

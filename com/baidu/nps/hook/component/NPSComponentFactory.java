@@ -12,7 +12,7 @@ import android.util.Log;
 import com.baidu.nps.main.manager.NPSManager;
 import d.b.z.h.b;
 @TargetApi(28)
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NPSComponentFactory extends AppComponentFactory {
     @Override // android.app.AppComponentFactory
     public Activity instantiateActivity(ClassLoader classLoader, String str, Intent intent) throws ClassNotFoundException, IllegalAccessException, InstantiationException {

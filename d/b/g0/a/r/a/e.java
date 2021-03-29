@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import d.b.g0.i.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends d.b.g0.a.e0.l.i {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends d.b.g0.a.e0.n.a {
         public a() {
         }
@@ -44,7 +44,7 @@ public class e extends d.b.g0.a.e0.l.i {
 
     public final void N2() {
         d.b.g0.a.m.a c2;
-        if (f.f45696d.b() || (c2 = f.f45696d.c()) == null) {
+        if (f.f45697d.b() || (c2 = f.f45697d.c()) == null) {
             return;
         }
         c2.onResult(-2);

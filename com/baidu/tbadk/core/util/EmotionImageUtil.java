@@ -17,9 +17,7 @@ public class EmotionImageUtil {
             return l.g(TbadkCoreApplication.getInst(), R.dimen.tbds200);
         }
         if (topMargin <= 0) {
-            double i2 = l.i(context);
-            Double.isNaN(i2);
-            topMargin = (int) (i2 * 0.11d);
+            topMargin = (int) (l.i(context) * 0.11d);
         }
         return topMargin;
     }

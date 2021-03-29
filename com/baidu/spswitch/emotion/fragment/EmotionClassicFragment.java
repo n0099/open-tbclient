@@ -10,7 +10,7 @@ import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionClassicFragment extends EmotionBaseFragment {
     public static final int EXPRESSION_LAYOUT_HEIGHT = 260;
     public List<String> mBagList = new ArrayList();

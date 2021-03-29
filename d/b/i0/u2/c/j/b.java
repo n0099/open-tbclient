@@ -16,18 +16,18 @@ import java.util.Locale;
 public class b extends Thread {
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f61400f;
+    public final String f61401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Process f61401g;
+    public Process f61402g;
     public FileOutputStream i;
     public a j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61399e = true;
+    public boolean f61400e = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public BufferedReader f61402h = null;
+    public BufferedReader f61403h = null;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -43,23 +43,23 @@ public class b extends Thread {
             BdLog.e(Log.getStackTraceString(e2));
         }
         if (z) {
-            this.f61400f = "logcat -v threadtime *:v -d";
+            this.f61401f = "logcat -v threadtime *:v -d";
         } else {
-            this.f61400f = "logcat -v threadtime *:v";
+            this.f61401f = "logcat -v threadtime *:v";
         }
     }
 
     public final void a() {
-        Process process = this.f61401g;
+        Process process = this.f61402g;
         if (process != null) {
             process.destroy();
-            this.f61401g = null;
+            this.f61402g = null;
         }
-        BufferedReader bufferedReader = this.f61402h;
+        BufferedReader bufferedReader = this.f61403h;
         if (bufferedReader != null) {
             try {
                 bufferedReader.close();
-                this.f61402h = null;
+                this.f61403h = null;
             } catch (IOException e2) {
                 BdLog.e(Log.getStackTraceString(e2));
             }
@@ -84,7 +84,7 @@ public class b extends Thread {
     }
 
     public void c() {
-        this.f61399e = false;
+        this.f61400e = false;
         a();
         interrupt();
     }
@@ -94,9 +94,9 @@ public class b extends Thread {
         String readLine;
         try {
             try {
-                this.f61401g = Runtime.getRuntime().exec(this.f61400f);
-                this.f61402h = new BufferedReader(new InputStreamReader(this.f61401g.getInputStream()), 1024);
-                while (this.f61399e && (readLine = this.f61402h.readLine()) != null && this.f61399e) {
+                this.f61402g = Runtime.getRuntime().exec(this.f61401f);
+                this.f61403h = new BufferedReader(new InputStreamReader(this.f61402g.getInputStream()), 1024);
+                while (this.f61400e && (readLine = this.f61403h.readLine()) != null && this.f61400e) {
                     if (readLine.length() != 0 && this.i != null) {
                         FileOutputStream fileOutputStream = this.i;
                         fileOutputStream.write((readLine + "\n").getBytes());

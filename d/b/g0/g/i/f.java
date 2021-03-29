@@ -9,10 +9,10 @@ public class f extends d.b.g0.g.i.a {
     public static class a extends d.b.g0.g.i.n.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48175a;
+        public String f48176a;
 
         public a(String str) {
-            this.f48175a = str;
+            this.f48176a = str;
         }
 
         @Override // d.b.g0.g.i.n.b
@@ -22,7 +22,7 @@ public class f extends d.b.g0.g.i.a {
 
         @Override // d.b.g0.g.i.n.b
         public String getInitBasePath() {
-            return this.f48175a;
+            return this.f48176a;
         }
     }
 

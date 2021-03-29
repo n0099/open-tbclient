@@ -9,7 +9,7 @@ public class d extends n<Integer, Integer> {
 
     @Override // d.a.a.s.i.m
     public d.a.a.q.b.a<Integer, Integer> a() {
-        return new d.a.a.q.b.e(this.f41363a);
+        return new d.a.a.q.b.e(this.f41364a);
     }
 
     public d(List<d.a.a.w.a<Integer>> list) {

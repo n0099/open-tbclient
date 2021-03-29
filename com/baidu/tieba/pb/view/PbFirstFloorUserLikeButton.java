@@ -66,11 +66,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     }
 
     public void s(boolean z) {
-        Object obj = this.f13600e;
+        Object obj = this.f13601e;
         if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
             return;
         }
-        this.f13600e = Boolean.valueOf(z);
+        this.f13601e = Boolean.valueOf(z);
         if (z) {
             setVisibility(8);
             setClickable(false);

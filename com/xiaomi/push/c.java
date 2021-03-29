@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f40302a;
+    public final int f40303a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f167a;
@@ -16,7 +16,7 @@ public final class c {
     public final byte[] f168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40303b;
+    public int f40304b;
 
     /* loaded from: classes7.dex */
     public static class a extends IOException {
@@ -28,15 +28,15 @@ public final class c {
     public c(OutputStream outputStream, byte[] bArr) {
         this.f167a = outputStream;
         this.f168a = bArr;
-        this.f40303b = 0;
-        this.f40302a = bArr.length;
+        this.f40304b = 0;
+        this.f40303a = bArr.length;
     }
 
     public c(byte[] bArr, int i, int i2) {
         this.f167a = null;
         this.f168a = bArr;
-        this.f40303b = i;
-        this.f40302a = i + i2;
+        this.f40304b = i;
+        this.f40303a = i + i2;
     }
 
     public static int a(int i) {
@@ -161,8 +161,8 @@ public final class c {
         if (outputStream == null) {
             throw new a();
         }
-        outputStream.write(this.f168a, 0, this.f40303b);
-        this.f40303b = 0;
+        outputStream.write(this.f168a, 0, this.f40304b);
+        this.f40304b = 0;
     }
 
     public static int d(int i) {
@@ -180,7 +180,7 @@ public final class c {
 
     public int a() {
         if (this.f167a == null) {
-            return this.f40302a - this.f40303b;
+            return this.f40303a - this.f40304b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
@@ -193,12 +193,12 @@ public final class c {
     }
 
     public void a(byte b2) {
-        if (this.f40303b == this.f40302a) {
+        if (this.f40304b == this.f40303a) {
             c();
         }
         byte[] bArr = this.f168a;
-        int i = this.f40303b;
-        this.f40303b = i + 1;
+        int i = this.f40304b;
+        this.f40304b = i + 1;
         bArr[i] = b2;
     }
 
@@ -283,25 +283,25 @@ public final class c {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m187a(byte[] bArr, int i, int i2) {
-        int i3 = this.f40302a;
-        int i4 = this.f40303b;
+        int i3 = this.f40303a;
+        int i4 = this.f40304b;
         if (i3 - i4 >= i2) {
             System.arraycopy(bArr, i, this.f168a, i4, i2);
-            this.f40303b += i2;
+            this.f40304b += i2;
             return;
         }
         int i5 = i3 - i4;
         System.arraycopy(bArr, i, this.f168a, i4, i5);
         int i6 = i + i5;
         int i7 = i2 - i5;
-        this.f40303b = this.f40302a;
+        this.f40304b = this.f40303a;
         c();
-        if (i7 > this.f40302a) {
+        if (i7 > this.f40303a) {
             this.f167a.write(bArr, i6, i7);
             return;
         }
         System.arraycopy(bArr, i6, this.f168a, 0, i7);
-        this.f40303b = i7;
+        this.f40304b = i7;
     }
 
     public void b() {

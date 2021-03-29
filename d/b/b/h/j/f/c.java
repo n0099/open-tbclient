@@ -7,13 +7,13 @@ import org.apache.http.message.BasicNameValuePair;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BasicNameValuePair> f42275a = new ArrayList();
+    public List<BasicNameValuePair> f42276a = new ArrayList();
 
     public List<BasicNameValuePair> a() {
-        return this.f42275a;
+        return this.f42276a;
     }
 
     public void b(List<BasicNameValuePair> list) {
-        this.f42275a = list;
+        this.f42276a = list;
     }
 }

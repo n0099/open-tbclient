@@ -2,7 +2,7 @@ package com.baidu.tieba.keepLive.nativekeepalive;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NativeGuardLow extends NativeGuardAbs {
     static {
         try {

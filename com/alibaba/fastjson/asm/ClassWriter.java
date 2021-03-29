@@ -64,9 +64,7 @@ public class ClassWriter {
                 }
             }
             this.items = itemArr;
-            double d2 = i;
-            Double.isNaN(d2);
-            this.threshold = (int) (d2 * 0.75d);
+            this.threshold = (int) (i * 0.75d);
         }
         int i4 = item.hashCode;
         Item[] itemArr2 = this.items;
@@ -228,9 +226,7 @@ public class ClassWriter {
         this.pool = new ByteVector();
         Item[] itemArr = new Item[256];
         this.items = itemArr;
-        double length = itemArr.length;
-        Double.isNaN(length);
-        this.threshold = (int) (length * 0.75d);
+        this.threshold = (int) (itemArr.length * 0.75d);
         this.key = new Item();
         this.key2 = new Item();
         this.key3 = new Item();

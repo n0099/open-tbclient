@@ -59,7 +59,56 @@ public final class FlowableConcatMapEager$ConcatMapEagerDelayErrorSubscriber<T, 
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00cc, code lost:
+        r0 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00cd, code lost:
+        if (r17 != 0) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00d1, code lost:
+        if (r19.cancelled == false) goto L55;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00d3, code lost:
+        cancelAll();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00d6, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00d9, code lost:
+        if (r3 != io.reactivex.internal.util.ErrorMode.IMMEDIATE) goto L62;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00e3, code lost:
+        if (r19.errors.get() == null) goto L62;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x00e5, code lost:
+        r19.current = null;
+        r8.cancel();
+        cancelAll();
+        r2.onError(r19.errors.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00f6, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00f7, code lost:
+        r15 = r8.isDone();
+        r12 = r12.isEmpty();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00ff, code lost:
+        if (r15 == false) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0101, code lost:
+        if (r12 == false) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0103, code lost:
+        r19.current = null;
+        r19.s.request(1);
+        r8 = null;
+        r0 = true;
+     */
     @Override // f.a.x.h.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
         InnerQueuedSubscriber<R> innerQueuedSubscriber;
         int i;
@@ -104,8 +153,11 @@ public final class FlowableConcatMapEager$ConcatMapEagerDelayErrorSubscriber<T, 
             } else {
                 i = i2;
                 j = 0;
-                while (j != j2) {
-                    if (this.cancelled) {
+                while (true) {
+                    int i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    if (i3 == 0) {
+                        break;
+                    } else if (this.cancelled) {
                         cancelAll();
                         return;
                     } else if (errorMode == ErrorMode.IMMEDIATE && this.errors.get() != null) {
@@ -139,28 +191,6 @@ public final class FlowableConcatMapEager$ConcatMapEagerDelayErrorSubscriber<T, 
                             cancelAll();
                             cVar.onError(th);
                             return;
-                        }
-                    }
-                }
-                z = false;
-                if (j == j2) {
-                    if (this.cancelled) {
-                        cancelAll();
-                        return;
-                    } else if (errorMode == ErrorMode.IMMEDIATE && this.errors.get() != null) {
-                        this.current = null;
-                        innerQueuedSubscriber.cancel();
-                        cancelAll();
-                        cVar.onError(this.errors.terminate());
-                        return;
-                    } else {
-                        boolean isDone2 = innerQueuedSubscriber.isDone();
-                        boolean isEmpty = queue.isEmpty();
-                        if (isDone2 && isEmpty) {
-                            this.current = null;
-                            this.s.request(1L);
-                            innerQueuedSubscriber = null;
-                            z = true;
                         }
                     }
                 }

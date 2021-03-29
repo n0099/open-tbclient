@@ -16,40 +16,40 @@ import java.util.List;
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f14622g;
+    public static final String f14623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f14623h;
+    public static TbHttpMessageTask f14624h;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14624e;
+    public b f14625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f14625f;
+    public final HttpMessageListener f14626f;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0180a extends f0<Void> {
+        public class C0181a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f14627a;
+            public final /* synthetic */ List f14628a;
 
-            public C0180a(a aVar, List list) {
-                this.f14627a = list;
+            public C0181a(a aVar, List list) {
+                this.f14628a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                List list = this.f14627a;
+                List list = this.f14628a;
                 if (list == null || list.size() <= 0) {
                     return null;
                 }
-                d.b.i0.q.e.a.b.f().m(this.f14627a);
+                d.b.i0.q.e.a.b.f().m(this.f14628a);
                 return null;
             }
         }
@@ -58,17 +58,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         public class b implements n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f14628a;
+            public final /* synthetic */ String f14629a;
 
             public b(String str) {
-                this.f14628a = str;
+                this.f14629a = str;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r2) {
-                RecommendFriendModel.this.f14624e.a(this.f14628a);
+                RecommendFriendModel.this.f14625e.a(this.f14629a);
             }
         }
 
@@ -83,8 +83,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 return;
             }
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                if (RecommendFriendModel.this.f14624e != null) {
-                    RecommendFriendModel.this.f14624e.onLoadFailed(null);
+                if (RecommendFriendModel.this.f14625e != null) {
+                    RecommendFriendModel.this.f14625e.onLoadFailed(null);
                     return;
                 }
                 return;
@@ -92,13 +92,13 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
             String errMsg = recommendFriendResponseMessage.getErrMsg();
             if (recommendFriendResponseMessage.getError() != 0) {
-                if (RecommendFriendModel.this.f14624e != null) {
-                    RecommendFriendModel.this.f14624e.onLoadFailed(errMsg);
+                if (RecommendFriendModel.this.f14625e != null) {
+                    RecommendFriendModel.this.f14625e.onLoadFailed(errMsg);
                     return;
                 }
                 return;
             }
-            h0.c(new C0180a(this, recommendFriendResponseMessage.getDatas()), new b(errMsg));
+            h0.c(new C0181a(this, recommendFriendResponseMessage.getDatas()), new b(errMsg));
         }
     }
 
@@ -111,18 +111,18 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-        f14622g = str;
+        f14623g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, str);
-        f14623h = tbHttpMessageTask;
+        f14624h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f14623h);
+        MessageManager.getInstance().registerTask(f14624h);
     }
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, b bVar) {
         super(newFriendsActivity.getPageContext());
-        this.f14624e = null;
-        this.f14625f = new a(CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
-        this.f14624e = bVar;
+        this.f14625e = null;
+        this.f14626f = new a(CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
+        this.f14625e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -136,7 +136,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     }
 
     public void registerListener() {
-        registerListener(this.f14625f);
+        registerListener(this.f14626f);
     }
 
     public void t() {

@@ -22,7 +22,7 @@ import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import d.b.t.a.a;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveNPSPluginManager {
     public static final String NPS_PLUGIN_IMPL_CLASS_NAME = "com.baidu.searchbox.live.LiveNPSPluginImpl";
     public static final String NPS_PLUGIN_PKG_NAME = "com.baidu.searchbox.livenps";
@@ -35,7 +35,7 @@ public class LiveNPSPluginManager {
     public ILiveNPSPlugin mLiveNPSPlugin;
     public ToastService toastService;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
         public static LiveNPSPluginManager instance = new LiveNPSPluginManager();
     }

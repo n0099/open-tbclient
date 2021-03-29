@@ -6,14 +6,14 @@ import com.baidu.adp.gif.NSGif;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f41577a = {"ZTE-T U880", "U880"};
+    public static final String[] f41578a = {"ZTE-T U880", "U880"};
 
     public static boolean a() {
         return Build.VERSION.SDK_INT > 7;
     }
 
     public static boolean b(String str) {
-        for (String str2 : f41577a) {
+        for (String str2 : f41578a) {
             if (str2.equals(str)) {
                 return false;
             }
@@ -22,6 +22,6 @@ public class c {
     }
 
     public static boolean c() {
-        return b(Build.MODEL) && a() && NSGif.f2134f;
+        return b(Build.MODEL) && a() && NSGif.f2135f;
     }
 }

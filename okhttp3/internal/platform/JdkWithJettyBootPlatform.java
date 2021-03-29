@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class JdkWithJettyBootPlatform extends Platform {
     public final Class<?> clientProviderClass;
     public final Method getMethod;

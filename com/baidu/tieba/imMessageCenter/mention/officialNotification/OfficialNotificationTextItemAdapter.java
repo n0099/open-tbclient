@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.i0.e1.b.q.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
     public TbPageContext t;
     public View.OnClickListener u;

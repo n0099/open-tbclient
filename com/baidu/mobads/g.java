@@ -5,18 +5,18 @@ import java.util.HashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f8246a;
+    public static g f8247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f8247b = new HashMap<>();
+    public static HashMap<String, String> f8248b = new HashMap<>();
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f8246a == null) {
-                f8246a = new g();
+            if (f8247a == null) {
+                f8247a = new g();
             }
-            gVar = f8246a;
+            gVar = f8247a;
         }
         return gVar;
     }
@@ -27,14 +27,14 @@ public class g {
             return 1;
         }
         try {
-            if (f8247b.containsKey(i + "")) {
-                int parseInt = Integer.parseInt(f8247b.get(i + "")) + 1;
+            if (f8248b.containsKey(i + "")) {
+                int parseInt = Integer.parseInt(f8248b.get(i + "")) + 1;
                 if (parseInt >= 1) {
                     i2 = parseInt;
                 }
-                f8247b.put(i + "", i2 + "");
+                f8248b.put(i + "", i2 + "");
             } else {
-                f8247b.put(i + "", "1");
+                f8248b.put(i + "", "1");
             }
         } catch (Exception unused) {
         }

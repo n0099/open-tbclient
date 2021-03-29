@@ -15,7 +15,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public final Drawable mDelegate;
     @Nullable
@@ -219,9 +219,10 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setRadius(float f2) {
-        Preconditions.checkState(f2 >= 0.0f);
+        int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+        Preconditions.checkState(i >= 0);
         Arrays.fill(this.mCornerRadii, f2);
-        this.mRadiiNonZero = f2 != 0.0f;
+        this.mRadiiNonZero = i != 0;
         this.mIsPathDirty = true;
         invalidateSelf();
     }

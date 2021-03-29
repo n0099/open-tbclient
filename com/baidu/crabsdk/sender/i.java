@@ -18,7 +18,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class i {
     public static synchronized List<String> a(Context context, String str, boolean z) {
         ArrayList arrayList;
@@ -51,7 +51,7 @@ public final class i {
             com.baidu.crabsdk.c.a.b("writeFile: " + str);
             h.v(str);
             if (com.baidu.crabsdk.a.G) {
-                String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4637d, str);
+                String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4638d, str);
                 try {
                     str2 = com.baidu.crabsdk.c.d.j(str2, h2);
                 } catch (Exception e2) {
@@ -332,7 +332,7 @@ public final class i {
     /* JADX WARN: Type inference failed for: r6v4 */
     /* JADX WARN: Type inference failed for: r6v5, types: [java.io.FileInputStream] */
     /* JADX WARN: Type inference failed for: r6v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0037 -> B:56:0x0061). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0037 -> B:54:0x0061). Please submit an issue!!! */
     public static byte[] l(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;

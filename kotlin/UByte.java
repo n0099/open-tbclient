@@ -138,7 +138,7 @@ public final class UByte implements Comparable<UByte> {
     @InlineOnly
     /* renamed from: inv-impl  reason: not valid java name */
     public static final byte m656invimpl(byte b2) {
-        return m646constructorimpl((byte) (b2 ^ (-1)));
+        return m646constructorimpl((byte) (~b2));
     }
 
     @InlineOnly

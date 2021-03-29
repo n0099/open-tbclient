@@ -43,16 +43,16 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcNotifyMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6408e;
+        public int f6409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6409f;
+        public long f6410f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6410g;
+        public long f6411g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6411h;
+        public long f6412h;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -98,31 +98,31 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
         /* renamed from: n */
         public RpcMetaPb$RpcNotifyMeta buildPartial() {
             RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta = new RpcMetaPb$RpcNotifyMeta(this);
-            int i = this.f6408e;
+            int i = this.f6409e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcNotifyMeta.serviceId = this.f6409f;
+            rpcMetaPb$RpcNotifyMeta.serviceId = this.f6410f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            rpcMetaPb$RpcNotifyMeta.methodId = this.f6410g;
+            rpcMetaPb$RpcNotifyMeta.methodId = this.f6411g;
             if ((i & 4) == 4) {
                 i2 |= 4;
             }
-            rpcMetaPb$RpcNotifyMeta.logId = this.f6411h;
+            rpcMetaPb$RpcNotifyMeta.logId = this.f6412h;
             rpcMetaPb$RpcNotifyMeta.bitField0 = i2;
             return rpcMetaPb$RpcNotifyMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6409f = 0L;
-            int i = this.f6408e & (-2);
-            this.f6408e = i;
-            this.f6410g = 0L;
+            this.f6410f = 0L;
+            int i = this.f6409e & (-2);
+            this.f6409e = i;
+            this.f6411g = 0L;
             int i2 = i & (-3);
-            this.f6408e = i2;
-            this.f6411h = 0L;
-            this.f6408e = i2 & (-5);
+            this.f6409e = i2;
+            this.f6412h = 0L;
+            this.f6409e = i2 & (-5);
             return this;
         }
 
@@ -193,20 +193,20 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
         }
 
         public b u(long j) {
-            this.f6408e |= 4;
-            this.f6411h = j;
+            this.f6409e |= 4;
+            this.f6412h = j;
             return this;
         }
 
         public b v(long j) {
-            this.f6408e |= 2;
-            this.f6410g = j;
+            this.f6409e |= 2;
+            this.f6411g = j;
             return this;
         }
 
         public b w(long j) {
-            this.f6408e |= 1;
-            this.f6409f = j;
+            this.f6409e |= 1;
+            this.f6410f = j;
             return this;
         }
 

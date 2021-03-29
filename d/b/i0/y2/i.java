@@ -6,38 +6,38 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62649a;
+    public int f62650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62650b;
+    public int f62651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62651c;
+    public int f62652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62652d;
+    public int f62653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f62653e = new a();
+    public a f62654e = new a();
 
     public int a() {
-        return this.f62652d;
+        return this.f62653d;
     }
 
     public a b() {
-        return this.f62653e;
+        return this.f62654e;
     }
 
     public int c() {
-        return this.f62649a;
+        return this.f62650a;
     }
 
     public int d() {
-        return this.f62651c;
+        return this.f62652c;
     }
 
     public int e() {
-        return this.f62650b;
+        return this.f62651b;
     }
 
     public void f(JSONObject jSONObject) {
@@ -45,14 +45,14 @@ public class i {
             return;
         }
         try {
-            this.f62653e.c(jSONObject.optJSONObject("error"));
-            this.f62649a = jSONObject.optInt("forum_id");
+            this.f62654e.c(jSONObject.optJSONObject("error"));
+            this.f62650a = jSONObject.optInt("forum_id");
             jSONObject.optString("forum_name");
-            this.f62650b = jSONObject.optInt("signed");
+            this.f62651b = jSONObject.optInt("signed");
             jSONObject.optInt("is_on");
             jSONObject.optInt("is_filter");
-            this.f62651c = jSONObject.optInt("sign_day_count");
-            this.f62652d = jSONObject.optInt("cur_score");
+            this.f62652c = jSONObject.optInt("sign_day_count");
+            this.f62653d = jSONObject.optInt("cur_score");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

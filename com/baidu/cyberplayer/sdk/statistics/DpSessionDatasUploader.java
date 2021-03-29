@@ -13,26 +13,26 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5054a;
+    public static DpSessionDatasUploader f5055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5055b = new d();
+    public d f5056b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5056c = new d("live_show_session");
+    public d f5057c = new d("live_show_session");
 
     private void a() {
-        d dVar = this.f5055b;
+        d dVar = this.f5056b;
         if (dVar != null) {
             dVar.a();
         }
-        d dVar2 = this.f5056c;
+        d dVar2 = this.f5057c;
         if (dVar2 != null) {
             dVar2.a();
         }
@@ -60,12 +60,12 @@ public final class DpSessionDatasUploader {
     private void a(byte[] bArr, int i) {
         d dVar;
         if (i == 24) {
-            dVar = this.f5056c;
+            dVar = this.f5057c;
             if (dVar == null) {
                 return;
             }
         } else {
-            dVar = this.f5055b;
+            dVar = this.f5056b;
             if (dVar == null) {
                 return;
             }
@@ -89,10 +89,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f5054a == null) {
-                f5054a = new DpSessionDatasUploader();
+            if (f5055a == null) {
+                f5055a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f5054a;
+            dpSessionDatasUploader = f5055a;
         }
         return dpSessionDatasUploader;
     }
@@ -111,29 +111,29 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.f5055b) == null || this.f5056c == null) {
+        if (context == null || (dVar = this.f5056b) == null || this.f5057c == null) {
             return;
         }
         dVar.a(context);
-        this.f5056c.a(context);
+        this.f5057c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00dd */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0086, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00db */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0084, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0088, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0086, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b1, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d2, code lost:
         if (r10 == null) goto L15;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00e8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00de A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */

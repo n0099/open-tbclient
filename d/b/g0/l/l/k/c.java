@@ -3,36 +3,36 @@ package d.b.g0.l.l.k;
 public class c extends g {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48997d;
+    public String f48998d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48998e;
+    public long f48999e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48999f;
+    public String f49000f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f49000g;
+    public long f49001g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49001h;
+    public String f49002h;
     public String i;
     public int j;
 
     public c(String str, int i) {
         super(i);
-        this.f48998e = -1L;
-        this.f49000g = -1L;
+        this.f48999e = -1L;
+        this.f49001g = -1L;
         this.j = -1;
-        this.f48997d = str;
+        this.f48998d = str;
     }
 
     public long f() {
-        return this.f49000g;
+        return this.f49001g;
     }
 
     public String g() {
-        return this.f48997d;
+        return this.f48998d;
     }
 
     public int h() {
@@ -40,11 +40,11 @@ public class c extends g {
     }
 
     public String i() {
-        return this.f49001h;
+        return this.f49002h;
     }
 
     public String j() {
-        return this.f48999f;
+        return this.f49000f;
     }
 
     public String k() {
@@ -52,11 +52,11 @@ public class c extends g {
     }
 
     public long l() {
-        return this.f48998e;
+        return this.f48999e;
     }
 
     public c m(long j) {
-        this.f49000g = j;
+        this.f49001g = j;
         return this;
     }
 
@@ -66,12 +66,12 @@ public class c extends g {
     }
 
     public c o(String str) {
-        this.f49001h = str;
+        this.f49002h = str;
         return this;
     }
 
     public c p(String str) {
-        this.f48999f = str;
+        this.f49000f = str;
         return this;
     }
 
@@ -81,7 +81,7 @@ public class c extends g {
     }
 
     public c r(long j) {
-        this.f48998e = j;
+        this.f48999e = j;
         return this;
     }
 }

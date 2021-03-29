@@ -6,11 +6,11 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45079a = k.f45050a;
+    public static final boolean f45080a = k.f45051a;
 
     public static <T extends d.b.g0.a.l0.h.a> Exception a(int i, T t) {
         return d(i).a(t);
@@ -37,7 +37,7 @@ public class b {
     }
 
     public static void e(int i, int i2) {
-        if (f45079a) {
+        if (f45080a) {
             Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {

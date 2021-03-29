@@ -6,32 +6,32 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5232a = 30000;
+    public static final int f5233a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5233b = 30000;
+    public static final int f5234b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5234c = 10;
+    public static final int f5235c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5235d = 10;
+    public static final int f5236d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5236e = 8192;
+    public static final int f5237e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5237f = 3;
+    public static final int f5238f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5238g = 1000;
+    public static final int f5239g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5239h = "RestHttpNetwork";
+    public static final String f5240h = "RestHttpNetwork";
     public final b i;
     public final g j = new g(3, 1000);
 
@@ -66,7 +66,7 @@ public class c implements b {
         	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00b2 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b2 A[SYNTHETIC] */
     @Override // com.baidu.fsg.base.restnet.rest.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -177,11 +177,7 @@ public class c implements b {
             java.lang.String r0 = "RestHttpNetwork"
             com.baidu.fsg.base.utils.LogUtil.errord(r0, r11)
         Lde:
-            goto Le0
-        Ldf:
             throw r4
-        Le0:
-            goto Ldf
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.fsg.base.restnet.rest.c.a(com.baidu.fsg.base.restnet.rest.d):com.baidu.fsg.base.restnet.rest.e");
     }

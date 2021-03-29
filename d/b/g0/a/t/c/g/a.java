@@ -16,38 +16,38 @@ import d.b.g0.a.z0.f;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d implements b.c {
 
     /* renamed from: d.b.g0.a.t.c.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0812a implements d.b.g0.a.i2.u0.b<h<b.e>> {
+    /* loaded from: classes2.dex */
+    public class C0813a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f46068e;
+        public final /* synthetic */ c f46069e;
 
-        public C0812a(c cVar) {
-            this.f46068e = cVar;
+        public C0813a(c cVar) {
+            this.f46069e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
-            a.this.s(hVar, this.f46068e, false);
+            a.this.s(hVar, this.f46069e, false);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46070e;
+        public final /* synthetic */ String f46071e;
 
         /* renamed from: d.b.g0.a.t.c.g.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0813a implements d.a {
-            public C0813a(b bVar) {
+        /* loaded from: classes2.dex */
+        public class C0814a implements d.a {
+            public C0814a(b bVar) {
             }
 
             @Override // d.b.g0.a.w0.c.d.a
@@ -63,7 +63,7 @@ public class a extends d implements b.c {
         }
 
         public b(String str) {
-            this.f46070e = str;
+            this.f46071e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,27 +72,27 @@ public class a extends d implements b.c {
         public void onCallback(h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
                 int b2 = hVar.b();
-                a.this.c(this.f46070e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
+                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
             } else if (!k0.I()) {
-                a.this.c(this.f46070e, new d.b.g0.a.t.e.b(10005, d.b.g0.a.v1.c.c.f(10005)));
+                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(10005, d.b.g0.a.v1.c.c.f(10005)));
             } else {
-                a.this.c(this.f46070e, new d.b.g0.a.t.e.b(0));
-                d.b.g0.a.w0.a.w().e(new C0813a(this));
+                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(0));
+                d.b.g0.a.w0.a.w().e(new C0814a(this));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46072a;
+        public String f46073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f46073b;
+        public boolean f46074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46074c;
+        public String f46075c;
 
         public static c b(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -102,19 +102,19 @@ public class a extends d implements b.c {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("type");
-                cVar.f46072a = optString;
+                cVar.f46073a = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    cVar.f46072a = CoordinateType.WGS84;
+                    cVar.f46073a = CoordinateType.WGS84;
                 }
-                cVar.f46073b = jSONObject.optBoolean("altitude");
+                cVar.f46074b = jSONObject.optBoolean("altitude");
                 String optString2 = jSONObject.optString("cb");
-                cVar.f46074c = optString2;
+                cVar.f46075c = optString2;
                 if (TextUtils.isEmpty(optString2)) {
                     return null;
                 }
                 return cVar;
             } catch (JSONException e2) {
-                if (d.b.g0.a.t.b.d.f45928c) {
+                if (d.b.g0.a.t.b.d.f45929c) {
                     Log.e("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e2));
                 }
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e2));
@@ -123,7 +123,7 @@ public class a extends d implements b.c {
         }
 
         public boolean a() {
-            return (TextUtils.equals(this.f46072a, CoordinateType.WGS84) || TextUtils.equals(this.f46072a, "gcj02") || TextUtils.equals(this.f46072a, "bd09ll")) && !TextUtils.isEmpty(this.f46074c);
+            return (TextUtils.equals(this.f46073a, CoordinateType.WGS84) || TextUtils.equals(this.f46073a, "gcj02") || TextUtils.equals(this.f46073a, "bd09ll")) && !TextUtils.isEmpty(this.f46075c);
         }
     }
 
@@ -134,24 +134,24 @@ public class a extends d implements b.c {
     @Override // d.b.g0.a.t.c.g.b.c
     public void b(c cVar, int i) {
         d.b.g0.a.c0.c.b("Api-GetLocationAction", "request location error code : " + i);
-        c(cVar.f46074c, new d.b.g0.a.t.e.b(1001, String.valueOf(i)));
+        c(cVar.f46075c, new d.b.g0.a.t.e.b(1001, String.valueOf(i)));
     }
 
     @Override // d.b.g0.a.t.c.g.b.c
     public void d(c cVar, String str) {
-        c(cVar.f46074c, new d.b.g0.a.t.e.b(10005, "system deny"));
+        c(cVar.f46075c, new d.b.g0.a.t.e.b(10005, "system deny"));
     }
 
     @Override // d.b.g0.a.t.c.g.b.c
     public void f(c cVar, d.b.g0.a.t1.k.k0.b bVar) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-GetLocationAction", "convert info : " + bVar.a());
         }
-        c(cVar.f46074c, new d.b.g0.a.t.e.b(0, "success", bVar.a()));
+        c(cVar.f46075c, new d.b.g0.a.t.e.b(0, "success", bVar.a()));
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
         e O = e.O();
@@ -161,18 +161,18 @@ public class a extends d implements b.c {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GetLocationAction", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse fail");
             }
             return bVar;
         }
         c b2 = c.b(((JSONObject) a2.second).toString());
         if (b2 != null && b2.a()) {
-            if (TextUtils.isEmpty(b2.f46074c)) {
+            if (TextUtils.isEmpty(b2.f46075c)) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "empty cb");
                 return new d.b.g0.a.t.e.b(201, "empty cb");
             }
-            O.R().g(h(), "mapp_location", new C0812a(b2));
+            O.R().g(h(), "mapp_location", new C0813a(b2));
             return new d.b.g0.a.t.e.b(0);
         }
         d.b.g0.a.c0.c.b("Api-GetLocationAction", "params is invalid");
@@ -186,11 +186,11 @@ public class a extends d implements b.c {
             return;
         }
         int b2 = hVar.b();
-        c(cVar.f46074c, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
+        c(cVar.f46075c, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
     }
 
     public d.b.g0.a.t.e.b t(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
         e O = e.O();
@@ -200,7 +200,7 @@ public class a extends d implements b.c {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GetLocationAction", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse fail");
             }
             return bVar;

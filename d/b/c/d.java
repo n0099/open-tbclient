@@ -11,29 +11,29 @@ import java.util.Map;
 public class d extends BaseCardInfo implements d.b.i0.i1.o.l.i, d.b.i0.i1.o.h.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f42487e;
+    public e f42488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ICardInfo f42488f;
+    public ICardInfo f42489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f42489g;
+    public h f42490g;
     public boolean i;
     public AdvertAppInfo k;
     public boolean j = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f42490h = BdUniqueId.gen();
+    public BdUniqueId f42491h = BdUniqueId.gen();
 
     public static d g(h hVar) {
         d dVar = new d();
-        dVar.f42489g = hVar;
+        dVar.f42490g = hVar;
         return dVar;
     }
 
     @Override // d.b.i0.i1.o.h.b
     public b.a getParallelCharge() {
-        ICardInfo iCardInfo = this.f42488f;
+        ICardInfo iCardInfo = this.f42489f;
         if (iCardInfo == null || !(iCardInfo instanceof d.b.i0.i1.o.h.b)) {
             return null;
         }
@@ -43,17 +43,17 @@ public class d extends BaseCardInfo implements d.b.i0.i1.o.l.i, d.b.i0.i1.o.h.b 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
         if (o() != null) {
-            return b.f42482b;
+            return b.f42483b;
         }
-        return b.f42481a;
+        return b.f42482a;
     }
 
     public e j() {
-        return this.f42487e;
+        return this.f42488e;
     }
 
     public int n() {
-        h hVar = this.f42489g;
+        h hVar = this.f42490g;
         if (hVar != null) {
             return hVar.e();
         }
@@ -61,11 +61,11 @@ public class d extends BaseCardInfo implements d.b.i0.i1.o.l.i, d.b.i0.i1.o.h.b 
     }
 
     public ICardInfo o() {
-        return this.f42488f;
+        return this.f42489f;
     }
 
     public BdUniqueId s() {
-        return this.f42490h;
+        return this.f42491h;
     }
 
     @Override // d.b.i0.i1.o.l.i
@@ -91,9 +91,9 @@ public class d extends BaseCardInfo implements d.b.i0.i1.o.l.i, d.b.i0.i1.o.h.b 
     }
 
     public void u(e eVar) {
-        this.f42487e = eVar;
-        ICardInfo iCardInfo = eVar != null ? eVar.f42493c : null;
-        this.f42488f = iCardInfo;
+        this.f42488e = eVar;
+        ICardInfo iCardInfo = eVar != null ? eVar.f42494c : null;
+        this.f42489f = iCardInfo;
         if (iCardInfo instanceof i) {
             ((i) iCardInfo).setAdFacadeData(this);
         }
@@ -103,16 +103,16 @@ public class d extends BaseCardInfo implements d.b.i0.i1.o.l.i, d.b.i0.i1.o.h.b 
     public AdvertAppInfo v() {
         if (this.k == null) {
             this.k = new AdvertAppInfo();
-            h hVar = this.f42489g;
+            h hVar = this.f42490g;
             if (hVar != null) {
                 Map<String, String> c2 = hVar.c();
-                this.k.K3 = String.valueOf(this.f42489g.d());
+                this.k.K3 = String.valueOf(this.f42490g.d());
                 this.k.A = c2 != null ? c2.get("thread_id") : "";
                 this.k.t3(c2 != null ? Long.valueOf(c2.get("forum_id")).longValue() : 0L);
             }
             AdvertAppInfo advertAppInfo = this.k;
-            e eVar = this.f42487e;
-            advertAppInfo.T3 = eVar != null ? eVar.f42492b : "";
+            e eVar = this.f42488e;
+            advertAppInfo.T3 = eVar != null ? eVar.f42493b : "";
             this.k.c4 = "VIDEO_LIST";
         }
         return this.k;

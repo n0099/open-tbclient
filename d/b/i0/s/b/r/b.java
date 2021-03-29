@@ -25,43 +25,43 @@ import java.util.Iterator;
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f60121e;
+    public Context f60122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MediaModel> f60122f;
+    public ArrayList<MediaModel> f60123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60123g;
+    public boolean f60124g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f60124h;
+    public String f60125h;
     public d.b.g0.a.b1.d.d.d i;
     public c j;
-    public C1532b k;
+    public C1533b k;
 
     /* renamed from: d.b.i0.s.b.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1532b extends d.b.g0.a.z0.a {
+    public class C1533b extends d.b.g0.a.z0.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public c f60125e;
+        public c f60126e;
 
-        public C1532b(c cVar) {
-            this.f60125e = cVar;
+        public C1533b(c cVar) {
+            this.f60126e = cVar;
         }
 
         @Override // d.b.g0.a.z0.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if ((activity instanceof SwanAppActivity) || (activity instanceof SwanAppAlbumActivity) || (activity instanceof SwanAppAlbumPreviewActivity)) {
-                if (this.f60125e.f60128b != null && this.f60125e.f60128b.isShowing()) {
-                    this.f60125e.f60128b.cancel();
-                    this.f60125e.f60128b = null;
+                if (this.f60126e.f60129b != null && this.f60126e.f60129b.isShowing()) {
+                    this.f60126e.f60129b.cancel();
+                    this.f60126e.f60129b = null;
                 }
-                c cVar = this.f60125e;
+                c cVar = this.f60126e;
                 if (cVar != null) {
                     cVar.removeMessages(1);
-                    this.f60125e.removeMessages(2);
-                    this.f60125e = null;
+                    this.f60126e.removeMessages(2);
+                    this.f60126e = null;
                 }
                 b.this.f();
             }
@@ -72,49 +72,49 @@ public class b implements Runnable {
     public static class c extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f60127a;
+        public WeakReference<Context> f60128a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Dialog f60128b;
+        public Dialog f60129b;
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Dialog dialog;
             int i = message.what;
             if (i != 1) {
-                if (i == 2 && (dialog = this.f60128b) != null && dialog.isShowing()) {
-                    Context context = this.f60127a.get();
+                if (i == 2 && (dialog = this.f60129b) != null && dialog.isShowing()) {
+                    Context context = this.f60128a.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.f60128b.cancel();
+                        this.f60129b.cancel();
                     }
-                    this.f60128b = null;
+                    this.f60129b = null;
                     return;
                 }
                 return;
             }
-            Context context2 = this.f60127a.get();
+            Context context2 = this.f60128a.get();
             if (!(context2 instanceof Activity) || ((Activity) context2).isFinishing()) {
                 return;
             }
-            Dialog dialog2 = new Dialog(this.f60127a.get(), R.style.SwanAppCompressDialog);
-            this.f60128b = dialog2;
+            Dialog dialog2 = new Dialog(this.f60128a.get(), R.style.SwanAppCompressDialog);
+            this.f60129b = dialog2;
             dialog2.setContentView(R.layout.swanapp_progress_dialog);
-            this.f60128b.findViewById(R.id.layer_night).setVisibility(d.b.g0.a.w0.a.z().a() ? 0 : 8);
-            this.f60128b.setCancelable(false);
-            this.f60128b.show();
+            this.f60129b.findViewById(R.id.layer_night).setVisibility(d.b.g0.a.w0.a.z().a() ? 0 : 8);
+            this.f60129b.setCancelable(false);
+            this.f60129b.show();
         }
 
         public c(Context context) {
-            this.f60127a = new WeakReference<>(context);
+            this.f60128a = new WeakReference<>(context);
         }
     }
 
     public b(Context context, Bundle bundle, d.b.g0.a.b1.d.d.d dVar) {
-        this.f60121e = context;
-        this.f60122f = bundle.getParcelableArrayList("mediaModels");
+        this.f60122e = context;
+        this.f60123f = bundle.getParcelableArrayList("mediaModels");
         u.g(bundle, "swanAppId");
-        this.f60123g = u.c(bundle, "compressed", false);
-        this.f60124h = u.g(bundle, "swanTmpPath");
+        this.f60124g = u.c(bundle, "compressed", false);
+        this.f60125h = u.g(bundle, "swanTmpPath");
         this.i = dVar;
         this.j = new c(context);
     }
@@ -123,11 +123,11 @@ public class b implements Runnable {
         if (mediaModel == null) {
             return;
         }
-        if (d.b.g0.a.b1.d.c.c.f43425a) {
+        if (d.b.g0.a.b1.d.c.c.f43426a) {
             Log.d("CompressTask", "compressImg : " + mediaModel.b());
         }
         File file = new File(mediaModel.b());
-        File d2 = t.d(this.f60124h, file.getName());
+        File d2 = t.d(this.f60125h, file.getName());
         if (d2 == null) {
             return;
         }
@@ -140,10 +140,10 @@ public class b implements Runnable {
         if (videoModel == null) {
             return;
         }
-        if (d.b.g0.a.b1.d.c.c.f43425a) {
+        if (d.b.g0.a.b1.d.c.c.f43426a) {
             Log.d("CompressTask", "compressVideo : " + videoModel.b());
         }
-        File d2 = t.d(this.f60124h, new File(videoModel.b()).getName());
+        File d2 = t.d(this.f60125h, new File(videoModel.b()).getName());
         if (d2 == null) {
             return;
         }
@@ -157,7 +157,7 @@ public class b implements Runnable {
             return;
         }
         File file = new File(mediaModel.b());
-        File d2 = t.d(this.f60124h, file.getName());
+        File d2 = t.d(this.f60125h, file.getName());
         if (d2 == null || !d2.exists() || d.b.g0.p.d.c(file, d2) == 0) {
             return;
         }
@@ -165,7 +165,7 @@ public class b implements Runnable {
     }
 
     public final void e() {
-        this.k = new C1532b(this.j);
+        this.k = new C1533b(this.j);
         d.b.g0.a.w0.a.c().registerActivityLifecycleCallbacks(this.k);
     }
 
@@ -183,8 +183,8 @@ public class b implements Runnable {
         if (cVar != null) {
             cVar.sendEmptyMessage(1);
         }
-        if (this.f60123g) {
-            Iterator<MediaModel> it = this.f60122f.iterator();
+        if (this.f60124g) {
+            Iterator<MediaModel> it = this.f60123f.iterator();
             while (it.hasNext()) {
                 MediaModel next = it.next();
                 if (next != null) {
@@ -200,7 +200,7 @@ public class b implements Runnable {
                 }
             }
         } else {
-            Iterator<MediaModel> it2 = this.f60122f.iterator();
+            Iterator<MediaModel> it2 = this.f60123f.iterator();
             while (it2.hasNext()) {
                 MediaModel next2 = it2.next();
                 if (next2 != null) {
@@ -218,7 +218,7 @@ public class b implements Runnable {
         }
         d.b.g0.a.b1.d.d.d dVar = this.i;
         if (dVar != null) {
-            dVar.a(true, null, this.f60122f);
+            dVar.a(true, null, this.f60123f);
         }
         f();
     }

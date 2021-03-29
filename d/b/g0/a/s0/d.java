@@ -2,10 +2,10 @@ package d.b.g0.a.s0;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(boolean z);
     }

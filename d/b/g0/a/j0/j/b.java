@@ -4,11 +4,11 @@ import d.b.g0.a.k;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b {
-    public static final boolean G0 = k.f45050a;
+    public static final boolean G0 = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         String a();
 
@@ -18,19 +18,19 @@ public interface b {
     }
 
     /* renamed from: d.b.g0.a.j0.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C0707b {
+    /* loaded from: classes2.dex */
+    public static final class C0708b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, a> f44864a = new HashMap();
+        public final Map<String, a> f44865a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f44865b = true;
+        public boolean f44866b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f44866c = 0;
+        public int f44867c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44867d = 0;
+        public int f44868d = 0;
     }
 }

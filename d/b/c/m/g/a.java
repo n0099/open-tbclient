@@ -3,28 +3,28 @@ package d.b.c.m.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42531a;
+    public int f42532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42532b;
+    public String f42533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42533c;
+    public int f42534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42534d;
+    public String f42535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42535e;
+    public int f42536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42536f;
+    public int f42537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42537g;
+    public int f42538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42538h;
+    public int f42539h;
     public int i = 3;
     public String j;
     public int k;

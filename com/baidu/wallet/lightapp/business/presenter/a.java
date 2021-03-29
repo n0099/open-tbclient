@@ -19,55 +19,55 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25135a = "a";
+    public static final String f25136a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f25136b;
+    public Activity f25137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LightappBusinessClient f25137c;
+    public LightappBusinessClient f25138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25138d;
+    public String f25139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25139e = -1;
+    public int f25140e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25140f;
+    public String f25141f;
 
     public a(Activity activity, LightappBusinessClient lightappBusinessClient, String str) {
-        this.f25136b = activity;
-        this.f25137c = lightappBusinessClient;
-        this.f25138d = str;
+        this.f25137b = activity;
+        this.f25138c = lightappBusinessClient;
+        this.f25139d = str;
     }
 
     public void a(Intent intent, final JSONObject jSONObject) {
         try {
-            JSONObject jSONObject2 = new JSONObject(this.f25138d);
+            JSONObject jSONObject2 = new JSONObject(this.f25139d);
             String optString = jSONObject2.optString("fixedWidth");
             if (!TextUtils.isEmpty(optString)) {
-                this.f25139e = Integer.parseInt(optString);
-                String str = f25135a;
-                LogUtil.d(str, "fixedWidth = " + this.f25139e);
+                this.f25140e = Integer.parseInt(optString);
+                String str = f25136a;
+                LogUtil.d(str, "fixedWidth = " + this.f25140e);
             }
-            this.f25140f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
+            this.f25141f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             Uri data = intent.getData();
             if (data == null) {
                 jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
                 jSONObject.put("des", "内部错误");
-                this.f25137c.setAlubmPhotoData(1, jSONObject);
+                this.f25138c.setAlubmPhotoData(1, jSONObject);
                 a("#callNativePhoto Fail", "图片报错");
                 return;
             }
-            ImageBase64Utils.getInstance().getImageBase64(this.f25136b, data, this.f25139e, new ImageBase64Utils.ImageBase64Listener() { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
+            ImageBase64Utils.getInstance().getImageBase64(this.f25137b, data, this.f25140e, new ImageBase64Utils.ImageBase64Listener() { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
                 @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
                 public void onBase64Result(String str2) {
                     if (TextUtils.isEmpty(str2)) {
                         try {
                             jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
                             jSONObject.put("des", "内部错误");
-                            a.this.f25137c.setAlubmPhotoData(1, jSONObject);
+                            a.this.f25138c.setAlubmPhotoData(1, jSONObject);
                             a.this.a("#callNativePhoto Fail", "Base64失败");
                             return;
                         } catch (JSONException e2) {
@@ -80,12 +80,12 @@ public class a {
                         jSONObject.put(RouterCallback.KEY_ERROR_CODE, 0);
                         jSONObject.put("des", "ok");
                         jSONObject.put("data", jSONObject3);
-                        a.this.f25137c.setAlubmPhotoData(0, jSONObject);
+                        a.this.f25138c.setAlubmPhotoData(0, jSONObject);
                     } catch (JSONException e3) {
                         try {
                             jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
                             jSONObject.put("des", "内部错误");
-                            a.this.f25137c.setAlubmPhotoData(1, jSONObject);
+                            a.this.f25138c.setAlubmPhotoData(1, jSONObject);
                             a.this.a("#callNativePhoto Fail", e3.getMessage());
                         } catch (JSONException e4) {
                             e4.printStackTrace();
@@ -99,7 +99,7 @@ public class a {
 
     public void a(String str, String str2) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(CheckUtils.stripUrlParams(this.f25140f));
+        arrayList.add(CheckUtils.stripUrlParams(this.f25141f));
         arrayList.add(str2);
         DXMSdkSAUtils.onEventWithValues(str, arrayList);
         PayStatisticsUtil.onEventWithValues(str, arrayList);

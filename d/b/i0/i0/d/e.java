@@ -5,11 +5,11 @@ import d.b.h0.r.q.w;
 public class e extends w {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55488h;
+    public String f55489h;
     public boolean i;
 
     public e(String str, boolean z) {
-        this.f55488h = str;
+        this.f55489h = str;
         this.i = z;
         A(0);
     }

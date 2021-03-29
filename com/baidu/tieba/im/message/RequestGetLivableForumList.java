@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetLivableForumList.DataReq;
 import protobuf.GetLivableForumList.GetLivableForumListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestGetLivableForumList extends TbSocketMessage {
     public int filterFlag;
     public int likeForumFlag;

@@ -12,35 +12,35 @@ import rx.internal.util.BackpressureDrainManager;
 public class p<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f67783e = null;
+    public final Long f67788e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.a f67784f = null;
+    public final h.n.a f67789f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a.d f67785g = h.a.f67656b;
+    public final a.d f67790g = h.a.f67661b;
 
     /* loaded from: classes7.dex */
     public static final class a<T> extends h.j<T> implements BackpressureDrainManager.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicLong f67787f;
+        public final AtomicLong f67792f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.j<? super T> f67788g;
+        public final h.j<? super T> f67793g;
         public final BackpressureDrainManager i;
         public final h.n.a j;
         public final a.d k;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<Object> f67786e = new ConcurrentLinkedQueue<>();
+        public final ConcurrentLinkedQueue<Object> f67791e = new ConcurrentLinkedQueue<>();
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f67789h = new AtomicBoolean(false);
+        public final AtomicBoolean f67794h = new AtomicBoolean(false);
 
         public a(h.j<? super T> jVar, Long l, h.n.a aVar, a.d dVar) {
-            this.f67788g = jVar;
-            this.f67787f = l != null ? new AtomicLong(l.longValue()) : null;
+            this.f67793g = jVar;
+            this.f67792f = l != null ? new AtomicLong(l.longValue()) : null;
             this.j = aVar;
             this.i = new BackpressureDrainManager(this);
             this.k = dVar;
@@ -49,15 +49,15 @@ public class p<T> implements d.b<T, T> {
         @Override // rx.internal.util.BackpressureDrainManager.a
         public void a(Throwable th) {
             if (th != null) {
-                this.f67788g.onError(th);
+                this.f67793g.onError(th);
             } else {
-                this.f67788g.onCompleted();
+                this.f67793g.onCompleted();
             }
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public boolean accept(Object obj) {
-            return NotificationLite.a(this.f67788g, obj);
+            return NotificationLite.a(this.f67793g, obj);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:32:0x0039 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -69,17 +69,17 @@ public class p<T> implements d.b<T, T> {
             long j;
             boolean z;
             h.n.a aVar;
-            if (this.f67787f == null) {
+            if (this.f67792f == null) {
                 return true;
             }
             do {
-                j = this.f67787f.get();
+                j = this.f67792f.get();
                 if (j <= 0) {
                     try {
                     } catch (MissingBackpressureException e2) {
-                        if (this.f67789h.compareAndSet(false, true)) {
+                        if (this.f67794h.compareAndSet(false, true)) {
                             unsubscribe();
-                            this.f67788g.onError(e2);
+                            this.f67793g.onError(e2);
                         }
                     }
                     if (this.k.a() && poll() != null) {
@@ -105,7 +105,7 @@ public class p<T> implements d.b<T, T> {
                     if (!z) {
                     }
                 }
-            } while (!this.f67787f.compareAndSet(j, j - 1));
+            } while (!this.f67792f.compareAndSet(j, j - 1));
             return true;
         }
 
@@ -115,7 +115,7 @@ public class p<T> implements d.b<T, T> {
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f67789h.get()) {
+            if (this.f67794h.get()) {
                 return;
             }
             this.i.terminateAndDrain();
@@ -123,7 +123,7 @@ public class p<T> implements d.b<T, T> {
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f67789h.get()) {
+            if (this.f67794h.get()) {
                 return;
             }
             this.i.terminateAndDrain(th);
@@ -132,7 +132,7 @@ public class p<T> implements d.b<T, T> {
         @Override // h.e
         public void onNext(T t) {
             if (b()) {
-                this.f67786e.offer(NotificationLite.g(t));
+                this.f67791e.offer(NotificationLite.h(t));
                 this.i.drain();
             }
         }
@@ -144,13 +144,13 @@ public class p<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.f67786e.peek();
+            return this.f67791e.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.f67786e.poll();
-            AtomicLong atomicLong = this.f67787f;
+            Object poll = this.f67791e.poll();
+            AtomicLong atomicLong = this.f67792f;
             if (atomicLong != null && poll != null) {
                 atomicLong.incrementAndGet();
             }
@@ -162,18 +162,18 @@ public class p<T> implements d.b<T, T> {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p<?> f67790a = new p<>();
+        public static final p<?> f67795a = new p<>();
     }
 
     public static <T> p<T> b() {
-        return (p<T>) b.f67790a;
+        return (p<T>) b.f67795a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        a aVar = new a(jVar, this.f67783e, this.f67784f, this.f67785g);
+        a aVar = new a(jVar, this.f67788e, this.f67789f, this.f67790g);
         jVar.add(aVar);
         jVar.setProducer(aVar.c());
         return aVar;

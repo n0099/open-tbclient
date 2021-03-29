@@ -54,7 +54,7 @@ public final class Http2Connection implements Closeable {
     public boolean receivedInitialPeerSettings = false;
     public final Set<Integer> currentPushRequests = new LinkedHashSet();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener

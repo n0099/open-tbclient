@@ -10,29 +10,29 @@ import com.kwad.sdk.utils.t;
 public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31981b = false;
+    public static boolean f31982b = false;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f31982c;
+    public com.kwad.sdk.core.i.a f31983c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public KsContentPage.PageListener f31983d;
+    public KsContentPage.PageListener f31984d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public KsContentPage.VideoListener f31984e;
+    public KsContentPage.VideoListener f31985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsContentPage.ContentItem f31985f;
+    public KsContentPage.ContentItem f31986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31986g;
+    public int f31987g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f31987h;
+    public com.kwad.sdk.contentalliance.detail.video.b f31988h;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -42,9 +42,9 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
             c.this.i = false;
             c.this.j = false;
             c.this.k = false;
-            c.this.f31982c.a(c.this.m);
-            if (c.this.f31987h != null) {
-                c.this.f31987h.a(c.this.n);
+            c.this.f31983c.a(c.this.m);
+            if (c.this.f31988h != null) {
+                c.this.f31988h.a(c.this.n);
             }
         }
 
@@ -54,9 +54,9 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
                 c.this.h();
             }
             c.this.f();
-            c.this.f31982c.b(c.this.m);
-            if (c.this.f31987h != null) {
-                c.this.f31987h.b(c.this.n);
+            c.this.f31983c.b(c.this.m);
+            if (c.this.f31988h != null) {
+                c.this.f31988h.b(c.this.n);
             }
         }
     };
@@ -92,7 +92,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void c() {
-            if (!c.this.f31982c.e()) {
+            if (!c.this.f31983c.e()) {
                 c.this.h();
             }
             c.this.q();
@@ -100,7 +100,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            if (c.this.f31982c.e()) {
+            if (c.this.f31983c.e()) {
                 c.this.g();
             }
             c.this.r();
@@ -109,12 +109,12 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
-        if (f31981b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onVideoPlayError");
+        if (f31982b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onVideoPlayError");
         }
-        KsContentPage.VideoListener videoListener = this.f31984e;
+        KsContentPage.VideoListener videoListener = this.f31985e;
         if (videoListener != null) {
-            videoListener.onVideoPlayError(this.f31985f, i, i2);
+            videoListener.onVideoPlayError(this.f31986f, i, i2);
         }
     }
 
@@ -124,24 +124,24 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
             return;
         }
         this.i = true;
-        if (f31981b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onPageEnter");
+        if (f31982b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onPageEnter");
         }
-        KsContentPage.PageListener pageListener = this.f31983d;
+        KsContentPage.PageListener pageListener = this.f31984d;
         if (pageListener != null) {
-            pageListener.onPageEnter(this.f31985f);
+            pageListener.onPageEnter(this.f31986f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         if (this.i) {
-            if (f31981b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onPageLeave");
+            if (f31982b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onPageLeave");
             }
-            KsContentPage.PageListener pageListener = this.f31983d;
+            KsContentPage.PageListener pageListener = this.f31984d;
             if (pageListener != null) {
-                pageListener.onPageLeave(this.f31985f);
+                pageListener.onPageLeave(this.f31986f);
             }
         }
     }
@@ -149,12 +149,12 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (!this.j) {
-            if (f31981b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onPageResume");
+            if (f31982b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onPageResume");
             }
-            KsContentPage.PageListener pageListener = this.f31983d;
+            KsContentPage.PageListener pageListener = this.f31984d;
             if (pageListener != null) {
-                pageListener.onPageResume(this.f31985f);
+                pageListener.onPageResume(this.f31986f);
             }
         }
         this.j = true;
@@ -163,12 +163,12 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (this.j) {
-            if (f31981b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onPagePause");
+            if (f31982b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onPagePause");
             }
-            KsContentPage.PageListener pageListener = this.f31983d;
+            KsContentPage.PageListener pageListener = this.f31984d;
             if (pageListener != null) {
-                pageListener.onPagePause(this.f31985f);
+                pageListener.onPagePause(this.f31986f);
             }
         }
         this.j = false;
@@ -176,37 +176,37 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        if (f31981b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onVideoPlayStart");
+        if (f31982b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onVideoPlayStart");
         }
-        KsContentPage.VideoListener videoListener = this.f31984e;
+        KsContentPage.VideoListener videoListener = this.f31985e;
         if (videoListener != null) {
-            videoListener.onVideoPlayStart(this.f31985f);
+            videoListener.onVideoPlayStart(this.f31986f);
         }
         this.k = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (f31981b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onVideoPlayPaused");
+        if (f31982b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onVideoPlayPaused");
         }
         this.k = true;
-        KsContentPage.VideoListener videoListener = this.f31984e;
+        KsContentPage.VideoListener videoListener = this.f31985e;
         if (videoListener != null) {
-            videoListener.onVideoPlayPaused(this.f31985f);
+            videoListener.onVideoPlayPaused(this.f31986f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         if (this.k) {
-            if (f31981b) {
-                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onVideoPlayResume");
+            if (f31982b) {
+                com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onVideoPlayResume");
             }
-            KsContentPage.VideoListener videoListener = this.f31984e;
+            KsContentPage.VideoListener videoListener = this.f31985e;
             if (videoListener != null) {
-                videoListener.onVideoPlayResume(this.f31985f);
+                videoListener.onVideoPlayResume(this.f31986f);
             }
         }
         this.k = false;
@@ -214,12 +214,12 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        if (f31981b) {
-            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31986g + " onVideoPlayCompleted");
+        if (f31982b) {
+            com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.f31987g + " onVideoPlayCompleted");
         }
-        KsContentPage.VideoListener videoListener = this.f31984e;
+        KsContentPage.VideoListener videoListener = this.f31985e;
         if (videoListener != null) {
-            videoListener.onVideoPlayCompleted(this.f31985f);
+            videoListener.onVideoPlayCompleted(this.f31986f);
         }
     }
 
@@ -228,47 +228,47 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
         KsContentPage.ContentItem contentItem;
         int i;
         super.a();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
-        h hVar = cVar.f32151a;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
+        h hVar = cVar.f32152a;
         if (hVar == null) {
             com.kwad.sdk.core.d.a.c("DetailOpenListener", "homePageHelper is null");
             return;
         }
-        this.f31982c = hVar.f32788a;
-        this.f31983d = hVar.f32789b;
-        this.f31984e = hVar.f32790c;
+        this.f31983c = hVar.f32789a;
+        this.f31984d = hVar.f32790b;
+        this.f31985e = hVar.f32791c;
         AdTemplate adTemplate = cVar.j;
-        this.f31986g = cVar.i;
+        this.f31987g = cVar.i;
         KsContentPage.ContentItem contentItem2 = new KsContentPage.ContentItem();
-        this.f31985f = contentItem2;
+        this.f31986f = contentItem2;
         contentItem2.id = t.a(String.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
-        this.f31985f.position = this.f31986g;
+        this.f31986f.position = this.f31987g;
         if (com.kwad.sdk.core.response.b.c.b(adTemplate)) {
-            contentItem = this.f31985f;
+            contentItem = this.f31986f;
             i = 1;
         } else if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
-            contentItem = this.f31985f;
+            contentItem = this.f31986f;
             i = 2;
         } else if (!com.kwad.sdk.core.response.b.c.d(adTemplate)) {
-            this.f31985f.materialType = 0;
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(0, this.l);
-            this.f31987h = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.m;
+            this.f31986f.materialType = 0;
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32153b.add(0, this.l);
+            this.f31988h = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.m;
         } else {
-            contentItem = this.f31985f;
+            contentItem = this.f31986f;
             i = 3;
         }
         contentItem.materialType = i;
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(0, this.l);
-        this.f31987h = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.m;
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32153b.add(0, this.l);
+        this.f31988h = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.m;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
-        if (cVar.f32151a == null) {
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
+        if (cVar.f32152a == null) {
             return;
         }
-        cVar.f32152b.remove(this.l);
+        cVar.f32153b.remove(this.l);
     }
 }

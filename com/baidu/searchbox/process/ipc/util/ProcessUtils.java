@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class ProcessUtils {
     public static final String AI_APPS_PROCESS_SUFFIX = ":swan";
     public static final String CMD_LINE_NAME = "/proc/self/cmdline";

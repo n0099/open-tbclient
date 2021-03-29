@@ -8,7 +8,7 @@ import d.b.b.e.d.l;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.e.d.l<byte[]> f57024a;
+    public d.b.b.e.d.l<byte[]> f57025a;
 
     public c() {
         b();
@@ -20,17 +20,17 @@ public class c {
             return null;
         }
         String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-        d.b.b.e.d.l<byte[]> lVar = this.f57024a;
+        d.b.b.e.d.l<byte[]> lVar = this.f57025a;
         l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
-        if (h2 == null || (bArr = h2.f41701b) == null) {
+        if (h2 == null || (bArr = h2.f41702b) == null) {
             return null;
         }
         return bArr;
     }
 
     public void b() {
-        if (this.f57024a == null) {
-            this.f57024a = d.b.h0.r.r.a.f().d("tb.forum_member_info");
+        if (this.f57025a == null) {
+            this.f57025a = d.b.h0.r.r.a.f().d("tb.forum_member_info");
         }
     }
 
@@ -40,7 +40,7 @@ public class c {
             return;
         }
         b();
-        d.b.b.e.d.l<byte[]> lVar = this.f57024a;
+        d.b.b.e.d.l<byte[]> lVar = this.f57025a;
         lVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
     }
 }

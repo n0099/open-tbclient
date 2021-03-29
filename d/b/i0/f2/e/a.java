@@ -5,31 +5,31 @@ import tbclient.BannerImage;
 public class a implements d.b.h0.r.w.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54759a;
+    public String f54760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54760b;
+    public String f54761b;
 
     @Override // d.b.h0.r.w.b.a
     public String a() {
-        return this.f54759a;
+        return this.f54760a;
     }
 
     @Override // d.b.h0.r.w.b.a
     public String b() {
-        return this.f54760b;
+        return this.f54761b;
     }
 
     public String c() {
-        return this.f54760b;
+        return this.f54761b;
     }
 
     public void d(BannerImage bannerImage) {
         if (bannerImage == null) {
             return;
         }
-        this.f54759a = bannerImage.img_url;
-        this.f54760b = bannerImage.ahead_url;
+        this.f54760a = bannerImage.img_url;
+        this.f54761b = bannerImage.ahead_url;
         String str = bannerImage.title;
     }
 }

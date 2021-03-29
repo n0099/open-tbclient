@@ -6,19 +6,19 @@ import android.widget.TextView;
 public class e extends CountDownTimer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f8457a;
+    public final /* synthetic */ b f8458a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(b bVar, long j, long j2) {
         super(j, j2);
-        this.f8457a = bVar;
+        this.f8458a = bVar;
     }
 
     @Override // android.os.CountDownTimer
     public void onFinish() {
-        this.f8457a.A.d("CountDownTimer finished");
-        this.f8457a.u();
-        this.f8457a.f8440h.stop();
+        this.f8458a.A.d("CountDownTimer finished");
+        this.f8458a.u();
+        this.f8458a.f8441h.stop();
     }
 
     @Override // android.os.CountDownTimer
@@ -28,7 +28,7 @@ public class e extends CountDownTimer {
         if (i > 5) {
             i = 5;
         }
-        textView = this.f8457a.C;
+        textView = this.f8458a.C;
         textView.setText(String.valueOf(i));
     }
 }

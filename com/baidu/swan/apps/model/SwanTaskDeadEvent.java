@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR = new a();
     public static final char SEPARATOR = '#';
@@ -18,7 +18,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     public ArrayList<Integer> stackList;
     public int taskId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

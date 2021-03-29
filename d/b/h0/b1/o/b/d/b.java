@@ -7,22 +7,22 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 public final class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WheelView f50041a;
+    public final WheelView f50042a;
 
     public b(WheelView wheelView) {
-        this.f50041a = wheelView;
+        this.f50042a = wheelView;
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         int i = message.what;
         if (i == 1000) {
-            this.f50041a.invalidate();
+            this.f50042a.invalidate();
         } else if (i == 2000) {
-            this.f50041a.r(WheelView.ACTION.FLING);
+            this.f50042a.r(WheelView.ACTION.FLING);
         } else if (i != 3000) {
         } else {
-            this.f50041a.n();
+            this.f50042a.n();
         }
     }
 }

@@ -24,7 +24,7 @@ public class e0 {
                             if (hashCode == 3519 && nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
                                 c2 = 0;
                             }
-                        } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7663a)) {
+                        } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7664a)) {
                             c2 = 4;
                         }
                     } else if (nextName.equals(Config.OS)) {

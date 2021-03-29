@@ -30,28 +30,28 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.e.g.c f58729a;
+    public d.b.b.e.g.c f58730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f58730b;
+    public final Activity f58731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f58731c;
+    public final ViewGroup f58732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f58732d;
+    public View.OnClickListener f58733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.e.g.b f58733e;
+    public d.b.b.e.g.b f58734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58734f;
+    public String f58735f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f58735g = new Handler();
+    public final Handler f58736g = new Handler();
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f58736h;
+    public Runnable f58737h;
     public String i;
     public String j;
 
@@ -62,8 +62,8 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f58729a != null) {
-                c.this.f58729a.e(c.this.f58731c);
+            if (c.this.f58730a != null) {
+                c.this.f58730a.e(c.this.f58732c);
             }
         }
     }
@@ -75,8 +75,8 @@ public class c {
 
         @Override // d.b.b.e.g.d.a
         public void onDismiss() {
-            c.this.f58729a = null;
-            c.this.f58735g.removeCallbacks(c.this.f58736h);
+            c.this.f58730a = null;
+            c.this.f58736g.removeCallbacks(c.this.f58737h);
         }
 
         @Override // d.b.b.e.g.d.a
@@ -86,40 +86,40 @@ public class c {
 
     /* renamed from: d.b.i0.p0.x1.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1447c implements d.b.b.e.g.b {
+    public class C1448c implements d.b.b.e.g.b {
 
         /* renamed from: d.b.i0.p0.x1.c$c$a */
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.h0.r.f0.m.a f58740e;
+            public final /* synthetic */ d.b.h0.r.f0.m.a f58741e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ FollowUserButton f58741f;
+            public final /* synthetic */ FollowUserButton f58742f;
 
             public a(d.b.h0.r.f0.m.a aVar, FollowUserButton followUserButton) {
-                this.f58740e = aVar;
-                this.f58741f = followUserButton;
+                this.f58741e = aVar;
+                this.f58742f = followUserButton;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f58732d != null) {
-                    c.this.f58732d.onClick(view);
+                if (c.this.f58733d != null) {
+                    c.this.f58733d.onClick(view);
                 }
-                this.f58740e.o(R.color.CAM_X0109);
-                this.f58740e.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-                this.f58741f.setText(TbadkCoreApplication.getInst().getString(R.string.followed));
-                this.f58741f.setClickable(false);
-                if (c.this.f58736h != null) {
-                    c.this.f58735g.removeCallbacks(c.this.f58736h);
-                    c.this.f58735g.postDelayed(c.this.f58736h, 1000L);
+                this.f58741e.o(R.color.CAM_X0109);
+                this.f58741e.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+                this.f58742f.setText(TbadkCoreApplication.getInst().getString(R.string.followed));
+                this.f58742f.setClickable(false);
+                if (c.this.f58737h != null) {
+                    c.this.f58736g.removeCallbacks(c.this.f58737h);
+                    c.this.f58736g.postDelayed(c.this.f58737h, 1000L);
                 }
             }
         }
 
-        public C1447c() {
+        public C1448c() {
         }
 
         @Override // d.b.b.e.g.b
@@ -135,15 +135,15 @@ public class c {
             FollowUserButton followUserButton = (FollowUserButton) inflate.findViewById(R.id.frs_guide_concern_btn);
             SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.frs_guide_text), R.color.CAM_X0302);
             barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            barImageView.setContentDescription(c.this.f58730b.getResources().getString(R.string.bar_header));
-            barImageView.setStrokeWith(l.g(c.this.f58730b, R.dimen.tbds1));
+            barImageView.setContentDescription(c.this.f58731b.getResources().getString(R.string.bar_header));
+            barImageView.setStrokeWith(l.g(c.this.f58731b, R.dimen.tbds1));
             barImageView.setShowOval(true);
             barImageView.setPlaceHolder(1);
             barImageView.setShowOuterBorder(false);
             barImageView.setShowInnerBorder(true);
             barImageView.setStrokeColorResId(R.color.CAM_X0401);
-            if (!StringUtils.isNull(c.this.f58734f)) {
-                barImageView.W(c.this.f58734f, 10, false);
+            if (!StringUtils.isNull(c.this.f58735f)) {
+                barImageView.W(c.this.f58735f, 10, false);
             }
             d.b.h0.r.f0.m.a aVar = new d.b.h0.r.f0.m.a();
             aVar.o(R.color.CAM_X0302);
@@ -151,9 +151,9 @@ public class c {
             aVar.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             aVar.f(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
             followUserButton.setConfig(aVar);
-            followUserButton.setText(c.this.f58730b.getString(R.string.attention));
+            followUserButton.setText(c.this.f58731b.getString(R.string.attention));
             followUserButton.setOnClickListener(new a(aVar, followUserButton));
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(l.g(c.this.f58730b, R.dimen.tbds21)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(c.this.f58730b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(c.this.f58730b, R.dimen.tbds5)).into(findViewById);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(l.g(c.this.f58731b, R.dimen.tbds21)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(c.this.f58731b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(c.this.f58731b, R.dimen.tbds5)).into(findViewById);
             return inflate;
         }
 
@@ -180,9 +180,9 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f58729a != null) {
-                c.this.f58729a.e(c.this.f58731c);
-                c.this.f58731c.setVisibility(8);
+            if (c.this.f58730a != null) {
+                c.this.f58730a.e(c.this.f58732c);
+                c.this.f58732c.setVisibility(8);
             }
         }
     }
@@ -194,8 +194,8 @@ public class c {
 
         @Override // d.b.b.e.g.d.a
         public void onDismiss() {
-            c.this.f58729a = null;
-            c.this.f58735g.removeCallbacks(c.this.f58736h);
+            c.this.f58730a = null;
+            c.this.f58736g.removeCallbacks(c.this.f58737h);
         }
 
         @Override // d.b.b.e.g.d.a
@@ -218,9 +218,9 @@ public class c {
                     hashMap.put("_forumId", c.this.j);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(TbadkCoreApplication.getInst().getApplicationContext(), "ForumAppealPage", hashMap)));
                 }
-                if (c.this.f58736h != null) {
-                    c.this.f58735g.removeCallbacks(c.this.f58736h);
-                    c.this.f58735g.postDelayed(c.this.f58736h, 1000L);
+                if (c.this.f58737h != null) {
+                    c.this.f58736g.removeCallbacks(c.this.f58737h);
+                    c.this.f58736g.postDelayed(c.this.f58737h, 1000L);
                 }
             }
         }
@@ -265,12 +265,12 @@ public class c {
     }
 
     public c(Activity activity, int i) {
-        this.f58730b = activity;
-        this.f58731c = (ViewGroup) activity.findViewById(i);
+        this.f58731b = activity;
+        this.f58732c = (ViewGroup) activity.findViewById(i);
     }
 
     public final d.b.b.e.g.b k() {
-        return new C1447c();
+        return new C1448c();
     }
 
     public final d.b.b.e.g.b l() {
@@ -278,19 +278,19 @@ public class c {
     }
 
     public void m() {
-        d.b.b.e.g.c cVar = this.f58729a;
+        d.b.b.e.g.c cVar = this.f58730a;
         if (cVar != null) {
-            cVar.e(this.f58731c);
-            this.f58731c.setVisibility(8);
+            cVar.e(this.f58732c);
+            this.f58732c.setVisibility(8);
         }
     }
 
     public void n(String str) {
-        this.f58734f = str;
+        this.f58735f = str;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.f58732d = onClickListener;
+        this.f58733d = onClickListener;
     }
 
     public void p(String str) {
@@ -302,58 +302,58 @@ public class c {
     }
 
     public void r() {
-        ViewGroup viewGroup = this.f58731c;
+        ViewGroup viewGroup = this.f58732c;
         if (viewGroup == null) {
             return;
         }
         viewGroup.setVisibility(0);
-        d.b.b.e.g.c cVar = this.f58729a;
+        d.b.b.e.g.c cVar = this.f58730a;
         if (cVar != null) {
-            cVar.e(this.f58731c);
+            cVar.e(this.f58732c);
         }
-        this.f58736h = new d();
+        this.f58737h = new d();
         d.b.b.e.g.d dVar = new d.b.b.e.g.d();
         dVar.d(true);
         dVar.g(new e());
-        if (this.f58733e == null) {
-            this.f58733e = l();
+        if (this.f58734e == null) {
+            this.f58734e = l();
         }
-        dVar.a(this.f58733e);
+        dVar.a(this.f58734e);
         dVar.e(R.anim.frs_guide_tip_enter);
         dVar.f(R.anim.frs_guide_tip_out);
         d.b.b.e.g.c b2 = dVar.b();
-        this.f58729a = b2;
-        b2.r(this.f58730b, this.f58731c, false);
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f58731c);
+        this.f58730a = b2;
+        b2.r(this.f58731b, this.f58732c, false);
+        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f58732c);
         a2.h(R.string.J_X05);
         a2.m(R.array.S_O_X004);
         a2.c(R.color.CAM_X0207);
-        this.f58735g.postDelayed(this.f58736h, 5000L);
+        this.f58736g.postDelayed(this.f58737h, 5000L);
     }
 
     public void s() {
-        ViewGroup viewGroup = this.f58731c;
+        ViewGroup viewGroup = this.f58732c;
         if (viewGroup == null) {
             return;
         }
         viewGroup.setVisibility(0);
-        d.b.b.e.g.c cVar = this.f58729a;
+        d.b.b.e.g.c cVar = this.f58730a;
         if (cVar != null) {
-            cVar.e(this.f58731c);
+            cVar.e(this.f58732c);
         }
-        this.f58736h = new a();
+        this.f58737h = new a();
         d.b.b.e.g.d dVar = new d.b.b.e.g.d();
         dVar.d(true);
         dVar.g(new b());
-        if (this.f58733e == null) {
-            this.f58733e = k();
+        if (this.f58734e == null) {
+            this.f58734e = k();
         }
-        dVar.a(this.f58733e);
+        dVar.a(this.f58734e);
         dVar.e(R.anim.frs_guide_tip_enter);
         dVar.f(R.anim.frs_guide_tip_out);
         d.b.b.e.g.c b2 = dVar.b();
-        this.f58729a = b2;
-        b2.r(this.f58730b, this.f58731c, false);
-        this.f58735g.postDelayed(this.f58736h, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+        this.f58730a = b2;
+        b2.r(this.f58731b, this.f58732c, false);
+        this.f58736g.postDelayed(this.f58737h, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
     }
 }

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class MessageHandleService extends BaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentLinkedQueue<a> f40140a = new ConcurrentLinkedQueue<>();
+    public static ConcurrentLinkedQueue<a> f40141a = new ConcurrentLinkedQueue<>();
 
     /* renamed from: a  reason: collision with other field name */
     public static ExecutorService f43a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -26,18 +26,18 @@ public class MessageHandleService extends BaseService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f40141a;
+        public Intent f40142a;
 
         /* renamed from: a  reason: collision with other field name */
         public PushMessageReceiver f44a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
             this.f44a = pushMessageReceiver;
-            this.f40141a = intent;
+            this.f40142a = intent;
         }
 
         public Intent a() {
-            return this.f40141a;
+            return this.f40142a;
         }
 
         /* renamed from: a  reason: collision with other method in class */
@@ -135,7 +135,7 @@ public class MessageHandleService extends BaseService {
 
     public static void addJob(Context context, a aVar) {
         if (aVar != null) {
-            f40140a.add(aVar);
+            f40141a.add(aVar);
             b(context);
             startService(context);
         }
@@ -150,7 +150,7 @@ public class MessageHandleService extends BaseService {
 
     public static void c(Context context) {
         try {
-            a(context, f40140a.poll());
+            a(context, f40141a.poll());
         } catch (RuntimeException e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
@@ -165,7 +165,7 @@ public class MessageHandleService extends BaseService {
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a */
     public boolean mo70a() {
-        ConcurrentLinkedQueue<a> concurrentLinkedQueue = f40140a;
+        ConcurrentLinkedQueue<a> concurrentLinkedQueue = f40141a;
         return concurrentLinkedQueue != null && concurrentLinkedQueue.size() > 0;
     }
 

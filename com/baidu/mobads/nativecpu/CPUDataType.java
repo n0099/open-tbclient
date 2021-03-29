@@ -15,20 +15,20 @@ public enum CPUDataType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8369a;
+    public String f8370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8370b;
+    public int f8371b;
 
     CPUDataType(String str, int i) {
-        this.f8369a = str;
-        this.f8370b = i;
+        this.f8370a = str;
+        this.f8371b = i;
     }
 
     public static CPUDataType parseType(String str) {
         CPUDataType[] values;
         for (CPUDataType cPUDataType : values()) {
-            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f8369a) && cPUDataType.f8369a.equals(str)) {
+            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f8370a) && cPUDataType.f8370a.equals(str)) {
                 return cPUDataType;
             }
         }
@@ -36,10 +36,10 @@ public enum CPUDataType {
     }
 
     public String getName() {
-        return this.f8369a;
+        return this.f8370a;
     }
 
     public int getValue() {
-        return this.f8370b;
+        return this.f8371b;
     }
 }

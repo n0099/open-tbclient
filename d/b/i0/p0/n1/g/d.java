@@ -39,7 +39,7 @@ public class d extends c {
             }
             UrlManager urlManager = UrlManager.getInstance();
             d dVar2 = d.this;
-            urlManager.dealOneLink(dVar2.f62180f, new String[]{dVar2.z.H()});
+            urlManager.dealOneLink(dVar2.f62181f, new String[]{dVar2.z.H()});
         }
     }
 
@@ -57,7 +57,7 @@ public class d extends c {
         if (this.z == null || !U()) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(this.f62180f, new String[]{this.z.H()});
+        UrlManager.getInstance().dealOneLink(this.f62181f, new String[]{this.z.H()});
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class d extends c {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        ViewHelper.skipToLoginActivity(this.f62180f.getPageActivity());
+        ViewHelper.skipToLoginActivity(this.f62181f.getPageActivity());
         return false;
     }
 

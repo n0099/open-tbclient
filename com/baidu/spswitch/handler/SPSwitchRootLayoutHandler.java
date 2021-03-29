@@ -11,7 +11,7 @@ import com.baidu.spswitch.IPanelConflictLayout;
 import com.baidu.spswitch.utils.SPConfig;
 import com.baidu.spswitch.utils.SoftInputUtil;
 import com.baidu.spswitch.utils.ViewUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchRootLayoutHandler {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static final String TAG = "SPSwitchRootLayoutHandler";

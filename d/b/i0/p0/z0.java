@@ -3,14 +3,14 @@ package d.b.i0.p0;
 public class z0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f58778a;
+    public String f58779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58779b;
+    public String f58780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58780c;
+    public int f58781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f58781d = false;
+    public boolean f58782d = false;
 }

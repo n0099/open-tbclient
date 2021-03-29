@@ -21,10 +21,10 @@ import tbclient.User;
 public class d implements h {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57802e;
+    public boolean f57803e;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57805h;
+    public int f57806h;
     public String i;
     public String j;
     public boolean k;
@@ -33,17 +33,17 @@ public class d implements h {
     public List<App> o;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, MetaData> f57803f = new HashMap<>();
+    public HashMap<String, MetaData> f57804f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<n> f57804g = new ArrayList<>();
+    public ArrayList<n> f57805g = new ArrayList<>();
     public int m = 1;
 
     public void b(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f57802e = dataRes.has_more.intValue() == 1;
+        this.f57803e = dataRes.has_more.intValue() == 1;
         if (!ListUtils.isEmpty(dataRes.user_list)) {
             for (User user : dataRes.user_list) {
                 if (user != null) {
@@ -51,7 +51,7 @@ public class d implements h {
                     metaData.parserProtobuf(user);
                     String userId = metaData.getUserId();
                     if (userId != null && !"0".equals(userId)) {
-                        this.f57803f.put(userId, metaData);
+                        this.f57804f.put(userId, metaData);
                     }
                 }
             }
@@ -60,18 +60,18 @@ public class d implements h {
             for (ThreadInfo threadInfo : dataRes.general_list) {
                 if (threadInfo != null) {
                     a2 a2Var = new a2();
-                    a2Var.p4(this.f57803f);
+                    a2Var.p4(this.f57804f);
                     a2Var.A2 = true;
                     a2Var.Q2(threadInfo);
                     a2Var.U2();
                     a2Var.J1();
-                    this.f57804g.add(a2Var);
+                    this.f57805g.add(a2Var);
                 }
             }
         }
         this.o = dataRes.app_list;
-        d.b.h0.b.f.a.d(this.f57804g);
-        this.f57805h = dataRes.new_thread_num.intValue();
+        d.b.h0.b.f.a.d(this.f57805g);
+        this.f57806h = dataRes.new_thread_num.intValue();
         SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
         if (sportPageHeadInfo != null) {
             this.i = sportPageHeadInfo.head_url;

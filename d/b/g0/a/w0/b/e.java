@@ -16,7 +16,7 @@ import java.util.List;
 import okhttp3.Interceptor;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e implements d.b.g0.k.a {
     @Override // d.b.g0.k.a
     public CookieManager a() {
@@ -60,7 +60,7 @@ public class e implements d.b.g0.k.a {
     public int g() {
         b.a h2 = h();
         if (h2 != null) {
-            return h2.f45768a;
+            return h2.f45769a;
         }
         return -1;
     }
@@ -74,14 +74,14 @@ public class e implements d.b.g0.k.a {
         b.a aVar;
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
         if (O == null) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.e("SwanNetworkImpl", "swanapp is null");
             }
             return null;
         }
         SwanAppConfigData D = O.D();
-        if (D == null || (aVar = D.f12618g) == null) {
-            if (k.f45050a) {
+        if (D == null || (aVar = D.f12619g) == null) {
+            if (k.f45051a) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
             }
             return null;
@@ -91,6 +91,6 @@ public class e implements d.b.g0.k.a {
 
     @Override // d.b.g0.k.a
     public boolean isDebug() {
-        return k.f45050a;
+        return k.f45051a;
     }
 }

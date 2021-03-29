@@ -1,5 +1,5 @@
 package com.baidu.apollon.eventbus;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class EventBusException extends RuntimeException {
     public static final long serialVersionUID = -2912559384646531479L;
 

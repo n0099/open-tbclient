@@ -6,14 +6,14 @@ import android.os.Message;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f7525a;
+    public final /* synthetic */ a f7526a;
 
     public b(a aVar) {
-        this.f7525a = aVar;
+        this.f7526a = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        this.f7525a.a(message);
+        this.f7526a.a(message);
     }
 }

@@ -229,32 +229,32 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
     public class a0 implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f21484e;
+        public final /* synthetic */ Thread2GroupShareView f21485e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f21485f;
+        public final /* synthetic */ long f21486f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f21486g;
+        public final /* synthetic */ String f21487g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f21487h;
+        public final /* synthetic */ String f21488h;
         public final /* synthetic */ String i;
         public final /* synthetic */ ShareFromPBMsgData j;
 
         public a0(Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f21484e = thread2GroupShareView;
-            this.f21485f = j;
-            this.f21486g = str;
-            this.f21487h = str2;
+            this.f21485e = thread2GroupShareView;
+            this.f21486f = j;
+            this.f21487g = str;
+            this.f21488h = str2;
             this.i = str3;
             this.j = shareFromPBMsgData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21484e.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(MainTabActivity.this.getPageContext().getPageActivity(), this.f21485f, this.f21486g, this.f21487h, this.i, 0, this.f21484e.getLeaveMsg(), this.j.toChatMessageContent())));
+            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21485e.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(MainTabActivity.this.getPageContext().getPageActivity(), this.f21486f, this.f21487g, this.f21488h, this.i, 0, this.f21485e.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
             ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
             if (shareItem == null || shareItem.d() == null) {
@@ -285,15 +285,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
     public class b0 implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f21489e;
+        public final /* synthetic */ Thread2GroupShareView f21490e;
 
         public b0(Thread2GroupShareView thread2GroupShareView) {
-            this.f21489e = thread2GroupShareView;
+            this.f21490e = thread2GroupShareView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21489e.getChatMsgView());
+            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21490e.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -416,7 +416,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
                 if (MainTabActivity.this.mIsAdd || MainTabActivity.this.mRecomPostTopic == null || !TbadkCoreApplication.isLogin()) {
                     return;
                 }
-                MainTabActivity.this.mMainTabTopicTipController.j(MainTabActivity.this.mRecomPostTopic.f50839a, MainTabActivity.this.mRecomPostTopic.f50840b, MainTabActivity.this.mRecomPostTopic.f50841c);
+                MainTabActivity.this.mMainTabTopicTipController.j(MainTabActivity.this.mRecomPostTopic.f50840a, MainTabActivity.this.mRecomPostTopic.f50841b, MainTabActivity.this.mRecomPostTopic.f50842c);
             }
         }
     }
@@ -643,8 +643,8 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
             if (MainTabActivity.this.mCancelController == null) {
                 MainTabActivity.this.mCancelController = new d.b.i0.k3.b();
             }
-            MainTabActivity.this.mCancelController.c(MainTabActivity.this.mCancelController.f56466c);
-            MainTabActivity.this.mCancelController.f56466c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            MainTabActivity.this.mCancelController.c(MainTabActivity.this.mCancelController.f56467c);
+            MainTabActivity.this.mCancelController.f56467c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
         }
     }
 
@@ -669,14 +669,14 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.b.h0.t.l lVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.h0.t.l) || (lVar = (d.b.h0.t.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f51481a)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.h0.t.l) || (lVar = (d.b.h0.t.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f51482a)) {
                 return;
             }
             d.b.h0.p0.b.i(lVar);
-            if (StringUtils.isNull(lVar.f51483c)) {
-                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{lVar.f51481a});
+            if (StringUtils.isNull(lVar.f51484c)) {
+                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{lVar.f51482a});
             } else {
-                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{lVar.f51481a, lVar.f51483c});
+                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{lVar.f51482a, lVar.f51484c});
             }
         }
     }
@@ -906,7 +906,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.b.i0.c3.q0.e) && ((d.b.i0.c3.q0.e) customResponsedMessage.getData()).f53594b && MainTabActivity.this.mLikeForumNum == 0) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.b.i0.c3.q0.e) && ((d.b.i0.c3.q0.e) customResponsedMessage.getData()).f53595b && MainTabActivity.this.mLikeForumNum == 0) {
                 MainTabActivity.this.createLikeFirstForumTips();
             }
         }
@@ -994,15 +994,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
     public class s implements f.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Intent f21522a;
+        public final /* synthetic */ Intent f21523a;
 
         public s(Intent intent) {
-            this.f21522a = intent;
+            this.f21523a = intent;
         }
 
         @Override // d.b.h0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
-            if (hashMap == null || this.f21522a == null) {
+            if (hashMap == null || this.f21523a == null) {
                 return;
             }
             Object obj = hashMap.get(d.b.h0.a.f.A);
@@ -1012,21 +1012,21 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
             Object obj3 = hashMap.get(d.b.h0.a.f.z);
             String str2 = obj3 instanceof String ? (String) obj3 : null;
             if (intValue != -1) {
-                this.f21522a.putExtra("is_from_scheme", true);
-                this.f21522a.putExtra("locate_type", intValue);
-                this.f21522a.putExtra("sub_locate_type", str);
-                this.f21522a.putExtra("sub_tab_name", str2);
-                d.b.h0.r.a0.b.f50414b = intValue;
+                this.f21523a.putExtra("is_from_scheme", true);
+                this.f21523a.putExtra("locate_type", intValue);
+                this.f21523a.putExtra("sub_locate_type", str);
+                this.f21523a.putExtra("sub_tab_name", str2);
+                d.b.h0.r.a0.b.f50415b = intValue;
                 Object obj4 = hashMap.get(d.b.h0.a.f.C);
                 String str3 = obj4 instanceof String ? (String) obj4 : null;
                 Object obj5 = hashMap.get(d.b.h0.a.f.D);
                 String str4 = obj5 instanceof String ? (String) obj5 : null;
-                this.f21522a.putExtra(d.b.h0.a.f.C, str3);
-                this.f21522a.putExtra(d.b.h0.a.f.D, str4);
+                this.f21523a.putExtra(d.b.h0.a.f.C, str3);
+                this.f21523a.putExtra(d.b.h0.a.f.D, str4);
             }
             d.b.h0.a.c.y().L(true);
             if (intValue == 1 && "ForumSquare".equals(str)) {
-                d.b.h0.r.a0.b.f50415c = d.b.h0.r.a0.b.f50417e;
+                d.b.h0.r.a0.b.f50416c = d.b.h0.r.a0.b.f50418e;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
             }
         }
@@ -1084,15 +1084,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
     public class t implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f21525e;
+        public final /* synthetic */ String f21526e;
 
         public t(String str) {
-            this.f21525e = str;
+            this.f21526e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{this.f21525e});
+            UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{this.f21526e});
         }
     }
 
@@ -1200,15 +1200,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f21533e;
+            public final /* synthetic */ CustomDialogData f21534e;
 
             public a(CustomDialogData customDialogData) {
-                this.f21533e = customDialogData;
+                this.f21534e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.i0.c2.j.c.a(MainTabActivity.this.getPageContext(), this.f21533e).show();
+                d.b.i0.c2.j.c.a(MainTabActivity.this.getPageContext(), this.f21534e).show();
             }
         }
 
@@ -1353,7 +1353,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dataString2});
                 d.b.h0.a.c.y().L(true);
             }
-        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(d.b.h0.a.f.f49574a)) {
+        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(d.b.h0.a.f.f49575a)) {
             d.b.h0.a.f.b().e(intent.getData(), new s(intent));
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
@@ -1913,7 +1913,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
         window.getDecorView();
         super.onCreate(bundle);
         int i2 = -1;
-        d.b.h0.r.a0.b.f50415c = d.b.h0.r.a0.b.f50416d;
+        d.b.h0.r.a0.b.f50416c = d.b.h0.r.a0.b.f50417d;
         if (getIntent() != null) {
             d.b.i0.f3.e eVar = new d.b.i0.f3.e(getPageContext());
             this.mPushInsertThreadController = eVar;
@@ -2188,7 +2188,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.b.i0.f3.a
             }
             d.b.i0.f3.d dVar3 = this.mViewController;
             if (dVar3 != null && dVar3.C() != null && (g2 = this.mViewController.C().g(intExtra)) != null) {
-                Fragment fragment = g2.f13312c;
+                Fragment fragment = g2.f13313c;
                 if (fragment instanceof d.b.h0.r.g) {
                     ((d.b.h0.r.g) fragment).o0(intent);
                 }

@@ -8,7 +8,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 public class l implements IXAdConstants {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f8544a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", WebViewFactory.CHROMIUM_HOST_APP, "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", "com.baidu.searchbox"};
+    public static String[] f8545a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", WebViewFactory.CHROMIUM_HOST_APP, "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", "com.baidu.searchbox"};
 
     public String a() {
         return "APO";
@@ -370,7 +370,7 @@ public class l implements IXAdConstants {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public String[] getSupportedBrowsers() {
-        return f8544a;
+        return f8545a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
@@ -415,7 +415,7 @@ public class l implements IXAdConstants {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public void setSupportedBrowsers(String[] strArr) {
-        f8544a = strArr;
+        f8545a = strArr;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants

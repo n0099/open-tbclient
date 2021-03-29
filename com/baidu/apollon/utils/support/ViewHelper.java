@@ -3,10 +3,10 @@ package com.baidu.apollon.utils.support;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ViewHelper {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static float a(View view) {
             return view.getAlpha();

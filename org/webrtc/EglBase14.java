@@ -13,7 +13,7 @@ import android.view.Surface;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class EglBase14 implements EglBase {
     public static final int CURRENT_SDK_VERSION = Build.VERSION.SDK_INT;
     public static final int EGLExt_SDK_VERSION = 18;

@@ -20,9 +20,7 @@ import d.b.h0.r.q.a2;
 public class c {
     public static int[] a(Context context) {
         int dimensionPixelSize = l.p(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
-        double d2 = dimensionPixelSize;
-        Double.isNaN(d2);
-        return new int[]{dimensionPixelSize, (int) ((d2 * 9.0d) / 16.0d)};
+        return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
     }
 
     public static boolean b(SdkLiveInfoData sdkLiveInfoData) {

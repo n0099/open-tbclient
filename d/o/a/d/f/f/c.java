@@ -3,7 +3,7 @@ package d.o.a.d.f.f;
 import d.o.a.d.f.c;
 import d.o.a.d.j;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void a(int i, long j) {
         JSONObject jSONObject = new JSONObject();
@@ -30,7 +30,7 @@ public class c {
         if (v.w()) {
             return;
         }
-        v.f66544c.a(str);
+        v.f66545c.a(str);
         j.c.a().n("lp_app_dialog_click", v);
     }
 

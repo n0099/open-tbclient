@@ -352,14 +352,14 @@ public class a {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006e A[Catch: all -> 0x0191, TryCatch #1 {all -> 0x0191, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:45:0x00b3, B:47:0x00c6, B:49:0x00fb, B:50:0x010c, B:52:0x011e, B:56:0x0133, B:58:0x0142, B:60:0x0151, B:61:0x0154, B:73:0x0185, B:66:0x0171, B:68:0x0177, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:80:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x006e A[Catch: all -> 0x0176, TryCatch #1 {all -> 0x0176, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:44:0x00aa, B:46:0x00f2, B:47:0x0103, B:49:0x0115, B:51:0x011e, B:52:0x0139, B:64:0x016a, B:57:0x0156, B:59:0x015c, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:71:0x0016 }] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x00a6  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00fb A[Catch: all -> 0x0191, TryCatch #1 {all -> 0x0191, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:45:0x00b3, B:47:0x00c6, B:49:0x00fb, B:50:0x010c, B:52:0x011e, B:56:0x0133, B:58:0x0142, B:60:0x0151, B:61:0x0154, B:73:0x0185, B:66:0x0171, B:68:0x0177, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:80:0x0016 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x011e A[Catch: all -> 0x0191, TryCatch #1 {all -> 0x0191, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:45:0x00b3, B:47:0x00c6, B:49:0x00fb, B:50:0x010c, B:52:0x011e, B:56:0x0133, B:58:0x0142, B:60:0x0151, B:61:0x0154, B:73:0x0185, B:66:0x0171, B:68:0x0177, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:80:0x0016 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0127  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0177 A[Catch: all -> 0x0191, TryCatch #1 {all -> 0x0191, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:45:0x00b3, B:47:0x00c6, B:49:0x00fb, B:50:0x010c, B:52:0x011e, B:56:0x0133, B:58:0x0142, B:60:0x0151, B:61:0x0154, B:73:0x0185, B:66:0x0171, B:68:0x0177, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:80:0x0016 }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0183 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00f2 A[Catch: all -> 0x0176, TryCatch #1 {all -> 0x0176, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:44:0x00aa, B:46:0x00f2, B:47:0x0103, B:49:0x0115, B:51:0x011e, B:52:0x0139, B:64:0x016a, B:57:0x0156, B:59:0x015c, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:71:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0115 A[Catch: all -> 0x0176, TryCatch #1 {all -> 0x0176, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:44:0x00aa, B:46:0x00f2, B:47:0x0103, B:49:0x0115, B:51:0x011e, B:52:0x0139, B:64:0x016a, B:57:0x0156, B:59:0x015c, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:71:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x011e A[Catch: all -> 0x0176, TryCatch #1 {all -> 0x0176, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:44:0x00aa, B:46:0x00f2, B:47:0x0103, B:49:0x0115, B:51:0x011e, B:52:0x0139, B:64:0x016a, B:57:0x0156, B:59:0x015c, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:71:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x015c A[Catch: all -> 0x0176, TryCatch #1 {all -> 0x0176, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x006e, B:32:0x0075, B:34:0x0081, B:35:0x008b, B:39:0x0098, B:41:0x009c, B:44:0x00aa, B:46:0x00f2, B:47:0x0103, B:49:0x0115, B:51:0x011e, B:52:0x0139, B:64:0x016a, B:57:0x0156, B:59:0x015c, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:71:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0163  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0168 A[ADDED_TO_REGION] */
     /* JADX WARN: Type inference failed for: r16v3 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -370,7 +370,7 @@ public class a {
         long j6;
         int i3;
         int i4;
-        double d2;
+        double nanos;
         b p0;
         String str5;
         int i5;
@@ -410,14 +410,9 @@ public class a {
                     i3 = -1;
                     i4 = -1;
                 }
-                double d3 = j6;
-                Double.isNaN(d3);
-                double d4 = d3 / 1048576.0d;
-                double d5 = j2;
-                double nanos = TimeUnit.SECONDS.toNanos(1L);
-                Double.isNaN(d5);
-                Double.isNaN(nanos);
-                d2 = d5 / nanos;
+                double d2 = j6 / 1048576.0d;
+                double d3 = j2;
+                nanos = d3 / TimeUnit.SECONDS.toNanos(1L);
                 jSONObject2.put("setting_tag", aVar.t("setting_tag"));
                 jSONObject2.put("url_host", host);
                 jSONObject2.putOpt("host_ip", str3);
@@ -430,24 +425,15 @@ public class a {
                 if (errorMessage != null) {
                     jSONObject2.put(PmsConstant.Statistic.STATISTIC_ERRMSG, e.j(errorMessage, aVar.b("exception_msg_length", 500)));
                 }
-                jSONObject2.put("download_sec", d2);
-                jSONObject2.put("download_mb", d4);
-                if (d2 > 0.0d) {
-                    jSONObject2.put("download_speed", d4 / d2);
+                jSONObject2.put("download_sec", nanos);
+                jSONObject2.put("download_mb", d2);
+                if (nanos > 0.0d) {
+                    jSONObject2.put("download_speed", d2 / nanos);
                 }
                 if (z3) {
-                    double d6 = j3;
-                    Double.isNaN(d6);
-                    Double.isNaN(d5);
-                    jSONObject2.put("rw_read_time", d6 / d5);
-                    double d7 = j4;
-                    Double.isNaN(d7);
-                    Double.isNaN(d5);
-                    jSONObject2.put("rw_write_time", d7 / d5);
-                    double d8 = j5;
-                    Double.isNaN(d8);
-                    Double.isNaN(d5);
-                    jSONObject2.put("rw_sync_time", d8 / d5);
+                    jSONObject2.put("rw_read_time", j3 / d3);
+                    jSONObject2.put("rw_write_time", j4 / d3);
+                    jSONObject2.put("rw_sync_time", j5 / d3);
                 }
                 jSONObject2.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.v0());
                 jSONObject2.put("name", downloadInfo.P0());
@@ -477,14 +463,9 @@ public class a {
             JSONObject jSONObject22 = new JSONObject();
             if (kVar == null) {
             }
-            double d32 = j6;
-            Double.isNaN(d32);
-            double d42 = d32 / 1048576.0d;
-            double d52 = j2;
-            double nanos2 = TimeUnit.SECONDS.toNanos(1L);
-            Double.isNaN(d52);
-            Double.isNaN(nanos2);
-            d2 = d52 / nanos2;
+            double d22 = j6 / 1048576.0d;
+            double d32 = j2;
+            nanos = d32 / TimeUnit.SECONDS.toNanos(1L);
             jSONObject22.put("setting_tag", aVar.t("setting_tag"));
             jSONObject22.put("url_host", host);
             jSONObject22.putOpt("host_ip", str3);
@@ -496,9 +477,9 @@ public class a {
             jSONObject22.put("status_code", i2);
             if (errorMessage != null) {
             }
-            jSONObject22.put("download_sec", d2);
-            jSONObject22.put("download_mb", d42);
-            if (d2 > 0.0d) {
+            jSONObject22.put("download_sec", nanos);
+            jSONObject22.put("download_mb", d22);
+            if (nanos > 0.0d) {
             }
             if (z3) {
             }

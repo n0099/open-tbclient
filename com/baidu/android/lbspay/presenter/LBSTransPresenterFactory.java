@@ -1,19 +1,19 @@
 package com.baidu.android.lbspay.presenter;
 
 import com.baidu.android.lbspay.activity.LBSTransActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSTransPresenterFactory {
     public static final String TRANS_AUTH_PRESENTER = "LBSTransAuthPresenter";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSTransPresenterFactory f2613a = new LBSTransPresenterFactory();
+        public static LBSTransPresenterFactory f2614a = new LBSTransPresenterFactory();
     }
 
     public static LBSTransPresenterFactory getInstance() {
-        return a.f2613a;
+        return a.f2614a;
     }
 
     public LBSTransPresenter getTransPresenter(LBSTransActivity lBSTransActivity, String str) {

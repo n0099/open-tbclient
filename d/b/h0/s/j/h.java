@@ -26,26 +26,26 @@ import d.b.b.e.p.l;
 import d.b.b.e.r.k;
 import d.b.h0.r.l.a;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f51447f;
+    public static h f51448f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51448a;
+    public int f51449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.c.e.c.k.a f51449b = null;
+    public d.b.b.c.e.c.k.a f51450b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f51450c = null;
+    public UpdateClientInfoMessage f51451c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51451d = 0;
+    public int f51452d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.b.c.e.c.k.a f51452e = new a();
+    public final d.b.b.c.e.c.k.a f51453e = new a();
 
     /* loaded from: classes3.dex */
     public class a implements d.b.b.c.e.c.k.a {
@@ -55,38 +55,38 @@ public class h {
         @Override // d.b.b.c.e.c.k.a
         public boolean a(int i, String str) {
             d.b.h0.c0.a.b(0, 2, 0, 0, 0);
-            if (h.this.f51449b != null) {
-                h.this.f51449b.a(i, str);
+            if (h.this.f51450b != null) {
+                h.this.f51450b.a(i, str);
             }
             return false;
         }
 
         @Override // d.b.b.c.e.c.k.a
         public void b(d.b.b.e.r.c cVar) {
-            if (h.this.f51449b != null) {
-                h.this.f51449b.b(cVar);
+            if (h.this.f51450b != null) {
+                h.this.f51450b.b(cVar);
             }
         }
 
         @Override // d.b.b.c.e.c.k.a
         public void c(String str) {
-            if (h.this.f51449b != null) {
-                h.this.f51449b.c(str);
+            if (h.this.f51450b != null) {
+                h.this.f51450b.c(str);
             }
         }
 
         @Override // d.b.b.c.e.c.k.a
         public void d(k kVar) {
-            if (h.this.f51449b != null) {
-                h.this.f51449b.d(kVar);
+            if (h.this.f51450b != null) {
+                h.this.f51450b.d(kVar);
             }
         }
 
         @Override // d.b.b.c.e.c.k.a
         public void g(Map<String, String> map) {
             d.b.h0.c0.a.b(0, 1, 0, 0, 0);
-            if (h.this.f51449b != null) {
-                h.this.f51449b.g(map);
+            if (h.this.f51450b != null) {
+                h.this.f51450b.g(map);
             }
             d.b.b.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
             if (d.b.h0.m0.k.d().g() && h.b(h.this) < 10) {
@@ -94,8 +94,8 @@ public class h {
             }
             d.b.h0.c0.a.b(1001, 0, 0, 3, 0);
             h hVar = h.this;
-            hVar.f51450c = hVar.i();
-            MessageManager.getInstance().sendMessage(h.this.f51450c);
+            hVar.f51451c = hVar.i();
+            MessageManager.getInstance().sendMessage(h.this.f51451c);
         }
     }
 
@@ -125,11 +125,11 @@ public class h {
             }
             if (responseOnlineMessage.getError() != 0) {
                 h.this.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f51448a);
+                d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f51449a);
                 return null;
             }
             h.this.m();
-            d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.f51448a);
+            d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.f51449a);
             return socketResponsedMessage;
         }
     }
@@ -139,22 +139,22 @@ public class h {
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i = hVar.f51451d + 1;
-        hVar.f51451d = i;
+        int i = hVar.f51452d + 1;
+        hVar.f51452d = i;
         return i;
     }
 
     public static synchronized h j() {
         h hVar;
         synchronized (h.class) {
-            if (f51447f == null) {
+            if (f51448f == null) {
                 synchronized (h.class) {
-                    if (f51447f == null) {
-                        f51447f = new h();
+                    if (f51448f == null) {
+                        f51448f = new h();
                     }
                 }
             }
-            hVar = f51447f;
+            hVar = f51448f;
         }
         return hVar;
     }
@@ -221,7 +221,7 @@ public class h {
                 a.b d2 = d.b.h0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                 String a2 = d.b.h0.r.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
                 if (d2 != null) {
-                    updateClientInfoMessage.setBduss(d2.f50628a, a2);
+                    updateClientInfoMessage.setBduss(d2.f50629a, a2);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
                 }
@@ -256,22 +256,22 @@ public class h {
     }
 
     public void k() {
-        MessageManager.getInstance().getSocketClient().G(this.f51452e);
+        MessageManager.getInstance().getSocketClient().G(this.f51453e);
     }
 
     public boolean l() {
-        return this.f51448a >= 5;
+        return this.f51449a >= 5;
     }
 
     public final void m() {
-        this.f51448a = 0;
+        this.f51449a = 0;
         MessageManager.getInstance().getSocketClient().I();
         NoNetworkView.f();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     public void n() {
-        this.f51448a++;
+        this.f51449a++;
         if (l()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.f();
@@ -284,6 +284,6 @@ public class h {
     }
 
     public void p(d.b.b.c.e.c.k.a aVar) {
-        this.f51449b = aVar;
+        this.f51450b = aVar;
     }
 }

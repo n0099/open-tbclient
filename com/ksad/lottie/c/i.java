@@ -5,7 +5,7 @@ import android.util.JsonReader;
 public class i implements aj<Float> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f31338a = new i();
+    public static final i f31339a = new i();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

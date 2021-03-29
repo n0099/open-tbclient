@@ -75,9 +75,9 @@ public class s extends d.b.i0.p0.k<z1, FrsCardVideoViewHolder<d.b.i0.p0.n1.g.b>>
     public final d.b.i0.i2.o B0(a2 a2Var) {
         if (a2Var != null) {
             d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-            oVar.f56163a = A0(a2Var.q0());
-            oVar.f56166d = this.y.f57701c;
-            oVar.f56165c = a2Var.w1();
+            oVar.f56164a = A0(a2Var.q0());
+            oVar.f56167d = this.y.f57702c;
+            oVar.f56166c = a2Var.w1();
             oVar.l = a2Var.T0;
             if (a2Var.u1() != null) {
                 oVar.m = a2Var.u1().video_md5;

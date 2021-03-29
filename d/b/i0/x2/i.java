@@ -20,19 +20,19 @@ import okhttp3.Request;
 public class i implements IHttpContext {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62520b;
+    public static boolean f62521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f62521c;
+    public static final String f62522c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f62522a = AppRuntime.getAppContext();
+    public Context f62523a = AppRuntime.getAppContext();
 
     static {
         boolean isDebug = AppConfig.isDebug();
-        f62520b = isDebug;
-        f62520b = isDebug;
-        f62521c = i.class.getSimpleName();
+        f62521b = isDebug;
+        f62521b = isDebug;
+        f62522c = i.class.getSimpleName();
     }
 
     @Override // com.baidu.searchbox.http.IHttpContext
@@ -57,8 +57,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
-        if (f62520b) {
-            String str = f62521c;
+        if (f62521b) {
+            String str = f62522c;
             Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
             return null;
         }
@@ -67,8 +67,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public IHttpDns getNewHttpDns() {
-        if (f62520b) {
-            Log.i(f62521c, "baidunetwork HttpContext getNewHttpDns!");
+        if (f62521b) {
+            Log.i(f62522c, "baidunetwork HttpContext getNewHttpDns!");
             return null;
         }
         return null;
@@ -81,8 +81,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public void init() {
-        if (f62520b) {
-            Log.i(f62521c, "baidunetwork HttpContext init!");
+        if (f62521b) {
+            Log.i(f62522c, "baidunetwork HttpContext init!");
         }
     }
 
@@ -92,8 +92,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
-        if (f62520b) {
-            String str = f62521c;
+        if (f62521b) {
+            String str = f62522c;
             Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
         }
     }

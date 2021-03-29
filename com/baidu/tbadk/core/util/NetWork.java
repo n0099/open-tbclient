@@ -319,7 +319,7 @@ public class NetWork {
     }
 
     public long getNetDataSize() {
-        return this.netContext.getStat().stat.f41778b;
+        return this.netContext.getStat().stat.f41779b;
     }
 
     public int getNetErrorCode() {

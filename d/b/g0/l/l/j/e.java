@@ -5,8 +5,8 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f48990a;
+    public long f48991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f48991b;
+    public JSONObject f48992b;
 }

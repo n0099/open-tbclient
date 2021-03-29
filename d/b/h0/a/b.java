@@ -44,28 +44,28 @@ public class b {
     public final ArrayList<h> B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49502a;
+    public int f49503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49503b;
+    public int f49504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49504c;
+    public int f49505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f49505d;
+    public long f49506d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49506e;
+    public String f49507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49507f;
+    public int f49508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49508g;
+    public int f49509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f49509h;
+    public long f49510h;
     public long i;
     public String j;
     public String k;
@@ -97,7 +97,7 @@ public class b {
     }
 
     public int A() {
-        return this.f49507f;
+        return this.f49508f;
     }
 
     public String B() {
@@ -105,7 +105,7 @@ public class b {
     }
 
     public long C() {
-        return this.f49509h;
+        return this.f49510h;
     }
 
     public final long D(int i) {
@@ -161,7 +161,7 @@ public class b {
     }
 
     public boolean K() {
-        return this.f49502a > 0 && this.f49503b > 0 && this.f49504c > 0 && this.f49505d > 0;
+        return this.f49503a > 0 && this.f49504b > 0 && this.f49505c > 0 && this.f49506d > 0;
     }
 
     public boolean L() {
@@ -178,23 +178,23 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f49502a = jSONObject.optInt(C);
-            this.f49503b = jSONObject.optInt(D);
+            this.f49503a = jSONObject.optInt(C);
+            this.f49504b = jSONObject.optInt(D);
             this.j = jSONObject.optString(E);
             this.l = jSONObject.optString(F);
             this.k = jSONObject.optString(G);
             this.t = jSONObject.optInt(H);
-            this.f49504c = jSONObject.optInt(I);
+            this.f49505c = jSONObject.optInt(I);
             String optString = jSONObject.optString(J);
-            this.f49506e = optString;
+            this.f49507e = optString;
             this.r = Q(optString);
-            this.f49505d = jSONObject.optLong(K);
-            this.f49507f = jSONObject.optInt(L);
-            this.f49508g = jSONObject.optInt(M);
+            this.f49506d = jSONObject.optLong(K);
+            this.f49508f = jSONObject.optInt(L);
+            this.f49509g = jSONObject.optInt(M);
             this.p = jSONObject.optInt(N);
             this.q = jSONObject.optLong(O);
             this.s = c();
-            this.f49509h = jSONObject.optLong(P);
+            this.f49510h = jSONObject.optLong(P);
             this.i = jSONObject.optLong(Q);
             this.m = jSONObject.optString(R);
             this.n = jSONObject.optString(S);
@@ -275,7 +275,7 @@ public class b {
     }
 
     public final int[] Q(String str) {
-        int i = this.f49504c;
+        int i = this.f49505c;
         if (i == 8) {
             return new int[]{V};
         }
@@ -304,7 +304,7 @@ public class b {
     }
 
     public void S(int i) {
-        this.f49502a = i;
+        this.f49503a = i;
     }
 
     public void T(String str) {
@@ -312,11 +312,11 @@ public class b {
     }
 
     public void U(long j) {
-        this.f49505d = j;
+        this.f49506d = j;
     }
 
     public void V(String str) {
-        this.f49506e = str;
+        this.f49507e = str;
         this.r = Q(str);
     }
 
@@ -337,33 +337,33 @@ public class b {
     }
 
     public void a(h hVar) {
-        if (this.f49504c == 7 && (hVar instanceof k)) {
+        if (this.f49505c == 7 && (hVar instanceof k)) {
             if (this.B.contains(hVar)) {
                 return;
             }
             this.B.add(hVar);
-        } else if (this.f49504c == 1 && (hVar instanceof m)) {
+        } else if (this.f49505c == 1 && (hVar instanceof m)) {
             if (this.B.contains(hVar)) {
                 return;
             }
             this.B.add(hVar);
-        } else if (this.f49504c == 2 && (hVar instanceof j)) {
+        } else if (this.f49505c == 2 && (hVar instanceof j)) {
             if (this.B.contains(hVar)) {
                 return;
             }
             this.B.add(hVar);
-        } else if (this.f49504c == 4 && (hVar instanceof i)) {
+        } else if (this.f49505c == 4 && (hVar instanceof i)) {
             if (this.B.contains(hVar)) {
                 return;
             }
             this.B.add(hVar);
-        } else if (this.f49504c == 8 && (hVar instanceof l) && !this.B.contains(hVar)) {
+        } else if (this.f49505c == 8 && (hVar instanceof l) && !this.B.contains(hVar)) {
             this.B.add(hVar);
         }
     }
 
     public void a0(int i) {
-        this.f49508g = i;
+        this.f49509g = i;
     }
 
     public String b() {
@@ -387,7 +387,7 @@ public class b {
     }
 
     public void b0(int i) {
-        this.f49503b = i;
+        this.f49504b = i;
     }
 
     public long c() {
@@ -415,7 +415,7 @@ public class b {
     }
 
     public int d() {
-        return this.f49502a;
+        return this.f49503a;
     }
 
     public void d0(long j) {
@@ -431,15 +431,15 @@ public class b {
     }
 
     public long f() {
-        return this.f49505d;
+        return this.f49506d;
     }
 
     public void f0(int i) {
-        this.f49504c = i;
+        this.f49505c = i;
     }
 
     public String g() {
-        return this.f49506e;
+        return this.f49507e;
     }
 
     public void g0(long j) {
@@ -459,7 +459,7 @@ public class b {
     }
 
     public void i0(int i) {
-        this.f49507f = i;
+        this.f49508f = i;
     }
 
     public long j() {
@@ -475,7 +475,7 @@ public class b {
     }
 
     public void k0(long j) {
-        this.f49509h = j;
+        this.f49510h = j;
     }
 
     public int l() {
@@ -498,13 +498,13 @@ public class b {
         if (hVar == null) {
             return 0L;
         }
-        if (this.f49504c == 7 && (hVar instanceof k)) {
+        if (this.f49505c == 7 && (hVar instanceof k)) {
             return ((k) hVar).i();
         }
-        if (this.f49504c == 1 && (hVar instanceof m)) {
+        if (this.f49505c == 1 && (hVar instanceof m)) {
             return ((m) hVar).i();
         }
-        if (this.f49504c == 2 && (hVar instanceof j)) {
+        if (this.f49505c == 2 && (hVar instanceof j)) {
             return ((j) hVar).i();
         }
         return 0L;
@@ -533,11 +533,11 @@ public class b {
     }
 
     public int p() {
-        return this.f49508g;
+        return this.f49509g;
     }
 
     public int q() {
-        return this.f49503b;
+        return this.f49504b;
     }
 
     public final long r(int i, long j) {
@@ -608,7 +608,7 @@ public class b {
     }
 
     public int x() {
-        return this.f49504c;
+        return this.f49505c;
     }
 
     public long y() {
@@ -643,20 +643,20 @@ public class b {
         if (missionInfo == null) {
             return;
         }
-        this.f49502a = missionInfo.activityid.intValue();
-        this.f49503b = missionInfo.missionid.intValue();
-        this.f49504c = missionInfo.tasktype.intValue();
+        this.f49503a = missionInfo.activityid.intValue();
+        this.f49504b = missionInfo.missionid.intValue();
+        this.f49505c = missionInfo.tasktype.intValue();
         this.p = missionInfo.cleartype.intValue();
         this.q = missionInfo.cleartime.intValue();
         this.s = c();
         String str = missionInfo.browsetimepage;
-        this.f49506e = str;
+        this.f49507e = str;
         this.r = Q(str);
         if (missionInfo.threadnum.intValue() > 0) {
-            this.f49507f = missionInfo.threadnum.intValue();
+            this.f49508f = missionInfo.threadnum.intValue();
         }
         if (missionInfo.browsetime.intValue() > 0) {
-            this.f49505d = missionInfo.browsetime.intValue();
+            this.f49506d = missionInfo.browsetime.intValue();
         }
         if (missionInfo.total_limit.intValue() > 0) {
             this.x = missionInfo.total_limit.intValue();

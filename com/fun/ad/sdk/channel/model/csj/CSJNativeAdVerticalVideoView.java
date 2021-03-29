@@ -14,7 +14,7 @@ import com.fun.ad.sdk.R;
 public final class CSJNativeAdVerticalVideoView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f30766f;
+    public FrameLayout f30767f;
 
     public CSJNativeAdVerticalVideoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public final class CSJNativeAdVerticalVideoView extends b {
             ((ViewGroup) adView.getParent()).removeView(adView);
         }
         if (adView != null) {
-            this.f30766f.removeAllViews();
-            this.f30766f.addView(adView);
+            this.f30767f.removeAllViews();
+            this.f30767f.addView(adView);
         }
     }
 
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30766f = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30767f = (FrameLayout) findViewById(R.id.ad_video);
     }
 }

@@ -69,7 +69,7 @@ public final class Utf8 {
                 }
                 return -1;
             } else if (b2 < -16) {
-                byte b3 = (byte) ((i >> 8) ^ (-1));
+                byte b3 = (byte) (~(i >> 8));
                 if (b3 == 0) {
                     int i5 = i2 + 1;
                     byte b4 = bArr[i2];
@@ -84,7 +84,7 @@ public final class Utf8 {
                 }
                 return -1;
             } else {
-                byte b5 = (byte) ((i >> 8) ^ (-1));
+                byte b5 = (byte) (~(i >> 8));
                 byte b6 = 0;
                 if (b5 == 0) {
                     int i6 = i2 + 1;

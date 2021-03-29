@@ -17,14 +17,14 @@ import d.b.i0.p0.o0;
 import d.b.i0.z0.k.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoTabFragment extends BaseFragment implements o0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17444e;
+    public a f17445e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17445f = false;
+    public boolean f17446f = false;
 
     @Override // d.b.i0.p0.o0
     public void A() {
@@ -69,7 +69,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.g();
         }
@@ -78,21 +78,21 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f17444e == null) {
-            this.f17444e = new a(getPageContext(), getUniqueId());
+        if (this.f17445e == null) {
+            this.f17445e = new a(getPageContext(), getUniqueId());
         }
-        this.f17444e.k();
+        this.f17445e.k();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null && aVar.j() != null) {
-            if (this.f17444e.j().getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f17444e.j().getParent()).removeView(this.f17444e.j());
+            if (this.f17445e.j().getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f17445e.j().getParent()).removeView(this.f17445e.j());
             }
-            return this.f17444e.j();
+            return this.f17445e.j();
         }
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
@@ -100,7 +100,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.m();
         }
@@ -109,7 +109,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.l();
         }
@@ -118,7 +118,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.n();
         }
@@ -128,13 +128,13 @@ public class VideoTabFragment extends BaseFragment implements o0 {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.f17445f) {
-                this.f17445f = true;
+            if (!this.f17446f) {
+                this.f17446f = true;
                 TiebaStatic.log(new StatisticItem("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
         }
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.p(isPrimary());
         }
@@ -142,7 +142,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
 
     @Override // d.b.i0.p0.o0
     public void w() {
-        a aVar = this.f17444e;
+        a aVar = this.f17445e;
         if (aVar != null) {
             aVar.o();
         }

@@ -30,16 +30,16 @@ public class l implements Runnable {
     public String N;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f67060e;
+    public final f f67065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f67061f;
+    public final c f67066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DownloadInfo f67062g;
+    public final DownloadInfo f67067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.o.a.e.b.j.a f67063h;
+    public final d.o.a.e.b.j.a f67068h;
     public d.o.a.e.b.o.k i;
     public d.o.a.e.b.n.b j;
     public o l;
@@ -60,10 +60,10 @@ public class l implements Runnable {
     public volatile long p = -1;
 
     public l(DownloadInfo downloadInfo, j jVar, c cVar, o oVar, int i) {
-        this.f67062g = downloadInfo;
-        this.f67060e = jVar;
-        this.f67061f = cVar;
-        this.f67063h = d.o.a.e.b.j.a.d(downloadInfo.c0());
+        this.f67067g = downloadInfo;
+        this.f67065e = jVar;
+        this.f67066f = cVar;
+        this.f67068h = d.o.a.e.b.j.a.d(downloadInfo.c0());
         this.l = oVar;
         this.w = i;
     }
@@ -74,7 +74,7 @@ public class l implements Runnable {
     }
 
     public final void B() {
-        this.z = this.l.f67069d ? this.f67062g.B0() : this.f67062g.v();
+        this.z = this.l.f67074d ? this.f67067g.B0() : this.f67067g.v();
         this.A = 0;
     }
 
@@ -99,14 +99,14 @@ public class l implements Runnable {
         int i;
         a b2 = cVar.b();
         try {
-            i = inputStream.read(b2.f67017a, 0, Math.min(b2.f67017a.length, 1024));
+            i = inputStream.read(b2.f67022a, 0, Math.min(b2.f67022a.length, 1024));
         } catch (Throwable th) {
             th = th;
             i = -1;
         }
         try {
             if (i != -1) {
-                b2.f67019c = i;
+                b2.f67024c = i;
                 if (i == -1) {
                     cVar.a(b2);
                 }
@@ -125,7 +125,7 @@ public class l implements Runnable {
     public void c() {
         o oVar = this.l;
         try {
-            synchronized (this.f67060e) {
+            synchronized (this.f67065e) {
                 long p = p();
                 if (p > 0) {
                     this.q += p;
@@ -146,11 +146,11 @@ public class l implements Runnable {
             if (bVar.a()) {
                 return;
             }
-            int i = bVar.f67196c;
-            throw new com.ss.android.socialbase.downloader.exception.b(1004, i, "2: response code error : " + bVar.f67196c + " segment=" + iVar);
+            int i = bVar.f67201c;
+            throw new com.ss.android.socialbase.downloader.exception.b(1004, i, "2: response code error : " + bVar.f67201c + " segment=" + iVar);
         }
-        int i2 = bVar.f67196c;
-        throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "1: response code error : " + bVar.f67196c + " segment=" + iVar);
+        int i2 = bVar.f67201c;
+        throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "1: response code error : " + bVar.f67201c + " segment=" + iVar);
     }
 
     public void e(Future future) {
@@ -190,8 +190,8 @@ public class l implements Runnable {
 
     public final boolean h(BaseException baseException) {
         if (d.o.a.e.b.l.e.q0(baseException)) {
-            String str = this.l.f67066a;
-            if (TextUtils.isEmpty(str) || !str.startsWith("https") || !this.f67062g.B1() || this.D) {
+            String str = this.l.f67071a;
+            if (TextUtils.isEmpty(str) || !str.startsWith("https") || !this.f67067g.B1() || this.D) {
                 return false;
             }
             this.D = true;
@@ -258,7 +258,7 @@ public class l implements Runnable {
         d.o.a.e.b.c.a.j("SegmentReader", "handleDownloadFailed:  e = " + baseException + ", curRetryCount = " + this.A + ", retryCount = " + this.z);
         this.E = baseException;
         this.l.e();
-        this.f67060e.c(this, this.l, iVar, baseException, this.A, this.z);
+        this.f67065e.c(this, this.l, iVar, baseException, this.A, this.z);
         int i = this.A;
         if (i < this.z) {
             this.A = i + 1;
@@ -266,7 +266,7 @@ public class l implements Runnable {
         } else if (h(baseException)) {
             return true;
         } else {
-            this.f67060e.i(this, this.l, iVar, baseException);
+            this.f67065e.i(this, this.l, iVar, baseException);
             return false;
         }
     }
@@ -289,7 +289,7 @@ public class l implements Runnable {
 
     public long l() {
         long p;
-        synchronized (this.f67060e) {
+        synchronized (this.f67065e) {
             p = this.q + p();
         }
         return p;
@@ -308,7 +308,7 @@ public class l implements Runnable {
     public final void n(i iVar) throws BaseException, com.ss.android.socialbase.downloader.exception.h {
         q(iVar);
         d(iVar, this.j);
-        this.f67060e.d(this, iVar, this.l, this.j);
+        this.f67065e.d(this, iVar, this.l, this.j);
         this.l.g();
     }
 
@@ -317,7 +317,7 @@ public class l implements Runnable {
     }
 
     public long p() {
-        synchronized (this.f67060e) {
+        synchronized (this.f67065e) {
             long j = this.p;
             long j2 = this.m;
             if (j2 < 0 || j <= j2) {
@@ -337,19 +337,19 @@ public class l implements Runnable {
                 this.o = iVar.l();
                 this.p = this.m;
                 this.G = new d.o.a.e.b.l.d();
-                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f67062g.S(), this.f67062g.U0(), this.m, this.o);
+                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f67067g.S(), this.f67067g.U0(), this.m, this.o);
                 q.add(new com.ss.android.socialbase.downloader.model.c("Segment-Index", String.valueOf(iVar.m())));
                 q.add(new com.ss.android.socialbase.downloader.model.c("Thread-Index", String.valueOf(this.w)));
-                d.o.a.e.b.l.e.B(q, this.f67062g);
-                String str = this.l.f67066a;
+                d.o.a.e.b.l.e.B(q, this.f67067g);
+                String str = this.l.f67071a;
                 if (this.D && !TextUtils.isEmpty(str) && str.startsWith("https")) {
                     str = str.replaceFirst("https", "http");
                 }
-                String str2 = this.l.f67067b;
+                String str2 = this.l.f67072b;
                 d.o.a.e.b.c.a.h("SegmentReader", "createConnectionBegin: url = " + str + ", ip = " + str2 + ", segment = " + iVar + ", threadIndex = " + this.w);
                 this.L = str;
                 this.M = str2;
-                d.o.a.e.b.o.k w = d.o.a.e.b.g.d.w(this.f67062g.A1(), this.f67062g.j0(), str, str2, q, 0, currentTimeMillis - this.B > 3000 && this.f67063h.m("monitor_download_connect") > 0, this.f67062g);
+                d.o.a.e.b.o.k w = d.o.a.e.b.g.d.w(this.f67067g.A1(), this.f67067g.j0(), str, str2, q, 0, currentTimeMillis - this.B > 3000 && this.f67068h.m("monitor_download_connect") > 0, this.f67067g);
                 if (w != null) {
                     this.i = w;
                     this.j = new d.o.a.e.b.n.b(str, w);
@@ -382,10 +382,10 @@ public class l implements Runnable {
         Process.setThreadPriority(10);
         try {
             this.v = Thread.currentThread();
-            this.f67060e.a(this);
+            this.f67065e.a(this);
             this.l.d(this);
             while (true) {
-                e2 = this.f67060e.e(this, this.l);
+                e2 = this.f67065e.e(this, this.l);
                 if (e2 == null) {
                     d.o.a.e.b.c.a.h("SegmentReader", "no more segment, thread_index = " + this.w);
                     break;
@@ -393,21 +393,21 @@ public class l implements Runnable {
                 try {
                     try {
                     } catch (Throwable th) {
-                        this.f67060e.g(this, e2);
+                        this.f67065e.g(this, e2);
                         throw th;
                     }
                 } catch (com.ss.android.socialbase.downloader.f.j unused) {
                     if (this.y >= 50) {
                         d.o.a.e.b.c.a.j("SegmentReader", "segment apply failed " + this.y + "times, thread_index = " + this.w);
-                        fVar = this.f67060e;
+                        fVar = this.f67065e;
                         break;
                     }
                     this.y++;
-                    fVar2 = this.f67060e;
+                    fVar2 = this.f67065e;
                 }
                 if (i(e2)) {
                     this.k.add(e2);
-                    fVar2 = this.f67060e;
+                    fVar2 = this.f67065e;
                     fVar2.g(this, e2);
                 } else if (!this.s) {
                     d.o.a.e.b.c.a.j("SegmentReader", "download segment failed, segment = " + e2 + ", thread_index = " + this.w + ", failedException = " + this.E);
@@ -416,10 +416,10 @@ public class l implements Runnable {
                     break;
                 }
             }
-            fVar = this.f67060e;
+            fVar = this.f67065e;
             fVar.g(this, e2);
             this.l.f(this);
-            this.f67060e.b(this);
+            this.f67065e.b(this);
         } catch (Throwable unused2) {
         }
         this.v = null;
@@ -429,109 +429,109 @@ public class l implements Runnable {
         return this.p;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:209:0x0319 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:242:0x0300 */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x015b, code lost:
-        r15.f67019c = (int) (r6 - (r13 - r21));
-        r13 = r21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:101:0x015f, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:208:0x0317 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:239:0x02fe */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x015d, code lost:
         r31.p = r13;
         r8.b(r15);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x0162, code lost:
         r6 = new java.lang.StringBuilder();
         r6.append("loopAndRead: bytesRead = ");
         r29 = r11;
         r6.append(r13 - r4);
         r6.append(", url = ");
-        r6.append(r31.l.f67066a);
+        r6.append(r31.l.f67071a);
         d.o.a.e.b.c.a.h("SegmentReader", r6.toString());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x018a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0188, code lost:
         r9 = r8;
         r23 = r13;
         r6 = r29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x0228, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x0226, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x0229, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x0227, code lost:
         r9 = r8;
         r23 = r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:140:0x022e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x022c, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:151:0x0253, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x0251, code lost:
         r9 = r8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00ce, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x00cc, code lost:
         r11 = r6 + 1;
         r26 = r9;
         r8 = r23 - r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00d4, code lost:
         if (r8 <= r13) goto L191;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00d8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00d6, code lost:
         d.o.a.e.b.c.a.j("SegmentReader", "loopAndRead: redundant = " + r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x00ee, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00ec, code lost:
         r31.p = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00f0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00ee, code lost:
         r23 = r11;
         r9 = r26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00f5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00f3, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x00f6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00f4, code lost:
         r23 = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00f9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00f7, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x010a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0108, code lost:
         throw new com.ss.android.socialbase.downloader.f.p("loopAndRead");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x0111, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x010f, code lost:
         r9 = r26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0137, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0135, code lost:
         r8 = r26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x0139, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x0137, code lost:
         r8.b(r15);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x013c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x013a, code lost:
         r6 = r11;
         r9 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x0141, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x013f, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x0144, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x0142, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:97:0x0150, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x014e, code lost:
         r21 = r11 + 1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:98:0x0154, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x0152, code lost:
         if (r13 <= r21) goto L102;
      */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0159, code lost:
+        r15.f67024c = (int) (r6 - (r13 - r21));
+        r13 = r21;
+     */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01f0  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x01fd  */
-    /* JADX WARN: Removed duplicated region for block: B:212:0x032a  */
-    /* JADX WARN: Removed duplicated region for block: B:218:0x033b  */
-    /* JADX WARN: Removed duplicated region for block: B:221:0x0348  */
-    /* JADX WARN: Removed duplicated region for block: B:240:0x01e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:250:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:282:0x0137 A[EDGE_INSN: B:282:0x0137->B:87:0x0137 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:283:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0147  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x01ee  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x01fb  */
+    /* JADX WARN: Removed duplicated region for block: B:211:0x0328  */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x0339  */
+    /* JADX WARN: Removed duplicated region for block: B:220:0x0346  */
+    /* JADX WARN: Removed duplicated region for block: B:235:0x01de A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:247:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:279:0x0135 A[EDGE_INSN: B:279:0x0135->B:86:0x0135 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:280:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x0145  */
     /* JADX WARN: Type inference failed for: r6v0 */
     /* JADX WARN: Type inference failed for: r6v1 */
     /* JADX WARN: Type inference failed for: r6v5 */
@@ -557,7 +557,7 @@ public class l implements Runnable {
         e eVar4;
         long j3;
         long j4;
-        c cVar = this.f67061f;
+        c cVar = this.f67066f;
         this.J = System.currentTimeMillis();
         long i = iVar.i();
         boolean z = false;
@@ -570,12 +570,13 @@ public class l implements Runnable {
                             if (inputStream != null) {
                                 long h2 = this.j.h();
                                 long j5 = 0;
-                                if (h2 != 0) {
+                                int i2 = (h2 > 0L ? 1 : (h2 == 0L ? 0 : -1));
+                                if (i2 != 0) {
                                     aVar = b(cVar, inputStream);
                                     try {
                                         if (!this.t && !this.s) {
-                                            this.f67060e.f(this, iVar);
-                                            eVar = this.f67060e.j(this, iVar);
+                                            this.f67065e.f(this, iVar);
+                                            eVar = this.f67065e.j(this, iVar);
                                             try {
                                                 if (iVar.l() > 0) {
                                                     try {
@@ -602,7 +603,7 @@ public class l implements Runnable {
                                                         } catch (Throwable th2) {
                                                             th = th2;
                                                             r6 = 0;
-                                                            this.f67060e.h(this, iVar);
+                                                            this.f67065e.h(this, iVar);
                                                             d.o.a.e.b.l.e.C(inputStream);
                                                             if (eVar != null) {
                                                                 if (aVar == null) {
@@ -615,12 +616,12 @@ public class l implements Runnable {
                                                                         }
                                                                         this.K = System.currentTimeMillis();
                                                                         if (j > i) {
-                                                                            d.o.a.e.b.e.a.g(this.f67063h, this.f67062g, this.L, this.M, this.N, this.s || this.t, this.i, this.E, j - i, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
+                                                                            d.o.a.e.b.e.a.g(this.f67068h, this.f67067g, this.L, this.M, this.N, this.s || this.t, this.i, this.E, j - i, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
                                                                         }
                                                                         throw th;
                                                                     }
                                                                 }
-                                                                aVar.f67019c = -1;
+                                                                aVar.f67024c = -1;
                                                                 eVar.b(aVar);
                                                                 aVar2 = r6;
                                                                 if (aVar2 != null) {
@@ -640,16 +641,16 @@ public class l implements Runnable {
                                                         }
                                                     }
                                                 } else {
-                                                    l = h2 > 0 ? (h2 + i) - 1 : Long.MAX_VALUE;
+                                                    l = i2 > 0 ? (h2 + i) - 1 : Long.MAX_VALUE;
                                                 }
-                                                long j6 = aVar.f67019c;
+                                                long j6 = aVar.f67024c;
                                                 j = i + j6;
                                                 try {
                                                     if (j > l) {
                                                         long j7 = l + 1;
                                                         if (j > j7) {
                                                             try {
-                                                                aVar.f67019c = (int) (j6 - (j - j7));
+                                                                aVar.f67024c = (int) (j6 - (j - j7));
                                                                 j2 = j7;
                                                                 this.p = j2;
                                                                 eVar.b(aVar);
@@ -676,8 +677,8 @@ public class l implements Runnable {
                                                                                                             eVar2 = eVar;
                                                                                                             l = C;
                                                                                                             aVar = cVar.b();
-                                                                                                            read = inputStream.read(aVar.f67017a);
-                                                                                                            aVar.f67019c = read;
+                                                                                                            read = inputStream.read(aVar.f67022a);
+                                                                                                            aVar.f67024c = read;
                                                                                                             if (read == -1) {
                                                                                                                 break;
                                                                                                             }
@@ -740,8 +741,8 @@ public class l implements Runnable {
                                                                                         throw null;
                                                                                     }
                                                                                 }
-                                                                                read = inputStream.read(aVar.f67017a);
-                                                                                aVar.f67019c = read;
+                                                                                read = inputStream.read(aVar.f67022a);
+                                                                                aVar.f67024c = read;
                                                                                 if (read == -1) {
                                                                                 }
                                                                             } catch (BaseException e7) {
@@ -783,13 +784,13 @@ public class l implements Runnable {
                                                                         throw null;
                                                                     }
                                                                 }
-                                                                this.f67060e.h(this, iVar);
+                                                                this.f67065e.h(this, iVar);
                                                                 d.o.a.e.b.l.e.C(inputStream);
                                                                 if (eVar != null) {
                                                                     try {
                                                                         a b2 = cVar.b();
                                                                         try {
-                                                                            b2.f67019c = -1;
+                                                                            b2.f67024c = -1;
                                                                             eVar.b(b2);
                                                                         } catch (Throwable unused2) {
                                                                             aVar3 = b2;
@@ -803,7 +804,7 @@ public class l implements Runnable {
                                                                 }
                                                                 this.K = System.currentTimeMillis();
                                                                 if (j <= i) {
-                                                                    d.o.a.e.b.e.a.g(this.f67063h, this.f67062g, this.L, this.M, this.N, this.s || this.t, this.i, this.E, j - i, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
+                                                                    d.o.a.e.b.e.a.g(this.f67068h, this.f67067g, this.L, this.M, this.N, this.s || this.t, this.i, this.E, j - i, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
                                                                     return;
                                                                 }
                                                                 return;
@@ -830,8 +831,8 @@ public class l implements Runnable {
                                                         }
                                                         eVar2 = eVar;
                                                         aVar = cVar.b();
-                                                        read = inputStream.read(aVar.f67017a);
-                                                        aVar.f67019c = read;
+                                                        read = inputStream.read(aVar.f67022a);
+                                                        aVar.f67024c = read;
                                                         if (read == -1) {
                                                         }
                                                         eVar = eVar4;
@@ -842,7 +843,7 @@ public class l implements Runnable {
                                                     }
                                                     if (C <= 0) {
                                                     }
-                                                    this.f67060e.h(this, iVar);
+                                                    this.f67065e.h(this, iVar);
                                                     d.o.a.e.b.l.e.C(inputStream);
                                                     if (eVar != null) {
                                                     }
@@ -901,7 +902,7 @@ public class l implements Runnable {
             }
         } catch (Throwable th18) {
             th = th18;
-            this.f67060e.h(this, iVar);
+            this.f67065e.h(this, iVar);
             d.o.a.e.b.l.e.C(inputStream);
             if (eVar != null) {
             }

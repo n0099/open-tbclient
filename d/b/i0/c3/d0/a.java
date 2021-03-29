@@ -12,7 +12,7 @@ import d.b.h0.v0.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f53332a = 1;
+    public static int f53333a = 1;
 
     public static String a(String str, int i) {
         return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
@@ -70,7 +70,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.h(z);
         bVar.f(dupLicateMode);
-        bVar.setRetry(f53332a);
+        bVar.setRetry(f53333a);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);

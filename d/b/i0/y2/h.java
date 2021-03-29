@@ -8,59 +8,59 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62641a;
+    public int f62642a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62642b;
+    public String f62643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62643c;
+    public int f62644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62644d;
+    public String f62645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62645e;
+    public int f62646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62646f;
+    public String f62647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f62647g = new a();
+    public a f62648g = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<i> f62648h = new ArrayList<>();
+    public ArrayList<i> f62649h = new ArrayList<>();
 
     public int a() {
-        return this.f62645e;
+        return this.f62646e;
     }
 
     public a b() {
-        return this.f62647g;
+        return this.f62648g;
     }
 
     public String c() {
-        return this.f62646f;
+        return this.f62647f;
     }
 
     public ArrayList<i> d() {
-        return this.f62648h;
+        return this.f62649h;
     }
 
     public int e() {
-        return this.f62643c;
+        return this.f62644c;
     }
 
     public String f() {
-        return this.f62642b;
+        return this.f62643b;
     }
 
     public String g() {
-        return this.f62644d;
+        return this.f62645d;
     }
 
     public int h() {
-        return this.f62641a;
+        return this.f62642a;
     }
 
     public void i(String str) {
@@ -79,13 +79,13 @@ public class h {
             return;
         }
         try {
-            this.f62647g.c(jSONObject.optJSONObject("error"));
-            this.f62641a = jSONObject.optInt("show_dialog");
-            this.f62642b = jSONObject.optString("sign_notice");
-            this.f62643c = jSONObject.optInt("is_timeout");
-            this.f62644d = jSONObject.optString("timeout_notice");
-            this.f62645e = jSONObject.optInt("error_code");
-            this.f62646f = jSONObject.optString("error_msg");
+            this.f62648g.c(jSONObject.optJSONObject("error"));
+            this.f62642a = jSONObject.optInt("show_dialog");
+            this.f62643b = jSONObject.optString("sign_notice");
+            this.f62644c = jSONObject.optInt("is_timeout");
+            this.f62645d = jSONObject.optString("timeout_notice");
+            this.f62646e = jSONObject.optInt("error_code");
+            this.f62647f = jSONObject.optString("error_msg");
             JSONArray optJSONArray = jSONObject.optJSONArray("info");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
@@ -93,7 +93,7 @@ public class h {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     i iVar = new i();
                     iVar.f(jSONObject2);
-                    this.f62648h.add(iVar);
+                    this.f62649h.add(iVar);
                 }
             }
         } catch (Exception e2) {

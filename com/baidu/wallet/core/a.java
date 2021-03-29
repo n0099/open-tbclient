@@ -10,13 +10,13 @@ import java.io.IOException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24215a = "HttpCache";
+    public static final String f24216a = "HttpCache";
 
     public static void a(Context context) {
         try {
             HttpResponseCache.install(new File(context.getCacheDir(), "http"), Config.FULL_TRACE_LOG_LIMIT);
         } catch (IOException e2) {
-            LogUtil.i(f24215a, "HTTP response cache installation failed:" + e2);
+            LogUtil.i(f24216a, "HTTP response cache installation failed:" + e2);
         }
     }
 

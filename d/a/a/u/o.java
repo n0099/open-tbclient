@@ -6,7 +6,7 @@ import java.io.IOException;
 public class o implements j0<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f41431a = new o();
+    public static final o f41432a = new o();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.u.j0

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.ubc.Flow;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PlayerEmptyFlow implements IUbcFlow {
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void cancelFlow() {

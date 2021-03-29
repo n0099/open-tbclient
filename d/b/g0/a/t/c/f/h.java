@@ -15,118 +15,118 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends d.b.g0.a.t.b.d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46050e;
+        public final /* synthetic */ String f46051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46051f;
+        public final /* synthetic */ int f46052f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f46052g;
+        public final /* synthetic */ boolean f46053g;
 
         public a(String str, int i, boolean z) {
-            this.f46050e = str;
-            this.f46051f = i;
-            this.f46052g = z;
+            this.f46051e = str;
+            this.f46052f = i;
+            this.f46053g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h hVar = h.this;
-            hVar.I(hVar.h(), this.f46050e, this.f46051f, this.f46052g);
+            hVar.I(hVar.h(), this.f46051e, this.f46052f, this.f46053g);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46054e;
+        public final /* synthetic */ String f46055e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46055f;
+        public final /* synthetic */ int f46056f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Drawable f46056g;
+        public final /* synthetic */ Drawable f46057g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f46057h;
+        public final /* synthetic */ boolean f46058h;
 
         public b(String str, int i, Drawable drawable, boolean z) {
-            this.f46054e = str;
-            this.f46055f = i;
-            this.f46056g = drawable;
-            this.f46057h = z;
+            this.f46055e = str;
+            this.f46056f = i;
+            this.f46057g = drawable;
+            this.f46058h = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h hVar = h.this;
-            hVar.G(hVar.h(), this.f46054e, this.f46055f, this.f46056g, this.f46057h);
+            hVar.G(hVar.h(), this.f46055e, this.f46056f, this.f46057g, this.f46058h);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46058e;
+        public final /* synthetic */ String f46059e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46059f;
+        public final /* synthetic */ int f46060f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f46060g;
+        public final /* synthetic */ boolean f46061g;
 
         public c(String str, int i, boolean z) {
-            this.f46058e = str;
-            this.f46059f = i;
-            this.f46060g = z;
+            this.f46059e = str;
+            this.f46060f = i;
+            this.f46061g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h hVar = h.this;
-            hVar.H(hVar.h(), this.f46058e, this.f46059f, this.f46060g);
+            hVar.H(hVar.h(), this.f46059e, this.f46060f, this.f46061g);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46062e;
+        public final /* synthetic */ String f46063e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46063f;
+        public final /* synthetic */ int f46064f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46064g;
+        public final /* synthetic */ String f46065g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46065h;
+        public final /* synthetic */ String f46066h;
 
         public d(String str, int i, String str2, String str3) {
-            this.f46062e = str;
-            this.f46063f = i;
-            this.f46064g = str2;
-            this.f46065h = str3;
+            this.f46063e = str;
+            this.f46064f = i;
+            this.f46065g = str2;
+            this.f46066h = str3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h hVar = h.this;
-            hVar.F(hVar.h(), this.f46062e, this.f46063f, this.f46064g, this.f46065h);
+            hVar.F(hVar.h(), this.f46063e, this.f46064f, this.f46065g, this.f46066h);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements Runnable {
         public e(h hVar) {
         }
@@ -137,22 +137,22 @@ public class h extends d.b.g0.a.t.b.d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46066a;
+        public final /* synthetic */ String f46067a;
 
         public f(String str) {
-            this.f46066a = str;
+            this.f46067a = str;
         }
 
         @Override // d.b.g0.a.q1.b.f.d.a
         public void a() {
-            if (TextUtils.isEmpty(this.f46066a)) {
+            if (TextUtils.isEmpty(this.f46067a)) {
                 return;
             }
-            h.this.c(this.f46066a, new d.b.g0.a.t.e.b(0));
+            h.this.c(this.f46067a, new d.b.g0.a.t.e.b(0));
         }
     }
 
@@ -203,19 +203,19 @@ public class h extends d.b.g0.a.t.b.d {
 
     public static Drawable E(Context context, String str, d.b.g0.a.r1.e eVar) {
         if (!TextUtils.isEmpty(str) && eVar != null && context != null) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 Log.e("Api-ToastApi", "imagePath = " + str);
             }
             ExifInterface z = z(str);
             if (z == null) {
-                if (d.b.g0.a.t.b.d.f45928c) {
+                if (d.b.g0.a.t.b.d.f45929c) {
                     Log.e("Api-ToastApi", "exifInterface is null");
                 }
                 return null;
             }
             int intValue = Integer.valueOf(z.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
             int intValue2 = Integer.valueOf(z.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 Log.e("Api-ToastApi", "width = " + intValue + "， height = " + intValue2);
             }
             File file = new File(str);
@@ -223,14 +223,14 @@ public class h extends d.b.g0.a.t.b.d {
                 try {
                     return new BitmapDrawable(context.getResources(), BitmapFactory.decodeStream(new FileInputStream(file)));
                 } catch (FileNotFoundException e2) {
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         Log.e("Api-ToastApi", "FileNotFoundException");
                         e2.printStackTrace();
                         return null;
                     }
                     return null;
                 }
-            } else if (d.b.g0.a.t.b.d.f45928c) {
+            } else if (d.b.g0.a.t.b.d.f45929c) {
                 Log.e("Api-ToastApi", "image file not exists");
             }
         }
@@ -268,13 +268,13 @@ public class h extends d.b.g0.a.t.b.d {
     }
 
     public final void C() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.w("Api-ToastApi", "the toast type is unknown");
         }
     }
 
     public d.b.g0.a.t.e.b D() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-ToastApi", "handle");
         }
         if (d.b.g0.a.r1.e.O() == null) {
@@ -317,7 +317,7 @@ public class h extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b J(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-ToastApi", "handle: " + str);
         }
         if (k()) {
@@ -331,7 +331,7 @@ public class h extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-ToastApi", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-ToastApi", "parse fail");
             }
             return bVar;
@@ -347,7 +347,7 @@ public class h extends d.b.g0.a.t.b.d {
         boolean optBoolean = jSONObject.optBoolean("mask");
         String optString3 = jSONObject.optString("image", "-1");
         Drawable E = E(h(), optString3, O);
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.e("Api-ToastApi", "imagepath = " + optString3);
         }
         if (!TextUtils.equals(optString3, "-1") && E == null && TextUtils.equals(optString, "2")) {

@@ -7,9 +7,9 @@ public final class m {
     public static String a(l lVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (lVar.f37261a != null && !lVar.f37261a.isEmpty()) {
+            if (lVar.f37262a != null && !lVar.f37262a.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (a aVar : lVar.f37261a) {
+                for (a aVar : lVar.f37262a) {
                     jSONArray.put(b.a(aVar));
                 }
                 jSONObject.put("adaptationSet", jSONArray);

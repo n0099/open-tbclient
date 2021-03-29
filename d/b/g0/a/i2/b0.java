@@ -11,7 +11,7 @@ public class b0 {
     }
 
     public static String b() {
-        if (d.b.g0.a.k.f45050a) {
+        if (d.b.g0.a.k.f45051a) {
             Log.d("SwanAppRefererUtils", "getFixedReferer: " + a("https://smartapps.cn/%s/%s/page-frame.html"));
         }
         return a("https://smartapps.cn/%s/%s/page-frame.html");
@@ -26,7 +26,7 @@ public class b0 {
         if (TextUtils.isEmpty(b2)) {
             return;
         }
-        if (d.b.g0.a.k.f45050a) {
+        if (d.b.g0.a.k.f45051a) {
             Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b2);
         }
         WebSettingsGlobalBlink.setRefererPattern(b2, d.b.g0.a.u0.d.e());

@@ -132,7 +132,7 @@ public class SchemaRouteActivity extends BaseActivity {
             c.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f49575b + f.k)) {
+                if (dataString.contains(f.f49576b + f.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(f.E);
                     String queryParameter2 = parse.getQueryParameter(f.F);

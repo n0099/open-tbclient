@@ -10,7 +10,7 @@ import javax.crypto.Cipher;
 public class RSA {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5389a = "RSA";
+    public static final String f5390a = "RSA";
 
     public static PublicKey a(byte[] bArr) {
         try {

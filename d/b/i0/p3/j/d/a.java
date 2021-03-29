@@ -12,19 +12,19 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f58964a;
+    public Context f58965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.p3.j.e.a f58965b;
+    public d.b.i0.p3.j.e.a f58966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f58966c;
+    public b f58967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.c f58967d;
+    public b.c f58968d;
 
     public a(Context context) {
-        this.f58964a = context;
+        this.f58965a = context;
     }
 
     public static void a(List<d.b.i0.p3.j.e.a> list, int i, String str, String str2) {
@@ -61,23 +61,23 @@ public class a {
     }
 
     public static String d() {
-        return d.b.i0.p3.c.f58889c + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+        return d.b.i0.p3.c.f58890c + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 
     public String b() {
-        d.b.i0.p3.j.e.a aVar = this.f58965b;
-        return (aVar == null || "normal".equalsIgnoreCase(aVar.f59004c)) ? "" : this.f58965b.f59004c;
+        d.b.i0.p3.j.e.a aVar = this.f58966b;
+        return (aVar == null || "normal".equalsIgnoreCase(aVar.f59005c)) ? "" : this.f58966b.f59005c;
     }
 
     public void e() {
-        b bVar = this.f58966c;
+        b bVar = this.f58967c;
         if (bVar != null) {
             bVar.e();
         }
     }
 
     public boolean f() {
-        b bVar = this.f58966c;
+        b bVar = this.f58967c;
         if (bVar != null) {
             return bVar.f();
         }
@@ -85,25 +85,25 @@ public class a {
     }
 
     public void g(String str, String str2) {
-        b bVar = this.f58966c;
+        b bVar = this.f58967c;
         if ((bVar == null || !bVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            b bVar2 = new b(this.f58964a, str, d(), str2);
-            this.f58966c = bVar2;
-            b.c cVar = this.f58967d;
+            b bVar2 = new b(this.f58965a, str, d(), str2);
+            this.f58967c = bVar2;
+            b.c cVar = this.f58968d;
             if (cVar != null) {
                 bVar2.h(cVar);
             }
-            this.f58966c.i();
+            this.f58967c.i();
         }
     }
 
     public void h(d.b.i0.p3.j.e.a aVar) {
-        this.f58965b = aVar;
+        this.f58966b = aVar;
     }
 
     public void i(b.c cVar) {
-        this.f58967d = cVar;
-        b bVar = this.f58966c;
+        this.f58968d = cVar;
+        b bVar = this.f58967c;
         if (bVar != null) {
             bVar.h(cVar);
         }

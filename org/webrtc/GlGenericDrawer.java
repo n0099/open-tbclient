@@ -6,7 +6,7 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
     public static final FloatBuffer FULL_RECTANGLE_BUFFER = GlUtil.createFloatBuffer(new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f});

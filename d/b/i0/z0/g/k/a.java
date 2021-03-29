@@ -37,39 +37,39 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.ThreadPersonalized;
 import tbclient.Personalized.UserFollowLive;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63207f;
+    public int f63208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63208g;
+    public int f63209g;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63204c = 0;
+    public int f63205c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.z0.g.l.c f63205d = new d.b.i0.z0.g.l.c();
+    public d.b.i0.z0.g.l.c f63206d = new d.b.i0.z0.g.l.c();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63206e = 0;
+    public int f63207e = 0;
     public Long j = 0L;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f63202a = new c();
+    public final c f63203a = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f63203b = d.b.h0.r.d0.b.i().j("home_page_max_thread_count", 300);
+    public final int f63204b = d.b.h0.r.d0.b.i().j("home_page_max_thread_count", 300);
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ThreadInfo> f63209h = new ArrayList<>();
+    public ArrayList<ThreadInfo> f63210h = new ArrayList<>();
     public ArrayList<App> i = new ArrayList<>();
 
     /* renamed from: d.b.i0.z0.g.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1702a implements Comparator<p> {
-        public C1702a(a aVar) {
+    /* loaded from: classes3.dex */
+    public class C1703a implements Comparator<p> {
+        public C1703a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends f {
         public final /* synthetic */ d.b.i0.x.e0.b l;
 
@@ -113,9 +113,9 @@ public class a {
     }
 
     public final d.b.i0.z0.g.j.f a() {
-        c cVar = this.f63202a;
-        if (cVar != null && !ListUtils.isEmpty(cVar.f63210a)) {
-            for (n nVar : this.f63202a.f63210a) {
+        c cVar = this.f63203a;
+        if (cVar != null && !ListUtils.isEmpty(cVar.f63211a)) {
+            for (n nVar : this.f63203a.f63211a) {
                 if (nVar instanceof d.b.i0.z0.g.j.f) {
                     return (d.b.i0.z0.g.j.f) nVar;
                 }
@@ -125,9 +125,9 @@ public class a {
     }
 
     public final g b() {
-        c cVar = this.f63202a;
-        if (cVar != null && !ListUtils.isEmpty(cVar.f63210a)) {
-            for (n nVar : this.f63202a.f63210a) {
+        c cVar = this.f63203a;
+        if (cVar != null && !ListUtils.isEmpty(cVar.f63211a)) {
+            for (n nVar : this.f63203a.f63211a) {
                 if (nVar instanceof g) {
                     return (g) nVar;
                 }
@@ -147,28 +147,28 @@ public class a {
             d.c(builder);
             d.c(builder2);
             m(z, builder, builder2, i);
-            List<ThreadInfo> n = n(builder, i, this.f63203b);
+            List<ThreadInfo> n = n(builder, i, this.f63204b);
             d.n(builder);
             List<p> d2 = d.d(builder);
             o(d2);
             List<n> f2 = f(builder.thread_list, d2, builder2.user_follow_live, i, 0, builder2);
             List<n> f3 = f(n, new ArrayList(), builder2.user_follow_live, i, 1, null);
-            this.f63205d.a(f2);
+            this.f63206d.a(f2);
             d.b.i0.z0.g.k.b.c(builder, f2);
-            c cVar = this.f63202a;
-            cVar.f63210a = f2;
-            cVar.f63212c = f3 == null ? 0 : f3.size();
-            return this.f63202a;
+            c cVar = this.f63203a;
+            cVar.f63211a = f2;
+            cVar.f63213c = f3 == null ? 0 : f3.size();
+            return this.f63203a;
         }
         return null;
     }
 
     public List<ThreadInfo> d() {
-        return this.f63209h;
+        return this.f63210h;
     }
 
     public int e() {
-        return this.f63203b;
+        return this.f63204b;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:113:0x0272  */
@@ -263,8 +263,8 @@ public class a {
                                 linkedList.add(g6);
                             }
                         } else {
-                            a2 a2Var3 = g6.f62196e;
-                            if (a2Var3 != null && a2Var3.h0() != null && !StringUtils.isNull(a2Var3.h0().f50916b)) {
+                            a2 a2Var3 = g6.f62197e;
+                            if (a2Var3 != null && a2Var3.h0() != null && !StringUtils.isNull(a2Var3.h0().f50917b)) {
                                 g6.l = a2Var2.w1();
                                 g6.position = i3;
                                 d.r(g6);
@@ -292,12 +292,12 @@ public class a {
                                     }
                                 }
                                 if (e2 != null && e2.isValid()) {
-                                    e2.f62196e.J1();
+                                    e2.f62197e.J1();
                                     if (!a2Var2.x2() && a2Var2.T() != null && z) {
                                         String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), a2Var2.T().getName_show());
                                         SpannableString spannableString = new SpannableString(format);
                                         spannableString.setSpan(new b(this, 16, a2Var2.T().getUserId(), e2), 0, format.length() - 1, 33);
-                                        e2.f62196e.K1(spannableString);
+                                        e2.f62197e.K1(spannableString);
                                     }
                                     linkedList.add(e2);
                                 }
@@ -371,12 +371,12 @@ public class a {
                     if (e2 != null) {
                     }
                     if (e2 != null) {
-                        e2.f62196e.J1();
+                        e2.f62197e.J1();
                         if (!a2Var2.x2()) {
                             String format2 = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), a2Var2.T().getName_show());
                             SpannableString spannableString2 = new SpannableString(format2);
                             spannableString2.setSpan(new b(this, 16, a2Var2.T().getUserId(), e2), 0, format2.length() - 1, 33);
-                            e2.f62196e.K1(spannableString2);
+                            e2.f62197e.K1(spannableString2);
                         }
                         linkedList.add(e2);
                     }
@@ -502,16 +502,16 @@ public class a {
     }
 
     public boolean h() {
-        ArrayList<ThreadInfo> arrayList = this.f63209h;
+        ArrayList<ThreadInfo> arrayList = this.f63210h;
         return (arrayList == null || ListUtils.isEmpty(arrayList)) ? false : true;
     }
 
     public final boolean i() {
-        return this.f63206e > 0;
+        return this.f63207e > 0;
     }
 
     public final void j(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.k(z, builder, builder2, i, this.f63204c, this.f63207f, this.f63208g);
+        d.k(z, builder, builder2, i, this.f63205c, this.f63208f, this.f63209g);
     }
 
     public final void k(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -525,14 +525,14 @@ public class a {
         if (builder == null || builder2 == null || (list = builder.thread_list) == null || (list2 = builder2.thread_list) == null) {
             return;
         }
-        this.f63207f = ListUtils.getCount(list);
+        this.f63208f = ListUtils.getCount(list);
         BannerList bannerList = builder.banner_list;
         if (bannerList != null) {
-            this.f63208g = ListUtils.getCount(bannerList.app);
+            this.f63209g = ListUtils.getCount(bannerList.app);
         } else {
-            this.f63208g = 0;
+            this.f63209g = 0;
         }
-        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f63209h);
+        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f63210h);
         HashSet hashSet = new HashSet();
         HashSet hashSet2 = new HashSet();
         ArrayList arrayList = new ArrayList();
@@ -545,7 +545,7 @@ public class a {
         }
         HashSet hashSet3 = new HashSet();
         HashSet hashSet4 = new HashSet();
-        Iterator<ThreadInfo> it = this.f63209h.iterator();
+        Iterator<ThreadInfo> it = this.f63210h.iterator();
         while (it.hasNext()) {
             ThreadInfo next = it.next();
             if (next != null && !TextUtils.isEmpty(next.lego_card)) {
@@ -556,7 +556,7 @@ public class a {
         }
         if (i == 1) {
             if (!ListUtils.isEmpty(list2)) {
-                this.f63205d.b((ThreadInfo) ListUtils.getItem(list2, 0));
+                this.f63206d.b((ThreadInfo) ListUtils.getItem(list2, 0));
             }
             for (ThreadInfo threadInfo2 : list2) {
                 if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
@@ -572,7 +572,7 @@ public class a {
                 }
             }
         } else {
-            this.f63205d.c(z, list);
+            this.f63206d.c(z, list);
             if (i()) {
                 BannerList bannerList2 = builder.banner_list;
                 if (bannerList2 != null && !ListUtils.isEmpty(bannerList2.app)) {
@@ -581,18 +581,18 @@ public class a {
                     builder3.app = new LinkedList();
                     builder.banner_list = builder3.build(false);
                 }
-                this.f63209h.addAll(0, list);
+                this.f63210h.addAll(0, list);
                 list.clear();
                 hashSet.clear();
                 hashSet2.clear();
-                if (ListUtils.getCount(this.f63209h) > this.f63203b) {
-                    for (int size = this.f63209h.size() - 1; size >= this.f63203b; size--) {
-                        this.f63209h.remove(size);
+                if (ListUtils.getCount(this.f63210h) > this.f63204b) {
+                    for (int size = this.f63210h.size() - 1; size >= this.f63204b; size--) {
+                        this.f63210h.remove(size);
                     }
                 }
                 hashSet3.clear();
                 hashSet4.clear();
-                Iterator<ThreadInfo> it2 = this.f63209h.iterator();
+                Iterator<ThreadInfo> it2 = this.f63210h.iterator();
                 while (it2.hasNext()) {
                     ThreadInfo next2 = it2.next();
                     if (next2 != null && !TextUtils.isEmpty(next2.lego_card)) {
@@ -631,9 +631,9 @@ public class a {
                     }
                 }
             }
-            if (ListUtils.getCount(list) >= this.f63206e) {
-                list.addAll(this.f63209h);
-                this.f63209h.clear();
+            if (ListUtils.getCount(list) >= this.f63207e) {
+                list.addAll(this.f63210h);
+                this.f63210h.clear();
                 BannerList.Builder builder5 = new BannerList.Builder(builder.banner_list);
                 if (builder5.app == null) {
                     builder5.app = new LinkedList();
@@ -643,9 +643,9 @@ public class a {
                 this.i.clear();
             }
         }
-        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f63209h)) - count;
-        this.f63202a.f63211b = count4;
-        this.f63204c = count4;
+        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f63210h)) - count;
+        this.f63203a.f63212b = count4;
+        this.f63205c = count4;
         d.b.i0.r2.b0.b.f().h("NEWINDEX", arrayList);
     }
 
@@ -662,12 +662,12 @@ public class a {
         }
         Integer num = builder2.fresh_ctrl_num;
         int intValue = (num == null || num.intValue() <= 0) ? 0 : builder2.fresh_ctrl_num.intValue();
-        this.f63206e = intValue;
-        int i2 = this.f63203b;
+        this.f63207e = intValue;
+        int i2 = this.f63204b;
         if (intValue > i2) {
             intValue = i2;
         }
-        this.f63206e = intValue;
+        this.f63207e = intValue;
         k(z, builder, builder2, i);
         j(z, builder, builder2, i);
         l(builder.thread_personalized, builder2.thread_personalized);
@@ -696,6 +696,6 @@ public class a {
         if (list == null) {
             return;
         }
-        Collections.sort(list, new C1702a(this));
+        Collections.sort(list, new C1703a(this));
     }
 }

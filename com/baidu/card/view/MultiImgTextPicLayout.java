@@ -31,21 +31,21 @@ import d.b.i.p;
 import d.b.i0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public static final int y;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4431e;
+    public TextView f4432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4432f;
+    public TextView f4433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4433g;
+    public PlayVoiceBntNew f4434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f4434h;
+    public RelativeLayout f4435h;
     public TbImageView i;
     public TbImageView j;
     public TbImageView k;
@@ -63,7 +63,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
     public boolean w;
     public TbImageView.g x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -78,7 +78,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements d.b.h0.b1.j.d {
         public b() {
         }
@@ -89,7 +89,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
             if (subClickListener != null) {
                 view.setTag("1");
                 MultiImgTextPicLayout.this.q.objType = 2;
-                subClickListener.f62183a = Boolean.valueOf(z);
+                subClickListener.f62184a = Boolean.valueOf(z);
                 subClickListener.a(view, MultiImgTextPicLayout.this.q);
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().q) {
@@ -104,7 +104,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements TbImageView.g {
         public c() {
         }
@@ -213,32 +213,32 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4438e;
+        public int f4439e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f4439f;
+        public boolean f4440f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f4440g;
+        public boolean f4441g;
 
         public d(int i, boolean z, boolean z2) {
             a(i, z, z2);
         }
 
         public void a(int i, boolean z, boolean z2) {
-            this.f4438e = i;
-            this.f4439f = z;
-            this.f4440g = z2;
+            this.f4439e = i;
+            this.f4440f = z;
+            this.f4441g = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (MultiImgTextPicLayout.this.s != null) {
-                MultiImgTextPicLayout.this.s.a(view, this.f4438e, this.f4439f && this.f4440g);
+                MultiImgTextPicLayout.this.s.a(view, this.f4439e, this.f4440f && this.f4441g);
             }
         }
     }
@@ -268,7 +268,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
             this.t = linkedList;
             if (linkedList.size() == 1) {
                 this.l.setVisibility(8);
-                this.f4434h.setVisibility(8);
+                this.f4435h.setVisibility(8);
                 this.m.setVisibility(0);
                 l((MediaData) ListUtils.getItem(K0, 0), this.m, false, false, 0);
                 return;
@@ -283,16 +283,16 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
                 this.l.setVisibility(8);
                 z = false;
             }
-            this.f4434h.setVisibility(8);
+            this.f4435h.setVisibility(8);
             if (ListUtils.getCount(linkedList) == 2) {
-                this.f4434h.setVisibility(0);
+                this.f4435h.setVisibility(0);
                 boolean z2 = z;
                 l((MediaData) ListUtils.getItem(K0, 0), this.i, z2, false, 0);
                 this.j.setVisibility(8);
                 l((MediaData) ListUtils.getItem(K0, 1), this.k, z2, false, 1);
                 return;
             } else if (ListUtils.getCount(linkedList) >= 3) {
-                this.f4434h.setVisibility(0);
+                this.f4435h.setVisibility(0);
                 this.j.setVisibility(0);
                 boolean z3 = z;
                 l((MediaData) ListUtils.getItem(K0, 0), this.i, z3, false, 0);
@@ -300,11 +300,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
                 l((MediaData) ListUtils.getItem(K0, 2), this.k, z3, true, 2);
                 return;
             } else {
-                this.f4434h.setVisibility(8);
+                this.f4435h.setVisibility(8);
                 return;
             }
         }
-        this.f4434h.setVisibility(8);
+        this.f4435h.setVisibility(8);
     }
 
     private void setImageTextData(a2 a2Var) {
@@ -312,7 +312,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
 
     private void setSingleImgData(a2 a2Var) {
         this.l.setVisibility(8);
-        this.f4434h.setVisibility(8);
+        this.f4435h.setVisibility(8);
         ArrayList<MediaData> K0 = a2Var.K0();
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
@@ -347,18 +347,18 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
     private void setVoiceData(a2 a2Var) {
         ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
         if (ListUtils.isEmpty(H1)) {
-            this.f4433g.setVisibility(8);
+            this.f4434g.setVisibility(8);
             return;
         }
-        this.f4433g.setVisibility(0);
+        this.f4434g.setVisibility(0);
         VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
-        this.f4433g.setVoiceModel(voiceData$VoiceModel);
-        this.f4433g.setTag(voiceData$VoiceModel);
-        this.f4433g.d();
+        this.f4434g.setVoiceModel(voiceData$VoiceModel);
+        this.f4434g.setTag(voiceData$VoiceModel);
+        this.f4434g.d();
         if (voiceData$VoiceModel != null) {
-            this.f4433g.m(voiceData$VoiceModel.voice_status.intValue());
+            this.f4434g.m(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4433g.o();
+        this.f4434g.o();
     }
 
     public final int g(int i) {
@@ -396,18 +396,18 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_card_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4432f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4431e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4433f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4432e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4433g = playVoiceBntNew;
+        this.f4434g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
         int k = ((l.k(getContext()) - (l0.i * 2)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
-        this.f4434h = relativeLayout;
+        this.f4435h = relativeLayout;
         d.b.h0.b.g.b.b(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
-        d.b.h0.b.g.b.k(this.f4431e, R.dimen.tbds7, R.dimen.tbds10);
-        d.b.h0.b.g.b.k(this.f4432f, R.dimen.tbds7, R.dimen.tbds10);
-        this.f4434h.getLayoutParams().height = k;
+        d.b.h0.b.g.b.k(this.f4432e, R.dimen.tbds7, R.dimen.tbds10);
+        d.b.h0.b.g.b.k(this.f4433f, R.dimen.tbds7, R.dimen.tbds10);
+        this.f4435h.getLayoutParams().height = k;
         TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_more_one);
         this.i = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -456,8 +456,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
     public void a(d.b.h0.r.q.a aVar) {
         this.q = aVar;
         a2 n = aVar.n();
-        ThreadCardUtils.setTitle(this.f4431e, n, this.w);
-        ThreadCardUtils.setAbstract(this.f4432f, this.f4431e, n, y, this.w);
+        ThreadCardUtils.setTitle(this.f4432e, n, this.w);
+        ThreadCardUtils.setAbstract(this.f4433f, this.f4432e, n, y, this.w);
         setImageData(n);
         setVoiceData(n);
     }
@@ -524,7 +524,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<d.b.h0.r.q.
         RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
         layoutParams4.width = g2;
         layoutParams4.height = g2;
-        if (this.f4434h.getVisibility() != 8) {
+        if (this.f4435h.getVisibility() != 8) {
             this.i.setLayoutParams(layoutParams);
             this.j.setLayoutParams(layoutParams2);
             this.k.setLayoutParams(layoutParams3);

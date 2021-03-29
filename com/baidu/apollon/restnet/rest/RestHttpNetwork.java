@@ -6,32 +6,32 @@ import com.baidu.apollon.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RestHttpNetwork implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3756a = 30000;
+    public static final int f3757a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3757b = 30000;
+    public static final int f3758b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3758c = 10;
+    public static final int f3759c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3759d = 10;
+    public static final int f3760d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3760e = 8192;
+    public static final int f3761e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3761f = 3;
+    public static final int f3762f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3762g = 1000;
+    public static final int f3763g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3763h = "RestHttpNetwork";
+    public static final String f3764h = "RestHttpNetwork";
     public final c i;
     public final g j = new g(3, 1000);
 
@@ -66,7 +66,7 @@ public class RestHttpNetwork implements c {
         	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00b2 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b2 A[SYNTHETIC] */
     @Override // com.baidu.apollon.restnet.rest.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -177,11 +177,7 @@ public class RestHttpNetwork implements c {
             java.lang.String r0 = "RestHttpNetwork"
             com.baidu.apollon.utils.LogUtil.errord(r0, r11)
         Lde:
-            goto Le0
-        Ldf:
             throw r4
-        Le0:
-            goto Ldf
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.apollon.restnet.rest.RestHttpNetwork.a(com.baidu.apollon.restnet.rest.d):com.baidu.apollon.restnet.rest.e");
     }

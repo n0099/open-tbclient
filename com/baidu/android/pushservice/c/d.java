@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.android.pushservice.c.c;
 import com.baidu.android.pushservice.j.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public static int a(Context context, String str) {
         int p;

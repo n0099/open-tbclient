@@ -6,19 +6,19 @@ import com.xiaomi.push.service.av;
 public final class ab implements av.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40932a;
+    public final /* synthetic */ XMPushService f40933a;
 
     public ab(XMPushService xMPushService) {
-        this.f40932a = xMPushService;
+        this.f40933a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
     public void a(av.c cVar, av.c cVar2, int i) {
         if (cVar2 == av.c.binded) {
-            p.a(this.f40932a);
-            p.b(this.f40932a);
+            p.a(this.f40933a);
+            p.b(this.f40933a);
         } else if (cVar2 == av.c.unbind) {
-            p.a(this.f40932a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+            p.a(this.f40933a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
         }
     }
 }

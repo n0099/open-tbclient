@@ -13,19 +13,19 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fr {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40519a = 5000;
+    public static int f40520a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
     public static Vector<String> f407a = new Vector<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f40520b = 330000;
+    public static int f40521b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f40521c = 600000;
+    public static int f40522c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f40522d = 330000;
+    public static int f40523d = 330000;
 
     static {
         try {
@@ -44,9 +44,9 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f40519a = a(newPullParser, f40519a);
+                                    f40520a = a(newPullParser, f40520a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f40520b = a(newPullParser, f40520b);
+                                    f40521b = a(newPullParser, f40521b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f407a.add(newPullParser.nextText());
                                 }
@@ -68,7 +68,7 @@ public final class fr {
     }
 
     public static int a() {
-        return f40520b;
+        return f40521b;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i) {
@@ -109,6 +109,6 @@ public final class fr {
     }
 
     public static int b() {
-        return f40521c;
+        return f40522c;
     }
 }

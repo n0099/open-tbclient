@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 public class ChooseColorView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20196e;
+    public int f20197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20197f;
+    public int f20198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20198g;
+    public float f20199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f20199h;
+    public Paint f20200h;
     public Paint i;
     public int j;
     public boolean k;
@@ -35,32 +35,32 @@ public class ChooseColorView extends View {
         Paint paint = new Paint();
         this.i = paint;
         paint.setAntiAlias(true);
-        this.i.setColor(this.f20196e);
+        this.i.setColor(this.f20197e);
         Paint paint2 = new Paint();
-        this.f20199h = paint2;
-        paint2.setColor(this.f20197f);
-        this.f20199h.setAntiAlias(true);
-        this.f20199h.setStyle(Paint.Style.STROKE);
-        this.f20199h.setStrokeWidth(this.f20198g);
+        this.f20200h = paint2;
+        paint2.setColor(this.f20198f);
+        this.f20200h.setAntiAlias(true);
+        this.f20200h.setStyle(Paint.Style.STROKE);
+        this.f20200h.setStrokeWidth(this.f20199g);
         this.l = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public int getChooseColor() {
-        return this.f20196e;
+        return this.f20197e;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.i);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f20199h);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f20200h);
         if (this.k) {
             canvas.drawBitmap(this.l, getWidth() - this.l.getWidth(), 0.0f, (Paint) null);
         }
     }
 
     public void setChooseColor(int i) {
-        this.f20196e = i;
+        this.f20197e = i;
         this.i.setColor(i);
     }
 
@@ -79,9 +79,9 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20196e = -16777216;
-        this.f20197f = -1;
-        this.f20198g = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f20197e = -16777216;
+        this.f20198f = -1;
+        this.f20199g = getResources().getDimensionPixelSize(R.dimen.ds4);
         a();
     }
 }

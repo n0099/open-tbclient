@@ -16,29 +16,29 @@ public final class MaybeSwitchIfEmptySingle$SwitchIfEmptyMaybeObserver<T> extend
     public static final class a<T> implements r<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final r<? super T> f68048e;
+        public final r<? super T> f68053e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicReference<b> f68049f;
+        public final AtomicReference<b> f68054f;
 
         public a(r<? super T> rVar, AtomicReference<b> atomicReference) {
-            this.f68048e = rVar;
-            this.f68049f = atomicReference;
+            this.f68053e = rVar;
+            this.f68054f = atomicReference;
         }
 
         @Override // f.a.r
         public void onError(Throwable th) {
-            this.f68048e.onError(th);
+            this.f68053e.onError(th);
         }
 
         @Override // f.a.r
         public void onSubscribe(b bVar) {
-            DisposableHelper.setOnce(this.f68049f, bVar);
+            DisposableHelper.setOnce(this.f68054f, bVar);
         }
 
         @Override // f.a.r
         public void onSuccess(T t) {
-            this.f68048e.onSuccess(t);
+            this.f68053e.onSuccess(t);
         }
     }
 

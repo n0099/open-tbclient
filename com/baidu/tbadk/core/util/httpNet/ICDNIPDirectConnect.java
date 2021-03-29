@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.b.h0.n.a;
 import org.apache.http.client.methods.HttpGet;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public abstract class ICDNIPDirectConnect {
     public static ICDNIPDirectConnect directConnect;
     public boolean isAlreadyInit = false;

@@ -15,10 +15,10 @@ public class CheckRealNameModel extends BdBaseModel {
     public static final String TYPE_PB_SHARE = "pb_share";
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19032e;
+    public b f19033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.c.g.a f19033f;
+    public d.b.b.c.g.a f19034f;
 
     /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
@@ -33,8 +33,8 @@ public class CheckRealNameModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                 CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                if (CheckRealNameModel.this.f19032e != null) {
-                    CheckRealNameModel.this.f19032e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
+                if (CheckRealNameModel.this.f19033e != null) {
+                    CheckRealNameModel.this.f19033e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                 }
             }
         }
@@ -47,9 +47,9 @@ public class CheckRealNameModel extends BdBaseModel {
 
     public CheckRealNameModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f19033f = new a(CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
+        this.f19034f = new a(CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
         v();
-        registerListener(this.f19033f);
+        registerListener(this.f19034f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -81,6 +81,6 @@ public class CheckRealNameModel extends BdBaseModel {
     }
 
     public void w(b bVar) {
-        this.f19032e = bVar;
+        this.f19033e = bVar;
     }
 }

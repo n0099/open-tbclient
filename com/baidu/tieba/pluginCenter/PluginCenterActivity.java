@@ -63,19 +63,19 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f20539e;
+        public final /* synthetic */ PluginConfigWrapper f20540e;
 
         public b(PluginConfigWrapper pluginConfigWrapper) {
-            this.f20539e = pluginConfigWrapper;
+            this.f20540e = pluginConfigWrapper;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             if (l.C()) {
-                PluginPackageManager.O().x0(this.f20539e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
-                this.f20539e.setDownLoadPercent(0);
-                this.f20539e.setDownLoadStatus(3);
-                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20539e);
+                PluginPackageManager.O().x0(this.f20540e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
+                this.f20540e.setDownLoadPercent(0);
+                this.f20540e.setDownLoadStatus(3);
+                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20540e);
             } else {
                 PluginCenterActivity.this.showToast(R.string.neterror);
             }
@@ -203,12 +203,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         try {
             File file = new File(l + ".tmp");
             if (file.exists() && h2.size > 0) {
-                double length = file.length();
-                Double.isNaN(length);
-                double d2 = length * 1.0d;
-                double d3 = h2.size;
-                Double.isNaN(d3);
-                return (int) ((d2 / d3) * 100.0d);
+                return (int) (((file.length() * 1.0d) / h2.size) * 100.0d);
             }
         } catch (Exception e2) {
             BdLog.e(e2);

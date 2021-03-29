@@ -5,26 +5,26 @@ import tbclient.FrsPage.BusinessPromotCommentList;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53440a;
+    public String f53441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53441b;
+    public int f53442b;
 
     public String a() {
-        return this.f53440a;
+        return this.f53441a;
     }
 
     public boolean b() {
-        return this.f53441b == 1;
+        return this.f53442b == 1;
     }
 
     public void c(BusinessPromotCommentList businessPromotCommentList) {
         if (businessPromotCommentList == null) {
             return;
         }
-        this.f53440a = businessPromotCommentList.title;
+        this.f53441a = businessPromotCommentList.title;
         String str = businessPromotCommentList.username;
         businessPromotCommentList.uid.longValue();
-        this.f53441b = businessPromotCommentList.is_lz.intValue();
+        this.f53442b = businessPromotCommentList.is_lz.intValue();
     }
 }

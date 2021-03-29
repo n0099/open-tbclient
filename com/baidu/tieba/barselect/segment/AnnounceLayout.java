@@ -20,7 +20,7 @@ import d.b.h0.b1.m.f;
 public class AnnounceLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public float f15189h;
+    public float f15190h;
     public Context i;
     public TextView j;
 
@@ -53,7 +53,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public final void c(SpannableStringBuilder spannableStringBuilder) {
         if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
             int i = 2;
-            if (!t.b(this.f15189h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
+            if (!t.b(this.f15190h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
                 this.j.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 return;
             }
@@ -61,11 +61,11 @@ public class AnnounceLayout extends CardBasicLayout {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
             spannableStringBuilder3.setSpan(new a(2, null), 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f15189h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            float f2 = this.f15189h;
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f15190h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            float f2 = this.f15190h;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
-                f2 = this.f15189h - staticLayout.getLineWidth(1);
+                f2 = this.f15190h - staticLayout.getLineWidth(1);
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
             float measureText = this.j.getPaint().measureText(spannableStringBuilder3.toString());
@@ -89,15 +89,15 @@ public class AnnounceLayout extends CardBasicLayout {
     public void setData(int i, d.b.i0.v.b.f fVar) {
         int i2;
         super.setData(i, fVar);
-        if (this.f15193f != null && this.f15194g != null && (i2 = this.f15192e) >= 0) {
-            if (i2 == d.b.i0.v.e.a.f61955b) {
-                this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
+        if (this.f15194f != null && this.f15195g != null && (i2 = this.f15193e) >= 0) {
+            if (i2 == d.b.i0.v.e.a.f61956b) {
+                this.f15190h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
             }
-            int i3 = this.f15192e;
-            if (i3 == d.b.i0.v.e.a.f61956c || i3 == d.b.i0.v.e.a.f61957d) {
-                this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            int i3 = this.f15193e;
+            if (i3 == d.b.i0.v.e.a.f61957c || i3 == d.b.i0.v.e.a.f61958d) {
+                this.f15190h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
             }
-            c(new SpannableStringBuilder(this.f15194g.b()));
+            c(new SpannableStringBuilder(this.f15195g.b()));
             return;
         }
         setVisibility(8);
@@ -105,7 +105,7 @@ public class AnnounceLayout extends CardBasicLayout {
 
     public AnnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
+        this.f15190h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
         b();
     }
 }

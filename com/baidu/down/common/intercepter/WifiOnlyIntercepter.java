@@ -3,7 +3,7 @@ package com.baidu.down.common.intercepter;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WifiOnlyIntercepter implements IIntercepter<Void> {
     public static NetworkInfo getActiveNetworkInfoSafely(Context context) {
         try {

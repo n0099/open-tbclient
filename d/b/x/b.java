@@ -27,66 +27,66 @@ import java.util.Map;
 public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, d> f64842e = new HashMap<>();
+    public HashMap<String, d> f64843e = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public class a implements FlutterNetModelAuto.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f64843a;
+        public final /* synthetic */ long f64844a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MethodChannel.Result f64844b;
+        public final /* synthetic */ MethodChannel.Result f64845b;
 
         public a(long j, MethodChannel.Result result) {
-            this.f64843a = j;
-            this.f64844b = result;
+            this.f64844a = j;
+            this.f64845b = result;
         }
 
         @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.i
         public void a(String str, HashMap hashMap, MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-            b.this.f64842e.remove(str);
+            b.this.f64843e.remove(str);
             if (hashMap != null) {
-                hashMap.put("start_time", String.valueOf(this.f64843a));
+                hashMap.put("start_time", String.valueOf(this.f64844a));
             }
-            this.f64844b.success(b.this.c(hashMap, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str));
+            this.f64845b.success(b.this.c(hashMap, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str));
         }
     }
 
     /* renamed from: d.b.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1777b implements a.d {
+    public class C1778b implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f64846a;
+        public final /* synthetic */ long f64847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HashMap f64847b;
+        public final /* synthetic */ HashMap f64848b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ MethodChannel.Result f64848c;
+        public final /* synthetic */ MethodChannel.Result f64849c;
 
-        public C1777b(long j, HashMap hashMap, MethodChannel.Result result) {
-            this.f64846a = j;
-            this.f64847b = hashMap;
-            this.f64848c = result;
+        public C1778b(long j, HashMap hashMap, MethodChannel.Result result) {
+            this.f64847a = j;
+            this.f64848b = hashMap;
+            this.f64849c = result;
         }
 
         @Override // d.b.x.a.d
         public void a(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, Object obj, String str2) {
-            b.this.f64842e.remove(str2);
+            b.this.f64843e.remove(str2);
             if (hashMap != null) {
-                hashMap.put("start_time", String.valueOf(this.f64846a));
+                hashMap.put("start_time", String.valueOf(this.f64847a));
             }
             HashMap c2 = b.this.c(hashMap, obj, i, str, str2);
-            HashMap hashMap3 = this.f64847b;
-            if (hashMap3 != null && (hashMap3.get("performance") instanceof Boolean) && ((Boolean) this.f64847b.get("performance")).booleanValue()) {
+            HashMap hashMap3 = this.f64848b;
+            if (hashMap3 != null && (hashMap3.get("performance") instanceof Boolean) && ((Boolean) this.f64848b.get("performance")).booleanValue()) {
                 HashMap hashMap4 = new HashMap();
                 hashMap4.put("network", hashMap2);
                 hashMap4.put("send_time", Long.valueOf(System.currentTimeMillis()));
                 c2.put("performInfo", hashMap4);
             }
-            this.f64848c.success(c2);
+            this.f64849c.success(c2);
         }
     }
 
@@ -94,21 +94,21 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public class c implements FlutterNetModelAuto.j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FlutterNetModelAuto f64850a;
+        public final /* synthetic */ FlutterNetModelAuto f64851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MethodChannel.Result f64851b;
+        public final /* synthetic */ MethodChannel.Result f64852b;
 
         public c(FlutterNetModelAuto flutterNetModelAuto, MethodChannel.Result result) {
-            this.f64850a = flutterNetModelAuto;
-            this.f64851b = result;
+            this.f64851a = flutterNetModelAuto;
+            this.f64852b = result;
         }
 
         @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.j
         public void a(String str, HashMap hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage) {
-            b.this.f64842e.remove(str);
-            this.f64850a.O(null);
-            this.f64851b.success(b.this.c(hashMap, d.b.x.c.f(socketResponsedMessage), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), str));
+            b.this.f64843e.remove(str);
+            this.f64851a.O(null);
+            this.f64852b.success(b.this.c(hashMap, d.b.x.c.f(socketResponsedMessage), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), str));
         }
     }
 
@@ -182,7 +182,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 c2.R(gen);
                 c2.J(str2);
                 c2.H(new a(currentTimeMillis, result));
-                this.f64842e.put(str3, c2);
+                this.f64843e.put(str3, c2);
                 try {
                     c2.A();
                     return;
@@ -194,7 +194,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             d.b.x.a aVar = new d.b.x.a(str3);
             aVar.q(str2);
             aVar.t(currentTimeMillis);
-            aVar.p(new C1777b(currentTimeMillis, hashMap4, result));
+            aVar.p(new C1778b(currentTimeMillis, hashMap4, result));
             if (hashMap3 != null && (hashMap3 instanceof Map) && (obj = hashMap3.get("debugfile")) != null && (obj instanceof byte[])) {
                 byte[] bArr = (byte[]) obj;
                 if (bArr.length > 3145728) {
@@ -206,7 +206,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 aVar.r(true);
             }
             aVar.s(hashMap2);
-            this.f64842e.put(str3, aVar);
+            this.f64843e.put(str3, aVar);
             try {
                 aVar.m();
             } catch (Exception e3) {
@@ -218,7 +218,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 Map map = (Map) list.get(i);
                 String str4 = (String) map.get(RetrieveTaskManager.KEY);
                 ((Integer) map.get("cmd")).intValue();
-                d dVar = this.f64842e.get((String) map.get("identifier"));
+                d dVar = this.f64843e.get((String) map.get("identifier"));
                 if (dVar != null) {
                     dVar.a();
                 }
@@ -233,7 +233,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             }
             b2.O(new c(b2, result));
             b2.R(BdUniqueId.gen());
-            this.f64842e.put(str5, b2);
+            this.f64843e.put(str5, b2);
             if (b2 != null) {
                 try {
                     b2.A();

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ItemEmotionView extends RelativeLayout {
     public ItemEmotionView(Context context) {
         super(context);

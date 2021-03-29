@@ -14,23 +14,23 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.b.e.p.j;
 import d.b.i0.l1.i.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements IConnectListener {
     public static String i = "imlog";
 
     /* renamed from: f  reason: collision with root package name */
-    public c f56725f;
+    public c f56726f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56724e = false;
+    public boolean f56725e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f56726g = new a(2005016);
+    public CustomMessageListener f56727g = new a(2005016);
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56727h = false;
+    public boolean f56728h = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -47,9 +47,9 @@ public class b implements IConnectListener {
     }
 
     /* renamed from: d.b.i0.l1.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C1334b implements a.b {
-        public C1334b() {
+    /* loaded from: classes3.dex */
+    public class C1335b implements a.b {
+        public C1335b() {
         }
 
         @Override // d.b.i0.l1.i.a.b
@@ -59,15 +59,15 @@ public class b implements IConnectListener {
             sb.append(b.i);
             sb.append("LiveIMManager");
             String sb2 = sb.toString();
-            LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + b.this.f56724e);
-            if (i != 0 || b.this.f56724e) {
+            LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + b.this.f56725e);
+            if (i != 0 || b.this.f56725e) {
                 return;
             }
             b.this.onResult(0);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends BroadcastReceiver {
         public boolean mIsDestroy;
         public boolean mIsInit;
@@ -116,27 +116,27 @@ public class b implements IConnectListener {
 
     public void b(String str) {
         Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
-        if (this.f56727h) {
+        if (this.f56728h) {
             return;
         }
-        this.f56727h = true;
+        this.f56728h = true;
         d.b.i0.l1.i.a.a().b(TbadkCoreApplication.getInst());
         d();
         c();
-        if (this.f56725f == null) {
-            this.f56725f = new c(this, null);
+        if (this.f56726f == null) {
+            this.f56726f = new c(this, null);
         }
-        this.f56725f.register();
-        MessageManager.getInstance().registerListener(this.f56726g);
+        this.f56726f.register();
+        MessageManager.getInstance().registerListener(this.f56727g);
     }
 
     public void c() {
-        d.b.i0.l1.i.a.a().d(new C1334b());
+        d.b.i0.l1.i.a.a().d(new C1335b());
     }
 
     public final void d() {
         LogUtils.d(i + "LiveIMManager", "registerIMConnectListener");
-        this.f56724e = false;
+        this.f56725e = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
@@ -145,7 +145,7 @@ public class b implements IConnectListener {
     public void onResult(int i2) {
         Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i2);
         LogUtils.d(i + "LiveIMManager", "IConnectListener onResult statusCode=" + i2);
-        this.f56724e = true;
+        this.f56725e = true;
         if (i2 == 0) {
             LogUtils.d(i + "LiveIMManager", "IConnectListener net connect");
         } else if (i2 == 1) {

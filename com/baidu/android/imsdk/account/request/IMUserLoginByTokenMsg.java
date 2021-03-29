@@ -19,7 +19,7 @@ import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReq
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes;
     public String cFrom;
@@ -148,7 +148,7 @@ public class IMUserLoginByTokenMsg extends Message {
                         }
                     }
                 }
-                if (!d.b.r.a.f64551e) {
+                if (!d.b.r.a.f64552e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {

@@ -7,34 +7,34 @@ import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.webkit.internal.ETAG;
 import d.b.g0.a.k;
 import d.b.g0.a.y0.e.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47268a = k.f45050a;
+    public static final boolean f47269a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.a.z1.l.a f47269b;
+    public static d.b.g0.a.z1.l.a f47270b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47270a;
+        public static final /* synthetic */ int[] f47271a;
 
         static {
             int[] iArr = new int[SearchFlowEvent.EventType.values().length];
-            f47270a = iArr;
+            f47271a = iArr;
             try {
                 iArr[SearchFlowEvent.EventType.START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47270a[SearchFlowEvent.EventType.END.ordinal()] = 2;
+                f47271a[SearchFlowEvent.EventType.END.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47270a[SearchFlowEvent.EventType.NORMAL.ordinal()] = 3;
+                f47271a[SearchFlowEvent.EventType.NORMAL.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -43,35 +43,35 @@ public final class b {
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
             if (searchFlowEvent == null) {
-                if (f47268a) {
+                if (f47269a) {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
                 return;
             }
-            int i = a.f47270a[searchFlowEvent.f12654e.ordinal()];
+            int i = a.f47271a[searchFlowEvent.f12655e.ordinal()];
             if (i == 1) {
                 d();
-                if (f47269b != null) {
-                    f47269b.c(searchFlowEvent);
+                if (f47270b != null) {
+                    f47270b.c(searchFlowEvent);
                 }
             } else if (i != 2) {
-                if (i == 3 && f47269b != null) {
-                    f47269b.c(searchFlowEvent);
+                if (i == 3 && f47270b != null) {
+                    f47270b.c(searchFlowEvent);
                 }
             } else {
-                if (f47269b != null) {
-                    f47269b.c(searchFlowEvent);
+                if (f47270b != null) {
+                    f47270b.c(searchFlowEvent);
                 }
                 b();
             }
-            if (f47268a) {
+            if (f47269a) {
                 Log.d("SwanAppSearchFlowUBC", "Add SearchFlowEvent: " + searchFlowEvent.toString());
             }
         }
     }
 
     public static void b() {
-        d.b.g0.a.z1.l.a aVar = f47269b;
+        d.b.g0.a.z1.l.a aVar = f47270b;
         if (aVar != null) {
             aVar.h();
         }
@@ -83,30 +83,30 @@ public final class b {
         }
         String string = bundle.getString("search_id");
         if (TextUtils.isEmpty(string) && !TextUtils.equals("1002", str)) {
-            if (f47268a) {
+            if (f47269a) {
                 Log.d("SwanAppSearchFlowUBC", "search id is null, and source is not 1002");
                 return;
             }
             return;
         }
         a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-        d.b.g0.a.z1.l.a aVar = f47269b;
+        d.b.g0.a.z1.l.a aVar = f47270b;
         if (aVar != null) {
             if (string == null) {
                 string = "";
             }
             aVar.d(ETAG.KEY_SEARCH_ID, string);
-            f47269b.d("url", bundle.getString("search_url"));
+            f47270b.d("url", bundle.getString("search_url"));
         }
     }
 
     public static void d() {
-        d.b.g0.a.z1.l.a aVar = f47269b;
+        d.b.g0.a.z1.l.a aVar = f47270b;
         if (aVar != null) {
             aVar.f();
-            f47269b = null;
+            f47270b = null;
         }
-        f47269b = new d.b.g0.a.z1.l.a("772");
+        f47270b = new d.b.g0.a.z1.l.a("772");
     }
 
     public static synchronized void e(d.b.g0.a.y0.e.b bVar) {
@@ -115,9 +115,9 @@ public final class b {
                 return;
             }
             c(bVar.O(), bVar.S());
-            if (f47269b != null) {
-                f47269b.k(bVar.G());
-                f47269b.l(bVar.S());
+            if (f47270b != null) {
+                f47270b.k(bVar.G());
+                f47270b.l(bVar.S());
             }
         }
     }
@@ -128,9 +128,9 @@ public final class b {
                 return;
             }
             c(eVar.n0(), eVar.S());
-            if (f47269b != null) {
-                f47269b.k(eVar.G());
-                f47269b.l(eVar.S());
+            if (f47270b != null) {
+                f47270b.k(eVar.G());
+                f47270b.l(eVar.S());
             }
         }
     }

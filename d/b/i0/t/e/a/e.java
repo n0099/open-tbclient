@@ -26,8 +26,8 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.e.b.c, AlaGameFrsLiveGameCardView.Al
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.e.b.c cVar, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        alaGameFrsGameViewHolder.f14995a.n(cVar);
-        alaGameFrsGameViewHolder.f14995a.w(this.n);
+        alaGameFrsGameViewHolder.f14996a.n(cVar);
+        alaGameFrsGameViewHolder.f14996a.w(this.n);
         return alaGameFrsGameViewHolder.a();
     }
 

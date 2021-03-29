@@ -17,27 +17,27 @@ import java.util.List;
 public abstract class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f60482e;
+    public TbPageContext f60483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f60483f;
+    public Context f60484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.b.i0.t.d.e.b.b> f60484g = new ArrayList();
+    public List<d.b.i0.t.d.e.b.b> f60485g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60485h;
+    public int f60486h;
 
     public a(TbPageContext tbPageContext) {
-        this.f60482e = tbPageContext;
-        this.f60483f = tbPageContext.getPageActivity();
+        this.f60483e = tbPageContext;
+        this.f60484f = tbPageContext.getPageActivity();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.b.i0.t.d.e.b.b getItem(int i) {
-        return this.f60484g.get(i);
+        return this.f60485g.get(i);
     }
 
     public void b(TbPageContext<?> tbPageContext, a2 a2Var, String str) {
@@ -65,14 +65,14 @@ public abstract class a extends BaseAdapter {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f60484g.clear();
-        this.f60484g.addAll(list);
+        this.f60485g.clear();
+        this.f60485g.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f60484g.size();
+        return this.f60485g.size();
     }
 
     @Override // android.widget.Adapter

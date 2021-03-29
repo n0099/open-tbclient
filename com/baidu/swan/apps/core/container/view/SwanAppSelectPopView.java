@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Keep;
 import d.b.g0.a.f;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static final int SELECTION_PADDING = 22;
     public static final int SELECTION_TOP_DUR = 3000;
@@ -22,7 +22,7 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public View mSearchView;
     public String mSelection;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void doSelectionCopy(String str);
 

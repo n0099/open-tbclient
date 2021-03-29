@@ -7,7 +7,7 @@ public class e extends k {
     public static final BdUniqueId M0 = BdUniqueId.gen();
 
     public e(a2 a2Var) {
-        this.f62196e = a2Var;
+        this.f62197e = a2Var;
     }
 
     public static boolean i0(a2 a2Var) {
@@ -21,6 +21,6 @@ public class e extends k {
 
     @Override // d.b.i0.x.e0.k, d.b.i0.x.e0.b, d.b.h0.r.q.a
     public a2 n() {
-        return this.f62196e;
+        return this.f62197e;
     }
 }

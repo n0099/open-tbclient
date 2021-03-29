@@ -2,7 +2,7 @@ package com.baidu.android.common.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class MD5Util {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

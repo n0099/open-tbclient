@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WebGLImageLoader {
     public static final String ASSET_URL = "asset://";
     public static final String BDFILE = "bdfile://";
@@ -29,7 +29,7 @@ public class WebGLImageLoader {
     public static ExecutorService sExecutorService;
     public static BitmapReferenceMap sReferenceMap = new BitmapReferenceMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public final WebGLImage mImage;
         public final int mImageId;

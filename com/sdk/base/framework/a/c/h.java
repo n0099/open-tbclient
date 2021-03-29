@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 public abstract class h<Params, Result> implements Callable<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Params[] f38438a;
+    public Params[] f38439a;
 
     public h() {
     }

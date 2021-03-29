@@ -13,27 +13,27 @@ import java.io.Closeable;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final PathMeasure f41443a = new PathMeasure();
+    public static final PathMeasure f41444a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Path f41444b = new Path();
+    public static final Path f41445b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Path f41445c = new Path();
+    public static final Path f41446c = new Path();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f41446d = new float[4];
+    public static final float[] f41447d = new float[4];
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f41447e = (float) Math.sqrt(2.0d);
+    public static final float f41448e = (float) Math.sqrt(2.0d);
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f41448f = -1.0f;
+    public static float f41449f = -1.0f;
 
     public static void a(Path path, float f2, float f3, float f4) {
         d.a.a.c.a("applyTrimPathIfNeeded");
-        f41443a.setPath(path, false);
-        float length = f41443a.getLength();
+        f41444a.setPath(path, false);
+        float length = f41444a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             d.a.a.c.c("applyTrimPathIfNeeded");
         } else if (length >= 1.0f && Math.abs((f3 - f2) - 1.0f) >= 0.01d) {
@@ -52,26 +52,27 @@ public final class f {
             if (max < 0.0f) {
                 max = e.f(max, length);
             }
-            if (min == max) {
+            int i = (min > max ? 1 : (min == max ? 0 : -1));
+            if (i == 0) {
                 path.reset();
                 d.a.a.c.c("applyTrimPathIfNeeded");
                 return;
             }
-            if (min >= max) {
+            if (i >= 0) {
                 min -= length;
             }
-            f41444b.reset();
-            f41443a.getSegment(min, max, f41444b, true);
+            f41445b.reset();
+            f41444a.getSegment(min, max, f41445b, true);
             if (max > length) {
-                f41445c.reset();
-                f41443a.getSegment(0.0f, max % length, f41445c, true);
-                f41444b.addPath(f41445c);
+                f41446c.reset();
+                f41444a.getSegment(0.0f, max % length, f41446c, true);
+                f41445b.addPath(f41446c);
             } else if (min < 0.0f) {
-                f41445c.reset();
-                f41443a.getSegment(min + length, length, f41445c, true);
-                f41444b.addPath(f41445c);
+                f41446c.reset();
+                f41444a.getSegment(min + length, length, f41446c, true);
+                f41445b.addPath(f41446c);
             }
-            path.set(f41444b);
+            path.set(f41445b);
             d.a.a.c.c("applyTrimPathIfNeeded");
         } else {
             d.a.a.c.c("applyTrimPathIfNeeded");
@@ -111,21 +112,21 @@ public final class f {
     }
 
     public static float e() {
-        if (f41448f == -1.0f) {
-            f41448f = Resources.getSystem().getDisplayMetrics().density;
+        if (f41449f == -1.0f) {
+            f41449f = Resources.getSystem().getDisplayMetrics().density;
         }
-        return f41448f;
+        return f41449f;
     }
 
     public static float f(Matrix matrix) {
-        float[] fArr = f41446d;
+        float[] fArr = f41447d;
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
-        float f2 = f41447e;
+        float f2 = f41448e;
         fArr[2] = f2;
         fArr[3] = f2;
         matrix.mapPoints(fArr);
-        float[] fArr2 = f41446d;
+        float[] fArr2 = f41447d;
         return ((float) Math.hypot(fArr2[2] - fArr2[0], fArr2[3] - fArr2[1])) / 2.0f;
     }
 

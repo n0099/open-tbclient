@@ -11,10 +11,10 @@ import java.util.concurrent.ExecutorService;
 public final class dh extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23175a;
+    public final /* synthetic */ FeedbackListActivity f23176a;
 
     public dh(FeedbackListActivity feedbackListActivity) {
-        this.f23175a = feedbackListActivity;
+        this.f23176a = feedbackListActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -27,28 +27,28 @@ public final class dh extends BroadcastReceiver {
         View view3;
         Handler handler2;
         if (intent.getAction().equals("com.baidu.ufosdk.gethistorylist")) {
-            view3 = this.f23175a.w;
+            view3 = this.f23176a.w;
             view3.setVisibility(8);
-            handler2 = this.f23175a.A;
+            handler2 = this.f23176a.A;
             handler2.obtainMessage(0, (ArrayList) intent.getSerializableExtra("msgList")).sendToTarget();
-            FeedbackListActivity.k(this.f23175a);
+            FeedbackListActivity.k(this.f23176a);
         }
         if (intent.getAction().equals("com.baidu.ufosdk.getnewhistoryflag")) {
-            executorService2 = this.f23175a.y;
+            executorService2 = this.f23176a.y;
             executorService2.execute(new di(this));
         }
         if (intent.getAction().equals("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag")) {
-            executorService = this.f23175a.y;
+            executorService = this.f23176a.y;
             executorService.execute(new dj(this));
         }
         if (intent.getAction().equals("com.baidu.ufosdk.deletemsg_dialogdismiss")) {
-            view = this.f23175a.v;
+            view = this.f23176a.v;
             view.setVisibility(8);
-            view2 = this.f23175a.w;
+            view2 = this.f23176a.w;
             view2.setVisibility(8);
         }
         if (intent.getAction().equals("com.baidu.ufosdk.reload")) {
-            handler = this.f23175a.A;
+            handler = this.f23176a.A;
             handler.obtainMessage(1, null).sendToTarget();
         }
     }

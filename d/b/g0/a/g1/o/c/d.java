@@ -7,21 +7,21 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements d.b.g0.a.g1.o.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Function1 f44576a;
+        public final /* synthetic */ Function1 f44577a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44577b;
+        public final /* synthetic */ String f44578b;
 
         public a(Function1 function1, String str) {
-            this.f44576a = function1;
-            this.f44577b = str;
+            this.f44577a = function1;
+            this.f44578b = str;
         }
 
         @Override // d.b.g0.a.g1.o.b.a
@@ -30,8 +30,8 @@ public final class d {
             if (c2 != null && c2.length() != 0) {
                 int length = c2.length();
                 for (int i = 0; i < length; i++) {
-                    if (Intrinsics.areEqual(this.f44577b, c2.get(i))) {
-                        Function1 function1 = this.f44576a;
+                    if (Intrinsics.areEqual(this.f44578b, c2.get(i))) {
+                        Function1 function1 = this.f44577a;
                         if (function1 != null) {
                             Unit unit = (Unit) function1.invoke(Boolean.TRUE);
                             return;
@@ -39,14 +39,14 @@ public final class d {
                         return;
                     }
                 }
-                Function1 function12 = this.f44576a;
+                Function1 function12 = this.f44577a;
                 if (function12 != null) {
                     Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
                     return;
                 }
                 return;
             }
-            Function1 function13 = this.f44576a;
+            Function1 function13 = this.f44577a;
             if (function13 != null) {
                 Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
             }

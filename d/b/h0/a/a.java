@@ -13,14 +13,14 @@ public class a {
 
     /* renamed from: d.b.h0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1038a {
+    public static class C1039a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f49497a = new a();
+        public static final a f49498a = new a();
     }
 
     public static final a g() {
-        return C1038a.f49497a;
+        return C1039a.f49498a;
     }
 
     public synchronized long a(b bVar) {

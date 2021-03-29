@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.upload.action.track.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcTrack {
 
     /* renamed from: com.baidu.android.imrtc.upload.BIMRtcTrack$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
 
@@ -22,7 +22,7 @@ public class BIMRtcTrack {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class RequestBuilder {
         public static final int REQUEST_BIM_RTC = 501210;
         public Context context;

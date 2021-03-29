@@ -9,9 +9,9 @@ import d.b.g0.a.j0.c;
 import d.b.g0.a.j0.e;
 import d.b.g0.a.k;
 import java.util.HashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends f {
-    public static final boolean H = k.f45050a;
+    public static final boolean H = k.f45051a;
     public a.c G;
 
     public b(String str, a.c cVar) {
@@ -27,13 +27,13 @@ public class b extends f {
         }
         a.c cVar = this.G;
         if (cVar != null) {
-            if (aVar.f48913a == 1010) {
+            if (aVar.f48914a == 1010) {
                 cVar.b();
             } else {
                 cVar.a(0);
             }
         }
-        k0(aVar.f48913a);
+        k0(aVar.f48914a);
         if (a.m(aVar)) {
             a.c(this.r);
         }

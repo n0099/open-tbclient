@@ -17,29 +17,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicBoolean f53519a = new AtomicBoolean(false);
+    public static AtomicBoolean f53520a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Integer> f53520b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
+    public static List<Integer> f53521b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
 
     /* loaded from: classes5.dex */
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f53521e;
+        public final /* synthetic */ d.b.h0.r.s.a f53522e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f53522f;
+        public final /* synthetic */ j f53523f;
 
         public a(d.b.h0.r.s.a aVar, j jVar) {
-            this.f53521e = aVar;
-            this.f53522f = jVar;
+            this.f53522e = aVar;
+            this.f53523f = jVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f53521e.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f53522f));
+            this.f53522e.dismiss();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f53523f));
         }
     }
 
@@ -47,15 +47,15 @@ public class f {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f53523e;
+        public final /* synthetic */ d.b.h0.r.s.a f53524e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f53523e = aVar;
+            this.f53524e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f53523e.dismiss();
+            this.f53524e.dismiss();
         }
     }
 
@@ -64,12 +64,12 @@ public class f {
         public abstract void a(String str);
 
         public void b(j.c cVar) {
-            if (cVar != null && cVar.f51186a) {
+            if (cVar != null && cVar.f51187a) {
                 if (cVar instanceof j.a) {
-                    a(((j.a) cVar).f51184b);
+                    a(((j.a) cVar).f51185b);
                     return;
                 } else if (cVar instanceof j.b) {
-                    c(((j.b) cVar).f51185b);
+                    c(((j.b) cVar).f51186b);
                     return;
                 } else {
                     e();
@@ -87,7 +87,7 @@ public class f {
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, c cVar) {
-        if (f53520b.contains(Integer.valueOf(i))) {
+        if (f53521b.contains(Integer.valueOf(i))) {
             if ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken()))) {
                 return false;
             }
@@ -97,7 +97,7 @@ public class f {
     }
 
     public static boolean b(int i, String str, c cVar) {
-        if (f53520b.contains(Integer.valueOf(i))) {
+        if (f53521b.contains(Integer.valueOf(i))) {
             if ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -108,7 +108,7 @@ public class f {
 
     public static boolean c(int i, String str, c cVar) {
         j a2;
-        if (f53519a.compareAndSet(false, true)) {
+        if (f53520a.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
                 j d2 = j.d();
@@ -139,7 +139,7 @@ public class f {
                 a2.h(cVar);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
             }
-            f53519a.set(false);
+            f53520a.set(false);
             return true;
         }
         return false;

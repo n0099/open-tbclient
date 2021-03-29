@@ -17,13 +17,13 @@ public class f extends d implements LivePlayer {
     public static final Integer i = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<LivePlayer.OnProgressChangeListener> f58812f;
+    public List<LivePlayer.OnProgressChangeListener> f58813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IVideoUpdateStrategy f58813g;
+    public IVideoUpdateStrategy f58814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58814h;
+    public boolean f58815h;
 
     /* loaded from: classes3.dex */
     public class a extends d.b.i0.p1.n.j.a.a {
@@ -40,15 +40,15 @@ public class f extends d implements LivePlayer {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f58815e;
+        public final /* synthetic */ int f58816e;
 
         public b(int i) {
-            this.f58815e = i;
+            this.f58816e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i = this.f58815e;
+            int i = this.f58816e;
             if (i == -2) {
                 if (f.this.isPlaying()) {
                     f.this.pauseInternal(2);
@@ -69,20 +69,20 @@ public class f extends d implements LivePlayer {
 
     public f(String str) {
         super(null, str);
-        this.f58812f = new ArrayList();
-        this.f58814h = false;
+        this.f58813f = new ArrayList();
+        this.f58815h = false;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
     public void addProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        this.f58812f.add(onProgressChangeListener);
+        this.f58813f.add(onProgressChangeListener);
     }
 
     public final IVideoUpdateStrategy c() {
-        if (this.f58813g == null) {
-            this.f58813g = new a(this);
+        if (this.f58814g == null) {
+            this.f58814g = new a(this);
         }
-        return this.f58813g;
+        return this.f58814g;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -98,7 +98,7 @@ public class f extends d implements LivePlayer {
     }
 
     public final void e(boolean z) {
-        this.f58814h = z;
+        this.f58815h = z;
         this.mVideoSession.getControlEventTrigger().pause(z);
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -118,7 +118,7 @@ public class f extends d implements LivePlayer {
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
     public void onUpdateProgress(int i2, int i3, int i4) {
-        for (LivePlayer.OnProgressChangeListener onProgressChangeListener : this.f58812f) {
+        for (LivePlayer.OnProgressChangeListener onProgressChangeListener : this.f58813f) {
             onProgressChangeListener.onUpdateProgress(i2, i3, i4);
         }
     }
@@ -131,12 +131,12 @@ public class f extends d implements LivePlayer {
     @Override // d.b.i0.p1.n.d, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
     public void release() {
         super.release();
-        this.f58812f.clear();
+        this.f58813f.clear();
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
     public void removeProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        this.f58812f.remove(onProgressChangeListener);
+        this.f58813f.remove(onProgressChangeListener);
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -149,7 +149,7 @@ public class f extends d implements LivePlayer {
         if (isPause()) {
             if (z) {
                 super.resume();
-            } else if (this.f58814h) {
+            } else if (this.f58815h) {
             } else {
                 resume();
             }
@@ -219,7 +219,7 @@ public class f extends d implements LivePlayer {
 
     public f(@Nullable Context context, String str) {
         super(context, str);
-        this.f58812f = new ArrayList();
-        this.f58814h = false;
+        this.f58813f = new ArrayList();
+        this.f58815h = false;
     }
 }

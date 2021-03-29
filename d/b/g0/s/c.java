@@ -3,7 +3,7 @@ package d.b.g0.s;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f49357a = 2131230855;
+    public static final int f49358a = 2131230855;
     public static final int abc_ab_share_pack_mtrl_alpha = 2131230856;
     public static final int abc_action_bar_item_background_material = 2131230857;
     public static final int abc_btn_borderless_material = 2131230858;

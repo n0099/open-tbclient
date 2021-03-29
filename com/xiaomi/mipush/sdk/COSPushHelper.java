@@ -7,7 +7,7 @@ import android.os.SystemClock;
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40137a = 0;
+    public static long f40138a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f41a = false;
@@ -19,9 +19,9 @@ public class COSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            long j = f40137a;
+            long j = f40138a;
             if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                f40137a = elapsedRealtime;
+                f40138a = elapsedRealtime;
                 registerCOSAssemblePush(context);
             }
         }

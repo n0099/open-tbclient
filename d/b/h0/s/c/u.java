@@ -8,11 +8,11 @@ import org.json.JSONArray;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<v> f51230a;
+    public List<v> f51231a;
 
     public void a(JSONArray jSONArray) {
         boolean z;
-        this.f51230a = new ArrayList();
+        this.f51231a = new ArrayList();
         try {
             if (jSONArray == null) {
                 d.b.h0.r.d0.b.i().w("key_index_tab_info_list", "[]");
@@ -25,17 +25,17 @@ public class u {
                 vVar.b(jSONArray.getJSONObject(i));
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     vVar2.b(jSONArray2.getJSONObject(i2));
-                    if (vVar.f51233c != null && vVar.f51233c.equals(vVar2.f51233c)) {
-                        if (!TextUtils.isEmpty(vVar2.f51234d) && vVar2.f51234d.equals(vVar.f51234d)) {
+                    if (vVar.f51234c != null && vVar.f51234c.equals(vVar2.f51234c)) {
+                        if (!TextUtils.isEmpty(vVar2.f51235d) && vVar2.f51235d.equals(vVar.f51235d)) {
                             z = false;
-                            vVar.f51235e = z;
+                            vVar.f51236e = z;
                         }
                         z = true;
-                        vVar.f51235e = z;
+                        vVar.f51236e = z;
                     }
                 }
                 if (!vVar.a()) {
-                    this.f51230a.add(vVar);
+                    this.f51231a.add(vVar);
                 }
             }
             d.b.h0.r.d0.b.i().w("key_index_tab_info_list", jSONArray.toString());

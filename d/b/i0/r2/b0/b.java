@@ -16,13 +16,13 @@ import tbclient.User;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f59754c;
+    public static b f59755c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, List<JSONObject>> f59755a = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, List<JSONObject>> f59756a = new ConcurrentHashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f59756b = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Integer> f59757b = new ConcurrentHashMap<>();
 
     public static JSONObject b(ThreadInfo threadInfo) {
         if (threadInfo == null) {
@@ -75,26 +75,26 @@ public class b {
     }
 
     public static b f() {
-        if (f59754c == null) {
+        if (f59755c == null) {
             synchronized (b.class) {
-                if (f59754c == null) {
-                    f59754c = new b();
+                if (f59755c == null) {
+                    f59755c = new b();
                 }
             }
         }
-        return f59754c;
+        return f59755c;
     }
 
     public void a(String str) {
-        this.f59755a.put(str, new ArrayList());
+        this.f59756a.put(str, new ArrayList());
     }
 
     public String d(String str) {
-        return g(this.f59755a.get(str));
+        return g(this.f59756a.get(str));
     }
 
     public int e(String str) {
-        Integer num = this.f59756b.get(str);
+        Integer num = this.f59757b.get(str);
         if (num == null) {
             return 0;
         }
@@ -121,10 +121,10 @@ public class b {
     public void h(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.f59755a.put(str, arrayList);
+        this.f59756a.put(str, arrayList);
     }
 
     public void i(String str, int i) {
-        this.f59756b.put(str, Integer.valueOf(i));
+        this.f59757b.put(str, Integer.valueOf(i));
     }
 }

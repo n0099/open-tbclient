@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.nps.utils.ContextHolder;
 import com.baidu.searchbox.pms.db.PackageTable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static f a(Uri uri) {
         f fVar = new f();
@@ -14,8 +14,8 @@ public class i {
             long longValue = !TextUtils.isEmpty(queryParameter) ? Long.valueOf(queryParameter).longValue() : 0L;
             String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
             long longValue2 = TextUtils.isEmpty(queryParameter2) ? 0L : Long.valueOf(queryParameter2).longValue();
-            fVar.f64927a = longValue;
-            fVar.f64928b = longValue2;
+            fVar.f64928a = longValue;
+            fVar.f64929b = longValue2;
         }
         return fVar;
     }

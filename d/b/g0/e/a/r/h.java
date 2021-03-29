@@ -53,22 +53,22 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47724a;
+    public Context f47725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.e.a.b f47725b;
+    public d.b.g0.e.a.b f47726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.a.b1.g.a f47726c;
+    public d.b.g0.a.b1.g.a f47727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdElementInfo f47727d;
+    public AdElementInfo f47728d;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.k0.a f47729f;
+    public d.b.g0.g.k0.a f47730f;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f47731h;
+    public k f47732h;
     public l i;
     public d.b.g0.a.q1.b.b.g j;
     public String k;
@@ -84,10 +84,10 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     public d.b.g0.a.q.g.b.a z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47728e = 256;
+    public int f47729e = 256;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47730g = 0;
+    public int f47731g = 0;
     public boolean r = true;
     public String u = H;
     public String v = M;
@@ -98,25 +98,25 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f47732e;
+        public final /* synthetic */ l f47733e;
 
         public a(l lVar) {
-            this.f47732e = lVar;
+            this.f47733e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h.this.l0();
-            if (d.b.g0.g.k0.e.c.g(h.this.f47725b.q())) {
-                d.b.g0.g.k0.e.c.i(h.this.f47725b.q());
+            if (d.b.g0.g.k0.e.c.g(h.this.f47726b.q())) {
+                d.b.g0.g.k0.e.c.i(h.this.f47726b.q());
             }
-            if (!d.b.g0.g.k0.e.c.a(h.this.f47725b.q(), d.b.g0.a.e1.d.a.a.b())) {
-                h.this.i0(this.f47732e, "3010000");
+            if (!d.b.g0.g.k0.e.c.a(h.this.f47726b.q(), d.b.g0.a.e1.d.a.a.b())) {
+                h.this.i0(this.f47733e, "3010000");
                 return;
             }
-            h.this.i = this.f47732e;
-            h.this.f47728e = 260;
-            h.this.f47725b.E(h.this.f47727d.I());
+            h.this.i = this.f47733e;
+            h.this.f47729e = 260;
+            h.this.f47726b.E(h.this.f47728d.I());
         }
     }
 
@@ -151,18 +151,18 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            if (!h.this.F || h.this.f47725b == null) {
+            if (!h.this.F || h.this.f47726b == null) {
                 h.this.d0();
             } else {
-                if (h.this.f47726c != null) {
-                    h.this.f47726c.r();
+                if (h.this.f47727c != null) {
+                    h.this.f47727c.r();
                 }
                 if (h.this.p != null) {
-                    h.this.f47724a.unregisterReceiver(h.this.p);
+                    h.this.f47725a.unregisterReceiver(h.this.p);
                     h.this.p = null;
                 }
-                h.this.f47728e = 262;
-                h.this.f47725b.z();
+                h.this.f47729e = 262;
+                h.this.f47726b.z();
             }
             h.this.n = false;
             d.b.g0.g.k0.e.b.a(h.this.b0(), IntentConfig.CLOSE, h.this.a0());
@@ -255,13 +255,13 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
         @Override // d.b.g0.a.b1.g.b
         public void a(d.b.g0.a.w0.c.j jVar) {
-            if (h.this.f47725b != null) {
-                h.this.f47725b.w();
+            if (h.this.f47726b != null) {
+                h.this.f47726b.w();
             }
-            h.this.f47728e = 261;
-            h.this.f47730g = 0;
-            if (h.this.f47725b != null) {
-                h.this.f47725b.o();
+            h.this.f47729e = 261;
+            h.this.f47731g = 0;
+            if (h.this.f47726b != null) {
+                h.this.f47726b.o();
             }
             if (h.this.i != null) {
                 h.this.i.c();
@@ -271,14 +271,14 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.intent.action.SCREEN_ON");
                 intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                h.this.f47724a.registerReceiver(h.this.p, intentFilter);
+                h.this.f47725a.registerReceiver(h.this.p, intentFilter);
             }
             if (h.this.C) {
-                d.b.g0.e.a.p.d.f(h.this.f47727d, h.this.o);
+                d.b.g0.e.a.p.d.f(h.this.f47728d, h.this.o);
                 return;
             }
-            d.b.g0.e.a.p.c.g(h.this.f47727d, h.this.o);
-            d.b.g0.e.a.p.c.j(h.this.f47727d, h.this.o);
+            d.b.g0.e.a.p.c.g(h.this.f47728d, h.this.o);
+            d.b.g0.e.a.p.c.j(h.this.f47728d, h.this.o);
             String str = h.this.l;
             h hVar = h.this;
             d.b.g0.e.a.p.c.c(str, hVar.k, hVar.s, h.this.o);
@@ -336,36 +336,36 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
     /* renamed from: d.b.g0.e.a.r.h$h  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0938h {
+    public static /* synthetic */ class C0939h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47740a;
+        public static final /* synthetic */ int[] f47741a;
 
         static {
             int[] iArr = new int[CommandType.values().length];
-            f47740a = iArr;
+            f47741a = iArr;
             try {
                 iArr[CommandType.ACTION_URL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47740a[CommandType.OPEN_APP.ordinal()] = 2;
+                f47741a[CommandType.OPEN_APP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47740a[CommandType.GET_DOWNLOAD_STATUS.ordinal()] = 3;
+                f47741a[CommandType.GET_DOWNLOAD_STATUS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47740a[CommandType.PAUSE_DOWNLOAD.ordinal()] = 4;
+                f47741a[CommandType.PAUSE_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47740a[CommandType.UNSPECIFIED.ordinal()] = 5;
+                f47741a[CommandType.UNSPECIFIED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47740a[CommandType.BANNER_VIEW.ordinal()] = 6;
+                f47741a[CommandType.BANNER_VIEW.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -378,7 +378,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (h.this.f47726c == null) {
+            if (h.this.f47727c == null) {
                 return;
             }
             if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
@@ -399,7 +399,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     public h(String str, String str2, boolean z) {
         this.k = "";
         Context appContext = AppRuntime.getAppContext();
-        this.f47724a = appContext;
+        this.f47725a = appContext;
         this.l = str;
         this.k = str2;
         this.C = z;
@@ -410,42 +410,42 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     }
 
     public final void X() {
-        if (this.f47726c == null || this.f47725b == null) {
+        if (this.f47727c == null || this.f47726b == null) {
             return;
         }
         d.b.g0.a.q1.b.b.g gVar = this.j;
-        if ((gVar != null && gVar.isShowing()) || this.f47726c.o() || this.f47725b.s()) {
+        if ((gVar != null && gVar.isShowing()) || this.f47727c.o() || this.f47726b.s()) {
             return;
         }
-        this.f47726c.t();
-        this.f47725b.B();
-        d.b.g0.e.a.p.c.j(this.f47727d, this.o);
+        this.f47727c.t();
+        this.f47726b.B();
+        d.b.g0.e.a.p.c.j(this.f47728d, this.o);
     }
 
     public final d.b.g0.e.a.p.b Y(int i2) {
         d.b.g0.e.a.p.b bVar = new d.b.g0.e.a.p.b();
-        bVar.i = String.valueOf(this.f47727d.r());
-        bVar.j = String.valueOf(this.f47730g);
+        bVar.i = String.valueOf(this.f47728d.r());
+        bVar.j = String.valueOf(this.f47731g);
         bVar.k = String.valueOf(i2);
         String str = "1";
-        bVar.l = this.f47730g == 0 ? "1" : "0";
-        bVar.m = i2 == this.f47727d.r() ? "1" : "0";
+        bVar.l = this.f47731g == 0 ? "1" : "0";
+        bVar.m = i2 == this.f47728d.r() ? "1" : "0";
         int i3 = 1;
-        bVar.n = this.f47724a.getResources().getConfiguration().orientation == 1 ? "2" : "4";
-        int i4 = this.f47730g;
+        bVar.n = this.f47725a.getResources().getConfiguration().orientation == 1 ? "2" : "4";
+        int i4 = this.f47731g;
         if (i4 != 0) {
-            i3 = i4 == this.f47727d.r() ? 3 : 2;
+            i3 = i4 == this.f47728d.r() ? 3 : 2;
         }
         bVar.o = String.valueOf(i3);
-        bVar.p = (this.f47730g == 0 && SwanAppNetworkUtils.i(this.f47724a)) ? "2" : "2";
+        bVar.p = (this.f47731g == 0 && SwanAppNetworkUtils.i(this.f47725a)) ? "2" : "2";
         bVar.q = String.valueOf(0);
         return bVar;
     }
 
     public final int Z() {
-        d.b.g0.a.b1.g.a aVar = this.f47726c;
+        d.b.g0.a.b1.g.a aVar = this.f47727c;
         if (aVar != null && aVar.n()) {
-            return this.f47726c.j() / 1000;
+            return this.f47727c.j() / 1000;
         }
         return a0();
     }
@@ -458,23 +458,23 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("url", str2);
-            jSONObject.put("title", this.f47727d.G());
-            jSONObject.put("description", this.f47727d.q());
+            jSONObject.put("title", this.f47728d.G());
+            jSONObject.put("description", this.f47728d.q());
             jSONObject.put("autoinstall", true);
             if (this.E == null) {
-                this.E = new d.b.g0.e.a.r.g(this.f47724a, this.f47727d, this.o);
+                this.E = new d.b.g0.e.a.r.g(this.f47725a, this.f47728d, this.o);
             }
             this.E.k(str);
-            d.b.g0.a.w0.a.d().a(this.f47724a, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.E);
+            d.b.g0.a.w0.a.d().a(this.f47725a, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.E);
         } catch (JSONException e2) {
-            if (d.b.g0.a.k.f45050a) {
+            if (d.b.g0.a.k.f45051a) {
                 e2.printStackTrace();
             }
         }
     }
 
     public final int a0() {
-        d.b.g0.a.b1.g.a aVar = this.f47726c;
+        d.b.g0.a.b1.g.a aVar = this.f47727c;
         if (aVar != null) {
             return aVar.i() / 1000;
         }
@@ -488,15 +488,15 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         int i2;
         int i3;
         String format;
-        if (this.f47726c == null || this.f47727d == null || (activity = d.b.g0.a.z0.f.V().getActivity()) == null || this.n) {
+        if (this.f47727c == null || this.f47728d == null || (activity = d.b.g0.a.z0.f.V().getActivity()) == null || this.n) {
             return;
         }
         if (view != null && d.b.g0.e.a.g.close_ad != view.getId()) {
             f0();
             return;
         }
-        int i4 = this.f47726c.i() / 1000;
-        int min2 = Math.min(this.f47727d.A(), this.f47726c.j() / 1000);
+        int i4 = this.f47727c.i() / 1000;
+        int min2 = Math.min(this.f47728d.A(), this.f47727c.j() / 1000);
         if (i4 >= min2) {
             c0();
             return;
@@ -514,11 +514,11 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         }
         q0();
         d.b.g0.g.k0.e.b.a(b0(), "pageshow", a0());
-        this.f47724a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_dialog_msg_more);
+        this.f47725a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_dialog_msg_more);
         if (this.F) {
-            format = String.format(this.f47724a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_reward_msg_time_tip), Integer.valueOf(15 - (this.f47726c.i() / 1000)));
+            format = String.format(this.f47725a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_reward_msg_time_tip), Integer.valueOf(15 - (this.f47727c.i() / 1000)));
         } else {
-            format = String.format(this.f47724a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_video_close_alert), Integer.valueOf(min2 - i4));
+            format = String.format(this.f47725a.getResources().getString(d.b.g0.e.a.i.swangame_game_ad_video_close_alert), Integer.valueOf(min2 - i4));
         }
         this.n = true;
         g.a aVar = new g.a(activity);
@@ -539,31 +539,31 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
     @Override // d.b.g0.e.a.m.b
     public void c(String str) {
-        this.f47728e = PayBeanFactory.BEAN_ID_MODIFY_MOBILE_PWD;
-        n0(this.f47731h, str);
+        this.f47729e = PayBeanFactory.BEAN_ID_MODIFY_MOBILE_PWD;
+        n0(this.f47732h, str);
         d.b.g0.g.k0.e.b.c(b0(), "fail", str);
     }
 
     public final void c0() {
-        d.b.g0.a.b1.g.a aVar = this.f47726c;
-        if (aVar == null || this.f47725b == null) {
+        d.b.g0.a.b1.g.a aVar = this.f47727c;
+        if (aVar == null || this.f47726b == null) {
             return;
         }
         if (aVar.o()) {
-            this.f47726c.r();
-            this.f47725b.x();
+            this.f47727c.r();
+            this.f47726b.x();
         }
-        this.f47728e = 262;
+        this.f47729e = 262;
         if (this.C) {
-            d.b.g0.e.a.p.d.g(Y(this.f47727d.r()), this.f47727d, this.o);
+            d.b.g0.e.a.p.d.g(Y(this.f47728d.r()), this.f47728d, this.o);
         } else {
-            d.b.g0.e.a.p.c.h(a0(), this.f47730g, this.f47727d, this.o);
+            d.b.g0.e.a.p.c.h(a0(), this.f47731g, this.f47728d, this.o);
         }
-        if (this.f47725b != null) {
-            if (this.f47726c.n()) {
-                this.f47725b.y();
+        if (this.f47726b != null) {
+            if (this.f47727c.n()) {
+                this.f47726b.y();
             } else {
-                this.f47725b.z();
+                this.f47726b.z();
             }
         }
     }
@@ -578,24 +578,24 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
 
     public final void d0() {
         d.b.g0.a.b1.g.a aVar;
-        if (this.m != null && (aVar = this.f47726c) != null) {
-            this.m.b(this.f47726c.n() || this.f47726c.i() / 1000 >= Math.min(this.f47727d.A(), aVar.j() / 1000));
+        if (this.m != null && (aVar = this.f47727c) != null) {
+            this.m.b(this.f47727c.n() || this.f47727c.i() / 1000 >= Math.min(this.f47728d.A(), aVar.j() / 1000));
         }
         r0();
-        if (!this.C && this.f47727d.h() == 2 && SwanAdDownloadState.DOWNLOADING == this.y) {
+        if (!this.C && this.f47728d.h() == 2 && SwanAdDownloadState.DOWNLOADING == this.y) {
             this.A = null;
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.A);
         }
-        d.b.g0.e.a.p.c.i(this.f47727d, this.o);
-        this.f47728e = PayBeanFactory.BEAN_ID_CREDIT_PAY;
+        d.b.g0.e.a.p.c.i(this.f47728d, this.o);
+        this.f47729e = PayBeanFactory.BEAN_ID_CREDIT_PAY;
         s0(null);
     }
 
     @Override // d.b.g0.e.a.m.a
     public void e(CommandType commandType, Uri uri) {
-        String l = this.f47727d.l();
-        String y = this.f47727d.y();
-        int i2 = C0938h.f47740a[commandType.ordinal()];
+        String l = this.f47728d.l();
+        String y = this.f47728d.y();
+        int i2 = C0939h.f47741a[commandType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {
@@ -605,7 +605,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
                     } else if (i2 == 6) {
                         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
                         if (W == null) {
-                            Context context = this.f47724a;
+                            Context context = this.f47725a;
                             if (context != null) {
                                 d.b.g0.a.q1.b.f.d.e(context, d.b.g0.e.a.i.aiapps_open_fragment_failed_toast).C();
                                 return;
@@ -614,13 +614,13 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
                         }
                         d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(l, l);
                         f.b i3 = W.i("adLanding");
-                        i3.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+                        i3.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
                         i3.k("adLanding", c2).b();
                     }
                 } else if (this.t == null) {
                     return;
                 } else {
-                    if (j0(this.f47724a, y)) {
+                    if (j0(this.f47725a, y)) {
                         this.u = J;
                     }
                     String queryParameter = uri.getQueryParameter(P);
@@ -632,117 +632,117 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
                     } catch (JSONException unused) {
                     }
                 }
-            } else if (this.f47727d != null) {
-                p0(this.f47724a, y);
+            } else if (this.f47728d != null) {
+                p0(this.f47725a, y);
             }
-        } else if (this.f47727d.h() == 2) {
+        } else if (this.f47728d.h() == 2) {
             e0();
         } else {
             h0();
         }
-        d.b.g0.e.a.p.c.d(this.f47727d, this.o);
+        d.b.g0.e.a.p.c.d(this.f47728d, this.o);
         d.b.g0.g.k0.e.b.a(b0(), PrefetchEvent.STATE_CLICK, Z());
     }
 
     public final void e0() {
-        if (k0.C(this.f47724a, this.z.f45487b)) {
+        if (k0.C(this.f47725a, this.z.f45488b)) {
             this.u = J;
-            p0(this.f47724a, this.z.f45487b);
+            p0(this.f47725a, this.z.f45488b);
             this.x.c("appinstallopen");
             return;
         }
         SwanAdDownloadState swanAdDownloadState = this.y;
         if (swanAdDownloadState == SwanAdDownloadState.NOT_START || swanAdDownloadState == SwanAdDownloadState.DELETED) {
             this.u = G;
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
         }
         if (this.y == SwanAdDownloadState.DOWNLOADING) {
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.A);
         }
         if (this.y == SwanAdDownloadState.DOWNLOAD_PAUSED) {
             this.v = M;
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
         }
         if (this.y == SwanAdDownloadState.DOWNLOAD_FAILED) {
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.A);
         }
         if (this.y == SwanAdDownloadState.DOWNLOADED) {
             this.u = I;
             this.A.b();
-            d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.A);
+            d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.A);
         }
         if (this.y == SwanAdDownloadState.INSTALLED) {
-            p0(this.f47724a, this.z.f45487b);
+            p0(this.f47725a, this.z.f45488b);
         }
     }
 
     @Override // d.b.g0.e.a.m.b
     public void f(AdElementInfo adElementInfo) {
-        this.f47727d = adElementInfo;
+        this.f47728d = adElementInfo;
         this.C = adElementInfo.K();
-        this.f47728e = PayBeanFactory.BEAN_ID_CHECK_MOBILE_PWD;
-        o0(this.f47731h);
-        if (!this.C && this.f47727d.h() == 2) {
+        this.f47729e = PayBeanFactory.BEAN_ID_CHECK_MOBILE_PWD;
+        o0(this.f47732h);
+        if (!this.C && this.f47728d.h() == 2) {
             k0();
         }
         d.b.g0.g.k0.e.b.b(b0(), "success");
     }
 
     public final void f0() {
-        d.b.g0.g.k0.e.b.a(b0(), "pageclose", this.f47726c.j() / 1000);
+        d.b.g0.g.k0.e.b.a(b0(), "pageclose", this.f47727c.j() / 1000);
         d0();
     }
 
     public final void g0(View view) {
         AdElementInfo adElementInfo;
-        if (!this.C || (adElementInfo = this.f47727d) == null) {
+        if (!this.C || (adElementInfo = this.f47728d) == null) {
             return;
         }
         d.b.g0.e.a.p.d.d(adElementInfo, this.o);
         d.b.g0.e.a.p.b bVar = new d.b.g0.e.a.p.b();
-        bVar.f47669a = String.valueOf(h0.m(this.f47724a));
-        bVar.f47670b = String.valueOf(h0.l(this.f47724a));
-        bVar.f47671c = String.valueOf(h0.m(this.f47724a));
-        bVar.f47672d = String.valueOf(h0.l(this.f47724a));
-        bVar.f47673e = String.valueOf((int) view.getX());
-        bVar.f47674f = String.valueOf((int) view.getY());
-        bVar.f47675g = String.valueOf((int) view.getX());
-        bVar.f47676h = String.valueOf((int) view.getY());
-        if (this.f47727d.h() == 2) {
-            d.b.g0.e.a.p.d.a(bVar, this.f47727d, this.o, this);
+        bVar.f47670a = String.valueOf(h0.m(this.f47725a));
+        bVar.f47671b = String.valueOf(h0.l(this.f47725a));
+        bVar.f47672c = String.valueOf(h0.m(this.f47725a));
+        bVar.f47673d = String.valueOf(h0.l(this.f47725a));
+        bVar.f47674e = String.valueOf((int) view.getX());
+        bVar.f47675f = String.valueOf((int) view.getY());
+        bVar.f47676g = String.valueOf((int) view.getX());
+        bVar.f47677h = String.valueOf((int) view.getY());
+        if (this.f47728d.h() == 2) {
+            d.b.g0.e.a.p.d.a(bVar, this.f47728d, this.o, this);
             return;
         }
         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
         if (W == null) {
-            Context context = this.f47724a;
+            Context context = this.f47725a;
             if (context != null) {
                 d.b.g0.a.q1.b.f.d.e(context, d.b.g0.e.a.i.aiapps_open_fragment_failed_toast).C();
                 return;
             }
             return;
         }
-        AdElementInfo adElementInfo2 = this.f47727d;
+        AdElementInfo adElementInfo2 = this.f47728d;
         if (adElementInfo2 != null) {
             String c2 = d.b.g0.e.a.p.d.c(adElementInfo2.l(), bVar);
             d.b.g0.a.e1.b c3 = d.b.g0.a.e1.b.c(c2, c2);
             f.b i2 = W.i("adLanding");
-            i2.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+            i2.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
             i2.k("adLanding", c3).b();
         }
     }
 
     public final void h0() {
-        String l = this.f47727d.l();
+        String l = this.f47728d.l();
         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
         if (W == null) {
-            Context context = this.f47724a;
+            Context context = this.f47725a;
             if (context != null) {
                 d.b.g0.a.q1.b.f.d.e(context, d.b.g0.e.a.i.aiapps_open_fragment_failed_toast).C();
                 return;
             }
             return;
         }
-        JSONObject i2 = this.f47727d.i();
+        JSONObject i2 = this.f47728d.i();
         d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(l, l);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -751,7 +751,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         }
         c2.g(jSONObject.toString());
         f.b i3 = W.i("adLanding");
-        i3.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+        i3.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
         i3.k("adLanding", c2).b();
     }
 
@@ -763,7 +763,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         if (jVar != null) {
             jVar.onError(str);
         }
-        this.f47728e = PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK;
+        this.f47729e = PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK;
     }
 
     public final boolean j0(Context context, String str) {
@@ -782,45 +782,45 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     }
 
     public final void k0() {
-        this.x = new d.b.g0.a.q.b(this.f47724a, this.f47727d.i());
+        this.x = new d.b.g0.a.q.b(this.f47725a, this.f47728d.i());
         this.A = new e();
-        String l = this.f47727d.l();
-        String y = this.f47727d.y();
+        String l = this.f47728d.l();
+        String y = this.f47728d.y();
         String str = this.w.get(y);
         if (str != null) {
             l = str;
         } else {
             this.w.put(y, l);
         }
-        this.z = new d.b.g0.a.q.g.b.a(l, y, this.f47727d.G());
+        this.z = new d.b.g0.a.q.g.b.a(l, y, this.f47728d.G());
         this.B = false;
-        d.b.g0.a.w0.a.d().a(this.f47724a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.A);
+        d.b.g0.a.w0.a.d().a(this.f47725a, this.z.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.A);
     }
 
     public final void l0() {
         this.t.i(this);
         if (d.b.g0.g.k0.e.c.f()) {
-            this.f47725b = new d.b.g0.e.a.j(this.f47724a, this.f47727d, this.t);
+            this.f47726b = new d.b.g0.e.a.j(this.f47725a, this.f47728d, this.t);
         } else {
-            this.f47725b = new d.b.g0.e.a.k(this.f47724a, this.f47727d, this.t);
+            this.f47726b = new d.b.g0.e.a.k(this.f47725a, this.f47728d, this.t);
         }
         if (this.C) {
-            this.f47725b.D(this);
+            this.f47726b.D(this);
         }
-        this.f47725b.C(this);
-        d.b.g0.a.b1.g.a r = this.f47725b.r();
-        this.f47726c = r;
+        this.f47726b.C(this);
+        d.b.g0.a.b1.g.a r = this.f47726b.r();
+        this.f47727c = r;
         r.z(new f());
-        if (this.f47729f == null) {
+        if (this.f47730f == null) {
             g gVar = new g();
-            this.f47729f = gVar;
+            this.f47730f = gVar;
             d.b.g0.g.k0.e.c.h(gVar);
         }
-        this.f47725b.q().setAnimation(AnimationUtils.loadAnimation(this.f47724a, d.b.g0.e.a.c.ng_game_ad_open));
+        this.f47726b.q().setAnimation(AnimationUtils.loadAnimation(this.f47725a, d.b.g0.e.a.c.ng_game_ad_open));
     }
 
     public final boolean m0() {
-        AdElementInfo adElementInfo = this.f47727d;
+        AdElementInfo adElementInfo = this.f47728d;
         if (adElementInfo == null) {
             return true;
         }
@@ -828,7 +828,7 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
         if (u == 0) {
             u = 1740000;
         }
-        return System.currentTimeMillis() - this.f47727d.p() >= u;
+        return System.currentTimeMillis() - this.f47728d.p() >= u;
     }
 
     public final void n0(k kVar, String str) {
@@ -884,41 +884,41 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     }
 
     public final void q0() {
-        d.b.g0.a.b1.g.a aVar = this.f47726c;
-        if (aVar == null || this.f47725b == null || !aVar.o()) {
+        d.b.g0.a.b1.g.a aVar = this.f47727c;
+        if (aVar == null || this.f47726b == null || !aVar.o()) {
             return;
         }
-        this.f47726c.r();
-        this.f47725b.x();
+        this.f47727c.r();
+        this.f47726b.x();
         if (this.C) {
-            d.b.g0.e.a.p.d.g(Y(a0()), this.f47727d, this.o);
+            d.b.g0.e.a.p.d.g(Y(a0()), this.f47728d, this.o);
         } else {
-            d.b.g0.e.a.p.c.h(a0(), this.f47730g, this.f47727d, this.o);
+            d.b.g0.e.a.p.c.h(a0(), this.f47731g, this.f47728d, this.o);
         }
-        this.f47730g = a0();
+        this.f47731g = a0();
     }
 
     public final void r0() {
-        d.b.g0.a.b1.g.a aVar = this.f47726c;
+        d.b.g0.a.b1.g.a aVar = this.f47727c;
         if (aVar != null) {
             aVar.r();
-            this.f47726c.onDestroy();
+            this.f47727c.onDestroy();
         }
         i iVar = this.p;
         if (iVar != null) {
-            this.f47724a.unregisterReceiver(iVar);
+            this.f47725a.unregisterReceiver(iVar);
             this.p = null;
         }
-        d.b.g0.e.a.b bVar = this.f47725b;
+        d.b.g0.e.a.b bVar = this.f47726b;
         if (bVar != null) {
             bVar.n();
-            this.f47725b.q().setAnimation(AnimationUtils.loadAnimation(this.f47724a, d.b.g0.e.a.c.ng_game_ad_close));
-            d.b.g0.g.k0.e.c.i(this.f47725b.q());
+            this.f47726b.q().setAnimation(AnimationUtils.loadAnimation(this.f47725a, d.b.g0.e.a.c.ng_game_ad_close));
+            d.b.g0.g.k0.e.c.i(this.f47726b.q());
         }
-        d.b.g0.g.k0.a aVar2 = this.f47729f;
+        d.b.g0.g.k0.a aVar2 = this.f47730f;
         if (aVar2 != null) {
             d.b.g0.g.k0.e.c.j(aVar2);
-            this.f47729f = null;
+            this.f47730f = null;
         }
         d.b.g0.e.a.r.g gVar = this.E;
         if (gVar != null) {
@@ -930,44 +930,44 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     public synchronized void s0(d.b.g0.g.e.d.c cVar) {
         d.b.g0.e.a.o.d fVar;
         k d2 = k.d(cVar);
-        if (this.f47728e == 257) {
+        if (this.f47729e == 257) {
             d.b.g0.e.a.r.a.b().a(d2);
             return;
         }
-        if (this.f47728e != 261 && this.f47728e != 260 && this.f47728e != 265) {
-            if (this.f47728e == 258) {
+        if (this.f47729e != 261 && this.f47729e != 260 && this.f47729e != 265) {
+            if (this.f47729e == 258) {
                 if (m0()) {
-                    this.f47728e = AuthorityState.STATE_INIT_ING;
+                    this.f47729e = AuthorityState.STATE_INIT_ING;
                 } else {
                     o0(d2);
                     return;
                 }
             }
-            if (this.f47728e == 259 || this.f47728e == 262 || this.f47728e == 263 || this.f47728e == 264 || this.f47728e == 256 || this.f47728e == 272) {
+            if (this.f47729e == 259 || this.f47729e == 262 || this.f47729e == 263 || this.f47729e == 264 || this.f47729e == 256 || this.f47729e == 272) {
                 d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
                 String B = y != null ? y.B() : "";
                 if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.k)) {
-                    this.f47731h = d2;
-                    this.f47728e = 257;
-                    b.C0936b c0936b = new b.C0936b();
-                    c0936b.l(this.l);
-                    c0936b.i(this.k);
-                    c0936b.m(B);
-                    c0936b.k(h0.m(this.f47724a));
-                    c0936b.h(h0.l(this.f47724a));
-                    c0936b.j(1);
-                    d.b.g0.e.a.o.b g2 = c0936b.g();
+                    this.f47732h = d2;
+                    this.f47729e = 257;
+                    b.C0937b c0937b = new b.C0937b();
+                    c0937b.l(this.l);
+                    c0937b.i(this.k);
+                    c0937b.m(B);
+                    c0937b.k(h0.m(this.f47725a));
+                    c0937b.h(h0.l(this.f47725a));
+                    c0937b.j(1);
+                    d.b.g0.e.a.o.b g2 = c0937b.g();
                     if (this.D) {
                         this.C = true;
-                        fVar = new d.b.g0.e.a.o.e(this.f47724a, g2, 5, 5);
+                        fVar = new d.b.g0.e.a.o.e(this.f47725a, g2, 5, 5);
                         d.b.g0.g.k0.e.b.b("gdtvideo", null);
                     } else {
                         this.C = false;
-                        fVar = new d.b.g0.e.a.o.f(this.f47724a, g2);
+                        fVar = new d.b.g0.e.a.o.f(this.f47725a, g2);
                         this.s = fVar.c();
                         d.b.g0.g.k0.e.b.b("video", null);
                     }
-                    d.b.g0.e.a.o.a aVar = new d.b.g0.e.a.o.a(this.f47724a, this.C);
+                    d.b.g0.e.a.o.a aVar = new d.b.g0.e.a.o.a(this.f47725a, this.C);
                     aVar.i(this);
                     aVar.h(fVar, this.o);
                 }
@@ -991,15 +991,15 @@ public class h implements d.b.g0.e.a.m.b, d.b.g0.e.a.m.c, d.b.g0.e.a.m.a, d.b.g0
     */
     public synchronized void u0(d.b.g0.g.e.d.c cVar) {
         l d2 = l.d(cVar);
-        if (this.f47728e != 261 && this.f47728e != 260 && this.f47728e != 265) {
-            if (this.f47728e == 258 && !m0()) {
-                if (this.f47727d != null && TextUtils.isEmpty(this.f47727d.I())) {
+        if (this.f47729e != 261 && this.f47729e != 260 && this.f47729e != 265) {
+            if (this.f47729e == 258 && !m0()) {
+                if (this.f47728d != null && TextUtils.isEmpty(this.f47728d.I())) {
                     i0(d2, "3010008");
                     return;
                 }
-                if (this.f47728e == 258) {
-                    this.f47728e = 265;
-                    String t = this.f47727d != null ? this.f47727d.t() : "";
+                if (this.f47729e == 258) {
+                    this.f47729e = 265;
+                    String t = this.f47728d != null ? this.f47728d.t() : "";
                     if (d.b.g0.g.k0.e.c.f() && (d.b.g0.g.k0.e.c.e() || !TextUtils.isEmpty(t))) {
                         SwanAppActivity activity = d.b.g0.a.z0.f.V().getActivity();
                         if (activity != null) {

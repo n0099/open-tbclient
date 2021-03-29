@@ -17,28 +17,28 @@ import java.util.ArrayList;
 public class k0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52718a;
+    public String f52719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52719b;
+    public boolean f52720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f52720c;
+    public Rect f52721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52721d;
+    public int f52722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.c2.h.e f52722e;
+    public d.b.i0.c2.h.e f52723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52723f;
+    public boolean f52724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Parcelable f52724g;
+    public Parcelable f52725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52725h;
+    public boolean f52726h;
     public boolean i;
     public boolean j;
     public PostData k;
@@ -148,7 +148,7 @@ public class k0 {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static k0 f52726a = new k0(null);
+        public static k0 f52727a = new k0(null);
     }
 
     static {
@@ -166,7 +166,7 @@ public class k0 {
     }
 
     public static k0 b() {
-        return h.f52726a;
+        return h.f52727a;
     }
 
     public boolean a() {
@@ -182,30 +182,30 @@ public class k0 {
     }
 
     public Parcelable e() {
-        if (this.f52723f) {
-            this.f52723f = false;
-            Parcelable parcelable = this.f52724g;
-            this.f52724g = null;
+        if (this.f52724f) {
+            this.f52724f = false;
+            Parcelable parcelable = this.f52725g;
+            this.f52725g = null;
             return parcelable;
         }
-        this.f52724g = null;
+        this.f52725g = null;
         return null;
     }
 
     public d.b.i0.c2.h.e f() {
-        if (!this.f52719b) {
-            this.f52723f = false;
+        if (!this.f52720b) {
+            this.f52724f = false;
             return null;
         }
-        d.b.i0.c2.h.e eVar = this.f52722e;
-        if (eVar != null && eVar.D() != null && this.f52722e.D().size() > 0) {
-            this.f52723f = true;
-            d.b.i0.c2.h.e eVar2 = this.f52722e;
-            this.f52722e = null;
+        d.b.i0.c2.h.e eVar = this.f52723e;
+        if (eVar != null && eVar.D() != null && this.f52723e.D().size() > 0) {
+            this.f52724f = true;
+            d.b.i0.c2.h.e eVar2 = this.f52723e;
+            this.f52723e = null;
             return eVar2;
         }
-        this.f52723f = false;
-        this.f52722e = null;
+        this.f52724f = false;
+        this.f52723e = null;
         return null;
     }
 
@@ -218,40 +218,40 @@ public class k0 {
     }
 
     public boolean i() {
-        return this.f52725h;
+        return this.f52726h;
     }
 
     public int j() {
-        return this.f52721d;
+        return this.f52722d;
     }
 
     public Rect k() {
-        return this.f52720c;
+        return this.f52721c;
     }
 
     public void l(int i, CustomResponsedMessage<?> customResponsedMessage) {
         d.b.i0.c2.h.e eVar;
-        if (customResponsedMessage == null || (eVar = this.f52722e) == null || eVar.l() == null) {
+        if (customResponsedMessage == null || (eVar = this.f52723e) == null || eVar.l() == null) {
             return;
         }
         Object data = customResponsedMessage.getData();
-        if ((data instanceof Long) && ((Long) data).longValue() == d.b.b.e.m.b.f(this.f52722e.l().getId(), 0L)) {
-            this.f52722e.l().setLike(i);
+        if ((data instanceof Long) && ((Long) data).longValue() == d.b.b.e.m.b.f(this.f52723e.l().getId(), 0L)) {
+            this.f52723e.l().setLike(i);
         }
     }
 
     public void m() {
-        this.f52719b = false;
-        this.f52722e = null;
-        this.f52723f = false;
-        this.f52724g = null;
-        this.f52720c = null;
-        this.f52721d = 0;
+        this.f52720b = false;
+        this.f52723e = null;
+        this.f52724f = false;
+        this.f52725g = null;
+        this.f52721c = null;
+        this.f52722d = 0;
     }
 
     public boolean n(d.b.i0.c2.h.e eVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.f52719b = false;
-        if (this.f52718a == null) {
+        this.f52720b = false;
+        if (this.f52719a == null) {
             m();
             return false;
         } else if (eVar == null) {
@@ -264,10 +264,10 @@ public class k0 {
             m();
             return false;
         } else {
-            this.f52722e = eVar;
-            this.f52723f = false;
-            this.f52724g = parcelable;
-            this.f52725h = z;
+            this.f52723e = eVar;
+            this.f52724f = false;
+            this.f52725g = parcelable;
+            this.f52726h = z;
             this.i = z2;
             this.j = z3;
             return true;
@@ -279,21 +279,21 @@ public class k0 {
     }
 
     public void p(String str, boolean z) {
-        this.f52719b = false;
+        this.f52720b = false;
         if (z) {
             str = null;
         }
         if (str != null && str.length() >= 1) {
-            if (!str.equals(this.f52718a)) {
+            if (!str.equals(this.f52719a)) {
                 m();
-                this.f52718a = str;
+                this.f52719a = str;
                 return;
             }
-            this.f52719b = true;
+            this.f52720b = true;
             return;
         }
         m();
-        this.f52718a = null;
+        this.f52719a = null;
     }
 
     public void q(PostData postData) {
@@ -305,26 +305,26 @@ public class k0 {
     }
 
     public void s(int i) {
-        this.f52721d = i;
+        this.f52722d = i;
     }
 
     public void t(Rect rect) {
-        this.f52720c = rect;
+        this.f52721c = rect;
     }
 
     public void u(d.b.i0.c3.h0.e eVar) {
-        d.b.i0.c2.h.e eVar2 = this.f52722e;
-        if (eVar2 == null || eVar2.L() == null || this.f52722e.L().L() == null || eVar == null) {
+        d.b.i0.c2.h.e eVar2 = this.f52723e;
+        if (eVar2 == null || eVar2.L() == null || this.f52723e.L().L() == null || eVar == null) {
             return;
         }
-        AgreeData agreeData = eVar.f53376b;
-        AgreeData L = this.f52722e.L().L();
+        AgreeData agreeData = eVar.f53377b;
+        AgreeData L = this.f52723e.L().L();
         if (agreeData == null || L == null) {
             return;
         }
         String str = agreeData.nid;
         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-            BaijiahaoData V = this.f52722e.L().V();
+            BaijiahaoData V = this.f52723e.L().V();
             if (V == null || !TextUtils.equals(str, V.oriUgcNid)) {
                 return;
             }
@@ -348,24 +348,24 @@ public class k0 {
 
     public void v(d.b.h0.t.m mVar) {
         d.b.i0.c2.h.e eVar;
-        if (mVar == null || (eVar = this.f52722e) == null || eVar.D() == null || this.f52722e.D().size() <= 0) {
+        if (mVar == null || (eVar = this.f52723e) == null || eVar.D() == null || this.f52723e.D().size() <= 0) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        int size = this.f52722e.D().size();
+        int size = this.f52723e.D().size();
         for (int i = 0; i < size; i++) {
-            if (this.f52722e.D().get(i) != null && this.f52722e.D().get(i).s() != null && currentAccount.equals(this.f52722e.D().get(i).s().getUserId()) && this.f52722e.D().get(i).s().getPendantData() != null) {
-                this.f52722e.D().get(i).s().getPendantData().d(mVar.a());
-                this.f52722e.D().get(i).s().getPendantData().e(mVar.b());
+            if (this.f52723e.D().get(i) != null && this.f52723e.D().get(i).s() != null && currentAccount.equals(this.f52723e.D().get(i).s().getUserId()) && this.f52723e.D().get(i).s().getPendantData() != null) {
+                this.f52723e.D().get(i).s().getPendantData().d(mVar.a());
+                this.f52723e.D().get(i).s().getPendantData().e(mVar.b());
             }
         }
     }
 
     public void w(d.b.i0.c3.h0.e eVar) {
-        d.b.i0.c2.h.e eVar2 = this.f52722e;
+        d.b.i0.c2.h.e eVar2 = this.f52723e;
         if (eVar2 == null || eVar == null) {
             return;
         }
@@ -373,7 +373,7 @@ public class k0 {
         if (ListUtils.isEmpty(D)) {
             return;
         }
-        AgreeData agreeData = eVar.f53376b;
+        AgreeData agreeData = eVar.f53377b;
         for (PostData postData : D) {
             if (postData != null && TextUtils.equals(postData.D(), agreeData.postId)) {
                 AgreeData q = postData.q();
@@ -388,13 +388,13 @@ public class k0 {
     }
 
     public k0() {
-        this.f52718a = null;
-        this.f52719b = false;
-        this.f52721d = 0;
-        this.f52722e = null;
-        this.f52723f = false;
-        this.f52724g = null;
-        this.f52725h = true;
+        this.f52719a = null;
+        this.f52720b = false;
+        this.f52722d = 0;
+        this.f52723e = null;
+        this.f52724f = false;
+        this.f52725g = null;
+        this.f52726h = true;
         this.i = false;
         this.j = false;
     }

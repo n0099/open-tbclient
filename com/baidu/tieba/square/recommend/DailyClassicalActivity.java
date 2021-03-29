@@ -39,16 +39,16 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public static long u;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21239e = null;
+    public ImageView f21240e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21240f = null;
+    public RelativeLayout f21241f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f21241g = null;
+    public RelativeLayout f21242g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21242h = null;
+    public TextView f21243h = null;
     public View.OnClickListener i = null;
     public BaseWebView j = null;
     public ProgressBar k = null;
@@ -92,13 +92,13 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public class c extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f21244a;
+        public NetWork f21245a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21245b;
+        public String f21246b;
 
         public c() {
-            this.f21244a = null;
+            this.f21245a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,28 +106,28 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         /* renamed from: b */
         public String doInBackground(Object... objArr) {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
-            this.f21244a = netWork;
+            this.f21245a = netWork;
             netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f21244a.addPostData("night_type", "1");
+                this.f21245a.addPostData("night_type", "1");
             }
-            this.f21244a.addPostData(Config.PACKAGE_NAME, DailyClassicalActivity.this.s);
-            this.f21244a.addPostData("_version_more", "1");
-            this.f21244a.addPostData(Constants.PARAM_PLATFORM, "android");
+            this.f21245a.addPostData(Config.PACKAGE_NAME, DailyClassicalActivity.this.s);
+            this.f21245a.addPostData("_version_more", "1");
+            this.f21245a.addPostData(Constants.PARAM_PLATFORM, "android");
             if (DailyClassicalActivity.t) {
                 boolean unused = DailyClassicalActivity.t = false;
-                this.f21244a.addPostData("msg_click", "1");
-                this.f21244a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
+                this.f21245a.addPostData("msg_click", "1");
+                this.f21245a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
             }
             Address h2 = d.b.b.e.i.a.l().h(false);
             if (h2 != null && DailyClassicalActivity.this.v()) {
-                NetWork netWork2 = this.f21244a;
+                NetWork netWork2 = this.f21245a;
                 netWork2.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
             }
             try {
-                this.f21245b = this.f21244a.postNetData();
-                if (this.f21244a.isNetSuccess()) {
-                    return this.f21245b;
+                this.f21246b = this.f21245a.postNetData();
+                if (this.f21245a.isNetSuccess()) {
+                    return this.f21246b;
                 }
                 return null;
             } catch (Exception e2) {
@@ -138,7 +138,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f21244a;
+            NetWork netWork = this.f21245a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -151,7 +151,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public void onPostExecute(String str) {
             DailyClassicalActivity.this.m = null;
             DailyClassicalActivity.this.l.setOnClickListener(null);
-            NetWork netWork = this.f21244a;
+            NetWork netWork = this.f21245a;
             if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
                 DailyClassicalActivity.this.o = false;
                 DailyClassicalActivity.this.p.setVisibility(0);
@@ -185,10 +185,10 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        SkinManager.setBgColor(this.f21240f, i);
-        SkinManager.setTopBarBgImage(this.f21241g, i);
-        SkinManager.setTopBarTitleColor(this.f21242h, i);
-        SkinManager.setTopBarBackBgImage(this.f21239e, i);
+        SkinManager.setBgColor(this.f21241f, i);
+        SkinManager.setTopBarBgImage(this.f21242g, i);
+        SkinManager.setTopBarTitleColor(this.f21243h, i);
+        SkinManager.setTopBarBackBgImage(this.f21240e, i);
         BaseWebView baseWebView = this.j;
         if (baseWebView != null) {
             SkinManager.setBgColor(baseWebView, i);
@@ -287,17 +287,17 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     }
 
     public final void x() {
-        this.f21240f = (RelativeLayout) findViewById(R.id.parent);
-        this.f21241g = (RelativeLayout) findViewById(R.id.title);
-        this.f21242h = (TextView) findViewById(R.id.title_text);
+        this.f21241f = (RelativeLayout) findViewById(R.id.parent);
+        this.f21242g = (RelativeLayout) findViewById(R.id.title);
+        this.f21243h = (TextView) findViewById(R.id.title_text);
         this.l = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.f21239e = (ImageView) findViewById(R.id.back);
+        this.f21240e = (ImageView) findViewById(R.id.back);
         this.p = (TextView) this.l.findViewById(R.id.webview_fail);
         this.q = (TextView) this.l.findViewById(R.id.webview_crash_tip);
         this.k = (ProgressBar) findViewById(R.id.tag_progress);
         b bVar = new b();
         this.i = bVar;
-        this.f21239e.setOnClickListener(bVar);
+        this.f21240e.setOnClickListener(bVar);
         if (u()) {
             this.q.setVisibility(8);
             z();

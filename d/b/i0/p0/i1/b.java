@@ -92,8 +92,8 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
 
     /* renamed from: d.b.i0.p0.i1.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1386b implements c.g0 {
-        public C1386b() {
+    public class C1387b implements c.g0 {
+        public C1387b() {
         }
 
         @Override // d.b.i0.i2.c.g0
@@ -126,7 +126,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
                 b bVar = b.this;
                 d.b.i0.i2.c cVar = bVar.C;
                 d.b.i0.p0.i1.g gVar = bVar.E;
-                cVar.d2(gVar.z.f57645d, gVar.f57619f);
+                cVar.d2(gVar.z.f57646d, gVar.f57620f);
                 b.this.p.setVisibility(8);
                 b.this.P("2");
             } else {
@@ -175,14 +175,14 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
     public class e implements CyberPlayerManager.OnCompletionListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.a f57606e;
+        public final /* synthetic */ d.b.i0.p0.i1.a f57607e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f57607f;
+        public final /* synthetic */ int f57608f;
 
         public e(d.b.i0.p0.i1.a aVar, int i) {
-            this.f57606e = aVar;
-            this.f57607f = i;
+            this.f57607e = aVar;
+            this.f57608f = i;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
@@ -191,10 +191,10 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
                 b.this.M = true;
                 b.this.K = false;
             }
-            if (this.f57606e == null || b.this.L) {
+            if (this.f57607e == null || b.this.L) {
                 return;
             }
-            this.f57606e.a(this.f57607f);
+            this.f57607e.a(this.f57608f);
             b.this.C.a1();
         }
     }
@@ -203,19 +203,19 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
     public class f implements CyberPlayerManager.OnErrorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.a f57609e;
+        public final /* synthetic */ d.b.i0.p0.i1.a f57610e;
 
         public f(d.b.i0.p0.i1.a aVar) {
-            this.f57609e = aVar;
+            this.f57610e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i, int i2, Object obj) {
             d.b.i0.p0.i1.g gVar = b.this.E;
             if (gVar != null && gVar.z != null) {
-                BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i), "extra", Integer.valueOf(i2), "url", b.this.E.z.f57645d);
+                BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i), "extra", Integer.valueOf(i2), "url", b.this.E.z.f57646d);
             }
-            d.b.i0.p0.i1.a aVar = this.f57609e;
+            d.b.i0.p0.i1.a aVar = this.f57610e;
             if (aVar != null) {
                 aVar.cancel();
             }
@@ -295,49 +295,49 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         this.C.s1(true);
         this.C.v1(false);
         this.C.y1(new a());
-        this.C.G1(new C1386b());
+        this.C.G1(new C1387b());
         this.C.A1(new c());
         this.C.o1(false);
         o oVar = new o();
         this.H = oVar;
-        oVar.f56165c = gVar.f57619f;
-        oVar.f56166d = gVar.f57618e;
-        oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f56166c = gVar.f57620f;
+        oVar.f56167d = gVar.f57619e;
+        oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
         o oVar2 = new o();
         this.I = oVar2;
-        oVar2.f56165c = gVar.f57619f;
-        oVar2.f56166d = gVar.f57618e;
-        oVar2.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar2.f56166c = gVar.f57620f;
+        oVar2.f56167d = gVar.f57619e;
+        oVar2.f56168e = TbadkCoreApplication.getCurrentAccount();
         if (this.R) {
             StatisticItem statisticItem = new StatisticItem("c12590");
-            statisticItem.param("tid", gVar.f57619f);
-            statisticItem.param("nid", gVar.f57620g);
+            statisticItem.param("tid", gVar.f57620f);
+            statisticItem.param("nid", gVar.f57621g);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, gVar.o());
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", gVar.f57618e);
+            statisticItem.param("fid", gVar.f57619e);
             statisticItem.param("obj_locate", i);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
             TiebaStatic.log(statisticItem);
             o oVar3 = this.H;
-            oVar3.f56169g = "auto_midpage";
-            oVar3.f56163a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+            oVar3.f56170g = "auto_midpage";
+            oVar3.f56164a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
             oVar3.i = "1";
             o oVar4 = this.I;
-            oVar4.f56169g = "auto_midpage";
-            oVar4.f56163a = "auto_midpage";
+            oVar4.f56170g = "auto_midpage";
+            oVar4.f56164a = "auto_midpage";
             oVar4.i = "1";
         } else {
             o oVar5 = this.H;
             oVar5.i = "frs_bavideotab";
-            oVar5.f56163a = Constants.VIA_REPORT_TYPE_SET_AVATAR;
+            oVar5.f56164a = Constants.VIA_REPORT_TYPE_SET_AVATAR;
             o oVar6 = this.I;
             oVar6.i = "frs_bavideotab";
-            oVar6.f56163a = "frs_bavideotab";
+            oVar6.f56164a = "frs_bavideotab";
         }
         g.c cVar = gVar.z;
         if (cVar != null) {
             o oVar7 = this.H;
-            String str = cVar.f57644c;
+            String str = cVar.f57645c;
             oVar7.m = str;
             this.I.m = str;
         }
@@ -347,7 +347,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         this.C.I1(new e(aVar, i));
         this.C.J1(new f(aVar));
         this.C.S1(gVar.z.j);
-        this.C.Y1(gVar.z.f57645d, gVar.f57619f);
+        this.C.Y1(gVar.z.f57646d, gVar.f57620f);
         this.C.X1(gVar.x);
         this.C.D1(new g());
         this.C.a1();
@@ -355,7 +355,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         if (gVar.F) {
             onClick(this.n);
             this.M = false;
-            this.C.i2(gVar.z.f57645d, gVar.f57619f, null, new Object[0]);
+            this.C.i2(gVar.z.f57646d, gVar.f57620f, null, new Object[0]);
         }
         this.M = false;
     }
@@ -376,8 +376,8 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         this.o.setVisibility(0);
         this.o.setText(gVar.x);
         this.p.setVisibility(0);
-        this.p.setText(StringHelper.stringForVideoTime(gVar.z.f57646e * 1000));
-        long j = gVar.z.f57649h;
+        this.p.setText(StringHelper.stringForVideoTime(gVar.z.f57647e * 1000));
+        long j = gVar.z.f57650h;
         if (j == 0) {
             format = this.D.getString(R.string.video_mobile_play_tips);
         } else {
@@ -469,7 +469,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
             return;
         }
         if ("1".equals(str) || "2".equals(str)) {
-            d.b.i0.i2.h.e(this.E.z.f57644c, "", str, this.I, this.C.I0().getPcdnState());
+            d.b.i0.i2.h.e(this.E.z.f57645c, "", str, this.I, this.C.I0().getPcdnState());
         }
     }
 
@@ -477,12 +477,12 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         if (gVar == null || gVar.y == null) {
             return;
         }
-        if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.y.f57628a) && TbadkCoreApplication.getCurrentAccount().equals(gVar.y.f57628a)) {
+        if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.y.f57629a) && TbadkCoreApplication.getCurrentAccount().equals(gVar.y.f57629a)) {
             this.v.setVisibility(8);
         } else {
             this.v.setVisibility(0);
         }
-        if (gVar.y.f57632e) {
+        if (gVar.y.f57633e) {
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
             this.v.setCompoundDrawables(null, null, null, null);
             this.v.setText(this.D.getString(R.string.relate_forum_is_followed));
@@ -490,7 +490,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         }
         SkinManager.setViewTextColor(this.v, R.color.CAM_X0302);
         Drawable drawable = SkinManager.getDrawable(R.drawable.video_aggregation_attention_selector);
-        drawable.setBounds(0, 0, l.g(this.f62181g, R.dimen.ds20), l.g(this.f62181g, R.dimen.ds20));
+        drawable.setBounds(0, 0, l.g(this.f62182g, R.dimen.ds20), l.g(this.f62182g, R.dimen.ds20));
         this.v.setCompoundDrawables(drawable, null, null, null);
         this.v.setText(this.D.getString(R.string.attention));
     }
@@ -500,10 +500,10 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         if (gVar == null || (bVar = gVar.y) == null) {
             return;
         }
-        this.u.setText(TextUtils.isEmpty(bVar.f57630c) ? gVar.y.f57629b : gVar.y.f57630c);
-        this.t.W(gVar.y.f57631d, 12, false);
-        this.t.setShowV(gVar.y.f57633f);
-        this.t.setIsBigV(gVar.y.f57633f);
+        this.u.setText(TextUtils.isEmpty(bVar.f57631c) ? gVar.y.f57630b : gVar.y.f57631c);
+        this.t.W(gVar.y.f57632d, 12, false);
+        this.t.setShowV(gVar.y.f57634f);
+        this.t.setIsBigV(gVar.y.f57634f);
         Q(gVar);
         T(gVar);
         S(gVar);
@@ -561,7 +561,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         if (gVar == null || (bVar = gVar.y) == null) {
             return;
         }
-        bVar.f57632e = z;
+        bVar.f57633e = z;
         Q(gVar);
     }
 
@@ -597,19 +597,19 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
         g.b bVar;
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             tbPageContext.getLayoutMode().k(i == 1);
             tbPageContext.getLayoutMode().j(m());
             SkinManager.setBackgroundColor(m(), R.color.CAM_X0201);
             d.b.i0.p0.i1.g gVar = this.E;
             if (gVar != null && (bVar = gVar.y) != null) {
-                if (bVar.f57632e) {
+                if (bVar.f57633e) {
                     SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
                     this.v.setCompoundDrawables(null, null, null, null);
                 } else {
                     SkinManager.setViewTextColor(this.v, R.color.CAM_X0302);
                     Drawable drawable = SkinManager.getDrawable(R.drawable.video_aggregation_attention_selector);
-                    drawable.setBounds(0, 0, l.g(this.f62181g, R.dimen.ds20), l.g(this.f62181g, R.dimen.ds20));
+                    drawable.setBounds(0, 0, l.g(this.f62182g, R.dimen.ds20), l.g(this.f62182g, R.dimen.ds20));
                     this.v.setCompoundDrawables(drawable, null, null, null);
                 }
             }
@@ -626,7 +626,7 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0106);
             this.y.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_home_card_comment));
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -647,12 +647,12 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
                     this.C.j1();
                     d.b.i0.i2.c cVar = this.C;
                     d.b.i0.p0.i1.g gVar2 = this.E;
-                    cVar.d2(gVar2.z.f57645d, gVar2.f57619f);
+                    cVar.d2(gVar2.z.f57646d, gVar2.f57620f);
                     P("2");
                     return;
                 } else if (view == this.v) {
                     d.b.i0.p0.i1.g gVar3 = this.E;
-                    if (gVar3.y.f57632e) {
+                    if (gVar3.y.f57633e) {
                         return;
                     }
                     this.G.c(gVar3);
@@ -670,8 +670,8 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
             } else if (this.E == null) {
                 return;
             } else {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62181g);
-                pbActivityConfig.createNormalCfg(this.E.f57619f, null, null);
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62182g);
+                pbActivityConfig.createNormalCfg(this.E.f57620f, null, null);
                 if (!this.R) {
                     pbActivityConfig.setVideo_source("bavideotab");
                 } else {
@@ -683,13 +683,13 @@ public class b extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c {
         }
         boolean z = false;
         d.b.i0.p0.i1.g gVar4 = this.E;
-        if (gVar4 == null || (bVar = gVar4.y) == null || TextUtils.isEmpty(bVar.f57628a)) {
+        if (gVar4 == null || (bVar = gVar4.y) == null || TextUtils.isEmpty(bVar.f57629a)) {
             return;
         }
-        if (TbadkCoreApplication.isLogin() && this.E.y.f57628a.equals(TbadkCoreApplication.getCurrentAccount())) {
+        if (TbadkCoreApplication.isLogin() && this.E.y.f57629a.equals(TbadkCoreApplication.getCurrentAccount())) {
             z = true;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.D.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(this.E.y.f57628a, 0L), z, this.E.y.f57633f)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.D.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(this.E.y.f57629a, 0L), z, this.E.y.f57634f)));
     }
 
     public void onDestroy() {

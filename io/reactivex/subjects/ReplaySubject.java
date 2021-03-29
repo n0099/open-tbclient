@@ -44,7 +44,6 @@ public final class ReplaySubject<T> extends a<T> {
             }
             this.cancelled = true;
             this.state.c(this);
-            throw null;
         }
 
         @Override // f.a.t.b
@@ -544,7 +543,5 @@ public final class ReplaySubject<T> extends a<T> {
         }
     }
 
-    public void c(ReplayDisposable<T> replayDisposable) {
-        throw null;
-    }
+    public abstract void c(ReplayDisposable<T> replayDisposable);
 }

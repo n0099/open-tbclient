@@ -11,28 +11,28 @@ import java.nio.FloatBuffer;
 public class Texture2dProgram {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30734a;
+    public int f30735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30735b;
+    public int f30736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30736c;
+    public int f30737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30737d;
+    public int f30738d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30738e;
+    public int f30739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30739f;
+    public int f30740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30740g;
+    public int f30741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30741h;
+    public int f30742h;
     public int i;
     public float[] j = new float[9];
     public float[] k;
@@ -50,74 +50,74 @@ public class Texture2dProgram {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30742a;
+        public static final /* synthetic */ int[] f30743a;
 
         static {
             int[] iArr = new int[ProgramType.values().length];
-            f30742a = iArr;
+            f30743a = iArr;
             try {
                 iArr[ProgramType.TEXTURE_2D.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30742a[ProgramType.TEXTURE_EXT.ordinal()] = 2;
+                f30743a[ProgramType.TEXTURE_EXT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30742a[ProgramType.TEXTURE_EXT_BW.ordinal()] = 3;
+                f30743a[ProgramType.TEXTURE_EXT_BW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f30742a[ProgramType.TEXTURE_EXT_FILT.ordinal()] = 4;
+                f30743a[ProgramType.TEXTURE_EXT_FILT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
     public Texture2dProgram(ProgramType programType) {
-        int i = a.f30742a[programType.ordinal()];
+        int i = a.f30743a[programType.ordinal()];
         if (i == 1) {
             this.i = 3553;
-            this.f30734a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
+            this.f30735a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
         } else if (i == 2) {
             this.i = 36197;
-            this.f30734a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
+            this.f30735a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
         } else if (i == 3) {
             this.i = 36197;
-            this.f30734a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n");
+            this.f30735a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n");
         } else if (i == 4) {
             this.i = 36197;
-            this.f30734a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n");
+            this.f30735a = d.d("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n");
         } else {
             throw new RuntimeException("Unhandled type " + programType);
         }
-        if (this.f30734a != 0) {
-            Log.d("Grafika", "Created program " + this.f30734a + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
-            int glGetAttribLocation = GLES20.glGetAttribLocation(this.f30734a, "aPosition");
-            this.f30740g = glGetAttribLocation;
+        if (this.f30735a != 0) {
+            Log.d("Grafika", "Created program " + this.f30735a + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            int glGetAttribLocation = GLES20.glGetAttribLocation(this.f30735a, "aPosition");
+            this.f30741g = glGetAttribLocation;
             d.b(glGetAttribLocation, "aPosition");
-            int glGetAttribLocation2 = GLES20.glGetAttribLocation(this.f30734a, "aTextureCoord");
-            this.f30741h = glGetAttribLocation2;
+            int glGetAttribLocation2 = GLES20.glGetAttribLocation(this.f30735a, "aTextureCoord");
+            this.f30742h = glGetAttribLocation2;
             d.b(glGetAttribLocation2, "aTextureCoord");
-            int glGetUniformLocation = GLES20.glGetUniformLocation(this.f30734a, "uMVPMatrix");
-            this.f30735b = glGetUniformLocation;
+            int glGetUniformLocation = GLES20.glGetUniformLocation(this.f30735a, "uMVPMatrix");
+            this.f30736b = glGetUniformLocation;
             d.b(glGetUniformLocation, "uMVPMatrix");
-            int glGetUniformLocation2 = GLES20.glGetUniformLocation(this.f30734a, "uTexMatrix");
-            this.f30736c = glGetUniformLocation2;
+            int glGetUniformLocation2 = GLES20.glGetUniformLocation(this.f30735a, "uTexMatrix");
+            this.f30737c = glGetUniformLocation2;
             d.b(glGetUniformLocation2, "uTexMatrix");
-            int glGetUniformLocation3 = GLES20.glGetUniformLocation(this.f30734a, "uKernel");
-            this.f30737d = glGetUniformLocation3;
+            int glGetUniformLocation3 = GLES20.glGetUniformLocation(this.f30735a, "uKernel");
+            this.f30738d = glGetUniformLocation3;
             if (glGetUniformLocation3 < 0) {
-                this.f30737d = -1;
-                this.f30738e = -1;
-                this.f30739f = -1;
+                this.f30738d = -1;
+                this.f30739e = -1;
+                this.f30740f = -1;
                 return;
             }
-            int glGetUniformLocation4 = GLES20.glGetUniformLocation(this.f30734a, "uTexOffset");
-            this.f30738e = glGetUniformLocation4;
+            int glGetUniformLocation4 = GLES20.glGetUniformLocation(this.f30735a, "uTexOffset");
+            this.f30739e = glGetUniformLocation4;
             d.b(glGetUniformLocation4, "uTexOffset");
-            int glGetUniformLocation5 = GLES20.glGetUniformLocation(this.f30734a, "uColorAdjust");
-            this.f30739f = glGetUniformLocation5;
+            int glGetUniformLocation5 = GLES20.glGetUniformLocation(this.f30735a, "uColorAdjust");
+            this.f30740f = glGetUniformLocation5;
             d.b(glGetUniformLocation5, "uColorAdjust");
             d(new float[]{0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f}, 0.0f);
             e(256, 256);
@@ -143,40 +143,40 @@ public class Texture2dProgram {
 
     public void b(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
         d.a("draw start");
-        GLES20.glUseProgram(this.f30734a);
+        GLES20.glUseProgram(this.f30735a);
         d.a("glUseProgram");
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(this.i, i5);
-        GLES20.glUniformMatrix4fv(this.f30735b, 1, false, fArr, 0);
+        GLES20.glUniformMatrix4fv(this.f30736b, 1, false, fArr, 0);
         d.a("glUniformMatrix4fv");
-        GLES20.glUniformMatrix4fv(this.f30736c, 1, false, fArr2, 0);
+        GLES20.glUniformMatrix4fv(this.f30737c, 1, false, fArr2, 0);
         d.a("glUniformMatrix4fv");
-        GLES20.glEnableVertexAttribArray(this.f30740g);
+        GLES20.glEnableVertexAttribArray(this.f30741g);
         d.a("glEnableVertexAttribArray");
-        GLES20.glVertexAttribPointer(this.f30740g, i3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i4, (Buffer) floatBuffer);
+        GLES20.glVertexAttribPointer(this.f30741g, i3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i4, (Buffer) floatBuffer);
         d.a("glVertexAttribPointer");
-        GLES20.glEnableVertexAttribArray(this.f30741h);
+        GLES20.glEnableVertexAttribArray(this.f30742h);
         d.a("glEnableVertexAttribArray");
-        GLES20.glVertexAttribPointer(this.f30741h, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i6, (Buffer) floatBuffer2);
+        GLES20.glVertexAttribPointer(this.f30742h, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i6, (Buffer) floatBuffer2);
         d.a("glVertexAttribPointer");
-        int i7 = this.f30737d;
+        int i7 = this.f30738d;
         if (i7 >= 0) {
             GLES20.glUniform1fv(i7, 9, this.j, 0);
-            GLES20.glUniform2fv(this.f30738e, 9, this.k, 0);
-            GLES20.glUniform1f(this.f30739f, this.l);
+            GLES20.glUniform2fv(this.f30739e, 9, this.k, 0);
+            GLES20.glUniform1f(this.f30740f, this.l);
         }
         GLES20.glDrawArrays(5, i, i2);
         d.a("glDrawArrays");
-        GLES20.glDisableVertexAttribArray(this.f30740g);
-        GLES20.glDisableVertexAttribArray(this.f30741h);
+        GLES20.glDisableVertexAttribArray(this.f30741g);
+        GLES20.glDisableVertexAttribArray(this.f30742h);
         GLES20.glBindTexture(this.i, 0);
         GLES20.glUseProgram(0);
     }
 
     public void c() {
-        Log.d("Grafika", "deleting program " + this.f30734a);
-        GLES20.glDeleteProgram(this.f30734a);
-        this.f30734a = -1;
+        Log.d("Grafika", "deleting program " + this.f30735a);
+        GLES20.glDeleteProgram(this.f30735a);
+        this.f30735a = -1;
     }
 
     public void d(float[] fArr, float f2) {

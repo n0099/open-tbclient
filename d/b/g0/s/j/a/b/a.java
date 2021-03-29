@@ -11,61 +11,61 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f49384a = k.f45050a;
+    public static final boolean f49385a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<Integer> f49385b;
+    public static final SparseArray<Integer> f49386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseArray<String> f49386c;
+    public static final SparseArray<String> f49387c;
 
     static {
         SparseArray<Integer> sparseArray = new SparseArray<>(32);
-        f49385b = sparseArray;
+        f49386b = sparseArray;
         sparseArray.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
-        f49385b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
-        f49385b.put(904, 2003);
-        f49385b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
-        f49385b.put(10004, 2006);
-        f49385b.put(701, 2007);
-        f49385b.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
-        f49385b.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
-        f49385b.put(10007, -2301);
-        f49385b.put(10008, 2101);
-        f49385b.put(923, 2103);
-        f49385b.put(10009, 2105);
-        f49385b.put(10010, 2106);
-        f49385b.put(10003, 2107);
-        f49385b.put(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE, 2108);
-        f49385b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
-        f49385b.put(3002, 3002);
-        f49385b.put(3003, 3003);
-        f49385b.put(3004, 3005);
+        f49386b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
+        f49386b.put(904, 2003);
+        f49386b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
+        f49386b.put(10004, 2006);
+        f49386b.put(701, 2007);
+        f49386b.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
+        f49386b.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
+        f49386b.put(10007, -2301);
+        f49386b.put(10008, 2101);
+        f49386b.put(923, 2103);
+        f49386b.put(10009, 2105);
+        f49386b.put(10010, 2106);
+        f49386b.put(10003, 2107);
+        f49386b.put(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE, 2108);
+        f49386b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
+        f49386b.put(3002, 3002);
+        f49386b.put(3003, 3003);
+        f49386b.put(3004, 3005);
         SparseArray<String> sparseArray2 = new SparseArray<>();
-        f49386c = sparseArray2;
+        f49387c = sparseArray2;
         sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
-        f49386c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
-        f49386c.put(3002, "MEDIA_ERR_NETWORK");
-        f49386c.put(3003, "MEDIA_ERR_NETWORK");
-        f49386c.put(3004, "MEDIA_ERR_NETWORK");
-        f49386c.put(-2022, "MEDIA_ERR_NETWORK");
-        f49386c.put(-111, "MEDIA_ERR_NETWORK");
-        f49386c.put(10008, "MEDIA_ERR_DECODE");
+        f49387c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
+        f49387c.put(3002, "MEDIA_ERR_NETWORK");
+        f49387c.put(3003, "MEDIA_ERR_NETWORK");
+        f49387c.put(3004, "MEDIA_ERR_NETWORK");
+        f49387c.put(-2022, "MEDIA_ERR_NETWORK");
+        f49387c.put(-111, "MEDIA_ERR_NETWORK");
+        f49387c.put(10008, "MEDIA_ERR_DECODE");
     }
 
     public static String a(int i) {
-        return f49386c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
+        return f49387c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 
     public static int b(int i) {
-        if (f49385b.indexOfKey(i) < 0) {
-            if (f49384a) {
+        if (f49386b.indexOfKey(i) < 0) {
+            if (f49385a) {
                 Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
                 return 100;
             }
             return 100;
         }
-        return f49385b.get(i).intValue();
+        return f49386b.get(i).intValue();
     }
 
     public static JSONObject c(int i) {

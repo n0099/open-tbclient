@@ -18,34 +18,34 @@ public final class MaybeOnErrorNext$OnErrorNextMaybeObserver<T> extends AtomicRe
     public static final class a<T> implements i<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f68044e;
+        public final i<? super T> f68049e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicReference<b> f68045f;
+        public final AtomicReference<b> f68050f;
 
         public a(i<? super T> iVar, AtomicReference<b> atomicReference) {
-            this.f68044e = iVar;
-            this.f68045f = atomicReference;
+            this.f68049e = iVar;
+            this.f68050f = atomicReference;
         }
 
         @Override // f.a.i
         public void onComplete() {
-            this.f68044e.onComplete();
+            this.f68049e.onComplete();
         }
 
         @Override // f.a.i
         public void onError(Throwable th) {
-            this.f68044e.onError(th);
+            this.f68049e.onError(th);
         }
 
         @Override // f.a.i
         public void onSubscribe(b bVar) {
-            DisposableHelper.setOnce(this.f68045f, bVar);
+            DisposableHelper.setOnce(this.f68050f, bVar);
         }
 
         @Override // f.a.i
         public void onSuccess(T t) {
-            this.f68044e.onSuccess(t);
+            this.f68049e.onSuccess(t);
         }
     }
 

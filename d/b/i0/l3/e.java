@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56788a;
+    public String f56789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f56789b;
+    public List<String> f56790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f56790c;
+    public List<String> f56791c;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -30,11 +30,11 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            d.b.i0.s1.d.a(d.b.i0.s1.c.f60144b);
-            d.b.i0.s1.d.a(d.b.i0.s1.c.f60145c);
-            d.b.i0.s1.d.a(d.b.i0.s1.c.f60146d);
-            d.b.i0.s1.d.a(d.b.i0.s1.c.f60148f);
-            d.b.i0.s1.d.a(d.b.i0.s1.c.f60149g);
+            d.b.i0.s1.d.a(d.b.i0.s1.c.f60145b);
+            d.b.i0.s1.d.a(d.b.i0.s1.c.f60146c);
+            d.b.i0.s1.d.a(d.b.i0.s1.c.f60147d);
+            d.b.i0.s1.d.a(d.b.i0.s1.c.f60149f);
+            d.b.i0.s1.d.a(d.b.i0.s1.c.f60150g);
             return null;
         }
     }
@@ -47,7 +47,7 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            List j = e.j(d.b.i0.s1.c.f60147e);
+            List j = e.j(d.b.i0.s1.c.f60148e);
             if (j == null) {
                 return null;
             }
@@ -92,10 +92,10 @@ public class e {
 
     /* renamed from: d.b.i0.l3.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1338e {
+    public static class C1339e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f56794a = new e(null);
+        public static final e f56795a = new e(null);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -103,7 +103,7 @@ public class e {
     }
 
     public static e h() {
-        return C1338e.f56794a;
+        return C1339e.f56795a;
     }
 
     public static List<d.b.i0.l3.d> j(String str) {
@@ -143,7 +143,7 @@ public class e {
     }
 
     public final synchronized boolean f(String str, String str2) {
-        if (this.f56790c.contains(str)) {
+        if (this.f56791c.contains(str)) {
             return false;
         }
         File file = new File(str);
@@ -152,10 +152,10 @@ public class e {
 
     public final synchronized void g(d.b.i0.l3.d dVar) {
         try {
-            byte[] a2 = d.b.i0.l3.c.a(dVar.f56786a);
-            if (d.b.i0.l3.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f56787b)) {
-                FileHelper.deleteFile(new File(dVar.f56787b));
-                this.f56790c.add(dVar.f56787b);
+            byte[] a2 = d.b.i0.l3.c.a(dVar.f56787a);
+            if (d.b.i0.l3.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f56788b)) {
+                FileHelper.deleteFile(new File(dVar.f56788b));
+                this.f56791c.add(dVar.f56788b);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -163,28 +163,28 @@ public class e {
     }
 
     public final String i() {
-        if (StringUtils.isNull(this.f56788a)) {
+        if (StringUtils.isNull(this.f56789a)) {
             if (!f.c()) {
                 return null;
             }
-            this.f56788a = String.valueOf(System.currentTimeMillis());
+            this.f56789a = String.valueOf(System.currentTimeMillis());
         }
-        return d.b.i0.s1.c.f60147e + this.f56788a;
+        return d.b.i0.s1.c.f60148e + this.f56789a;
     }
 
     public synchronized void k(JSONObject jSONObject, boolean z) {
         if (jSONObject == null) {
             return;
         }
-        this.f56789b.add(jSONObject.toString());
+        this.f56790b.add(jSONObject.toString());
         String i = i();
         if (f.c()) {
             l(jSONObject, i);
         }
-        if (this.f56789b.size() >= g.a() || z) {
-            n(new d.b.i0.l3.d(this.f56789b, i));
-            this.f56789b.clear();
-            this.f56788a = null;
+        if (this.f56790b.size() >= g.a() || z) {
+            n(new d.b.i0.l3.d(this.f56790b, i));
+            this.f56790b.clear();
+            this.f56789a = null;
         }
     }
 
@@ -209,8 +209,8 @@ public class e {
     }
 
     public e() {
-        this.f56789b = new ArrayList();
-        this.f56790c = new ArrayList();
+        this.f56790b = new ArrayList();
+        this.f56791c = new ArrayList();
         if (f.c()) {
             e();
         }

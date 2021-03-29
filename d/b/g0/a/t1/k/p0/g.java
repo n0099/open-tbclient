@@ -10,54 +10,54 @@ import d.b.g0.a.i2.k0;
 import d.b.g0.a.u0.d;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements d.b.g0.a.e0.p.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46495a;
+        public final /* synthetic */ String f46496a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f46496b;
+        public final /* synthetic */ d f46497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46497c;
+        public final /* synthetic */ String f46498c;
 
         /* renamed from: d.b.g0.a.t1.k.p0.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0842a implements Runnable {
-            public RunnableC0842a() {
+        /* loaded from: classes2.dex */
+        public class RunnableC0843a implements Runnable {
+            public RunnableC0843a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                aVar.f46496b.a(aVar.f46497c);
+                aVar.f46497b.a(aVar.f46498c);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f46499e;
+            public final /* synthetic */ int f46500e;
 
             public b(int i) {
-                this.f46499e = i;
+                this.f46500e = i;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f46496b.b(this.f46499e);
+                a.this.f46497b.b(this.f46500e);
             }
         }
 
         public a(String str, d dVar, String str2) {
-            this.f46495a = str;
-            this.f46496b = dVar;
-            this.f46497c = str2;
+            this.f46496a = str;
+            this.f46497b = dVar;
+            this.f46498c = str2;
         }
 
         @Override // d.b.g0.a.e0.p.b
@@ -69,76 +69,76 @@ public class g {
         public void b() {
             d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
             if (y != null) {
-                y.s0(this.f46495a, true);
+                y.s0(this.f46496a, true);
             }
-            k0.X(new RunnableC0842a());
+            k0.X(new RunnableC0843a());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f46501a;
+        public final /* synthetic */ d f46502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46502b;
+        public final /* synthetic */ String f46503b;
 
         public b(d dVar, String str) {
-            this.f46501a = dVar;
-            this.f46502b = str;
+            this.f46502a = dVar;
+            this.f46503b = str;
         }
 
         @Override // d.b.g0.a.e0.p.o.a.b
         public void a() {
-            this.f46501a.b(2113);
+            this.f46502a.b(2113);
         }
 
         @Override // d.b.g0.a.e0.p.o.a.b
         public void onError() {
-            this.f46501a.b(2113);
+            this.f46502a.b(2113);
         }
 
         @Override // d.b.g0.a.e0.p.o.a.b
         public void onSuccess() {
-            this.f46501a.a(this.f46502b);
+            this.f46502a.a(this.f46503b);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements d.b.g0.a.e0.p.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46503a;
+        public final /* synthetic */ String f46504a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f46504b;
+        public final /* synthetic */ d f46505b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46505c;
+        public final /* synthetic */ String f46506c;
 
         public c(String str, d dVar, String str2) {
-            this.f46503a = str;
-            this.f46504b = dVar;
-            this.f46505c = str2;
+            this.f46504a = str;
+            this.f46505b = dVar;
+            this.f46506c = str2;
         }
 
         @Override // d.b.g0.a.e0.p.b
         public void a(int i) {
-            this.f46504b.b(i);
+            this.f46505b.b(i);
         }
 
         @Override // d.b.g0.a.e0.p.b
         public void b() {
             d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
             if (y != null) {
-                y.s0(this.f46503a, true);
+                y.s0(this.f46504a, true);
             }
-            this.f46504b.a(this.f46505c);
+            this.f46505b.a(this.f46506c);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void a(String str);
 
@@ -149,17 +149,17 @@ public class g {
         if (dVar == null) {
             return;
         }
-        if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f44361a) && !TextUtils.isEmpty(bVar.f44364d)) {
-            String str3 = bVar.f44364d;
-            String P = eVar.P(bVar.f44361a);
+        if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f44362a) && !TextUtils.isEmpty(bVar.f44365d)) {
+            String str3 = bVar.f44365d;
+            String P = eVar.P(bVar.f44362a);
             boolean d0 = eVar.d0(str3);
             if (!d.b.g0.a.c0.d.d.e.d() && !d.b.g0.a.m1.a.a.C()) {
-                if (d.b.g0.a.l1.b.a.d(bVar.f44361a)) {
+                if (d.b.g0.a.l1.b.a.d(bVar.f44362a)) {
                     dVar.a(str);
                     return;
                 }
                 if (d0) {
-                    if (d.b.g0.a.u0.d.p(eVar.f45739f, eVar.W())) {
+                    if (d.b.g0.a.u0.d.p(eVar.f45740f, eVar.W())) {
                         dVar.a(str);
                         return;
                     } else if (eVar.a0()) {
@@ -184,12 +184,12 @@ public class g {
                         return;
                     }
                     boolean c0 = eVar.c0(str3);
-                    if (!d.b.g0.a.u0.d.p(eVar.f45739f, eVar.W()) && !c0) {
+                    if (!d.b.g0.a.u0.d.p(eVar.f45740f, eVar.W()) && !c0) {
                         b(eVar, str3, str, dVar, str2);
                         return;
                     }
-                    d.b.g0.l.l.k.f fVar = new d.b.g0.l.l.k.f(eVar.f45739f, eVar.W(), E, 0);
-                    d.b.g0.a.e0.p.q.a aVar = new d.b.g0.a.e0.p.q.a(eVar.f45739f, eVar.W(), new a(P, dVar, str));
+                    d.b.g0.l.l.k.f fVar = new d.b.g0.l.l.k.f(eVar.f45740f, eVar.W(), E, 0);
+                    d.b.g0.a.e0.p.q.a aVar = new d.b.g0.a.e0.p.q.a(eVar.f45740f, eVar.W(), new a(P, dVar, str));
                     HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2);
                     p.A(new UbcFlowEvent("na_start_sub_package_download"));
                     p.y("sub_state", "1");
@@ -218,10 +218,10 @@ public class g {
         HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str3);
         p.A(new UbcFlowEvent("na_start_sub_package_download"));
         p.y("sub_state", "1");
-        d.b.g0.l.l.k.c cVar = new d.b.g0.l.l.k.c(eVar.f45739f, d.b.g0.a.r1.d.e().h());
+        d.b.g0.l.l.k.c cVar = new d.b.g0.l.l.k.c(eVar.f45740f, d.b.g0.a.r1.d.e().h());
         cVar.n(k0.o(eVar.W()));
         cVar.q(str);
-        d.b.g0.l.c.a(cVar, new d.b.g0.a.e0.p.o.a(eVar.f45739f, new b(dVar, str2)));
+        d.b.g0.l.c.a(cVar, new d.b.g0.a.e0.p.o.a(eVar.f45740f, new b(dVar, str2)));
     }
 
     public static void c(String str, String str2, String str3, String str4, String str5, d dVar) {
@@ -235,7 +235,7 @@ public class g {
         if (gVar == null) {
             return false;
         }
-        return e(bVar, gVar.f46600b);
+        return e(bVar, gVar.f46601b);
     }
 
     public static boolean e(d.b.g0.a.y0.e.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -245,10 +245,10 @@ public class g {
             if (!TextUtils.isEmpty(d2) && d2.startsWith(File.separator)) {
                 d2 = d2.substring(1);
             }
-            if (swanAppConfigData == null || (aVar = swanAppConfigData.f12612a) == null || aVar.c(d2)) {
+            if (swanAppConfigData == null || (aVar = swanAppConfigData.f12613a) == null || aVar.c(d2)) {
                 return false;
             }
-            String str = swanAppConfigData.f12613b.f12634c.get(d2);
+            String str = swanAppConfigData.f12614b.f12635c.get(d2);
             if (!TextUtils.isEmpty(str)) {
                 if (d.b.g0.l.i.a.h().m(bVar.G(), bVar.n1(), str)) {
                     return !new File(d.e.h(bVar.G(), bVar.n1()), str).exists();

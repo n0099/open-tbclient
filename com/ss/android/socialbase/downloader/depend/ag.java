@@ -19,16 +19,16 @@ public interface ag extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ag$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0483a implements ag {
+        public static class C0484a implements ag {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ag f38808a;
+            public static ag f38809a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38809b;
+            public IBinder f38810b;
 
-            public C0483a(IBinder iBinder) {
-                this.f38809b = iBinder;
+            public C0484a(IBinder iBinder) {
+                this.f38810b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ag
@@ -43,7 +43,7 @@ public interface ag extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f38809b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38810b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -56,7 +56,7 @@ public interface ag extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38809b;
+                return this.f38810b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ag
@@ -71,7 +71,7 @@ public interface ag extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f38809b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38810b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -94,7 +94,7 @@ public interface ag extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f38809b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38810b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().c(downloadInfo);
                     }
                     obtain2.readException();
@@ -118,7 +118,7 @@ public interface ag extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ag)) {
                 return (ag) queryLocalInterface;
             }
-            return new C0483a(iBinder);
+            return new C0484a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -156,7 +156,7 @@ public interface ag extends IInterface {
         }
 
         public static ag a() {
-            return C0483a.f38808a;
+            return C0484a.f38809a;
         }
     }
 }

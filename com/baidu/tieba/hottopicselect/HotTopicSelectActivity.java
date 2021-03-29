@@ -37,7 +37,7 @@ import d.b.b.e.p.j;
 import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.t0.a, HotTopicSelectModel.c {
     public TextView mCancelBtn;
     public ImageView mClearView;
@@ -58,7 +58,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
     public final ExpandableListView.OnGroupClickListener mOnGroupClickListener = new c();
     public final ExpandableListView.OnChildClickListener mOnChildClickListener = new d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -73,7 +73,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements AdapterView.OnItemClickListener {
         public b() {
         }
@@ -89,7 +89,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements ExpandableListView.OnGroupClickListener {
         public c() {
         }
@@ -104,7 +104,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements ExpandableListView.OnChildClickListener {
         public d() {
         }
@@ -126,7 +126,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnFocusChangeListener {
         public e() {
         }
@@ -140,7 +140,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements TextView.OnEditorActionListener {
         public f() {
         }
@@ -160,7 +160,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements TextWatcher {
         public g() {
         }

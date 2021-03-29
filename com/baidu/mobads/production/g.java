@@ -5,18 +5,18 @@ import com.baidu.mobads.interfaces.IXAdContainerContext;
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IXAdContainerContext f8469a;
+    public final /* synthetic */ IXAdContainerContext f8470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f8470b;
+    public final /* synthetic */ a f8471b;
 
     public g(a aVar, IXAdContainerContext iXAdContainerContext) {
-        this.f8470b = aVar;
-        this.f8469a = iXAdContainerContext;
+        this.f8471b = aVar;
+        this.f8470a = iXAdContainerContext;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f8470b.a(this.f8469a);
+        this.f8471b.a(this.f8470a);
     }
 }

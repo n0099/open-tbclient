@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d0 extends c implements p<a2>, q {
     public static final int s = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
     public RelativeLayout i;
@@ -29,7 +29,7 @@ public class d0 extends c implements p<a2>, q {
     public int p = R.color.CAM_X0111;
     public View.OnClickListener r = new a();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

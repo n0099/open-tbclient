@@ -39,7 +39,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeController extends AbstractDraweeController<CloseableReference<CloseableImage>, ImageInfo> {
     public static final Class<?> TAG = PipelineDraweeController.class;
     public CacheKey mCacheKey;

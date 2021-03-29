@@ -1,27 +1,27 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import d.b.f.a.a.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSoundGate {
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f4231c;
+    public static BdSoundGate f4232c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4232a = -1;
+    public int f4233a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4233b;
+    public int f4234b;
 
     static {
         System.loadLibrary("sound_gate");
     }
 
     public static BdSoundGate b() {
-        if (f4231c == null) {
-            f4231c = new BdSoundGate();
+        if (f4232c == null) {
+            f4232c = new BdSoundGate();
         }
-        return f4231c;
+        return f4232c;
     }
 
     private native void close(int i);
@@ -33,12 +33,12 @@ public class BdSoundGate {
     private native int throughMono(int i, short[] sArr, short[] sArr2);
 
     public int a() {
-        return this.f4233b;
+        return this.f4234b;
     }
 
     public void c(int i, float f2, float f3, float f4) {
-        this.f4233b = i;
-        this.f4232a = getChanger(i, f2, f3, f4);
+        this.f4234b = i;
+        this.f4233a = getChanger(i, f2, f3, f4);
     }
 
     public void d(int i, int i2) {
@@ -46,14 +46,14 @@ public class BdSoundGate {
     }
 
     public void e() {
-        int i = this.f4232a;
+        int i = this.f4233a;
         if (i > 0) {
             close(i);
-            this.f4232a = -1;
+            this.f4233a = -1;
         }
     }
 
     public void f(short[] sArr, short[] sArr2) {
-        throughMono(this.f4232a, sArr, sArr2);
+        throughMono(this.f4233a, sArr, sArr2);
     }
 }

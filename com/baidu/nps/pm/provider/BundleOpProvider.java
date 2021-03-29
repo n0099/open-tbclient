@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BundleOpProvider extends ContentProvider {
     public static final String METHOD_BUNDLE_CHECK = "check";
     public static final String METHOD_BUNDLE_CLEAR = "cleardeprecated";
@@ -93,9 +93,9 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         arrayList.add(bundleInfo);
         a.d b2 = a.c().b(arrayList);
-        int i = b2.f64913a;
+        int i = b2.f64914a;
         if (i == 0) {
-            for (IBundleInfo iBundleInfo : b2.f64914b) {
+            for (IBundleInfo iBundleInfo : b2.f64915b) {
                 BundleInfo bundleInfo2 = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo2.setType(1);
                 d.b.z.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo2), null, null);
@@ -103,7 +103,7 @@ public class BundleOpProvider extends ContentProvider {
             i = 0;
         }
         bundle.putInt(Constant.TAG.RET_CODE, i);
-        IBundleInfo iBundleInfo2 = b2.f64914b.isEmpty() ? null : b2.f64914b.get(0);
+        IBundleInfo iBundleInfo2 = b2.f64915b.isEmpty() ? null : b2.f64915b.get(0);
         if (iBundleInfo2 != null) {
             bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(iBundleInfo2));
         }
@@ -391,8 +391,8 @@ public class BundleOpProvider extends ContentProvider {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, THROW, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0122 A[Catch: all -> 0x0165, TryCatch #1 {, blocks: (B:14:0x0033, B:16:0x0038, B:21:0x0060, B:22:0x0063, B:25:0x0067, B:41:0x0084, B:46:0x00ac, B:47:0x00af, B:50:0x00b3, B:66:0x00d0, B:71:0x00ef, B:72:0x00f2, B:76:0x0101, B:95:0x0122, B:96:0x0128, B:98:0x012a, B:100:0x0134, B:101:0x0156, B:102:0x015d, B:91:0x0117, B:93:0x011d, B:88:0x0114, B:87:0x0111, B:60:0x00c4, B:59:0x00c1, B:62:0x00c6, B:64:0x00cc, B:35:0x0078, B:34:0x0075, B:37:0x007a, B:39:0x0080), top: B:113:0x0033, inners: #11, #14 }] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x012a A[Catch: all -> 0x0165, TryCatch #1 {, blocks: (B:14:0x0033, B:16:0x0038, B:21:0x0060, B:22:0x0063, B:25:0x0067, B:41:0x0084, B:46:0x00ac, B:47:0x00af, B:50:0x00b3, B:66:0x00d0, B:71:0x00ef, B:72:0x00f2, B:76:0x0101, B:95:0x0122, B:96:0x0128, B:98:0x012a, B:100:0x0134, B:101:0x0156, B:102:0x015d, B:91:0x0117, B:93:0x011d, B:88:0x0114, B:87:0x0111, B:60:0x00c4, B:59:0x00c1, B:62:0x00c6, B:64:0x00cc, B:35:0x0078, B:34:0x0075, B:37:0x007a, B:39:0x0080), top: B:113:0x0033, inners: #11, #14 }] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x011e A[Catch: all -> 0x015e, TryCatch #13 {, blocks: (B:14:0x0032, B:16:0x0037, B:21:0x005e, B:22:0x0061, B:25:0x0065, B:41:0x0082, B:46:0x00a9, B:47:0x00ac, B:50:0x00b0, B:66:0x00cd, B:71:0x00eb, B:72:0x00ee, B:76:0x00fd, B:95:0x011e, B:96:0x0123, B:98:0x0125, B:100:0x012f, B:101:0x0150, B:102:0x0157, B:91:0x0113, B:93:0x0119, B:88:0x0110, B:87:0x010d, B:60:0x00c1, B:59:0x00be, B:62:0x00c3, B:64:0x00c9, B:35:0x0076, B:34:0x0073, B:37:0x0078, B:39:0x007e), top: B:133:0x0032, inners: #4, #12 }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0125 A[Catch: all -> 0x015e, TryCatch #13 {, blocks: (B:14:0x0032, B:16:0x0037, B:21:0x005e, B:22:0x0061, B:25:0x0065, B:41:0x0082, B:46:0x00a9, B:47:0x00ac, B:50:0x00b0, B:66:0x00cd, B:71:0x00eb, B:72:0x00ee, B:76:0x00fd, B:95:0x011e, B:96:0x0123, B:98:0x0125, B:100:0x012f, B:101:0x0150, B:102:0x0157, B:91:0x0113, B:93:0x0119, B:88:0x0110, B:87:0x010d, B:60:0x00c1, B:59:0x00be, B:62:0x00c3, B:64:0x00c9, B:35:0x0076, B:34:0x0073, B:37:0x0078, B:39:0x007e), top: B:133:0x0032, inners: #4, #12 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -563,9 +563,9 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         ArrayList<IBundleInfo> arrayList2 = new ArrayList();
         a.d b2 = a.c().b(arrayList);
-        int i = b2.f64913a;
+        int i = b2.f64914a;
         if (i == 0) {
-            for (IBundleInfo iBundleInfo : b2.f64914b) {
+            for (IBundleInfo iBundleInfo : b2.f64915b) {
                 BundleInfo bundleInfo = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo.setType(1);
                 d.b.z.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo), null, null);

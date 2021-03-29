@@ -30,28 +30,28 @@ public class a {
 
     /* renamed from: d.b.i0.c2.o.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class DialogInterface$OnDismissListenerC1177a implements DialogInterface.OnDismissListener {
+    public static class DialogInterface$OnDismissListenerC1178a implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f53278e;
+        public final /* synthetic */ PbModel f53279e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbActivity f53279f;
+        public final /* synthetic */ PbActivity f53280f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f53280g;
+        public final /* synthetic */ View f53281g;
 
-        public DialogInterface$OnDismissListenerC1177a(PbModel pbModel, PbActivity pbActivity, View view) {
-            this.f53278e = pbModel;
-            this.f53279f = pbActivity;
-            this.f53280g = view;
+        public DialogInterface$OnDismissListenerC1178a(PbModel pbModel, PbActivity pbActivity, View view) {
+            this.f53279e = pbModel;
+            this.f53280f = pbActivity;
+            this.f53281g = view;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             View view;
-            PbModel pbModel = this.f53278e;
-            if (pbModel == null || pbModel.y0() == null || !this.f53278e.y0().e0() || TbSingleton.getInstance().isNotchScreen(this.f53279f) || TbSingleton.getInstance().isCutoutScreen(this.f53279f) || (view = this.f53280g) == null) {
+            PbModel pbModel = this.f53279e;
+            if (pbModel == null || pbModel.y0() == null || !this.f53279e.y0().e0() || TbSingleton.getInstance().isNotchScreen(this.f53280f) || TbSingleton.getInstance().isCutoutScreen(this.f53280f) || (view = this.f53281g) == null) {
                 return;
             }
             view.setSystemUiVisibility(4);
@@ -180,7 +180,7 @@ public class a {
                     if (!y0.Z()) {
                     }
                     shareItem.t = str3;
-                    shareItem.f13713c = true;
+                    shareItem.f13714c = true;
                     shareItem.q = pbModel.O0();
                     shareItem.E = 3;
                     shareItem.D = i2;
@@ -208,7 +208,7 @@ public class a {
                     bundle.putString("uid", shareItem.M);
                     shareItem.i(bundle);
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) pbActivity, shareItem, true, true);
-                    shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1177a(pbModel, pbActivity, rootView));
+                    shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1178a(pbModel, pbActivity, rootView));
                     shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
                     f.b().k(shareDialogConfig);
                 }
@@ -221,7 +221,7 @@ public class a {
                 if (!y0.Z()) {
                 }
                 shareItem.t = str3;
-                shareItem.f13713c = true;
+                shareItem.f13714c = true;
                 shareItem.q = pbModel.O0();
                 shareItem.E = 3;
                 shareItem.D = i2;
@@ -249,7 +249,7 @@ public class a {
                 bundle2.putString("uid", shareItem.M);
                 shareItem.i(bundle2);
                 ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig((Context) pbActivity, shareItem, true, true);
-                shareDialogConfig2.setOnDismissListener(new DialogInterface$OnDismissListenerC1177a(pbModel, pbActivity, rootView));
+                shareDialogConfig2.setOnDismissListener(new DialogInterface$OnDismissListenerC1178a(pbModel, pbActivity, rootView));
                 shareDialogConfig2.setFrom(ShareDialogConfig.From.PB);
                 f.b().k(shareDialogConfig2);
             }
@@ -267,7 +267,7 @@ public class a {
                     shareItem.Q = y0.L().u1().play_count.intValue();
                 }
                 shareItem.t = str3;
-                shareItem.f13713c = true;
+                shareItem.f13714c = true;
                 shareItem.q = pbModel.O0();
                 shareItem.E = 3;
                 shareItem.D = i2;
@@ -300,7 +300,7 @@ public class a {
                 bundle22.putString("uid", shareItem.M);
                 shareItem.i(bundle22);
                 ShareDialogConfig shareDialogConfig22 = new ShareDialogConfig((Context) pbActivity, shareItem, true, true);
-                shareDialogConfig22.setOnDismissListener(new DialogInterface$OnDismissListenerC1177a(pbModel, pbActivity, rootView));
+                shareDialogConfig22.setOnDismissListener(new DialogInterface$OnDismissListenerC1178a(pbModel, pbActivity, rootView));
                 shareDialogConfig22.setFrom(ShareDialogConfig.From.PB);
                 f.b().k(shareDialogConfig22);
             }
@@ -313,7 +313,7 @@ public class a {
             if (!y0.Z()) {
             }
             shareItem.t = str3;
-            shareItem.f13713c = true;
+            shareItem.f13714c = true;
             shareItem.q = pbModel.O0();
             shareItem.E = 3;
             shareItem.D = i2;
@@ -341,7 +341,7 @@ public class a {
             bundle222.putString("uid", shareItem.M);
             shareItem.i(bundle222);
             ShareDialogConfig shareDialogConfig222 = new ShareDialogConfig((Context) pbActivity, shareItem, true, true);
-            shareDialogConfig222.setOnDismissListener(new DialogInterface$OnDismissListenerC1177a(pbModel, pbActivity, rootView));
+            shareDialogConfig222.setOnDismissListener(new DialogInterface$OnDismissListenerC1178a(pbModel, pbActivity, rootView));
             shareDialogConfig222.setFrom(ShareDialogConfig.From.PB);
             f.b().k(shareDialogConfig222);
         }

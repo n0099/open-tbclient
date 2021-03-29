@@ -20,22 +20,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends b {
-    public static final boolean k = k.f45050a;
+    public static final boolean k = k.f45051a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Callback f48072d;
+    public Callback f48073d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f48073e;
+    public JSONObject f48074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48074f;
+    public String f48075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48075g;
+    public String f48076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48076h;
+    public String f48077h;
     public String i;
     public int j;
 
@@ -46,14 +46,14 @@ public class c extends b {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.b.g0.g.d.a.f48027a) {
+            if (d.b.g0.g.d.a.f48028a) {
                 Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
             }
-            if (c.this.f48072d != null) {
+            if (c.this.f48073d != null) {
                 if (exc instanceof IOException) {
-                    c.this.f48072d.onFailure(null, (IOException) exc);
+                    c.this.f48073d.onFailure(null, (IOException) exc);
                 } else {
-                    c.this.f48072d.onFailure(null, new IOException(exc));
+                    c.this.f48073d.onFailure(null, new IOException(exc));
                 }
             }
         }
@@ -70,15 +70,15 @@ public class c extends b {
     }
 
     public c(e eVar, JSONObject jSONObject, String str, Callback callback) {
-        this.f48072d = callback;
-        this.f48074f = str;
+        this.f48073d = callback;
+        this.f48075f = str;
         l(jSONObject);
-        c(this.f48073e.optString("method"));
+        c(this.f48074e.optString("method"));
     }
 
     @Override // d.b.g0.g.d.i.b
     public void d(IOException iOException) {
-        Callback callback = this.f48072d;
+        Callback callback = this.f48073d;
         if (callback != null) {
             callback.onFailure(null, iOException);
         }
@@ -86,10 +86,10 @@ public class c extends b {
 
     @Override // d.b.g0.g.d.i.b
     public void e(int i) {
-        if (d.b.g0.g.d.a.f48027a) {
+        if (d.b.g0.g.d.a.f48028a) {
             Log.d("BdtlsRequestApi", "onRequestError=" + i);
         }
-        Callback callback = this.f48072d;
+        Callback callback = this.f48073d;
         if (callback != null) {
             callback.onFailure(null, new IOException("request error  code : " + i));
         }
@@ -104,9 +104,9 @@ public class c extends b {
         String str2;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject = new JSONObject(this.f48073e.toString());
+            jSONObject = new JSONObject(this.f48074e.toString());
             try {
-                Uri parse = Uri.parse(this.f48076h);
+                Uri parse = Uri.parse(this.f48077h);
                 String path = parse.getPath();
                 String query = parse.getQuery();
                 if (TextUtils.isEmpty(this.i)) {
@@ -114,7 +114,7 @@ public class c extends b {
                 } else {
                     str = this.i + "/bdtls";
                 }
-                StringBuilder sb = new StringBuilder(str + "/" + this.f48075g);
+                StringBuilder sb = new StringBuilder(str + "/" + this.f48076g);
                 String str3 = "";
                 if (TextUtils.isEmpty(path)) {
                     path = "";
@@ -128,7 +128,7 @@ public class c extends b {
                     Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                if (this.f48069a) {
+                if (this.f48070a) {
                     if (TextUtils.equals(b(), "GET")) {
                         str2 = Base64.encodeToString(bArr, 2);
                     } else {
@@ -146,7 +146,7 @@ public class c extends b {
                     Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
                 }
                 jSONObject = jSONObject2;
-                httpRequest = (HttpRequest) d.b.g0.a.t.c.h.b.t(jSONObject, this.f48074f).first;
+                httpRequest = (HttpRequest) d.b.g0.a.t.c.h.b.t(jSONObject, this.f48075f).first;
                 if (httpRequest == null) {
                     callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
                 }
@@ -155,8 +155,8 @@ public class c extends b {
         } catch (JSONException e3) {
             e = e3;
         }
-        httpRequest = (HttpRequest) d.b.g0.a.t.c.h.b.t(jSONObject, this.f48074f).first;
-        if (httpRequest == null && (callback = this.f48072d) != null) {
+        httpRequest = (HttpRequest) d.b.g0.a.t.c.h.b.t(jSONObject, this.f48075f).first;
+        if (httpRequest == null && (callback = this.f48073d) != null) {
             callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
         }
         k(httpRequest);
@@ -170,9 +170,9 @@ public class c extends b {
     }
 
     public final void l(JSONObject jSONObject) {
-        this.f48073e = jSONObject;
-        this.f48076h = jSONObject.optString("url");
-        JSONObject optJSONObject = this.f48073e.optJSONObject("ext");
+        this.f48074e = jSONObject;
+        this.f48077h = jSONObject.optString("url");
+        JSONObject optJSONObject = this.f48074e.optJSONObject("ext");
         if (optJSONObject != null) {
             this.i = optJSONObject.optString("customHost");
         }
@@ -188,21 +188,21 @@ public class c extends b {
                 o();
                 return;
             }
-            this.f48072d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+            this.f48073d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
             return;
         }
         d.b.g0.g.d.e.l().k().k();
-        if (this.f48069a) {
+        if (this.f48070a) {
             ResponseBody body = response.body();
             String f2 = f(body.bytes());
-            if (d.b.g0.g.d.a.f48027a) {
+            if (d.b.g0.g.d.a.f48028a) {
                 Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + f2);
             }
-            if (this.f48070b == 1) {
+            if (this.f48071b == 1) {
                 Buffer buffer = new Buffer();
                 buffer.writeString(f2, Charset.forName("utf-8"));
                 Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                Callback callback = this.f48072d;
+                Callback callback = this.f48073d;
                 if (callback != null) {
                     callback.onResponse(call, build);
                 }
@@ -212,25 +212,25 @@ public class c extends b {
                 o();
                 return;
             } else {
-                this.f48072d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                this.f48073d.onFailure(call, new IOException("Url or serviceId is invalid"));
                 this.j = 0;
                 return;
             }
         }
-        Callback callback2 = this.f48072d;
+        Callback callback2 = this.f48073d;
         if (callback2 != null) {
             callback2.onResponse(call, response);
         }
     }
 
     public void n(String str) {
-        this.f48075g = str;
-        JSONObject jSONObject = this.f48073e;
+        this.f48076g = str;
+        JSONObject jSONObject = this.f48074e;
         a(jSONObject != null ? jSONObject.optString("data") : "");
     }
 
     public final void o() {
         this.j++;
-        n(this.f48075g);
+        n(this.f48076g);
     }
 }

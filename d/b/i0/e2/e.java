@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 public class e extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54523e;
+    public Context f54524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54524f;
+    public View f54525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f54525g;
+    public LinearLayout f54526g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f54526h;
+    public float f54527h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -37,13 +37,13 @@ public class e extends Dialog {
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.f54526h = 0.33f;
-        this.f54523e = context;
-        this.f54524f = view;
+        this.f54527h = 0.33f;
+        this.f54524e = context;
+        this.f54525f = view;
     }
 
     public void a(float f2) {
-        this.f54526h = f2;
+        this.f54527h = f2;
     }
 
     @Override // android.app.Dialog
@@ -51,49 +51,49 @@ public class e extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(R.layout.person_info_more_dialog);
-        Display defaultDisplay = ((WindowManager) this.f54523e.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.f54524e.getSystemService("window")).getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.f54526h);
+        getWindow().setDimAmount(this.f54527h);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(R.style.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-        this.f54525g = linearLayout;
+        this.f54526g = linearLayout;
         linearLayout.setOnClickListener(new a());
-        if (this.f54524f == null) {
+        if (this.f54525f == null) {
             return;
         }
-        this.f54525g.removeAllViews();
-        if (this.f54524f.getParent() != null) {
-            if (this.f54524f.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f54524f.getParent()).removeView(this.f54524f);
-                this.f54525g.addView(this.f54524f);
+        this.f54526g.removeAllViews();
+        if (this.f54525f.getParent() != null) {
+            if (this.f54525f.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f54525f.getParent()).removeView(this.f54525f);
+                this.f54526g.addView(this.f54525f);
                 return;
             }
             return;
         }
-        this.f54525g.addView(this.f54524f);
+        this.f54526g.addView(this.f54525f);
     }
 
     @Override // android.app.Dialog
     public void setContentView(View view) {
-        this.f54524f = view;
-        LinearLayout linearLayout = this.f54525g;
+        this.f54525f = view;
+        LinearLayout linearLayout = this.f54526g;
         if (linearLayout != null) {
             linearLayout.removeAllViews();
-            if (this.f54524f.getParent() != null) {
-                if (this.f54524f.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f54524f.getParent()).removeView(this.f54524f);
-                    this.f54525g.addView(this.f54524f);
+            if (this.f54525f.getParent() != null) {
+                if (this.f54525f.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f54525f.getParent()).removeView(this.f54525f);
+                    this.f54526g.addView(this.f54525f);
                     return;
                 }
                 return;
             }
-            this.f54525g.addView(this.f54524f);
+            this.f54526g.addView(this.f54525f);
         }
     }
 }

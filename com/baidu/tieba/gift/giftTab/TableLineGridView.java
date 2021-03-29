@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.view.BdGridView;
 public class TableLineGridView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16917e;
+    public int f16918e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16918f;
+    public int f16919f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16919g;
+    public int f16920g;
 
     public TableLineGridView(Context context) {
         super(context);
@@ -28,16 +28,16 @@ public class TableLineGridView extends BdGridView {
         if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.f16919g);
-            int width = childAt.getWidth() * this.f16918f;
-            int height = childAt.getHeight() * this.f16917e;
+            paint.setColor(this.f16920g);
+            int width = childAt.getWidth() * this.f16919f;
+            int height = childAt.getHeight() * this.f16918e;
             int width2 = childAt.getWidth();
             int height2 = childAt.getHeight();
-            for (int i = 1; i < this.f16917e; i++) {
+            for (int i = 1; i < this.f16918e; i++) {
                 float f2 = height2 * i;
                 canvas.drawLine(0.0f, f2, width, f2, paint);
             }
-            for (int i2 = 1; i2 < this.f16918f; i2++) {
+            for (int i2 = 1; i2 < this.f16919f; i2++) {
                 float f3 = width2 * i2;
                 canvas.drawLine(f3, 0.0f, f3, height, paint);
             }
@@ -46,27 +46,27 @@ public class TableLineGridView extends BdGridView {
     }
 
     public int getBackgroundLineResource() {
-        return this.f16919g;
+        return this.f16920g;
     }
 
     public int getColumnCount() {
-        return this.f16918f;
+        return this.f16919f;
     }
 
     public int getRowCount() {
-        return this.f16917e;
+        return this.f16918e;
     }
 
     public void setBackgroundLineResource(int i) {
-        this.f16919g = i;
+        this.f16920g = i;
     }
 
     public void setColumnCount(int i) {
-        this.f16918f = i;
+        this.f16919f = i;
     }
 
     public void setRowCount(int i) {
-        this.f16917e = i;
+        this.f16918e = i;
     }
 
     public TableLineGridView(Context context, AttributeSet attributeSet, int i) {

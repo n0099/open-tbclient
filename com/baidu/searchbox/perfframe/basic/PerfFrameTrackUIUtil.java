@@ -2,7 +2,7 @@ package com.baidu.searchbox.perfframe.basic;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.track.ui.TrackUI;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerfFrameTrackUIUtil {
     public static final String SEPERATOR_ARROR = "->";
 

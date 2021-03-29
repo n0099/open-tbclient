@@ -12,43 +12,43 @@ import d.b.g0.a.i2.p;
 import d.b.g0.a.r0.a.c;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: d.b.g0.a.r0.a.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0775a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0776a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45718e;
+        public final /* synthetic */ Context f45719e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45719f;
+        public final /* synthetic */ String f45720f;
 
-        public RunnableC0775a(a aVar, Context context, String str) {
-            this.f45718e = context;
-            this.f45719f = str;
+        public RunnableC0776a(a aVar, Context context, String str) {
+            this.f45719e = context;
+            this.f45720f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.r0.a.a.n().f(this.f45718e, this.f45719f);
+            d.b.g0.a.r0.a.a.n().f(this.f45719e, this.f45720f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45720e;
+        public final /* synthetic */ String f45721e;
 
         public b(a aVar, String str) {
-            this.f45720e = str;
+            this.f45721e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            boolean i = c.c().i(this.f45720e);
+            boolean i = c.c().i(this.f45721e);
             d.b.g0.a.r0.a.a n = d.b.g0.a.r0.a.a.n();
             n.p("cloneResult = " + i);
         }
@@ -80,7 +80,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
-                p.k(new RunnableC0775a(this, context, a2), "cloneSwanAppRunnable");
+                p.k(new RunnableC0776a(this, context, a2), "cloneSwanAppRunnable");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             } else if (TextUtils.equals(path, "/install")) {

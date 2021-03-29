@@ -15,13 +15,13 @@ import java.util.List;
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f32151a;
+    public h f32152a;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32157g;
+    public boolean f32158g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32158h;
+    public boolean f32159h;
     public int i;
     @NonNull
     public AdTemplate j;
@@ -38,19 +38,19 @@ public class c extends com.kwad.sdk.core.e.b {
     public com.kwad.sdk.live.slide.detail.a.a r;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.a.a> f32152b = new LinkedList();
+    public List<com.kwad.sdk.contentalliance.a.a> f32153b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.a.c> f32153c = new ArrayList();
+    public List<com.kwad.sdk.contentalliance.a.c> f32154c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<e> f32154d = new ArrayList();
+    public List<e> f32155d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.home.swipe.a> f32155e = new LinkedList();
+    public List<com.kwad.sdk.contentalliance.home.swipe.a> f32156e = new LinkedList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f.a> f32156f = new ArrayList();
+    public List<f.a> f32157f = new ArrayList();
     public boolean n = false;
 
     @Override // com.kwad.sdk.core.e.b
@@ -71,21 +71,21 @@ public class c extends com.kwad.sdk.core.e.b {
 
     public void a(com.kwad.sdk.contentalliance.trends.view.c cVar) {
         h hVar;
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32151a) == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32152a) == null) {
             return;
         }
-        hVar.f32792e.add(cVar);
+        hVar.f32793e.add(cVar);
     }
 
     public void b(com.kwad.sdk.contentalliance.trends.view.c cVar) {
         h hVar;
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32151a) == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32152a) == null) {
             return;
         }
-        hVar.f32792e.remove(cVar);
+        hVar.f32793e.remove(cVar);
     }
 
     public boolean b() {
-        return this.f32157g;
+        return this.f32158g;
     }
 }

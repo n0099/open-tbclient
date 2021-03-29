@@ -5,7 +5,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UIUtils {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static final int STANDARD_STATUSBAR_HEIGHT = 50;

@@ -82,8 +82,8 @@ public class a {
 
     /* renamed from: d.b.h0.r.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1087a implements View.OnClickListener {
-        public View$OnClickListenerC1087a() {
+    public class View$OnClickListenerC1088a implements View.OnClickListener {
+        public View$OnClickListenerC1088a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -101,16 +101,16 @@ public class a {
     public class b implements ViewHelper.ViewCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f50963a;
+        public final /* synthetic */ AtomicBoolean f50964a;
 
         public b(a aVar, AtomicBoolean atomicBoolean) {
-            this.f50963a = atomicBoolean;
+            this.f50964a = atomicBoolean;
         }
 
         @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
         public boolean onViewFound(View view) {
             if (view instanceof EditText) {
-                this.f50963a.set(true);
+                this.f50964a.set(true);
                 return true;
             }
             return false;
@@ -132,21 +132,21 @@ public class a {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f50965e;
+        public final a f50966e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f50966f;
+        public final e f50967f;
 
         public d(a aVar, a aVar2, e eVar) {
-            this.f50965e = aVar2;
-            this.f50966f = eVar;
+            this.f50966e = aVar2;
+            this.f50967f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e eVar = this.f50966f;
+            e eVar = this.f50967f;
             if (eVar != null) {
-                eVar.onClick(this.f50965e);
+                eVar.onClick(this.f50966e);
             }
         }
     }
@@ -341,7 +341,7 @@ public class a {
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
             tbPageContext.getLayoutMode().k(skinType == 1);
-            tbPageContext.getLayoutMode().f50433e = !isAutoNight();
+            tbPageContext.getLayoutMode().f50434e = !isAutoNight();
             tbPageContext.getLayoutMode().j(this.mRootView);
             if (this.mContentView != null) {
                 tbPageContext.getLayoutMode().j(this.mContentView);
@@ -454,7 +454,7 @@ public class a {
         this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
         this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
         setCheckBoxDrawable();
-        this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC1087a());
+        this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC1088a());
         return inflate;
     }
 

@@ -18,28 +18,28 @@ import java.util.List;
 public abstract class DynamicBaseWidget extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f28299a;
+    public float f28300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28300b;
+    public float f28301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28301c;
+    public float f28302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28302d;
+    public float f28303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28303e;
+    public int f28304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28304f;
+    public int f28305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28305g;
+    public int f28306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28306h;
+    public int f28307h;
     public Context i;
     public e j;
     public f k;
@@ -55,14 +55,14 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         this.i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f28299a = fVar.a();
-        this.f28300b = fVar.b();
-        this.f28301c = fVar.c();
-        this.f28302d = fVar.d();
-        this.f28305g = (int) al.a(this.i, this.f28299a);
-        this.f28306h = (int) al.a(this.i, this.f28300b);
-        this.f28303e = (int) al.a(this.i, this.f28301c);
-        this.f28304f = (int) al.a(this.i, this.f28302d);
+        this.f28300a = fVar.a();
+        this.f28301b = fVar.b();
+        this.f28302c = fVar.c();
+        this.f28303d = fVar.d();
+        this.f28306g = (int) al.a(this.i, this.f28300a);
+        this.f28307h = (int) al.a(this.i, this.f28301b);
+        this.f28304e = (int) al.a(this.i, this.f28302c);
+        this.f28305f = (int) al.a(this.i, this.f28303d);
         e eVar = new e(fVar.e());
         this.j = eVar;
         this.o = eVar.k() > 0;
@@ -88,11 +88,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public boolean d() {
         boolean b2 = b();
         try {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f28303e, this.f28304f);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f28304e, this.f28305f);
             u.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f28299a + "," + this.f28300b + "," + this.f28303e + "," + this.f28304f);
-            layoutParams.topMargin = this.f28306h;
-            layoutParams.leftMargin = this.f28305g;
+            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f28300a + "," + this.f28301b + "," + this.f28304e + "," + this.f28305f);
+            layoutParams.topMargin = this.f28307h;
+            layoutParams.leftMargin = this.f28306g;
             this.m.addView(this, layoutParams);
             return b2;
         } catch (Exception unused) {

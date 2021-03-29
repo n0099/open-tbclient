@@ -21,7 +21,7 @@ import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionPanelManager {
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
     public static final int COLOR_EMOTION_TYPE_PLACEHOLDER = -1;
@@ -34,12 +34,12 @@ public class BDEmotionPanelManager {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i, String str, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;

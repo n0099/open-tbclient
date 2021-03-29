@@ -12,7 +12,7 @@ import d.b.h0.r.k;
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21001e;
+    public HttpMessageListener f21002e;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -35,7 +35,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public GetImageWatermarkTypeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f21001e = aVar;
+        this.f21002e = aVar;
         registerListener(aVar);
         LoadData();
     }

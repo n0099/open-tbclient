@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.bean;
 import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PackageInfo implements NoProGuard, Cloneable {
     public static final int CODE_FILTERD = 1102;
     public static final int CODE_HOST_VERSION = 1103;

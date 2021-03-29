@@ -3,7 +3,7 @@ package com.baidu.searchbox.process.ipc.delegate;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.process.ipc.agent.Agent;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class Delegation<AgentT extends Agent> {
     @NonNull
     public AgentT mAgent;

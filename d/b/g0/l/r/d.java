@@ -21,7 +21,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                if (d.b.g0.l.f.f48888a) {
+                if (d.b.g0.l.f.f48889a) {
                     e2.printStackTrace();
                 }
             }
@@ -41,7 +41,7 @@ public class d {
                         return file2;
                     }
                 } catch (IOException e2) {
-                    if (d.b.g0.l.f.f48888a) {
+                    if (d.b.g0.l.f.f48889a) {
                         e2.printStackTrace();
                     }
                 }

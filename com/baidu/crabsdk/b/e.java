@@ -4,7 +4,7 @@ import android.os.Process;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class e {
     public static String a() {
         FileReader fileReader;

@@ -18,7 +18,7 @@ import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelView extends ChannelViewBase {
     public NetImageView activeIcon;
     public LinearLayout channelDescContainer;

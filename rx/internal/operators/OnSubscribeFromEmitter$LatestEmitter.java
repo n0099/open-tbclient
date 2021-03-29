@@ -19,17 +19,19 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
     }
 
     public void drain() {
+        int i;
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
         j<? super T> jVar = this.actual;
         AtomicReference<Object> atomicReference = this.queue;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = get();
             long j2 = 0;
             while (true) {
-                if (j2 == j) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
                     break;
                 } else if (jVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
@@ -50,12 +52,12 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                     } else if (z2) {
                         break;
                     } else {
-                        jVar.onNext((Object) NotificationLite.d(andSet));
+                        jVar.onNext((Object) NotificationLite.e(andSet));
                         j2++;
                     }
                 }
             }
-            if (j2 == j) {
+            if (i == 0) {
                 if (jVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
@@ -76,8 +78,8 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
             if (j2 != 0) {
                 a.g(this, j2);
             }
-            i = this.wip.addAndGet(-i);
-        } while (i != 0);
+            i2 = this.wip.addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
@@ -95,7 +97,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
     public void onNext(T t) {
-        this.queue.set(NotificationLite.g(t));
+        this.queue.set(NotificationLite.h(t));
         drain();
     }
 

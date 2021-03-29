@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
     @Override // com.meizu.cloud.pushsdk.MzPushMessageReceiver
     public void onMessage(Context context, String str) {

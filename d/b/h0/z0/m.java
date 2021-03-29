@@ -14,33 +14,33 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class m {
     public static m i;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51716a = 0;
+    public int f51717a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51717b = 0;
+    public long f51718b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f51718c = 0;
+    public long f51719c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51719d = 0;
+    public int f51720d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f51720e = null;
+    public AtomicBoolean f51721e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51721f = false;
+    public boolean f51722f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f51722g = new Handler(new a());
+    public Handler f51723g = new Handler(new a());
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f51723h = new b();
+    public Runnable f51724h = new b();
 
     /* loaded from: classes3.dex */
     public class a implements Handler.Callback {
@@ -70,13 +70,13 @@ public class m {
         @Override // java.lang.Runnable
         public void run() {
             m mVar = m.this;
-            if (mVar.f51720e == null) {
-                mVar.f51720e = new AtomicBoolean(false);
+            if (mVar.f51721e == null) {
+                mVar.f51721e = new AtomicBoolean(false);
             }
-            if (m.this.f51720e.get()) {
+            if (m.this.f51721e.get()) {
                 return;
             }
-            m.this.f51720e.set(true);
+            m.this.f51721e.set(true);
             if (m.this.j(true)) {
                 TbadkCoreApplication.getInst().fixOppoTimeout();
                 MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
@@ -98,19 +98,19 @@ public class m {
     }
 
     public void a() {
-        this.f51719d++;
+        this.f51720d++;
         n();
         d.b.h0.r.p.a.c().b();
     }
 
     public void b() {
-        this.f51719d--;
+        this.f51720d--;
         n();
     }
 
     public boolean d() {
         if (j(false)) {
-            if (this.f51721f) {
+            if (this.f51722f) {
                 Intent intent = new Intent("com.tieba.baidu.notifyprocess");
                 intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
                 intent.putExtra("message", true);
@@ -127,19 +127,19 @@ public class m {
     }
 
     public void e() {
-        this.f51716a = 0;
+        this.f51717a = 0;
     }
 
     public int f() {
-        return this.f51716a;
+        return this.f51717a;
     }
 
     public int h() {
-        return this.f51719d;
+        return this.f51720d;
     }
 
     public boolean i() {
-        AtomicBoolean atomicBoolean = this.f51720e;
+        AtomicBoolean atomicBoolean = this.f51721e;
         if (atomicBoolean == null) {
             return true;
         }
@@ -151,22 +151,22 @@ public class m {
     }
 
     public void k() {
-        AsyncService.INSTANCE.sendRunnable(this.f51723h);
+        AsyncService.INSTANCE.sendRunnable(this.f51724h);
     }
 
     public void l() {
-        AsyncService.INSTANCE.removeRunnable(this.f51723h);
-        if (this.f51720e == null) {
-            this.f51720e = new AtomicBoolean(true);
+        AsyncService.INSTANCE.removeRunnable(this.f51724h);
+        if (this.f51721e == null) {
+            this.f51721e = new AtomicBoolean(true);
         }
-        if (this.f51720e.get()) {
-            this.f51720e.set(false);
-            this.f51716a++;
+        if (this.f51721e.get()) {
+            this.f51721e.set(false);
+            this.f51717a++;
             if (j(true)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = this.f51717b;
+                long j = this.f51718b;
                 if (currentTimeMillis - j > VideoCloudSetting.HOUR_MILLISECOND || j == 0) {
-                    this.f51717b = System.currentTimeMillis();
+                    this.f51718b = System.currentTimeMillis();
                     new EnterForePvThread().start();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
@@ -175,42 +175,42 @@ public class m {
     }
 
     public void m(boolean z) {
-        this.f51721f = !z;
+        this.f51722f = !z;
     }
 
     public void n() {
-        if (this.f51719d < 0) {
-            this.f51719d = 0;
+        if (this.f51720d < 0) {
+            this.f51720d = 0;
         }
-        if (j(true) && this.f51718c == 0 && this.f51719d > 0) {
-            this.f51718c = System.nanoTime();
+        if (j(true) && this.f51719c == 0 && this.f51720d > 0) {
+            this.f51719c = System.nanoTime();
         }
-        this.f51722g.removeMessages(5);
-        if (this.f51719d == 0) {
+        this.f51723g.removeMessages(5);
+        if (this.f51720d == 0) {
             p();
             return;
         }
-        AtomicBoolean atomicBoolean = this.f51720e;
+        AtomicBoolean atomicBoolean = this.f51721e;
         if (atomicBoolean == null || atomicBoolean.get()) {
-            Handler handler = this.f51722g;
+            Handler handler = this.f51723g;
             handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
         }
     }
 
     public final void o() {
-        if (this.f51719d != 0 || this.f51718c <= 0) {
+        if (this.f51720d != 0 || this.f51719c <= 0) {
             return;
         }
-        long nanoTime = ((System.nanoTime() - this.f51718c) / 1000000) / 1000;
+        long nanoTime = ((System.nanoTime() - this.f51719c) / 1000000) / 1000;
         if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
             new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
         }
-        this.f51718c = 0L;
+        this.f51719c = 0L;
     }
 
     public void p() {
-        Handler handler = this.f51722g;
+        Handler handler = this.f51723g;
         handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
     }
 }

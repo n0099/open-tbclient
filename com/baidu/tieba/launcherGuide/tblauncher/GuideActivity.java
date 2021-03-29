@@ -52,7 +52,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GuideActivity extends BaseActivity<GuideActivity> {
     public static final int MODE_GIF = 2;
     public static final int MODE_IMAGE = 1;
@@ -80,7 +80,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public final HttpMessageListener mNewUserGuideListener = new d(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
     public View.OnClickListener mOnClickListener = new e();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements BaseViewPager.a {
         public a() {
         }
@@ -100,7 +100,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -114,7 +114,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements ViewPager.OnPageChangeListener {
         public c() {
         }
@@ -145,7 +145,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends HttpMessageListener {
         public d(int i) {
             super(i);
@@ -171,7 +171,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -185,7 +185,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends BdAsyncTask<String, Integer, Boolean> {
         public f() {
         }
@@ -210,7 +210,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g extends PagerAdapter {
         public g() {
         }

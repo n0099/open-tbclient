@@ -27,10 +27,6 @@ public final class PlatformRandomKt {
     }
 
     public static final double doubleFromParts(int i, int i2) {
-        double d2 = (i << 27) + i2;
-        double d3 = 9007199254740992L;
-        Double.isNaN(d2);
-        Double.isNaN(d3);
-        return d2 / d3;
+        return ((i << 27) + i2) / 9007199254740992L;
     }
 }

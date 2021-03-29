@@ -15,97 +15,97 @@ import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62562e;
+    public int f62563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f62563f;
+    public final Context f62564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<d.b.i0.y1.c.b> f62564g;
+    public final List<d.b.i0.y1.c.b> f62565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f62565h;
+    public c f62566h;
 
     /* renamed from: d.b.i0.y1.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1674a implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1675a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.y1.c.b f62566e;
+        public final /* synthetic */ d.b.i0.y1.c.b f62567e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f62567f;
+        public final /* synthetic */ b f62568f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f62568g;
+        public final /* synthetic */ int f62569g;
 
-        public View$OnClickListenerC1674a(d.b.i0.y1.c.b bVar, b bVar2, int i) {
-            this.f62566e = bVar;
-            this.f62567f = bVar2;
-            this.f62568g = i;
+        public View$OnClickListenerC1675a(d.b.i0.y1.c.b bVar, b bVar2, int i) {
+            this.f62567e = bVar;
+            this.f62568f = bVar2;
+            this.f62569g = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!this.f62566e.d() && a.this.f62562e >= 10) {
-                l.L(a.this.f62563f.getApplicationContext(), a.this.f62563f.getApplicationContext().getString(R.string.max_interest_select_num));
+            if (!this.f62567e.d() && a.this.f62563e >= 10) {
+                l.L(a.this.f62564f.getApplicationContext(), a.this.f62564f.getApplicationContext().getString(R.string.max_interest_select_num));
                 return;
             }
-            d.b.i0.y1.c.b bVar = this.f62566e;
+            d.b.i0.y1.c.b bVar = this.f62567e;
             bVar.e(!bVar.d());
-            a.this.i(this.f62567f.f62572c, this.f62566e);
-            a.this.h(this.f62566e);
-            if (a.this.f62565h != null) {
-                a.this.f62565h.C0(a.this.f62562e);
+            a.this.i(this.f62568f.f62573c, this.f62567e);
+            a.this.h(this.f62567e);
+            if (a.this.f62566h != null) {
+                a.this.f62566h.C0(a.this.f62563e);
             }
-            if (this.f62566e.d()) {
+            if (this.f62567e.d()) {
                 StatisticItem statisticItem = new StatisticItem("c13682");
                 statisticItem.param("obj_type", 2);
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_source", this.f62568g);
+                statisticItem.param("obj_source", this.f62569g);
                 TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f62570a;
+        public ImageView f62571a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f62571b;
+        public TextView f62572b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f62572c;
+        public ImageView f62573c;
 
         public b(View view) {
-            this.f62570a = (ImageView) view.findViewById(R.id.interest_icon);
-            this.f62571b = (TextView) view.findViewById(R.id.interest_text);
-            this.f62572c = (ImageView) view.findViewById(R.id.select_status_view);
-            SkinManager.setViewTextColor(this.f62571b, R.color.CAM_X0105);
+            this.f62571a = (ImageView) view.findViewById(R.id.interest_icon);
+            this.f62572b = (TextView) view.findViewById(R.id.interest_text);
+            this.f62573c = (ImageView) view.findViewById(R.id.select_status_view);
+            SkinManager.setViewTextColor(this.f62572b, R.color.CAM_X0105);
             SkinManager.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void C0(int i);
     }
 
     public a(List<d.b.i0.y1.c.b> list, Context context) {
-        this.f62564g = list;
-        this.f62563f = context;
+        this.f62565g = list;
+        this.f62564f = context;
     }
 
     public List<d.b.i0.y1.c.b> f() {
         ArrayList arrayList = new ArrayList();
-        for (d.b.i0.y1.c.b bVar : this.f62564g) {
+        for (d.b.i0.y1.c.b bVar : this.f62565g) {
             if (bVar.d()) {
                 arrayList.add(bVar);
             }
@@ -114,12 +114,12 @@ public class a extends BaseAdapter {
     }
 
     public void g(c cVar) {
-        this.f62565h = cVar;
+        this.f62566h = cVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.b.i0.y1.c.b> list = this.f62564g;
+        List<d.b.i0.y1.c.b> list = this.f62565g;
         if (list == null) {
             return 0;
         }
@@ -140,30 +140,30 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f62563f).inflate(R.layout.list_item_interest_selection, viewGroup, false);
+            view = LayoutInflater.from(this.f62564f).inflate(R.layout.list_item_interest_selection, viewGroup, false);
             bVar = new b(view);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        d.b.i0.y1.c.b bVar2 = this.f62564g.get(i);
+        d.b.i0.y1.c.b bVar2 = this.f62565g.get(i);
         if (bVar2.a() > 0) {
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(bVar.f62570a, bVar2.a(), null);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(bVar.f62571a, bVar2.a(), null);
         }
-        bVar.f62571b.setText(bVar2.c());
-        i(bVar.f62572c, bVar2);
+        bVar.f62572b.setText(bVar2.c());
+        i(bVar.f62573c, bVar2);
         if (bVar2.d()) {
-            this.f62562e++;
+            this.f62563e++;
         }
-        view.setOnClickListener(new View$OnClickListenerC1674a(bVar2, bVar, i));
+        view.setOnClickListener(new View$OnClickListenerC1675a(bVar2, bVar, i));
         return view;
     }
 
     public final void h(d.b.i0.y1.c.b bVar) {
         if (bVar.d()) {
-            this.f62562e++;
+            this.f62563e++;
         } else {
-            this.f62562e--;
+            this.f62563e--;
         }
     }
 

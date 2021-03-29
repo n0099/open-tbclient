@@ -14,19 +14,19 @@ import android.widget.TextView;
 public class SpannableClickTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22229e;
+    public boolean f22230e;
 
     /* loaded from: classes5.dex */
     public static class a extends LinkMovementMethod {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f22230a;
+        public static a f22231a;
 
         public static a a() {
-            if (f22230a == null) {
-                f22230a = new a();
+            if (f22231a == null) {
+                f22231a = new a();
             }
-            return f22230a;
+            return f22231a;
         }
 
         @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
@@ -49,7 +49,7 @@ public class SpannableClickTextView extends TextView {
                     Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                 }
                 if (textView instanceof SpannableClickTextView) {
-                    ((SpannableClickTextView) textView).f22229e = true;
+                    ((SpannableClickTextView) textView).f22230e = true;
                 }
                 return true;
             }
@@ -65,13 +65,13 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.f22229e = false;
+        this.f22230e = false;
         return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.f22229e) {
+        if (this.f22230e) {
             return true;
         }
         return super.performClick();

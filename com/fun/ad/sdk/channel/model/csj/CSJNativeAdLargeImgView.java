@@ -22,13 +22,13 @@ import java.util.List;
 public final class CSJNativeAdLargeImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30758f;
+    public ImageView f30759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30759g;
+    public boolean f30760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f30760h;
+    public float f30761h;
 
     /* loaded from: classes6.dex */
     public class a extends DrawableImageViewTarget {
@@ -45,7 +45,7 @@ public final class CSJNativeAdLargeImgView extends b {
         @Override // com.bumptech.glide.request.target.ImageViewTarget, com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
         public void onLoadStarted(@Nullable Drawable drawable) {
             super.onLoadStarted(drawable);
-            CSJNativeAdLargeImgView.this.f30759g = true;
+            CSJNativeAdLargeImgView.this.f30760g = true;
             ((ImageView) this.view).setBackgroundResource(R.drawable.fun_ad_def_img_tieba);
         }
 
@@ -53,7 +53,7 @@ public final class CSJNativeAdLargeImgView extends b {
         public void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
             Drawable drawable = (Drawable) obj;
             super.onResourceReady(drawable, transition);
-            CSJNativeAdLargeImgView.this.f30759g = true;
+            CSJNativeAdLargeImgView.this.f30760g = true;
             ((ImageView) this.view).setBackground(drawable);
         }
 
@@ -70,20 +70,20 @@ public final class CSJNativeAdLargeImgView extends b {
 
     public CSJNativeAdLargeImgView(Context context) {
         super(context);
-        this.f30759g = false;
-        this.f30760h = 1.78f;
+        this.f30760g = false;
+        this.f30761h = 1.78f;
     }
 
     public CSJNativeAdLargeImgView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f30759g = false;
-        this.f30760h = 1.78f;
+        this.f30760g = false;
+        this.f30761h = 1.78f;
     }
 
     public CSJNativeAdLargeImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f30759g = false;
-        this.f30760h = 1.78f;
+        this.f30760g = false;
+        this.f30761h = 1.78f;
     }
 
     @Override // a.a.a.a.r.b.b.b
@@ -94,27 +94,27 @@ public final class CSJNativeAdLargeImgView extends b {
         if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
             return;
         }
-        this.f30760h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
-        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this.f30758f));
+        this.f30761h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
+        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this.f30759f));
     }
 
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30758f = (ImageView) findViewById(R.id.ad_img);
+        this.f30759f = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        d.a("CSJNativeAdView onLayout width: " + this.f30758f.getWidth() + ", height: " + this.f30758f.getHeight(), new Object[0]);
-        if (this.f30759g) {
-            this.f30759g = false;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30758f.getLayoutParams();
+        d.a("CSJNativeAdView onLayout width: " + this.f30759f.getWidth() + ", height: " + this.f30759f.getHeight(), new Object[0]);
+        if (this.f30760g) {
+            this.f30760g = false;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30759f.getLayoutParams();
             int width = (getWidth() - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = width;
-            layoutParams.height = (int) (width / this.f30760h);
-            this.f30758f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (width / this.f30761h);
+            this.f30759f.setLayoutParams(layoutParams);
         }
     }
 

@@ -6,11 +6,11 @@ import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3991a = "RSA";
+    public static final String f3992a = "RSA";
 
     public static PublicKey a(byte[] bArr) {
         try {

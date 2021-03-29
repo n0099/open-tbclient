@@ -18,7 +18,7 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface RotationAngle {
     }
 

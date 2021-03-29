@@ -6,10 +6,10 @@ import tbclient.GetUserInfo.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f51648a;
+    public UserData f51649a;
 
     public UserData a() {
-        return this.f51648a;
+        return this.f51649a;
     }
 
     public void b(DataRes dataRes) {
@@ -17,7 +17,7 @@ public class a {
             return;
         }
         UserData userData = new UserData();
-        this.f51648a = userData;
+        this.f51649a = userData;
         userData.parserProtobuf(dataRes.user);
     }
 }

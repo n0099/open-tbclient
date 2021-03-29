@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ImagePipeline {
     public static final CancellationException PREFETCH_EXCEPTION = new CancellationException("Prefetching is not enabled");
     public final MemoryCache<CacheKey, CloseableImage> mBitmapMemoryCache;

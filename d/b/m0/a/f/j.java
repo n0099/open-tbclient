@@ -12,15 +12,15 @@ public final class j {
     public static class a extends c {
         @Override // d.b.m0.a.f.c
         public final void a() {
-            if (f.a(com.baidu.ubs.analytics.d.a.f22885b)) {
-                for (File file : j.a(com.baidu.ubs.analytics.d.a.f22885b)) {
+            if (f.a(com.baidu.ubs.analytics.d.a.f22886b)) {
+                for (File file : j.a(com.baidu.ubs.analytics.d.a.f22886b)) {
                     if (d.b.m0.a.d.b.c(d.b.m0.a.d.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
                         f.b(file.getPath());
                     }
                 }
             }
-            if (f.a(com.baidu.ubs.analytics.d.a.f22886c)) {
-                for (File file2 : j.a(com.baidu.ubs.analytics.d.a.f22886c)) {
+            if (f.a(com.baidu.ubs.analytics.d.a.f22887c)) {
+                for (File file2 : j.a(com.baidu.ubs.analytics.d.a.f22887c)) {
                     if (!file2.getName().equals(d.b.m0.a.f.a.e()) && d.b.m0.a.d.b.c(d.b.m0.a.d.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
                         f.b(file2.getPath());
                     }

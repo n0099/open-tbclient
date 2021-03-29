@@ -5,15 +5,15 @@ import com.alipay.sdk.widget.j;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.a0.b.b {
     public String n;
     public String o;
     public String p;
 
     /* renamed from: d.b.g0.a.x.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0878a {
+    /* loaded from: classes2.dex */
+    public static class C0879a {
         public static String a(String str) {
             char c2;
             int hashCode = str.hashCode();
@@ -55,7 +55,7 @@ public class a extends d.b.g0.a.a0.b.b {
     }
 
     public String h() {
-        return C0878a.a(this.o);
+        return C0879a.a(this.o);
     }
 
     public int i() {

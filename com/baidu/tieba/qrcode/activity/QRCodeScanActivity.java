@@ -55,16 +55,16 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20639e;
+        public final /* synthetic */ String f20640e;
 
         public a(String str) {
-            this.f20639e = str;
+            this.f20640e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            QRCodeScanActivity.this.mQRCodeScanPresenter.j(this.f20639e);
+            QRCodeScanActivity.this.mQRCodeScanPresenter.j(this.f20640e);
         }
     }
 
@@ -96,15 +96,15 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlbumActivityConfig f20643a;
+        public final /* synthetic */ AlbumActivityConfig f20644a;
 
         public d(AlbumActivityConfig albumActivityConfig) {
-            this.f20643a = albumActivityConfig;
+            this.f20644a = albumActivityConfig;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f20643a));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f20644a));
         }
     }
 
@@ -128,17 +128,17 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20646e;
+        public final /* synthetic */ String f20647e;
 
         public f(String str) {
-            this.f20646e = str;
+            this.f20647e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.b.b.e.m.g.d(QRCodeScanActivity.this.mGalleryTipPopupWindow, QRCodeScanActivity.this);
             if (QRCodeScanActivity.this.mQRCodeScanPresenter != null) {
-                QRCodeScanActivity.this.mQRCodeScanPresenter.b(this.f20646e);
+                QRCodeScanActivity.this.mQRCodeScanPresenter.b(this.f20647e);
             }
         }
     }
@@ -147,10 +147,10 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f20648e;
+        public final /* synthetic */ View f20649e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrowView f20649f;
+        public final /* synthetic */ ArrowView f20650f;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -167,26 +167,26 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
 
         public g(View view, ArrowView arrowView) {
-            this.f20648e = view;
-            this.f20649f = arrowView;
+            this.f20649e = view;
+            this.f20650f = arrowView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int[] iArr = new int[2];
-            this.f20648e.getLocationOnScreen(iArr);
+            this.f20649e.getLocationOnScreen(iArr);
             int i = iArr[0];
-            int measuredHeight = (iArr[1] + this.f20648e.getMeasuredHeight()) - l.g(QRCodeScanActivity.this, R.dimen.tbds12);
+            int measuredHeight = (iArr[1] + this.f20649e.getMeasuredHeight()) - l.g(QRCodeScanActivity.this, R.dimen.tbds12);
             int k = l.k(QRCodeScanActivity.this);
-            if (i <= 0 || k <= 0 || k <= i || !(this.f20648e.getParent() instanceof View)) {
+            if (i <= 0 || k <= 0 || k <= i || !(this.f20649e.getParent() instanceof View)) {
                 return;
             }
-            int abs = (((k - Math.abs(((View) this.f20648e.getParent()).getLeft())) - (this.f20648e.getMeasuredWidth() / 2)) - l.g(QRCodeScanActivity.this, R.dimen.tbds17)) - (l.g(QRCodeScanActivity.this, R.dimen.tbds26) / 2);
-            if (this.f20649f.getLayoutParams() == null || !(this.f20649f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            int abs = (((k - Math.abs(((View) this.f20649e.getParent()).getLeft())) - (this.f20649e.getMeasuredWidth() / 2)) - l.g(QRCodeScanActivity.this, R.dimen.tbds17)) - (l.g(QRCodeScanActivity.this, R.dimen.tbds26) / 2);
+            if (this.f20650f.getLayoutParams() == null || !(this.f20650f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                 return;
             }
-            ((ViewGroup.MarginLayoutParams) this.f20649f.getLayoutParams()).rightMargin = abs;
-            d.b.b.e.m.g.m(QRCodeScanActivity.this.mGalleryTipPopupWindow, this.f20648e, 0, i, measuredHeight);
+            ((ViewGroup.MarginLayoutParams) this.f20650f.getLayoutParams()).rightMargin = abs;
+            d.b.b.e.m.g.m(QRCodeScanActivity.this.mGalleryTipPopupWindow, this.f20649e, 0, i, measuredHeight);
             d.b.b.e.m.e.a().postDelayed(new a(), 3000L);
         }
     }

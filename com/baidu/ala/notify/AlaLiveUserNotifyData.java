@@ -1,7 +1,7 @@
 package com.baidu.ala.notify;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLiveUserNotifyData {
     public static final int GUARDIAN_DUE = 1;
     public static final int GUARDIAN_GRAB = 2;
@@ -10,7 +10,7 @@ public class AlaLiveUserNotifyData {
     public int notify_type;
     public String user_id;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class AlaNotifyContent {
         public String anchor_id;
         public String anchor_portrait;

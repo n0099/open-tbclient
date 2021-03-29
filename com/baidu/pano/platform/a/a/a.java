@@ -27,26 +27,26 @@ import org.apache.http.impl.cookie.DateUtils;
 public class a implements com.baidu.pano.platform.a.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9313a = w.f9414b;
+    public static final boolean f9314a = w.f9415b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9314d = 3000;
+    public static int f9315d = 3000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9315e = 4096;
+    public static int f9316e = 4096;
 
     /* renamed from: b  reason: collision with root package name */
-    public final i f9316b;
+    public final i f9317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f9317c;
+    public final b f9318c;
 
     public a(i iVar) {
-        this(iVar, new b(f9315e));
+        this(iVar, new b(f9316e));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00ee  */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x0169 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00ed  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x0168 A[SYNTHETIC] */
     @Override // com.baidu.pano.platform.a.i
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -63,7 +63,7 @@ public class a implements com.baidu.pano.platform.a.i {
                 try {
                     HashMap hashMap = new HashMap();
                     a(hashMap, nVar.f());
-                    httpResponse = this.f9316b.a(nVar, hashMap);
+                    httpResponse = this.f9317b.a(nVar, hashMap);
                     try {
                         StatusLine statusLine = httpResponse.getStatusLine();
                         int statusCode = statusLine.getStatusCode();
@@ -74,8 +74,8 @@ public class a implements com.baidu.pano.platform.a.i {
                                 if (f2 == null) {
                                     return new com.baidu.pano.platform.a.l(304, null, a2, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                                 }
-                                f2.f9352g.putAll(a2);
-                                return new com.baidu.pano.platform.a.l(304, f2.f9346a, f2.f9352g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
+                                f2.f9353g.putAll(a2);
+                                return new com.baidu.pano.platform.a.l(304, f2.f9347a, f2.f9353g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                             }
                             if (statusCode == 301 || statusCode == 302) {
                                 try {
@@ -157,12 +157,12 @@ public class a implements com.baidu.pano.platform.a.i {
     }
 
     public a(i iVar, b bVar) {
-        this.f9316b = iVar;
-        this.f9317c = bVar;
+        this.f9317b = iVar;
+        this.f9318c = bVar;
     }
 
     private void a(long j, com.baidu.pano.platform.a.n<?> nVar, byte[] bArr, StatusLine statusLine) {
-        if (f9313a || j > f9314d) {
+        if (f9314a || j > f9315d) {
             Object[] objArr = new Object[5];
             objArr[0] = nVar;
             objArr[1] = Long.valueOf(j);
@@ -189,21 +189,21 @@ public class a implements com.baidu.pano.platform.a.i {
         if (aVar == null) {
             return;
         }
-        String str = aVar.f9347b;
+        String str = aVar.f9348b;
         if (str != null) {
             map.put("If-None-Match", str);
         }
-        if (aVar.f9349d > 0) {
-            map.put("If-Modified-Since", DateUtils.formatDate(new Date(aVar.f9349d)));
+        if (aVar.f9350d > 0) {
+            map.put("If-Modified-Since", DateUtils.formatDate(new Date(aVar.f9350d)));
         }
     }
 
     private byte[] a(HttpEntity httpEntity) throws IOException, t {
-        k kVar = new k(this.f9317c, (int) httpEntity.getContentLength());
+        k kVar = new k(this.f9318c, (int) httpEntity.getContentLength());
         try {
             InputStream content = httpEntity.getContent();
             if (content != null) {
-                byte[] a2 = this.f9317c.a(1024);
+                byte[] a2 = this.f9318c.a(1024);
                 while (true) {
                     int read = content.read(a2);
                     if (read == -1) {
@@ -217,7 +217,7 @@ public class a implements com.baidu.pano.platform.a.i {
                 } catch (IOException unused) {
                     w.a("Error occured when calling consumingContent", new Object[0]);
                 }
-                this.f9317c.a(a2);
+                this.f9318c.a(a2);
                 kVar.close();
                 return byteArray;
             }
@@ -228,7 +228,7 @@ public class a implements com.baidu.pano.platform.a.i {
             } catch (IOException unused2) {
                 w.a("Error occured when calling consumingContent", new Object[0]);
             }
-            this.f9317c.a((byte[]) null);
+            this.f9318c.a((byte[]) null);
             kVar.close();
             throw th;
         }

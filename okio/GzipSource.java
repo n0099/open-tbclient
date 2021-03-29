@@ -119,9 +119,10 @@ public final class GzipSource implements Source {
 
     @Override // okio.Source
     public long read(Buffer buffer, long j) throws IOException {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("byteCount < 0: " + j);
-        } else if (j == 0) {
+        } else if (i == 0) {
             return 0L;
         } else {
             if (this.section == 0) {

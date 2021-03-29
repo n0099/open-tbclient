@@ -31,29 +31,29 @@ import d.b.b.e.p.l;
 import d.b.h0.r.k;
 import d.b.i0.c2.k.e.d0;
 import d.b.i0.c2.k.e.e0;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NavigationBar f52648a;
+    public final NavigationBar f52649a;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52650c;
+    public TextView f52651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f52651d;
+    public View f52652d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52652e;
+    public ImageView f52653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final View f52653f;
+    public final View f52654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ImageView f52654g;
+    public final ImageView f52655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f52655h;
+    public final LinearLayout f52656h;
     public LinearLayout i;
     public BarImageView j;
     public TextView k;
@@ -68,7 +68,7 @@ public class c {
     public int x;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52649b = false;
+    public boolean f52650b = false;
     public AlertDialog m = null;
     public d0 n = null;
     public float o = 0.33f;
@@ -76,7 +76,7 @@ public class c {
     public Runnable y = new d();
     public View.OnClickListener z = new e();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -87,7 +87,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements DialogInterface.OnDismissListener {
         public b(c cVar) {
         }
@@ -99,9 +99,9 @@ public class c {
     }
 
     /* renamed from: d.b.i0.c2.k.e.c1.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC1152c implements Runnable {
-        public RunnableC1152c() {
+    /* loaded from: classes5.dex */
+    public class RunnableC1153c implements Runnable {
+        public RunnableC1153c() {
         }
 
         @Override // java.lang.Runnable
@@ -112,7 +112,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -123,7 +123,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -143,34 +143,32 @@ public class c {
         this.u = l.g(pbFragment.getContext(), R.dimen.ds88);
         this.v = l.g(TbadkCoreApplication.getInst(), R.dimen.ds14);
         int k = l.k(TbadkCoreApplication.getInst());
-        double d2 = k;
-        Double.isNaN(d2);
         int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-        int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds102) + ((int) (d2 * 0.07d));
+        int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds102) + ((int) (k * 0.07d));
         this.w = g3;
         if (g3 - g2 > 0) {
             this.w = g3 - g2;
         }
         this.x = (k - (this.w * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds89);
         NavigationBar navigationBar = (NavigationBar) view.findViewById(R.id.view_navigation_bar);
-        this.f52648a = navigationBar;
+        this.f52649a = navigationBar;
         navigationBar.setOnClickListener(new a());
-        this.f52648a.hideBottomLine();
-        this.f52653f = this.f52648a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbFragment.T1);
-        this.f52650c = this.f52648a.setCenterTextTitle("");
-        this.f52654g = (ImageView) this.f52648a.getCenterImgBox();
-        this.f52655h = (LinearLayout) this.f52648a.getCenterImgBoxLayout();
+        this.f52649a.hideBottomLine();
+        this.f52654f = this.f52649a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbFragment.T1);
+        this.f52651c = this.f52649a.setCenterTextTitle("");
+        this.f52655g = (ImageView) this.f52649a.getCenterImgBox();
+        this.f52656h = (LinearLayout) this.f52649a.getCenterImgBoxLayout();
         int g4 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
-        this.f52655h.setPadding(g4, 0, g4, 0);
-        ImageView imageView = this.f52654g;
+        this.f52656h.setPadding(g4, 0, g4, 0);
+        ImageView imageView = this.f52655g;
         int i = R.drawable.icon_pb_play_small;
         SkinManager.setNavbarIconSrc(imageView, i, i);
-        this.f52654g.setVisibility(8);
-        this.f52650c.setOnClickListener(pbFragment.T1);
-        this.f52654g.setOnClickListener(pbFragment.T1);
-        this.r = (ImageView) this.f52653f.findViewById(R.id.widget_navi_back_button);
+        this.f52655g.setVisibility(8);
+        this.f52651c.setOnClickListener(pbFragment.T1);
+        this.f52655g.setOnClickListener(pbFragment.T1);
+        this.r = (ImageView) this.f52654f.findViewById(R.id.widget_navi_back_button);
         if (this.i == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f52648a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.nav_fourm_title_layout, (View.OnClickListener) null);
+            LinearLayout linearLayout = (LinearLayout) this.f52649a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.nav_fourm_title_layout, (View.OnClickListener) null);
             this.i = linearLayout;
             BarImageView barImageView = (BarImageView) linearLayout.findViewById(R.id.pb_nav_title_forum_image);
             this.j = barImageView;
@@ -200,7 +198,7 @@ public class c {
     }
 
     public void A() {
-        View view = this.f52651d;
+        View view = this.f52652d;
         if (view != null) {
             view.setVisibility(8);
         }
@@ -238,7 +236,7 @@ public class c {
 
     public void e() {
         if (this.q == null) {
-            this.q = new RunnableC1152c();
+            this.q = new RunnableC1153c();
         }
         d.b.b.e.m.e.a().postDelayed(this.q, 100L);
     }
@@ -255,11 +253,11 @@ public class c {
     }
 
     public View h() {
-        return this.f52654g;
+        return this.f52655g;
     }
 
     public NavigationBar i() {
-        return this.f52648a;
+        return this.f52649a;
     }
 
     public void j() {
@@ -272,7 +270,7 @@ public class c {
     public void k() {
         this.r.setVisibility(0);
         r(false);
-        View view = this.f52651d;
+        View view = this.f52652d;
         if (view != null) {
             view.setVisibility(8);
         }
@@ -284,31 +282,31 @@ public class c {
     }
 
     public void m(int i) {
-        NavigationBar navigationBar = this.f52648a;
+        NavigationBar navigationBar = this.f52649a;
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(this.p.getPageContext(), i);
-            SkinManager.setBackgroundResource(this.f52648a.getBarBgView(), R.color.CAM_X0207);
+            SkinManager.setBackgroundResource(this.f52649a.getBarBgView(), R.color.CAM_X0207);
         }
         BarImageView barImageView = this.j;
         if (barImageView != null) {
             barImageView.invalidate();
         }
         WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-        WebPManager.setPureDrawable(this.f52652e, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-        SkinManager.setNavbarTitleColor(this.f52650c, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        WebPManager.setPureDrawable(this.f52653e, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+        SkinManager.setNavbarTitleColor(this.f52651c, R.color.CAM_X0105, R.color.s_navbar_title_color);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
         q();
         C();
     }
 
     public void n(int i) {
-        this.f52648a.onChangeSkinType(this.p.getPageContext(), i);
-        this.f52648a.getBackground().mutate().setAlpha(0);
-        this.f52648a.getTopCoverBgView().setBackgroundResource(R.drawable.bg_pb_header_gradient_top);
-        this.f52648a.getTopCoverBgView().setVisibility(0);
-        this.f52648a.getBarBgView().setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha85));
-        this.f52650c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0111));
-        WebPManager.setPureDrawable(this.f52652e, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.f52649a.onChangeSkinType(this.p.getPageContext(), i);
+        this.f52649a.getBackground().mutate().setAlpha(0);
+        this.f52649a.getTopCoverBgView().setBackgroundResource(R.drawable.bg_pb_header_gradient_top);
+        this.f52649a.getTopCoverBgView().setVisibility(0);
+        this.f52649a.getBarBgView().setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha85));
+        this.f52651c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0111));
+        WebPManager.setPureDrawable(this.f52653e, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
     }
 
@@ -339,10 +337,10 @@ public class c {
     }
 
     public void r(boolean z) {
-        if (!this.f52649b && z && !"".equals(this.f52650c.getText().toString())) {
-            this.f52650c.setVisibility(0);
+        if (!this.f52650b && z && !"".equals(this.f52651c.getText().toString())) {
+            this.f52651c.setVisibility(0);
         } else {
-            this.f52650c.setVisibility(8);
+            this.f52651c.setVisibility(8);
         }
     }
 
@@ -352,9 +350,9 @@ public class c {
 
     public void t(boolean z) {
         if (z) {
-            this.f52653f.setVisibility(0);
+            this.f52654f.setVisibility(0);
         } else {
-            this.f52653f.setVisibility(8);
+            this.f52654f.setVisibility(8);
         }
         r(z);
     }
@@ -381,14 +379,14 @@ public class c {
         this.r.setVisibility(0);
         r(z);
         if (TbadkCoreApplication.isLogin()) {
-            View view = this.f52651d;
+            View view = this.f52652d;
             if (view != null) {
                 view.setVisibility(0);
                 return;
             }
             return;
         }
-        View view2 = this.f52651d;
+        View view2 = this.f52652d;
         if (view2 != null) {
             view2.setVisibility(8);
         }
@@ -415,23 +413,23 @@ public class c {
         window.setLayout(-1, -2);
         window.setContentView(this.n.u());
         window.setDimAmount(this.o);
-        this.n.L(e0Var == null ? false : e0Var.f52668a);
-        this.n.z(e0Var == null ? false : e0Var.f52672e);
+        this.n.L(e0Var == null ? false : e0Var.f52669a);
+        this.n.z(e0Var == null ? false : e0Var.f52673e);
         this.n.F(e0Var == null ? false : e0Var.i);
-        this.n.A(e0Var == null ? false : e0Var.f52673f);
-        this.n.O(e0Var != null ? e0Var.f52670c : true);
+        this.n.A(e0Var == null ? false : e0Var.f52674f);
+        this.n.O(e0Var != null ? e0Var.f52671c : true);
         this.n.K(e0Var == null ? false : e0Var.k);
         if (e0Var == null) {
             this.n.I(false, false);
             this.n.G(false, false);
         } else {
-            this.n.I(e0Var.f52674g, e0Var.p);
-            this.n.G(e0Var.f52675h, e0Var.o);
+            this.n.I(e0Var.f52675g, e0Var.p);
+            this.n.G(e0Var.f52676h, e0Var.o);
         }
         boolean z = e0Var == null ? false : e0Var.n;
         boolean z2 = e0Var == null ? false : e0Var.l;
-        boolean z3 = e0Var == null ? false : e0Var.f52671d;
-        boolean z4 = e0Var == null ? false : e0Var.f52669b;
+        boolean z3 = e0Var == null ? false : e0Var.f52672d;
+        boolean z4 = e0Var == null ? false : e0Var.f52670b;
         boolean z5 = e0Var == null ? false : e0Var.m;
         boolean z6 = e0Var == null ? false : e0Var.j;
         this.n.B(z3, z2);
@@ -456,8 +454,8 @@ public class c {
     }
 
     public void x(String str) {
-        if (!TextUtils.isEmpty(str) && !this.f52649b) {
-            this.f52650c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
+        if (!TextUtils.isEmpty(str) && !this.f52650b) {
+            this.f52651c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
             r(true);
             k.c().h(str);
             return;
@@ -467,22 +465,22 @@ public class c {
 
     public void y(boolean z) {
         NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
-        this.f52649b = z;
-        if (this.f52651d == null && this.f52652e == null) {
-            View addCustomView = this.f52648a.addCustomView(controlAlign, R.layout.nb_item_floor_more, this.p.T1);
-            this.f52651d = addCustomView;
-            this.f52652e = (ImageView) addCustomView.findViewById(R.id.navigationBarBtnMore);
+        this.f52650b = z;
+        if (this.f52652d == null && this.f52653e == null) {
+            View addCustomView = this.f52649a.addCustomView(controlAlign, R.layout.nb_item_floor_more, this.p.T1);
+            this.f52652d = addCustomView;
+            this.f52653e = (ImageView) addCustomView.findViewById(R.id.navigationBarBtnMore);
             int i = this.u;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
             layoutParams.rightMargin = this.v;
-            this.f52651d.setLayoutParams(layoutParams);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52652e, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.f52651d.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+            this.f52652d.setLayoutParams(layoutParams);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52653e, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f52652d.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
         }
     }
 
     public void z(boolean z) {
-        View view = this.f52651d;
+        View view = this.f52652d;
         if (view != null) {
             view.setVisibility(z ? 0 : 8);
         }

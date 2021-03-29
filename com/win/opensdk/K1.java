@@ -3,9 +3,9 @@ package com.win.opensdk;
 public class K1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39706a;
+    public String f39707a;
 
     public K1(String str, boolean z) {
-        this.f39706a = str;
+        this.f39707a = str;
     }
 }

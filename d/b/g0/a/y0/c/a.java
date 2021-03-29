@@ -7,7 +7,7 @@ import d.b.g0.a.j1.m.c;
 import d.b.g0.a.u0.d;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements d.b.g0.a.y0.f.a {
     public static SwanAppConfigData a(File file) {
         if (file == null || !file.exists()) {
@@ -15,7 +15,7 @@ public class a implements d.b.g0.a.y0.f.a {
         }
         long currentTimeMillis = System.currentTimeMillis();
         SwanAppConfigData c2 = SwanAppConfigData.c(d.h(new File(file, "app.json")), file);
-        if (d.b.g0.a.y0.f.a.f47106a) {
+        if (d.b.g0.a.y0.f.a.f47107a) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.d("SwanPreProcess", "buildAppJsonConfig cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; current thread = " + Thread.currentThread().getId());
         }
@@ -33,7 +33,7 @@ public class a implements d.b.g0.a.y0.f.a {
                 b.c().d(file.getAbsolutePath(), a2);
                 return a2;
             }
-            if (d.b.g0.a.y0.f.a.f47106a) {
+            if (d.b.g0.a.y0.f.a.f47107a) {
                 Log.d("SwanPreProcess", "adopt cached app.json");
             }
             return swanAppConfigData;

@@ -6,7 +6,7 @@ import d.b.g0.a.z0.f;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static void a(Integer num) {
         HashMap hashMap = new HashMap();
@@ -24,7 +24,7 @@ public class a {
         } catch (JSONException e2) {
             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
         }
-        gVar.f45068b = jSONObject;
+        gVar.f45069b = jSONObject;
         f.V().z(str, gVar);
     }
 }

@@ -1,9 +1,9 @@
 package d.b.g0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f43856a = 2131230855;
+    public static final int f43857a = 2131230855;
     public static final int abc_ab_share_pack_mtrl_alpha = 2131230856;
     public static final int abc_action_bar_item_background_material = 2131230857;
     public static final int abc_btn_borderless_material = 2131230858;

@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCardVew> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> {
         public a(MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter, View view, MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             super(view, msgPhotoLiveCardVew);

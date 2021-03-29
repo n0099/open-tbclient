@@ -11,14 +11,14 @@ import java.security.NoSuchAlgorithmException;
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f6822a;
+    public Bitmap f6823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f6823b;
+    public Bundle f6824b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f6822a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f6823a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -33,17 +33,17 @@ public final class BitmapDescriptor {
     }
 
     public byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f6822a.getWidth() * this.f6822a.getHeight() * 4);
-        this.f6822a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f6823a.getWidth() * this.f6823a.getHeight() * 4);
+        this.f6823a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     public Bundle b() {
-        if (this.f6822a != null) {
-            if (this.f6823b == null) {
+        if (this.f6823a != null) {
+            if (this.f6824b == null) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("image_width", this.f6822a.getWidth());
-                bundle.putInt("image_height", this.f6822a.getHeight());
+                bundle.putInt("image_width", this.f6823a.getWidth());
+                bundle.putInt("image_height", this.f6823a.getHeight());
                 byte[] a2 = a();
                 bundle.putByteArray("image_data", a2);
                 MessageDigest messageDigest = null;
@@ -59,23 +59,23 @@ public final class BitmapDescriptor {
                     sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
                 }
                 bundle.putString("image_hashcode", sb.toString());
-                this.f6823b = bundle;
+                this.f6824b = bundle;
             }
-            return this.f6823b;
+            return this.f6824b;
         }
         throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
     }
 
     public Bitmap getBitmap() {
-        return this.f6822a;
+        return this.f6823a;
     }
 
     public void recycle() {
-        Bitmap bitmap = this.f6822a;
+        Bitmap bitmap = this.f6823a;
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f6822a.recycle();
-        this.f6822a = null;
+        this.f6823a.recycle();
+        this.f6823a = null;
     }
 }

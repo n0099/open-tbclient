@@ -11,6 +11,6 @@ public class n extends f<d.a.a.s.b> {
     @Override // d.a.a.q.b.a
     /* renamed from: n */
     public d.a.a.s.b i(d.a.a.w.a<d.a.a.s.b> aVar, float f2) {
-        return aVar.f41450b;
+        return aVar.f41451b;
     }
 }

@@ -41,16 +41,16 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
     public static final int w;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56411e;
+    public Context f56412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f56412f;
+    public LinearLayout f56413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f56413g;
+    public EMTextView f56414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.j3.b f56414h;
+    public d.b.i0.j3.b f56415h;
     public EMTextView i;
     public View j;
     public AlertDialog k;
@@ -88,8 +88,8 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
                 c.this.l.onDismiss(dialogInterface);
             }
             MessageManager.getInstance().unRegisterTask(2001450);
-            if (c.this.f56414h != null) {
-                c.this.f56414h.k();
+            if (c.this.f56415h != null) {
+                c.this.f56415h.k();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
         }
@@ -97,8 +97,8 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
 
     /* renamed from: d.b.i0.j3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1320c implements CustomMessageTask.CustomRunnable<Object> {
-        public C1320c() {
+    public class C1321c implements CustomMessageTask.CustomRunnable<Object> {
+        public C1321c() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -123,25 +123,25 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
     }
 
     public c(Context context) {
-        this.f56411e = context;
+        this.f56412e = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f56412f = linearLayout;
+        this.f56413f = linearLayout;
         linearLayout.setOrientation(1);
         EMTextView eMTextView = new EMTextView(context);
-        this.f56413g = eMTextView;
+        this.f56414g = eMTextView;
         eMTextView.setTextSize(0, u);
-        EMTextView eMTextView2 = this.f56413g;
+        EMTextView eMTextView2 = this.f56414g;
         int i = q;
         eMTextView2.setPadding(i, r, i, s);
-        this.f56413g.setGravity(1);
-        this.f56413g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.f56412f.addView(this.f56413g);
-        this.f56414h = new d.b.i0.j3.b(context);
+        this.f56414g.setGravity(1);
+        this.f56414g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.f56413f.addView(this.f56414g);
+        this.f56415h = new d.b.i0.j3.b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         int i2 = ShareGridLayout.j;
         layoutParams.leftMargin = i2;
         layoutParams.rightMargin = i2;
-        this.f56412f.addView(this.f56414h.d(), layoutParams);
+        this.f56413f.addView(this.f56415h.d(), layoutParams);
         EMTextView eMTextView3 = new EMTextView(context);
         this.i = eMTextView3;
         eMTextView3.setGravity(1);
@@ -154,11 +154,11 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
         int i3 = t;
         eMTextView4.setPadding(0, i3, 0, i3);
         this.i.setOnClickListener(this);
-        this.f56412f.addView(this.i);
+        this.f56413f.addView(this.i);
         this.j = new View(context);
         this.j.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
-        this.f56412f.addView(this.j);
-        this.f56414h.l(this);
+        this.f56413f.addView(this.j);
+        this.f56415h.l(this);
     }
 
     @Override // d.b.i0.j3.a
@@ -167,17 +167,17 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
     }
 
     public final void h() {
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f56412f);
+        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f56413f);
         a2.h(R.string.J_X14);
         a2.c(R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f56413g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f56414g, R.color.CAM_X0109);
         SkinManager.setViewTextColorSelector(this.i, R.color.CAM_X0107);
     }
 
     public void i() {
         AlertDialog alertDialog = this.k;
         if (alertDialog != null) {
-            Context context = this.f56411e;
+            Context context = this.f56412e;
             if (context instanceof Activity) {
                 g.a(alertDialog, (Activity) context);
                 MessageManager.getInstance().unRegisterListener(this.p);
@@ -189,12 +189,12 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
     public void j(ShareDialogConfig.From from) {
         c0 sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
         if (sharePanelConfData != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !k.isEmpty(sharePanelConfData.b())) {
-            this.f56413g.setText(sharePanelConfData.b());
+            this.f56414g.setText(sharePanelConfData.b());
         }
     }
 
     public final void k() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new C1320c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new C1321c());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -209,16 +209,16 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
             shareItem.s = shareItem.C;
         }
         if (!shareDialogConfig.shareItem.Y) {
-            this.f56413g.setText(R.string.transmit_share_no_outer);
+            this.f56414g.setText(R.string.transmit_share_no_outer);
         } else {
             String sharePanelText = TbSingleton.getInstance().getSharePanelText();
             if (!TextUtils.isEmpty(sharePanelText)) {
-                this.f56413g.setText(sharePanelText);
+                this.f56414g.setText(sharePanelText);
             } else {
-                this.f56413g.setText(R.string.transmit_share_not_add_experience);
+                this.f56414g.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.f56414h.m(shareDialogConfig, this.m);
+        this.f56415h.m(shareDialogConfig, this.m);
         this.n = shareDialogConfig;
     }
 
@@ -228,15 +228,15 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
 
     public void o() {
         h();
-        AlertDialog create = new AlertDialog.Builder(this.f56411e, R.style.DialogTheme).create();
+        AlertDialog create = new AlertDialog.Builder(this.f56412e, R.style.DialogTheme).create();
         this.k = create;
         create.setCanceledOnTouchOutside(true);
         this.k.setOnDismissListener(new b());
-        Context context = this.f56411e;
+        Context context = this.f56412e;
         if (context instanceof Activity) {
             g.i(this.k, (Activity) context);
         }
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f56412f);
+        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f56413f);
         a2.h(R.string.J_X14);
         a2.c(R.color.CAM_X0204);
         Window window = this.k.getWindow();
@@ -250,10 +250,10 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
         window.setWindowAnimations(R.style.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
-        window.setContentView(this.f56412f);
+        window.setContentView(this.f56413f);
         window.setDimAmount(this.o);
         k();
-        j.a(this.f56411e).registerListener(this.p);
+        j.a(this.f56412e).registerListener(this.p);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
     }
 
@@ -266,6 +266,6 @@ public class c implements View.OnClickListener, d.b.i0.j3.a {
     }
 
     public final void p(String str, Object... objArr) {
-        TiebaStatic.eventStat(this.f56411e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
+        TiebaStatic.eventStat(this.f56412e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
     }
 }

@@ -13,16 +13,16 @@ public class w implements d.b.b.j.e.n {
     public static final BdUniqueId t = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52852e;
+    public String f52853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52853f;
+    public int f52854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52854g;
+    public String f52855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52855h;
+    public String f52856h;
     public int i;
     public long j;
     public MetaData k;
@@ -41,10 +41,10 @@ public class w implements d.b.b.j.e.n {
         if (alaLiveInfo == null || alaLiveInfo.user_info == null || alaLiveInfo.live_status.intValue() != 1 || alaLiveInfo.pb_display_type.intValue() != 1) {
             return;
         }
-        this.f52852e = alaLiveInfo.user_info.user_name;
-        this.f52854g = alaLiveInfo.description;
-        this.f52855h = alaLiveInfo.cover;
-        this.f52853f = alaLiveInfo.audience_count.intValue();
+        this.f52853e = alaLiveInfo.user_info.user_name;
+        this.f52855g = alaLiveInfo.description;
+        this.f52856h = alaLiveInfo.cover;
+        this.f52854f = alaLiveInfo.audience_count.intValue();
         this.i = alaLiveInfo.live_status.intValue();
         this.j = alaLiveInfo.live_id.longValue();
         this.m = alaLiveInfo.live_from.intValue() == 1;
@@ -69,7 +69,7 @@ public class w implements d.b.b.j.e.n {
             d.b.h0.r.q.v0 v0Var = new d.b.h0.r.q.v0();
             this.s = v0Var;
             v0Var.j(sparseArray);
-            this.s.f50906g = sparseArray2;
+            this.s.f50907g = sparseArray2;
         } else {
             this.s = null;
         }
@@ -77,10 +77,10 @@ public class w implements d.b.b.j.e.n {
     }
 
     public void e() {
-        this.f52852e = null;
-        this.f52853f = 0;
-        this.f52854g = null;
-        this.f52855h = null;
+        this.f52853e = null;
+        this.f52854f = 0;
+        this.f52855g = null;
+        this.f52856h = null;
         this.i = 0;
         this.j = 0L;
         this.k = null;

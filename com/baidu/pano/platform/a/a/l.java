@@ -10,16 +10,16 @@ import java.util.concurrent.TimeoutException;
 public class l<T> implements q.a, q.b<T>, Future<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.pano.platform.a.n<?> f9341a;
+    public com.baidu.pano.platform.a.n<?> f9342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9342b = false;
+    public boolean f9343b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f9343c;
+    public T f9344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public v f9344d;
+    public v f9345d;
 
     public static <E> l<E> a() {
         return new l<>();
@@ -27,13 +27,13 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // java.util.concurrent.Future
     public synchronized boolean cancel(boolean z) {
-        if (this.f9341a == null) {
+        if (this.f9342a == null) {
             return false;
         }
         if (isDone()) {
             return false;
         }
-        this.f9341a.g();
+        this.f9342a.g();
         return true;
     }
 
@@ -48,7 +48,7 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        com.baidu.pano.platform.a.n<?> nVar = this.f9341a;
+        com.baidu.pano.platform.a.n<?> nVar = this.f9342a;
         if (nVar == null) {
             return false;
         }
@@ -58,31 +58,31 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f9342b && this.f9344d == null) {
+        if (!this.f9343b && this.f9345d == null) {
             z = isCancelled();
         }
         return z;
     }
 
     private synchronized T a(Long l) throws InterruptedException, ExecutionException, TimeoutException {
-        if (this.f9344d == null) {
-            if (this.f9342b) {
-                return this.f9343c;
+        if (this.f9345d == null) {
+            if (this.f9343b) {
+                return this.f9344c;
             }
             if (l == null) {
                 wait(0L);
             } else if (l.longValue() > 0) {
                 wait(l.longValue());
             }
-            if (this.f9344d == null) {
-                if (this.f9342b) {
-                    return this.f9343c;
+            if (this.f9345d == null) {
+                if (this.f9343b) {
+                    return this.f9344c;
                 }
                 throw new TimeoutException();
             }
-            throw new ExecutionException(this.f9344d);
+            throw new ExecutionException(this.f9345d);
         }
-        throw new ExecutionException(this.f9344d);
+        throw new ExecutionException(this.f9345d);
     }
 
     @Override // java.util.concurrent.Future
@@ -92,14 +92,14 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // com.baidu.pano.platform.a.q.b
     public synchronized void a(T t) {
-        this.f9342b = true;
-        this.f9343c = t;
+        this.f9343b = true;
+        this.f9344c = t;
         notifyAll();
     }
 
     @Override // com.baidu.pano.platform.a.q.a
     public synchronized void a(v vVar) {
-        this.f9344d = vVar;
+        this.f9345d = vVar;
         notifyAll();
     }
 }

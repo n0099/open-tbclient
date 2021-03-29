@@ -14,42 +14,42 @@ public class c extends a {
     @Override // d.b.b.f.a.a
     public void a(d dVar, ImageView imageView) {
         e eVar = this.k;
-        if (eVar.f42159c) {
-            float f2 = eVar.f42160d / 2.0f;
-            if (!eVar.f42163g) {
-                this.f42149g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
+        if (eVar.f42160c) {
+            float f2 = eVar.f42161d / 2.0f;
+            if (!eVar.f42164g) {
+                this.f42150g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                 return;
             }
             int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-            RectF rectF = this.f42148f;
-            PointF b2 = b(rectF.left, rectF.top, this.f42147e);
-            RectF rectF2 = this.f42148f;
-            PointF b3 = b(rectF2.right, rectF2.bottom, this.f42147e);
-            this.f42149g.set(Math.max((int) b2.x, 0) + f2, Math.max((int) b2.y, 0) + f2, Math.min((int) b3.x, width) - f2, Math.min((int) b3.y, height) - f2);
+            RectF rectF = this.f42149f;
+            PointF b2 = b(rectF.left, rectF.top, this.f42148e);
+            RectF rectF2 = this.f42149f;
+            PointF b3 = b(rectF2.right, rectF2.bottom, this.f42148e);
+            this.f42150g.set(Math.max((int) b2.x, 0) + f2, Math.max((int) b2.y, 0) + f2, Math.min((int) b3.x, width) - f2, Math.min((int) b3.y, height) - f2);
         }
     }
 
     @Override // d.b.b.f.a.a
     public void f(Canvas canvas, ImageView imageView) {
-        if (this.k.f42159c) {
-            canvas.drawRect(this.f42149g, this.f42145c);
+        if (this.k.f42160c) {
+            canvas.drawRect(this.f42150g, this.f42146c);
         }
     }
 
     @Override // d.b.b.f.a.a
     public void h(Canvas canvas, d dVar, ImageView imageView) {
-        Matrix matrix = this.f42147e;
+        Matrix matrix = this.f42148e;
         if (matrix != null) {
             canvas.concat(matrix);
         }
         if (dVar.e()) {
-            Bitmap bitmap = dVar.f42154a.getBitmap();
+            Bitmap bitmap = dVar.f42155a.getBitmap();
             this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.q, this.f42148f, this.f42144b);
+            canvas.drawBitmap(bitmap, this.q, this.f42149f, this.f42145b);
         } else if (dVar.d()) {
             this.q.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42155b.g(canvas, this.q, this.f42148f, this.f42144b);
+            dVar.f42156b.g(canvas, this.q, this.f42149f, this.f42145b);
         }
     }
 
@@ -62,8 +62,8 @@ public class c extends a {
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
         this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-        this.f42146d.setColor(this.k.m);
-        canvas.drawRect(this.n, this.f42146d);
+        this.f42147d.setColor(this.k.m);
+        canvas.drawRect(this.n, this.f42147d);
         canvas.translate(-scrollX, -scrollY);
     }
 }

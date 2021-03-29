@@ -8,31 +8,31 @@ import javax.crypto.SecretKey;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f41535c;
+    public static d f41536c;
 
     /* renamed from: a  reason: collision with root package name */
-    public SecretKey f41536a = null;
+    public SecretKey f41537a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f41537b = null;
+    public byte[] f41538b = null;
 
     public static d a() {
-        if (f41535c == null) {
+        if (f41536c == null) {
             synchronized (d.class) {
-                if (f41535c == null) {
-                    f41535c = new d();
+                if (f41536c == null) {
+                    f41536c = new d();
                 }
             }
         }
-        return f41535c;
+        return f41536c;
     }
 
     public SecretKey b() {
-        return this.f41536a;
+        return this.f41537a;
     }
 
     public byte[] c() {
-        return this.f41537b;
+        return this.f41538b;
     }
 
     public void d(byte[] bArr) {
@@ -43,12 +43,12 @@ public class d {
             for (int i = 0; i < g2.length(); i++) {
                 bArr2[i] = (byte) g2.charAt(i);
             }
-            this.f41536a = s.f(g2);
-            this.f41537b = s.d(e2, bArr2);
+            this.f41537a = s.f(g2);
+            this.f41538b = s.d(e2, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.f41536a = null;
-            this.f41537b = new byte[0];
+            this.f41537a = null;
+            this.f41538b = new byte[0];
         }
     }
 }

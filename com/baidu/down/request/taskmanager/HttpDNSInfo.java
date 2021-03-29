@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static final int STATUS_IP_AVAILABLE = 2;
     public static final int STATUS_IP_INAVAILABLE = 3;
@@ -71,22 +71,18 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         int i2;
         int i3;
         int i4;
+        int i5;
         long j = this.mDownloadTimes;
         if (j == 0 || (i = this.mTestSpeedThread) == 0) {
             return 1;
         }
         long j2 = httpDNSInfo.mDownloadTimes;
-        if (j2 == 0 || (i2 = httpDNSInfo.mTestSpeedThread) == 0) {
+        if (j2 == 0 || (i2 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j * i))) > ((float) (httpDNSInfo.mDownloadBytes / (j2 * i2)))) {
             return -1;
         }
-        float f2 = (float) (this.mDownloadBytes / (j * i));
-        float f3 = (float) (httpDNSInfo.mDownloadBytes / (j2 * i2));
-        if (f2 > f3) {
-            return -1;
-        }
-        if (f2 != f3 || (i3 = this.mCDNSequence) > (i4 = httpDNSInfo.mCDNSequence)) {
+        if (i3 != 0 || (i4 = this.mCDNSequence) > (i5 = httpDNSInfo.mCDNSequence)) {
             return 1;
         }
-        return i3 < i4 ? -1 : 0;
+        return i4 < i5 ? -1 : 0;
     }
 }

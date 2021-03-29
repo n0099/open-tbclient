@@ -97,25 +97,11 @@ public class RoundRectDrawableWithShadow extends Drawable {
     }
 
     public static float calculateHorizontalPadding(float f2, float f3, boolean z) {
-        if (z) {
-            double d2 = f2;
-            double d3 = f3;
-            Double.isNaN(d3);
-            Double.isNaN(d2);
-            return (float) (d2 + ((1.0d - COS_45) * d3));
-        }
-        return f2;
+        return z ? (float) (f2 + ((1.0d - COS_45) * f3)) : f2;
     }
 
     public static float calculateVerticalPadding(float f2, float f3, boolean z) {
-        if (z) {
-            double d2 = f2 * 1.5f;
-            double d3 = f3;
-            Double.isNaN(d3);
-            Double.isNaN(d2);
-            return (float) (d2 + ((1.0d - COS_45) * d3));
-        }
-        return f2 * 1.5f;
+        return z ? (float) ((f2 * 1.5f) + ((1.0d - COS_45) * f3)) : f2 * 1.5f;
     }
 
     private void drawShadow(Canvas canvas) {

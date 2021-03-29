@@ -38,9 +38,10 @@ public final class ProgressionUtilKt {
 
     @PublishedApi
     public static final long getProgressionLastElement(long j, long j2, long j3) {
-        if (j3 > 0) {
+        int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (i > 0) {
             return j >= j2 ? j2 : j2 - differenceModulo(j2, j, j3);
-        } else if (j3 < 0) {
+        } else if (i < 0) {
             return j <= j2 ? j2 : j2 + differenceModulo(j, j2, -j3);
         } else {
             throw new IllegalArgumentException("Step is zero.");

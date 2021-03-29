@@ -8,23 +8,23 @@ import com.baidu.mobads.MobRewardVideoImpl;
 public class MobRewardVideoActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public MobRewardVideoImpl f8504a = new MobRewardVideoImpl(this);
+    public MobRewardVideoImpl f8505a = new MobRewardVideoImpl(this);
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        this.f8504a.finish();
+        this.f8505a.finish();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.f8504a.onAttachedToWindow();
+        this.f8505a.onAttachedToWindow();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.f8504a.onBackPressed()) {
+        if (this.f8505a.onBackPressed()) {
             return;
         }
         super.onBackPressed();
@@ -33,36 +33,36 @@ public class MobRewardVideoActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f8504a.onCreate(bundle);
+        this.f8505a.onCreate(bundle);
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.f8504a.onDestroy();
+        this.f8505a.onDestroy();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f8504a.onDetachedFromWindow();
+        this.f8505a.onDetachedFromWindow();
     }
 
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f8504a.onPause();
+        this.f8505a.onPause();
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f8504a.onResume();
+        this.f8505a.onResume();
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f8504a.onTouchEvent(motionEvent)) {
+        if (this.f8505a.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -71,6 +71,6 @@ public class MobRewardVideoActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        this.f8504a.onWindowFocusChanged(z);
+        this.f8505a.onWindowFocusChanged(z);
     }
 }

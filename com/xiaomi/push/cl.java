@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class cl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40320a;
+    public static String f40321a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f185a;
@@ -15,7 +15,7 @@ public class cl {
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f185a = simpleDateFormat;
-        f40320a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f40321a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static hj a(Context context, String str) {

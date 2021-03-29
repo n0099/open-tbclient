@@ -6,37 +6,37 @@ import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f60164a;
+    public long f60165a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60165b;
+    public long f60166b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60166c;
+    public long f60167c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60167d;
+    public boolean f60168d;
 
     public void a() {
-        this.f60164a = 0L;
-        this.f60165b = 0L;
-        this.f60166c = 0L;
+        this.f60165a = 0L;
+        this.f60166b = 0L;
+        this.f60167c = 0L;
     }
 
     public void b() {
-        this.f60166c = SystemClock.elapsedRealtime();
+        this.f60167c = SystemClock.elapsedRealtime();
     }
 
     public void c() {
-        this.f60165b = SystemClock.elapsedRealtime();
+        this.f60166b = SystemClock.elapsedRealtime();
     }
 
     public void d(TbCyberVideoView tbCyberVideoView) {
-        if (this.f60167d) {
-            this.f60167d = false;
+        if (this.f60168d) {
+            this.f60168d = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.f60165b - this.f60164a;
-            long j2 = elapsedRealtime - this.f60166c;
+            long j = this.f60166b - this.f60165a;
+            long j2 = elapsedRealtime - this.f60167c;
             long j3 = j2 + j;
             if ((d.b.b.e.p.j.I() == 2 || j <= 17500) && tbCyberVideoView != null) {
                 tbCyberVideoView.Q(j, j2, j3);
@@ -45,7 +45,7 @@ public class j {
     }
 
     public void e() {
-        this.f60167d = true;
-        this.f60164a = SystemClock.elapsedRealtime();
+        this.f60168d = true;
+        this.f60165a = SystemClock.elapsedRealtime();
     }
 }

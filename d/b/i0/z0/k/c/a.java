@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.RecomVideo.DislikeReason;
 import tbclient.RecomVideo.ThreadPersonalized;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(List<ThreadPersonalized> list, List<n> list2) {
         d.b.i0.x.e0.b bVar;

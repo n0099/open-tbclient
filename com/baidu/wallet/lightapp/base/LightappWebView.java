@@ -10,7 +10,7 @@ import com.baidu.apollon.webmanager.SafeWebView;
 public class LightappWebView extends SafeWebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f24876a;
+    public a f24877a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -38,7 +38,7 @@ public class LightappWebView extends SafeWebView {
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        a aVar = this.f24876a;
+        a aVar = this.f24877a;
         if (aVar != null) {
             aVar.a(i2);
         }
@@ -49,7 +49,7 @@ public class LightappWebView extends SafeWebView {
     }
 
     public void setOnMyScrollChangeListener(a aVar) {
-        this.f24876a = aVar;
+        this.f24877a = aVar;
     }
 
     public LightappWebView(Context context, AttributeSet attributeSet) {

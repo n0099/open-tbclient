@@ -9,7 +9,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f47717a;
+    public a f47718a;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -40,15 +40,15 @@ public class f {
     }
 
     public void b(a aVar) {
-        this.f47717a = aVar;
+        this.f47718a = aVar;
     }
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (d.b.g0.a.k.f45050a) {
+        if (d.b.g0.a.k.f45051a) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        a aVar = this.f47717a;
+        a aVar = this.f47718a;
         if (aVar != null) {
             aVar.v(str);
         }

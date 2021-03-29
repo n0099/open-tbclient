@@ -379,7 +379,7 @@ public final class JSONScanner extends JSONLexerBase {
         return date;
     }
 
-    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:102:0x0180 -> B:91:0x0151 */
+    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:102:0x017a -> B:91:0x014b */
     /* JADX WARN: Removed duplicated region for block: B:55:0x00c0  */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:57:0x00c4 -> B:52:0x00b4). Please submit an issue!!! */
     @Override // com.alibaba.fastjson.parser.JSONLexerBase, com.alibaba.fastjson.parser.JSONLexer
@@ -487,17 +487,13 @@ public final class JSONScanner extends JSONLexerBase {
                     i = i12;
                     charAt = charAt7;
                 }
-                if (!z3 && i3 < 20) {
-                    double d2 = j2;
-                    double d3 = j;
-                    Double.isNaN(d2);
-                    Double.isNaN(d3);
-                    parseDouble = d2 / d3;
+                if (z3 || i3 >= 20) {
+                    parseDouble = Double.parseDouble(subString(i2, i3));
+                } else {
+                    parseDouble = j2 / j;
                     if (z2) {
                         parseDouble = -parseDouble;
                     }
-                } else {
-                    parseDouble = Double.parseDouble(subString(i2, i3));
                 }
                 if (charAt == c2) {
                     this.bp = i;
@@ -1212,20 +1208,20 @@ public final class JSONScanner extends JSONLexerBase {
         throw new JSONException("unclosed str");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ca, code lost:
         if (r1 != ']') goto L85;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00d0, code lost:
         if (r3.size() != 0) goto L85;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d2, code lost:
         r1 = r5 + 1;
         r2 = charAt(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00db, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00d9, code lost:
         r17.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00db, code lost:
         return null;
      */
     @Override // com.alibaba.fastjson.parser.JSONLexerBase

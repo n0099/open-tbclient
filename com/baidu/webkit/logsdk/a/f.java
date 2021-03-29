@@ -5,19 +5,19 @@ import java.io.File;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f26984a;
+    public final /* synthetic */ b f26985a;
 
     public f(b bVar) {
-        this.f26984a = bVar;
+        this.f26985a = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f26984a.b()) {
-            com.baidu.webkit.logsdk.c.b c2 = this.f26984a.h().c();
+        if (this.f26985a.b()) {
+            com.baidu.webkit.logsdk.c.b c2 = this.f26985a.h().c();
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleUploadLongTimeLog");
-            for (String str : c2.f27002a.keySet()) {
-                if (c2.f27002a.get(str).booleanValue()) {
+            for (String str : c2.f27003a.keySet()) {
+                if (c2.f27003a.get(str).booleanValue()) {
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createUploadTask: " + str);
                     try {
                         String c3 = com.baidu.webkit.logsdk.d.c.c(str, "upload");
@@ -25,9 +25,9 @@ public final class f implements Runnable {
                         if (file.exists()) {
                             com.baidu.webkit.logsdk.upload.a a2 = com.baidu.webkit.logsdk.c.c.a(file, b.a().e().a(str));
                             if (a2 != null) {
-                                a2.f27023h = c3;
-                                c2.f27003b.c(c3);
-                                c2.f27003b.a(a2);
+                                a2.f27024h = c3;
+                                c2.f27004b.c(c3);
+                                c2.f27004b.a(a2);
                             }
                         } else {
                             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createFromCache: " + str);

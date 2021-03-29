@@ -7,7 +7,7 @@ import com.baidu.pyramid.annotation.Inject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f48888a = b().isDebug();
+    public static boolean f48889a = b().isDebug();
 
     /* loaded from: classes3.dex */
     public static class a implements d.b.g0.l.a {

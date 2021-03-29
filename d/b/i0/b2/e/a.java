@@ -6,7 +6,7 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static String a(String str, String str2) {
         try {

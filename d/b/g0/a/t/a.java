@@ -12,30 +12,30 @@ import d.b.g0.a.k;
 import d.b.g0.a.t.b.b;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f45918e = k.f45050a;
+    public static final boolean f45919e = k.f45051a;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45919a;
+    public Context f45920a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f45920b;
+    public CallbackHandler f45921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f45921c;
+    public WeakReference<Activity> f45922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.e0.k.a f45922d;
+    public d.b.g0.a.e0.k.a f45923d;
 
     public a(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull d.b.g0.a.e0.k.a aVar) {
-        this.f45919a = context;
-        this.f45920b = callbackHandler;
-        this.f45922d = aVar;
+        this.f45920a = context;
+        this.f45921b = callbackHandler;
+        this.f45923d = aVar;
     }
 
     public void a(@NonNull d.b.g0.a.e0.k.a aVar) {
@@ -68,7 +68,7 @@ public class a implements b {
                     map.putAll(map2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    if (f45918e) {
+                    if (f45919e) {
                         throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
                     }
                     return;
@@ -76,7 +76,7 @@ public class a implements b {
             }
         }
         if (map == null) {
-            if (f45918e) {
+            if (f45919e) {
                 throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
             }
             return;
@@ -85,22 +85,22 @@ public class a implements b {
             String key = entry.getKey();
             Object value = entry.getValue();
             if (TextUtils.isEmpty(key)) {
-                if (f45918e) {
+                if (f45919e) {
                     throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
                 }
             } else if (value == null) {
-                if (f45918e) {
+                if (f45919e) {
                     throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
                 }
             } else {
                 aVar.addJavascriptInterface(value, key);
-                if (f45918e) {
+                if (f45919e) {
                     String str = aVar instanceof d.b.g0.g.i.b ? "V8" : "Webview";
                     Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
                 }
             }
         }
-        if (f45918e) {
+        if (f45919e) {
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             if (currentTimeMillis2 > 5) {
                 Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
@@ -110,15 +110,15 @@ public class a implements b {
 
     @NonNull
     public final Context f() {
-        WeakReference<Activity> weakReference = this.f45921c;
+        WeakReference<Activity> weakReference = this.f45922c;
         Activity activity = weakReference != null ? weakReference.get() : null;
-        return activity == null ? this.f45919a : activity;
+        return activity == null ? this.f45920a : activity;
     }
 
     @Override // d.b.g0.a.t.b.b
     @NonNull
     public d.b.g0.a.e0.k.a g() {
-        return this.f45922d;
+        return this.f45923d;
     }
 
     @Override // d.b.g0.a.t.b.b
@@ -130,12 +130,12 @@ public class a implements b {
     @Override // d.b.g0.a.t.b.b
     @NonNull
     public CallbackHandler h() {
-        return this.f45920b;
+        return this.f45921b;
     }
 
     public void i(Activity activity) {
         if (activity != null) {
-            this.f45921c = new WeakReference<>(activity);
+            this.f45922c = new WeakReference<>(activity);
         }
     }
 }

@@ -15,26 +15,26 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f59518e;
+    public TbPageContext<?> f59519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.q1.h.c.d f59519f;
+    public d.b.i0.q1.h.c.d f59520f;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f59521h;
-    public View.OnClickListener i = new View$OnClickListenerC1486a();
+    public f f59522h;
+    public View.OnClickListener i = new View$OnClickListenerC1487a();
     public View.OnClickListener j = new b();
     public View.OnClickListener k = new c();
     public d.b.i0.q1.h.f.a<Void> l = new d();
     public d.b.i0.q1.h.f.a<Integer> m = new e();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f59520g = new ArrayList();
+    public List<Object> f59521g = new ArrayList();
 
     /* renamed from: d.b.i0.q1.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1486a implements View.OnClickListener {
-        public View$OnClickListenerC1486a() {
+    public class View$OnClickListenerC1487a implements View.OnClickListener {
+        public View$OnClickListenerC1487a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -51,7 +51,7 @@ public class a extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailData c2;
-            if (view == null || view.getTag() == null || (c2 = ((d.b.i0.q1.h.c.c) view.getTag()).c()) == null || a.this.f59519f.g()) {
+            if (view == null || view.getTag() == null || (c2 = ((d.b.i0.q1.h.c.c) view.getTag()).c()) == null || a.this.f59520f.g()) {
                 return;
             }
             a.this.i(c2.getId(), c2.getContent(), c2.getFontColor());
@@ -69,7 +69,7 @@ public class a extends BaseAdapter {
             if (view == null || (cVar = (d.b.i0.q1.h.c.c) view.getTag()) == null || cVar.c() == null) {
                 return;
             }
-            a.this.f59519f.e(cVar.c().getId());
+            a.this.f59520f.e(cVar.c().getId());
         }
     }
 
@@ -83,11 +83,11 @@ public class a extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Void r3) {
             if (z) {
-                a.this.f59518e.showToast(str);
+                a.this.f59519e.showToast(str);
                 return;
             }
             a aVar = a.this;
-            aVar.l(aVar.f59519f.h());
+            aVar.l(aVar.f59520f.h());
         }
     }
 
@@ -101,7 +101,7 @@ public class a extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             if (z) {
-                a.this.f59518e.showToast(str);
+                a.this.f59519e.showToast(str);
                 return;
             }
             TailData tailData = new TailData();
@@ -116,11 +116,11 @@ public class a extends BaseAdapter {
     }
 
     public a(TbPageContext<?> tbPageContext, d.b.i0.q1.h.c.d dVar, f fVar) {
-        this.f59518e = tbPageContext;
-        this.f59519f = dVar;
-        this.f59519f.m(this.l);
-        this.f59519f.k(this.m);
-        this.f59521h = fVar;
+        this.f59519e = tbPageContext;
+        this.f59520f = dVar;
+        this.f59520f.m(this.l);
+        this.f59520f.k(this.m);
+        this.f59522h = fVar;
     }
 
     public final View f(View view) {
@@ -128,14 +128,14 @@ public class a extends BaseAdapter {
         d.b.i0.q1.h.c.b bVar;
         if (view == null) {
             bVar = new d.b.i0.q1.h.c.b();
-            view2 = bVar.b(this.f59518e.getPageActivity());
+            view2 = bVar.b(this.f59519e.getPageActivity());
             bVar.c(this.i);
-            bVar.a(this.f59518e);
+            bVar.a(this.f59519e);
         } else {
             view2 = view;
             bVar = (d.b.i0.q1.h.c.b) view.getTag();
         }
-        bVar.d(this.f59519f.f());
+        bVar.d(this.f59520f.f());
         return view2;
     }
 
@@ -148,27 +148,27 @@ public class a extends BaseAdapter {
         TailData tailData = (TailData) obj;
         if (view == null) {
             cVar = new d.b.i0.q1.h.c.c();
-            view2 = cVar.b(this.f59518e.getPageActivity());
+            view2 = cVar.b(this.f59519e.getPageActivity());
             cVar.h(this.j);
             cVar.f(this.k);
-            cVar.a(this.f59518e);
+            cVar.a(this.f59519e);
         } else {
             view2 = view;
             cVar = (d.b.i0.q1.h.c.c) view.getTag();
         }
         cVar.i(tailData);
-        cVar.g(Boolean.valueOf(this.f59519f.g()));
+        cVar.g(Boolean.valueOf(this.f59520f.g()));
         return view2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f59520g.size();
+        return this.f59521g.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f59520g.get(i);
+        return this.f59521g.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -178,7 +178,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        Object obj = this.f59520g.get(i);
+        Object obj = this.f59521g.get(i);
         if (obj instanceof TailData) {
             return 0;
         }
@@ -202,11 +202,11 @@ public class a extends BaseAdapter {
     }
 
     public final void h() {
-        this.f59518e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f59518e.getPageActivity(), this.f59519f.h().isEmpty())));
+        this.f59519e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f59519e.getPageActivity(), this.f59520f.h().isEmpty())));
     }
 
     public final void i(int i, String str, String str2) {
-        this.f59518e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f59518e.getPageActivity(), i, str, str2)));
+        this.f59519e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f59519e.getPageActivity(), i, str, str2)));
     }
 
     public void j() {
@@ -215,20 +215,20 @@ public class a extends BaseAdapter {
     }
 
     public final void k() {
-        f fVar = this.f59521h;
+        f fVar = this.f59522h;
         if (fVar != null) {
             fVar.callback();
         }
-        this.f59520g.clear();
-        this.f59520g.addAll(this.f59519f.h());
-        if (this.f59519f.g()) {
+        this.f59521g.clear();
+        this.f59521g.addAll(this.f59520f.h());
+        if (this.f59520f.g()) {
             return;
         }
-        this.f59520g.add(new d.b.i0.q1.h.a.a(this.f59519f.f()));
+        this.f59521g.add(new d.b.i0.q1.h.a.a(this.f59520f.f()));
     }
 
     public final void l(List<TailData> list) {
-        this.f59519f.n(list);
+        this.f59520f.n(list);
         j();
     }
 }

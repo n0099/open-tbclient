@@ -13,23 +13,23 @@ import java.io.InputStream;
 public class a implements n<g, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f35276a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.model.stream.HttpGlideUrlLoader.Timeout", 2500);
+    public static final com.kwad.sdk.glide.load.d<Integer> f35277a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.model.stream.HttpGlideUrlLoader.Timeout", 2500);
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final m<g, g> f35277b;
+    public final m<g, g> f35278b;
 
     /* renamed from: com.kwad.sdk.glide.load.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0411a implements o<g, InputStream> {
+    public static class C0412a implements o<g, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final m<g, g> f35278a = new m<>(500);
+        public final m<g, g> f35279a = new m<>(500);
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<g, InputStream> a(r rVar) {
-            return new a(this.f35278a);
+            return new a(this.f35279a);
         }
     }
 
@@ -38,22 +38,22 @@ public class a implements n<g, InputStream> {
     }
 
     public a(@Nullable m<g, g> mVar) {
-        this.f35277b = mVar;
+        this.f35278b = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull g gVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        m<g, g> mVar = this.f35277b;
+        m<g, g> mVar = this.f35278b;
         if (mVar != null) {
             g a2 = mVar.a(gVar, 0, 0);
             if (a2 == null) {
-                this.f35277b.a(gVar, 0, 0, gVar);
+                this.f35278b.a(gVar, 0, 0, gVar);
             } else {
                 gVar = a2;
             }
         }
-        return new n.a<>(gVar, new j(gVar, ((Integer) eVar.a(f35276a)).intValue()));
+        return new n.a<>(gVar, new j(gVar, ((Integer) eVar.a(f35277a)).intValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

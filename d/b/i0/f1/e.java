@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public boolean m;
     public boolean n;
@@ -16,28 +16,28 @@ public class e {
     public AgreeData u;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54654a = null;
+    public String f54655a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54655b = null;
+    public String f54656b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54656c = null;
+    public String f54657c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54657d = 0;
+    public int f54658d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54658e = 0;
+    public int f54659e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54659f = null;
+    public String f54660f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f54660g = 0;
+    public long f54661g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54661h = 0;
+    public int f54662h = 0;
     public String i = "";
     public int j = -1;
     public long k = 0;
@@ -50,7 +50,7 @@ public class e {
     }
 
     public String b() {
-        return this.f54656c;
+        return this.f54657c;
     }
 
     public String c() {
@@ -62,15 +62,15 @@ public class e {
     }
 
     public int e() {
-        return this.f54658e;
+        return this.f54659e;
     }
 
     public String f() {
-        return this.f54654a;
+        return this.f54655a;
     }
 
     public String g() {
-        return this.f54655b;
+        return this.f54656b;
     }
 
     public int h() {
@@ -78,11 +78,11 @@ public class e {
     }
 
     public String i() {
-        return this.f54659f;
+        return this.f54660f;
     }
 
     public long j() {
-        return this.f54660g;
+        return this.f54661g;
     }
 
     public long k() {
@@ -90,7 +90,7 @@ public class e {
     }
 
     public int l() {
-        return this.f54661h;
+        return this.f54662h;
     }
 
     public JSONArray m() {
@@ -114,7 +114,7 @@ public class e {
     }
 
     public int r() {
-        return this.f54657d;
+        return this.f54658d;
     }
 
     public boolean s() {
@@ -166,17 +166,17 @@ public class e {
             this.v = jSONObject.optJSONArray("post_content");
             JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.f54654a = optJSONObject.optString("id");
-                this.f54655b = optJSONObject.optString("url");
-                this.f54657d = optJSONObject.optInt("width", 0);
-                this.f54658e = optJSONObject.optInt("height", 0);
-                this.f54656c = optJSONObject.optString("big_cdn_src", null);
-                this.f54659f = optJSONObject.optString("original_src");
-                this.f54660g = optJSONObject.optInt("size");
+                this.f54655a = optJSONObject.optString("id");
+                this.f54656b = optJSONObject.optString("url");
+                this.f54658d = optJSONObject.optInt("width", 0);
+                this.f54659e = optJSONObject.optInt("height", 0);
+                this.f54657c = optJSONObject.optString("big_cdn_src", null);
+                this.f54660f = optJSONObject.optString("original_src");
+                this.f54661g = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
             if (optJSONObject4 != null) {
-                this.f54661h = optJSONObject4.optInt("pic_type", 0);
+                this.f54662h = optJSONObject4.optInt("pic_type", 0);
                 this.i = optJSONObject4.optString("tag_name");
             }
         } catch (Exception e2) {

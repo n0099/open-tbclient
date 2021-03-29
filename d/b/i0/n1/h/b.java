@@ -19,38 +19,38 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57120e;
+    public String f57121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f57121f;
+    public List<String> f57122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f57122g;
+    public Context f57123g;
 
     /* renamed from: d.b.i0.n1.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1358b {
+    public class C1359b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f57123a;
+        public int f57124a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f57124b;
+        public View f57125b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f57125c;
+        public TextView f57126c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f57126d;
+        public View f57127d;
 
-        public C1358b(b bVar) {
-            this.f57123a = 3;
+        public C1359b(b bVar) {
+            this.f57124a = 3;
         }
     }
 
     public b(Context context, ArrayList<String> arrayList) {
-        this.f57122g = context;
-        this.f57121f = arrayList;
+        this.f57123g = context;
+        this.f57122f = arrayList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,15 +61,15 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.f57121f.get(i);
+        return this.f57122f.get(i);
     }
 
     public void b(TextView textView, String str) {
-        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f57120e)) {
+        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f57121e)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f57120e.toLowerCase();
+        String lowerCase2 = this.f57121e.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -77,12 +77,12 @@ public class b extends BaseAdapter {
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f57120e.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f57121e.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
     public void c(List<String> list) {
-        this.f57121f = list;
+        this.f57122f = list;
         if (list != null) {
             notifyDataSetChanged();
         }
@@ -92,12 +92,12 @@ public class b extends BaseAdapter {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f57120e = str.trim();
+        this.f57121e = str.trim();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<String> list = this.f57121f;
+        List<String> list = this.f57122f;
         if (list == null) {
             return 0;
         }
@@ -111,28 +111,28 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1358b c1358b;
+        C1359b c1359b;
         if (view == null) {
-            view = LayoutInflater.from(this.f57122g).inflate(R.layout.search_suggest_item, (ViewGroup) null);
-            c1358b = new C1358b();
-            c1358b.f57124b = view.findViewById(R.id.rootview);
-            c1358b.f57125c = (TextView) view.findViewById(R.id.searchSuggestTitle);
-            c1358b.f57126d = view.findViewById(R.id.searchItemSep);
-            view.setTag(c1358b);
+            view = LayoutInflater.from(this.f57123g).inflate(R.layout.search_suggest_item, (ViewGroup) null);
+            c1359b = new C1359b();
+            c1359b.f57125b = view.findViewById(R.id.rootview);
+            c1359b.f57126c = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            c1359b.f57127d = view.findViewById(R.id.searchItemSep);
+            view.setTag(c1359b);
         } else {
-            c1358b = (C1358b) view.getTag();
+            c1359b = (C1359b) view.getTag();
         }
         String item = getItem(i);
         if (StringUtils.isNull(item)) {
             return view;
         }
-        b(c1358b.f57125c, item);
+        b(c1359b.f57126c, item);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != c1358b.f57123a) {
-            c1358b.f57123a = skinType;
-            SkinManager.setBackgroundResource(c1358b.f57124b, R.drawable.addresslist_item_bg);
-            SkinManager.setViewTextColor(c1358b.f57125c, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(c1358b.f57126d, R.color.CAM_X0204);
+        if (skinType != c1359b.f57124a) {
+            c1359b.f57124a = skinType;
+            SkinManager.setBackgroundResource(c1359b.f57125b, R.drawable.addresslist_item_bg);
+            SkinManager.setViewTextColor(c1359b.f57126c, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(c1359b.f57127d, R.color.CAM_X0204);
         }
         return view;
     }

@@ -121,7 +121,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.p3.j.a, d.
                 return;
             }
             File file = new File(videoInfo.getVideoPath());
-            String str = d.b.i0.p3.c.f58890d + file.getName();
+            String str = d.b.i0.p3.c.f58891d + file.getName();
             if (!str.equals(file.getAbsolutePath())) {
                 FileHelper.copyFile(file.getAbsolutePath(), str);
             }
@@ -189,7 +189,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.p3.j.a, d.
                 bitmap = this.mEditVideoView.r(bitmap);
             }
             if (bitmap != null) {
-                this.mCoverModel.w(bitmap, d.b.i0.p3.c.f58888b);
+                this.mCoverModel.w(bitmap, d.b.i0.p3.c.f58889b);
                 return;
             }
             return;
@@ -390,7 +390,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.p3.j.a, d.
         if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
             finishPage();
         }
-        new File(d.b.i0.p3.c.f58890d).mkdirs();
+        new File(d.b.i0.p3.c.f58891d).mkdirs();
         this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
         this.mMusicModel = new SelectMusicModel(getPageContext(), this);
         this.mFilterEffectManager = new d.b.i0.p3.j.d.a(this);
@@ -453,7 +453,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.p3.j.a, d.
             this.mVideoInfo = videoInfo;
             String videoPath = videoInfo.getVideoPath();
             this.mVideoPath = videoPath;
-            this.thisPageCallback.f58880b = videoPath;
+            this.thisPageCallback.f58881b = videoPath;
         }
         this.mEditVideoView.U(this.mVideoPath);
         setSelectedMusicAndFilter();
@@ -530,11 +530,11 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.p3.j.a, d.
         this.isSend = false;
         this.thisPageCallback.i(false);
         d.b.i0.p3.b bVar = this.thisPageCallback;
-        bVar.f58881c = this.mCoverPath;
-        bVar.f58880b = this.mVideoPath;
-        bVar.f58882d = this.mEditVideoView.w();
-        this.thisPageCallback.f58883e = this.mEditVideoView.G();
-        this.thisPageCallback.f58884f = this.mFilterEffectManager.b();
+        bVar.f58882c = this.mCoverPath;
+        bVar.f58881b = this.mVideoPath;
+        bVar.f58883d = this.mEditVideoView.w();
+        this.thisPageCallback.f58884e = this.mEditVideoView.G();
+        this.thisPageCallback.f58885f = this.mFilterEffectManager.b();
         this.saveEditVideoController.e();
     }
 

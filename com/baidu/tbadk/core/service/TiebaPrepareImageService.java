@@ -51,24 +51,24 @@ public class TiebaPrepareImageService extends BdBaseService {
     public class b extends BdAsyncTask<Object, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13299a;
+        public int f13300a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f13300b;
+        public Uri f13301b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13301c;
+        public String f13302c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13302d = null;
+        public String f13303d = null;
 
         public b(int i, Uri uri, String str) {
-            this.f13299a = 0;
-            this.f13300b = null;
-            this.f13301c = null;
-            this.f13299a = i;
-            this.f13300b = uri;
-            this.f13301c = str;
+            this.f13300a = 0;
+            this.f13301b = null;
+            this.f13302c = null;
+            this.f13300a = i;
+            this.f13301b = uri;
+            this.f13302c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class TiebaPrepareImageService extends BdBaseService {
             TiebaPrepareImageService.IS_DECODING = true;
             boolean z2 = false;
             try {
-                c2 = p0.c(this.f13299a, TiebaPrepareImageService.this, this.f13300b, this.f13301c, TiebaPrepareImageService.this.mMaxSize);
+                c2 = p0.c(this.f13300a, TiebaPrepareImageService.this, this.f13301b, this.f13302c, TiebaPrepareImageService.this.mMaxSize);
             } catch (Exception unused) {
                 TiebaPrepareImageService.IS_DECODING = false;
             } catch (Throwable th) {
@@ -91,17 +91,17 @@ public class TiebaPrepareImageService extends BdBaseService {
                 if (FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null) {
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, TiebaPrepareImageService.this.mDisplaySize > 0 ? TiebaPrepareImageService.this.mDisplaySize : 100);
                     if (resizeBitmap == null || FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.f13302d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                        this.f13303d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     } else {
                         TiebaPrepareImageService.IS_DECODING = false;
                         z2 = z;
                         return Boolean.valueOf(z2);
                     }
                 } else {
-                    this.f13302d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.f13303d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                 }
             } else {
-                this.f13302d = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+                this.f13303d = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             }
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
@@ -121,7 +121,7 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((b) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            String str = this.f13302d;
+            String str = this.f13303d;
             if (str != null) {
                 intent.putExtra("error", str);
             }

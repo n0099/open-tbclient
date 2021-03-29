@@ -17,14 +17,14 @@ import java.util.List;
 public class TypeAdapter extends BaseAdapter implements r<n> {
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<a<n, ViewHolder>> f2362e;
+    public SparseArray<a<n, ViewHolder>> f2363e;
     @SuppressLint({"UseSparseArrays"})
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<Integer> f2363f = new SparseArray<>();
+    public SparseArray<Integer> f2364f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f2364g = new ArrayList();
+    public List<n> f2365g = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,13 +40,13 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
 
     @Override // d.b.b.j.e.r
     public int a(int i, int i2) {
-        List<n> list = this.f2364g;
+        List<n> list = this.f2365g;
         if (list != null && list.size() != 0) {
-            int size = this.f2364g.size();
+            int size = this.f2365g.size();
             int i3 = -1;
             for (int i4 = 0; i4 < size; i4++) {
-                if (this.f2364g.get(i4) != null && this.f2364g.get(i4).getType() != null) {
-                    if (i2 == this.f2364g.get(i4).getType().getId()) {
+                if (this.f2365g.get(i4) != null && this.f2365g.get(i4).getType() != null) {
+                    if (i2 == this.f2365g.get(i4).getType().getId()) {
                         i3++;
                     }
                     if (i4 == i) {
@@ -63,13 +63,13 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         SparseArray<a<n, ViewHolder>> sparseArray;
         BdUniqueId type;
         Integer num;
-        if (nVar != null && (sparseArray = this.f2362e) != null) {
+        if (nVar != null && (sparseArray = this.f2363e) != null) {
             int i = -1;
-            if (sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2363f.get(type.getId())) != null) {
+            if (sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2364f.get(type.getId())) != null) {
                 i = num.intValue();
             }
-            if (i >= 0 && i < this.f2362e.size()) {
-                return this.f2362e.get(i);
+            if (i >= 0 && i < this.f2363e.size()) {
+                return this.f2363e.get(i);
             }
         }
         return null;
@@ -79,44 +79,44 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         if (aVar == null || aVar.G() == null) {
             return;
         }
-        if (this.f2362e == null) {
-            this.f2362e = new SparseArray<>();
+        if (this.f2363e == null) {
+            this.f2363e = new SparseArray<>();
         }
         if (aVar.G() != null) {
             aVar.b0(this);
             int id = aVar.G().getId();
-            int size = this.f2362e.size();
-            this.f2362e.put(size, aVar);
-            this.f2363f.put(id, Integer.valueOf(size));
+            int size = this.f2363e.size();
+            this.f2363e.put(size, aVar);
+            this.f2364f.put(id, Integer.valueOf(size));
         }
     }
 
     public List<n> d() {
-        return this.f2364g;
+        return this.f2365g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter, d.b.b.j.e.o
     /* renamed from: e */
     public n getItem(int i) {
-        List<n> list = this.f2364g;
+        List<n> list = this.f2365g;
         if (list != null) {
             int size = list.size();
             if (i < 0 || i >= size) {
                 return null;
             }
-            return this.f2364g.get(i);
+            return this.f2365g.get(i);
         }
         return null;
     }
 
     public void f(ViewGroup viewGroup, View view, int i, long j) {
-        if (this.f2362e == null) {
+        if (this.f2363e == null) {
             return;
         }
         n item = getItem(i);
         int itemViewType = getItemViewType(i);
-        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f2362e.valueAt(itemViewType) : null;
+        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f2363e.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.A() == null) {
             return;
         }
@@ -124,12 +124,12 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
     }
 
     public boolean g(ViewGroup viewGroup, View view, int i, long j) {
-        if (this.f2362e == null) {
+        if (this.f2363e == null) {
             return false;
         }
         n item = getItem(i);
         int itemViewType = getItemViewType(i);
-        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f2362e.valueAt(itemViewType) : null;
+        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f2363e.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.B() == null) {
             return false;
         }
@@ -138,7 +138,7 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
 
     @Override // android.widget.Adapter, d.b.b.j.e.o
     public int getCount() {
-        List<n> list = this.f2364g;
+        List<n> list = this.f2365g;
         if (list != null) {
             return list.size();
         }
@@ -155,8 +155,8 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         n item;
         BdUniqueId type;
         Integer num;
-        SparseArray<a<n, ViewHolder>> sparseArray = this.f2362e;
-        if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.f2363f.get(type.getId())) == null) {
+        SparseArray<a<n, ViewHolder>> sparseArray = this.f2363e;
+        if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.f2364f.get(type.getId())) == null) {
             return -1;
         }
         return num.intValue();
@@ -166,9 +166,9 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a<n, ViewHolder> aVar;
         View view2 = null;
-        if (this.f2362e != null && this.f2364g != null) {
+        if (this.f2363e != null && this.f2365g != null) {
             int count = getCount();
-            if (i >= 0 && i < count && (aVar = this.f2362e.get(getItemViewType(i))) != null) {
+            if (i >= 0 && i < count && (aVar = this.f2363e.get(getItemViewType(i))) != null) {
                 n item = getItem(i);
                 if (item != null && (item instanceof n)) {
                     view2 = aVar.I(i, view, viewGroup, item);
@@ -183,7 +183,7 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        SparseArray<a<n, ViewHolder>> sparseArray = this.f2362e;
+        SparseArray<a<n, ViewHolder>> sparseArray = this.f2363e;
         if (sparseArray != null) {
             return sparseArray.size();
         }
@@ -191,13 +191,13 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
     }
 
     public void h(List<? extends n> list) {
-        List<n> list2 = this.f2364g;
+        List<n> list2 = this.f2365g;
         if (list2 == null) {
-            this.f2364g = new ArrayList();
+            this.f2365g = new ArrayList();
         } else {
             list2.clear();
         }
-        this.f2364g.addAll(list);
+        this.f2365g.addAll(list);
         notifyDataSetChanged();
     }
 }

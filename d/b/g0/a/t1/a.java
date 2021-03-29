@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements ISchemeHeadIoc {
     @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
     public String getSchemeHead() {

@@ -10,129 +10,127 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends c {
 
     /* renamed from: f  reason: collision with root package name */
-    public a f45597f;
+    public a f45598f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f45598a;
+        public final b f45599a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final h f45599b;
+        public final h f45600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f45600c;
+        public Context f45601c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f45601d = false;
+        public boolean f45602d = false;
 
         /* renamed from: d.b.g0.a.q1.b.b.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0763a implements View.OnClickListener {
+        /* loaded from: classes2.dex */
+        public class View$OnClickListenerC0764a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45602e;
+            public final /* synthetic */ DialogInterface.OnClickListener f45603e;
 
-            public View$OnClickListenerC0763a(DialogInterface.OnClickListener onClickListener) {
-                this.f45602e = onClickListener;
+            public View$OnClickListenerC0764a(DialogInterface.OnClickListener onClickListener) {
+                this.f45603e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45599b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f45602e;
+                a.this.f45600b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f45603e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(a.this.f45599b, -1);
+                    onClickListener.onClick(a.this.f45600b, -1);
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45604e;
+            public final /* synthetic */ DialogInterface.OnClickListener f45605e;
 
             public b(DialogInterface.OnClickListener onClickListener) {
-                this.f45604e = onClickListener;
+                this.f45605e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45599b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f45604e;
+                a.this.f45600b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f45605e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(a.this.f45599b, -2);
+                    onClickListener.onClick(a.this.f45600b, -2);
                 }
             }
         }
 
         public a(Context context) {
             h b2 = b(context);
-            this.f45599b = b2;
+            this.f45600b = b2;
             b2.d(this);
-            this.f45598a = new b((ViewGroup) this.f45599b.getWindow().getDecorView());
-            this.f45600c = context;
+            this.f45599a = new b((ViewGroup) this.f45600b.getWindow().getDecorView());
+            this.f45601c = context;
         }
 
         public h a() {
-            this.f45599b.setOnCancelListener(this.f45598a.f45610e);
-            this.f45599b.setOnDismissListener(this.f45598a.f45611f);
-            this.f45599b.setOnShowListener(this.f45598a.f45612g);
-            this.f45599b.d(this);
-            return this.f45599b;
+            this.f45600b.setOnCancelListener(this.f45599a.f45611e);
+            this.f45600b.setOnDismissListener(this.f45599a.f45612f);
+            this.f45600b.setOnShowListener(this.f45599a.f45613g);
+            this.f45600b.d(this);
+            return this.f45600b;
         }
 
-        public h b(Context context) {
-            throw null;
-        }
+        public abstract h b(Context context);
 
         public a c(boolean z) {
-            this.f45599b.setCanceledOnTouchOutside(z);
+            this.f45600b.setCanceledOnTouchOutside(z);
             return this;
         }
 
         public a d(int i, DialogInterface.OnClickListener onClickListener) {
-            e(this.f45600c.getText(i), onClickListener);
+            e(this.f45601c.getText(i), onClickListener);
             return this;
         }
 
         public a e(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.f45598a.f45607b.setText(charSequence);
-            this.f45598a.f45607b.setOnClickListener(new b(onClickListener));
+            this.f45599a.f45608b.setText(charSequence);
+            this.f45599a.f45608b.setOnClickListener(new b(onClickListener));
             return this;
         }
 
         public a f(DialogInterface.OnCancelListener onCancelListener) {
-            this.f45598a.f45610e = onCancelListener;
+            this.f45599a.f45611e = onCancelListener;
             return this;
         }
 
         public a g(int i, DialogInterface.OnClickListener onClickListener) {
-            h(this.f45600c.getText(i), onClickListener);
+            h(this.f45601c.getText(i), onClickListener);
             return this;
         }
 
         public a h(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.f45598a.f45606a.setText(charSequence);
-            this.f45598a.f45606a.setOnClickListener(new View$OnClickListenerC0763a(onClickListener));
+            this.f45599a.f45607a.setText(charSequence);
+            this.f45599a.f45607a.setOnClickListener(new View$OnClickListenerC0764a(onClickListener));
             return this;
         }
 
         public a i(View view) {
-            this.f45598a.f45609d.removeAllViews();
-            this.f45598a.f45609d.addView(view);
+            this.f45599a.f45610d.removeAllViews();
+            this.f45599a.f45610d.addView(view);
             return this;
         }
 
         public h j() {
             h a2 = a();
-            if (this.f45601d) {
+            if (this.f45602d) {
                 a2.getWindow().setType(2003);
             }
             try {
@@ -143,32 +141,32 @@ public class h extends c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f45606a;
+        public TextView f45607a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f45607b;
+        public TextView f45608b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f45608c;
+        public View f45609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public FrameLayout f45609d;
+        public FrameLayout f45610d;
 
         /* renamed from: e  reason: collision with root package name */
-        public DialogInterface.OnCancelListener f45610e;
+        public DialogInterface.OnCancelListener f45611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public DialogInterface.OnDismissListener f45611f;
+        public DialogInterface.OnDismissListener f45612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public DialogInterface.OnShowListener f45612g;
+        public DialogInterface.OnShowListener f45613g;
 
         /* renamed from: h  reason: collision with root package name */
-        public FrameLayout f45613h;
+        public FrameLayout f45614h;
         public FrameLayout i;
         public View j;
         public ViewGroup k;
@@ -180,14 +178,14 @@ public class h extends c {
         public b(ViewGroup viewGroup) {
             this.k = viewGroup;
             this.i = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_root);
-            this.f45606a = (TextView) viewGroup.findViewById(d.b.g0.a.f.positive_button);
-            this.f45607b = (TextView) viewGroup.findViewById(d.b.g0.a.f.negative_button);
-            this.f45608c = viewGroup.findViewById(d.b.g0.a.f.dialog_customPanel);
-            this.f45609d = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_custom_content);
+            this.f45607a = (TextView) viewGroup.findViewById(d.b.g0.a.f.positive_button);
+            this.f45608b = (TextView) viewGroup.findViewById(d.b.g0.a.f.negative_button);
+            this.f45609c = viewGroup.findViewById(d.b.g0.a.f.dialog_customPanel);
+            this.f45610d = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_custom_content);
             this.l = (RelativeLayout) viewGroup.findViewById(d.b.g0.a.f.searchbox_alert_dialog);
             this.m = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.btn_panel);
             this.n = viewGroup.findViewById(d.b.g0.a.f.dialog_customPanel);
-            this.f45613h = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_root);
+            this.f45614h = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_root);
             this.j = viewGroup.findViewById(d.b.g0.a.f.nightmode_mask);
         }
     }
@@ -198,7 +196,7 @@ public class h extends c {
     }
 
     public a b() {
-        return this.f45597f;
+        return this.f45598f;
     }
 
     public void c() {
@@ -209,6 +207,6 @@ public class h extends c {
     }
 
     public void d(a aVar) {
-        this.f45597f = aVar;
+        this.f45598f = aVar;
     }
 }

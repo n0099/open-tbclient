@@ -241,8 +241,8 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 7;
-        eVar.f50768h = 1;
+        eVar.f50763b = 7;
+        eVar.f50769h = 1;
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(eVar);
     }
 

@@ -8,10 +8,10 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class o implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InterstitialAd f8394a;
+    public final /* synthetic */ InterstitialAd f8395a;
 
     public o(InterstitialAd interstitialAd) {
-        this.f8394a = interstitialAd;
+        this.f8395a = interstitialAd;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

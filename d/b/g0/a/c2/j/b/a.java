@@ -15,29 +15,29 @@ import d.b.g0.a.r1.d;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f43809d = k.f45050a;
+    public static final boolean f43810d = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f43810a;
+    public long f43811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f43811b;
+    public c f43812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a f43812c;
+    public final c.a f43813c;
 
     /* renamed from: d.b.g0.a.c2.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0641a implements c.a {
-        public C0641a() {
+    public class C0642a implements c.a {
+        public C0642a() {
         }
 
         @Override // d.b.g0.a.k1.c.a
         public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            if (i != 700 || iArr.length <= 0 || iArr[0] != 0 || a.this.f43811b == null) {
+            if (i != 700 || iArr.length <= 0 || iArr[0] != 0 || a.this.f43812b == null) {
                 return;
             }
-            a.this.f43811b.a(a.this.f43810a);
+            a.this.f43812b.a(a.this.f43811a);
         }
     }
 
@@ -45,38 +45,38 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43814a = new a(null);
+        public static final a f43815a = new a(null);
     }
 
     /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Vibrator f43815a;
+        public Vibrator f43816a;
 
         public c(@NonNull Vibrator vibrator) {
-            this.f43815a = vibrator;
+            this.f43816a = vibrator;
         }
 
         @SuppressLint({"MissingPermission"})
         public void a(long j) {
             try {
                 if (d.b.g0.a.i2.c.j()) {
-                    this.f43815a.vibrate(VibrationEffect.createOneShot(j, -1));
+                    this.f43816a.vibrate(VibrationEffect.createOneShot(j, -1));
                 } else {
-                    this.f43815a.vibrate(j);
+                    this.f43816a.vibrate(j);
                 }
             } catch (Exception unused) {
             }
         }
     }
 
-    public /* synthetic */ a(C0641a c0641a) {
+    public /* synthetic */ a(C0642a c0642a) {
         this();
     }
 
     public static a d() {
-        return b.f43814a;
+        return b.f43815a;
     }
 
     public final boolean c() {
@@ -88,18 +88,18 @@ public class a {
     }
 
     public void e(long j) {
-        this.f43810a = j;
-        if (this.f43811b == null) {
-            if (f43809d) {
+        this.f43811a = j;
+        if (this.f43812b == null) {
+            if (f43810d) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (c()) {
-            this.f43811b.a(this.f43810a);
+            this.f43812b.a(this.f43811a);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
             SwanAppActivity n = d.e().n();
             if (n != null) {
-                n.requestPermissionsExt(700, strArr, this.f43812c);
+                n.requestPermissionsExt(700, strArr, this.f43813c);
             }
         }
     }
@@ -113,11 +113,11 @@ public class a {
     }
 
     public a() {
-        this.f43810a = 0L;
-        this.f43812c = new C0641a();
+        this.f43811a = 0L;
+        this.f43813c = new C0642a();
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.f43811b = new c(vibrator);
+            this.f43812b = new c(vibrator);
         }
     }
 }

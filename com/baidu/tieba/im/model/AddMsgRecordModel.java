@@ -8,7 +8,7 @@ import d.b.i0.d1.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AddMsgRecordModel extends BdBaseModel {
     private MsgRecord generateMsgRecord(int i, String str) {
         if ((i != 1 && i != 2 && i != 3) || str == null || str.length() == 0) {

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManager.j {
     public NavigationBar mNavigationBar;
     public ReplyMessageFragment mReplyMessageFragment;

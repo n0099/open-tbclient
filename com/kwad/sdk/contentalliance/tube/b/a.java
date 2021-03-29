@@ -12,38 +12,38 @@ public class a extends d {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0370a {
+    public static class C0371a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f33150a;
+        public long f33151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f33151b;
+        public long f33152b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33152c;
+        public int f33153c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f33153d;
+        public f f33154d;
 
-        public C0370a(f fVar, long j, long j2, int i) {
-            this.f33150a = j;
-            this.f33151b = j2;
-            this.f33152c = i;
-            this.f33153d = fVar;
+        public C0371a(f fVar, long j, long j2, int i) {
+            this.f33151a = j;
+            this.f33152b = j2;
+            this.f33153c = i;
+            this.f33154d = fVar;
         }
     }
 
-    public a(@NonNull C0370a c0370a) {
+    public a(@NonNull C0371a c0371a) {
         JSONArray jSONArray = new JSONArray();
-        f fVar = c0370a.f33153d;
+        f fVar = c0371a.f33154d;
         if (fVar != null) {
             o.a(jSONArray, fVar.toJson());
         }
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_TUBE_ID, c0370a.f33150a);
-        a("photoId", c0370a.f33151b);
-        a("count", c0370a.f33152c);
+        a(URLPackage.KEY_TUBE_ID, c0371a.f33151a);
+        a("photoId", c0371a.f33152b);
+        a("count", c0371a.f33153c);
         a("contentInfo", new c());
     }
 

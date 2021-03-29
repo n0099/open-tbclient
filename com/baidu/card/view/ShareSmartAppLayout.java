@@ -12,14 +12,14 @@ import d.b.h0.r.q.a;
 import d.b.h0.r.q.a2;
 import d.b.i.p;
 import d.b.i0.x.b0;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public AppletsCellView f4519e;
+    public AppletsCellView f4520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b0<a> f4520f;
+    public b0<a> f4521f;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -29,7 +29,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4519e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.f4520e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,23 +39,23 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         if (aVar != null && aVar.n() != null && aVar.n().j1() != null) {
             setVisibility(0);
             a2 n = aVar.n();
-            this.f4519e.setData(n.j1());
-            this.f4519e.setForumId(String.valueOf(n.c0()));
-            this.f4519e.setFrom("frs_card");
+            this.f4520e.setData(n.j1());
+            this.f4520e.setForumId(String.valueOf(n.c0()));
+            this.f4520e.setFrom("frs_card");
             return;
         }
         setVisibility(8);
     }
 
     public b0<a> getSubClickListener() {
-        return this.f4520f;
+        return this.f4521f;
     }
 
     public void setFromCDN(boolean z) {
     }
 
     public void setSubClickListener(b0<a> b0Var) {
-        this.f4520f = b0Var;
+        this.f4521f = b0Var;
     }
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {

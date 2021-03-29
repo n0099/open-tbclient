@@ -27,28 +27,28 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9561a = "PassBiometricUtil";
+    public static final String f9562a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9562b = 480;
+    public static final int f9563b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9563c = 480;
+    public static final int f9564c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f9564d = 192;
+    public static final int f9565d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9565e = 480;
+    public static final int f9566e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9566f = 620;
+    public static final int f9567f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f9567g = 250;
+    public static final int f9568g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9568h = 250;
+    public static final int f9569h = 250;
     public static final int i = 728;
     public static final int j = 194;
     public static final int k = 750;
@@ -122,9 +122,9 @@ public class PassBiometricUtil {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0124  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01a6 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #8 {IOException -> 0x01a2, blocks: (B:81:0x019e, B:85:0x01a6), top: B:98:0x019e }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x00c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x019e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x01a6 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #8 {IOException -> 0x01a2, blocks: (B:81:0x019e, B:85:0x01a6), top: B:96:0x019e }] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x00c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x019e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r1v1 */
     /* JADX WARN: Type inference failed for: r1v2, types: [java.io.BufferedReader] */
     /* JADX WARN: Type inference failed for: r1v4 */
@@ -151,12 +151,12 @@ public class PassBiometricUtil {
                 try {
                     String readLine = bufferedReader.readLine();
                     String[] split = readLine.split("\\s+");
-                    Log.d(f9561a, "getCpuType()str2:" + readLine);
+                    Log.d(f9562a, "getCpuType()str2:" + readLine);
                     for (int i2 = 2; i2 < split.length; i2++) {
                         strArr[0] = strArr[0] + split[i2] + " ";
                     }
                     String readLine2 = bufferedReader.readLine();
-                    Log.d(f9561a, "getCpuType()str2" + readLine2);
+                    Log.d(f9562a, "getCpuType()str2" + readLine2);
                     String[] split2 = readLine2.split("\\s+");
                     strArr[1] = strArr[1] + split2[2];
                     try {
@@ -182,7 +182,7 @@ public class PassBiometricUtil {
                     if (Build.VERSION.SDK_INT >= 8) {
                     }
                     str2 = "none";
-                    Log.i(f9561a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+                    Log.i(f9562a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
                     if (str.equals("armeabi")) {
                     }
                 }
@@ -224,13 +224,13 @@ public class PassBiometricUtil {
             try {
                 str2 = (String) Build.class.getDeclaredField("cpuAbi2").get(null);
             } catch (Exception e8) {
-                Log.w(f9561a, "getCpuType() abi2" + e8.toString());
+                Log.w(f9562a, "getCpuType() abi2" + e8.toString());
             }
-            Log.i(f9561a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+            Log.i(f9562a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
             return (!str.equals("armeabi") || str2.equals("armeabi")) ? "armeabi" : (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a")) ? "armeabi-v7a" : (str.equals("arm64-v8a") || str2.equals("arm64-v8a")) ? "arm64-v8a" : (str.equals("x86") || str2.equals("x86")) ? "x86" : strArr[0].toLowerCase().contains("armv7") ? "armeabi-v7a" : strArr[0].toLowerCase().contains("arm") ? "armeabi" : strArr[0].toLowerCase().contains("arm64") ? "arm64-v8a" : strArr[0].toLowerCase().contains("x86") ? "x86" : "armeabi";
         }
         str2 = "none";
-        Log.i(f9561a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+        Log.i(f9562a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
         if (str.equals("armeabi")) {
         }
     }

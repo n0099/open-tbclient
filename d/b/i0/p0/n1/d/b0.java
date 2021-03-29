@@ -159,7 +159,7 @@ public class b0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
                     b0.this.D.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), b0.this.B, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -206,15 +206,15 @@ public class b0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(3);
         m0Var.x(2);
         m0Var.b(16);
         bVar.m(m0Var);
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds28));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds28));
         d.b.i.k0 i = bVar.i();
         i.r(2);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(i);

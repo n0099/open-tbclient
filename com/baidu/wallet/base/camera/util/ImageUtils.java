@@ -37,7 +37,7 @@ public abstract class ImageUtils implements NoProguard {
             options.inJustDecodeBounds = true;
             ParcelFileDescriptor parcelFileDescriptor = null;
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7663a);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a);
                 if (openFileDescriptor != null) {
                     try {
                         BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
@@ -77,11 +77,7 @@ public abstract class ImageUtils implements NoProguard {
                 if (i == 0 || (screenSize = getScreenSize(context)) == null) {
                     return 1;
                 }
-                double d2 = i;
-                double d3 = screenSize[0] * screenSize[1];
-                Double.isNaN(d2);
-                Double.isNaN(d3);
-                return (int) Math.ceil(Math.sqrt(d2 / d3));
+                return (int) Math.ceil(Math.sqrt(i / (screenSize[0] * screenSize[1])));
             } catch (Exception unused2) {
             } catch (Throwable th2) {
                 th = th2;
@@ -138,7 +134,7 @@ public abstract class ImageUtils implements NoProguard {
         try {
             try {
                 try {
-                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7663a);
+                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a);
                     if (parcelFileDescriptor != null) {
                         try {
                             bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);

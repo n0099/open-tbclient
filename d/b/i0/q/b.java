@@ -11,7 +11,7 @@ import java.util.List;
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59205a;
+    public boolean f59206a;
 
     public b() {
         super(304001);
@@ -29,13 +29,13 @@ public class b extends j {
     public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
             d.b.i0.q.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            this.f59205a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+            this.f59206a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
             if (addressListData != null) {
                 for (e eVar : addressListData.a()) {
                     List<d.b.h0.s.f.a> a2 = eVar.a();
                     ArrayList arrayList = new ArrayList();
                     for (d.b.h0.s.f.a aVar : a2) {
-                        if (!this.f59205a && aVar.i() == 1) {
+                        if (!this.f59206a && aVar.i() == 1) {
                             arrayList.add(aVar);
                         }
                     }

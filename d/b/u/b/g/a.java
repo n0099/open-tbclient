@@ -6,16 +6,16 @@ import com.baidu.mario.gldraw2d.params.ScaleType;
 public class a implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f64710e = 0.0f;
+    public float f64711e = 0.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f64711f = 0.0f;
+    public float f64712f = 0.0f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MirrorType f64712g = MirrorType.NO_MIRROR;
+    public MirrorType f64713g = MirrorType.NO_MIRROR;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64713h = 0;
+    public int f64714h = 0;
     public ScaleType i = ScaleType.FIT_XY;
     public float j = 1.0f;
     public int k = -90;
@@ -32,7 +32,7 @@ public class a implements Cloneable {
     }
 
     public int c() {
-        return this.f64713h;
+        return this.f64714h;
     }
 
     public float d() {
@@ -40,7 +40,7 @@ public class a implements Cloneable {
     }
 
     public MirrorType e() {
-        return this.f64712g;
+        return this.f64713g;
     }
 
     public ScaleType f() {
@@ -52,18 +52,18 @@ public class a implements Cloneable {
     }
 
     public float h() {
-        return this.f64710e;
+        return this.f64711e;
     }
 
     public float i() {
-        return this.f64711f;
+        return this.f64712f;
     }
 
     public void j(int i) {
-        this.f64713h = i;
+        this.f64714h = i;
     }
 
     public void k(MirrorType mirrorType) {
-        this.f64712g = mirrorType;
+        this.f64713g = mirrorType;
     }
 }

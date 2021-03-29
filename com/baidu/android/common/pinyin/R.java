@@ -1,4 +1,4 @@
 package com.baidu.android.common.pinyin;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class R {
 }

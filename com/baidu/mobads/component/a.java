@@ -3,19 +3,19 @@ package com.baidu.mobads.component;
 public class a implements IFeedPortraitListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XNativeView f8202a;
+    public final /* synthetic */ XNativeView f8203a;
 
     public a(XNativeView xNativeView) {
-        this.f8202a = xNativeView;
+        this.f8203a = xNativeView;
     }
 
     @Override // com.baidu.mobads.component.IFeedPortraitListener
     public void playCompletion() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f8202a.mFeedVideoListener;
+        iNativeVideoListener = this.f8203a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f8202a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f8203a.mFeedVideoListener;
             iNativeVideoListener2.onCompletion();
         }
     }
@@ -24,9 +24,9 @@ public class a implements IFeedPortraitListener {
     public void playError() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f8202a.mFeedVideoListener;
+        iNativeVideoListener = this.f8203a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f8202a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f8203a.mFeedVideoListener;
             iNativeVideoListener2.onError();
         }
     }
@@ -35,9 +35,9 @@ public class a implements IFeedPortraitListener {
     public void playPause() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f8202a.mFeedVideoListener;
+        iNativeVideoListener = this.f8203a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f8202a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f8203a.mFeedVideoListener;
             iNativeVideoListener2.onPause();
         }
     }
@@ -46,10 +46,10 @@ public class a implements IFeedPortraitListener {
     public void playRenderingStart() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        XNativeViewManager.getInstance().resetAllPlayer(this.f8202a);
-        iNativeVideoListener = this.f8202a.mFeedVideoListener;
+        XNativeViewManager.getInstance().resetAllPlayer(this.f8203a);
+        iNativeVideoListener = this.f8203a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f8202a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f8203a.mFeedVideoListener;
             iNativeVideoListener2.onRenderingStart();
         }
     }
@@ -58,9 +58,9 @@ public class a implements IFeedPortraitListener {
     public void playResume() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f8202a.mFeedVideoListener;
+        iNativeVideoListener = this.f8203a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f8202a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f8203a.mFeedVideoListener;
             iNativeVideoListener2.onResume();
         }
     }

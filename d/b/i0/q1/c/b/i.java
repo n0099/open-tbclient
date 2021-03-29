@@ -9,16 +9,16 @@ import tbclient.GetVipInfo.VipThemeList;
 public class i implements d.b.b.j.e.n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f59308h = BdUniqueId.gen();
+    public static final BdUniqueId f59309h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public d f59309e;
+    public d f59310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j> f59310f;
+    public List<j> f59311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<j> f59311g;
+    public List<j> f59312g;
 
     public i(VipThemeList vipThemeList) {
         if (vipThemeList == null) {
@@ -26,27 +26,27 @@ public class i implements d.b.b.j.e.n {
         }
         String str = vipThemeList.card_id;
         d dVar = new d();
-        this.f59309e = dVar;
+        this.f59310e = dVar;
         dVar.e(2);
-        this.f59309e.d(vipThemeList.class_name);
-        this.f59309e.f(vipThemeList.class_url_name);
-        this.f59309e.g(vipThemeList.class_url);
+        this.f59310e.d(vipThemeList.class_name);
+        this.f59310e.f(vipThemeList.class_url_name);
+        this.f59310e.g(vipThemeList.class_url);
         if (vipThemeList.item != null) {
-            this.f59310f = new ArrayList();
+            this.f59311f = new ArrayList();
             for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.f59310f.add(new j(vipThemeItem));
+                this.f59311f.add(new j(vipThemeItem));
             }
         }
         if (vipThemeList.item_card != null) {
-            this.f59311g = new ArrayList();
+            this.f59312g = new ArrayList();
             for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.f59311g.add(new j(vipThemeItem2));
+                this.f59312g.add(new j(vipThemeItem2));
             }
         }
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f59308h;
+        return f59309h;
     }
 }

@@ -3,7 +3,7 @@ package d.b.g0.a.y.b;
 import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a {
     public String o;
     public String p;
@@ -53,7 +53,7 @@ public class d extends a {
                 }
             }
         } catch (Exception e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }

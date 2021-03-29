@@ -11,43 +11,43 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
 
     /* renamed from: f  reason: collision with root package name */
-    public static Activity f64241f;
+    public static Activity f64242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f64242g = System.currentTimeMillis();
+    public static final long f64243g = System.currentTimeMillis();
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f64243e;
+    public MethodChannel f64244e;
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
     public void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding) {
-        f64241f = activityPluginBinding.getActivity();
+        f64242f = activityPluginBinding.getActivity();
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_exception_perf_plugin");
-        this.f64243e = methodChannel;
+        this.f64244e = methodChannel;
         methodChannel.setMethodCallHandler(this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
     public void onDetachedFromActivity() {
-        f64241f = null;
+        f64242f = null;
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
     public void onDetachedFromActivityForConfigChanges() {
-        f64241f = null;
+        f64242f = null;
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        this.f64243e.setMethodCallHandler(null);
+        this.f64244e.setMethodCallHandler(null);
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -59,7 +59,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
             String str3 = (String) methodCall.argument(Constant.KEY_BUSINESS);
             PerfFrame create = new PerfFrame.Builder().setNeedStaticperf(true).setNeedPageTrace(true).setNeedMainStackTrace(true).setNeedDynamicperf(true).create();
             if (create != null) {
-                create.submitPerformanceData("2301", "flutter", longValue, f64242g, str2, str, str3);
+                create.submitPerformanceData("2301", "flutter", longValue, f64243g, str2, str, str3);
                 result.success(Boolean.TRUE);
                 return;
             }
@@ -68,7 +68,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
             String str4 = (String) methodCall.argument("page");
             String str5 = (String) methodCall.argument("event");
             ((Long) methodCall.argument(PmsConstant.Statistic.Key.REV_TIMESTAMP)).longValue();
-            TraceManager.getInstance().saveTraceInfo(f64241f, null, str4, (String) methodCall.argument("tag"), "flutter", str5);
+            TraceManager.getInstance().saveTraceInfo(f64242f, null, str4, (String) methodCall.argument("tag"), "flutter", str5);
             result.success(Boolean.TRUE);
         } else {
             result.notImplemented();
@@ -77,6 +77,6 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
-        f64241f = activityPluginBinding.getActivity();
+        f64242f = activityPluginBinding.getActivity();
     }
 }

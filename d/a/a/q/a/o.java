@@ -11,54 +11,54 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes.dex */
-public class o implements d, l, i, a.InterfaceC0528a, j {
+public class o implements d, l, i, a.InterfaceC0529a, j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Matrix f41268a = new Matrix();
+    public final Matrix f41269a = new Matrix();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path f41269b = new Path();
+    public final Path f41270b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.f f41270c;
+    public final d.a.a.f f41271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.a.s.k.a f41271d;
+    public final d.a.a.s.k.a f41272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f41272e;
+    public final String f41273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.q.b.a<Float, Float> f41273f;
+    public final d.a.a.q.b.a<Float, Float> f41274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.a.q.b.a<Float, Float> f41274g;
+    public final d.a.a.q.b.a<Float, Float> f41275g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.a.q.b.o f41275h;
+    public final d.a.a.q.b.o f41276h;
     public c i;
 
     public o(d.a.a.f fVar, d.a.a.s.k.a aVar, d.a.a.s.j.g gVar) {
-        this.f41270c = fVar;
-        this.f41271d = aVar;
-        this.f41272e = gVar.c();
+        this.f41271c = fVar;
+        this.f41272d = aVar;
+        this.f41273e = gVar.c();
         d.a.a.q.b.a<Float, Float> a2 = gVar.b().a();
-        this.f41273f = a2;
+        this.f41274f = a2;
         aVar.h(a2);
-        this.f41273f.a(this);
+        this.f41274f.a(this);
         d.a.a.q.b.a<Float, Float> a3 = gVar.d().a();
-        this.f41274g = a3;
+        this.f41275g = a3;
         aVar.h(a3);
-        this.f41274g.a(this);
+        this.f41275g.a(this);
         d.a.a.q.b.o b2 = gVar.e().b();
-        this.f41275h = b2;
+        this.f41276h = b2;
         b2.a(aVar);
-        this.f41275h.b(this);
+        this.f41276h.b(this);
     }
 
-    @Override // d.a.a.q.b.a.InterfaceC0528a
+    @Override // d.a.a.q.b.a.InterfaceC0529a
     public void a() {
-        this.f41270c.invalidateSelf();
+        this.f41271c.invalidateSelf();
     }
 
     @Override // d.a.a.q.a.b
@@ -73,13 +73,13 @@ public class o implements d, l, i, a.InterfaceC0528a, j {
 
     @Override // d.a.a.s.f
     public <T> void d(T t, @Nullable d.a.a.w.c<T> cVar) {
-        if (this.f41275h.c(t, cVar)) {
+        if (this.f41276h.c(t, cVar)) {
             return;
         }
         if (t == d.a.a.j.m) {
-            this.f41273f.m(cVar);
+            this.f41274f.m(cVar);
         } else if (t == d.a.a.j.n) {
-            this.f41274g.m(cVar);
+            this.f41275g.m(cVar);
         }
     }
 
@@ -101,38 +101,38 @@ public class o implements d, l, i, a.InterfaceC0528a, j {
             listIterator.remove();
         }
         Collections.reverse(arrayList);
-        this.i = new c(this.f41270c, this.f41271d, "Repeater", arrayList, null);
+        this.i = new c(this.f41271c, this.f41272d, "Repeater", arrayList, null);
     }
 
     @Override // d.a.a.q.a.d
     public void g(Canvas canvas, Matrix matrix, int i) {
-        float floatValue = this.f41273f.h().floatValue();
-        float floatValue2 = this.f41274g.h().floatValue();
-        float floatValue3 = this.f41275h.h().h().floatValue() / 100.0f;
-        float floatValue4 = this.f41275h.d().h().floatValue() / 100.0f;
+        float floatValue = this.f41274f.h().floatValue();
+        float floatValue2 = this.f41275g.h().floatValue();
+        float floatValue3 = this.f41276h.h().h().floatValue() / 100.0f;
+        float floatValue4 = this.f41276h.d().h().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
-            this.f41268a.set(matrix);
+            this.f41269a.set(matrix);
             float f2 = i2;
-            this.f41268a.preConcat(this.f41275h.f(f2 + floatValue2));
-            this.i.g(canvas, this.f41268a, (int) (i * d.a.a.v.e.j(floatValue3, floatValue4, f2 / floatValue)));
+            this.f41269a.preConcat(this.f41276h.f(f2 + floatValue2));
+            this.i.g(canvas, this.f41269a, (int) (i * d.a.a.v.e.j(floatValue3, floatValue4, f2 / floatValue)));
         }
     }
 
     @Override // d.a.a.q.a.b
     public String getName() {
-        return this.f41272e;
+        return this.f41273e;
     }
 
     @Override // d.a.a.q.a.l
     public Path getPath() {
         Path path = this.i.getPath();
-        this.f41269b.reset();
-        float floatValue = this.f41273f.h().floatValue();
-        float floatValue2 = this.f41274g.h().floatValue();
+        this.f41270b.reset();
+        float floatValue = this.f41274f.h().floatValue();
+        float floatValue2 = this.f41275g.h().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.f41268a.set(this.f41275h.f(i + floatValue2));
-            this.f41269b.addPath(path, this.f41268a);
+            this.f41269a.set(this.f41276h.f(i + floatValue2));
+            this.f41270b.addPath(path, this.f41269a);
         }
-        return this.f41269b;
+        return this.f41270b;
     }
 }

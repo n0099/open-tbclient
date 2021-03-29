@@ -22,40 +22,45 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
     }
 
     public void drain() {
+        int i;
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
         j<? super T> jVar = this.actual;
         Queue<Object> queue = this.queue;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = get();
             long j2 = 0;
-            while (j2 != j) {
-                if (jVar.isUnsubscribed()) {
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
+                    break;
+                } else if (jVar.isUnsubscribed()) {
                     queue.clear();
                     return;
-                }
-                boolean z = this.done;
-                Object poll = queue.poll();
-                boolean z2 = poll == null;
-                if (z && z2) {
-                    Throwable th = this.error;
-                    if (th != null) {
-                        super.onError(th);
-                        return;
-                    } else {
-                        super.onCompleted();
-                        return;
-                    }
-                } else if (z2) {
-                    break;
                 } else {
-                    jVar.onNext((Object) NotificationLite.d(poll));
-                    j2++;
+                    boolean z = this.done;
+                    Object poll = queue.poll();
+                    boolean z2 = poll == null;
+                    if (z && z2) {
+                        Throwable th = this.error;
+                        if (th != null) {
+                            super.onError(th);
+                            return;
+                        } else {
+                            super.onCompleted();
+                            return;
+                        }
+                    } else if (z2) {
+                        break;
+                    } else {
+                        jVar.onNext((Object) NotificationLite.e(poll));
+                        j2++;
+                    }
                 }
             }
-            if (j2 == j) {
+            if (i == 0) {
                 if (jVar.isUnsubscribed()) {
                     queue.clear();
                     return;
@@ -76,8 +81,8 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
             if (j2 != 0) {
                 a.g(this, j2);
             }
-            i = this.wip.addAndGet(-i);
-        } while (i != 0);
+            i2 = this.wip.addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
@@ -95,7 +100,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
     public void onNext(T t) {
-        this.queue.offer(NotificationLite.g(t));
+        this.queue.offer(NotificationLite.h(t));
         drain();
     }
 

@@ -5,7 +5,7 @@ import com.sdk.base.framework.c.f;
 /* loaded from: classes6.dex */
 public class a {
     static {
-        boolean z = f.f38519b;
+        boolean z = f.f38520b;
     }
 
     public static void a(String str, String str2, Object obj, boolean z) {

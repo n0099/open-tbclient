@@ -14,45 +14,45 @@ import com.kwad.sdk.utils.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class a extends RecyclerView.Adapter<C0368a> {
+public class a extends RecyclerView.Adapter<C0369a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LayoutInflater f33099a;
+    public final LayoutInflater f33100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SceneImpl f33100b;
+    public final SceneImpl f33101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33101c;
+    public long f33102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33102d;
+    public long f33103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TrendInfo> f33103e = new ArrayList();
+    public List<TrendInfo> f33104e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f33104f;
+    public Context f33105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TrendsPanelLayout.b f33105g;
+    public TrendsPanelLayout.b f33106g;
 
     /* renamed from: com.kwad.sdk.contentalliance.trends.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0368a extends RecyclerView.ViewHolder {
+    public class C0369a extends RecyclerView.ViewHolder {
 
         /* renamed from: b  reason: collision with root package name */
-        public TrendListItemView f33107b;
+        public TrendListItemView f33108b;
 
-        public C0368a(TrendListItemView trendListItemView) {
+        public C0369a(TrendListItemView trendListItemView) {
             super(trendListItemView);
-            this.f33107b = trendListItemView;
+            this.f33108b = trendListItemView;
         }
 
         public void a(@NonNull final TrendInfo trendInfo, final int i) {
-            if (this.f33107b != null) {
-                this.f33107b.a(trendInfo, a.this.f33101c == trendInfo.trendId);
-                this.f33107b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.a.a.1
+            if (this.f33108b != null) {
+                this.f33108b.a(trendInfo, a.this.f33102c == trendInfo.trendId);
+                this.f33108b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.a.a.1
                     /* JADX WARN: Removed duplicated region for block: B:11:0x0019  */
                     /* JADX WARN: Removed duplicated region for block: B:13:0x0033  */
                     @Override // android.view.View.OnClickListener
@@ -67,10 +67,10 @@ public class a extends RecyclerView.Adapter<C0368a> {
                             if (j > 0 && j < System.currentTimeMillis()) {
                                 z = true;
                                 if (z) {
-                                    a.this.f33105g.a(C0368a.this.f33107b, trendInfo, i);
+                                    a.this.f33106g.a(C0369a.this.f33108b, trendInfo, i);
                                     return;
                                 } else {
-                                    p.a(a.this.f33104f, a.this.f33104f.getString(R.string.ksad_trend_is_no_valid));
+                                    p.a(a.this.f33105f, a.this.f33105f.getString(R.string.ksad_trend_is_no_valid));
                                     return;
                                 }
                             }
@@ -85,47 +85,47 @@ public class a extends RecyclerView.Adapter<C0368a> {
     }
 
     public a(Context context, @NonNull b bVar, TrendsPanelLayout.b bVar2) {
-        this.f33104f = context;
-        this.f33100b = bVar.f33113c;
-        this.f33099a = LayoutInflater.from(context);
-        this.f33101c = bVar.f33112b;
-        if (bVar.f33111a != null) {
-            this.f33103e.clear();
-            for (TrendInfo trendInfo : bVar.f33111a) {
+        this.f33105f = context;
+        this.f33101b = bVar.f33114c;
+        this.f33100a = LayoutInflater.from(context);
+        this.f33102c = bVar.f33113b;
+        if (bVar.f33112a != null) {
+            this.f33104e.clear();
+            for (TrendInfo trendInfo : bVar.f33112a) {
                 if (trendInfo != null) {
-                    this.f33103e.add(trendInfo);
+                    this.f33104e.add(trendInfo);
                 }
             }
         }
-        this.f33105g = bVar2;
+        this.f33106g = bVar2;
     }
 
     private void a(int i) {
         long j = i;
-        if (j > this.f33102d) {
-            this.f33102d = j;
+        if (j > this.f33103d) {
+            this.f33103d = j;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public C0368a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        TrendListItemView trendListItemView = (TrendListItemView) this.f33099a.inflate(R.layout.ksad_trend_panel_list_item_2, viewGroup, false);
-        trendListItemView.setAdScene(this.f33100b);
-        return new C0368a(trendListItemView);
+    public C0369a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        TrendListItemView trendListItemView = (TrendListItemView) this.f33100a.inflate(R.layout.ksad_trend_panel_list_item_2, viewGroup, false);
+        trendListItemView.setAdScene(this.f33101b);
+        return new C0369a(trendListItemView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C0368a c0368a, int i) {
-        c0368a.a(this.f33103e.get(i), i);
+    public void onBindViewHolder(C0369a c0369a, int i) {
+        c0369a.a(this.f33104e.get(i), i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.f33103e.size();
+        return this.f33104e.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

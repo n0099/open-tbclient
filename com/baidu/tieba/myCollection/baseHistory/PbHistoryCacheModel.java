@@ -3,7 +3,7 @@ package com.baidu.tieba.myCollection.baseHistory;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import d.b.i0.v1.h.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     public PbHistoryCacheModel(TbPageContext tbPageContext) {
         super(tbPageContext);

@@ -5,14 +5,14 @@ import android.view.View;
 public final class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23304a;
+    public final /* synthetic */ FeedbackEditActivity f23305a;
 
     public y(FeedbackEditActivity feedbackEditActivity) {
-        this.f23304a = feedbackEditActivity;
+        this.f23305a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f23304a.c();
+        this.f23305a.c();
     }
 }

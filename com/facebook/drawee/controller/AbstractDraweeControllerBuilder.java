@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements SimpleDraweeControllerBuilder {
     public boolean mAutoPlayAnimations;
     public final Set<ControllerListener> mBoundControllerListeners;

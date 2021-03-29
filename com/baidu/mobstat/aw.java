@@ -16,28 +16,28 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    public static aw f9013b = new aw();
+    public static aw f9014b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f9014a;
+    public a f9015a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f9016d;
+    public Handler f9017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f9017e;
+    public volatile int f9018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9018f;
+    public int f9019f;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f9015c = new HandlerThread("fullTraceHandleThread");
+    public HandlerThread f9016c = new HandlerThread("fullTraceHandleThread");
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f9019g = new JSONObject();
+    public JSONObject f9020g = new JSONObject();
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f9020h = new JSONArray();
+    public JSONArray f9021h = new JSONArray();
     public JSONArray i = new JSONArray();
     public JSONArray j = new JSONArray();
     public JSONArray k = new JSONArray();
@@ -48,9 +48,9 @@ public class aw {
     }
 
     public aw() {
-        this.f9015c.start();
-        this.f9015c.setPriority(10);
-        this.f9016d = new Handler(this.f9015c.getLooper());
+        this.f9016c.start();
+        this.f9016c.setPriority(10);
+        this.f9017d = new Handler(this.f9016c.getLooper());
     }
 
     private void b(JSONObject jSONObject) {
@@ -63,10 +63,10 @@ public class aw {
     }
 
     public void c(Context context, boolean z) {
-        this.f9019g = new JSONObject();
+        this.f9020g = new JSONObject();
         b(context);
         this.i = new JSONArray();
-        this.f9020h = new JSONArray();
+        this.f9021h = new JSONArray();
         this.j = new JSONArray();
         this.k = new JSONArray();
         if (!z) {
@@ -82,15 +82,15 @@ public class aw {
             b();
         }
         try {
-            b(context, this.f9019g);
+            b(context, this.f9020g);
         } catch (Exception unused) {
         }
-        if (this.f9020h.length() == 0 && this.i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
+        if (this.f9021h.length() == 0 && this.i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, this.f9019g);
+            jSONObject.put(Config.HEADER_PART, this.f9020g);
         } catch (Exception unused2) {
         }
         try {
@@ -98,7 +98,7 @@ public class aw {
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("ev", this.f9020h);
+            jSONObject.put("ev", this.f9021h);
         } catch (Exception unused4) {
         }
         try {
@@ -110,15 +110,15 @@ public class aw {
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9011b));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9012b));
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9010a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9011a));
         } catch (Exception unused8) {
         }
         try {
-            jSONObject.put("sd", au.a().a(au.a.f9012c));
+            jSONObject.put("sd", au.a().a(au.a.f9013c));
         } catch (Exception unused9) {
         }
         c(context, jSONObject);
@@ -144,7 +144,7 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9017e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
@@ -152,7 +152,7 @@ public class aw {
     }
 
     public static aw a() {
-        return f9013b;
+        return f9014b;
     }
 
     public void a(Context context) {
@@ -205,14 +205,14 @@ public class aw {
     public void c(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f9019g.toString()));
+            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f9020g.toString()));
             jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
-            jSONObject.put("ev", new JSONArray(this.f9020h.toString()));
+            jSONObject.put("ev", new JSONArray(this.f9021h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9011b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9010a));
-            jSONObject.put("sd", au.a().a(au.a.f9012c));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9012b));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9011a));
+            jSONObject.put("sd", au.a().a(au.a.f9013c));
         } catch (Exception unused) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -220,7 +220,7 @@ public class aw {
         if (length >= 184320) {
             return;
         }
-        this.f9017e = length;
+        this.f9018e = length;
         String u = bw.u(context);
         bo.a(context, u + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
     }
@@ -234,7 +234,7 @@ public class aw {
         Iterator<aq> it = arrayList.iterator();
         while (it.hasNext()) {
             aq next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f9011b), au.a().a(next.f(), au.a.f9012c), bj.c(next.c()));
+            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f9012b), au.a().a(next.f(), au.a.f9013c), bj.c(next.c()));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -244,14 +244,14 @@ public class aw {
     }
 
     public void b(Context context) {
-        CooperService.instance().getHeadObject().installHeader(context, this.f9019g);
+        CooperService.instance().getHeadObject().installHeader(context, this.f9020g);
     }
 
     private void b(Context context, JSONObject jSONObject) {
         CooperService.instance().getHeadObject().installHeader(context, jSONObject);
         try {
             jSONObject.put("t", System.currentTimeMillis());
-            jSONObject.put(Config.SEQUENCE_INDEX, this.f9018f);
+            jSONObject.put(Config.SEQUENCE_INDEX, this.f9019f);
             jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
             jSONObject.put("at", "1");
             jSONObject.put("sign", CooperService.instance().getUUID());
@@ -260,7 +260,7 @@ public class aw {
     }
 
     private void c() {
-        this.f9018f = 0;
+        this.f9019f = 0;
     }
 
     private void c(Context context, JSONObject jSONObject) {
@@ -279,14 +279,14 @@ public class aw {
     }
 
     private void b() {
-        this.f9018f++;
+        this.f9019f++;
     }
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f9014a != null) {
+        if (this.f9015a != null) {
             try {
-                this.f9014a.a(new JSONObject(str));
+                this.f9015a.a(new JSONObject(str));
             } catch (Exception unused) {
             }
         }
@@ -301,7 +301,7 @@ public class aw {
         Iterator<ap> it = arrayList.iterator();
         while (it.hasNext()) {
             ap next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f9012c));
+            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f9013c));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -315,7 +315,7 @@ public class aw {
     }
 
     public void a(final Context context, final String str, final String str2, final int i, final long j, final String str3, final JSONArray jSONArray, final String str4, final JSONArray jSONArray2, final String str5, final Map<String, String> map, final boolean z, final JSONObject jSONObject, final String str6) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
             @Override // java.lang.Runnable
             public void run() {
                 long sessionStartTime = BDStatCore.instance().getSessionStartTime();
@@ -334,7 +334,7 @@ public class aw {
     }
 
     public void b(final Context context, final ArrayList<aq> arrayList) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.d(context, arrayList);
@@ -356,7 +356,7 @@ public class aw {
         if (a2 <= 0) {
             return;
         }
-        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f9011b), au.a().a(aoVar.b(), au.a.f9012c)));
+        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f9012b), au.a().a(aoVar.b(), au.a.f9013c)));
         c(context);
     }
 
@@ -372,11 +372,11 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9017e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        EventAnalysis.doEventMerge(this.f9020h, jSONObject);
+        EventAnalysis.doEventMerge(this.f9021h, jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -452,11 +452,11 @@ public class aw {
     }
 
     private boolean a(Context context, String str) {
-        return (str != null ? str.getBytes().length : 0) + this.f9017e > 184320;
+        return (str != null ? str.getBytes().length : 0) + this.f9018e > 184320;
     }
 
     public void a(final Context context, final boolean z) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.b(context, z);
@@ -465,7 +465,7 @@ public class aw {
     }
 
     public void a(final JSONObject jSONObject) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject2 = jSONObject;
@@ -479,7 +479,7 @@ public class aw {
     }
 
     public void a(final Context context, final ao aoVar) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
             @Override // java.lang.Runnable
             public void run() {
                 if (BDStatCore.instance().getSessionStartTime() <= 0) {
@@ -491,7 +491,7 @@ public class aw {
     }
 
     public void a(final Context context, final ArrayList<ap> arrayList) {
-        this.f9016d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
+        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.c(context, arrayList);
@@ -541,7 +541,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9017e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -571,7 +571,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9017e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -654,103 +654,91 @@ public class aw {
     }
 
     private void b(JSONObject jSONObject, JSONObject jSONObject2) {
-        long j;
         String str;
         String str2;
         String str3;
+        long j;
         long j2;
-        String[] strArr;
-        String str4;
-        long j3;
         String optString = jSONObject.optString("d");
         int optInt = jSONObject.optInt("c");
         long optLong = jSONObject.optLong("t");
-        String str5 = "ps";
         String optString2 = jSONObject.optString("ps");
         String optString3 = jSONObject2.optString("d");
         int optInt2 = jSONObject2.optInt("c");
         long optLong2 = jSONObject2.optLong("t");
         String optString4 = jSONObject2.optString("ps");
         int i = optInt + optInt2;
-        long j4 = optLong <= optLong2 ? optLong : optLong2;
-        if (optLong <= optLong2) {
-            j = j4;
-            str = optString + FieldBuilder.SE + optString3;
+        int i2 = (optLong > optLong2 ? 1 : (optLong == optLong2 ? 0 : -1));
+        long j3 = i2 <= 0 ? optLong : optLong2;
+        if (i2 <= 0) {
+            str = "ps";
+            str2 = optString + FieldBuilder.SE + optString3;
         } else {
-            j = j4;
-            str = optString3 + FieldBuilder.SE + optString;
+            str = "ps";
+            str2 = optString3 + FieldBuilder.SE + optString;
         }
-        int i2 = 0;
-        long j5 = 0;
-        if (optLong <= optLong2) {
-            long j6 = optLong2 - optLong;
+        int i3 = 0;
+        long j4 = 0;
+        if (i2 <= 0) {
+            long j5 = optLong2 - optLong;
             StringBuilder sb = new StringBuilder();
             String[] split = optString4.split("\\|");
             if (split != null && split.length != 0) {
                 int length = split.length;
-                while (i2 < length) {
-                    String str6 = split[i2];
+                while (i3 < length) {
+                    String str4 = split[i3];
                     if (!TextUtils.isEmpty(sb.toString())) {
                         sb.append(FieldBuilder.SE);
                     }
                     try {
-                        j3 = Long.valueOf(str6).longValue();
-                        strArr = split;
-                        str4 = str5;
+                        j2 = Long.valueOf(str4).longValue();
                     } catch (Exception unused) {
-                        strArr = split;
-                        str4 = str5;
-                        j3 = 0;
+                        j2 = 0;
                     }
-                    sb.append(j6 + j3);
-                    i2++;
-                    split = strArr;
-                    str5 = str4;
+                    sb.append(j2 + j5);
+                    i3++;
                 }
-                str2 = str5;
             } else {
-                str2 = "ps";
                 try {
-                    j5 = Long.valueOf(optString4).longValue();
+                    j4 = Long.valueOf(optString4).longValue();
                 } catch (Exception unused2) {
                 }
-                sb.append(j6 + j5);
+                sb.append(j5 + j4);
             }
             str3 = optString2 + FieldBuilder.SE + sb.toString();
         } else {
-            str2 = "ps";
-            long j7 = optLong - optLong2;
+            long j6 = optLong - optLong2;
             StringBuilder sb2 = new StringBuilder();
             String[] split2 = optString2.split("\\|");
             if (split2 != null && split2.length != 0) {
                 int length2 = split2.length;
-                while (i2 < length2) {
-                    String str7 = split2[i2];
+                while (i3 < length2) {
+                    String str5 = split2[i3];
                     if (!TextUtils.isEmpty(sb2.toString())) {
                         sb2.append(FieldBuilder.SE);
                     }
                     try {
-                        j2 = Long.valueOf(str7).longValue();
+                        j = Long.valueOf(str5).longValue();
                     } catch (Exception unused3) {
-                        j2 = 0;
+                        j = 0;
                     }
-                    sb2.append(j2 + j7);
-                    i2++;
+                    sb2.append(j + j6);
+                    i3++;
                 }
             } else {
                 try {
-                    j5 = Long.valueOf(optString2).longValue();
+                    j4 = Long.valueOf(optString2).longValue();
                 } catch (Exception unused4) {
                 }
-                sb2.append(j7 + j5);
+                sb2.append(j6 + j4);
             }
             str3 = optString4 + FieldBuilder.SE + sb2.toString();
         }
         try {
             jSONObject.put("c", i);
-            jSONObject.put("t", j);
-            jSONObject.put("d", str);
-            jSONObject.put(str2, str3);
+            jSONObject.put("t", j3);
+            jSONObject.put("d", str2);
+            jSONObject.put(str, str3);
         } catch (Exception unused5) {
         }
     }

@@ -36,12 +36,7 @@ public enum ScaleMode {
 
         @Override // com.baidu.searchbox.floating.config.ScaleMode
         public Pair<Integer, Integer> scale(int i, int i2) {
-            double d2 = i;
-            Double.isNaN(d2);
-            Integer valueOf = Integer.valueOf((int) (d2 * 1.25d));
-            double d3 = i2;
-            Double.isNaN(d3);
-            return new Pair<>(valueOf, Integer.valueOf((int) (d3 * 1.25d)));
+            return new Pair<>(Integer.valueOf((int) (i * 1.25d)), Integer.valueOf((int) (i2 * 1.25d)));
         }
     },
     L { // from class: com.baidu.searchbox.floating.config.ScaleMode.L
@@ -57,12 +52,7 @@ public enum ScaleMode {
 
         @Override // com.baidu.searchbox.floating.config.ScaleMode
         public Pair<Integer, Integer> scale(int i, int i2) {
-            double d2 = i;
-            Double.isNaN(d2);
-            Integer valueOf = Integer.valueOf((int) (d2 * 1.5d));
-            double d3 = i2;
-            Double.isNaN(d3);
-            return new Pair<>(valueOf, Integer.valueOf((int) (d3 * 1.5d)));
+            return new Pair<>(Integer.valueOf((int) (i * 1.5d)), Integer.valueOf((int) (i2 * 1.5d)));
         }
     };
 

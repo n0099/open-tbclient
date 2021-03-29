@@ -3,7 +3,7 @@ package com.baidu.fsg.base.restnet.beans;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BeanManager {
     public static BeanManager mBeanMgr;
     public final HashMap<String, ArrayList<ApollonBean>> mContextBeanList = new HashMap<>();

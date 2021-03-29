@@ -6,7 +6,7 @@ import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static void a() {
         ZwCrashpad.setEnabled(true);

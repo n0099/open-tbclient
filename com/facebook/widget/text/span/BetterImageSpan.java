@@ -20,7 +20,7 @@ public class BetterImageSpan extends ReplacementSpan {
     public int mWidth;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface BetterImageSpanAlignment {
     }
 

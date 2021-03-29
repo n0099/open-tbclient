@@ -13,55 +13,55 @@ import com.win.opensdk.PBMediaView;
 public final class JYNativeAdView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30781a;
+    public TextView f30782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PBMediaView f30782b;
+    public PBMediaView f30783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f30783c;
+    public TextView f30784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30784d;
+    public ImageView f30785d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f30785e;
+    public Button f30786e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f30786f;
+    public float f30787f;
 
     public JYNativeAdView(Context context) {
         super(context);
-        this.f30786f = 1.78f;
+        this.f30787f = 1.78f;
     }
 
     public JYNativeAdView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f30786f = 1.78f;
+        this.f30787f = 1.78f;
     }
 
     public JYNativeAdView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f30786f = 1.78f;
+        this.f30787f = 1.78f;
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30781a = (TextView) findViewById(R.id.ad_description);
-        this.f30782b = (PBMediaView) findViewById(R.id.ad_img);
-        this.f30783c = (TextView) findViewById(R.id.ad_title);
-        this.f30784d = (ImageView) findViewById(R.id.ad_icon);
-        this.f30785e = (Button) findViewById(R.id.ad_creative);
+        this.f30782a = (TextView) findViewById(R.id.ad_description);
+        this.f30783b = (PBMediaView) findViewById(R.id.ad_img);
+        this.f30784c = (TextView) findViewById(R.id.ad_title);
+        this.f30785d = (ImageView) findViewById(R.id.ad_icon);
+        this.f30786e = (Button) findViewById(R.id.ad_creative);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30782b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30783b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.f30786f);
-        this.f30782b.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i5 / this.f30787f);
+        this.f30783b.setLayoutParams(layoutParams);
     }
 }

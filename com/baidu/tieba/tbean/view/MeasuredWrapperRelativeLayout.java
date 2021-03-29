@@ -9,13 +9,13 @@ import com.baidu.tieba.R;
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21471e;
+    public a f21472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21472f;
+    public int f21473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21473g;
+    public boolean f21474g;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -28,9 +28,9 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
 
     public final void a(Context context, int i) {
         int size = View.MeasureSpec.getSize(i);
-        int i2 = this.f21472f;
+        int i2 = this.f21473f;
         if (i2 == 0) {
-            this.f21472f = size;
+            this.f21473f = size;
         } else if (i2 == size) {
         } else {
             int i3 = i2 - size;
@@ -38,17 +38,17 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
                 return;
             }
             if (i3 > 0) {
-                this.f21473g = true;
+                this.f21474g = true;
             } else {
-                this.f21473g = false;
+                this.f21474g = false;
             }
-            b(this.f21473g, Math.abs(i3));
-            this.f21472f = size;
+            b(this.f21474g, Math.abs(i3));
+            this.f21473f = size;
         }
     }
 
     public final void b(boolean z, int i) {
-        a aVar = this.f21471e;
+        a aVar = this.f21472e;
         if (aVar != null) {
             aVar.a(z, i);
         }
@@ -61,7 +61,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     }
 
     public void setKeyBoardListener(a aVar) {
-        this.f21471e = aVar;
+        this.f21472e = aVar;
     }
 
     public MeasuredWrapperRelativeLayout(Context context, AttributeSet attributeSet) {

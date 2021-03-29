@@ -11,10 +11,10 @@ import d.g.c.c.a;
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f30949e;
+    public final b f30950e;
 
     public JsonAdapterAnnotationTypeAdapterFactory(b bVar) {
-        this.f30949e = bVar;
+        this.f30950e = bVar;
     }
 
     public TypeAdapter<?> a(b bVar, Gson gson, a<?> aVar, d.g.c.a.b bVar2) {
@@ -40,6 +40,6 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
         if (bVar == null) {
             return null;
         }
-        return (TypeAdapter<T>) a(this.f30949e, gson, aVar, bVar);
+        return (TypeAdapter<T>) a(this.f30950e, gson, aVar, bVar);
     }
 }

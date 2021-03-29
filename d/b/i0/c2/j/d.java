@@ -8,7 +8,7 @@ import d.b.b.e.p.l;
 public class d extends a<e, CustomDialogData> {
     public d(TbPageContext tbPageContext, CustomDialogData customDialogData) {
         super(tbPageContext, new e(tbPageContext), customDialogData);
-        V v = this.f52493h;
+        V v = this.f52494h;
         if (v instanceof e) {
             ((e) v).f(this);
         }
@@ -16,7 +16,7 @@ public class d extends a<e, CustomDialogData> {
 
     @Override // d.b.i0.c2.j.f
     public int a() {
-        return l.g(this.f52488c, R.dimen.ds90);
+        return l.g(this.f52489c, R.dimen.ds90);
     }
 
     @Override // d.b.i0.c2.j.f

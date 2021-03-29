@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import com.baidu.adp.BdUniqueId;
 import d.b.b.j.e.n;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupPermData implements n, Serializable {
     public static final int MANAGER = 1;
     public static final int NORMAL = 1;

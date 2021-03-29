@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.Surface;
 import androidx.annotation.NonNull;
 import d.b.g0.a.s0.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a extends d {
 
     /* renamed from: d.b.g0.a.s0.k.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0792a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0793a {
         void a(int i);
 
         void b(String str);
@@ -43,7 +43,7 @@ public interface a extends d {
 
     int a();
 
-    void a0(@NonNull InterfaceC0792a interfaceC0792a);
+    void a0(@NonNull InterfaceC0793a interfaceC0793a);
 
     String c();
 
@@ -83,5 +83,5 @@ public interface a extends d {
 
     void start();
 
-    InterfaceC0792a t();
+    InterfaceC0793a t();
 }

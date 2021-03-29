@@ -16,21 +16,21 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a extends j {
-    public static final boolean j = k.f45050a;
+    public static final boolean j = k.f45051a;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public b f48132g;
+    public b f48133g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.f.k.a f48133h;
-    public c<h> i = new C0962a();
+    public d.b.g0.g.f.k.a f48134h;
+    public c<h> i = new C0963a();
 
     /* renamed from: d.b.g0.g.f.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0962a extends d.b.g0.l.h.b<h> {
-        public C0962a() {
+    public class C0963a extends d.b.g0.l.h.b<h> {
+        public C0963a() {
         }
 
         @Override // d.b.g0.l.h.e
@@ -54,7 +54,7 @@ public class a extends j {
             if (a.j) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.f48132g.a(false);
+            a.this.f48133g.a(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,25 +65,25 @@ public class a extends j {
             if (a.j) {
                 Log.i("ConsoleJsDownload", "onDownloadFinish: " + hVar.toString());
             }
-            if (!e0.a(new File(hVar.f48916a), hVar.m)) {
+            if (!e0.a(new File(hVar.f48917a), hVar.m)) {
                 if (a.j) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.f48132g.a(false);
+                a.this.f48133g.a(false);
                 return;
             }
-            File a2 = a.this.f48133h.a();
+            File a2 = a.this.f48134h.a();
             if (a2.exists()) {
                 d.f(a2);
             } else {
                 d.h(a2);
             }
-            boolean F = d.F(hVar.f48916a, a2.getAbsolutePath());
+            boolean F = d.F(hVar.f48917a, a2.getAbsolutePath());
             if (F) {
-                a.this.f48133h.b(hVar.j);
+                a.this.f48134h.b(hVar.j);
             }
-            d.g(hVar.f48916a);
-            a.this.f48132g.a(F);
+            d.g(hVar.f48917a);
+            a.this.f48133g.a(F);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,8 +108,8 @@ public class a extends j {
     }
 
     public a(@NonNull d.b.g0.g.f.k.a aVar, @NonNull b bVar) {
-        this.f48132g = bVar;
-        this.f48133h = aVar;
+        this.f48133g = bVar;
+        this.f48134h = aVar;
     }
 
     @Override // d.b.g0.l.h.g
@@ -118,7 +118,7 @@ public class a extends j {
         if (j) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.f48132g.a(false);
+        this.f48133g.a(false);
     }
 
     @Override // d.b.g0.l.h.g
@@ -135,7 +135,7 @@ public class a extends j {
         if (j) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.f48132g.a(false);
+        this.f48133g.a(false);
     }
 
     @Override // d.b.g0.l.h.g

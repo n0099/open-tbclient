@@ -23,10 +23,10 @@ import org.json.JSONObject;
 public class h implements c {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28426e;
+    public String f28427e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28428g;
+    public String f28429g;
     public String j;
     public String q;
     public String r;
@@ -34,22 +34,22 @@ public class h implements c {
     public String v;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28422a = Integer.MAX_VALUE;
+    public int f28423a = Integer.MAX_VALUE;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28423b = Integer.MAX_VALUE;
+    public int f28424b = Integer.MAX_VALUE;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a> f28424c = new HashMap();
+    public final Map<String, a> f28425c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, i> f28425d = new HashMap();
+    public Map<String, i> f28426d = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<String> f28427f = new HashSet();
+    public final Set<String> f28428f = new HashSet();
 
     /* renamed from: h  reason: collision with root package name */
-    public Set<String> f28429h = Collections.synchronizedSet(new HashSet());
+    public Set<String> f28430h = Collections.synchronizedSet(new HashSet());
     public final List<e> i = new CopyOnWriteArrayList();
     public int k = Integer.MAX_VALUE;
     public int l = Integer.MAX_VALUE;
@@ -158,10 +158,10 @@ public class h implements c {
             for (int i = 0; i < length; i++) {
                 e eVar = new e();
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                eVar.f28409a = optJSONObject.optString("action");
-                eVar.f28410b = optJSONObject.optString("service");
-                eVar.f28411c = optJSONObject.optString("package");
-                eVar.f28412d = optJSONObject.optInt("wakeup_interval");
+                eVar.f28410a = optJSONObject.optString("action");
+                eVar.f28411b = optJSONObject.optString("service");
+                eVar.f28412c = optJSONObject.optString("package");
+                eVar.f28413d = optJSONObject.optInt("wakeup_interval");
                 this.i.add(eVar);
             }
             d.a().b();
@@ -319,7 +319,7 @@ public class h implements c {
             this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
             this.G = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", 5);
             this.H = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", 3600);
-            this.f28428g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
+            this.f28429g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
             this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
             this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
             this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
@@ -330,7 +330,7 @@ public class h implements c {
             this.x = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
             this.C = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_both_open", 0);
             this.D = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
-            this.f28426e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
+            this.f28427e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
             this.P = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", 0);
             this.T = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", 1);
             this.y = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", 0);
@@ -344,8 +344,8 @@ public class h implements c {
             this.M = a(b2);
             this.z = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", 0L);
             this.A.clear();
-            this.f28422a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
-            this.f28423b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+            this.f28423a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+            this.f28424b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
             this.O = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
             this.N = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
             Set<String> b3 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "hit_app_list_data", (Set<String>) null);
@@ -368,11 +368,11 @@ public class h implements c {
                     JSONArray jSONArray = new JSONArray(b5);
                     int length = jSONArray.length();
                     if (length > 0) {
-                        this.f28424c.clear();
+                        this.f28425c.clear();
                         for (int i = 0; i < length; i++) {
                             a b6 = b(jSONArray.optJSONObject(i));
                             if (b6 != null) {
-                                this.f28424c.put(b6.f28388a, b6);
+                                this.f28425c.put(b6.f28389a, b6);
                             }
                         }
                     }
@@ -405,7 +405,7 @@ public class h implements c {
         this.q = this.R.a("ab_test_version");
         this.r = this.R.a("ab_test_param");
         this.G = this.R.b("vbtt", 5);
-        this.f28428g = this.R.b("template_ids", (String) null);
+        this.f28429g = this.R.b("template_ids", (String) null);
         this.s = this.R.b("web_info_wifi_enable", 1);
         this.t = this.R.b("web_info_page_count", 5);
         this.u = this.R.b("pyload_h5", (String) null);
@@ -414,7 +414,7 @@ public class h implements c {
         this.x = this.R.b("splash_check_type", 1);
         this.C = this.R.b("if_both_open", 0);
         this.D = this.R.b("support_tnc", 1);
-        this.f28426e = this.R.b("tpl_infos", (String) null);
+        this.f28427e = this.R.b("tpl_infos", (String) null);
         this.P = this.R.b("if_pre_connect", 0);
         this.T = this.R.b("global_rate", 1);
         this.y = this.R.b("app_list_control", 0);
@@ -428,8 +428,8 @@ public class h implements c {
         this.M = a(b8);
         this.z = this.R.b("hit_app_list_time", 0L);
         this.A.clear();
-        this.f28422a = this.R.b("circle_splash_switch", 0);
-        this.f28423b = this.R.b("circle_load_splash_time", -1);
+        this.f28423a = this.R.b("circle_splash_switch", 0);
+        this.f28424b = this.R.b("circle_load_splash_time", -1);
         this.N = this.R.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
         this.O = this.R.b("sp_key_if_sp_cache", 0);
         Set<String> b9 = this.R.b("hit_app_list_data", (Set<String>) null);
@@ -452,11 +452,11 @@ public class h implements c {
                 JSONArray jSONArray2 = new JSONArray(b11);
                 int length2 = jSONArray2.length();
                 if (length2 > 0) {
-                    this.f28424c.clear();
+                    this.f28425c.clear();
                     for (int i2 = 0; i2 < length2; i2++) {
                         a b12 = b(jSONArray2.optJSONObject(i2));
                         if (b12 != null) {
-                            this.f28424c.put(b12.f28388a, b12);
+                            this.f28425c.put(b12.f28389a, b12);
                         }
                     }
                 }
@@ -674,25 +674,25 @@ public class h implements c {
     }
 
     public int x() {
-        if (this.f28422a == Integer.MAX_VALUE) {
+        if (this.f28423a == Integer.MAX_VALUE) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                this.f28422a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+                this.f28423a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
             } else {
-                this.f28422a = this.R.b("circle_splash_switch", 0);
+                this.f28423a = this.R.b("circle_splash_switch", 0);
             }
         }
-        return this.f28422a;
+        return this.f28423a;
     }
 
     public int y() {
-        if (this.f28423b == Integer.MAX_VALUE) {
+        if (this.f28424b == Integer.MAX_VALUE) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                this.f28423b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+                this.f28424b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
             } else {
-                this.f28423b = this.R.b("circle_load_splash_time", -1);
+                this.f28424b = this.R.b("circle_load_splash_time", -1);
             }
         }
-        return this.f28423b;
+        return this.f28424b;
     }
 
     public String z() {
@@ -707,7 +707,7 @@ public class h implements c {
     }
 
     private a t(String str) {
-        return a.a().a(str).n(1).o(!this.f28427f.contains(str) ? 1 : 0).p(2).q(1).r(100).s(0).u(1).m(3).l(-1).j(-1).i(2).k(-1).v(1).e(-1).a(-1).d(20).w(5).a((JSONArray) null);
+        return a.a().a(str).n(1).o(!this.f28428f.contains(str) ? 1 : 0).p(2).q(1).r(100).s(0).u(1).m(3).l(-1).j(-1).i(2).k(-1).v(1).e(-1).a(-1).d(20).w(5).a((JSONArray) null);
     }
 
     @NonNull
@@ -785,7 +785,7 @@ public class h implements c {
     }
 
     public int j(String str) {
-        return q(String.valueOf(str)).f28395h;
+        return q(String.valueOf(str)).f28396h;
     }
 
     public int k(String str) {
@@ -820,16 +820,16 @@ public class h implements c {
     public a q(String str) {
         JSONArray jSONArray;
         int length;
-        if (this.f28424c.size() == 0) {
+        if (this.f28425c.size() == 0) {
             String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ad_slot_conf", (String) null);
             if (!TextUtils.isEmpty(b2)) {
                 try {
-                    synchronized (this.f28424c) {
-                        if (this.f28424c.size() == 0 && (length = (jSONArray = new JSONArray(b2)).length()) > 0) {
+                    synchronized (this.f28425c) {
+                        if (this.f28425c.size() == 0 && (length = (jSONArray = new JSONArray(b2)).length()) > 0) {
                             for (int i = 0; i < length; i++) {
                                 a b3 = b(jSONArray.optJSONObject(i));
                                 if (b3 != null) {
-                                    this.f28424c.put(b3.f28388a, b3);
+                                    this.f28425c.put(b3.f28389a, b3);
                                 }
                             }
                         }
@@ -838,12 +838,12 @@ public class h implements c {
                 }
             }
         }
-        a aVar = this.f28424c.get(str);
+        a aVar = this.f28425c.get(str);
         return aVar == null ? t(str) : aVar;
     }
 
     public void r(String str) {
-        this.f28427f.add(str);
+        this.f28428f.add(str);
     }
 
     public int o(String str) {
@@ -870,7 +870,7 @@ public class h implements c {
     }
 
     public int c(int i) {
-        return q(String.valueOf(i)).f28389b;
+        return q(String.valueOf(i)).f28390b;
     }
 
     public boolean s() {
@@ -893,7 +893,7 @@ public class h implements c {
     }
 
     public boolean b(String str) {
-        return q(String.valueOf(str)).f28394g == 1;
+        return q(String.valueOf(str)).f28395g == 1;
     }
 
     public boolean b(int i) {
@@ -910,8 +910,8 @@ public class h implements c {
         JSONArray optJSONArray;
         JSONObject optJSONObject = jSONObject.optJSONObject("app_common_config");
         if (optJSONObject != null) {
-            this.f28422a = optJSONObject.optInt("circle_splash", 0);
-            this.f28423b = optJSONObject.optInt("circle_time", -1);
+            this.f28423a = optJSONObject.optInt("circle_splash", 0);
+            this.f28424b = optJSONObject.optInt("circle_time", -1);
             this.O = optJSONObject.optInt("if_sp_cache", 0);
             this.P = optJSONObject.optInt("if_pre_connect", 0);
         }
@@ -1021,10 +1021,10 @@ public class h implements c {
                         e eVar = new e();
                         JSONObject optJSONObject9 = optJSONArray5.optJSONObject(i4);
                         if (optJSONObject9 != null) {
-                            eVar.f28409a = optJSONObject9.optString("action");
-                            eVar.f28410b = optJSONObject9.optString("service");
-                            eVar.f28411c = optJSONObject9.optString("package");
-                            eVar.f28412d = optJSONObject9.optInt("wakeup_interval");
+                            eVar.f28410a = optJSONObject9.optString("action");
+                            eVar.f28411b = optJSONObject9.optString("service");
+                            eVar.f28412c = optJSONObject9.optString("package");
+                            eVar.f28413d = optJSONObject9.optInt("wakeup_interval");
                             this.i.add(eVar);
                         }
                     }
@@ -1050,11 +1050,11 @@ public class h implements c {
             str2 = optJSONArray.toString();
             int length4 = optJSONArray.length();
             if (length4 > 0) {
-                this.f28424c.clear();
+                this.f28425c.clear();
                 for (int i5 = 0; i5 < length4; i5++) {
                     a b2 = b(optJSONArray.optJSONObject(i5));
                     if (b2 != null) {
-                        this.f28424c.put(b2.f28388a, b2);
+                        this.f28425c.put(b2.f28389a, b2);
                     }
                 }
             }
@@ -1090,8 +1090,8 @@ public class h implements c {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", Long.valueOf(this.z));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_data", this.A);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "scheme_list_data", this.B);
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f28422a));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f28423b));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f28423a));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f28424b));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", Integer.valueOf(this.O));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "dyn_draw_engine_url", this.N);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_sdk_config", this.p);
@@ -1108,11 +1108,11 @@ public class h implements c {
             if (!TextUtils.isEmpty(str)) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "ad_slot_conf", str);
             }
-            if (!TextUtils.isEmpty(this.f28428g)) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.f28428g);
+            if (!TextUtils.isEmpty(this.f28429g)) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.f28429g);
             }
-            if (!TextUtils.isEmpty(this.f28426e)) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.f28426e);
+            if (!TextUtils.isEmpty(this.f28427e)) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.f28427e);
             }
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", Integer.valueOf(this.P));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", Integer.valueOf(this.T));
@@ -1143,8 +1143,8 @@ public class h implements c {
         this.R.a("hit_app_list_time", this.z);
         this.R.a("hit_app_list_data", this.A);
         this.R.a("scheme_list_data", this.B);
-        this.R.a("circle_splash_switch", this.f28422a);
-        this.R.a("circle_load_splash_time", this.f28423b);
+        this.R.a("circle_splash_switch", this.f28423a);
+        this.R.a("circle_load_splash_time", this.f28424b);
         this.R.a("dyn_draw_engine_url", this.N);
         this.R.a("sp_key_if_sp_cache", this.O);
         this.R.a("download_sdk_config", this.p);
@@ -1162,11 +1162,11 @@ public class h implements c {
         if (!TextUtils.isEmpty(str)) {
             this.R.a("ad_slot_conf", str);
         }
-        if (!TextUtils.isEmpty(this.f28428g)) {
-            this.R.a("template_ids", this.f28428g);
+        if (!TextUtils.isEmpty(this.f28429g)) {
+            this.R.a("template_ids", this.f28429g);
         }
-        if (!TextUtils.isEmpty(this.f28426e)) {
-            this.R.a("tpl_infos", this.f28426e);
+        if (!TextUtils.isEmpty(this.f28427e)) {
+            this.R.a("tpl_infos", this.f28427e);
         }
         this.R.a("if_pre_connect", this.P);
         this.R.a("global_rate", this.T);
@@ -1174,11 +1174,11 @@ public class h implements c {
     }
 
     public boolean a(int i) {
-        return q(String.valueOf(i)).f28390c == 1;
+        return q(String.valueOf(i)).f28391c == 1;
     }
 
     public boolean a(String str) {
-        int i = p.h().q(String.valueOf(str)).f28392e;
+        int i = p.h().q(String.valueOf(str)).f28393e;
         if (i != 1) {
             return i == 2 && x.c(p.a()) != 0;
         }

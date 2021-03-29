@@ -21,17 +21,17 @@ import d.b.h0.r.s.a;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f59556e;
+    public Context f59557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.q1.h.e.g f59557f;
+    public d.b.i0.q1.h.e.g f59558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f59558g;
+    public View.OnClickListener f59559g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f59559h = new a();
-    public View.OnClickListener i = new View$OnClickListenerC1488b();
+    public View.OnClickListener f59560h = new a();
+    public View.OnClickListener i = new View$OnClickListenerC1489b();
     public View.OnClickListener j = new c();
     public d.b.i0.q1.h.f.a<Integer> k = new f();
     public d.b.i0.q1.h.f.a<Void> l = new g();
@@ -44,20 +44,20 @@ public class b extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailManagementActivityConfig tailManagementActivityConfig = new TailManagementActivityConfig(view.getContext());
-            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.f59557f.i()));
+            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.f59558f.i()));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tailManagementActivityConfig));
         }
     }
 
     /* renamed from: d.b.i0.q1.h.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1488b implements View.OnClickListener {
-        public View$OnClickListenerC1488b() {
+    public class View$OnClickListenerC1489b implements View.OnClickListener {
+        public View$OnClickListenerC1489b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f59556e, 1, false, 6);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f59557e, 1, false, 6);
             memberPayActivityConfig.setSceneId("4009001001");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -74,13 +74,13 @@ public class b extends BaseAdapter {
             if (view.getTag() == null) {
                 return;
             }
-            if (!b.this.f59557f.g()) {
+            if (!b.this.f59558f.g()) {
                 b bVar = b.this;
-                bVar.i(bVar.f59556e.getString(R.string.become_member_to_use));
+                bVar.i(bVar.f59557e.getString(R.string.become_member_to_use));
                 return;
             }
             TailData b2 = ((d.b.i0.q1.h.e.e) view.getTag()).b();
-            b.this.f59557f.o(b2.getId(), !b2.isSelected());
+            b.this.f59558f.o(b2.getId(), !b2.isSelected());
         }
     }
 
@@ -92,7 +92,7 @@ public class b extends BaseAdapter {
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f59556e, 1, false, 6);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f59557e, 1, false, 6);
             memberPayActivityConfig.setSceneId("4009001001");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -120,9 +120,9 @@ public class b extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             if (z) {
-                l.L(b.this.f59556e, str);
-            } else if (num != null && b.this.f59557f.i() != null && b.this.f59557f.i().size() != 0) {
-                for (TailData tailData : b.this.f59557f.i()) {
+                l.L(b.this.f59557e, str);
+            } else if (num != null && b.this.f59558f.i() != null && b.this.f59558f.i().size() != 0) {
+                for (TailData tailData : b.this.f59558f.i()) {
                     if (tailData.getId() == num.intValue()) {
                         tailData.setSelected(!tailData.isSelected());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(tailData.isSelected())));
@@ -145,7 +145,7 @@ public class b extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Void r3) {
             if (z) {
-                l.L(b.this.f59556e, str);
+                l.L(b.this.f59557e, str);
             } else {
                 b.this.notifyDataSetChanged();
             }
@@ -153,11 +153,11 @@ public class b extends BaseAdapter {
     }
 
     public b(Context context, d.b.i0.q1.h.e.g gVar, View.OnClickListener onClickListener) {
-        this.f59556e = context;
-        this.f59558g = onClickListener;
-        this.f59557f = gVar;
+        this.f59557e = context;
+        this.f59559g = onClickListener;
+        this.f59558f = gVar;
         gVar.n(this.k);
-        this.f59557f.p(this.l);
+        this.f59558f.p(this.l);
     }
 
     public final View d(View view) {
@@ -166,8 +166,8 @@ public class b extends BaseAdapter {
             cVar = (d.b.i0.q1.h.e.c) view.getTag();
         } else {
             cVar = new d.b.i0.q1.h.e.c();
-            view = cVar.a(this.f59556e);
-            cVar.c(this.f59558g);
+            view = cVar.a(this.f59557e);
+            cVar.c(this.f59559g);
             cVar.b();
         }
         cVar.d(3);
@@ -177,8 +177,8 @@ public class b extends BaseAdapter {
     public final View e(View view) {
         if (view == null || !(view.getTag() instanceof d.b.i0.q1.h.e.d)) {
             d.b.i0.q1.h.e.d dVar = new d.b.i0.q1.h.e.d();
-            View a2 = dVar.a(this.f59556e);
-            dVar.c(this.f59559h);
+            View a2 = dVar.a(this.f59557e);
+            dVar.c(this.f59560h);
             dVar.b();
             return a2;
         }
@@ -189,10 +189,10 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: f */
     public TailData getItem(int i) {
-        if (i >= this.f59557f.i().size()) {
+        if (i >= this.f59558f.i().size()) {
             return null;
         }
-        return this.f59557f.i().get(i);
+        return this.f59558f.i().get(i);
     }
 
     public final View g(TailData tailData, View view) {
@@ -204,7 +204,7 @@ public class b extends BaseAdapter {
             eVar = (d.b.i0.q1.h.e.e) view.getTag();
         } else {
             eVar = new d.b.i0.q1.h.e.e();
-            view = eVar.a(this.f59556e);
+            view = eVar.a(this.f59557e);
             eVar.e(this.j);
             eVar.c();
         }
@@ -215,7 +215,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f59557f.i().size() + 1;
+        return this.f59558f.i().size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -225,10 +225,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f59557f.i().size() == 0) {
+        if (this.f59558f.i().size() == 0) {
             return 2;
         }
-        return i == this.f59557f.i().size() ? 1 : 0;
+        return i == this.f59558f.i().size() ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
@@ -256,7 +256,7 @@ public class b extends BaseAdapter {
     public final View h(View view) {
         if (view == null || !(view.getTag() instanceof d.b.i0.q1.h.e.f)) {
             d.b.i0.q1.h.e.f fVar = new d.b.i0.q1.h.e.f();
-            View a2 = fVar.a(this.f59556e);
+            View a2 = fVar.a(this.f59557e);
             fVar.c(this.i);
             fVar.b();
             return a2;
@@ -266,12 +266,12 @@ public class b extends BaseAdapter {
 
     @SuppressLint({"ResourceAsColor"})
     public final void i(String str) {
-        d.b.b.a.f<?> a2 = j.a(this.f59556e);
+        d.b.b.a.f<?> a2 = j.a(this.f59557e);
         if (a2 == null) {
             return;
         }
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(a2.getPageActivity());
         aVar.setButtonTextColor(R.color.CAM_X0305);
-        aVar.setMessage(str).setNegativeButton(this.f59556e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f59556e.getString(R.string.open_now), new d()).create(a2).show();
+        aVar.setMessage(str).setNegativeButton(this.f59557e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f59557e.getString(R.string.open_now), new d()).create(a2).show();
     }
 }

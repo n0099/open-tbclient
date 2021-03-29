@@ -14,28 +14,28 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f4279a = false;
+    public boolean f4280a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4280b = true;
+    public boolean f4281b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4281c = true;
+    public boolean f4282c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4282d = "";
+    public String f4283d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f4283e = true;
+    public boolean f4284e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4284f = true;
+    public boolean f4285f = true;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements Callable<Object> {
         public a() {
         }
@@ -46,30 +46,30 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             try {
                 new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
             } catch (SocketException unused) {
-                BDNetworkStateChangeReceiver.this.f4284f = false;
+                BDNetworkStateChangeReceiver.this.f4285f = false;
             }
             try {
                 new DatagramSocket().connect(inetSocketAddress);
             } catch (SocketException unused2) {
-                BDNetworkStateChangeReceiver.this.f4283e = false;
+                BDNetworkStateChangeReceiver.this.f4284e = false;
             }
-            k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4284f), Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4283e));
+            k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4285f), Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4284e));
             return null;
         }
     }
 
     private void a(Context context) {
-        k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f4280b), Boolean.valueOf(this.f4281c));
+        k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f4281b), Boolean.valueOf(this.f4282c));
         i b2 = i.b();
         b2.r();
         BDHttpDns j = BDHttpDns.j(context);
         refreshIpReachable();
         ArrayList<String> e2 = j.a().e();
-        if (this.f4280b) {
+        if (this.f4281b) {
             j.a().b();
             j.d().b();
         }
-        if (this.f4281c) {
+        if (this.f4282c) {
             if (isIPv6Only()) {
                 k.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (e2 == null || e2.isEmpty()) {
@@ -80,15 +80,15 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     }
 
     public void a(boolean z) {
-        this.f4280b = z;
+        this.f4281b = z;
     }
 
     public void b(boolean z) {
-        this.f4281c = z;
+        this.f4282c = z;
     }
 
     public boolean isIPv6Only() {
-        return !this.f4284f && this.f4283e;
+        return !this.f4285f && this.f4284e;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(8:11|(1:(6:38|17|18|(1:21)|23|24)(1:37))(1:15)|16|17|18|(1:21)|23|24) */
@@ -124,8 +124,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         ConnectivityManager connectivityManager;
         String extraInfo;
         String str2 = "";
-        if (!this.f4279a) {
-            this.f4279a = true;
+        if (!this.f4280a) {
+            this.f4280a = true;
             return;
         }
         try {
@@ -143,20 +143,20 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             extraInfo = networkInfo.getExtraInfo();
         } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
             str = "";
-            if (!this.f4282d.equals(str) && str != "") {
+            if (!this.f4283d.equals(str) && str != "") {
                 k.a("Current net type: %s.", str);
                 a(context);
             }
-            this.f4282d = str;
+            this.f4283d = str;
         } else {
             extraInfo = networkInfo2.getExtraInfo();
         }
         str = extraInfo.toString();
-        if (!this.f4282d.equals(str)) {
+        if (!this.f4283d.equals(str)) {
             k.a("Current net type: %s.", str);
             a(context);
         }
-        this.f4282d = str;
+        this.f4283d = str;
     }
 
     public void refreshIpReachable() {

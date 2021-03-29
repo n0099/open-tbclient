@@ -14,45 +14,45 @@ import d.b.g0.a.k0.b.g;
 import d.b.g0.a.z0.f;
 /* loaded from: classes3.dex */
 public class b implements View.OnTouchListener {
-    public static final boolean m = k.f45050a;
+    public static final boolean m = k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45027e;
+    public String f45028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45028f;
+    public String f45029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45029g;
+    public String f45030g;
     public c j;
     public long k;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45030h = false;
+    public boolean f45031h = false;
     public int[] i = new int[2];
-    public RunnableC0714b l = new RunnableC0714b();
+    public RunnableC0715b l = new RunnableC0715b();
 
     /* renamed from: d.b.g0.a.j2.f.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0714b implements Runnable {
+    public class RunnableC0715b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public MotionEvent f45031e;
+        public MotionEvent f45032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g f45032f;
+        public g f45033f;
 
-        public RunnableC0714b() {
+        public RunnableC0715b() {
         }
 
         public final void b(MotionEvent motionEvent) {
-            this.f45031e = motionEvent;
-            this.f45032f = b.this.d(motionEvent, "longtap");
+            this.f45032e = motionEvent;
+            this.f45033f = b.this.d(motionEvent, "longtap");
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.h(this.f45032f);
+            b.this.h(this.f45033f);
         }
     }
 
@@ -60,21 +60,21 @@ public class b implements View.OnTouchListener {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f45034a;
+        public double f45035a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f45035b;
+        public double f45036b;
 
         public c(b bVar, double d2, double d3) {
-            this.f45034a = d2;
-            this.f45035b = d3;
+            this.f45035a = d2;
+            this.f45036b = d3;
         }
 
         public double a(c cVar) {
             if (cVar == null) {
                 return Double.MAX_VALUE;
             }
-            double pow = Math.pow(cVar.f45034a - this.f45034a, 2.0d) + Math.pow(cVar.f45035b - this.f45035b, 2.0d);
+            double pow = Math.pow(cVar.f45035a - this.f45035a, 2.0d) + Math.pow(cVar.f45036b - this.f45036b, 2.0d);
             if (pow <= 0.0d) {
                 return 0.0d;
             }
@@ -83,9 +83,9 @@ public class b implements View.OnTouchListener {
     }
 
     public b(String str, String str2, String str3) {
-        this.f45027e = str;
-        this.f45028f = str2;
-        this.f45029g = str3;
+        this.f45028e = str;
+        this.f45029f = str2;
+        this.f45030g = str3;
         i();
         j();
     }
@@ -105,7 +105,7 @@ public class b implements View.OnTouchListener {
         d.b.g0.a.j2.f.b.a aVar = new d.b.g0.a.j2.f.b.a(motionEvent);
         aVar.i(this.i);
         g gVar = new g();
-        gVar.f45068b = d.b.g0.a.j2.f.c.a.b(this.f45027e, this.f45028f, this.f45029g, aVar.e(), aVar.c());
+        gVar.f45069b = d.b.g0.a.j2.f.c.a.b(this.f45028e, this.f45029f, this.f45030g, aVar.e(), aVar.c());
         return gVar;
     }
 
@@ -114,12 +114,12 @@ public class b implements View.OnTouchListener {
         d.b.g0.a.j2.f.b.a aVar = new d.b.g0.a.j2.f.b.a(motionEvent, str);
         aVar.i(this.i);
         g gVar = new g();
-        gVar.f45068b = d.b.g0.a.j2.f.c.a.b(this.f45027e, this.f45028f, this.f45029g, aVar.e(), aVar.c());
+        gVar.f45069b = d.b.g0.a.j2.f.c.a.b(this.f45028e, this.f45029f, this.f45030g, aVar.e(), aVar.c());
         return gVar;
     }
 
     public final void e(View view, MotionEvent motionEvent) {
-        if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f45027e) && !TextUtils.isEmpty(this.f45028f)) {
+        if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f45028e) && !TextUtils.isEmpty(this.f45029f)) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
                 this.j = new c(this, motionEvent.getX(), motionEvent.getY());
@@ -137,7 +137,7 @@ public class b implements View.OnTouchListener {
             }
             return;
         }
-        d.b.g0.a.c0.c.b("SwanAppTouchListener", "params is null, slaveId = " + this.f45027e + " ; viewId = " + this.f45028f);
+        d.b.g0.a.c0.c.b("SwanAppTouchListener", "params is null, slaveId = " + this.f45028e + " ; viewId = " + this.f45029f);
     }
 
     public final boolean g(c cVar) {
@@ -147,21 +147,21 @@ public class b implements View.OnTouchListener {
 
     public final void h(g gVar) {
         if (m) {
-            Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.f45068b);
+            Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.f45069b);
         }
-        if (!this.f45030h) {
-            f.V().z(this.f45027e, gVar);
+        if (!this.f45031h) {
+            f.V().z(this.f45028e, gVar);
         } else {
             f.V().N(gVar);
         }
     }
 
     public final void i() {
-        this.f45030h = !f() && TextUtils.equals("canvas", this.f45029g);
+        this.f45031h = !f() && TextUtils.equals("canvas", this.f45030g);
     }
 
     public final void j() {
-        AbsoluteLayout m2 = k0.m(this.f45027e);
+        AbsoluteLayout m2 = k0.m(this.f45028e);
         if (m2 == null) {
             return;
         }

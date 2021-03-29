@@ -12,15 +12,15 @@ import com.tencent.open.a.f;
 public abstract class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f39221a;
+    public a f39222a;
     @SuppressLint({"NewApi"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f39222b;
+    public final WebChromeClient f39223b;
 
     public b(Context context, int i) {
         super(context, i);
-        this.f39222b = new WebChromeClient() { // from class: com.tencent.open.b.1
+        this.f39223b = new WebChromeClient() { // from class: com.tencent.open.b.1
             @Override // android.webkit.WebChromeClient
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 if (consoleMessage == null) {
@@ -49,6 +49,6 @@ public abstract class b extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f39221a = new a();
+        this.f39222a = new a();
     }
 }

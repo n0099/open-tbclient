@@ -5,23 +5,23 @@ import d.b.i0.c3.n0.f;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51181a;
+    public int f51182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51182b;
+    public String f51183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f.c f51183c;
+    public f.c f51184c;
 
     /* loaded from: classes3.dex */
     public static class a extends c {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51184b;
+        public String f51185b;
 
         public a(boolean z, String str) {
             super(z);
-            this.f51184b = str;
+            this.f51185b = str;
         }
     }
 
@@ -29,11 +29,11 @@ public class j {
     public static class b extends c {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51185b;
+        public String f51186b;
 
         public b(boolean z, String str) {
             super(z);
-            this.f51185b = str;
+            this.f51186b = str;
         }
     }
 
@@ -41,16 +41,16 @@ public class j {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f51186a;
+        public boolean f51187a;
 
         public c(boolean z) {
-            this.f51186a = z;
+            this.f51187a = z;
         }
     }
 
     public j(int i, String str) {
-        this.f51181a = i;
-        this.f51182b = str;
+        this.f51182a = i;
+        this.f51183b = str;
     }
 
     public static j a(String str) {
@@ -70,18 +70,18 @@ public class j {
     }
 
     public String e() {
-        return this.f51182b;
+        return this.f51183b;
     }
 
     public f.c f() {
-        return this.f51183c;
+        return this.f51184c;
     }
 
     public int g() {
-        return this.f51181a;
+        return this.f51182a;
     }
 
     public void h(f.c cVar) {
-        this.f51183c = cVar;
+        this.f51184c = cVar;
     }
 }

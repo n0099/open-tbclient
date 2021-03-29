@@ -9,7 +9,7 @@ import com.baidu.wallet.core.Domains;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import d.b.g0.a.i2.i0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static void a(Context context, String str) {
         if (context == null) {

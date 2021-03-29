@@ -93,12 +93,12 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             T t;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = k.this.o) == 0 || ((d.b.i0.x.e0.j) t).f62196e == null || ((d.b.i0.x.e0.j) t).f62196e.w1() == null || k.this.z == null || !((String) customResponsedMessage.getData()).equals(((d.b.i0.x.e0.j) k.this.o).f62196e.w1())) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = k.this.o) == 0 || ((d.b.i0.x.e0.j) t).f62197e == null || ((d.b.i0.x.e0.j) t).f62197e.w1() == null || k.this.z == null || !((String) customResponsedMessage.getData()).equals(((d.b.i0.x.e0.j) k.this.o).f62197e.w1())) {
                 return;
             }
             k kVar = k.this;
             TextView textView = kVar.z;
-            String o0 = ((d.b.i0.x.e0.j) kVar.o).f62196e.o0();
+            String o0 = ((d.b.i0.x.e0.j) kVar.o).f62197e.o0();
             int i = R.color.CAM_X0109;
             m.l(textView, o0, i, i);
         }
@@ -193,7 +193,7 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
 
     public final void S(String str, String str2) {
         UrlManager urlManager = UrlManager.getInstance();
-        TbPageContext<?> tbPageContext = this.f62180f;
+        TbPageContext<?> tbPageContext = this.f62181f;
         urlManager.dealOneLink(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
     }
 
@@ -205,8 +205,8 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
         if (t == 0 || ((d.b.i0.x.e0.j) t).n() == null || ((d.b.i0.x.e0.j) this.o).n().q1() == null) {
             return;
         }
-        m.a(((d.b.i0.x.e0.j) this.o).f62196e.o0());
-        m.l(this.z, ((d.b.i0.x.e0.j) this.o).f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        m.a(((d.b.i0.x.e0.j) this.o).f62197e.o0());
+        m.l(this.z, ((d.b.i0.x.e0.j) this.o).f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
         alaLiveInfoCoreData.fillWithInfoData(((d.b.i0.x.e0.j) this.o).n().q1());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.m.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY, "", false, "")));
@@ -245,23 +245,23 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
             this.y.setUserAfterClickListener(this.M);
             ((d.b.i0.x.e0.j) this.o).n().U2();
             this.z.setText(new SpannableStringBuilder(((d.b.i0.x.e0.j) this.o).n().l1()));
-            if (((d.b.i0.x.e0.j) this.o).f62196e.q1().audience_count > 0) {
+            if (((d.b.i0.x.e0.j) this.o).f62197e.q1().audience_count > 0) {
                 this.G.setVisibility(0);
                 this.D.setVisibility(0);
-                this.D.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d.b.i0.x.e0.j) this.o).f62196e.q1().audience_count)));
+                this.D.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d.b.i0.x.e0.j) this.o).f62197e.q1().audience_count)));
             } else {
                 this.G.setVisibility(8);
                 this.D.setVisibility(8);
             }
             this.E.setVisibility(8);
-            if (((d.b.i0.x.e0.j) this.o).f62196e.q1().openRecomReason == 1) {
-                String str = ((d.b.i0.x.e0.j) this.o).f62196e.q1().recomReason;
+            if (((d.b.i0.x.e0.j) this.o).f62197e.q1().openRecomReason == 1) {
+                String str = ((d.b.i0.x.e0.j) this.o).f62197e.q1().recomReason;
                 if (!StringUtils.isNull(str)) {
                     this.E.setVisibility(0);
                     this.E.setText(str);
                 } else {
-                    String C0 = ((d.b.i0.x.e0.j) this.o).f62196e.C0();
-                    String I0 = ((d.b.i0.x.e0.j) this.o).f62196e.I0();
+                    String C0 = ((d.b.i0.x.e0.j) this.o).f62197e.C0();
+                    String I0 = ((d.b.i0.x.e0.j) this.o).f62197e.I0();
                     if (UtilHelper.isDecimal(C0) && UtilHelper.isDecimal(I0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
                         AppPosInfo c2 = d.b.i0.r2.a0.a.e().c();
                         String str2 = c2.latitude;
@@ -273,16 +273,16 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
                     }
                 }
             }
-            if (((d.b.i0.x.e0.j) this.o).f62196e.q1() != null && !StringUtils.isNull(((d.b.i0.x.e0.j) this.o).f62196e.q1().forumUserLiveMsg)) {
+            if (((d.b.i0.x.e0.j) this.o).f62197e.q1() != null && !StringUtils.isNull(((d.b.i0.x.e0.j) this.o).f62197e.q1().forumUserLiveMsg)) {
                 this.H.setVisibility(0);
-                String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((d.b.i0.x.e0.j) this.o).f62196e.q1().forumUserLiveMsg, 10, StringHelper.STRING_MORE);
+                String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((d.b.i0.x.e0.j) this.o).f62197e.q1().forumUserLiveMsg, 10, StringHelper.STRING_MORE);
                 this.I.setText(cutChineseAndEnglishWithSuffix + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_forum_live_suffix));
             } else {
                 this.H.setVisibility(8);
             }
             F(this.w);
             o(this.m, TbadkCoreApplication.getInst().getSkinType());
-            if (m.k(((d.b.i0.x.e0.j) this.o).f62196e.o0())) {
+            if (m.k(((d.b.i0.x.e0.j) this.o).f62197e.o0())) {
                 SkinManager.setViewTextColor(this.z, R.color.CAM_X0109, 1);
             } else {
                 SkinManager.setViewTextColor(this.z, R.color.CAM_X0105, 1);
@@ -326,7 +326,7 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             y(tbPageContext, i);
             d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.x);
             a2.h(R.string.J_X06);
@@ -347,7 +347,7 @@ public class k extends d.b.i0.x.a<d.b.i0.x.e0.j> implements d.b.i0.m.e {
             WebPManager.setPureDrawable(this.J, R.drawable.icon_ala_watching, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.y.onChangeSkinType(l(), TbadkCoreApplication.getInst().getSkinType());
             this.B.setPlaceHolder(3);
-            this.f62179e = i;
+            this.f62180e = i;
         }
     }
 

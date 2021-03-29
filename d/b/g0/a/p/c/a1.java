@@ -1,7 +1,7 @@
 package d.b.g0.a.p.c;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a1 {
     d.b.g0.a.p.d.e a(Context context);
 

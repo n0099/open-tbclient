@@ -3,17 +3,17 @@ package d.b.i0.c3.n0;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f53518a = false;
+    public static boolean f53519a = false;
 
     public static void a() {
-        f53518a = false;
+        f53519a = false;
     }
 
     public static void b() {
-        f53518a = true;
+        f53519a = true;
     }
 
     public static boolean c() {
-        return f53518a;
+        return f53519a;
     }
 }

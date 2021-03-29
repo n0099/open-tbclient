@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBOperationFactory {
     public static final String TAG = "DBOperationFactory";
     public static long sAppid = -1;
@@ -54,7 +54,8 @@ public class DBOperationFactory {
         }
         long uk = AccountManagerImpl.getInstance(context).getUK();
         long appid = AccountManagerImpl.getInstance(context).getAppid();
-        if (0 != uk && -1 != appid) {
+        int i = (0L > uk ? 1 : (0L == uk ? 0 : -1));
+        if (i != 0 && -1 != appid) {
             long j = sAppid;
             if (j == -1 || j == appid) {
                 long j2 = sUk;
@@ -70,7 +71,7 @@ public class DBOperationFactory {
             return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
         }
         LogUtils.d(TAG, "UK OR appid Not initialize!");
-        if (0 == uk) {
+        if (i == 0) {
             LogUtils.d(TAG, "mUid Not initialize!");
         }
         if (-1 == appid) {

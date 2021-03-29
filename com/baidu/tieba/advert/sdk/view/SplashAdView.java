@@ -41,7 +41,7 @@ public class SplashAdView extends BCAdView {
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             d.b.i0.r.a.i.a.b();
-            SplashAdView.this.q.f59666d = "";
+            SplashAdView.this.q.f59667d = "";
             d.b.i0.r.a.i.a.k(SplashAdView.this.q);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
             return false;
@@ -74,11 +74,11 @@ public class SplashAdView extends BCAdView {
                 d.b.i0.r2.b0.e.b().d(h.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
             }
             SplashAdView splashAdView = SplashAdView.this;
-            if (splashAdView.f14656e == null || TextUtils.isEmpty(splashAdView.q.f59667e)) {
+            if (splashAdView.f14657e == null || TextUtils.isEmpty(splashAdView.q.f59668e)) {
                 return;
             }
             SplashAdView splashAdView2 = SplashAdView.this;
-            splashAdView2.f14656e.b(splashAdView2.q.f59667e);
+            splashAdView2.f14657e.b(splashAdView2.q.f59668e);
         }
     }
 
@@ -97,11 +97,11 @@ public class SplashAdView extends BCAdView {
                 d.b.i0.r2.b0.e.b().d(h.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
             }
             SplashAdView splashAdView = SplashAdView.this;
-            if (splashAdView.f14656e == null || TextUtils.isEmpty(splashAdView.q.f59664b)) {
+            if (splashAdView.f14657e == null || TextUtils.isEmpty(splashAdView.q.f59665b)) {
                 return;
             }
             SplashAdView splashAdView2 = SplashAdView.this;
-            splashAdView2.f14656e.b(splashAdView2.q.f59664b);
+            splashAdView2.f14657e.b(splashAdView2.q.f59665b);
         }
     }
 
@@ -125,7 +125,7 @@ public class SplashAdView extends BCAdView {
         if (b2.c()) {
             if (this.q.d()) {
                 this.r = true;
-                String str2 = this.q.f59666d;
+                String str2 = this.q.f59667d;
                 File file = new File(str2);
                 if (file.exists()) {
                     d.b.i0.r.a.i.a.c(file);
@@ -148,26 +148,26 @@ public class SplashAdView extends BCAdView {
                         e2.printStackTrace();
                         d.b.i0.r.a.i.a.b();
                         d.b.i0.r.a.e.b bVar = this.q;
-                        bVar.f59666d = "";
+                        bVar.f59667d = "";
                         d.b.i0.r.a.i.a.k(bVar);
                         return false;
                     }
                 }
                 d.b.i0.r.a.i.a.b();
                 d.b.i0.r.a.e.b bVar2 = this.q;
-                bVar2.f59666d = "";
+                bVar2.f59667d = "";
                 d.b.i0.r.a.i.a.k(bVar2);
                 return false;
-            } else if (!TextUtils.isEmpty(this.q.f59663a)) {
-                if (this.f14658g != null) {
-                    this.f14658g = null;
+            } else if (!TextUtils.isEmpty(this.q.f59664a)) {
+                if (this.f14659g != null) {
+                    this.f14659g = null;
                 }
                 TbImageView tbImageView = new TbImageView(this.i);
-                this.f14658g = tbImageView;
+                this.f14659g = tbImageView;
                 tbImageView.setOnClickListener(new e());
-                this.f14658g.W(this.j.adImgUrl, 10, false);
-                this.f14658g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                addView(this.f14658g, new RelativeLayout.LayoutParams(this.n, this.m));
+                this.f14659g.W(this.j.adImgUrl, 10, false);
+                this.f14659g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                addView(this.f14659g, new RelativeLayout.LayoutParams(this.n, this.m));
                 AdInfo adInfo2 = this.j;
                 d.b.i0.r2.b0.e.b().d(h.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
                 return true;

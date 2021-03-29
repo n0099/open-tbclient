@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatUserManagerImpl {
     public static final String TAG = "ChatUserManagerImpl";
     public static Context mContext;

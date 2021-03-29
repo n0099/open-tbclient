@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import d.b.h0.c.f;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements d.b.h0.c.e {
     @Override // d.b.h0.c.e
     public String a() {
@@ -18,10 +18,10 @@ public class c implements d.b.h0.c.e {
             return;
         }
         UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-        aVar.f13692a = fVar.f50059a;
-        aVar.f13693b = fVar.f50061c;
-        aVar.f13695d = true;
-        aVar.f13694c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
+        aVar.f13693a = fVar.f50060a;
+        aVar.f13694b = fVar.f50062c;
+        aVar.f13696d = true;
+        aVar.f13695c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
         MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
     }
 }

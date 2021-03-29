@@ -6,10 +6,10 @@ import java.io.IOException;
 public class e extends ByteArrayOutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f65684e;
+    public final d f65685e;
 
     public e(d dVar, int i) {
-        this.f65684e = dVar;
+        this.f65685e = dVar;
         ((ByteArrayOutputStream) this).buf = dVar.c(Math.max(i, 256));
     }
 
@@ -18,21 +18,21 @@ public class e extends ByteArrayOutputStream {
         if (i2 + i <= ((ByteArrayOutputStream) this).buf.length) {
             return;
         }
-        byte[] c2 = this.f65684e.c((i2 + i) * 2);
+        byte[] c2 = this.f65685e.c((i2 + i) * 2);
         System.arraycopy(((ByteArrayOutputStream) this).buf, 0, c2, 0, ((ByteArrayOutputStream) this).count);
-        this.f65684e.b(((ByteArrayOutputStream) this).buf);
+        this.f65685e.b(((ByteArrayOutputStream) this).buf);
         ((ByteArrayOutputStream) this).buf = c2;
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f65684e.b(((ByteArrayOutputStream) this).buf);
+        this.f65685e.b(((ByteArrayOutputStream) this).buf);
         ((ByteArrayOutputStream) this).buf = null;
         super.close();
     }
 
     public void finalize() {
-        this.f65684e.b(((ByteArrayOutputStream) this).buf);
+        this.f65685e.b(((ByteArrayOutputStream) this).buf);
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream

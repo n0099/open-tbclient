@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WebGLImage {
     public static final boolean DEBUG = false;
     public static final String TAG = "WebGLImage";
@@ -397,7 +397,7 @@ public class WebGLImage {
         return this.mWidth;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CanvasResult {
         @V8JavascriptField
         public String errMsg;

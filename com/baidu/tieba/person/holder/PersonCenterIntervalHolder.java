@@ -7,14 +7,14 @@ import com.baidu.tieba.R;
 public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20213a;
+    public int f20214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20214b;
+    public View f20215b;
 
     public PersonCenterIntervalHolder(View view) {
         super(view);
-        this.f20213a = -1;
-        this.f20214b = view.findViewById(R.id.person_center_interval_item);
+        this.f20214a = -1;
+        this.f20215b = view.findViewById(R.id.person_center_interval_item);
     }
 }

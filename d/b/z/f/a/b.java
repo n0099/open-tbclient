@@ -13,14 +13,14 @@ import d.b.z.h.i;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f64887a = new b();
+    public static b f64888a = new b();
 
     public static b h() {
-        return f64887a;
+        return f64888a;
     }
 
     public void a(Bundle bundle) {

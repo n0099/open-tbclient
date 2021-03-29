@@ -18,44 +18,44 @@ import java.util.ArrayList;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f53545a;
+    public long f53546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53546b;
+    public String f53547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53547c;
+    public String f53548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f53548d;
+    public final int f53549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53549e;
+    public int f53550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f53550f;
+    public e f53551f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53551g;
+    public boolean f53552g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.c3.o0.d.f.a f53552h;
+    public d.b.i0.c3.o0.d.f.a f53553h;
     public g i;
 
     public d(String str, int i, g gVar) {
-        this.f53547c = str;
-        this.f53548d = i;
+        this.f53548c = str;
+        this.f53549d = i;
         this.i = gVar;
         File file = new File(str);
         if (file.exists()) {
-            this.f53545a = file.length();
-            this.f53546b = q.b(FileHelper.GetStreamFromFile(file));
-            long j = this.f53545a;
-            int i2 = this.f53548d;
+            this.f53546a = file.length();
+            this.f53547b = q.b(FileHelper.GetStreamFromFile(file));
+            long j = this.f53546a;
+            int i2 = this.f53549d;
             if (j % i2 == 0) {
-                this.f53549e = (int) (j / i2);
+                this.f53550e = (int) (j / i2);
             } else {
-                this.f53549e = ((int) (j / i2)) + 1;
+                this.f53550e = ((int) (j / i2)) + 1;
             }
         }
     }
@@ -63,70 +63,70 @@ public class d implements b {
     @Override // d.b.i0.c3.o0.d.b
     public VideoFinishResult a(String str, int i) {
         a c2;
-        if (StringUtils.isNull(str) || this.f53545a <= 0 || StringUtils.isNull(this.f53546b) || i <= 0 || this.f53551g) {
+        if (StringUtils.isNull(str) || this.f53546a <= 0 || StringUtils.isNull(this.f53547b) || i <= 0 || this.f53552g) {
             return null;
         }
         d(10);
         long j = i;
-        a c3 = c(this.f53549e, j, false, null);
-        if (c3 != null && !this.f53551g) {
-            if (c3.f53537e != 0) {
+        a c3 = c(this.f53550e, j, false, null);
+        if (c3 != null && !this.f53552g) {
+            if (c3.f53538e != 0) {
                 VideoFinishResult videoFinishResult = new VideoFinishResult();
-                videoFinishResult.setErrorNo(c3.f53537e);
-                videoFinishResult.setUserMessage(c3.f53536d);
-                e(302, c3.f53537e, c3.f53536d);
+                videoFinishResult.setErrorNo(c3.f53538e);
+                videoFinishResult.setUserMessage(c3.f53537d);
+                e(302, c3.f53538e, c3.f53537d);
                 return videoFinishResult;
             }
             d(30);
-            if (!StringUtils.isNull(c3.f53535c)) {
+            if (!StringUtils.isNull(c3.f53536c)) {
                 VideoFinishResult videoFinishResult2 = new VideoFinishResult();
-                videoFinishResult2.setVideoMd5(this.f53546b);
-                videoFinishResult2.setVideoUrl(c3.f53535c);
+                videoFinishResult2.setVideoMd5(this.f53547b);
+                videoFinishResult2.setVideoUrl(c3.f53536c);
                 f();
                 return videoFinishResult2;
-            } else if (this.f53551g) {
+            } else if (this.f53552g) {
                 return null;
             } else {
-                ArrayList<Integer> arrayList = c3.f53533a;
+                ArrayList<Integer> arrayList = c3.f53534a;
                 if (ListUtils.isEmpty(arrayList)) {
                     arrayList = new ArrayList<>();
                     int i2 = 0;
-                    while (i2 < this.f53549e) {
+                    while (i2 < this.f53550e) {
                         i2++;
                         arrayList.add(Integer.valueOf(i2));
                     }
                 }
-                String str2 = c3.f53534b;
+                String str2 = c3.f53535b;
                 d.b.i0.c3.o0.d.f.d g2 = g(arrayList, str2, i);
-                if (g2 != null && !this.f53551g) {
-                    if (g2.f53568b != 0) {
+                if (g2 != null && !this.f53552g) {
+                    if (g2.f53569b != 0) {
                         VideoFinishResult videoFinishResult3 = new VideoFinishResult();
-                        videoFinishResult3.setErrorNo(g2.f53568b);
-                        videoFinishResult3.setUserMessage(g2.f53569c);
-                        e(303, g2.f53568b, g2.f53569c);
+                        videoFinishResult3.setErrorNo(g2.f53569b);
+                        videoFinishResult3.setUserMessage(g2.f53570c);
+                        e(303, g2.f53569b, g2.f53570c);
                         return videoFinishResult3;
                     }
                     d(85);
-                    if (!StringUtils.isNull(g2.f53567a)) {
+                    if (!StringUtils.isNull(g2.f53568a)) {
                         VideoFinishResult videoFinishResult4 = new VideoFinishResult();
-                        videoFinishResult4.setVideoUrl(g2.f53567a);
-                        videoFinishResult4.setVideoMd5(this.f53546b);
+                        videoFinishResult4.setVideoUrl(g2.f53568a);
+                        videoFinishResult4.setVideoMd5(this.f53547b);
                         f();
                         return videoFinishResult4;
-                    } else if (this.f53551g || (c2 = c(this.f53549e, j, true, str2)) == null) {
+                    } else if (this.f53552g || (c2 = c(this.f53550e, j, true, str2)) == null) {
                         return null;
                     } else {
                         VideoFinishResult videoFinishResult5 = new VideoFinishResult();
-                        int i3 = c2.f53537e;
+                        int i3 = c2.f53538e;
                         if (i3 == 0) {
-                            videoFinishResult5.setVideoUrl(c2.f53535c);
-                            videoFinishResult5.setVideoMd5(this.f53546b);
+                            videoFinishResult5.setVideoUrl(c2.f53536c);
+                            videoFinishResult5.setVideoMd5(this.f53547b);
                             f();
                         } else {
                             videoFinishResult5.setErrorNo(i3);
-                            videoFinishResult5.setUserMessage(c2.f53536d);
-                            e(304, c2.f53537e, c2.f53536d);
-                            TiebaStatic.log(new StatisticItem("c12024").param("params", c2.f53536d));
+                            videoFinishResult5.setUserMessage(c2.f53537d);
+                            e(304, c2.f53538e, c2.f53537d);
+                            TiebaStatic.log(new StatisticItem("c12024").param("params", c2.f53537d));
                         }
                         d(100);
                         return videoFinishResult5;
@@ -139,16 +139,16 @@ public class d implements b {
 
     @Override // d.b.i0.c3.o0.d.b
     public void b(e eVar) {
-        this.f53550f = eVar;
+        this.f53551f = eVar;
     }
 
     public final a c(int i, long j, boolean z, String str) {
         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
         netWork.addPostData("chunk_sum", String.valueOf(i));
-        netWork.addPostData("video_size", String.valueOf(this.f53545a));
-        netWork.addPostData("chunk_size", String.valueOf(this.f53548d));
+        netWork.addPostData("video_size", String.valueOf(this.f53546a));
+        netWork.addPostData("chunk_size", String.valueOf(this.f53549d));
         netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
-        netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f53546b);
+        netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f53547b);
         netWork.addPostData("video_len", String.valueOf(j));
         netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
         if (!StringUtils.isNull(str)) {
@@ -165,25 +165,25 @@ public class d implements b {
         }
         a aVar2 = new a();
         if (netWork.getNetContext().getResponse().isNetSuccess()) {
-            aVar2.f53537e = netWork.getNetContext().getResponse().mServerErrorCode;
+            aVar2.f53538e = netWork.getNetContext().getResponse().mServerErrorCode;
         } else {
-            aVar2.f53537e = netWork.getNetContext().getResponse().mNetErrorCode;
+            aVar2.f53538e = netWork.getNetContext().getResponse().mNetErrorCode;
         }
-        aVar2.f53536d = netWork.getNetContext().getResponse().mErrorString;
+        aVar2.f53537d = netWork.getNetContext().getResponse().mErrorString;
         return aVar2;
     }
 
     @Override // d.b.i0.c3.o0.d.b
     public void cancel() {
-        this.f53551g = true;
-        d.b.i0.c3.o0.d.f.a aVar = this.f53552h;
+        this.f53552g = true;
+        d.b.i0.c3.o0.d.f.a aVar = this.f53553h;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public final void d(int i) {
-        e eVar = this.f53550f;
+        e eVar = this.f53551f;
         if (eVar != null) {
             eVar.onProgressUpdate(i / 100.0f);
         }
@@ -208,13 +208,13 @@ public class d implements b {
             return null;
         }
         if (arrayList.size() > 3) {
-            this.f53552h = new d.b.i0.c3.o0.d.f.b(this.f53547c, this.f53548d, this.f53549e, this.f53545a, this.f53546b);
+            this.f53553h = new d.b.i0.c3.o0.d.f.b(this.f53548c, this.f53549d, this.f53550e, this.f53546a, this.f53547b);
         } else {
-            this.f53552h = new d.b.i0.c3.o0.d.f.c(this.f53547c, this.f53548d, this.f53549e, this.f53545a, this.f53546b);
+            this.f53553h = new d.b.i0.c3.o0.d.f.c(this.f53548c, this.f53549d, this.f53550e, this.f53546a, this.f53547b);
         }
-        this.f53552h.f(this.f53550f);
-        d.b.i0.c3.o0.d.f.d g2 = this.f53552h.g(arrayList, str, i);
-        this.f53552h = null;
+        this.f53553h.f(this.f53551f);
+        d.b.i0.c3.o0.d.f.d g2 = this.f53553h.g(arrayList, str, i);
+        this.f53553h = null;
         return g2;
     }
 }

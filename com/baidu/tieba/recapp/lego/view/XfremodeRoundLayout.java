@@ -15,13 +15,13 @@ import java.util.Arrays;
 public class XfremodeRoundLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Shape f20811e;
+    public Shape f20812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f20812f;
+    public Paint f20813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f20813g;
+    public float[] f20814g;
 
     public XfremodeRoundLayout(Context context) {
         this(context, null);
@@ -30,9 +30,9 @@ public class XfremodeRoundLayout extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        Shape shape = this.f20811e;
+        Shape shape = this.f20812e;
         if (shape != null) {
-            shape.draw(canvas, this.f20812f);
+            shape.draw(canvas, this.f20813f);
         }
     }
 
@@ -40,13 +40,13 @@ public class XfremodeRoundLayout extends RelativeLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.f20811e == null) {
+            if (this.f20812e == null) {
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                this.f20811e = new RoundRectShape(fArr, rectF, this.f20813g);
+                this.f20812e = new RoundRectShape(fArr, rectF, this.f20814g);
             }
-            this.f20811e.resize(getWidth(), getHeight());
+            this.f20812e.resize(getWidth(), getHeight());
         }
     }
 
@@ -54,7 +54,7 @@ public class XfremodeRoundLayout extends RelativeLayout {
         if (fArr == null || fArr.length != 8) {
             return;
         }
-        this.f20813g = Arrays.copyOf(fArr, fArr.length);
+        this.f20814g = Arrays.copyOf(fArr, fArr.length);
     }
 
     public XfremodeRoundLayout(Context context, AttributeSet attributeSet) {
@@ -65,10 +65,10 @@ public class XfremodeRoundLayout extends RelativeLayout {
         super(context, attributeSet, i);
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f20812f = paint;
+        this.f20813f = paint;
         paint.setAntiAlias(true);
-        this.f20812f.setColor(-7829368);
-        this.f20812f.setStyle(Paint.Style.FILL);
-        this.f20812f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f20813f.setColor(-7829368);
+        this.f20813f.setStyle(Paint.Style.FILL);
+        this.f20813f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

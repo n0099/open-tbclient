@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f54162a;
+    public List<b> f54163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f54163b;
+    public List<b> f54164b;
 
     public void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
@@ -24,20 +24,20 @@ public class a {
         }
         JSONArray optJSONArray = optJSONObject.optJSONArray(ProgressInfo.JSON_KEY_CURRENT);
         if (optJSONArray != null) {
-            this.f54162a = new ArrayList();
+            this.f54163a = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.d(optJSONArray.optJSONObject(i));
-                this.f54162a.add(bVar);
+                this.f54163a.add(bVar);
             }
         }
         JSONArray optJSONArray2 = optJSONObject.optJSONArray(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
         if (optJSONArray != null) {
-            this.f54163b = new ArrayList();
+            this.f54164b = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 b bVar2 = new b();
                 bVar2.d(optJSONArray2.optJSONObject(i2));
-                this.f54163b.add(bVar2);
+                this.f54164b.add(bVar2);
             }
         }
     }

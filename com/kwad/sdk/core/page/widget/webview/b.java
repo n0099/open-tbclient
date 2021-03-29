@@ -22,35 +22,35 @@ import org.json.JSONObject;
 public class b extends KSApiWebView {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f33973b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
+    public static final String[] f33974b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f33974a;
+    public Boolean f33975a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, Object> f33975c;
+    public final HashMap<String, Object> f33976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33976d;
+    public String f33977d;
 
     public b(Context context) {
         super(context);
-        this.f33975c = new HashMap<>();
-        this.f33976d = null;
+        this.f33976c = new HashMap<>();
+        this.f33977d = null;
         d();
     }
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f33975c = new HashMap<>();
-        this.f33976d = null;
+        this.f33976c = new HashMap<>();
+        this.f33977d = null;
         d();
     }
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f33975c = new HashMap<>();
-        this.f33976d = null;
+        this.f33976c = new HashMap<>();
+        this.f33977d = null;
         d();
     }
 
@@ -61,10 +61,10 @@ public class b extends KSApiWebView {
 
     private void a(ValueCallback<String> valueCallback) {
         try {
-            if (TextUtils.isEmpty(this.f33976d)) {
+            if (TextUtils.isEmpty(this.f33977d)) {
                 return;
             }
-            as.a(this, this.f33976d, valueCallback);
+            as.a(this, this.f33977d, valueCallback);
         } catch (Exception unused) {
         }
     }
@@ -166,7 +166,7 @@ public class b extends KSApiWebView {
     private boolean a(JsPromptResult jsPromptResult, String str, String str2, Object[] objArr) {
         Object invoke;
         boolean z;
-        Object obj = this.f33975c.get(str);
+        Object obj = this.f33976c.get(str);
         boolean z2 = false;
         if (obj == null) {
             jsPromptResult.cancel();
@@ -200,7 +200,7 @@ public class b extends KSApiWebView {
     }
 
     private boolean a(String str) {
-        for (String str2 : f33973b) {
+        for (String str2 : f33974b) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -231,13 +231,13 @@ public class b extends KSApiWebView {
     }
 
     private String g() {
-        if (this.f33975c.size() == 0) {
-            this.f33976d = null;
+        if (this.f33976c.size() == 0) {
+            this.f33977d = null;
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("javascript:(function JsAddJavascriptInterface_(){");
-        for (Map.Entry<String, Object> entry : this.f33975c.entrySet()) {
+        for (Map.Entry<String, Object> entry : this.f33976c.entrySet()) {
             try {
                 a(entry.getKey(), entry.getValue(), sb);
             } catch (Exception e2) {
@@ -259,8 +259,8 @@ public class b extends KSApiWebView {
     }
 
     public void a() {
-        if (Build.VERSION.SDK_INT == 17 && this.f33974a == null && f()) {
-            this.f33974a = Boolean.TRUE;
+        if (Build.VERSION.SDK_INT == 17 && this.f33975a == null && f()) {
+            this.f33975a = Boolean.TRUE;
             setAccessibilityEnabled(false);
         }
     }
@@ -272,11 +272,11 @@ public class b extends KSApiWebView {
     }
 
     public void a(WebView webView, ValueCallback<String> valueCallback) {
-        if (!TextUtils.isEmpty(this.f33976d)) {
+        if (!TextUtils.isEmpty(this.f33977d)) {
             a(valueCallback);
             return;
         }
-        this.f33976d = g();
+        this.f33977d = g();
         a(valueCallback);
     }
 
@@ -284,7 +284,7 @@ public class b extends KSApiWebView {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f33975c.put(str, obj);
+        this.f33976c.put(str, obj);
         a(this, valueCallback);
     }
 
@@ -320,7 +320,7 @@ public class b extends KSApiWebView {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f33975c.put(str, obj);
+        this.f33976c.put(str, obj);
         a(this, (ValueCallback<String>) null);
     }
 

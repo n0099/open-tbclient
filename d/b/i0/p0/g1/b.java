@@ -14,28 +14,28 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57530a;
+    public TbPageContext f57531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57531b;
+    public String f57532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57532c;
+    public String f57533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57533d;
+    public String f57534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57534e;
+    public String f57535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57535f;
+    public String f57536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57536g;
+    public String f57537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57537h;
+    public String f57538h;
     public String i;
     public String j;
     public String k;
@@ -50,7 +50,7 @@ public class b {
     public String t;
 
     public b(TbPageContext tbPageContext) {
-        this.f57530a = tbPageContext;
+        this.f57531a = tbPageContext;
     }
 
     public final SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
@@ -197,13 +197,13 @@ public class b {
             return null;
         }
         if (str.equals("bazhu")) {
-            return a(this.f57535f, this.f57536g, this.f57537h, this.i, this.j, this.k, this.l);
+            return a(this.f57536f, this.f57537g, this.f57538h, this.i, this.j, this.k, this.l);
         }
         if (this.m.equals("active-a")) {
-            return b(this.f57535f, this.f57536g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
+            return b(this.f57536f, this.f57537g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
         }
         if (this.m.equals("active-b")) {
-            return c(this.f57535f, this.f57536g, this.n, this.s, this.t, this.r);
+            return c(this.f57536f, this.f57537g, this.n, this.s, this.t, this.r);
         }
         return null;
     }
@@ -218,32 +218,32 @@ public class b {
             return null;
         }
         if (str.equals("bazhu")) {
-            return g(this.f57535f, this.f57536g, this.f57537h, this.i, this.j, this.k, this.l);
+            return g(this.f57536f, this.f57537g, this.f57538h, this.i, this.j, this.k, this.l);
         }
         if (this.m.equals("active-a")) {
-            return e(this.f57535f, this.f57536g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
+            return e(this.f57536f, this.f57537g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
         }
         if (this.m.equals("active-b")) {
-            return f(this.f57535f, this.f57536g, this.n, this.s, this.t, this.r);
+            return f(this.f57536f, this.f57537g, this.n, this.s, this.t, this.r);
         }
         return null;
     }
 
     public void k() {
         Uri parse;
-        if (this.f57530a.getPageActivity() == null || this.f57530a.getPageActivity().getIntent() == null) {
+        if (this.f57531a.getPageActivity() == null || this.f57531a.getPageActivity().getIntent() == null) {
             return;
         }
-        this.f57531b = this.f57530a.getPageActivity().getIntent().getStringExtra("key_url");
-        this.f57532c = this.f57530a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
-        if (TextUtils.isEmpty(this.f57531b) || (parse = Uri.parse(this.f57531b)) == null) {
+        this.f57532b = this.f57531a.getPageActivity().getIntent().getStringExtra("key_url");
+        this.f57533c = this.f57531a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
+        if (TextUtils.isEmpty(this.f57532b) || (parse = Uri.parse(this.f57532b)) == null) {
             return;
         }
-        this.f57533d = parse.getQueryParameter("nickname");
-        this.f57534e = parse.getQueryParameter("fid");
-        this.f57535f = parse.getQueryParameter("fname");
-        this.f57536g = parse.getQueryParameter("subcribe-num");
-        this.f57537h = parse.getQueryParameter("bazhu-days");
+        this.f57534d = parse.getQueryParameter("nickname");
+        this.f57535e = parse.getQueryParameter("fid");
+        this.f57536f = parse.getQueryParameter("fname");
+        this.f57537g = parse.getQueryParameter("subcribe-num");
+        this.f57538h = parse.getQueryParameter("bazhu-days");
         this.i = parse.getQueryParameter("goods-num");
         this.j = parse.getQueryParameter("tid-num");
         String queryParameter = parse.getQueryParameter("most-hot-name");

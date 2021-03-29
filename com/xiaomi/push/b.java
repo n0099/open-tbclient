@@ -8,7 +8,7 @@ import kotlin.jvm.internal.ByteCompanionObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40259a;
+    public int f40260a;
 
     /* renamed from: a  reason: collision with other field name */
     public final InputStream f142a;
@@ -17,44 +17,44 @@ public final class b {
     public final byte[] f143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40260b;
+    public int f40261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40261c;
+    public int f40262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40262d;
+    public int f40263d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40263e;
+    public int f40264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40264f;
+    public int f40265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40265g;
+    public int f40266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40266h;
+    public int f40267h;
     public int i;
 
     public b(InputStream inputStream) {
-        this.f40264f = Integer.MAX_VALUE;
-        this.f40266h = 64;
+        this.f40265f = Integer.MAX_VALUE;
+        this.f40267h = 64;
         this.i = CodedInputStream.DEFAULT_SIZE_LIMIT;
         this.f143a = new byte[4096];
-        this.f40259a = 0;
-        this.f40261c = 0;
+        this.f40260a = 0;
+        this.f40262c = 0;
         this.f142a = inputStream;
     }
 
     public b(byte[] bArr, int i, int i2) {
-        this.f40264f = Integer.MAX_VALUE;
-        this.f40266h = 64;
+        this.f40265f = Integer.MAX_VALUE;
+        this.f40267h = 64;
         this.i = CodedInputStream.DEFAULT_SIZE_LIMIT;
         this.f143a = bArr;
-        this.f40259a = i2 + i;
-        this.f40261c = i;
+        this.f40260a = i2 + i;
+        this.f40262c = i;
         this.f142a = null;
     }
 
@@ -67,32 +67,32 @@ public final class b {
     }
 
     private boolean a(boolean z) {
-        int i = this.f40261c;
-        int i2 = this.f40259a;
+        int i = this.f40262c;
+        int i2 = this.f40260a;
         if (i >= i2) {
-            int i3 = this.f40263e;
-            if (i3 + i2 == this.f40264f) {
+            int i3 = this.f40264e;
+            if (i3 + i2 == this.f40265f) {
                 if (z) {
                     throw d.a();
                 }
                 return false;
             }
-            this.f40263e = i3 + i2;
-            this.f40261c = 0;
+            this.f40264e = i3 + i2;
+            this.f40262c = 0;
             InputStream inputStream = this.f142a;
             int read = inputStream == null ? -1 : inputStream.read(this.f143a);
-            this.f40259a = read;
+            this.f40260a = read;
             if (read == 0 || read < -1) {
-                throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.f40259a + "\nThe InputStream implementation is buggy.");
+                throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.f40260a + "\nThe InputStream implementation is buggy.");
             } else if (read == -1) {
-                this.f40259a = 0;
+                this.f40260a = 0;
                 if (z) {
                     throw d.a();
                 }
                 return false;
             } else {
                 b();
-                int i4 = this.f40263e + this.f40259a + this.f40260b;
+                int i4 = this.f40264e + this.f40260a + this.f40261b;
                 if (i4 > this.i || i4 < 0) {
                     throw d.h();
                 }
@@ -103,37 +103,37 @@ public final class b {
     }
 
     private void b() {
-        int i = this.f40259a + this.f40260b;
-        this.f40259a = i;
-        int i2 = this.f40263e + i;
-        int i3 = this.f40264f;
+        int i = this.f40260a + this.f40261b;
+        this.f40260a = i;
+        int i2 = this.f40264e + i;
+        int i3 = this.f40265f;
         if (i2 <= i3) {
-            this.f40260b = 0;
+            this.f40261b = 0;
             return;
         }
         int i4 = i2 - i3;
-        this.f40260b = i4;
-        this.f40259a = i - i4;
+        this.f40261b = i4;
+        this.f40260a = i - i4;
     }
 
     public byte a() {
-        if (this.f40261c == this.f40259a) {
+        if (this.f40262c == this.f40260a) {
             a(true);
         }
         byte[] bArr = this.f143a;
-        int i = this.f40261c;
-        this.f40261c = i + 1;
+        int i = this.f40262c;
+        this.f40262c = i + 1;
         return bArr[i];
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public int m138a() {
         if (m149b()) {
-            this.f40262d = 0;
+            this.f40263d = 0;
             return 0;
         }
         int d2 = d();
-        this.f40262d = d2;
+        this.f40263d = d2;
         if (d2 != 0) {
             return d2;
         }
@@ -142,10 +142,10 @@ public final class b {
 
     public int a(int i) {
         if (i >= 0) {
-            int i2 = i + this.f40263e + this.f40261c;
-            int i3 = this.f40264f;
+            int i2 = i + this.f40264e + this.f40262c;
+            int i3 = this.f40265f;
             if (i2 <= i3) {
-                this.f40264f = i2;
+                this.f40265f = i2;
                 b();
                 return i3;
             }
@@ -162,24 +162,24 @@ public final class b {
     /* renamed from: a  reason: collision with other method in class */
     public a m140a() {
         int d2 = d();
-        int i = this.f40259a;
-        int i2 = this.f40261c;
+        int i = this.f40260a;
+        int i2 = this.f40262c;
         if (d2 > i - i2 || d2 <= 0) {
             return a.a(m146a(d2));
         }
         a a2 = a.a(this.f143a, i2, d2);
-        this.f40261c += d2;
+        this.f40262c += d2;
         return a2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m141a() {
         int d2 = d();
-        if (d2 > this.f40259a - this.f40261c || d2 <= 0) {
+        if (d2 > this.f40260a - this.f40262c || d2 <= 0) {
             return new String(m146a(d2), "UTF-8");
         }
-        String str = new String(this.f143a, this.f40261c, d2, "UTF-8");
-        this.f40261c += d2;
+        String str = new String(this.f143a, this.f40262c, d2, "UTF-8");
+        this.f40262c += d2;
         return str;
     }
 
@@ -196,21 +196,21 @@ public final class b {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m143a(int i) {
-        if (this.f40262d != i) {
+        if (this.f40263d != i) {
             throw d.e();
         }
     }
 
     public void a(e eVar) {
         int d2 = d();
-        if (this.f40265g >= this.f40266h) {
+        if (this.f40266g >= this.f40267h) {
             throw d.g();
         }
         int a2 = a(d2);
-        this.f40265g++;
+        this.f40266g++;
         eVar.a(this);
         m143a(0);
-        this.f40265g--;
+        this.f40266g--;
         b(a2);
     }
 
@@ -251,24 +251,24 @@ public final class b {
         if (i < 0) {
             throw d.b();
         }
-        int i2 = this.f40263e;
-        int i3 = this.f40261c;
+        int i2 = this.f40264e;
+        int i3 = this.f40262c;
         int i4 = i2 + i3 + i;
-        int i5 = this.f40264f;
+        int i5 = this.f40265f;
         if (i4 > i5) {
             c((i5 - i2) - i3);
             throw d.a();
         }
-        int i6 = this.f40259a;
+        int i6 = this.f40260a;
         if (i <= i6 - i3) {
             byte[] bArr = new byte[i];
             System.arraycopy(this.f143a, i3, bArr, 0, i);
-            this.f40261c += i;
+            this.f40262c += i;
             return bArr;
         } else if (i >= 4096) {
-            this.f40263e = i2 + i6;
-            this.f40261c = 0;
-            this.f40259a = 0;
+            this.f40264e = i2 + i6;
+            this.f40262c = 0;
+            this.f40260a = 0;
             int i7 = i6 - i3;
             int i8 = i - i7;
             Vector vector = new Vector();
@@ -282,7 +282,7 @@ public final class b {
                     if (read == -1) {
                         throw d.a();
                     }
-                    this.f40263e += read;
+                    this.f40264e += read;
                     i9 += read;
                 }
                 i8 -= min;
@@ -300,20 +300,20 @@ public final class b {
             byte[] bArr5 = new byte[i];
             int i11 = i6 - i3;
             System.arraycopy(this.f143a, i3, bArr5, 0, i11);
-            this.f40261c = this.f40259a;
+            this.f40262c = this.f40260a;
             while (true) {
                 a(true);
                 int i12 = i - i11;
-                int i13 = this.f40259a;
+                int i13 = this.f40260a;
                 if (i12 <= i13) {
                     System.arraycopy(this.f143a, 0, bArr5, i11, i12);
-                    this.f40261c = i12;
+                    this.f40262c = i12;
                     return bArr5;
                 }
                 System.arraycopy(this.f143a, 0, bArr5, i11, i13);
-                int i14 = this.f40259a;
+                int i14 = this.f40260a;
                 i11 += i14;
-                this.f40261c = i14;
+                this.f40262c = i14;
             }
         }
     }
@@ -329,13 +329,13 @@ public final class b {
     }
 
     public void b(int i) {
-        this.f40264f = i;
+        this.f40265f = i;
         b();
     }
 
     /* renamed from: b  reason: collision with other method in class */
     public boolean m149b() {
-        return this.f40261c == this.f40259a && !a(false);
+        return this.f40262c == this.f40260a && !a(false);
     }
 
     public int c() {
@@ -359,23 +359,23 @@ public final class b {
         if (i < 0) {
             throw d.b();
         }
-        int i2 = this.f40263e;
-        int i3 = this.f40261c;
+        int i2 = this.f40264e;
+        int i3 = this.f40262c;
         int i4 = i2 + i3 + i;
-        int i5 = this.f40264f;
+        int i5 = this.f40265f;
         if (i4 > i5) {
             c((i5 - i2) - i3);
             throw d.a();
         }
-        int i6 = this.f40259a;
+        int i6 = this.f40260a;
         if (i <= i6 - i3) {
-            this.f40261c = i3 + i;
+            this.f40262c = i3 + i;
             return;
         }
         int i7 = i6 - i3;
-        this.f40263e = i2 + i6;
-        this.f40261c = 0;
-        this.f40259a = 0;
+        this.f40264e = i2 + i6;
+        this.f40262c = 0;
+        this.f40260a = 0;
         while (i7 < i) {
             InputStream inputStream = this.f142a;
             int skip = inputStream == null ? -1 : (int) inputStream.skip(i - i7);
@@ -383,7 +383,7 @@ public final class b {
                 throw d.a();
             }
             i7 += skip;
-            this.f40263e += skip;
+            this.f40264e += skip;
         }
     }
 

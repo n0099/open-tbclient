@@ -1,5 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
+import f.a.a0.a;
 import f.a.g;
 import f.a.x.e.a.b;
 import g.d.c;
@@ -31,9 +32,11 @@ public final class FlowableAmb$AmbInnerSubscriber<T> extends AtomicReference<d> 
     public void onComplete() {
         if (this.won) {
             this.actual.onComplete();
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onComplete();
         } else {
-            this.parent.a(this.index);
-            throw null;
+            get().cancel();
         }
     }
 
@@ -41,9 +44,12 @@ public final class FlowableAmb$AmbInnerSubscriber<T> extends AtomicReference<d> 
     public void onError(Throwable th) {
         if (this.won) {
             this.actual.onError(th);
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onError(th);
         } else {
-            this.parent.a(this.index);
-            throw null;
+            get().cancel();
+            a.f(th);
         }
     }
 
@@ -51,9 +57,11 @@ public final class FlowableAmb$AmbInnerSubscriber<T> extends AtomicReference<d> 
     public void onNext(T t) {
         if (this.won) {
             this.actual.onNext(t);
+        } else if (this.parent.a(this.index)) {
+            this.won = true;
+            this.actual.onNext(t);
         } else {
-            this.parent.a(this.index);
-            throw null;
+            get().cancel();
         }
     }
 

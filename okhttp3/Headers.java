@@ -13,7 +13,7 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Headers {
     public final String[] namesAndValues;
 

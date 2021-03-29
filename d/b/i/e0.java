@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import d.b.h0.r.q.n1;
 import d.b.h0.r.q.o1;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e0 extends a<o1> {
     public RecommendForumLayout j;
     public int k;

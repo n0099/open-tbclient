@@ -57,7 +57,7 @@ public class d extends b<d.b.i0.d0.a> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
             d.b.i0.c3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
@@ -71,14 +71,14 @@ public class d extends b<d.b.i0.d0.a> {
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0304, 1);
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0101, 1);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.w) {
             TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 4).param("fid", this.z));
-            FrsGameStrategyActivity.startActivity(this.f62180f.getPageActivity(), this.z, this.A);
+            FrsGameStrategyActivity.startActivity(this.f62181f.getPageActivity(), this.z, this.A);
         } else if (i() != null) {
             i().a(m(), this.y);
         }
@@ -98,7 +98,7 @@ public class d extends b<d.b.i0.d0.a> {
         this.w = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
         this.x = view.findViewById(R.id.card_frs_game_bottom_divider);
         this.p.setDefaultBgResource(R.drawable.icon_morenpic);
-        int dimensionPixelSize = d.b.b.e.p.l.p(this.f62181g)[0] - (this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+        int dimensionPixelSize = d.b.b.e.p.l.p(this.f62182g)[0] - (this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 21;
@@ -109,7 +109,7 @@ public class d extends b<d.b.i0.d0.a> {
         this.t.setIsRound(true);
         this.t.setDrawBorder(true);
         this.t.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.t.setBorderWidth(this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.t.setBorderWidth(this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds1));
         m().setOnClickListener(this);
     }
 

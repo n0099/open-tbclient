@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     public boolean hasMore;
     public List<n> mDataList;

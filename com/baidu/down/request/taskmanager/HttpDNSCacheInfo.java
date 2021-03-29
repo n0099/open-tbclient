@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpDNSCacheInfo {
     public static final boolean DEBUG = false;
     public static final String TAG = "HttpDNSCacheInfo";

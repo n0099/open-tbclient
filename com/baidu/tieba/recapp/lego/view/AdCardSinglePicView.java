@@ -27,7 +27,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
         AdvertAppInfo.a aVar;
         AdCard.d[] dVarArr = adCard.threadPicList;
         if (dVarArr != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20706a;
+            String str = dVarArr[0].f20707a;
             boolean d1 = d1(this.n0, adCard);
             if (!TextUtils.isEmpty(str) && d1) {
                 this.t.setVisibility(0);
@@ -42,7 +42,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 } else {
                     this.o0.setVisibility(8);
                 }
-                Y0(this.n0, adCard.threadPicList[0].f20708c);
+                Y0(this.n0, adCard.threadPicList[0].f20709c);
                 return;
             }
             this.t.setVisibility(8);
@@ -67,6 +67,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     public boolean d1(TbImageView tbImageView, AdCard adCard) {
+        int i;
         if (adCard == null || tbImageView == null) {
             return false;
         }
@@ -74,29 +75,24 @@ public class AdCardSinglePicView extends AdCardBaseView {
         if (d2 <= 0.0d || d2 >= 1.0d) {
             d2 = 1.0d;
         }
-        int i = this.G;
-        double d3 = i;
-        Double.isNaN(d3);
-        int i2 = (int) (d3 * d2);
-        double b2 = a.b(i);
-        Double.isNaN(b2);
-        int i3 = (int) (b2 * d2);
+        int i2 = (int) (this.G * d2);
+        int b2 = (int) (a.b(i) * d2);
         if (!adCard.needResize) {
-            e1(tbImageView, i3, i2);
+            e1(tbImageView, b2, i2);
             return true;
         }
-        int i4 = adCard.height;
-        int i5 = adCard.width;
-        if (i2 > 0 && i4 > 0 && i5 > 0) {
-            int i6 = (i4 * i2) / i5;
-            if (i6 > i2) {
+        int i3 = adCard.height;
+        int i4 = adCard.width;
+        if (i2 > 0 && i3 > 0 && i4 > 0) {
+            int i5 = (i3 * i2) / i4;
+            if (i5 > i2) {
                 return false;
             }
-            e1(tbImageView, i6, i2);
+            e1(tbImageView, i5, i2);
             return true;
         }
-        int i7 = this.G;
-        e1(tbImageView, i7, (int) (i7 * 0.0f));
+        int i6 = this.G;
+        e1(tbImageView, i6, (int) (i6 * 0.0f));
         return true;
     }
 

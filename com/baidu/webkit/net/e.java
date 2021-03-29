@@ -9,78 +9,78 @@ import java.util.Vector;
 public final class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f27044d = "e";
+    public static final String f27045d = "e";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f27045e = {0, 1, 2, 3};
+    public static final int[] f27046e = {0, 1, 2, 3};
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: f  reason: collision with root package name */
-    public static e f27046f;
+    public static e f27047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f27047g;
+    public static boolean f27048g;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Vector<BdNetTask>> f27048a;
+    public List<Vector<BdNetTask>> f27049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<BdNetEngine> f27049b;
+    public Vector<BdNetEngine> f27050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f27050c;
+    public Context f27051c;
 
     public e() {
-        int length = f27045e.length;
-        this.f27048a = new ArrayList(length);
+        int length = f27046e.length;
+        this.f27049a = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.f27048a.add(new Vector<>());
+            this.f27049a.add(new Vector<>());
         }
-        this.f27049b = new Vector<>();
+        this.f27050b = new Vector<>();
     }
 
     public static e a() {
         synchronized (e.class) {
-            if (f27046f == null) {
-                f27046f = new e();
+            if (f27047f == null) {
+                f27047f = new e();
             }
         }
-        return f27046f;
+        return f27047f;
     }
 
     public static boolean b() {
-        return f27047g;
+        return f27048g;
     }
 
     public static void c() {
-        f27046f = null;
+        f27047f = null;
     }
 
     public final synchronized void a(BdNetTask bdNetTask, int i) {
         if (bdNetTask == null) {
             return;
         }
-        if (this.f27048a == null) {
-            this.f27048a = new ArrayList(f27045e.length);
+        if (this.f27049a == null) {
+            this.f27049a = new ArrayList(f27046e.length);
         }
-        if (this.f27048a.isEmpty()) {
-            for (int i2 = 0; i2 < f27045e.length; i2++) {
-                this.f27048a.add(new Vector<>());
+        if (this.f27049a.isEmpty()) {
+            for (int i2 = 0; i2 < f27046e.length; i2++) {
+                this.f27049a.add(new Vector<>());
             }
         }
-        int length = f27045e.length;
+        int length = f27046e.length;
         for (int i3 = 0; i3 < length; i3++) {
-            if (i == f27045e[i3]) {
-                this.f27048a.get(i3).add(bdNetTask);
+            if (i == f27046e[i3]) {
+                this.f27049a.get(i3).add(bdNetTask);
                 return;
             }
         }
     }
 
     public final synchronized BdNetTask d() {
-        int size = this.f27048a.size();
+        int size = this.f27049a.size();
         for (int i = 0; i < size; i++) {
-            Vector<BdNetTask> vector = this.f27048a.get(i);
+            Vector<BdNetTask> vector = this.f27049a.get(i);
             if (vector.size() > 0) {
                 return vector.remove(0);
             }
@@ -89,9 +89,9 @@ public final class e {
     }
 
     public final synchronized BdNetEngine e() {
-        int size = this.f27049b.size();
+        int size = this.f27050b.size();
         for (int i = 0; i < size; i++) {
-            BdNetEngine bdNetEngine = this.f27049b.get(i);
+            BdNetEngine bdNetEngine = this.f27050b.get(i);
             if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                 bdNetEngine.allocate();
                 return bdNetEngine;
@@ -100,7 +100,7 @@ public final class e {
         if (size < 6) {
             BdNetEngine bdNetEngine2 = new BdNetEngine();
             bdNetEngine2.allocate();
-            this.f27049b.add(bdNetEngine2);
+            this.f27050b.add(bdNetEngine2);
             return bdNetEngine2;
         }
         return null;

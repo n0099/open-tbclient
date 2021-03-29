@@ -5,14 +5,14 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.SwanAppActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends d.b.g0.a.t.b.d {
     public b(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
     }
 
     public d.b.g0.a.t.e.b q() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-BrightnessApi", "handle");
         }
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();

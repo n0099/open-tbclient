@@ -6,26 +6,26 @@ import com.baidu.card.view.MutiImgSingleVerticalLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class y extends d.b.i.a<d.b.h0.r.q.a> {
     public MutiImgSingleVerticalLayout j;
     public d.b.h0.r.q.a k;
     public int l;
     public String m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements a.b {
         public a() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (y.this.k != null && y.this.k.n() != null) {
                 d.b.i0.x.m.a(y.this.k.n().o0());
                 y yVar = y.this;
-                d.b.i0.x.m.l(yVar.j.f4477e, yVar.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(yVar.j.f4478e, yVar.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 y yVar2 = y.this;
-                d.b.i0.x.m.l(yVar2.j.f4478f, yVar2.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(yVar2.j.f4479f, yVar2.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }

@@ -20,7 +20,7 @@ public final class e {
                     arrayList.add(g.a(optJSONObject));
                 }
             }
-            aVar.f37236a = arrayList;
+            aVar.f37237a = arrayList;
         }
         return aVar;
     }
@@ -28,9 +28,9 @@ public final class e {
     public static String a(c.a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (aVar.f37236a != null && !aVar.f37236a.isEmpty()) {
+            if (aVar.f37237a != null && !aVar.f37237a.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (f fVar : aVar.f37236a) {
+                for (f fVar : aVar.f37237a) {
                     jSONArray.put(g.a(fVar));
                 }
                 jSONObject.put("representation", jSONArray);

@@ -53,10 +53,10 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         if (hVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            d.b.i0.t.i.e.d dVar = frsPageAlaStageViewHolder.f15033a;
+            d.b.i0.t.i.e.d dVar = frsPageAlaStageViewHolder.f15034a;
             dVar.B = (i + 1) - topThreadSize;
             dVar.a(this.w);
-            frsPageAlaStageViewHolder.f15033a.n(hVar);
+            frsPageAlaStageViewHolder.f15034a.n(hVar);
         }
         return view;
     }

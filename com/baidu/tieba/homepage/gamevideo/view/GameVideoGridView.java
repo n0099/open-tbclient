@@ -8,50 +8,50 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameVideoGridView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17152e;
+    public int f17153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f17153f;
+    public Animation f17154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridLayoutAnimationController f17154g;
+    public GridLayoutAnimationController f17155g;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17152e = -1;
+        this.f17153e = -1;
         c();
     }
 
     public final void c() {
-        if (this.f17153f == null) {
-            this.f17153f = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.f17154f == null) {
+            this.f17154f = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.f17154g == null) {
-            GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.f17153f);
-            this.f17154g = gridLayoutAnimationController;
+        if (this.f17155g == null) {
+            GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.f17154f);
+            this.f17155g = gridLayoutAnimationController;
             gridLayoutAnimationController.setColumnDelay(0.4f);
-            this.f17154g.setRowDelay(0.2f);
-            this.f17154g.setDirection(0);
-            this.f17154g.setDirectionPriority(0);
+            this.f17155g.setRowDelay(0.2f);
+            this.f17155g.setDirection(0);
+            this.f17155g.setDirectionPriority(0);
         }
     }
 
     public void d() {
-        Animation animation = this.f17153f;
+        Animation animation = this.f17154f;
         if (animation != null) {
             animation.cancel();
         }
     }
 
     public void e() {
-        GridLayoutAnimationController gridLayoutAnimationController = this.f17154g;
+        GridLayoutAnimationController gridLayoutAnimationController = this.f17155g;
         if (gridLayoutAnimationController != null) {
             setLayoutAnimation(gridLayoutAnimationController);
-            this.f17154g.start();
+            this.f17155g.start();
             startLayoutAnimation();
         }
     }
@@ -59,7 +59,7 @@ public class GameVideoGridView extends BdGridView {
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i2);
-        int i3 = this.f17152e;
+        int i3 = this.f17153e;
         if (i3 <= size && i3 > -1) {
             i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
         }
@@ -67,18 +67,18 @@ public class GameVideoGridView extends BdGridView {
     }
 
     public void setMaxHeight(int i) {
-        this.f17152e = i;
+        this.f17153e = i;
     }
 
     public GameVideoGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17152e = -1;
+        this.f17153e = -1;
         c();
     }
 
     public GameVideoGridView(Context context) {
         super(context);
-        this.f17152e = -1;
+        this.f17153e = -1;
         c();
     }
 }

@@ -12,23 +12,23 @@ public final class a extends EventTargetImpl {
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48103e;
+    public b f48104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f48104f;
+    public c f48105f;
 
     public a(b bVar) {
         super(bVar);
         this.domain = "openData";
-        this.f48103e = bVar;
+        this.f48104e = bVar;
     }
 
     @JavascriptInterface
     public void getFriendCloudStorage(JsObject jsObject) {
-        if (this.f48104f == null) {
-            this.f48104f = new c(this.f48103e);
+        if (this.f48105f == null) {
+            this.f48105f = new c(this.f48104e);
         }
-        this.f48104f.getFriendCloudStorage(jsObject);
+        this.f48105f.getFriendCloudStorage(jsObject);
     }
 
     @JavascriptInterface
@@ -38,40 +38,40 @@ public final class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void getUserCloudStorage(JsObject jsObject) {
-        if (this.f48104f == null) {
-            this.f48104f = new c(this.f48103e);
+        if (this.f48105f == null) {
+            this.f48105f = new c(this.f48104e);
         }
-        this.f48104f.getUserCloudStorage(jsObject);
+        this.f48105f.getUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserInfo(JsObject jsObject) {
-        if (this.f48104f == null) {
-            this.f48104f = new c(this.f48103e);
+        if (this.f48105f == null) {
+            this.f48105f = new c(this.f48104e);
         }
-        this.f48104f.getUserInfo(jsObject);
+        this.f48105f.getUserInfo(jsObject);
     }
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
-        if (this.f48103e.t() instanceof d.b.g0.g.e.c) {
-            ((d.b.g0.g.e.c) this.f48103e.t()).C(jsObject);
+        if (this.f48104e.t() instanceof d.b.g0.g.e.c) {
+            ((d.b.g0.g.e.c) this.f48104e.t()).C(jsObject);
         }
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        if (this.f48104f == null) {
-            this.f48104f = new c(this.f48103e);
+        if (this.f48105f == null) {
+            this.f48105f = new c(this.f48104e);
         }
-        this.f48104f.removeUserCloudStorage(jsObject);
+        this.f48105f.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        if (this.f48104f == null) {
-            this.f48104f = new c(this.f48103e);
+        if (this.f48105f == null) {
+            this.f48105f = new c(this.f48104e);
         }
-        this.f48104f.setUserCloudStorage(jsObject);
+        this.f48105f.setUserCloudStorage(jsObject);
     }
 }

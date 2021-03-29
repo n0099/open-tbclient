@@ -10,33 +10,33 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Crypto {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3938a = 16;
+    public static final int f3939a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3939b = 8;
+    public static final int f3940b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3940c = 128;
+    public static final int f3941c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3941d = 64;
+    public static final int f3942d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3942e = 8;
+    public static final int f3943e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3943f = 1000;
+    public static final int f3944f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f3944g = new SecureRandom();
+    public static SecureRandom f3945g = new SecureRandom();
 
     public static byte[] a(int i) {
         byte[] bArr = new byte[i];
-        f3944g.nextBytes(bArr);
+        f3945g.nextBytes(bArr);
         return bArr;
     }
 

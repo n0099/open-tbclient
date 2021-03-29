@@ -10,16 +10,16 @@ import d.b.b.e.p.l;
 public class ChooseColorLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f20191e;
+    public int[] f20192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20192f;
+    public int f20193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20193g;
+    public int f20194g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20194h;
+    public int f20195h;
     public int i;
     public int j;
     public int k;
@@ -63,29 +63,29 @@ public class ChooseColorLayout extends LinearLayout {
 
     public final void f() {
         this.k = l.k(getContext());
-        this.f20191e = getResources().getIntArray(R.array.choose_colors);
+        this.f20192e = getResources().getIntArray(R.array.choose_colors);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.f20194h = dimensionPixelSize;
+        this.f20195h = dimensionPixelSize;
         int i = (this.k - (dimensionPixelSize * 2)) / 8;
-        this.f20192f = i;
-        this.f20193g = (i - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        int i2 = this.f20192f;
+        this.f20193f = i;
+        this.f20194g = (i - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        int i2 = this.f20193f;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
         layoutParams.gravity = 17;
-        for (int i3 = 0; i3 < this.f20191e.length; i3++) {
+        for (int i3 = 0; i3 < this.f20192e.length; i3++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.f20191e[i3]);
+            chooseColorView.setChooseColor(this.f20192e[i3]);
             chooseColorView.setTag(Integer.valueOf(i3));
-            chooseColorView.setRadius(this.f20193g);
+            chooseColorView.setRadius(this.f20194g);
             if (i3 == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.i = this.f20191e[i3];
+                this.i = this.f20192e[i3];
                 this.j = i3;
             }
             chooseColorView.setOnClickListener(this.m);
             addView(chooseColorView, layoutParams);
         }
-        int i4 = this.f20194h;
+        int i4 = this.f20195h;
         setPadding(i4, 0, i4, getResources().getDimensionPixelSize(R.dimen.ds20));
     }
 

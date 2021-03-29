@@ -2,7 +2,7 @@ package d.b.g0.a.e0.k;
 
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b {
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 

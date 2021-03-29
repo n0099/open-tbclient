@@ -38,45 +38,45 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.LogTogether.AdReq;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static String o;
     public static a p = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f51495f = new HandlerC1105a(Looper.getMainLooper());
+    public Handler f51496f = new HandlerC1106a(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f51496g = new b(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    public d.b.b.c.g.a f51497g = new b(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f51497h = new c(2000994);
+    public CustomMessageListener f51498h = new c(2000994);
     public final CustomMessageListener i = new d(2001118);
     public HashMap<String, AdvertAppInfo> l = new HashMap<>();
     public HashMap<String, AdvertAppInfo> m = new HashMap<>();
     public HashMap<String, DownloadStaticsData> n = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<AdReq> f51491b = new ArrayList<>();
+    public ArrayList<AdReq> f51492b = new ArrayList<>();
     public ArrayList<AdvertAppInfo> j = new ArrayList<>();
     public ArrayList<AdvertAppInfo> k = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51492c = true;
+    public boolean f51493c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51493d = 60000;
+    public long f51494d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51494e = 10;
+    public int f51495e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51490a = j.z();
+    public boolean f51491a = j.z();
 
     /* renamed from: d.b.h0.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC1105a extends Handler {
-        public HandlerC1105a(Looper looper) {
+    public class HandlerC1106a extends Handler {
+        public HandlerC1106a(Looper looper) {
             super(looper);
         }
 
@@ -194,7 +194,7 @@ public class a {
                     sb.append(advertAppInfo.S3);
                     sb2.append(advertAppInfo.K3);
                     sb3.append(advertAppInfo.E3);
-                    sb4.append(advertAppInfo.U3.f13202a);
+                    sb4.append(advertAppInfo.U3.f13203a);
                     sb5.append(advertAppInfo.T3);
                     sb6.append(advertAppInfo.O3);
                     sb7.append(advertAppInfo.F3);
@@ -209,7 +209,7 @@ public class a {
                     sb2.append(FieldBuilder.SE);
                     sb3.append(advertAppInfo.E3);
                     sb3.append(FieldBuilder.SE);
-                    sb4.append(advertAppInfo.U3.f13202a);
+                    sb4.append(advertAppInfo.U3.f13203a);
                     sb4.append(FieldBuilder.SE);
                     sb5.append(advertAppInfo.T3);
                     sb5.append(FieldBuilder.SE);
@@ -239,14 +239,14 @@ public class a {
     }
 
     public final synchronized void g(List<AdReq> list) {
-        if (this.f51491b != null) {
-            this.f51491b.addAll(list);
+        if (this.f51492b != null) {
+            this.f51492b.addAll(list);
         }
     }
 
     public final synchronized void h(AdReq adReq) {
-        if (this.f51491b != null && this.f51491b.size() < 20) {
-            this.f51491b.add(adReq);
+        if (this.f51492b != null && this.f51492b.size() < 20) {
+            this.f51492b.add(adReq);
         }
     }
 
@@ -255,7 +255,7 @@ public class a {
     }
 
     public final void j(boolean z) {
-        if (this.f51490a && this.f51492c) {
+        if (this.f51491a && this.f51493c) {
             List<AdReq> m = m(z);
             if (z || !p()) {
                 t();
@@ -278,16 +278,16 @@ public class a {
 
     public final synchronized List<AdReq> m(boolean z) {
         if (!z) {
-            if (this.f51491b.size() < this.f51494e) {
+            if (this.f51492b.size() < this.f51495e) {
                 return null;
             }
         }
-        if (this.f51491b.size() <= 0) {
+        if (this.f51492b.size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f51491b);
-        this.f51491b.clear();
+        arrayList.addAll(this.f51492b);
+        this.f51492b.clear();
         return arrayList;
     }
 
@@ -304,13 +304,13 @@ public class a {
             messageManager.registerTask(n());
         }
         messageManager.registerTask(k());
-        messageManager.registerListener(this.f51496g);
-        messageManager.registerListener(this.f51497h);
+        messageManager.registerListener(this.f51497g);
+        messageManager.registerListener(this.f51498h);
         messageManager.registerListener(this.i);
     }
 
     public final boolean p() {
-        return this.f51495f.hasMessages(1);
+        return this.f51496f.hasMessages(1);
     }
 
     public final void q(DownloadStaticsData downloadStaticsData) {
@@ -372,8 +372,8 @@ public class a {
     }
 
     public final void t() {
-        this.f51495f.removeMessages(1);
-        this.f51495f.sendEmptyMessageDelayed(1, this.f51493d);
+        this.f51496f.removeMessages(1);
+        this.f51496f.sendEmptyMessageDelayed(1, this.f51494d);
     }
 
     public void u(AdvertAppInfo advertAppInfo, String str, long j, String str2, String str3, int i) {
@@ -385,7 +385,7 @@ public class a {
             h(z4);
         }
         if (TextUtils.equals(str3, PrefetchEvent.STATE_CLICK) || TextUtils.equals(str3, "download")) {
-            if (this.f51490a) {
+            if (this.f51491a) {
                 MessageManager.getInstance().sendMessage(new DistributeRequest(z4));
             } else {
                 h(z4);
@@ -395,10 +395,10 @@ public class a {
     }
 
     public final void v(boolean z) {
-        if (this.f51490a == z) {
+        if (this.f51491a == z) {
             return;
         }
-        this.f51490a = z;
+        this.f51491a = z;
         if (z) {
             j(true);
         } else {
@@ -408,29 +408,29 @@ public class a {
 
     public void w(int i) {
         if (i > 3600) {
-            this.f51493d = 300000L;
+            this.f51494d = 300000L;
         } else if (i <= 0) {
-            this.f51493d = 60000L;
+            this.f51494d = 60000L;
         } else {
-            this.f51493d = i * 1000;
+            this.f51494d = i * 1000;
         }
     }
 
     public void x(int i) {
         if (i > 20) {
-            this.f51494e = 10;
+            this.f51495e = 10;
         } else if (i <= 0) {
-            this.f51494e = 5;
+            this.f51495e = 5;
         } else {
-            this.f51494e = i;
+            this.f51495e = i;
         }
     }
 
     public void y(boolean z) {
-        this.f51492c = z;
+        this.f51493c = z;
     }
 
     public final void z() {
-        this.f51495f.removeMessages(1);
+        this.f51496f.removeMessages(1);
     }
 }

@@ -21,7 +21,7 @@ import d.b.i.u0.a;
 import d.b.i0.i2.o;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public TbPageContext m;
     public BdUniqueId n;
@@ -30,7 +30,7 @@ public class c extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public int q;
     public b0<l> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<l> {
         public a() {
         }
@@ -43,7 +43,7 @@ public class c extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -58,7 +58,7 @@ public class c extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
                     c.this.r.a(threadCardViewHolder.a(), lVar);
                 }
                 d.b.i0.z0.d.e.a.b(lVar, view.getContext(), 18, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -72,20 +72,20 @@ public class c extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public final o j0(l lVar) {
         if (lVar != null) {
             o oVar = new o();
-            oVar.f56163a = Constants.VIA_REPORT_TYPE_START_GROUP;
-            oVar.f56165c = lVar.l;
+            oVar.f56164a = Constants.VIA_REPORT_TYPE_START_GROUP;
+            oVar.f56166c = lVar.l;
             if (lVar.n() != null) {
-                oVar.f56166d = String.valueOf(lVar.n().c0());
+                oVar.f56167d = String.valueOf(lVar.n().c0());
                 if (lVar.n().u1() != null) {
                     oVar.m = lVar.n().u1().video_md5;
                     oVar.p = String.valueOf(lVar.n().u1().is_vertical);
                 }
             }
             oVar.k = lVar.B();
-            oVar.f56168f = lVar.F();
+            oVar.f56169f = lVar.F();
             oVar.l = lVar.z();
-            oVar.f56170h = lVar.O();
-            oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f56171h = lVar.O();
+            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
             oVar.q = String.valueOf(lVar.E());
             oVar.r = String.valueOf(this.q);
             return oVar;

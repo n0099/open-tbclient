@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBOperation {
     public static final String TAG = "DBOperation";
     public static final int TIMEOUT_DB_OPERATION = 10;
@@ -26,7 +26,7 @@ public class DBOperation {
     public Object mSyncObject = new Object();
     public HashMap<String, Object> mKeyObject = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class DeleteTask implements Callable<Integer> {
         public String mOperationId;
         public String mTable;
@@ -71,7 +71,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class ExecSQLTask implements Callable<Integer> {
         public String mOperationId;
         public String mSql;
@@ -111,7 +111,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class ExecTransaction implements Callable<Integer> {
         public String mOperationId;
         public ITransaction mTransaction;
@@ -154,7 +154,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class InsertBatchTask implements Callable<List<Long>> {
         public List<ContentValues> mCvs;
         public String mOperationId;
@@ -198,7 +198,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class InsertTask implements Callable<Long> {
         public ContentValues mCv;
         public String mOperationId;
@@ -237,7 +237,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class QueryTask<T> implements Callable<ArrayList<T>> {
         public String[] mColumns;
         public String mGroupBy;
@@ -340,7 +340,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class UpdateTask implements Callable<Integer> {
         public ContentValues mCv;
         public String mOperationId;

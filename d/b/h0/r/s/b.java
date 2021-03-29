@@ -23,28 +23,28 @@ public class b {
     public static final HashMap<Integer, Integer[]> q;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50967a;
+    public String f50968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<CharSequence> f50968b;
+    public List<CharSequence> f50969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f50969c;
+    public c f50970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Activity f50970d;
+    public final Activity f50971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewGroup f50971e;
+    public final ViewGroup f50972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ViewGroup f50972f;
+    public final ViewGroup f50973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f50973g;
+    public final TextView f50974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f50974h;
+    public final View f50975h;
     public int i;
     public AlertDialog n;
     public LinearLayout.LayoutParams p;
@@ -58,28 +58,28 @@ public class b {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f50975e;
+        public final /* synthetic */ int f50976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f50976f;
+        public final /* synthetic */ TextView f50977f;
 
         public a(int i, TextView textView) {
-            this.f50975e = i;
-            this.f50976f = textView;
+            this.f50976e = i;
+            this.f50977f = textView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f50969c.a(b.this, this.f50975e, this.f50976f);
+            b.this.f50970c.a(b.this, this.f50976e, this.f50977f);
         }
     }
 
     /* renamed from: d.b.h0.r.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C1088b {
+    public static final class C1089b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f50978a = R.style.dialog_ani_b2t;
+        public static final int f50979a = R.style.dialog_ani_b2t;
     }
 
     /* loaded from: classes3.dex */
@@ -95,12 +95,12 @@ public class b {
     }
 
     public b(Activity activity) {
-        this.f50970d = activity;
+        this.f50971d = activity;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_bdlist, (ViewGroup) null);
-        this.f50971e = viewGroup;
-        this.f50973g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
-        this.f50972f = (ViewGroup) this.f50971e.findViewById(R.id.dialog_content);
-        this.f50974h = this.f50971e.findViewById(R.id.line_bg);
+        this.f50972e = viewGroup;
+        this.f50974g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.f50973f = (ViewGroup) this.f50972e.findViewById(R.id.dialog_content);
+        this.f50975h = this.f50972e.findViewById(R.id.line_bg);
         this.i = R.layout.dialog_bdlist_item;
     }
 
@@ -109,9 +109,9 @@ public class b {
         if (fVar instanceof TbPageContext) {
             TbPageContext tbPageContext = (TbPageContext) fVar;
             tbPageContext.getLayoutMode().k(skinType == 1);
-            tbPageContext.getLayoutMode().j(this.f50971e);
+            tbPageContext.getLayoutMode().j(this.f50972e);
         }
-        this.f50971e.setBackgroundResource(R.drawable.transparent_bg);
+        this.f50972e.setBackgroundResource(R.drawable.transparent_bg);
     }
 
     public b c(d.b.b.a.f<?> fVar) {
@@ -119,17 +119,17 @@ public class b {
             return this;
         }
         this.m = true;
-        if (!TextUtils.isEmpty(this.f50967a)) {
-            this.f50973g.setText(this.f50967a);
-            this.f50973g.setVisibility(0);
-            this.f50974h.setVisibility(0);
+        if (!TextUtils.isEmpty(this.f50968a)) {
+            this.f50974g.setText(this.f50968a);
+            this.f50974g.setVisibility(0);
+            this.f50975h.setVisibility(0);
         } else {
-            this.f50973g.setVisibility(8);
-            this.f50974h.setVisibility(8);
+            this.f50974g.setVisibility(8);
+            this.f50975h.setVisibility(8);
         }
-        List<CharSequence> list = this.f50968b;
+        List<CharSequence> list = this.f50969b;
         if (list != null && list.size() > 0) {
-            int size = this.f50968b.size();
+            int size = this.f50969b.size();
             for (int i = 0; i < size; i++) {
                 d(i);
             }
@@ -139,7 +139,7 @@ public class b {
     }
 
     public final View d(int i) {
-        View inflate = LayoutInflater.from(this.f50970d).inflate(this.i, this.f50972f, false);
+        View inflate = LayoutInflater.from(this.f50971d).inflate(this.i, this.f50973f, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         TextView textView = (TextView) inflate.findViewById(R.id.dialog_item_btn);
         LinearLayout.LayoutParams layoutParams = this.p;
@@ -155,38 +155,38 @@ public class b {
             textView.setGravity(this.o);
         }
         View findViewById = inflate.findViewById(R.id.line);
-        CharSequence charSequence = this.f50968b.get(i);
+        CharSequence charSequence = this.f50969b.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.f50968b.size() - 1) {
+        if (i == this.f50969b.size() - 1) {
             findViewById.setVisibility(8);
             SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
-        } else if (this.f50968b.size() == 1) {
+        } else if (this.f50969b.size() == 1) {
             findViewById.setVisibility(8);
             SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
-        } else if (i == 0 && StringUtils.isNull(this.f50967a)) {
+        } else if (i == 0 && StringUtils.isNull(this.f50968a)) {
             SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
         } else {
             SkinManager.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.f50969c != null) {
+        if (this.f50970c != null) {
             linearLayout.setOnClickListener(new a(i, textView));
         }
-        this.f50972f.addView(inflate);
+        this.f50973f.addView(inflate);
         return inflate;
     }
 
     public void e() {
         AlertDialog alertDialog = this.n;
         if (alertDialog != null) {
-            d.b.b.e.m.g.a(alertDialog, this.f50970d);
+            d.b.b.e.m.g.a(alertDialog, this.f50971d);
         }
     }
 
     public View f(int i) {
-        ViewGroup viewGroup = this.f50972f;
+        ViewGroup viewGroup = this.f50973f;
         if (viewGroup == null) {
             return null;
         }
@@ -194,7 +194,7 @@ public class b {
         if (i < 0 || i > childCount - 1) {
             return null;
         }
-        return this.f50972f.getChildAt(i);
+        return this.f50973f.getChildAt(i);
     }
 
     public b g(int i) {
@@ -209,9 +209,9 @@ public class b {
 
     public b i(List<CharSequence> list, c cVar) {
         if (list != null && list.size() > 0) {
-            this.f50968b = list;
+            this.f50969b = list;
             if (cVar != null) {
-                this.f50969c = cVar;
+                this.f50970c = cVar;
             }
         }
         return this;
@@ -225,12 +225,12 @@ public class b {
     }
 
     public b k(int i) {
-        l(this.f50970d.getResources().getString(i));
+        l(this.f50971d.getResources().getString(i));
         return this;
     }
 
     public b l(String str) {
-        this.f50967a = str;
+        this.f50968a = str;
         return this;
     }
 
@@ -238,16 +238,16 @@ public class b {
         if (this.m) {
             AlertDialog alertDialog = this.n;
             if (alertDialog != null) {
-                d.b.b.e.m.g.i(alertDialog, this.f50970d);
+                d.b.b.e.m.g.i(alertDialog, this.f50971d);
                 return this;
             }
-            AlertDialog create = new AlertDialog.Builder(this.f50970d, R.style.NoBackDimEnableDialog).create();
+            AlertDialog create = new AlertDialog.Builder(this.f50971d, R.style.NoBackDimEnableDialog).create();
             this.n = create;
             create.setCanceledOnTouchOutside(true);
-            if (d.b.b.e.m.g.i(this.n, this.f50970d)) {
+            if (d.b.b.e.m.g.i(this.n, this.f50971d)) {
                 Window window = this.n.getWindow();
                 if (this.j == -1) {
-                    this.j = C1088b.f50978a;
+                    this.j = C1089b.f50979a;
                 }
                 if (this.k == -1) {
                     this.k = 17;
@@ -256,7 +256,7 @@ public class b {
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
                 window.setGravity(this.k);
-                window.setContentView(this.f50971e);
+                window.setContentView(this.f50972e);
                 return this;
             }
             return this;

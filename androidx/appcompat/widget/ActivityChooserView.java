@@ -437,7 +437,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15 */
     /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v7, types: [boolean, int] */
     public void showPopupUnchecked(int i) {
         if (this.mAdapter.getDataModel() != null) {
             getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);

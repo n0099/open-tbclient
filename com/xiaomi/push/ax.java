@@ -7,10 +7,10 @@ import java.util.Map;
 public class ax implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ax f40252a;
+    public static volatile ax f40253a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f134a = aw.f40251a;
+    public int f134a = aw.f40252a;
 
     /* renamed from: a  reason: collision with other field name */
     public ar f135a;
@@ -21,14 +21,14 @@ public class ax implements ar {
     }
 
     public static ax a(Context context) {
-        if (f40252a == null) {
+        if (f40253a == null) {
             synchronized (ax.class) {
-                if (f40252a == null) {
-                    f40252a = new ax(context.getApplicationContext());
+                if (f40253a == null) {
+                    f40253a = new ax(context.getApplicationContext());
                 }
             }
         }
-        return f40252a;
+        return f40253a;
     }
 
     private String a(String str) {

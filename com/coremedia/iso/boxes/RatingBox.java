@@ -13,15 +13,15 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class RatingBox extends AbstractFullBox {
     public static final String TYPE = "rtng";
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_8 = null;
     public String language;
     public String ratingCriteria;
     public String ratingEntity;

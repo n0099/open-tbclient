@@ -13,13 +13,13 @@ import d.b.g0.a.r1.e;
 public class RewardVideoView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f12786e;
+    public a f12787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12787f;
+    public Context f12788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12788g;
+    public boolean f12789g;
 
     public RewardVideoView(Context context) {
         this(context, null);
@@ -29,9 +29,9 @@ public class RewardVideoView extends RelativeLayout {
     public final c a() {
         c cVar = new c();
         cVar.n = "SwanAdPlayer";
-        cVar.f43112f = "SwanAdPlayer";
+        cVar.f43113f = "SwanAdPlayer";
         cVar.s = true;
-        cVar.o = this.f12788g;
+        cVar.o = this.f12789g;
         cVar.B = false;
         cVar.M = false;
         cVar.I = false;
@@ -43,20 +43,20 @@ public class RewardVideoView extends RelativeLayout {
         if (y == null) {
             return;
         }
-        this.f12786e = new a(y.n(), a());
-        FrameLayout frameLayout = new FrameLayout(this.f12787f);
+        this.f12787e = new a(y.n(), a());
+        FrameLayout frameLayout = new FrameLayout(this.f12788f);
         addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-        this.f12786e.y(frameLayout);
+        this.f12787e.y(frameLayout);
     }
 
     public boolean c() {
-        return this.f12788g;
+        return this.f12789g;
     }
 
     public void d(boolean z) {
-        a aVar = this.f12786e;
+        a aVar = this.f12787e;
         if (aVar != null) {
-            this.f12788g = z;
+            this.f12789g = z;
             aVar.p(z);
         }
     }
@@ -64,12 +64,12 @@ public class RewardVideoView extends RelativeLayout {
     public void e(String str) {
         c a2 = a();
         a2.C = str;
-        this.f12786e.q(a2);
-        this.f12786e.x(false);
+        this.f12787e.q(a2);
+        this.f12787e.x(false);
     }
 
     public a getPlayer() {
-        return this.f12786e;
+        return this.f12787e;
     }
 
     @Override // android.view.ViewGroup
@@ -83,7 +83,7 @@ public class RewardVideoView extends RelativeLayout {
 
     public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12787f = context;
+        this.f12788f = context;
         b();
     }
 }

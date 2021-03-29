@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.lego.card.model.BigImgCard;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
     public TbImageView r;
 
@@ -26,12 +26,9 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public void z(BigImgCard bigImgCard) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.r.getLayoutParams();
         if (bigImgCard.getRatio() > 0.0d) {
-            double ratio = bigImgCard.getRatio();
-            double k = l.k(getContext());
-            Double.isNaN(k);
-            int i = (int) (ratio * k);
-            if (Math.abs(i - layoutParams.height) > 10) {
-                layoutParams.height = i;
+            int ratio = (int) (bigImgCard.getRatio() * l.k(getContext()));
+            if (Math.abs(ratio - layoutParams.height) > 10) {
+                layoutParams.height = ratio;
                 this.r.setLayoutParams(layoutParams);
             }
         } else {

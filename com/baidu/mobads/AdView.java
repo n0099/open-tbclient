@@ -16,21 +16,21 @@ public final class AdView extends RelativeLayout {
     public static final String P_VERSION = "3.61";
 
     /* renamed from: a  reason: collision with root package name */
-    public IOAdEventListener f8101a;
+    public IOAdEventListener f8102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f8102b;
+    public AtomicBoolean f8103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.mobads.production.a.a f8103c;
+    public com.baidu.mobads.production.a.a f8104c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdViewListener f8104d;
+    public AdViewListener f8105d;
 
     public AdView(Context context) {
         super(context);
-        this.f8102b = new AtomicBoolean(false);
-        this.f8101a = new a(this);
+        this.f8103b = new AtomicBoolean(false);
+        this.f8102a = new a(this);
     }
 
     @Deprecated
@@ -42,7 +42,7 @@ public final class AdView extends RelativeLayout {
     }
 
     public void destroy() {
-        this.f8103c.p();
+        this.f8104c.p();
     }
 
     @Override // android.view.View
@@ -84,26 +84,26 @@ public final class AdView extends RelativeLayout {
         }
         layoutParams.width = i;
         layoutParams.height = i2;
-        com.baidu.mobads.production.a.a aVar = this.f8103c;
+        com.baidu.mobads.production.a.a aVar = this.f8104c;
         if (aVar != null && aVar.getAdRequestInfo() != null) {
-            this.f8103c.getAdRequestInfo().d(layoutParams.width);
-            this.f8103c.getAdRequestInfo().e(layoutParams.height);
+            this.f8104c.getAdRequestInfo().d(layoutParams.width);
+            this.f8104c.getAdRequestInfo().e(layoutParams.height);
         }
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams adapter", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height));
         super.setLayoutParams(layoutParams);
     }
 
     public void setListener(AdViewListener adViewListener) {
-        this.f8104d = adViewListener;
+        this.f8105d = adViewListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f8102b.get()) {
+        if (this.f8103b.get()) {
             return;
         }
-        this.f8102b.set(true);
-        this.f8103c.request();
+        this.f8103b.set(true);
+        this.f8104c.request();
     }
 
     public AdView(Context context, String str) {
@@ -120,16 +120,16 @@ public final class AdView extends RelativeLayout {
 
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
-        this.f8102b = new AtomicBoolean(false);
-        this.f8101a = new a(this);
+        this.f8103b = new AtomicBoolean(false);
+        this.f8102a = new a(this);
         XAdView xAdView = new XAdView(context);
         com.baidu.mobads.production.a.a aVar = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.f8103c = aVar;
-        aVar.addEventListener(IXAdEvent.AD_LOADED, this.f8101a);
-        this.f8103c.addEventListener(IXAdEvent.AD_ERROR, this.f8101a);
-        this.f8103c.addEventListener(IXAdEvent.AD_STARTED, this.f8101a);
-        this.f8103c.addEventListener("AdUserClick", this.f8101a);
-        this.f8103c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f8101a);
+        this.f8104c = aVar;
+        aVar.addEventListener(IXAdEvent.AD_LOADED, this.f8102a);
+        this.f8104c.addEventListener(IXAdEvent.AD_ERROR, this.f8102a);
+        this.f8104c.addEventListener(IXAdEvent.AD_STARTED, this.f8102a);
+        this.f8104c.addEventListener("AdUserClick", this.f8102a);
+        this.f8104c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f8102a);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }

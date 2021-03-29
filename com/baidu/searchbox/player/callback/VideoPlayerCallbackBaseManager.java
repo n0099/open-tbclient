@@ -5,7 +5,7 @@ import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ILayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayerCallbackBaseManager {
     public ILayerActionCallback mLayerActionCallback;
     public IVideoPlayerCallback mVideoPlayerCallback;

@@ -35,7 +35,8 @@ public class LruDiskCache implements DiskCache {
         if (file == null) {
             throw new IllegalArgumentException("cacheDir argument must be not null");
         }
-        if (j < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("cacheMaxSize argument must be positive number");
         }
         if (i < 0) {
@@ -44,11 +45,11 @@ public class LruDiskCache implements DiskCache {
         if (fileNameGenerator == null) {
             throw new IllegalArgumentException("fileNameGenerator argument must be not null");
         }
-        long j2 = j == 0 ? Long.MAX_VALUE : j;
-        int i2 = i == 0 ? Integer.MAX_VALUE : i;
+        long j2 = i2 == 0 ? Long.MAX_VALUE : j;
+        int i3 = i == 0 ? Integer.MAX_VALUE : i;
         this.reserveCacheDir = file2;
         this.fileNameGenerator = fileNameGenerator;
-        initCache(file, file2, j2, i2);
+        initCache(file, file2, j2, i3);
     }
 
     private String getKey(String str) {

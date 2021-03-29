@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import d.b.h0.v0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f16971a = false;
+    public static boolean f16972a = false;
 
     static {
         a();

@@ -22,7 +22,7 @@ import d.b.h.a.g;
 import d.b.h.a.j.a;
 import d.b.h.a.j.b;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdUploadHandler implements INoProGuard {
     public static final String AUDIO_MIME_TYPE = "audio/*";
     public static final String IMAGE_MIME_TYPE = "image/*";

@@ -7,50 +7,50 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Domain f51120a = Domain.DOMAIN_ONLINE;
+    public static Domain f51121a = Domain.DOMAIN_ONLINE;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51121b = true;
+    public static boolean f51122b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f51122c = null;
+    public static b f51123c = null;
 
     public static void a() {
         if (TbConfig.USE_OLD_LOGIN) {
-            f51121b = true;
+            f51122b = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                f51121b = false;
+                f51122b = false;
             } else {
-                f51121b = true;
+                f51122b = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            f51121b = false;
+            f51122b = false;
         } else {
-            f51121b = true;
+            f51122b = true;
         }
-        if (Build.VERSION.SDK_INT > 10 || f51121b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT > 10 || f51122b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             return;
         }
         TbadkCoreApplication.getInst().incPassportV6CrashCount();
-        f51121b = true;
+        f51122b = true;
     }
 
     public static b b() {
-        return f51122c;
+        return f51123c;
     }
 
     public static void c() {
         CustomResponsedMessage runTask;
-        if (f51122c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
+        if (f51123c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
             return;
         }
-        f51122c = (b) runTask.getData();
+        f51123c = (b) runTask.getData();
     }
 }

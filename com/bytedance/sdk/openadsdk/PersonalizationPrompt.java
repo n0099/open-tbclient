@@ -3,21 +3,21 @@ package com.bytedance.sdk.openadsdk;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PersonalizationPrompt {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27279a;
+    public String f27280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27280b;
+    public String f27281b;
 
     private void a(String str) {
-        this.f27280b = str;
+        this.f27281b = str;
     }
 
     private void b(String str) {
-        this.f27279a = str;
+        this.f27280a = str;
     }
 
     public static PersonalizationPrompt parseFromJson(JSONObject jSONObject) {
@@ -36,11 +36,11 @@ public class PersonalizationPrompt {
     }
 
     public String getName() {
-        return this.f27279a;
+        return this.f27280a;
     }
 
     public String getUrl() {
-        return this.f27280b;
+        return this.f27281b;
     }
 
     public JSONObject toJson() {

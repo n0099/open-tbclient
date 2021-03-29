@@ -10,28 +10,28 @@ import com.tencent.connect.common.Constants;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56163a;
+    public String f56164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56164b;
+    public String f56165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56165c;
+    public String f56166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56166d;
+    public String f56167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56167e;
+    public String f56168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56168f;
+    public String f56169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56169g;
+    public String f56170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56170h;
+    public String f56171h;
     public String i;
     public int j;
     public String k;
@@ -134,31 +134,31 @@ public class o {
 
     public StatisticItem a(StatisticItem statisticItem) {
         if (statisticItem != null) {
-            if (!StringUtils.isNull(this.f56163a)) {
-                statisticItem.param("obj_locate", this.f56163a);
-                statisticItem.param("page_type", a.a(this.f56163a));
+            if (!StringUtils.isNull(this.f56164a)) {
+                statisticItem.param("obj_locate", this.f56164a);
+                statisticItem.param("page_type", a.a(this.f56164a));
             }
-            if (!StringUtils.isNull(this.f56165c)) {
-                statisticItem.param("tid", this.f56165c);
+            if (!StringUtils.isNull(this.f56166c)) {
+                statisticItem.param("tid", this.f56166c);
             }
-            if (!StringUtils.isNull(this.f56166d)) {
-                statisticItem.param("fid", this.f56166d);
+            if (!StringUtils.isNull(this.f56167d)) {
+                statisticItem.param("fid", this.f56167d);
             }
-            if (!StringUtils.isNull(this.f56167e)) {
-                statisticItem.param("uid", this.f56167e);
+            if (!StringUtils.isNull(this.f56168e)) {
+                statisticItem.param("uid", this.f56168e);
             }
-            if (!StringUtils.isNull(this.f56168f)) {
-                statisticItem.param("obj_source", this.f56168f);
+            if (!StringUtils.isNull(this.f56169f)) {
+                statisticItem.param("obj_source", this.f56169f);
             } else {
                 statisticItem.param("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.f56169g)) {
-                statisticItem.param("obj_param1", this.f56169g);
+            if (!StringUtils.isNull(this.f56170g)) {
+                statisticItem.param("obj_param1", this.f56170g);
             } else {
                 statisticItem.param("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.f56170h)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f56170h);
+            if (!StringUtils.isNull(this.f56171h)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f56171h);
             }
             if (!StringUtils.isNull(this.i)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
@@ -204,14 +204,14 @@ public class o {
 
     public o b() {
         o oVar = new o();
-        oVar.f56163a = this.f56163a;
-        oVar.f56164b = this.f56164b;
-        oVar.f56165c = this.f56165c;
-        oVar.f56166d = this.f56166d;
-        oVar.f56167e = this.f56167e;
-        oVar.f56168f = this.f56168f;
-        oVar.f56169g = this.f56169g;
-        oVar.f56170h = this.f56170h;
+        oVar.f56164a = this.f56164a;
+        oVar.f56165b = this.f56165b;
+        oVar.f56166c = this.f56166c;
+        oVar.f56167d = this.f56167d;
+        oVar.f56168e = this.f56168e;
+        oVar.f56169f = this.f56169f;
+        oVar.f56170g = this.f56170g;
+        oVar.f56171h = this.f56171h;
         oVar.i = this.i;
         oVar.k = this.k;
         oVar.l = this.l;

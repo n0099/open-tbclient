@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MsgUtility {
     public static boolean isNotice(ChatMsg chatMsg) {
         if (2 == chatMsg.getCategory() || -1 == chatMsg.getMsgType()) {

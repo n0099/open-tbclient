@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.retrieve.util;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FileMetaUtil {
     public static final String CREATE_TIME = "createTime";
     public static final String ERR_MSG = "errmsg";

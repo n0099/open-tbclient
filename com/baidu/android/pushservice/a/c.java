@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum c {
     PUSH_CLIENT,
     UNKNOWN_CLIENT

@@ -49,6 +49,6 @@ public final class XorWowRandom extends Random {
     }
 
     public XorWowRandom(int i, int i2) {
-        this(i, i2, 0, 0, i ^ (-1), (i << 10) ^ (i2 >>> 4));
+        this(i, i2, 0, 0, ~i, (i << 10) ^ (i2 >>> 4));
     }
 }

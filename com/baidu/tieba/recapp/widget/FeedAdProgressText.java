@@ -11,15 +11,15 @@ import d.b.i0.r2.e0.a;
 public class FeedAdProgressText extends AppCompatTextView implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20906e;
+    public int f20907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20907f;
+    public int f20908f;
 
     public FeedAdProgressText(Context context) {
         super(context);
-        this.f20906e = 100;
-        this.f20907f = 0;
+        this.f20907e = 100;
+        this.f20908f = 0;
         f(context);
     }
 
@@ -38,11 +38,11 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     public int getMax() {
-        return this.f20906e;
+        return this.f20907e;
     }
 
     public int getProgress() {
-        return this.f20907f;
+        return this.f20908f;
     }
 
     @Override // d.b.i0.r2.e0.a
@@ -65,35 +65,35 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     public void setMax(int i) {
-        this.f20906e = i;
+        this.f20907e = i;
     }
 
     @Override // d.b.i0.r2.e0.a
     public void setProgress(int i) {
-        if (i > this.f20906e) {
+        if (i > this.f20907e) {
             return;
         }
-        this.f20907f = i;
+        this.f20908f = i;
         setText("已下载" + i + "%");
     }
 
     @Override // d.b.i0.r2.e0.a
     public void setButtonText(String str, int i) {
-        this.f20907f = i;
+        this.f20908f = i;
         setText(str);
     }
 
     public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20906e = 100;
-        this.f20907f = 0;
+        this.f20907e = 100;
+        this.f20908f = 0;
         f(context);
     }
 
     public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20906e = 100;
-        this.f20907f = 0;
+        this.f20907e = 100;
+        this.f20908f = 0;
         f(context);
     }
 }

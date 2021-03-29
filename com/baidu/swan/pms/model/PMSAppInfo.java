@@ -96,7 +96,7 @@ public class PMSAppInfo implements Parcelable {
         if (fVar == null) {
             return;
         }
-        this.appId = fVar.f48922g;
+        this.appId = fVar.f48923g;
         this.versionCode = fVar.i;
         this.versionName = fVar.j;
         this.type = fVar.o;

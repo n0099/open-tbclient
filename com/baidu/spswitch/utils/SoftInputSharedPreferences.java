@@ -2,7 +2,7 @@ package com.baidu.spswitch.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SoftInputSharedPreferences {
     public static final String FILE_NAME = "baidu.softinput.common";
     public static final String KEY_SOFITNPUT_HEIGHT = "sp.key.softinput.height";

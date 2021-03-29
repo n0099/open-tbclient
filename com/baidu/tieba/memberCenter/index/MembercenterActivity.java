@@ -20,7 +20,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.f50239a = true;
         }
         return pageStayDurationItem;
     }

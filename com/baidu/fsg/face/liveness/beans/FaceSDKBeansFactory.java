@@ -21,13 +21,13 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_UPLOAD_BEAN = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    public static FaceSDKBeansFactory f5877a;
+    public static FaceSDKBeansFactory f5878a;
 
     public static FaceSDKBeansFactory getInstance() {
-        if (f5877a == null) {
-            f5877a = new FaceSDKBeansFactory();
+        if (f5878a == null) {
+            f5878a = new FaceSDKBeansFactory();
         }
-        return f5877a;
+        return f5878a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */

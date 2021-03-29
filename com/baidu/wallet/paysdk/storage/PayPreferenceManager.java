@@ -11,10 +11,10 @@ public final class PayPreferenceManager {
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25853a = "_pay.preferences";
+    public static final String f25854a = "_pay.preferences";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f25854b = "wallet_interface.preferences";
+    public static final String f25855b = "wallet_interface.preferences";
 
     public static boolean getBoolean(Context context, String str, boolean z) {
         return ((Boolean) SharedPreferencesUtils.getParam(context, "_pay.preferences", str, Boolean.valueOf(z))).booleanValue();
@@ -76,7 +76,7 @@ public final class PayPreferenceManager {
     }
 
     public static String getWalletInterfaceData(Context context, String str, String str2) {
-        return (String) SharedPreferencesUtils.getParam(context, f25854b, str, str2);
+        return (String) SharedPreferencesUtils.getParam(context, f25855b, str, str2);
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
@@ -100,6 +100,6 @@ public final class PayPreferenceManager {
     }
 
     public static void setWalletInterfaceData(Context context, String str, String str2) {
-        SharedPreferencesUtils.setParam(context, f25854b, str, str2);
+        SharedPreferencesUtils.setParam(context, f25855b, str, str2);
     }
 }

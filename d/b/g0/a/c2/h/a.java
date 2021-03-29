@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43808c = k.f45050a;
+    public static final boolean f43809c = k.f45051a;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/getSystemRiskInfo");
@@ -56,13 +56,13 @@ public class a extends a0 {
             str = O.c(context);
         }
         jSONObject.put("cuid", str);
-        if (f43808c) {
+        if (f43809c) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }
         String b2 = d.b.g0.q.d.b.b(UUID.randomUUID().toString().getBytes(), false);
         String a2 = n.a(b2, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
         String d2 = n.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b2, "RSA/ECB/PKCS1Padding");
-        if (f43808c) {
+        if (f43809c) {
             Log.d("GetSystemRiskInfoAction", "aesKey=" + b2 + ", aesValue=" + a2 + ", rsaKey=" + d2);
         }
         JSONObject jSONObject2 = new JSONObject();

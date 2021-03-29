@@ -21,7 +21,7 @@ import d.b.b.e.p.k;
 import d.b.b.e.q.h;
 import d.b.h0.s.d.b;
 import d.b.h0.s.d.d;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NotificationHelper {
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
     public static String PRIMARY_CHANNEL = "default";

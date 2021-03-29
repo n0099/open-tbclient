@@ -31,13 +31,13 @@ public class b extends d.b.g0.a.n1.a.a.a {
     public static boolean k = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bundle f47564f;
+    public Bundle f47565f;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdDownloadService.a f47566h;
+    public AdDownloadService.a f47567h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47565g = false;
+    public boolean f47566g = false;
     public ServiceConnection i = new a();
 
     /* loaded from: classes3.dex */
@@ -47,18 +47,18 @@ public class b extends d.b.g0.a.n1.a.a.a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            b.this.f47566h = (AdDownloadService.a) iBinder;
-            if (k.f45050a) {
+            b.this.f47567h = (AdDownloadService.a) iBinder;
+            if (k.f45051a) {
                 Log.d("AdDownload", "service connected");
             }
             b bVar = b.this;
-            bVar.l(bVar.f47564f);
+            bVar.l(bVar.f47565f);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            b.this.f47566h = null;
-            if (k.f45050a) {
+            b.this.f47567h = null;
+            if (k.f45051a) {
                 Log.d("AdDownload", "service disconnected");
             }
         }
@@ -66,23 +66,23 @@ public class b extends d.b.g0.a.n1.a.a.a {
 
     /* renamed from: d.b.g0.e.a.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0928b implements Runnable {
+    public class RunnableC0929b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f47568e;
+        public final /* synthetic */ int f47569e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f47569f;
+        public final /* synthetic */ int f47570f;
 
-        public RunnableC0928b(int i, int i2) {
-            this.f47568e = i;
-            this.f47569f = i2;
+        public RunnableC0929b(int i, int i2) {
+            this.f47569e = i;
+            this.f47570f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f45339d.putInt("state", this.f47568e);
-            b.this.f45339d.putInt("progress", this.f47569f);
+            b.this.f45340d.putInt("state", this.f47569e);
+            b.this.f45340d.putInt("progress", this.f47570f);
             b.this.c();
         }
     }
@@ -91,15 +91,15 @@ public class b extends d.b.g0.a.n1.a.a.a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47571e;
+        public final /* synthetic */ String f47572e;
 
         public c(String str) {
-            this.f47571e = str;
+            this.f47572e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f45339d.putString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f47571e);
+            b.this.f45340d.putString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f47572e);
             b.this.c();
         }
     }
@@ -108,70 +108,70 @@ public class b extends d.b.g0.a.n1.a.a.a {
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47573a;
+        public static final /* synthetic */ int[] f47574a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47574b;
+        public static final /* synthetic */ int[] f47575b;
 
         static {
             int[] iArr = new int[SwanAdDownloadState.values().length];
-            f47574b = iArr;
+            f47575b = iArr;
             try {
                 iArr[SwanAdDownloadState.NOT_START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47574b[SwanAdDownloadState.WAIT.ordinal()] = 2;
+                f47575b[SwanAdDownloadState.WAIT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47574b[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 3;
+                f47575b[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47574b[SwanAdDownloadState.DOWNLOADED.ordinal()] = 4;
+                f47575b[SwanAdDownloadState.DOWNLOADED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47574b[SwanAdDownloadState.DOWNLOADING.ordinal()] = 5;
+                f47575b[SwanAdDownloadState.DOWNLOADING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47574b[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                f47575b[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f47574b[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 7;
+                f47575b[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f47574b[SwanAdDownloadState.DELETED.ordinal()] = 8;
+                f47575b[SwanAdDownloadState.DELETED.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            f47573a = iArr2;
+            f47574a = iArr2;
             try {
                 iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f47573a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f47574a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f47573a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f47574a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f47573a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f47574a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f47573a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
+                f47574a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f47573a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
+                f47574a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
             } catch (NoSuchFieldError unused14) {
             }
         }
@@ -181,19 +181,19 @@ public class b extends d.b.g0.a.n1.a.a.a {
     public class e implements d.b.g0.e.a.l.i.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f47575a;
+        public final String f47576a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f47576b;
+        public final String f47577b;
 
         /* loaded from: classes3.dex */
         public class a extends a.d<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.e.a.l.i.c f47578a;
+            public final /* synthetic */ d.b.g0.e.a.l.i.c f47579a;
 
             public a(d.b.g0.e.a.l.i.c cVar) {
-                this.f47578a = cVar;
+                this.f47579a = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -202,37 +202,37 @@ public class b extends d.b.g0.a.n1.a.a.a {
             public void a(Boolean bool) {
                 super.a(bool);
                 if (bool.booleanValue()) {
-                    if (k.f45050a) {
+                    if (k.f45051a) {
                         Log.d("AdDownload", "安装完成");
                     }
-                    d.b.g0.e.a.l.i.c cVar = this.f47578a;
-                    cVar.b(cVar.g(e.this.f47576b));
+                    d.b.g0.e.a.l.i.c cVar = this.f47579a;
+                    cVar.b(cVar.g(e.this.f47577b));
                     b.this.y(SwanAdDownloadState.INSTALLED.value(), Integer.parseInt("100"));
                 }
             }
         }
 
         public e(String str, String str2) {
-            this.f47575a = str;
-            this.f47576b = str2;
+            this.f47576a = str;
+            this.f47577b = str2;
         }
 
         @Override // d.b.g0.e.a.l.i.b
         public void a() {
             String str;
             b.this.y(SwanAdDownloadState.DOWNLOADED.value(), Integer.parseInt("100"));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载完成");
             }
-            String str2 = this.f47575a;
-            if (TextUtils.isEmpty(str2) && (str = this.f47576b) != null) {
+            String str2 = this.f47576a;
+            if (TextUtils.isEmpty(str2) && (str = this.f47577b) != null) {
                 str2 = b.this.w(str);
                 b.this.x(str2);
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            Uri parse = Uri.parse(this.f47576b);
+            Uri parse = Uri.parse(this.f47577b);
             d.b.g0.e.a.l.i.c m = d.b.g0.e.a.l.g.a.m(b.this.m(), null);
             m.f(str2, parse, new a(m));
         }
@@ -240,7 +240,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         @Override // d.b.g0.e.a.l.i.b
         public void b() {
             b.this.y(SwanAdDownloadState.NOT_START.value(), Integer.parseInt("0"));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载等待");
             }
         }
@@ -254,7 +254,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         public void d(long j, long j2) {
             String o = b.o(j, j2);
             b.this.y(SwanAdDownloadState.DOWNLOADING.value(), Integer.parseInt(o));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载进度" + o);
             }
         }
@@ -262,7 +262,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         @Override // d.b.g0.e.a.l.i.b
         public void e() {
             b.this.y(SwanAdDownloadState.DELETED.value(), Integer.parseInt("0"));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载移除");
             }
         }
@@ -271,7 +271,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         public void f(long j, long j2) {
             String o = b.o(j, j2);
             b.this.y(SwanAdDownloadState.DOWNLOAD_PAUSED.value(), Integer.parseInt(o));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载暂停" + o);
             }
         }
@@ -279,7 +279,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         @Override // d.b.g0.e.a.l.i.b
         public void onStart() {
             b.this.y(SwanAdDownloadState.DOWNLOADING.value(), Integer.parseInt("0"));
-            if (k.f45050a) {
+            if (k.f45051a) {
                 Log.d("AdDownload", "下载开始");
             }
         }
@@ -313,8 +313,8 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public void B() {
-        if (this.f47565g) {
-            this.f47565g = false;
+        if (this.f47566g) {
+            this.f47566g = false;
             Context m = m();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
@@ -325,7 +325,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
 
     @Override // d.b.g0.a.n1.a.a.a
     public void b(@NonNull Bundle bundle) {
-        this.f47564f = bundle;
+        this.f47565f = bundle;
         if (SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type")) == SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE) {
             A();
             return;
@@ -335,10 +335,10 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public void k() {
-        if (this.f47565g) {
+        if (this.f47566g) {
             return;
         }
-        this.f47565g = true;
+        this.f47566g = true;
         Context m = m();
         Intent intent = new Intent();
         intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
@@ -351,8 +351,8 @@ public class b extends d.b.g0.a.n1.a.a.a {
             SwanAppDownloadAction.SwanAppDownloadType find = SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type"));
             JSONObject b2 = v.b(bundle.getString(PushConstants.PARAMS, null));
             String optString = b2.optString("url");
-            if (!TextUtils.isEmpty(optString) && this.f47566h != null) {
-                switch (d.f47573a[find.ordinal()]) {
+            if (!TextUtils.isEmpty(optString) && this.f47567h != null) {
+                switch (d.f47574a[find.ordinal()]) {
                     case 1:
                         t(b2, optString);
                         break;
@@ -383,7 +383,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void p(@NonNull String str) {
-        this.f47566h.a(this.f47566h.b(str));
+        this.f47567h.a(this.f47567h.b(str));
     }
 
     public final void q() {
@@ -391,15 +391,15 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void r(@NonNull JSONObject jSONObject, @NonNull String str) {
-        d.b.g0.e.a.l.e.c(this.f47566h.b(str).getPath(), false);
+        d.b.g0.e.a.l.e.c(this.f47567h.b(str).getPath(), false);
     }
 
     public final void s(@NonNull String str) {
-        this.f47566h.c(this.f47566h.b(str));
+        this.f47567h.c(this.f47567h.b(str));
     }
 
     public final void t(@NonNull JSONObject jSONObject, @NonNull String str) {
-        DownloadInfo b2 = this.f47566h.b(str);
+        DownloadInfo b2 = this.f47567h.b(str);
         int value = SwanAdDownloadState.NOT_START.value();
         int parseInt = Integer.parseInt("0");
         if (b2 == null) {
@@ -408,7 +408,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
         }
         long progress = b2.getProgress();
         long size = b2.getSize();
-        switch (d.f47574b[SwanAdDownloadState.convert(b2.getStatus()).ordinal()]) {
+        switch (d.f47575b[SwanAdDownloadState.convert(b2.getStatus()).ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -440,11 +440,11 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void u(@NonNull String str) {
-        this.f47566h.d(this.f47566h.b(str));
+        this.f47567h.d(this.f47567h.b(str));
     }
 
     public final void v(@NonNull JSONObject jSONObject, @NonNull String str) {
-        DownloadInfo b2 = this.f47566h.b(str);
+        DownloadInfo b2 = this.f47567h.b(str);
         String optString = jSONObject.optString("name");
         String n = n();
         if (TextUtils.isEmpty(n)) {
@@ -463,11 +463,11 @@ public class b extends d.b.g0.a.n1.a.a.a {
             b2 = aVar.a();
         }
         b2.setDownloadListener(new e(optString, str));
-        this.f47566h.e(b2);
+        this.f47567h.e(b2);
     }
 
     public final String w(@NonNull String str) {
-        return this.f47566h.b(str).getPackageName();
+        return this.f47567h.b(str).getPackageName();
     }
 
     public final void x(String str) {
@@ -475,7 +475,7 @@ public class b extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void y(int i, int i2) {
-        d.b.g0.a.r1.d.g().post(new RunnableC0928b(i, i2));
+        d.b.g0.a.r1.d.g().post(new RunnableC0929b(i, i2));
         B();
     }
 

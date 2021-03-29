@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetHotWordsModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19252e;
+    public b f19253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f19253f = new a(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
+    public final HttpMessageListener f19254f = new a(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public a(int i) {
             super(i);
@@ -28,19 +28,19 @@ public class GetHotWordsModel extends FaceBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003352 || !(httpResponsedMessage instanceof GetHotWordsMessage) || GetHotWordsModel.this.f19252e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003352 || !(httpResponsedMessage instanceof GetHotWordsMessage) || GetHotWordsModel.this.f19253e == null) {
                 return;
             }
             GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
             if (getHotWordsMessage.getData() != null) {
-                GetHotWordsModel.this.f19252e.onSuccess(getHotWordsMessage.getData());
+                GetHotWordsModel.this.f19253e.onSuccess(getHotWordsMessage.getData());
             } else {
-                GetHotWordsModel.this.f19252e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
+                GetHotWordsModel.this.f19253e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onFail(int i, String str);
 
@@ -50,9 +50,9 @@ public class GetHotWordsModel extends FaceBaseModel {
     public GetHotWordsModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19253f.setTag(getUniqueId());
-        this.f19253f.setSelfListener(true);
-        registerListener(this.f19253f);
+        this.f19254f.setTag(getUniqueId());
+        this.f19254f.setSelfListener(true);
+        registerListener(this.f19254f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -62,7 +62,7 @@ public class GetHotWordsModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f19253f);
+        MessageManager.getInstance().unRegisterListener(this.f19254f);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
         return true;
     }
@@ -74,7 +74,7 @@ public class GetHotWordsModel extends FaceBaseModel {
     }
 
     public void t(b bVar) {
-        this.f19252e = bVar;
+        this.f19253e = bVar;
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS));
     }
 }

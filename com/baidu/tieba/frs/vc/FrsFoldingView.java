@@ -19,16 +19,16 @@ import java.util.List;
 public class FrsFoldingView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16615e;
+    public int f16616e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f16616f;
+    public boolean f16617f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout.LayoutParams f16617g;
+    public LinearLayout.LayoutParams f16618g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16618h;
+    public LinearLayout f16619h;
     public FrameLayout i;
     public FrameLayout j;
     public ImageView k;
@@ -41,13 +41,13 @@ public class FrsFoldingView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FrsFoldingView.this.f16616f) {
+            if (FrsFoldingView.this.f16617f) {
                 FrsFoldingView.this.n();
-                FrsFoldingView.this.f16616f = false;
+                FrsFoldingView.this.f16617f = false;
                 return;
             }
             FrsFoldingView.this.m();
-            FrsFoldingView.this.f16616f = true;
+            FrsFoldingView.this.f16617f = true;
         }
     }
 
@@ -55,17 +55,17 @@ public class FrsFoldingView extends LinearLayout {
     public class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f16620e;
+        public final /* synthetic */ ValueAnimator f16621e;
 
         public b(ValueAnimator valueAnimator) {
-            this.f16620e = valueAnimator;
+            this.f16621e = valueAnimator;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            float floatValue = ((Float) this.f16620e.getAnimatedValue()).floatValue();
-            FrsFoldingView.this.f16617g.height = (int) (FrsFoldingView.this.f16615e * floatValue);
-            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16617g);
+            float floatValue = ((Float) this.f16621e.getAnimatedValue()).floatValue();
+            FrsFoldingView.this.f16618g.height = (int) (FrsFoldingView.this.f16616e * floatValue);
+            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16618g);
             FrsFoldingView.this.j.setAlpha(floatValue);
             FrsFoldingView.this.k.setRotation((-floatValue) * 180.0f);
         }
@@ -75,17 +75,17 @@ public class FrsFoldingView extends LinearLayout {
     public class c implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f16622e;
+        public final /* synthetic */ ValueAnimator f16623e;
 
         public c(ValueAnimator valueAnimator) {
-            this.f16622e = valueAnimator;
+            this.f16623e = valueAnimator;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            float floatValue = ((Float) this.f16622e.getAnimatedValue()).floatValue();
-            FrsFoldingView.this.f16617g.height = (int) (FrsFoldingView.this.f16615e * floatValue);
-            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16617g);
+            float floatValue = ((Float) this.f16623e.getAnimatedValue()).floatValue();
+            FrsFoldingView.this.f16618g.height = (int) (FrsFoldingView.this.f16616e * floatValue);
+            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16618g);
             FrsFoldingView.this.j.setAlpha(floatValue);
             FrsFoldingView.this.k.setRotation((-floatValue) * 180.0f);
         }
@@ -103,7 +103,7 @@ public class FrsFoldingView extends LinearLayout {
     public final void j() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.folding_view_layout, (ViewGroup) this, true);
         this.l = inflate;
-        this.f16618h = (LinearLayout) inflate.findViewById(R.id.folding_root_layout);
+        this.f16619h = (LinearLayout) inflate.findViewById(R.id.folding_root_layout);
         this.i = (FrameLayout) this.l.findViewById(R.id.permanent_layout);
         this.j = (FrameLayout) this.l.findViewById(R.id.collapsible_layout);
         this.k = (ImageView) this.l.findViewById(R.id.folding_arrow);
@@ -119,7 +119,7 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     public final void m() {
-        this.f16617g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+        this.f16618g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
         ofFloat.addUpdateListener(new c(ofFloat));
         ofFloat.setDuration(300L);
@@ -127,7 +127,7 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     public final void n() {
-        this.f16617g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+        this.f16618g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new b(ofFloat));
         ofFloat.setDuration(300L);
@@ -141,7 +141,7 @@ public class FrsFoldingView extends LinearLayout {
             this.k.setVisibility(0);
             this.j.removeAllViews();
             this.j.addView(list.get(1));
-            this.f16615e = list2.get(1).getCount() * l.g(getContext().getApplicationContext(), R.dimen.tbds93);
+            this.f16616e = list2.get(1).getCount() * l.g(getContext().getApplicationContext(), R.dimen.tbds93);
             return;
         }
         this.k.setVisibility(8);
@@ -153,8 +153,8 @@ public class FrsFoldingView extends LinearLayout {
 
     public FrsFoldingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16615e = 0;
-        this.f16616f = true;
+        this.f16616e = 0;
+        this.f16617f = true;
         i();
     }
 }

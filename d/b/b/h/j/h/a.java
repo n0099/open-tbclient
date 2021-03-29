@@ -16,29 +16,29 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f42308b;
+    public static a f42309b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<String, PluginStatus> f42309a = new LinkedHashMap<>(10);
+    public final LinkedHashMap<String, PluginStatus> f42310a = new LinkedHashMap<>(10);
 
     public static a b() {
-        if (f42308b == null) {
+        if (f42309b == null) {
             synchronized (a.class) {
-                if (f42308b == null) {
-                    f42308b = new a();
+                if (f42309b == null) {
+                    f42309b = new a();
                 }
             }
         }
-        return f42308b;
+        return f42309b;
     }
 
     public List<PluginStatus> a() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.f42309a) {
-            arrayList = new ArrayList(this.f42309a.size());
-            for (Map.Entry<String, PluginStatus> entry : this.f42309a.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.f2229g == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.f42310a) {
+            arrayList = new ArrayList(this.f42310a.size());
+            for (Map.Entry<String, PluginStatus> entry : this.f42310a.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.f2230g == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -51,18 +51,18 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f42309a) {
-            pluginStatus = this.f42309a.get(str);
+        synchronized (this.f42310a) {
+            pluginStatus = this.f42310a.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.f2227e = str;
-                this.f42309a.put(str, pluginStatus);
+                pluginStatus.f2228e = str;
+                this.f42310a.put(str, pluginStatus);
             }
         }
         return pluginStatus;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0115  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0114  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -112,10 +112,10 @@ public class a {
             if (c2 == null) {
                 c2 = new PluginStatus();
             }
-            c2.f2229g = PluginPackageManager.PluginStatus.ERROR;
+            c2.f2230g = PluginPackageManager.PluginStatus.ERROR;
             c2.i = string;
             c2.j = string2;
-            c2.f2230h = i;
+            c2.f2231h = i;
             c2.k = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
         }
@@ -123,10 +123,10 @@ public class a {
         c2 = c(str);
         if (c2 == null) {
         }
-        c2.f2229g = PluginPackageManager.PluginStatus.ERROR;
+        c2.f2230g = PluginPackageManager.PluginStatus.ERROR;
         c2.i = string;
         c2.j = string2;
-        c2.f2230h = i;
+        c2.f2231h = i;
         c2.k = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
     }
@@ -134,7 +134,7 @@ public class a {
     public void e(String str) {
         PluginStatus c2 = b().c(str);
         if (c2 != null) {
-            c2.f2229g = PluginPackageManager.PluginStatus.NROMAL;
+            c2.f2230g = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, c2));
     }
@@ -144,8 +144,8 @@ public class a {
         if (c2 == null) {
             c2 = new PluginStatus();
         }
-        c2.f2229g = PluginPackageManager.PluginStatus.ERROR;
-        c2.f2230h = 100;
+        c2.f2230g = PluginPackageManager.PluginStatus.ERROR;
+        c2.f2231h = 100;
         c2.i = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
         c2.j = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, c2));

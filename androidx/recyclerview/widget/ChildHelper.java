@@ -35,7 +35,7 @@ public class ChildHelper {
                 }
                 return;
             }
-            this.mData &= (1 << i) ^ (-1);
+            this.mData &= ~(1 << i);
         }
 
         public int countOnesBefore(int i) {
@@ -69,7 +69,7 @@ public class ChildHelper {
             boolean z2 = (this.mData & Long.MIN_VALUE) != 0;
             long j = (1 << i) - 1;
             long j2 = this.mData;
-            this.mData = ((j2 & (j ^ (-1))) << 1) | (j2 & j);
+            this.mData = ((j2 & (~j)) << 1) | (j2 & j);
             if (z) {
                 set(i);
             } else {
@@ -88,10 +88,10 @@ public class ChildHelper {
             }
             long j = 1 << i;
             boolean z = (this.mData & j) != 0;
-            long j2 = this.mData & (j ^ (-1));
+            long j2 = this.mData & (~j);
             this.mData = j2;
             long j3 = j - 1;
-            this.mData = (j2 & j3) | Long.rotateRight((j3 ^ (-1)) & j2, 1);
+            this.mData = (j2 & j3) | Long.rotateRight((~j3) & j2, 1);
             Bucket bucket = this.mNext;
             if (bucket != null) {
                 if (bucket.get(0)) {

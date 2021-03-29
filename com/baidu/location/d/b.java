@@ -11,29 +11,29 @@ import java.util.Locale;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f6676d;
+    public static String f6677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6677e;
+    public static String f6678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6678f;
+    public static String f6679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6679g;
+    public static String f6680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6680h;
+    public static int f6681h;
     public static b i;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6681a = null;
+    public String f6682a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6682b = null;
+    public String f6683b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6683c = null;
+    public String f6684c = null;
     public boolean j = false;
 
     public b() {
@@ -68,15 +68,15 @@ public class b {
         stringBuffer.append("&sdk=");
         stringBuffer.append(7.63f);
         if (z) {
-            if (j.f6720g.equals("all")) {
+            if (j.f6721g.equals("all")) {
                 stringBuffer.append("&addr=allj");
             }
             if (j.i) {
                 stringBuffer.append("&adtp=n2");
             }
-            if (j.f6721h || j.k || j.l || j.j) {
+            if (j.f6722h || j.k || j.l || j.j) {
                 stringBuffer.append("&sema=");
-                if (j.f6721h) {
+                if (j.f6722h) {
                     stringBuffer.append("aptag|");
                 }
                 if (j.j) {
@@ -102,14 +102,14 @@ public class b {
                 stringBuffer.append(j);
             }
         }
-        if (this.f6682b != null) {
+        if (this.f6683b != null) {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.f6682b);
-            String str3 = this.f6681a;
-            str2 = (str3 == null || str3.equals("NULL") || this.f6682b.contains(new StringBuffer(this.f6681a).reverse().toString())) ? "&Aim=" : "&Aim=";
-            if (this.f6683c != null) {
+            stringBuffer.append(this.f6683b);
+            String str3 = this.f6682a;
+            str2 = (str3 == null || str3.equals("NULL") || this.f6683b.contains(new StringBuffer(this.f6682a).reverse().toString())) ? "&Aim=" : "&Aim=";
+            if (this.f6684c != null) {
                 stringBuffer.append("&Aid=");
-                stringBuffer.append(this.f6683c);
+                stringBuffer.append(this.f6684c);
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -142,8 +142,8 @@ public class b {
         }
         str2 = "&im=";
         stringBuffer.append(str2);
-        stringBuffer.append(this.f6681a);
-        if (this.f6683c != null) {
+        stringBuffer.append(this.f6682a);
+        if (this.f6684c != null) {
         }
         stringBuffer.append("&fw=");
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -170,31 +170,31 @@ public class b {
             return;
         }
         try {
-            this.f6681a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            this.f6682a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception unused) {
-            this.f6681a = "NULL";
+            this.f6682a = "NULL";
         }
         try {
-            this.f6682b = CommonParam.a(context);
+            this.f6683b = CommonParam.a(context);
         } catch (Exception unused2) {
-            this.f6682b = null;
+            this.f6683b = null;
         }
         try {
-            this.f6683c = com.baidu.android.bbalbs.common.util.b.c(context);
+            this.f6684c = com.baidu.android.bbalbs.common.util.b.c(context);
         } catch (Exception unused3) {
-            this.f6683c = null;
+            this.f6684c = null;
         }
         try {
-            f6676d = context.getPackageName();
+            f6677d = context.getPackageName();
         } catch (Exception unused4) {
-            f6676d = null;
+            f6677d = null;
         }
-        j.o = "" + this.f6682b;
+        j.o = "" + this.f6683b;
         this.j = true;
     }
 
     public void a(String str, String str2) {
-        f6677e = str;
-        f6676d = str2;
+        f6678e = str;
+        f6677d = str2;
     }
 }

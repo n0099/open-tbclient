@@ -14,11 +14,11 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43824c;
+    public String f43825c;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/setPhoneContact");
@@ -28,7 +28,7 @@ public class a extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (context != null && callbackHandler != null && eVar != null) {
             if (eVar.Z()) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -39,7 +39,7 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
             }
             String optString = optParamsAsJo.optString("action");
@@ -52,7 +52,7 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            this.f43824c = optParamsAsJo.optString("cb");
+            this.f43825c = optParamsAsJo.optString("cb");
             char c2 = 65535;
             int hashCode = optString.hashCode();
             if (hashCode != -1183792455) {
@@ -120,18 +120,18 @@ public class a extends a0 {
     public final void m(Context context, Intent intent, CallbackHandler callbackHandler) {
         try {
             context.startActivity(intent);
-            if (TextUtils.isEmpty(this.f43824c)) {
+            if (TextUtils.isEmpty(this.f43825c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f43824c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f43825c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
         } catch (Exception e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SetPhoneContactAction", "startContactActivity:" + e2.toString());
             }
-            if (TextUtils.isEmpty(this.f43824c)) {
+            if (TextUtils.isEmpty(this.f43825c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f43824c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f43825c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
         }
     }
 }

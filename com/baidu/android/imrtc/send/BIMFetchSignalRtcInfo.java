@@ -5,7 +5,7 @@ import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     public static final String TAG = "BIMFetchSignalRtcInfo";
     public long mFetchTime;

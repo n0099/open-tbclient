@@ -20,14 +20,14 @@ public class b extends a0 {
         if (eVar == null) {
             c.b("compass", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "stopCompass --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             c.b("compass", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "stopCompass --- illegal context");
             }
             return false;

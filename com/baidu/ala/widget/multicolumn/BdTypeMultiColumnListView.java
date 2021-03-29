@@ -10,7 +10,7 @@ import d.b.b.j.e.a;
 import d.b.b.j.e.n;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public TypeAdapter mTypeAdapter;
 

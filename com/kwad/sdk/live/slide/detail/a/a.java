@@ -10,55 +10,55 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceTexture f36068a;
+    public SurfaceTexture f36069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KSLiveAudience f36069b;
+    public KSLiveAudience f36070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<TextureView.SurfaceTextureListener> f36070c;
+    public List<TextureView.SurfaceTextureListener> f36071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<KSLiveStateListener> f36071d;
+    public List<KSLiveStateListener> f36072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f36072e;
+    public List<Object> f36073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<InterfaceC0429a> f36073f;
+    public List<InterfaceC0430a> f36074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f36074g;
+    public g f36075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36075h;
+    public boolean f36076h;
     public boolean i;
 
     /* renamed from: com.kwad.sdk.live.slide.detail.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0429a {
+    public interface InterfaceC0430a {
         void a();
     }
 
     private void b() {
-        this.f36072e.clear();
-        this.f36071d.clear();
-        this.f36070c.clear();
-        this.f36073f.clear();
+        this.f36073e.clear();
+        this.f36072d.clear();
+        this.f36071c.clear();
+        this.f36074f.clear();
     }
 
     public void a() {
-        KSLiveAudience kSLiveAudience = this.f36069b;
+        KSLiveAudience kSLiveAudience = this.f36070b;
         if (kSLiveAudience != null) {
             kSLiveAudience.destroy();
         }
         b();
-        this.f36075h = false;
+        this.f36076h = false;
         this.i = false;
-        this.f36068a = null;
-        this.f36074g.a((g.a) null);
-        for (InterfaceC0429a interfaceC0429a : this.f36073f) {
-            interfaceC0429a.a();
+        this.f36069a = null;
+        this.f36075g.a((g.a) null);
+        for (InterfaceC0430a interfaceC0430a : this.f36074f) {
+            interfaceC0430a.a();
         }
     }
 }

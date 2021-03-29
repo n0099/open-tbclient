@@ -19,34 +19,34 @@ import java.util.List;
 public class HomeMainView extends LinearLayout implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemLayout> f24583a;
+    public List<BaseItemLayout> f24584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24584b;
+    public String f24585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24585c;
+    public boolean f24586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f24586d;
+    public d f24587d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24587e;
+    public String f24588e;
     public HomeCfgResponse.AllConfig mAllConfig;
 
     public HomeMainView(Context context) {
         super(context);
-        this.f24583a = new ArrayList();
-        this.f24585c = false;
+        this.f24584a = new ArrayList();
+        this.f24586c = false;
     }
 
     private void a() {
         removeAllViews();
-        this.f24583a.clear();
+        this.f24584a.clear();
     }
 
     private boolean b() {
-        for (BaseItemLayout baseItemLayout : this.f24583a) {
+        for (BaseItemLayout baseItemLayout : this.f24584a) {
             if (baseItemLayout.hasItemShowPoint()) {
                 return true;
             }
@@ -55,19 +55,19 @@ public class HomeMainView extends LinearLayout implements b {
     }
 
     public void dispatchDot(String str) {
-        for (BaseItemLayout baseItemLayout : this.f24583a) {
+        for (BaseItemLayout baseItemLayout : this.f24584a) {
             baseItemLayout.dispatchShowPoint(str);
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public String getAndroidPrefix() {
-        return TextUtils.isEmpty(this.f24584b) ? "" : this.f24584b;
+        return TextUtils.isEmpty(this.f24585b) ? "" : this.f24585b;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public String getPageType() {
-        return this.f24587e;
+        return this.f24588e;
     }
 
     public boolean isApp() {
@@ -76,14 +76,14 @@ public class HomeMainView extends LinearLayout implements b {
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public boolean isLoginData() {
-        return this.f24585c;
+        return this.f24586c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void jump(String str, String str2, String str3, boolean z) {
-        d dVar = this.f24586d;
+        d dVar = this.f24587d;
         if (dVar == null || !dVar.a(str, str2, str3)) {
-            com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f24587e);
+            com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f24588e);
         }
     }
 
@@ -104,15 +104,15 @@ public class HomeMainView extends LinearLayout implements b {
     public void onEyeMaskBtnClick() {
         boolean z = !com.baidu.wallet.home.storage.a.a(getContext());
         com.baidu.wallet.home.storage.a.a(getContext(), z);
-        for (BaseItemLayout baseItemLayout : this.f24583a) {
+        for (BaseItemLayout baseItemLayout : this.f24584a) {
             baseItemLayout.onEyeMaskChanged();
         }
-        PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24521a, z ? "true" : "false");
+        PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24522a, z ? "true" : "false");
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void onPointShowChanged() {
-        d dVar = this.f24586d;
+        d dVar = this.f24587d;
         if (dVar != null) {
             dVar.a(b());
         }
@@ -120,16 +120,16 @@ public class HomeMainView extends LinearLayout implements b {
 
     public void setAdapter(Context context, HomeCfgResponse homeCfgResponse, String str) {
         HomeCfgResponse.TitleItem[] titleItemArr;
-        this.f24587e = str;
+        this.f24588e = str;
         a();
         this.mAllConfig = homeCfgResponse.layout_content;
-        this.f24584b = homeCfgResponse.android_prefix;
-        this.f24585c = homeCfgResponse.isLogin();
+        this.f24585b = homeCfgResponse.android_prefix;
+        this.f24586c = homeCfgResponse.isLogin();
         HomeCfgResponse.AllConfig allConfig = this.mAllConfig;
         if (allConfig != null && allConfig.data != null) {
             boolean z = true;
             for (int i = 0; i < this.mAllConfig.data.length; i++) {
-                BaseItemLayout a2 = a.a().a(context, this.mAllConfig.data[i], this.f24584b);
+                BaseItemLayout a2 = a.a().a(context, this.mAllConfig.data[i], this.f24585b);
                 if (a2 != null) {
                     a2.setConfigData(this.mAllConfig.data[i], this);
                     if (a2.isDataValid()) {
@@ -146,11 +146,11 @@ public class HomeMainView extends LinearLayout implements b {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                         layoutParams.weight = 0.0f;
                         addView(a2, layoutParams);
-                        this.f24583a.add(a2);
+                        this.f24584a.add(a2);
                     }
                 }
             }
-            if (this.f24583a.size() > 0) {
+            if (this.f24584a.size() > 0) {
                 a(1);
             }
         }
@@ -163,13 +163,13 @@ public class HomeMainView extends LinearLayout implements b {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.weight = 1.0f;
             addView(feedBackLayout, layoutParams2);
-            this.f24583a.add(feedBackLayout);
+            this.f24584a.add(feedBackLayout);
         }
         onPointShowChanged();
     }
 
     public void setClickOuterInterface(d dVar) {
-        this.f24586d = dVar;
+        this.f24587d = dVar;
     }
 
     private void a(int i) {
@@ -214,7 +214,7 @@ public class HomeMainView extends LinearLayout implements b {
 
     public HomeMainView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24583a = new ArrayList();
-        this.f24585c = false;
+        this.f24584a = new ArrayList();
+        this.f24586c = false;
     }
 }

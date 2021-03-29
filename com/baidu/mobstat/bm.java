@@ -16,7 +16,7 @@ public final class bm {
         public static byte[] a(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
             if (i2 >= 0) {
-                String[] strArr = br.f9127a;
+                String[] strArr = br.f9128a;
                 if (strArr.length > i2) {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -30,7 +30,7 @@ public final class bm {
         public static byte[] b(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
             if (i2 >= 0) {
-                String[] strArr = br.f9127a;
+                String[] strArr = br.f9128a;
                 if (strArr.length > i2) {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");

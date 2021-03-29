@@ -9,12 +9,12 @@ import android.util.Log;
 import com.baidu.android.imsdk.db.DBVersionManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBConnection extends SQLiteOpenHelper {
     public static final String TAG = "DBConnection";
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public Version27And28Handler() {
         }
@@ -35,7 +35,7 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version47And48Handler implements DBVersionManager.VersionHandler {
         public Version47And48Handler() {
         }

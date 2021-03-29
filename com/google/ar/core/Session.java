@@ -29,10 +29,10 @@ import java.nio.ByteOrder;
 public class Session {
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.g.b.a.g f30876b = new d.g.b.a.g();
+    public final d.g.b.a.g f30877b = new d.g.b.a.g();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30875a = 0;
+    public long f30876a = 0;
 
     /* loaded from: classes6.dex */
     public enum Feature {
@@ -52,7 +52,7 @@ public class Session {
         
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30879b = 0;
+        public final int f30880b = 0;
 
         a(int i) {
         }
@@ -150,10 +150,10 @@ public class Session {
     private native void nativeUpdate(long j, long j2);
 
     public void finalize() throws Throwable {
-        long j = this.f30875a;
+        long j = this.f30876a;
         if (j != 0) {
             nativeDestroySession(j);
-            this.f30875a = 0L;
+            this.f30876a = 0L;
         }
         super.finalize();
     }
@@ -166,50 +166,50 @@ public class Session {
     public static abstract class c {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f30893g;
+        public static final c f30894g;
         public static final /* synthetic */ c[] i;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30894b;
+        public final int f30895b;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f30895h;
+        public final Class<?> f30896h;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f30889c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
+        public static final c f30890c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30888a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f30889a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f30890d = new af("PLANE", 2, 1095893249, Plane.class);
+        public static final c f30891d = new af("PLANE", 2, 1095893249, Plane.class);
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f30891e = new ag("POINT", 3, 1095893250, Point.class);
+        public static final c f30892e = new ag("POINT", 3, 1095893250, Point.class);
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f30892f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+        public static final c f30893f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f30893g = aiVar;
-            i = new c[]{f30889c, f30888a, f30890d, f30891e, f30892f, aiVar};
+            f30894g = aiVar;
+            i = new c[]{f30890c, f30889a, f30891d, f30892e, f30893f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
-            this.f30894b = i3;
-            this.f30895h = cls;
+            this.f30895b = i3;
+            this.f30896h = cls;
         }
 
         public static c a(Class<? extends d.g.b.a.b> cls) {
             c[] values;
             for (c cVar : values()) {
-                Class<?> cls2 = cVar.f30895h;
+                Class<?> cls2 = cVar.f30896h;
                 if (cls2 != null && cls2.equals(cls)) {
                     return cVar;
                 }
             }
-            return f30888a;
+            return f30889a;
         }
 
         public static c[] values() {

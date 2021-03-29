@@ -8,7 +8,7 @@ import java.util.Map;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f66102a;
+    public static final Map<Class<?>, Class<?>> f66103a;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -22,7 +22,7 @@ public final class g {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        f66102a = Collections.unmodifiableMap(hashMap);
+        f66103a = Collections.unmodifiableMap(hashMap);
         Collections.unmodifiableMap(hashMap2);
     }
 
@@ -32,11 +32,11 @@ public final class g {
     }
 
     public static boolean b(Type type) {
-        return f66102a.containsKey(type);
+        return f66103a.containsKey(type);
     }
 
     public static <T> Class<T> c(Class<T> cls) {
-        Map<Class<?>, Class<?>> map = f66102a;
+        Map<Class<?>, Class<?>> map = f66103a;
         a.b(cls);
         Class<T> cls2 = (Class<T>) map.get(cls);
         return cls2 == null ? cls : cls2;

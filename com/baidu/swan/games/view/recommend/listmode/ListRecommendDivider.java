@@ -14,26 +14,26 @@ import d.b.g0.a.d;
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12912a;
+    public int f12913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12913b;
+    public int f12914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f12914c;
+    public Paint f12915c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
-        this.f12912a = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_height);
-        this.f12913b = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_margin);
+        this.f12913a = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_height);
+        this.f12914b = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_margin);
         Paint paint = new Paint();
-        this.f12914c = paint;
+        this.f12915c = paint;
         paint.setColor(resources.getColor(c.swangame_recommend_dialog_list_divider));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        rect.set(0, 0, 0, this.f12912a);
+        rect.set(0, 0, 0, this.f12913a);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -42,7 +42,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
         for (int i = 0; i < itemCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                canvas.drawRect(this.f12913b, childAt.getBottom(), childAt.getWidth() - this.f12913b, childAt.getBottom() + this.f12912a, this.f12914c);
+                canvas.drawRect(this.f12914b, childAt.getBottom(), childAt.getWidth() - this.f12914b, childAt.getBottom() + this.f12913a, this.f12915c);
             }
         }
     }

@@ -24,7 +24,7 @@ public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15721e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+    public final HttpMessageListener f15722e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public class UserCollectModel extends FaceBaseModel {
             JSONArray jSONArray = new JSONArray();
             try {
                 for (CollectEmotionData collectEmotionData : n) {
-                    if (!d.f49682d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                    if (!d.f49683d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                         jSONArray.put(collectEmotionData.toJSON());
                         hashSet.add(collectEmotionData.sharpText);
                     }
@@ -97,9 +97,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f15721e.setTag(getUniqueId());
-        this.f15721e.setSelfListener(true);
-        registerListener(this.f15721e);
+        this.f15722e.setTag(getUniqueId());
+        this.f15722e.setSelfListener(true);
+        registerListener(this.f15722e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -109,7 +109,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f15721e);
+        MessageManager.getInstance().unRegisterListener(this.f15722e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         return true;
     }

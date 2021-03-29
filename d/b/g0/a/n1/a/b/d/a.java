@@ -1,7 +1,7 @@
 package d.b.g0.a.n1.a.b.d;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {

@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class u {
     public static final boolean a(boolean z) {
         Object d2;

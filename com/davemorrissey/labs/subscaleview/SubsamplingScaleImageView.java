@@ -527,9 +527,7 @@ public class SubsamplingScaleImageView extends View {
             }
         }
         float min = Math.min(this.maxScale, this.doubleTapZoomScale);
-        double d2 = min;
-        Double.isNaN(d2);
-        boolean z = ((double) this.scale) <= d2 * 0.9d;
+        boolean z = ((double) this.scale) <= ((double) min) * 0.9d;
         float minScale = z ? min : minScale();
         int i = this.doubleTapZoomStyle;
         if (i == 4) {
@@ -712,31 +710,20 @@ public class SubsamplingScaleImageView extends View {
             int i5 = sWidth / i;
             int i6 = sHeight / i;
             while (true) {
-                if (i5 + i3 + i2 <= point.x) {
-                    double d2 = i5;
-                    double width = getWidth();
-                    Double.isNaN(width);
-                    if (d2 <= width * 1.25d || i >= this.fullImageSampleSize) {
-                        break;
-                    }
+                if (i5 + i3 + i2 > point.x || (i5 > getWidth() * 1.25d && i < this.fullImageSampleSize)) {
+                    i3++;
+                    sWidth = sWidth() / i3;
+                    i5 = sWidth / i;
+                    i2 = 1;
                 }
-                i3++;
-                sWidth = sWidth() / i3;
-                i5 = sWidth / i;
-                i2 = 1;
             }
             while (true) {
-                if (i6 + i4 + i2 <= point.y) {
-                    double height = getHeight();
-                    Double.isNaN(height);
-                    if (i6 <= height * 1.25d || i >= this.fullImageSampleSize) {
-                        break;
-                    }
+                if (i6 + i4 + i2 > point.y || (i6 > getHeight() * 1.25d && i < this.fullImageSampleSize)) {
+                    i4++;
+                    sHeight = sHeight() / i4;
+                    i6 = sHeight / i;
+                    i2 = 1;
                 }
-                i4++;
-                sHeight = sHeight() / i4;
-                i6 = sHeight / i;
-                i2 = 1;
             }
             ArrayList arrayList = new ArrayList(i3 * i4);
             int i7 = 0;
@@ -1420,23 +1407,9 @@ public class SubsamplingScaleImageView extends View {
                 size = sWidth();
                 size2 = sHeight();
             } else if (z2) {
-                double sHeight = sHeight();
-                double sWidth = sWidth();
-                Double.isNaN(sHeight);
-                Double.isNaN(sWidth);
-                double d2 = sHeight / sWidth;
-                double d3 = size;
-                Double.isNaN(d3);
-                size2 = (int) (d2 * d3);
+                size2 = (int) ((sHeight() / sWidth()) * size);
             } else if (z) {
-                double sWidth2 = sWidth();
-                double sHeight2 = sHeight();
-                Double.isNaN(sWidth2);
-                Double.isNaN(sHeight2);
-                double d4 = sWidth2 / sHeight2;
-                double d5 = size2;
-                Double.isNaN(d5);
-                size = (int) (d4 * d5);
+                size = (int) ((sWidth() / sHeight()) * size2);
             }
         }
         setMeasuredDimension(Math.max(size, getSuggestedMinimumWidth()), Math.max(size2, getSuggestedMinimumHeight()));
@@ -1579,7 +1552,8 @@ public class SubsamplingScaleImageView extends View {
                                 }
                                 float abs3 = Math.abs(x2 - this.vCenterStart.x);
                                 float abs4 = Math.abs(y2 - this.vCenterStart.y);
-                                if (abs3 > 100.0f || abs4 > 100.0f || this.isPanning) {
+                                int i = (abs3 > 100.0f ? 1 : (abs3 == 100.0f ? 0 : -1));
+                                if (i > 0 || abs4 > 100.0f || this.isPanning) {
                                     this.vTranslate.x = this.vTranslateStart.x + (motionEvent.getX() - this.vCenterStart.x);
                                     this.vTranslate.y = this.vTranslateStart.y + (motionEvent.getY() - this.vCenterStart.y);
                                     PointF pointF8 = this.vTranslate;
@@ -1591,7 +1565,7 @@ public class SubsamplingScaleImageView extends View {
                                     boolean z5 = f13 == this.vTranslate.y && abs4 > 15.0f;
                                     if (!z4 && (!z3 || z5 || this.isPanning)) {
                                         this.isPanning = true;
-                                    } else if (abs3 > 100.0f) {
+                                    } else if (i > 0) {
                                         this.maxTouchCount = 0;
                                         this.handler.removeMessages(1);
                                         getParent().requestDisallowInterceptTouchEvent(false);

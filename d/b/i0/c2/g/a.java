@@ -25,19 +25,19 @@ import java.text.MessageFormat;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbChosenActivity f52331a;
+    public PbChosenActivity f52332a;
 
     /* renamed from: d.b.i0.c2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1141a implements View.OnClickListener {
-        public View$OnClickListenerC1141a() {
+    public class View$OnClickListenerC1142a implements View.OnClickListener {
+        public View$OnClickListenerC1142a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f52331a.sendMessage(new CustomMessage(2001277));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.f52331a.getPageContext().getPageActivity(), 23007)));
-            TiebaStatic.eventStat(a.this.f52331a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+            a.this.f52332a.sendMessage(new CustomMessage(2001277));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.f52332a.getPageContext().getPageActivity(), 23007)));
+            TiebaStatic.eventStat(a.this.f52332a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
         }
     }
 
@@ -45,18 +45,18 @@ public class a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f52333e;
+        public final /* synthetic */ ShareItem f52334e;
 
         public b(ShareItem shareItem) {
-            this.f52333e = shareItem;
+            this.f52334e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ShareItem shareItem = this.f52333e;
+            ShareItem shareItem = this.f52334e;
             shareItem.t = g.o(shareItem.t, shareItem.J);
-            d.b.b.e.p.a.a(this.f52333e.t);
-            l.L(a.this.f52331a.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            d.b.b.e.p.a.a(this.f52334e.t);
+            l.L(a.this.f52332a.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
@@ -64,26 +64,26 @@ public class a {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c2.g.c.a f52335e;
+        public final /* synthetic */ d.b.i0.c2.g.c.a f52336e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f52336f;
+        public final /* synthetic */ PbChosenActivity f52337f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f52337g;
+        public final /* synthetic */ ShareThreadView f52338g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f52338h;
+        public final /* synthetic */ long f52339h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
         public final /* synthetic */ String l;
 
         public c(d.b.i0.c2.g.c.a aVar, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, String str2, String str3, String str4) {
-            this.f52335e = aVar;
-            this.f52336f = pbChosenActivity;
-            this.f52337g = shareThreadView;
-            this.f52338h = j;
+            this.f52336e = aVar;
+            this.f52337f = pbChosenActivity;
+            this.f52338g = shareThreadView;
+            this.f52339h = j;
             this.i = str;
             this.j = str2;
             this.k = str3;
@@ -92,18 +92,18 @@ public class a {
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            d.b.i0.c2.g.c.a aVar2 = this.f52335e;
+            d.b.i0.c2.g.c.a aVar2 = this.f52336e;
             if (aVar2 == null || aVar2.getThreadInfo() == null) {
                 return;
             }
-            l.w(this.f52336f.getPageContext().getPageActivity(), this.f52337g.getChatMsgView());
-            Activity pageActivity = this.f52336f.getPageContext().getPageActivity();
-            long j = this.f52338h;
+            l.w(this.f52337f.getPageContext().getPageActivity(), this.f52338g.getChatMsgView());
+            Activity pageActivity = this.f52337f.getPageContext().getPageActivity();
+            long j = this.f52339h;
             String str = this.i;
             String str2 = this.j;
             String str3 = this.k;
-            String leaveMsg = this.f52337g.getLeaveMsg();
-            d.b.i0.c2.g.c.a aVar3 = this.f52335e;
+            String leaveMsg = this.f52338g.getLeaveMsg();
+            d.b.i0.c2.g.c.a aVar3 = this.f52336e;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, a.c(aVar3, aVar3.getThreadInfo().excid.longValue(), this.l).toChatMessageContent())));
             aVar.dismiss();
         }
@@ -113,19 +113,19 @@ public class a {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f52339e;
+        public final /* synthetic */ PbChosenActivity f52340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f52340f;
+        public final /* synthetic */ ShareThreadView f52341f;
 
         public d(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
-            this.f52339e = pbChosenActivity;
-            this.f52340f = shareThreadView;
+            this.f52340e = pbChosenActivity;
+            this.f52341f = shareThreadView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            l.w(this.f52339e.getPageContext().getPageActivity(), this.f52340f.getChatMsgView());
+            l.w(this.f52340e.getPageContext().getPageActivity(), this.f52341f.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -134,25 +134,25 @@ public class a {
     public static class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c2.g.c.a f52341e;
+        public final /* synthetic */ d.b.i0.c2.g.c.a f52342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f52342f;
+        public final /* synthetic */ PbChosenActivity f52343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f52343g;
+        public final /* synthetic */ ShareThreadView f52344g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f52344h;
+        public final /* synthetic */ long f52345h;
         public final /* synthetic */ String i;
         public final /* synthetic */ long j;
         public final /* synthetic */ String k;
 
         public e(d.b.i0.c2.g.c.a aVar, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, long j2, String str2) {
-            this.f52341e = aVar;
-            this.f52342f = pbChosenActivity;
-            this.f52343g = shareThreadView;
-            this.f52344h = j;
+            this.f52342e = aVar;
+            this.f52343f = pbChosenActivity;
+            this.f52344g = shareThreadView;
+            this.f52345h = j;
             this.i = str;
             this.j = j2;
             this.k = str2;
@@ -160,17 +160,17 @@ public class a {
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            d.b.i0.c2.g.c.a aVar2 = this.f52341e;
+            d.b.i0.c2.g.c.a aVar2 = this.f52342e;
             if (aVar2 == null || aVar2.getThreadInfo() == null) {
                 return;
             }
-            l.w(this.f52342f.getPageContext().getPageActivity(), this.f52343g.getChatMsgView());
-            Activity pageActivity = this.f52342f.getPageContext().getPageActivity();
-            long j = this.f52344h;
+            l.w(this.f52343f.getPageContext().getPageActivity(), this.f52344g.getChatMsgView());
+            Activity pageActivity = this.f52343f.getPageContext().getPageActivity();
+            long j = this.f52345h;
             String str = this.i;
             long j2 = this.j;
-            String leaveMsg = this.f52343g.getLeaveMsg();
-            d.b.i0.c2.g.c.a aVar3 = this.f52341e;
+            String leaveMsg = this.f52344g.getLeaveMsg();
+            d.b.i0.c2.g.c.a aVar3 = this.f52342e;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, a.c(aVar3, aVar3.getThreadInfo().excid.longValue(), this.k).toChatMessageContent())));
             aVar.dismiss();
         }
@@ -180,25 +180,25 @@ public class a {
     public static class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f52345e;
+        public final /* synthetic */ PbChosenActivity f52346e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f52346f;
+        public final /* synthetic */ ShareThreadView f52347f;
 
         public f(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
-            this.f52345e = pbChosenActivity;
-            this.f52346f = shareThreadView;
+            this.f52346e = pbChosenActivity;
+            this.f52347f = shareThreadView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            l.w(this.f52345e.getPageContext().getPageActivity(), this.f52346f.getChatMsgView());
+            l.w(this.f52346e.getPageContext().getPageActivity(), this.f52347f.getChatMsgView());
             aVar.dismiss();
         }
     }
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.f52331a = pbChosenActivity;
+        this.f52332a = pbChosenActivity;
     }
 
     public static ShareFromPBMsgData c(d.b.i0.c2.g.c.a aVar, long j, String str) {
@@ -255,7 +255,7 @@ public class a {
         String str2 = aVar.getThreadInfo().forum.forum_name;
         String str3 = aVar.getThreadInfo().title;
         String str4 = aVar.getThreadInfo()._abstract;
-        Resources resources = this.f52331a.getPageContext().getPageActivity().getResources();
+        Resources resources = this.f52332a.getPageContext().getPageActivity().getResources();
         String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
         resources.getString(R.string.chosen_pb_share_content, str3);
         ShareItem shareItem = new ShareItem();
@@ -265,14 +265,14 @@ public class a {
         shareItem.C = str4;
         shareItem.B = Long.toString(aVar.getThreadInfo().excid.longValue());
         shareItem.J = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-        shareItem.f13711a = true;
+        shareItem.f13712a = true;
         if (!StringUtils.isNull(str)) {
             shareItem.v = Uri.parse(str);
         }
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f52331a.getPageContext().getPageActivity(), shareItem, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f52332a.getPageContext().getPageActivity(), shareItem, true);
         shareDialogConfig.setIsCopyLink(true);
-        shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View$OnClickListenerC1141a());
+        shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View$OnClickListenerC1142a());
         shareDialogConfig.setCopyLinkListener(new b(shareItem));
-        this.f52331a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        this.f52332a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

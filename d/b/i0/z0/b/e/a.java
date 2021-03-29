@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.j>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -21,9 +21,9 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.j>> im
     public b0 q;
 
     /* renamed from: d.b.i0.z0.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1682a extends b0<d.b.i0.x.e0.j> {
-        public C1682a() {
+    /* loaded from: classes3.dex */
+    public class C1683a extends b0<d.b.i0.x.e0.j> {
+        public C1683a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.j>> im
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.q = new C1682a();
+        this.q = new C1683a();
         this.n = tbPageContext;
     }
 

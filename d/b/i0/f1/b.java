@@ -2,7 +2,7 @@ package d.b.i0.f1;
 
 import com.baidu.adp.lib.util.StringUtils;
 import d.b.b.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static String a(String str) {
         int indexOf;

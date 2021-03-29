@@ -10,23 +10,23 @@ import d.b.g0.a.k;
 import java.nio.charset.StandardCharsets;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46214b;
+    public int f46215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46215c;
+    public String f46216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f46216d;
+    public JSONObject f46217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46217e;
+    public boolean f46218e;
 
     public b() {
-        this.f46217e = false;
+        this.f46218e = false;
     }
 
     public static String c(int i) {
@@ -65,16 +65,16 @@ public class b implements a {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("status", String.valueOf(this.f46214b));
-            if (TextUtils.isEmpty(this.f46215c)) {
-                this.f46215c = c(this.f46214b);
+            jSONObject.put("status", String.valueOf(this.f46215b));
+            if (TextUtils.isEmpty(this.f46216c)) {
+                this.f46216c = c(this.f46215b);
             }
-            jSONObject.put("message", this.f46215c);
-            if (this.f46216d != null) {
-                jSONObject.put("data", this.f46217e ? Uri.encode(this.f46216d.toString(), StandardCharsets.UTF_8.name()) : this.f46216d);
+            jSONObject.put("message", this.f46216c);
+            if (this.f46217d != null) {
+                jSONObject.put("data", this.f46218e ? Uri.encode(this.f46217d.toString(), StandardCharsets.UTF_8.name()) : this.f46217d);
             }
         } catch (JSONException e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }
@@ -83,18 +83,18 @@ public class b implements a {
 
     @Override // d.b.g0.a.t.e.a
     public boolean b() {
-        return this.f46214b == 0;
+        return this.f46215b == 0;
     }
 
     public boolean d(@NonNull String str, @Nullable Object obj) {
-        if (this.f46216d == null) {
-            this.f46216d = new JSONObject();
+        if (this.f46217d == null) {
+            this.f46217d = new JSONObject();
         }
         try {
-            this.f46216d.put(str, obj);
+            this.f46217d.put(str, obj);
             return true;
         } catch (JSONException e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -107,33 +107,33 @@ public class b implements a {
     }
 
     public b(int i) {
-        this.f46217e = false;
-        this.f46214b = i;
+        this.f46218e = false;
+        this.f46215b = i;
     }
 
     public b(int i, @NonNull String str) {
-        this.f46217e = false;
-        this.f46214b = i;
-        this.f46215c = str;
+        this.f46218e = false;
+        this.f46215b = i;
+        this.f46216c = str;
     }
 
     public b(int i, @NonNull JSONObject jSONObject) {
-        this.f46217e = false;
-        this.f46214b = i;
-        this.f46216d = jSONObject;
+        this.f46218e = false;
+        this.f46215b = i;
+        this.f46217d = jSONObject;
     }
 
     public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.f46217e = false;
-        this.f46214b = i;
-        this.f46216d = jSONObject;
-        this.f46217e = z;
+        this.f46218e = false;
+        this.f46215b = i;
+        this.f46217d = jSONObject;
+        this.f46218e = z;
     }
 
     public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.f46217e = false;
-        this.f46214b = i;
-        this.f46215c = str;
-        this.f46216d = jSONObject;
+        this.f46218e = false;
+        this.f46215b = i;
+        this.f46216c = str;
+        this.f46217d = jSONObject;
     }
 }

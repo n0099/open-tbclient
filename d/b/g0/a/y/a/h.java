@@ -14,39 +14,39 @@ import java.util.Calendar;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends d.b.g0.a.y.a.a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y.b.f f46963e;
+        public final /* synthetic */ d.b.g0.a.y.b.f f46964e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f46964f;
+        public final /* synthetic */ CanvasView f46965f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46965g;
+        public final /* synthetic */ String f46966g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46966h;
+        public final /* synthetic */ UnitedSchemeEntity f46967h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
         public final /* synthetic */ CallbackHandler j;
 
         public a(h hVar, d.b.g0.a.y.b.f fVar, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, d.b.g0.a.r1.e eVar, CallbackHandler callbackHandler) {
-            this.f46963e = fVar;
-            this.f46964f = canvasView;
-            this.f46965g = str;
-            this.f46966h = unitedSchemeEntity;
+            this.f46964e = fVar;
+            this.f46965f = canvasView;
+            this.f46966g = str;
+            this.f46967h = unitedSchemeEntity;
             this.i = eVar;
             this.j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            boolean i = this.f46963e.i(this.f46964f, this.f46965g);
-            HashMap<String, String> params = this.f46966h.getParams();
+            boolean i = this.f46964e.i(this.f46965f, this.f46966g);
+            HashMap<String, String> params = this.f46967h.getParams();
             if (params == null || params.isEmpty()) {
                 return;
             }
@@ -56,7 +56,7 @@ public class h extends d.b.g0.a.y.a.a {
             if (str != null) {
                 try {
                     str2 = new JSONObject(str).optString("cb");
-                    jSONObject.putOpt("tempFilePath", d.b.g0.a.a2.b.r(this.f46965g, this.i.f45739f));
+                    jSONObject.putOpt("tempFilePath", d.b.g0.a.a2.b.r(this.f46966g, this.i.f45740f));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -82,7 +82,7 @@ public class h extends d.b.g0.a.y.a.a {
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        String h2 = d.b.g0.a.a2.b.h(eVar.f45739f);
+        String h2 = d.b.g0.a.a2.b.h(eVar.f45740f);
         if (TextUtils.isEmpty(h2)) {
             d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = l(201);
@@ -95,10 +95,10 @@ public class h extends d.b.g0.a.y.a.a {
             str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         }
         String str3 = str;
-        if (TextUtils.isEmpty(m.f43113g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
-            m.f43113g = A.X2();
+        if (TextUtils.isEmpty(m.f43114g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
+            m.f43114g = A.X2();
         }
-        if (!TextUtils.isEmpty(m.f43113g) && !TextUtils.isEmpty(m.f43112f)) {
+        if (!TextUtils.isEmpty(m.f43114g) && !TextUtils.isEmpty(m.f43113f)) {
             CanvasView a2 = d.b.g0.a.a0.c.d.b.a.a(m);
             if (a2 == null) {
                 d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
@@ -109,7 +109,7 @@ public class h extends d.b.g0.a.y.a.a {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f43113g + " ; canvas id = " + m.f43112f);
+        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f43114g + " ; canvas id = " + m.f43113f);
         unitedSchemeEntity.result = l(201);
         return false;
     }

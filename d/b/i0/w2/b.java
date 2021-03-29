@@ -14,10 +14,10 @@ import com.baidu.tieba.sharewrite.ForumPrefixResponsedMessage;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InterfaceC1650b f62160a;
+    public final InterfaceC1651b f62161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f62161b;
+    public BaseActivity f62162b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -28,53 +28,53 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (b.this.f62160a == null) {
+            if (b.this.f62161a == null) {
                 return;
             }
             if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                b.this.f62160a.onFailure();
+                b.this.f62161a.onFailure();
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                 ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                b.this.f62160a.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
+                b.this.f62161a.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
             }
         }
     }
 
     /* renamed from: d.b.i0.w2.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1650b {
+    public interface InterfaceC1651b {
         void a(boolean z, PostPrefixData postPrefixData);
 
         void onFailure();
     }
 
-    public b(BaseActivity baseActivity, InterfaceC1650b interfaceC1650b) {
-        this.f62161b = baseActivity;
-        this.f62160a = interfaceC1650b;
+    public b(BaseActivity baseActivity, InterfaceC1651b interfaceC1651b) {
+        this.f62162b = baseActivity;
+        this.f62161a = interfaceC1651b;
         c();
     }
 
     public void b(String str) {
-        if (this.f62161b == null) {
+        if (this.f62162b == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
         httpMessage.addParam("fname", str);
-        this.f62161b.sendMessage(httpMessage);
+        this.f62162b.sendMessage(httpMessage);
     }
 
     public void c() {
-        if (this.f62161b == null) {
+        if (this.f62162b == null) {
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");
         tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        this.f62161b.registerListener(new a(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
+        this.f62162b.registerListener(new a(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
     }
 }

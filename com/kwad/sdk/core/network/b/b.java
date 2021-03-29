@@ -14,8 +14,8 @@ public class b implements AdHttpProxy<Response> {
         c cVar = new c();
         if (response != null) {
             try {
-                cVar.f33865a = response.code();
-                cVar.f33866b = com.kwad.sdk.core.network.a.b.a(response);
+                cVar.f33866a = response.code();
+                cVar.f33867b = com.kwad.sdk.core.network.a.b.a(response);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }

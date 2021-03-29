@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m extends d.b.i.a<d.b.h0.r.q.a> {
     public CardForumHeadLayout j;
     public d.b.h0.r.q.a k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

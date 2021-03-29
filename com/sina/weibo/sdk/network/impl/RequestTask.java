@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> implements RequestCancelable {
     public IRequestParam param;
     public Class<T> tClass;

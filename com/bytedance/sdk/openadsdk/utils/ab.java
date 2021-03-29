@@ -11,10 +11,10 @@ import java.io.InputStreamReader;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30358a;
+    public static String f30359a;
 
     public static String a(Context context) {
-        String str = f30358a;
+        String str = f30359a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -24,7 +24,7 @@ public class ab {
                             u.b("Process", "processName = " + runningAppProcessInfo.processName);
                         }
                         String str2 = runningAppProcessInfo.processName;
-                        f30358a = str2;
+                        f30359a = str2;
                         return str2;
                     }
                 }
@@ -32,7 +32,7 @@ public class ab {
                 e2.printStackTrace();
             }
             String a2 = a();
-            f30358a = a2;
+            f30359a = a2;
             return a2;
         }
         return str;

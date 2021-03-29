@@ -46,16 +46,16 @@ public class m extends FrameLayout implements View.OnClickListener {
     public String N;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f10476e;
+    public View f10477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PolyFrameLayout f10477f;
+    public PolyFrameLayout f10478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TipView f10478g;
+    public TipView f10479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f10479h;
+    public ViewGroup f10480h;
     public Bundle i;
     public ProgressButton j;
     public a.b k;
@@ -79,22 +79,22 @@ public class m extends FrameLayout implements View.OnClickListener {
     public class a implements d.b.c0.k.j.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.j.a f10480a;
+        public final /* synthetic */ d.b.c0.k.j.a f10481a;
 
         public a(d.b.c0.k.j.a aVar) {
-            this.f10480a = aVar;
+            this.f10481a = aVar;
         }
 
         @Override // d.b.c0.k.j.a
-        public void a(a.C0569a c0569a) {
-            if (c0569a.f42665a == 0) {
-                m.this.C = Long.valueOf(c0569a.f42667c);
+        public void a(a.C0570a c0570a) {
+            if (c0570a.f42666a == 0) {
+                m.this.C = Long.valueOf(c0570a.f42668c);
                 m.this.L();
                 if (m.this.l != null && m.this.l.P() == 1) {
-                    m.this.l.l(c0569a.f42668d);
+                    m.this.l.l(c0570a.f42669d);
                 }
             }
-            this.f10480a.a(c0569a);
+            this.f10481a.a(c0570a);
             m.this.x.d();
         }
     }
@@ -138,7 +138,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                 m.this.H = new d.b.c0.p.a.a(optJSONArray2);
                 m.this.x.b(m.this.H);
                 if (m.this.A != null) {
-                    m.this.A.g(m.this.H.f42684b);
+                    m.this.A.g(m.this.H.f42685b);
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("marketChannels");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
@@ -157,7 +157,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                     o[] oVarArr2 = mVar.m;
                     mVar.p(oVarArr2);
                     mVar.w(oVarArr2);
-                    m.this.f10478g.d();
+                    m.this.f10479g.d();
                     m.this.O();
                     m.this.M = true;
                     m.this.X();
@@ -165,7 +165,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                 }
                 m.this.M = true;
                 m.this.X();
-                TipView tipView = m.this.f10478g;
+                TipView tipView = m.this.f10479g;
                 String Q = m.this.m[0].Q();
                 tipView.b(Q, "即将进入" + m.this.m[0].getDisplayName() + SpeechRecognitionDialog.ELLIPSIS_NORMAL);
                 m mVar2 = m.this;
@@ -214,8 +214,8 @@ public class m extends FrameLayout implements View.OnClickListener {
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
-        public void a(a.C0569a c0569a) {
-            m.this.f10477f.a(false);
+        public void a(a.C0570a c0570a) {
+            m.this.f10478f.a(false);
             m mVar = m.this;
             mVar.removeCallbacks(mVar.K);
             m.this.J();
@@ -223,7 +223,7 @@ public class m extends FrameLayout implements View.OnClickListener {
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
         public void b(boolean z, o oVar, d.b.c0.k.j.a aVar) {
-            m.this.f10477f.a(true);
+            m.this.f10478f.a(true);
             m mVar = m.this;
             mVar.postDelayed(mVar.K, 500L);
             if (oVar == null) {
@@ -234,7 +234,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                 arrayList.add(oVar.O());
             }
             if (m.this.x.getSelectedItem() != null) {
-                arrayList.add(m.this.x.getSelectedItem().f42692h);
+                arrayList.add(m.this.x.getSelectedItem().f42693h);
             }
             m.this.n(arrayList, aVar);
         }
@@ -292,28 +292,28 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* loaded from: classes2.dex */
-    public class j implements a.InterfaceC0133a {
+    public class j implements a.InterfaceC0134a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o[] f10490a;
+        public final /* synthetic */ o[] f10491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ o f10491b;
+        public final /* synthetic */ o f10492b;
 
         public j(o[] oVarArr, o oVar) {
-            this.f10490a = oVarArr;
-            this.f10491b = oVar;
+            this.f10491a = oVarArr;
+            this.f10492b = oVar;
         }
 
-        @Override // com.baidu.poly.widget.a.InterfaceC0133a
+        @Override // com.baidu.poly.widget.a.InterfaceC0134a
         public void a() {
-            o[] oVarArr = this.f10490a;
+            o[] oVarArr = this.f10491a;
             int length = oVarArr.length;
             for (int i = 0; i < length; i++) {
                 o oVar = oVarArr[i];
-                oVar.i(oVar == this.f10491b ? 1 : 0);
+                oVar.i(oVar == this.f10492b ? 1 : 0);
             }
-            m.this.w(this.f10490a);
+            m.this.w(this.f10491a);
         }
     }
 
@@ -323,12 +323,12 @@ public class m extends FrameLayout implements View.OnClickListener {
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
-        public void a(a.C0572a c0572a, d.b.c0.k.j.a aVar) {
-            if (c0572a == null) {
+        public void a(a.C0573a c0573a, d.b.c0.k.j.a aVar) {
+            if (c0573a == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(c0572a.f42692h);
+            arrayList.add(c0573a.f42693h);
             if (m.this.l != null && m.this.l.P() == 1) {
                 arrayList.add(m.this.l.O());
             }
@@ -345,7 +345,7 @@ public class m extends FrameLayout implements View.OnClickListener {
             if (m.this.A == null) {
                 return;
             }
-            m.this.A.k(m.this.f10477f);
+            m.this.A.k(m.this.f10478f);
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
@@ -373,12 +373,12 @@ public class m extends FrameLayout implements View.OnClickListener {
         this.r = AnimationUtils.loadAnimation(getContext(), d.b.c0.b.slide_in_bottom);
         this.s = AnimationUtils.loadAnimation(getContext(), d.b.c0.b.slide_out_bottom);
         LayoutInflater.from(getContext()).inflate(d.b.c0.g.view_channel_list, this);
-        this.f10476e = findViewById(d.b.c0.f.bg_view);
-        this.f10477f = (PolyFrameLayout) findViewById(d.b.c0.f.popup_view);
+        this.f10477e = findViewById(d.b.c0.f.bg_view);
+        this.f10478f = (PolyFrameLayout) findViewById(d.b.c0.f.popup_view);
         this.y = findViewById(d.b.c0.f.pay_money_layout);
         this.z = findViewById(d.b.c0.f.channel_list_scroll_view);
-        this.f10478g = (TipView) findViewById(d.b.c0.f.tip_view);
-        this.f10479h = (ViewGroup) findViewById(d.b.c0.f.channel_list_view);
+        this.f10479g = (TipView) findViewById(d.b.c0.f.tip_view);
+        this.f10480h = (ViewGroup) findViewById(d.b.c0.f.channel_list_view);
         this.j = (ProgressButton) findViewById(d.b.c0.f.pay_button);
         this.w = findViewById(d.b.c0.f.line);
         findViewById(d.b.c0.f.close_button).setOnClickListener(this);
@@ -392,23 +392,23 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public final void G() {
-        List<a.C0572a> list;
+        List<a.C0573a> list;
         d.b.c0.p.a.a aVar = this.H;
-        if (aVar == null || (list = aVar.f42684b) == null || list.size() <= 0) {
+        if (aVar == null || (list = aVar.f42685b) == null || list.size() <= 0) {
             return;
         }
         com.baidu.poly.widget.coupon.l lVar = new com.baidu.poly.widget.coupon.l(getContext());
         this.A = lVar;
-        lVar.c(this.f10477f.getMeasuredHeight());
+        lVar.c(this.f10478f.getMeasuredHeight());
         this.A.setListener(new k());
-        this.A.g(this.H.f42684b);
-        this.A.d(this.f10477f);
+        this.A.g(this.H.f42685b);
+        this.A.d(this.f10478f);
     }
 
     public void I() {
         if (this.n) {
             this.n = false;
-            this.f10476e.animate().alpha(0.0f).setDuration(240L).start();
+            this.f10477e.animate().alpha(0.0f).setDuration(240L).start();
             postDelayed(new f(), 240L);
             postDelayed(new g(), 480L);
         }
@@ -452,7 +452,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (!this.n) {
             this.n = true;
             if (getContext() instanceof Activity) {
-                this.f10478g.a("收银台加载中...");
+                this.f10479g.a("收银台加载中...");
                 d.b.c0.n.d.e("ChannelListView->attach()");
                 T();
             } else {
@@ -467,11 +467,11 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public final void T() {
-        this.f10476e.setVisibility(0);
-        this.f10477f.setVisibility(0);
-        this.f10476e.setAlpha(0.0f);
-        this.f10476e.animate().alpha(0.65f).setDuration(240L).start();
-        this.f10477f.startAnimation(this.r);
+        this.f10477e.setVisibility(0);
+        this.f10478f.setVisibility(0);
+        this.f10477e.setAlpha(0.0f);
+        this.f10477e.animate().alpha(0.65f).setDuration(240L).start();
+        this.f10478f.startAnimation(this.r);
         this.r.setAnimationListener(new d());
         O();
     }
@@ -479,7 +479,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     public final void V() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.B = d.b.c0.k.k.a.a(this.f10477f, layoutParams, "加载中", -1L);
+        this.B = d.b.c0.k.k.a.a(this.f10478f, layoutParams, "加载中", -1L);
     }
 
     public final void X() {
@@ -494,9 +494,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public final String e(long j2) {
-        double d2 = j2;
-        Double.isNaN(d2);
-        return new DecimalFormat("0.00").format((d2 * 1.0d) / 100.0d);
+        return new DecimalFormat("0.00").format((j2 * 1.0d) / 100.0d);
     }
 
     public final void f0(String str) {
@@ -504,7 +502,7 @@ public class m extends FrameLayout implements View.OnClickListener {
             str = getResources().getString(d.b.c0.h.common_error_tips);
         }
         if (this.F == null) {
-            View inflate = View.inflate(this.f10479h.getContext(), d.b.c0.g.default_pop_window, null);
+            View inflate = View.inflate(this.f10480h.getContext(), d.b.c0.g.default_pop_window, null);
             ((TextView) inflate.findViewById(d.b.c0.f.pop_title)).setText("支付失败");
             ((TextView) inflate.findViewById(d.b.c0.f.pop_tips)).setText(str.trim());
             d.b.c0.p.c cVar = new d.b.c0.p.c(inflate, -1, -1, true);
@@ -729,8 +727,8 @@ public class m extends FrameLayout implements View.OnClickListener {
             if (this.l != null && this.l.P() == 1 && !TextUtils.isEmpty(this.l.O())) {
                 jSONArray.put(new JSONObject(this.l.O()));
             }
-            if (this.x.getSelectedItem() != null && !TextUtils.isEmpty(this.x.getSelectedItem().f42692h)) {
-                jSONArray.put(new JSONObject(this.x.getSelectedItem().f42692h));
+            if (this.x.getSelectedItem() != null && !TextUtils.isEmpty(this.x.getSelectedItem().f42693h)) {
+                jSONArray.put(new JSONObject(this.x.getSelectedItem().f42693h));
             }
         } catch (Exception unused) {
         }
@@ -746,11 +744,11 @@ public class m extends FrameLayout implements View.OnClickListener {
     public final void w(o[] oVarArr) {
         this.z.setMinimumHeight(0);
         if (oVarArr != null) {
-            this.f10479h.removeAllViews();
+            this.f10480h.removeAllViews();
             for (o oVar : oVarArr) {
                 com.baidu.poly.widget.a aVar = new com.baidu.poly.widget.a(getContext());
                 aVar.a(oVar, new j(oVarArr, oVar));
-                this.f10479h.addView(aVar);
+                this.f10480h.addView(aVar);
             }
         }
     }

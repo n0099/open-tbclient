@@ -11,30 +11,30 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f60480b;
+    public static a f60481b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<StatisticItem> f60481a;
+    public List<StatisticItem> f60482a;
 
     public static a c() {
-        if (f60480b == null) {
+        if (f60481b == null) {
             synchronized (a.class) {
-                if (f60480b == null) {
-                    f60480b = new a();
+                if (f60481b == null) {
+                    f60481b = new a();
                 }
             }
         }
-        return f60480b;
+        return f60481b;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f60481a == null) {
-            this.f60481a = new ArrayList();
+        if (this.f60482a == null) {
+            this.f60482a = new ArrayList();
         }
-        List<StatisticItem> list = this.f60481a;
+        List<StatisticItem> list = this.f60482a;
         if (list != null) {
             list.add(statisticItem);
         }
@@ -44,10 +44,10 @@ public class a {
         if (str == null) {
             return;
         }
-        if (this.f60481a == null) {
-            this.f60481a = new ArrayList();
+        if (this.f60482a == null) {
+            this.f60482a = new ArrayList();
         }
-        List<StatisticItem> list = this.f60481a;
+        List<StatisticItem> list = this.f60482a;
         if (list != null) {
             list.add(new StatisticItem(str));
         }
@@ -85,22 +85,22 @@ public class a {
     }
 
     public void g() {
-        if (ListUtils.getCount(this.f60481a) == 0) {
+        if (ListUtils.getCount(this.f60482a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f60481a) {
+        for (StatisticItem statisticItem : this.f60482a) {
             if (statisticItem != null) {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f60481a.clear();
+        this.f60482a.clear();
     }
 
     public void h(boolean z) {
-        if (ListUtils.getCount(this.f60481a) == 0) {
+        if (ListUtils.getCount(this.f60482a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f60481a) {
+        for (StatisticItem statisticItem : this.f60482a) {
             if (statisticItem != null) {
                 if (!statisticItem.getParams().contains(TiebaStatic.Params.OBJ_PARAM2)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
@@ -108,6 +108,6 @@ public class a {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f60481a.clear();
+        this.f60482a.clear();
     }
 }

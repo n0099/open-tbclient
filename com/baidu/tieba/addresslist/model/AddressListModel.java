@@ -11,15 +11,15 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f14635e;
+    public a f14636e;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.f14635e = a.d();
+        this.f14636e = a.d();
     }
 
-    public void A(a.InterfaceC1473a interfaceC1473a) {
-        this.f14635e.h(interfaceC1473a);
+    public void A(a.InterfaceC1474a interfaceC1474a) {
+        this.f14636e.h(interfaceC1474a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -33,12 +33,12 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void s(d.b.h0.s.f.a aVar) {
-        this.f14635e.a(aVar);
+        this.f14636e.a(aVar);
     }
 
     public int t(String str) {
         List<d.b.h0.s.f.a> c2;
-        if (c.a(str) && (c2 = this.f14635e.c()) != null) {
+        if (c.a(str) && (c2 = this.f14636e.c()) != null) {
             for (d.b.h0.s.f.a aVar : c2) {
                 if (str.equals(aVar.a())) {
                     return c2.indexOf(aVar);
@@ -50,11 +50,11 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void u(long j) {
-        this.f14635e.b(j);
+        this.f14636e.b(j);
     }
 
     public List<d.b.h0.s.f.a> v() {
-        return this.f14635e.c();
+        return this.f14636e.c();
     }
 
     public void w() {
@@ -65,11 +65,11 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void y(a.InterfaceC1473a interfaceC1473a) {
-        this.f14635e.f(interfaceC1473a);
+    public void y(a.InterfaceC1474a interfaceC1474a) {
+        this.f14636e.f(interfaceC1474a);
     }
 
     public void z(List<d.b.h0.s.f.a> list) {
-        this.f14635e.g(list);
+        this.f14636e.g(list);
     }
 }

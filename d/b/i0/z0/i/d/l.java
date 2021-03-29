@@ -15,13 +15,13 @@ import d.b.h0.r.q.z1;
 import d.b.i.a0;
 import d.b.i.k0;
 import d.b.i.u0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public s o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements w {
         public a(l lVar) {
         }
@@ -30,7 +30,7 @@ public class l extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof d.b.i0.x.e0.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) ((d.b.i0.x.e0.k) nVar), view.getContext(), 2, false);
-                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             }
         }
     }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public static final String BAR_NAME_STRING = "barname";
     public NavigationBar mNavigationBar;

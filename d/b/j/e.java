@@ -1,18 +1,18 @@
 package d.b.j;
 
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public ApplicationInfo f63745a;
+    public ApplicationInfo f63746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63746b = 0;
+    public int f63747b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63747c = false;
+    public boolean f63748c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f63748d = false;
+    public boolean f63749d = false;
 }

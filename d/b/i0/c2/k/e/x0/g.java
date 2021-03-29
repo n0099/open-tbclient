@@ -25,16 +25,16 @@ import tbclient.ThreadInfo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f52928a;
+    public BdTypeRecyclerView f52929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.c2.k.c.b f52929b;
+    public d.b.i0.c2.k.c.b f52930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.f0.a f52930c;
+    public d.b.i0.f0.a f52931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnTouchListener f52931d;
+    public View.OnTouchListener f52932d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
@@ -43,8 +43,8 @@ public class g {
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (g.this.f52930c != null) {
-                g.this.f52930c.c(motionEvent);
+            if (g.this.f52931c != null) {
+                g.this.f52931c.c(motionEvent);
                 return false;
             }
             return false;
@@ -77,11 +77,11 @@ public class g {
 
     public g(BdTypeRecyclerView bdTypeRecyclerView, d.b.i0.c2.k.c.b bVar) {
         a aVar = new a();
-        this.f52931d = aVar;
-        this.f52928a = bdTypeRecyclerView;
-        this.f52929b = bVar;
+        this.f52932d = aVar;
+        this.f52929a = bdTypeRecyclerView;
+        this.f52930b = bVar;
         bdTypeRecyclerView.setOnTouchListener(aVar);
-        this.f52930c = new d.b.i0.f0.a();
+        this.f52931c = new d.b.i0.f0.a();
     }
 
     public final void b(List<ThreadInfo> list, List<n> list2, String str) {
@@ -98,7 +98,7 @@ public class g {
                 }
                 if ((k.i0(a2Var2) || l.d0(a2Var2)) && a2Var2.getType() != a2.j3) {
                     k d2 = d(a2Var2);
-                    if (d2 != null && (a2Var = d2.f62196e) != null && a2Var.h0() != null && !StringUtils.isNull(a2Var.h0().f50916b)) {
+                    if (d2 != null && (a2Var = d2.f62197e) != null && a2Var.h0() != null && !StringUtils.isNull(a2Var.h0().f50917b)) {
                         d2.l = a2Var2.w1();
                         d2.position = i;
                         f(d2);
@@ -124,12 +124,12 @@ public class g {
                         }
                     }
                     if (c2 != null && c2.isValid()) {
-                        c2.f62196e.J1();
+                        c2.f62197e.J1();
                         if (!a2Var2.x2() && a2Var2.T() != null) {
                             String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), a2Var2.T().getName_show());
                             SpannableString spannableString = new SpannableString(format);
                             spannableString.setSpan(new b(this, 16, a2Var2.T().getUserId(), c2), 0, format.length() - 1, 33);
-                            c2.f62196e.K1(spannableString);
+                            c2.f62197e.K1(spannableString);
                         }
                         list2.add(c2);
                     }
@@ -159,7 +159,7 @@ public class g {
             if (!a2Var.e2() && !a2Var.r2()) {
                 a2Var.Z1();
             }
-            kVar.f62196e = a2Var;
+            kVar.f62197e = a2Var;
             return kVar;
         } else if (l.d0(a2Var)) {
             return new l(a2Var);
@@ -170,7 +170,7 @@ public class g {
 
     public final k d(a2 a2Var) {
         k kVar = new k();
-        kVar.f62196e = a2Var;
+        kVar.f62197e = a2Var;
         a2Var.e2();
         if (!a2Var.e2()) {
             a2Var.Z1();
@@ -222,6 +222,6 @@ public class g {
         List<ThreadInfo> F = eVar.F();
         LinkedList linkedList = new LinkedList();
         b(F, linkedList, first_class);
-        this.f52929b.e(linkedList);
+        this.f52930b.e(linkedList);
     }
 }

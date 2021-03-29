@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.utils;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MainThreadUtil {
     public static volatile Handler sMainHandler;
 

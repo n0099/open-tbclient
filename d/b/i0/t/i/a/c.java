@@ -71,9 +71,9 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
     @Override // d.b.i0.p0.k, d.b.b.j.e.a
     /* renamed from: u0 */
     public View X(int i, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        frsPageAlaEmptyLiveViewHolder.f15031a.n(a2Var);
-        frsPageAlaEmptyLiveViewHolder.f15031a.a(this.x);
-        frsPageAlaEmptyLiveViewHolder.f15031a.q(this.y);
+        frsPageAlaEmptyLiveViewHolder.f15032a.n(a2Var);
+        frsPageAlaEmptyLiveViewHolder.f15032a.a(this.x);
+        frsPageAlaEmptyLiveViewHolder.f15032a.q(this.y);
         if (a2Var != null) {
             a2Var.x4();
         }

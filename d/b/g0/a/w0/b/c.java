@@ -6,7 +6,7 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import d.b.g0.a.k;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements d.b.g0.c.a {
     @Override // d.b.g0.c.a
     public CookieManager a() {
@@ -15,6 +15,6 @@ public class c implements d.b.g0.c.a {
 
     @Override // d.b.g0.c.a
     public boolean isDebug() {
-        return k.f45050a;
+        return k.f45051a;
     }
 }

@@ -17,22 +17,22 @@ public interface IOAdDownloader {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8430a;
+        public int f8431a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8431b;
+        public String f8432b;
 
         DownloadStatus(int i, String str) {
-            this.f8430a = i;
-            this.f8431b = str;
+            this.f8431a = i;
+            this.f8432b = str;
         }
 
         public int getCode() {
-            return this.f8430a;
+            return this.f8431a;
         }
 
         public String getMessage() {
-            return this.f8431b;
+            return this.f8432b;
         }
     }
 

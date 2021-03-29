@@ -1,7 +1,7 @@
 package d.b.i0.i1.o.k;
 
 import android.graphics.Color;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static boolean a(int i) {
         return i == Integer.MAX_VALUE;

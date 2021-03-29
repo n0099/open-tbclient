@@ -3,11 +3,11 @@ package d.b.i0.c2.h;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52413a;
+    public String f52414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52414b;
+    public String f52415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52415c;
+    public String f52416c;
 }

@@ -6,7 +6,7 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class Logging {
     public static final Logger fallbackLogger = createFallbackLogger();
     @Nullable

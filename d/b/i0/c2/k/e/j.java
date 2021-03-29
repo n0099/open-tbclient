@@ -23,7 +23,7 @@ public class j extends m<d.b.i0.c2.h.d, PbChildTitleViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public PbChildTitleViewHolder R(ViewGroup viewGroup) {
-        return new PbChildTitleViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.pb_child_title, viewGroup, false));
+        return new PbChildTitleViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.pb_child_title, viewGroup, false));
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, d.b.i0.c2.h.d dVar, PbChildTitleViewHolder pbChildTitleViewHolder) {

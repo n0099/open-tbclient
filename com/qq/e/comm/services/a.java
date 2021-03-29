@@ -31,13 +31,13 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f38386a = new a();
+    public static final a f38387a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Boolean f38387b = Boolean.FALSE;
+    public volatile Boolean f38388b = Boolean.FALSE;
 
     public static a a() {
-        return f38386a;
+        return f38387a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0005 */
@@ -111,11 +111,11 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f38387b.booleanValue()) {
+        if (this.f38388b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f38387b.booleanValue()) {
+            if (this.f38388b.booleanValue()) {
                 return;
             }
             String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
@@ -190,7 +190,7 @@ public class a {
                     }
                 }
             });
-            this.f38387b = Boolean.TRUE;
+            this.f38388b = Boolean.TRUE;
         }
     }
 }

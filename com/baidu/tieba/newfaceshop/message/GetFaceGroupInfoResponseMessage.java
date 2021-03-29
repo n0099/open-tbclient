@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public a mData;
 
@@ -39,19 +39,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
         a aVar = new a();
         String optString = jSONObject.optString("id");
-        aVar.f62367a = optString;
+        aVar.f62368a = optString;
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        aVar.f62368b = jSONObject.optString("name");
+        aVar.f62369b = jSONObject.optString("name");
         jSONObject.optInt("type");
         jSONObject.optString("owner");
         jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
         jSONObject.optString("timestamp");
         jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-        aVar.f62369c = jSONObject.optString("covername");
-        aVar.f62370d = jSONObject.optString("url");
-        aVar.f62371e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+        aVar.f62370c = jSONObject.optString("covername");
+        aVar.f62371d = jSONObject.optString("url");
+        aVar.f62372e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
         return aVar;
     }
 
@@ -64,11 +64,11 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 b bVar = new b();
-                bVar.f62373f = jSONObject.optString("id");
+                bVar.f62374f = jSONObject.optString("id");
                 jSONObject.optString("url");
                 jSONObject.optString("thumbnail");
-                bVar.f62374g = jSONObject.optString("name");
-                bVar.f62375h = jSONObject.optString("thumbname");
+                bVar.f62375g = jSONObject.optString("name");
+                bVar.f62376h = jSONObject.optString("thumbname");
                 bVar.j = jSONObject.optInt("width");
                 bVar.i = jSONObject.optInt("height");
                 arrayList.add(bVar);

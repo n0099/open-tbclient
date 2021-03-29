@@ -2,7 +2,7 @@ package d.b.h0.q0;
 
 import android.content.Context;
 import androidx.core.app.NotificationManagerCompat;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static boolean a(Context context) {
         try {

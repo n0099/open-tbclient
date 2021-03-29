@@ -3,18 +3,18 @@ package d.b.g0.g.i0.f;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f48230a;
+    public final boolean f48231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f48231b;
+    public final boolean f48232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f48232c;
+    public final boolean f48233c;
 
     public f(boolean z, boolean z2) {
-        this.f48230a = true;
-        this.f48231b = z;
-        this.f48232c = z2;
+        this.f48231a = true;
+        this.f48232b = z;
+        this.f48233c = z2;
     }
 
     public static f c(boolean z) {
@@ -30,16 +30,16 @@ public class f {
     }
 
     public boolean a() {
-        return (this.f48230a && this.f48231b) ? false : true;
+        return (this.f48231a && this.f48232b) ? false : true;
     }
 
     public boolean b() {
-        return this.f48230a ? this.f48231b && this.f48232c : this.f48232c;
+        return this.f48231a ? this.f48232b && this.f48233c : this.f48233c;
     }
 
     public f(boolean z) {
-        this.f48230a = false;
-        this.f48231b = true;
-        this.f48232c = z;
+        this.f48231a = false;
+        this.f48232b = true;
+        this.f48233c = z;
     }
 }

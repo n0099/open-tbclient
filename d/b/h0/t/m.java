@@ -5,32 +5,32 @@ import tbclient.Pendant;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f51484a;
+    public long f51485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51485b;
+    public String f51486b;
 
     public String a() {
-        return this.f51485b;
+        return this.f51486b;
     }
 
     public long b() {
-        return this.f51484a;
+        return this.f51485a;
     }
 
     public void c(Pendant pendant) {
         if (pendant == null) {
             return;
         }
-        this.f51484a = pendant.props_id.longValue();
-        this.f51485b = pendant.img_url;
+        this.f51485a = pendant.props_id.longValue();
+        this.f51486b = pendant.img_url;
     }
 
     public void d(String str) {
-        this.f51485b = str;
+        this.f51486b = str;
     }
 
     public void e(long j) {
-        this.f51484a = j;
+        this.f51485a = j;
     }
 }

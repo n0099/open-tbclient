@@ -10,28 +10,28 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8189a;
+    public Context f8190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IXNonLinearAdSlot f8190b;
+    public IXNonLinearAdSlot f8191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IXAdInstanceInfo f8191c;
+    public IXAdInstanceInfo f8192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IXAdResource f8192d;
+    public IXAdResource f8193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IXAdLogger f8193e = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    public IXAdLogger f8194e = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     public b(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource) {
-        this.f8190b = iXNonLinearAdSlot;
+        this.f8191b = iXNonLinearAdSlot;
         if (iXNonLinearAdSlot != null) {
-            this.f8189a = iXNonLinearAdSlot.getApplicationContext();
+            this.f8190a = iXNonLinearAdSlot.getApplicationContext();
         } else {
-            this.f8189a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
+            this.f8190a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
         }
-        this.f8191c = iXAdInstanceInfo;
-        this.f8192d = iXAdResource;
+        this.f8192c = iXAdInstanceInfo;
+        this.f8193d = iXAdResource;
     }
 }

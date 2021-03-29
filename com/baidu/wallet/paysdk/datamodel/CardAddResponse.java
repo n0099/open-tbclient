@@ -29,16 +29,16 @@ public class CardAddResponse extends DirectPayContentResponse {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static CardAddResponse f25548a = new CardAddResponse();
+        public static CardAddResponse f25549a = new CardAddResponse();
     }
 
     public static CardAddResponse getInstance() {
-        return a.f25548a;
+        return a.f25549a;
     }
 
     public static void updateContent(Object obj) {
         if (obj instanceof CardAddResponse) {
-            CardAddResponse unused = a.f25548a = (CardAddResponse) obj;
+            CardAddResponse unused = a.f25549a = (CardAddResponse) obj;
         }
     }
 

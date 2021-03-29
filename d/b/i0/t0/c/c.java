@@ -41,28 +41,28 @@ public class c extends d<MyGiftListActivity> {
     public View.OnClickListener A;
 
     /* renamed from: a  reason: collision with root package name */
-    public MyGiftListActivity f61057a;
+    public MyGiftListActivity f61058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f61058b;
+    public NavigationBar f61059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoNetworkView f61059c;
+    public NoNetworkView f61060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f61060d;
+    public h f61061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f61061e;
+    public BdListView f61062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f61062f;
+    public View f61063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f61063g;
+    public View f61064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f61064h;
+    public View f61065h;
     public View i;
     public View j;
     public g k;
@@ -101,24 +101,24 @@ public class c extends d<MyGiftListActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            a.C1581a item = c.this.s.getItem(i);
-            if (item == null || item.f61031a <= 0 || StringUtils.isNull(item.f61032b)) {
+            a.C1582a item = c.this.s.getItem(i);
+            if (item == null || item.f61032a <= 0 || StringUtils.isNull(item.f61033b)) {
                 return;
             }
             if (c.this.t) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(c.this.f61057a.getPageContext().getPageActivity(), item.f61031a, item.f61032b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(c.this.f61058a.getPageContext().getPageActivity(), item.f61032a, item.f61033b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
             } else if (!j.z()) {
-                c.this.f61057a.showToast(R.string.neterror);
+                c.this.f61058a.showToast(R.string.neterror);
             } else {
-                c.this.f61057a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f61031a), item.f61032b)));
+                c.this.f61058a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f61032a), item.f61033b)));
             }
         }
     }
 
     /* renamed from: d.b.i0.t0.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1583c implements View.OnClickListener {
-        public View$OnClickListenerC1583c() {
+    public class View$OnClickListenerC1584c implements View.OnClickListener {
+        public View$OnClickListenerC1584c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -130,11 +130,11 @@ public class c extends d<MyGiftListActivity> {
                 if (view != c.this.q || StringUtils.isNull(c.this.u)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(c.this.f61057a.getPageContext(), new String[]{c.this.u});
+                UrlManager.getInstance().dealOneLink(c.this.f61058a.getPageContext(), new String[]{c.this.u});
             } else if (!l.C()) {
-                UtilHelper.showToast(c.this.f61057a.getPageContext().getPageActivity(), c.this.f61057a.getResources().getString(R.string.neterror));
+                UtilHelper.showToast(c.this.f61058a.getPageContext().getPageActivity(), c.this.f61058a.getResources().getString(R.string.neterror));
             } else {
-                BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(c.this.f61057a.getPageContext().getPageActivity(), 0L);
+                BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(c.this.f61058a.getPageContext().getPageActivity(), 0L);
                 buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_MY_GIFT, MemberPayStatistic.CLICK_ZONE_OBTAIN_T);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
             }
@@ -145,8 +145,8 @@ public class c extends d<MyGiftListActivity> {
         super(myGiftListActivity.getPageContext());
         this.k = null;
         this.z = new b();
-        this.A = new View$OnClickListenerC1583c();
-        this.f61057a = myGiftListActivity;
+        this.A = new View$OnClickListenerC1584c();
+        this.f61058a = myGiftListActivity;
         this.t = z;
         this.l = pVar;
         r();
@@ -159,7 +159,7 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void k(NoNetworkView.b bVar) {
-        this.f61059c.a(bVar);
+        this.f61060c.a(bVar);
     }
 
     public final SpannableString l(int i, long j, int i2) {
@@ -180,14 +180,14 @@ public class c extends d<MyGiftListActivity> {
         d.b.h0.b1.d dVar = new d.b.h0.b1.d(drawable);
         dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f61057a.getPageContext().getPageActivity(), R.dimen.fontsize22));
-        UtilHelper.setSpan(spannableString, str, this.f61057a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
-        UtilHelper.setSpan(spannableString, str, this.f61057a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f61058a.getPageContext().getPageActivity(), R.dimen.fontsize22));
+        UtilHelper.setSpan(spannableString, str, this.f61058a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
+        UtilHelper.setSpan(spannableString, str, this.f61058a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
         return spannableString;
     }
 
     public void m() {
-        this.f61061e.A(0L);
+        this.f61062e.A(0L);
     }
 
     public View n() {
@@ -195,22 +195,22 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void o() {
-        h hVar = this.f61060d;
+        h hVar = this.f61061d;
         if (hVar != null) {
-            hVar.dettachView(this.f61062f);
-            this.f61060d = null;
-            this.f61061e.setVisibility(0);
+            hVar.dettachView(this.f61063f);
+            this.f61061d = null;
+            this.f61062e.setVisibility(0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.f61057a.getLayoutMode().k(i == 1);
-        this.f61057a.getLayoutMode().j(this.f61062f);
-        this.f61057a.getLayoutMode().j(this.f61063g);
-        this.f61057a.getLayoutMode().j(this.f61064h);
-        this.f61057a.getLayoutMode().j(this.i);
-        this.f61058b.onChangeSkinType(getPageContext(), i);
-        this.f61059c.c(this.f61057a.getPageContext(), i);
+        this.f61058a.getLayoutMode().k(i == 1);
+        this.f61058a.getLayoutMode().j(this.f61063f);
+        this.f61058a.getLayoutMode().j(this.f61064g);
+        this.f61058a.getLayoutMode().j(this.f61065h);
+        this.f61058a.getLayoutMode().j(this.i);
+        this.f61059b.onChangeSkinType(getPageContext(), i);
+        this.f61060c.c(this.f61058a.getPageContext(), i);
         this.k.I(i);
         d.b.i0.t0.c.b bVar = this.s;
         if (bVar != null) {
@@ -223,92 +223,92 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public final void q() {
-        this.v = (LinearLayout) this.f61057a.findViewById(R.id.gift_relation_ll);
-        this.x = (TextView) this.f61057a.findViewById(R.id.gift_relation_text);
-        this.v.setOnClickListener(this.f61057a.getSendGiftClickListener());
-        this.w = this.f61057a.findViewById(R.id.gift_send_gift_top_line);
-        this.y = (ImageView) this.f61057a.findViewById(R.id.gift_send_gift_icon);
+        this.v = (LinearLayout) this.f61058a.findViewById(R.id.gift_relation_ll);
+        this.x = (TextView) this.f61058a.findViewById(R.id.gift_relation_text);
+        this.v.setOnClickListener(this.f61058a.getSendGiftClickListener());
+        this.w = this.f61058a.findViewById(R.id.gift_send_gift_top_line);
+        this.y = (ImageView) this.f61058a.findViewById(R.id.gift_send_gift_icon);
     }
 
     public final void r() {
-        this.f61057a.setContentView(R.layout.my_gift_list_activity);
-        View findViewById = this.f61057a.findViewById(R.id.root);
-        this.f61062f = findViewById;
-        this.f61061e = (BdListView) findViewById.findViewById(R.id.list_view);
-        NavigationBar navigationBar = (NavigationBar) this.f61062f.findViewById(R.id.navigation_bar);
-        this.f61058b = navigationBar;
-        MyGiftListActivity myGiftListActivity = this.f61057a;
+        this.f61058a.setContentView(R.layout.my_gift_list_activity);
+        View findViewById = this.f61058a.findViewById(R.id.root);
+        this.f61063f = findViewById;
+        this.f61062e = (BdListView) findViewById.findViewById(R.id.list_view);
+        NavigationBar navigationBar = (NavigationBar) this.f61063f.findViewById(R.id.navigation_bar);
+        this.f61059b = navigationBar;
+        MyGiftListActivity myGiftListActivity = this.f61058a;
         if (myGiftListActivity.userType == 1) {
             navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.forum_gift_list));
         } else {
-            String format = String.format(this.f61057a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
+            String format = String.format(this.f61058a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
             if (this.t) {
-                this.f61058b.setCenterTextTitle(this.f61057a.getPageContext().getString(R.string.my_gift_list));
+                this.f61059b.setCenterTextTitle(this.f61058a.getPageContext().getString(R.string.my_gift_list));
             } else {
-                this.f61058b.setTitleText(format);
+                this.f61059b.setTitleText(format);
             }
         }
-        this.f61058b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f61059c = (NoNetworkView) this.f61062f.findViewById(R.id.no_networkview);
-        View inflate = LayoutInflater.from(this.f61057a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
-        this.f61064h = inflate;
+        this.f61059b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f61060c = (NoNetworkView) this.f61063f.findViewById(R.id.no_networkview);
+        View inflate = LayoutInflater.from(this.f61058a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
+        this.f61065h = inflate;
         inflate.setVisibility(8);
-        View inflate2 = LayoutInflater.from(this.f61057a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
-        this.f61063g = inflate2;
+        View inflate2 = LayoutInflater.from(this.f61058a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
+        this.f61064g = inflate2;
         inflate2.setVisibility(8);
-        this.r = (LinearLayout) this.f61063g.findViewById(R.id.view_link_info);
-        this.m = (TextView) this.f61063g.findViewById(R.id.textview_gift_number);
-        this.n = (TextView) this.f61063g.findViewById(R.id.textview_tdou_number);
-        this.o = (TextView) this.f61063g.findViewById(R.id.view_get_tdou);
-        this.p = (TextView) this.f61063g.findViewById(R.id.textview_blue_number);
-        TextView textView = (TextView) this.f61063g.findViewById(R.id.view_get_blue);
+        this.r = (LinearLayout) this.f61064g.findViewById(R.id.view_link_info);
+        this.m = (TextView) this.f61064g.findViewById(R.id.textview_gift_number);
+        this.n = (TextView) this.f61064g.findViewById(R.id.textview_tdou_number);
+        this.o = (TextView) this.f61064g.findViewById(R.id.view_get_tdou);
+        this.p = (TextView) this.f61064g.findViewById(R.id.textview_blue_number);
+        TextView textView = (TextView) this.f61064g.findViewById(R.id.view_get_blue);
         this.q = textView;
         textView.setOnClickListener(this.A);
         this.o.setOnClickListener(this.A);
-        View inflate3 = LayoutInflater.from(this.f61057a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
+        View inflate3 = LayoutInflater.from(this.f61058a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
         this.i = inflate3;
         this.j = inflate3.findViewById(R.id.gift_footer_lay);
         if (this.t) {
-            this.f61061e.addHeaderView(this.f61063g);
+            this.f61062e.addHeaderView(this.f61064g);
         } else {
-            if (this.f61057a.userType == 1) {
-                this.f61064h.setVisibility(0);
-                this.f61061e.addHeaderView(this.f61064h);
+            if (this.f61058a.userType == 1) {
+                this.f61065h.setVisibility(0);
+                this.f61062e.addHeaderView(this.f61065h);
             }
             if (TbadkApplication.getInst().isGiftSwitchOn()) {
-                this.i.setPadding(0, 0, 0, l.g(this.f61057a.getPageContext().getPageActivity(), R.dimen.ds156));
+                this.i.setPadding(0, 0, 0, l.g(this.f61058a.getPageContext().getPageActivity(), R.dimen.ds156));
             }
         }
-        this.f61061e.addFooterView(this.i);
-        d.b.i0.t0.c.b bVar = new d.b.i0.t0.c.b(this.f61057a, this.t);
+        this.f61062e.addFooterView(this.i);
+        d.b.i0.t0.c.b bVar = new d.b.i0.t0.c.b(this.f61058a, this.t);
         this.s = bVar;
-        this.f61061e.setAdapter((ListAdapter) bVar);
-        g gVar = new g(this.f61057a.getPageContext());
+        this.f61062e.setAdapter((ListAdapter) bVar);
+        g gVar = new g(this.f61058a.getPageContext());
         this.k = gVar;
-        this.f61061e.setPullRefresh(gVar);
-        this.f61061e.setOnSrollToBottomListener(this.l);
-        this.f61061e.setOnItemClickListener(this.z);
+        this.f61062e.setPullRefresh(gVar);
+        this.f61062e.setOnSrollToBottomListener(this.l);
+        this.f61062e.setOnItemClickListener(this.z);
     }
 
     public final void s(d.b.i0.t0.c.a aVar) {
         if (aVar != null && this.t) {
-            this.f61063g.setVisibility(0);
-            String str = aVar.d().f61043b;
-            String str2 = aVar.d().f61042a;
-            this.u = aVar.f61030g.f50821b;
+            this.f61064g.setVisibility(0);
+            String str = aVar.d().f61044b;
+            String str2 = aVar.d().f61043a;
+            this.u = aVar.f61031g.f50822b;
             this.m.setText(l(R.drawable.icon_gift_my_gift, aVar.b(), 0));
             this.n.setText(l(R.drawable.icon_gift_my_tdou, aVar.e(), 1));
-            this.p.setText(l(R.drawable.icon_gift_bluedrill, aVar.f61029f, 2));
-            this.q.setText(aVar.f61030g.f50820a);
+            this.p.setText(l(R.drawable.icon_gift_bluedrill, aVar.f61030f, 2));
+            this.q.setText(aVar.f61031g.f50821a);
             return;
         }
-        this.f61063g.setVisibility(8);
+        this.f61064g.setVisibility(8);
     }
 
     public final void u(d.b.i0.t0.c.a aVar) {
         if (aVar != null && aVar.a() != null && aVar.a().size() > 0) {
             if (aVar.c() != null) {
-                if (aVar.c().f61040b == 1) {
+                if (aVar.c().f61041b == 1) {
                     this.i.setVisibility(0);
                 } else {
                     this.i.setVisibility(8);
@@ -341,18 +341,18 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void x(String str, boolean z) {
-        if (this.f61060d == null) {
-            this.f61060d = new h(this.mContext.getContext(), new a());
+        if (this.f61061d == null) {
+            this.f61061d = new h(this.mContext.getContext(), new a());
         }
-        this.f61060d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
-        this.f61060d.attachView(this.f61062f, z);
-        this.f61060d.o();
+        this.f61061d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+        this.f61061d.attachView(this.f61063f, z);
+        this.f61061d.o();
         this.v.setVisibility(8);
-        this.f61061e.setVisibility(8);
+        this.f61062e.setVisibility(8);
     }
 
     public void y() {
-        this.f61061e.setVisibility(0);
-        this.f61061e.F();
+        this.f61062e.setVisibility(0);
+        this.f61062e.F();
     }
 }

@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2349a;
+    public int f2350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2350b;
+    public int f2351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2351c;
+    public int f2352c;
 
     public GridSpaceItemDecoration(int i, int i2, int i3) {
-        this.f2349a = i;
-        this.f2350b = i2;
-        this.f2351c = i3;
+        this.f2350a = i;
+        this.f2351b = i2;
+        this.f2352c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -27,12 +27,12 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
         GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
         if (layoutParams.getSpanIndex() != -1) {
             if (layoutParams.getSpanIndex() % 2 == 0) {
-                rect.left = this.f2349a;
-                rect.right = this.f2350b;
+                rect.left = this.f2350a;
+                rect.right = this.f2351b;
                 return;
             }
-            rect.left = this.f2350b;
-            rect.right = this.f2351c;
+            rect.left = this.f2351b;
+            rect.right = this.f2352c;
         }
     }
 }

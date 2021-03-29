@@ -41,7 +41,7 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class VolumeLogger {
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
         public static final int TIMER_PERIOD_IN_SECONDS = 30;

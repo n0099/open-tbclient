@@ -10,24 +10,24 @@ import org.json.JSONObject;
 public class q extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65051e;
+    public final Context f65052e;
 
     public q(Context context) {
         super(false, false);
-        this.f65051e = context;
+        this.f65052e = context;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
         String str;
         try {
-            str = Settings.Secure.getString(this.f65051e.getContentResolver(), "android_id");
+            str = Settings.Secure.getString(this.f65052e.getContentResolver(), "android_id");
         } catch (Exception e2) {
             r0.d("", e2);
             str = null;
         }
         if (!j.n(str) || "9774d56d682e549c".equals(str)) {
-            SharedPreferences sharedPreferences = this.f65051e.getSharedPreferences("snssdk_openudid", 0);
+            SharedPreferences sharedPreferences = this.f65052e.getSharedPreferences("snssdk_openudid", 0);
             String string = sharedPreferences.getString("openudid", null);
             if (!j.n(string)) {
                 string = new BigInteger(64, new SecureRandom()).toString(16);

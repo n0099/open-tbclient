@@ -8,41 +8,41 @@ import d.b.h0.z0.w;
 import java.util.HashMap;
 import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l implements d.b.h0.g0.b.g, d.b.h0.g0.b.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54433e;
+    public int f54434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54434f = 1;
+    public int f54435f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54435g;
+    public String f54436g;
 
     public int b() {
-        return this.f54433e;
+        return this.f54434e;
     }
 
     public void c() {
-        this.f54434f = 1;
-        this.f54433e = 1;
-        this.f54435g = null;
+        this.f54435f = 1;
+        this.f54434e = 1;
+        this.f54436g = null;
     }
 
     public void d(FeedData feedData) {
         if (feedData == null) {
             return;
         }
-        this.f54435g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+        this.f54436g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
     }
 
     @Override // d.b.h0.g0.b.i
     public Object e(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.f54434f);
-            builder.ids = this.f54435g;
+            builder.pn = Integer.valueOf(this.f54435f);
+            builder.ids = this.f54436g;
             builder.q_type = Integer.valueOf(d.b.h0.r.k.c().e());
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(d.b.b.e.p.l.i(TbadkCoreApplication.getInst().getApp()));
@@ -59,8 +59,8 @@ public class l implements d.b.h0.g0.b.g, d.b.h0.g0.b.d {
     }
 
     public void f() {
-        this.f54434f++;
-        this.f54433e = 4;
+        this.f54435f++;
+        this.f54434e = 4;
     }
 
     public String getCacheKey() {
@@ -76,13 +76,13 @@ public class l implements d.b.h0.g0.b.g, d.b.h0.g0.b.d {
     public HashMap<String, Object> k() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.f54434f));
+        hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.f54435f));
         hashMap.put("q_type", Integer.valueOf(d.b.h0.r.k.c().e()));
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(d.b.b.e.p.l.i(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(d.b.b.e.p.l.k(TbadkCoreApplication.getInst().getApp())));
-        if (this.f54433e == 4 && !TextUtils.isEmpty(this.f54435g)) {
-            hashMap.put("ids", this.f54435g);
+        if (this.f54434e == 4 && !TextUtils.isEmpty(this.f54436g)) {
+            hashMap.put("ids", this.f54436g);
         }
         return hashMap;
     }

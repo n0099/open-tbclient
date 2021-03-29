@@ -37,7 +37,7 @@ public class c extends k<a2, FrsAppEmptyHolder> implements p {
             if (j0()) {
                 a2Var.position = i - this.n.getTopThreadSize();
             }
-            d.b.h0.r.q.d.c(advertAppInfo.Y3, a2Var.position, advertAppInfo.U3.f13209h == -1001);
+            d.b.h0.r.q.d.c(advertAppInfo.Y3, a2Var.position, advertAppInfo.U3.f13210h == -1001);
         }
         return frsAppEmptyHolder.a();
     }

@@ -30,43 +30,43 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f27722a;
+    public static volatile a f27723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f27723b;
+    public final Context f27724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final i f27724c;
+    public final i f27725c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<l, Long> f27725d = Collections.synchronizedMap(new HashMap());
+    public Map<l, Long> f27726d = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.reward.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0299a<T> {
+    public interface InterfaceC0300a<T> {
         void a(boolean z, T t);
     }
 
     public a(Context context) {
         Context a2 = context == null ? p.a() : context.getApplicationContext();
-        this.f27723b = a2;
-        this.f27724c = new i(a2, "sp_full_screen_video");
+        this.f27724b = a2;
+        this.f27725c = new i(a2, "sp_full_screen_video");
     }
 
     @Nullable
     public AdSlot b(String str) {
-        return this.f27724c.e(str);
+        return this.f27725c.e(str);
     }
 
     public l c(String str) {
         l a2;
-        long b2 = this.f27724c.b(str);
-        boolean c2 = this.f27724c.c(str);
+        long b2 = this.f27725c.b(str);
+        boolean c2 = this.f27725c.c(str);
         if (!(System.currentTimeMillis() - b2 < Constants.SYNC_MSG_DELAY_TIME) || c2) {
             return null;
         }
         try {
-            String a3 = this.f27724c.a(str);
+            String a3 = this.f27725c.a(str);
             if (TextUtils.isEmpty(a3) || (a2 = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(a3))) == null) {
                 return null;
             }
@@ -87,16 +87,16 @@ public class a {
     }
 
     public void b(AdSlot adSlot) {
-        this.f27724c.b(adSlot);
+        this.f27725c.b(adSlot);
     }
 
     public void a(String str) {
-        this.f27724c.d(str);
+        this.f27725c.d(str);
     }
 
     @Nullable
     public AdSlot b() {
-        return this.f27724c.a();
+        return this.f27725c.a();
     }
 
     public void a() {
@@ -106,9 +106,9 @@ public class a {
         File[] listFiles2;
         try {
             if (Build.VERSION.SDK_INT >= 24) {
-                file = new File(this.f27723b.getDataDir(), "shared_prefs");
+                file = new File(this.f27724b.getDataDir(), "shared_prefs");
             } else {
-                file = new File(this.f27723b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
+                file = new File(this.f27724b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
             }
             if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.1
                 @Override // java.io.FileFilter
@@ -123,9 +123,9 @@ public class a {
                     try {
                         String replace = file2.getName().replace(ActivityChooserModel.HISTORY_FILE_EXTENSION, "");
                         if (Build.VERSION.SDK_INT >= 24) {
-                            this.f27723b.deleteSharedPreferences(replace);
+                            this.f27724b.deleteSharedPreferences(replace);
                         } else {
-                            this.f27723b.getSharedPreferences(replace, 0).edit().clear().apply();
+                            this.f27724b.getSharedPreferences(replace, 0).edit().clear().apply();
                             com.bytedance.sdk.openadsdk.utils.l.c(file2);
                         }
                     } catch (Throwable unused) {
@@ -135,10 +135,10 @@ public class a {
         } catch (Throwable unused2) {
         }
         try {
-            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f27723b.getExternalCacheDir() != null) {
-                externalCacheDir = this.f27723b.getExternalCacheDir();
+            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f27724b.getExternalCacheDir() != null) {
+                externalCacheDir = this.f27724b.getExternalCacheDir();
             } else {
-                externalCacheDir = this.f27723b.getCacheDir();
+                externalCacheDir = this.f27724b.getCacheDir();
             }
             if (externalCacheDir == null || !externalCacheDir.exists() || !externalCacheDir.isDirectory() || (listFiles = externalCacheDir.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.2
                 @Override // java.io.FileFilter
@@ -165,25 +165,25 @@ public class a {
         a(adSlot);
         if (lVar != null) {
             try {
-                this.f27724c.a(adSlot.getCodeId(), lVar.aL().toString());
+                this.f27725c.a(adSlot.getCodeId(), lVar.aL().toString());
             } catch (Throwable unused) {
             }
         }
     }
 
     public void a(AdSlot adSlot) {
-        this.f27724c.a(adSlot);
+        this.f27725c.a(adSlot);
     }
 
     public static a a(Context context) {
-        if (f27722a == null) {
+        if (f27723a == null) {
             synchronized (a.class) {
-                if (f27722a == null) {
-                    f27722a = new a(context);
+                if (f27723a == null) {
+                    f27723a = new a(context);
                 }
             }
         }
-        return f27722a;
+        return f27723a;
     }
 
     public String a(l lVar) {
@@ -200,7 +200,7 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
         }
-        File a2 = a(this.f27723b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
+        File a2 = a(this.f27724b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
         if (a2 != null && a2.exists() && a2.isFile()) {
             return a2.getAbsolutePath();
         }
@@ -217,12 +217,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, l lVar, long j, @Nullable o oVar) {
         VAdError vAdError;
-        Long remove = this.f27725d.remove(lVar);
-        com.bytedance.sdk.openadsdk.c.d.f(this.f27723b, lVar, "fullscreen_interstitial_ad", z ? "load_video_success" : "load_video_error", ak.a(z, lVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || oVar == null || (vAdError = oVar.f65740c) == null) ? null : vAdError.getMessage()));
+        Long remove = this.f27726d.remove(lVar);
+        com.bytedance.sdk.openadsdk.c.d.f(this.f27724b, lVar, "fullscreen_interstitial_ad", z ? "load_video_success" : "load_video_error", ak.a(z, lVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || oVar == null || (vAdError = oVar.f65741c) == null) ? null : vAdError.getMessage()));
     }
 
-    public void a(final l lVar, final InterfaceC0299a<Object> interfaceC0299a) {
-        this.f27725d.put(lVar, Long.valueOf(SystemClock.elapsedRealtime()));
+    public void a(final l lVar, final InterfaceC0300a<Object> interfaceC0300a) {
+        this.f27726d.put(lVar, Long.valueOf(SystemClock.elapsedRealtime()));
         if (lVar != null && lVar.X() != null && !TextUtils.isEmpty(lVar.X().i())) {
             String i = lVar.X().i();
             String l = lVar.X().l();
@@ -233,13 +233,13 @@ public class a {
             int d2 = ak.d(lVar.ap());
             String a2 = a(String.valueOf(d2), com.bytedance.sdk.openadsdk.multipro.b.b());
             u.f("FullScreenVideoCache", "ritId:" + d2 + ",cacheDirPath=" + a2);
-            final File a3 = a(this.f27723b, a2, str);
+            final File a3 = a(this.f27724b, a2, str);
             StringBuilder sb = new StringBuilder();
             sb.append("FullScreenVideoCache downloadVideo target getPath");
             sb.append(a3.getPath());
             u.b("splashLoadAd", sb.toString());
-            com.bytedance.sdk.openadsdk.i.e.c().a(i, new b.InterfaceC1795b() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.3
-                @Override // d.c.c.b.b.b.InterfaceC1795b
+            com.bytedance.sdk.openadsdk.i.e.c().a(i, new b.InterfaceC1796b() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.3
+                @Override // d.c.c.b.b.b.InterfaceC1796b
                 public File a(String str2) {
                     try {
                         File parentFile = a3.getParentFile();
@@ -257,21 +257,21 @@ public class a {
                 public void a(long j, long j2) {
                 }
 
-                @Override // d.c.c.b.b.b.InterfaceC1795b
+                @Override // d.c.c.b.b.b.InterfaceC1796b
                 public File b(String str2) {
                     return a3;
                 }
 
                 @Override // d.c.c.b.d.o.a
                 public void b(o<File> oVar) {
-                    InterfaceC0299a interfaceC0299a2 = interfaceC0299a;
-                    if (interfaceC0299a2 != null) {
-                        interfaceC0299a2.a(false, null);
+                    InterfaceC0300a interfaceC0300a2 = interfaceC0300a;
+                    if (interfaceC0300a2 != null) {
+                        interfaceC0300a2.a(false, null);
                     }
-                    a.this.a(false, lVar, oVar == null ? -2L : oVar.f65745h, oVar);
+                    a.this.a(false, lVar, oVar == null ? -2L : oVar.f65746h, oVar);
                 }
 
-                @Override // d.c.c.b.b.b.InterfaceC1795b
+                @Override // d.c.c.b.b.b.InterfaceC1796b
                 public void a(String str2, File file) {
                     if (file != null) {
                         a.this.a(file);
@@ -280,25 +280,25 @@ public class a {
 
                 @Override // d.c.c.b.d.o.a
                 public void a(o<File> oVar) {
-                    if (oVar != null && oVar.f65738a != null && a3.exists()) {
-                        InterfaceC0299a interfaceC0299a2 = interfaceC0299a;
-                        if (interfaceC0299a2 != null) {
-                            interfaceC0299a2.a(true, null);
+                    if (oVar != null && oVar.f65739a != null && a3.exists()) {
+                        InterfaceC0300a interfaceC0300a2 = interfaceC0300a;
+                        if (interfaceC0300a2 != null) {
+                            interfaceC0300a2.a(true, null);
                         }
                         a.this.a(true, lVar, 0L, oVar);
                         return;
                     }
-                    InterfaceC0299a interfaceC0299a3 = interfaceC0299a;
-                    if (interfaceC0299a3 != null) {
-                        interfaceC0299a3.a(false, null);
+                    InterfaceC0300a interfaceC0300a3 = interfaceC0300a;
+                    if (interfaceC0300a3 != null) {
+                        interfaceC0300a3.a(false, null);
                     }
-                    a.this.a(false, lVar, oVar == null ? -3L : oVar.f65745h, oVar);
+                    a.this.a(false, lVar, oVar == null ? -3L : oVar.f65746h, oVar);
                 }
             });
             return;
         }
-        if (interfaceC0299a != null) {
-            interfaceC0299a.a(false, null);
+        if (interfaceC0300a != null) {
+            interfaceC0300a.a(false, null);
         }
         a(false, lVar, -1L, null);
     }

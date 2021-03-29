@@ -24,7 +24,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ShareItem {
     public static final String p0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     public String C;
@@ -59,28 +59,28 @@ public class ShareItem {
     public Bundle z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13711a = false;
+    public boolean f13712a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13712b = false;
+    public boolean f13713b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13713c = false;
+    public boolean f13714c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13714d = false;
+    public boolean f13715d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13715e = false;
+    public boolean f13716e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13716f = false;
+    public boolean f13717f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13717g = false;
+    public boolean f13718g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13718h = false;
+    public boolean f13719h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -285,10 +285,10 @@ public class ShareItem {
                 }
                 forwardInfo.showText = a2Var.r1.c();
                 OriginalThreadInfo originalThreadInfo = a2Var.r1;
-                forwardInfo.showPicUrl = originalThreadInfo.f13212c;
-                forwardInfo.showType = originalThreadInfo.f13210a;
+                forwardInfo.showPicUrl = originalThreadInfo.f13213c;
+                forwardInfo.showType = originalThreadInfo.f13211a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f13215f;
+                forwardInfo.originalTid = originalThreadInfo.f13216f;
                 if (i == 1) {
                     if (postData != null && postData.J() != null) {
                         str = postData.J().toString();
@@ -317,8 +317,8 @@ public class ShareItem {
                 OriginalThreadInfo i2 = OriginalThreadInfo.i(a2Var);
                 if (i2 != null) {
                     forwardInfo.showText = i2.c();
-                    forwardInfo.showPicUrl = i2.f13212c;
-                    forwardInfo.showType = i2.f13210a;
+                    forwardInfo.showPicUrl = i2.f13213c;
+                    forwardInfo.showType = i2.f13211a;
                 }
                 forwardInfo.originalTid = a2Var.w1();
             }

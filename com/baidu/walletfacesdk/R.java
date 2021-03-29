@@ -3790,7 +3790,7 @@ public final class R {
     public static final class drawable {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f26865a = 0x7f080087;
+        public static final int f26866a = 0x7f080087;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080088;
         public static final int abc_action_bar_item_background_material = 0x7f080089;
         public static final int abc_btn_borderless_material = 0x7f08008a;
@@ -5698,7 +5698,7 @@ public final class R {
         public static final int commit_good_layout = 0x7f090738;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f26866common = 0x7f090742;
+        public static final int f26867common = 0x7f090742;
         public static final int common_loading_view = 0x7f090746;
         public static final int common_progress = 0x7f090747;
         public static final int common_tab_content = 0x7f090748;

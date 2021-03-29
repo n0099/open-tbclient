@@ -9,7 +9,7 @@ import tbclient.FrsTabInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59692a;
+    public int f59693a;
 
     public static a a(boolean z) {
         if (z && d()) {
@@ -46,9 +46,9 @@ public class a {
                 }
             }
         } else {
-            i = this.f59692a;
+            i = this.f59693a;
         }
-        this.f59692a = c(i, d2, list);
+        this.f59693a = c(i, d2, list);
     }
 
     public final int c(int i, int i2, List<n> list) {

@@ -13,11 +13,11 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class FileCopyUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3947a = 4096;
+    public static final int f3948a = 4096;
 
     public static int copy(File file, File file2) throws IOException {
         Assert.notNull(file, "No input File specified");
@@ -76,6 +76,7 @@ public abstract class FileCopyUtils {
         copy(new ByteArrayInputStream(bArr), new BufferedOutputStream(new FileOutputStream(file)));
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static int copy(InputStream inputStream, OutputStream outputStream) throws IOException {
         Assert.notNull(inputStream, "No InputStream specified");
         Assert.notNull(outputStream, "No OutputStream specified");
@@ -92,24 +93,19 @@ public abstract class FileCopyUtils {
             }
             outputStream.flush();
             try {
-                inputStream.close();
+                outputStream.close();
             } catch (IOException unused) {
             }
-            try {
-                outputStream.close();
-            } catch (IOException unused2) {
-            }
             return i;
-        } catch (Throwable th) {
+        } finally {
             try {
                 inputStream.close();
-            } catch (IOException unused3) {
+            } catch (IOException unused2) {
             }
             try {
                 outputStream.close();
-            } catch (IOException unused4) {
+            } catch (IOException unused3) {
             }
-            throw th;
         }
     }
 
@@ -148,6 +144,7 @@ public abstract class FileCopyUtils {
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static int copy(Reader reader, Writer writer) throws IOException {
         Assert.notNull(reader, "No Reader specified");
         Assert.notNull(writer, "No Writer specified");
@@ -164,24 +161,19 @@ public abstract class FileCopyUtils {
             }
             writer.flush();
             try {
-                reader.close();
+                writer.close();
             } catch (IOException unused) {
             }
-            try {
-                writer.close();
-            } catch (IOException unused2) {
-            }
             return i;
-        } catch (Throwable th) {
+        } finally {
             try {
                 reader.close();
-            } catch (IOException unused3) {
+            } catch (IOException unused2) {
             }
             try {
                 writer.close();
-            } catch (IOException unused4) {
+            } catch (IOException unused3) {
             }
-            throw th;
         }
     }
 

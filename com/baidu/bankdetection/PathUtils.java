@@ -1,7 +1,7 @@
 package com.baidu.bankdetection;
 
 import android.os.Environment;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PathUtils {
     public static final String DATA_DIR = "";
     public static final String captcha_path = "bankcard-2.bundle/model/bank_card_captcha.txt";

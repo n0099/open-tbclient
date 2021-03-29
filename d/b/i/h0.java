@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h0 extends h {
     public SmartAppBottomLayout l;
 

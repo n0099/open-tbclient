@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider;
 import d.b.d0.a.b.b;
 import d.b.d0.a.b.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeRuntime {
     @Inject(force = false)
     public d<UnitedSchemeBaseInterceptor> sInterceptChainList;

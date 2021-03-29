@@ -14,13 +14,13 @@ import java.util.List;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f50230c;
+    public static e f50231c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f50231a = i(d.b.h0.r.d0.b.i().o("key_need_add_source_stat_list", ""));
+    public List<String> f50232a = i(d.b.h0.r.d0.b.i().o("key_need_add_source_stat_list", ""));
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f50232b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+    public List<String> f50233b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
 
     public static void b(Context context, StatisticItem statisticItem, d.b.h0.k0.d dVar) {
         if (dVar == null || statisticItem == null || TextUtils.isEmpty(statisticItem.getKey())) {
@@ -52,14 +52,14 @@ public class e {
     }
 
     public static e f() {
-        if (f50230c == null) {
+        if (f50231c == null) {
             synchronized (e.class) {
-                if (f50230c == null) {
-                    f50230c = new e();
+                if (f50231c == null) {
+                    f50231c = new e();
                 }
             }
         }
-        return f50230c;
+        return f50231c;
     }
 
     public final void a(StatisticItem statisticItem) {
@@ -102,8 +102,8 @@ public class e {
     }
 
     public boolean g(String str) {
-        if (!ListUtils.isEmpty(this.f50232b) && !k.isEmpty(str)) {
-            for (String str2 : this.f50232b) {
+        if (!ListUtils.isEmpty(this.f50233b) && !k.isEmpty(str)) {
+            for (String str2 : this.f50233b) {
                 if (str.equals(str2)) {
                     return true;
                 }
@@ -113,8 +113,8 @@ public class e {
     }
 
     public boolean h(String str) {
-        if (!ListUtils.isEmpty(this.f50231a) && !k.isEmpty(str)) {
-            for (String str2 : this.f50231a) {
+        if (!ListUtils.isEmpty(this.f50232a) && !k.isEmpty(str)) {
+            for (String str2 : this.f50232a) {
                 if (str.equals(str2)) {
                     return true;
                 }
@@ -131,7 +131,7 @@ public class e {
     }
 
     public void j(String str) {
-        this.f50231a = i(str);
+        this.f50232a = i(str);
         if (str == null) {
             str = "";
         }

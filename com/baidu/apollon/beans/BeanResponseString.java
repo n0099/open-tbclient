@@ -1,5 +1,5 @@
 package com.baidu.apollon.beans;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BeanResponseString extends BeanResponseBase {
     public String content = null;
 

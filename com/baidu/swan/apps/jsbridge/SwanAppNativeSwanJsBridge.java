@@ -7,9 +7,9 @@ import d.b.g0.a.i2.i;
 import d.b.g0.a.k;
 import d.b.g0.a.x0.b.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppNativeSwanJsBridge {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
     public static final String TAG = "SwanAppNativeSwanJsBridge";
     public a mJSContainer;

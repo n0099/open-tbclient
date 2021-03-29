@@ -34,7 +34,7 @@ public class a {
             return;
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f50767g).param("obj_locate", eVar.f50768h).param("obj_id", eVar.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f50768g).param("obj_locate", eVar.f50769h).param("obj_id", eVar.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
         if (a2Var != null) {
             param.param("tid", a2Var.o0()).param("nid", a2Var.L0()).param("fid", a2Var.c0()).param("ab_tag", a2Var.T0).param("recom_source", a2Var.R0).param("weight", a2Var.S0).param("extra", a2Var.U0);
             if (a2Var.V() != null) {
@@ -118,7 +118,7 @@ public class a {
     }
 
     public void d(AgreeData agreeData, d.b.i0.c3.h0.e eVar) {
-        eVar.f53376b = agreeData;
+        eVar.f53377b = agreeData;
         if (agreeData.isInThread) {
             BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
             if (baijiahaoData != null) {

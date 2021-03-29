@@ -120,8 +120,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 return;
             }
             if (SelectForumActivity.this.mCheckResponseData != null) {
-                SelectForumActivity.this.mCheckResponseData.f61668c = cVar.f61668c;
-                SelectForumActivity.this.mCheckResponseData.f61669d = cVar.f61669d;
+                SelectForumActivity.this.mCheckResponseData.f61669c = cVar.f61669c;
+                SelectForumActivity.this.mCheckResponseData.f61670d = cVar.f61670d;
             }
             d.b.i0.b0.f.b().h();
         }
@@ -141,15 +141,15 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                 SelectForumActivity.this.setResult(1008, intent);
             } else {
-                ErrorData errorData = dVar.f61674a;
+                ErrorData errorData = dVar.f61675a;
                 if (errorData != null && errorData.getError_code() != 0) {
-                    SelectForumActivity.this.showToast(dVar.f61674a.getError_msg());
+                    SelectForumActivity.this.showToast(dVar.f61675a.getError_msg());
                     Intent intent2 = new Intent();
-                    intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, dVar.f61674a.getError_code());
+                    intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, dVar.f61675a.getError_code());
                     SelectForumActivity.this.setResult(1008, intent2);
                 } else {
-                    TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.f61675b).param("tid", dVar.f61676c));
-                    SelectForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.f61671f, "")));
+                    TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.f61676b).param("tid", dVar.f61677c));
+                    SelectForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.f61672f, "")));
                 }
             }
             SelectForumActivity.this.finish();
@@ -224,8 +224,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
                 arrayList.add(transmitForumData);
                 if (SelectForumActivity.this.mCheckResponseData != null) {
-                    SelectForumActivity.this.mCheckResponseData.f61670e = String.valueOf(transmitForumData.forumId);
-                    SelectForumActivity.this.mCheckResponseData.f61671f = transmitForumData.forumName;
+                    SelectForumActivity.this.mCheckResponseData.f61671e = String.valueOf(transmitForumData.forumId);
+                    SelectForumActivity.this.mCheckResponseData.f61672f = transmitForumData.forumName;
                     SelectForumActivity.this.addShareSdkView(AddFriendActivityConfig.TYPE_FOCUS);
                 } else if (SelectForumActivity.this.mFrom != 1 || SelectForumActivity.this.mLiveId <= 0) {
                     if (SelectForumActivity.this.mFrom != 2) {
@@ -309,11 +309,11 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 this.mFrom = 3;
                 d.b.i0.u3.q.c cVar = new d.b.i0.u3.q.c();
                 this.mCheckResponseData = cVar;
-                cVar.f61666a = intent.getStringExtra("appkey");
-                this.mCheckResponseData.f61667b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
+                cVar.f61667a = intent.getStringExtra("appkey");
+                this.mCheckResponseData.f61668b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
                 this.mCheckResponseData.i = intent.getStringExtra("image");
-                this.mCheckResponseData.f61672g = intent.getStringExtra("title");
-                this.mCheckResponseData.f61673h = intent.getStringExtra("desc");
+                this.mCheckResponseData.f61673g = intent.getStringExtra("title");
+                this.mCheckResponseData.f61674h = intent.getStringExtra("desc");
                 this.mCheckResponseData.k = intent.getStringExtra("link");
                 this.mCheckResponseData.l = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
                 this.mCheckManager = new d.b.i0.u3.q.b(getUniqueId());
@@ -424,8 +424,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         } else if (i2 == -1 && i == 25019) {
             d.b.i0.u3.q.c cVar = this.mCheckResponseData;
             if (cVar != null && intent != null) {
-                cVar.f61670e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
-                this.mCheckResponseData.f61671f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
+                cVar.f61671e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
+                this.mCheckResponseData.f61672f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
                 addShareSdkView("search");
                 return;
             }
@@ -472,7 +472,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         if (this.mCheckManager != null && TbadkCoreApplication.isLogin() && ListUtils.isEmpty(this.mDataList)) {
             d.b.i0.u3.q.c cVar = this.mCheckResponseData;
             if (cVar != null) {
-                this.mCheckManager.d(cVar.f61666a, cVar.f61667b);
+                this.mCheckManager.d(cVar.f61667a, cVar.f61668b);
                 return;
             }
             return;

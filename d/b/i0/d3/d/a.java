@@ -15,27 +15,27 @@ import d.b.b.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f54177a;
+    public Context f54178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f54178b;
+    public FrameLayout f54179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f54179c;
+    public ImageView f54180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f54180d;
+    public d f54181d;
 
     /* renamed from: d.b.i0.d3.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1222a implements View.OnClickListener {
-        public View$OnClickListenerC1222a() {
+    public class View$OnClickListenerC1223a implements View.OnClickListener {
+        public View$OnClickListenerC1223a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f54180d != null) {
-                a.this.f54180d.a();
+            if (a.this.f54181d != null) {
+                a.this.f54181d.a();
             }
         }
     }
@@ -47,8 +47,8 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f54180d != null) {
-                a.this.f54180d.b();
+            if (a.this.f54181d != null) {
+                a.this.f54181d.b();
             }
         }
     }
@@ -60,8 +60,8 @@ public class a {
 
         @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.c
         public void a(View view) {
-            if (a.this.f54180d != null) {
-                a.this.f54180d.b();
+            if (a.this.f54181d != null) {
+                a.this.f54181d.b();
             }
         }
     }
@@ -74,70 +74,70 @@ public class a {
     }
 
     public a(Context context, d dVar) {
-        this.f54180d = dVar;
-        this.f54177a = context;
-        this.f54178b = new FrameLayout(context);
+        this.f54181d = dVar;
+        this.f54178a = context;
+        this.f54179b = new FrameLayout(context);
     }
 
     public View b() {
-        return this.f54178b;
+        return this.f54179b;
     }
 
     public final void c() {
-        TextView textView = new TextView(this.f54177a);
+        TextView textView = new TextView(this.f54178a);
         textView.setText(R.string.tb_ad_label);
-        int dimension = (int) this.f54177a.getResources().getDimension(R.dimen.ds28);
-        textView.setTextSize(0, (int) this.f54177a.getResources().getDimension(R.dimen.ds22));
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f54177a.getResources().getDimension(R.dimen.ds68), (int) this.f54177a.getResources().getDimension(R.dimen.ds40));
+        int dimension = (int) this.f54178a.getResources().getDimension(R.dimen.ds28);
+        textView.setTextSize(0, (int) this.f54178a.getResources().getDimension(R.dimen.ds22));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f54178a.getResources().getDimension(R.dimen.ds68), (int) this.f54178a.getResources().getDimension(R.dimen.ds40));
         textView.setTextColor(-1);
         textView.setGravity(17);
         textView.setAlpha(0.5f);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(-16777216);
-        gradientDrawable.setCornerRadius(this.f54177a.getResources().getDimension(R.dimen.ds4));
+        gradientDrawable.setCornerRadius(this.f54178a.getResources().getDimension(R.dimen.ds4));
         gradientDrawable.setStroke(1, -16777216);
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
-        layoutParams.setMargins(dimension, 0, 0, (int) this.f54177a.getResources().getDimension(R.dimen.ds28));
-        this.f54178b.addView(textView, layoutParams);
+        layoutParams.setMargins(dimension, 0, 0, (int) this.f54178a.getResources().getDimension(R.dimen.ds28));
+        this.f54179b.addView(textView, layoutParams);
     }
 
     public final void d(int i) {
-        CountDownTextView countDownTextView = new CountDownTextView(this.f54177a);
-        int dimension = (int) this.f54177a.getResources().getDimension(R.dimen.ds22);
-        int dimension2 = (int) this.f54177a.getResources().getDimension(R.dimen.ds36);
-        Context context = this.f54177a;
-        if ((context instanceof Activity) && (UtilHelper.isNotchScreen((Activity) context) || UtilHelper.isCutoutScreen((Activity) this.f54177a))) {
-            dimension2 += l.r((Activity) this.f54177a);
+        CountDownTextView countDownTextView = new CountDownTextView(this.f54178a);
+        int dimension = (int) this.f54178a.getResources().getDimension(R.dimen.ds22);
+        int dimension2 = (int) this.f54178a.getResources().getDimension(R.dimen.ds36);
+        Context context = this.f54178a;
+        if ((context instanceof Activity) && (UtilHelper.isNotchScreen((Activity) context) || UtilHelper.isCutoutScreen((Activity) this.f54178a))) {
+            dimension2 += l.r((Activity) this.f54178a);
         }
-        String string = this.f54177a.getResources().getString(R.string.skip);
+        String string = this.f54178a.getResources().getString(R.string.skip);
         countDownTextView.setTextSize(0, dimension);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f54177a.getResources().getDimension(R.dimen.ds106), (int) this.f54177a.getResources().getDimension(R.dimen.ds52));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f54178a.getResources().getDimension(R.dimen.ds106), (int) this.f54178a.getResources().getDimension(R.dimen.ds52));
         countDownTextView.setTextColor(-1);
         countDownTextView.setGravity(17);
         countDownTextView.setAlpha(0.5f);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(-16777216);
-        gradientDrawable.setCornerRadius(this.f54177a.getResources().getDimension(R.dimen.ds4));
+        gradientDrawable.setCornerRadius(this.f54178a.getResources().getDimension(R.dimen.ds4));
         gradientDrawable.setStroke(1, -16777216);
         countDownTextView.setBackgroundDrawable(gradientDrawable);
         countDownTextView.d(string, i);
         layoutParams.gravity = 53;
-        layoutParams.setMargins(0, dimension2, (int) this.f54177a.getResources().getDimension(R.dimen.ds32), 0);
-        this.f54178b.addView(countDownTextView, layoutParams);
+        layoutParams.setMargins(0, dimension2, (int) this.f54178a.getResources().getDimension(R.dimen.ds32), 0);
+        this.f54179b.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new b());
         countDownTextView.setTimeoutListener(new c());
     }
 
     public final void e(d.b.b.j.d.a aVar) {
-        ImageView imageView = new ImageView(this.f54177a);
-        this.f54179c = imageView;
+        ImageView imageView = new ImageView(this.f54178a);
+        this.f54180c = imageView;
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.f54179c.setImageBitmap(aVar.p());
+            this.f54180c.setImageBitmap(aVar.p());
         }
-        this.f54179c.setOnClickListener(new View$OnClickListenerC1222a());
-        this.f54178b.addView(this.f54179c);
+        this.f54180c.setOnClickListener(new View$OnClickListenerC1223a());
+        this.f54179b.addView(this.f54180c);
     }
 
     public void f(Object obj, int i) {

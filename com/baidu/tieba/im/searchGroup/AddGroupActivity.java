@@ -18,13 +18,13 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import d.b.b.c.g.c;
 import d.b.b.e.m.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public d.b.i0.d1.r.a addGroupView = null;
     public SearchGroupModel searchGroupModel = null;
     public c searchGroupCallback = new a(103007);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends c {
         public a(int i) {
             super(i);

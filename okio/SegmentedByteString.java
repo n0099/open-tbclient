@@ -49,7 +49,7 @@ public final class SegmentedByteString extends ByteString {
 
     private int segment(int i) {
         int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i + 1);
-        return binarySearch >= 0 ? binarySearch : binarySearch ^ (-1);
+        return binarySearch >= 0 ? binarySearch : ~binarySearch;
     }
 
     private ByteString toByteString() {

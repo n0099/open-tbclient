@@ -3,8 +3,8 @@ package com.baidu.location.d;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6712a = j.g();
+    public static String f6713a = j.g();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile i f6713b;
+    public static volatile i f6714b;
 }

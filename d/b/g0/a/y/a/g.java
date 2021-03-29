@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import d.b.g0.a.t1.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends a {
     public g(j jVar) {
         super(jVar, "/swanAPI/canvas/remove");
@@ -27,7 +27,7 @@ public class g extends a {
         d.b.g0.a.a0.b.c C = aVar.C();
         boolean a2 = C.a();
         if (!a2) {
-            d.b.g0.a.c0.c.b("SwanAppCanvas", "remove canvas fail: " + C.f43116b);
+            d.b.g0.a.c0.c.b("SwanAppCanvas", "remove canvas fail: " + C.f43117b);
         }
         j(unitedSchemeEntity, callbackHandler, a2);
         return a2;

@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
     public static final String LC_UPDATE_FAIL = "com.baidu.clientupdate.RSA.STATUS_FAIL";
     public static final String LC_UPDATE_MERGE = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -48,7 +48,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public long mClientId = -1;
     public BroadcastReceiver mReceiver = new a();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
         public a() {
         }

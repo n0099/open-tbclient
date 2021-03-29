@@ -22,22 +22,22 @@ import java.util.HashSet;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f57706e;
+    public static int f57707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f57707f;
+    public static c f57708f;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1389c f57709b;
+    public C1390c f57710b;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<HashSet<String>> f57711d;
+    public SparseArray<HashSet<String>> f57712d;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f57708a = new a(2005016);
+    public CustomMessageListener f57709a = new a(2005016);
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f57710c = new b(this, Looper.getMainLooper());
+    public Handler f57711c = new b(this, Looper.getMainLooper());
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -48,10 +48,10 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || c.this.f57711d == null) {
+            if (customResponsedMessage == null || c.this.f57712d == null) {
                 return;
             }
-            c.this.f57711d.clear();
+            c.this.f57712d.clear();
         }
     }
 
@@ -63,34 +63,34 @@ public class c {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            C1389c c1389c;
+            C1390c c1390c;
             if (message.what != 5) {
                 return;
             }
             Object obj = message.obj;
-            if (!(obj instanceof C1389c) || (c1389c = (C1389c) obj) == null) {
+            if (!(obj instanceof C1390c) || (c1390c = (C1390c) obj) == null) {
                 return;
             }
-            c1389c.f57716d = false;
-            c1389c.f57713a = false;
-            c1389c.f57714b = 0;
+            c1390c.f57717d = false;
+            c1390c.f57714a = false;
+            c1390c.f57715b = 0;
         }
     }
 
     public c() {
-        f57706e = d.b.h0.r.d0.b.i().j("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.f57708a);
+        f57707e = d.b.h0.r.d0.b.i().j("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.f57709a);
     }
 
     public static c j() {
-        if (f57707f == null) {
+        if (f57708f == null) {
             synchronized (t.class) {
-                if (f57707f == null) {
-                    f57707f = new c();
+                if (f57708f == null) {
+                    f57708f = new c();
                 }
             }
         }
-        return f57707f;
+        return f57708f;
     }
 
     public static void l(FrsViewData frsViewData, int i, int i2, Context context) {
@@ -118,26 +118,26 @@ public class c {
     }
 
     public void c(d.b.i0.p0.j2.b bVar, a2 a2Var) {
-        if (bVar == null || !bVar.f57699a || a2Var == null || a2Var.w1() == null) {
+        if (bVar == null || !bVar.f57700a || a2Var == null || a2Var.w1() == null) {
             return;
         }
-        if (this.f57711d == null) {
-            this.f57711d = new SparseArray<>();
+        if (this.f57712d == null) {
+            this.f57712d = new SparseArray<>();
         }
-        if (this.f57711d.get(bVar.f57702d) == null) {
-            this.f57711d.put(bVar.f57702d, new HashSet<>());
+        if (this.f57712d.get(bVar.f57703d) == null) {
+            this.f57712d.put(bVar.f57703d, new HashSet<>());
         }
-        HashSet<String> hashSet = this.f57711d.get(bVar.f57702d);
+        HashSet<String> hashSet = this.f57712d.get(bVar.f57703d);
         String w1 = a2Var.w1();
-        if (bVar.f57703e >= 0) {
-            w1 = w1 + "_" + bVar.f57703e;
+        if (bVar.f57704e >= 0) {
+            w1 = w1 + "_" + bVar.f57704e;
         }
         if (hashSet.contains(w1) || f()) {
             return;
         }
         hashSet.add(w1);
         StatisticItem statisticItem = new StatisticItem("c11439");
-        statisticItem.param("fid", bVar.f57701c);
+        statisticItem.param("fid", bVar.f57702c);
         statisticItem.param("obj_locate", k(bVar));
         statisticItem.param("obj_source", a2Var.R0);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a2Var.S0);
@@ -147,7 +147,7 @@ public class c {
         statisticItem.param("nid", a2Var.L0());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         statisticItem.param(TiebaStatic.Params.EXPOSURE_TIME, System.currentTimeMillis());
-        int i = bVar.f57702d;
+        int i = bVar.f57703d;
         if (i >= 0) {
             statisticItem.param("tab_id", i);
         }
@@ -176,7 +176,7 @@ public class c {
         t.b().a(statisticItem);
         if (a2Var.y2()) {
             StatisticItem statisticItem2 = new StatisticItem("c12099");
-            statisticItem2.param("fid", bVar.f57701c);
+            statisticItem2.param("fid", bVar.f57702c);
             statisticItem2.param("obj_locate", k(bVar));
             statisticItem2.param("obj_source", a2Var.R0);
             statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, a2Var.S0);
@@ -186,9 +186,9 @@ public class c {
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
             t.b().a(statisticItem2);
         }
-        if (bVar.f57702d == 501) {
+        if (bVar.f57703d == 501) {
             StatisticItem statisticItem3 = new StatisticItem("c13259");
-            statisticItem3.param("fid", bVar.f57701c);
+            statisticItem3.param("fid", bVar.f57702c);
             statisticItem3.param("tid", a2Var.w1());
             t.b().a(statisticItem3);
         }
@@ -216,41 +216,41 @@ public class c {
     }
 
     public final boolean f() {
-        if (this.f57709b == null) {
-            this.f57709b = new C1389c(this, null);
+        if (this.f57710b == null) {
+            this.f57710b = new C1390c(this, null);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        C1389c c1389c = this.f57709b;
-        if (c1389c.f57716d) {
+        C1390c c1390c = this.f57710b;
+        if (c1390c.f57717d) {
             return true;
         }
-        if (c1389c.f57713a) {
-            int i = c1389c.f57714b + 1;
-            c1389c.f57714b = i;
-            if (currentTimeMillis - c1389c.f57715c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (i >= f57706e) {
-                    c1389c.f57716d = true;
-                    h(c1389c);
+        if (c1390c.f57714a) {
+            int i = c1390c.f57715b + 1;
+            c1390c.f57715b = i;
+            if (currentTimeMillis - c1390c.f57716c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                if (i >= f57707e) {
+                    c1390c.f57717d = true;
+                    h(c1390c);
                     return true;
                 }
             } else {
-                c1389c.f57713a = false;
-                c1389c.f57714b = 0;
+                c1390c.f57714a = false;
+                c1390c.f57715b = 0;
             }
         } else {
-            c1389c.f57713a = true;
-            c1389c.f57715c = currentTimeMillis;
+            c1390c.f57714a = true;
+            c1390c.f57716c = currentTimeMillis;
         }
         return false;
     }
 
     public void g(d.b.i0.p0.j2.b bVar, a2 a2Var, int i) {
-        if (bVar == null || !bVar.f57699a || a2Var == null || a2Var.w1() == null) {
+        if (bVar == null || !bVar.f57700a || a2Var == null || a2Var.w1() == null) {
             return;
         }
         t.b().e(true);
         StatisticItem statisticItem = new StatisticItem("c11438");
-        statisticItem.param("fid", bVar.f57701c);
+        statisticItem.param("fid", bVar.f57702c);
         statisticItem.param("obj_locate", k(bVar));
         statisticItem.param("obj_source", a2Var.R0);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a2Var.S0);
@@ -268,7 +268,7 @@ public class c {
             statisticItem.param("obj_type", 14);
         }
         statisticItem.param(TiebaStatic.Params.OBJ_TO, i(a2Var));
-        int i2 = bVar.f57702d;
+        int i2 = bVar.f57703d;
         if (i2 >= 0) {
             statisticItem.param("tab_id", i2);
         }
@@ -280,7 +280,7 @@ public class c {
         TiebaStatic.log(statisticItem);
         if (a2Var.y2()) {
             StatisticItem statisticItem2 = new StatisticItem("c12098");
-            statisticItem2.param("fid", bVar.f57701c);
+            statisticItem2.param("fid", bVar.f57702c);
             statisticItem2.param("obj_locate", k(bVar));
             statisticItem2.param("obj_source", a2Var.R0);
             statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, a2Var.S0);
@@ -291,9 +291,9 @@ public class c {
             statisticItem2.param(TiebaStatic.Params.OBJ_TO, i(a2Var));
             TiebaStatic.log(statisticItem2);
         }
-        if (bVar.f57702d == 501) {
+        if (bVar.f57703d == 501) {
             StatisticItem statisticItem3 = new StatisticItem("c13260");
-            statisticItem3.param("fid", bVar.f57701c);
+            statisticItem3.param("fid", bVar.f57702c);
             statisticItem3.param("tid", a2Var.w1());
             t.b().a(statisticItem3);
         }
@@ -309,12 +309,12 @@ public class c {
         TiebaStatic.log(statisticItem4);
     }
 
-    public final void h(C1389c c1389c) {
-        Message obtainMessage = this.f57710c.obtainMessage();
+    public final void h(C1390c c1390c) {
+        Message obtainMessage = this.f57711c.obtainMessage();
         obtainMessage.what = 5;
-        obtainMessage.obj = c1389c;
-        this.f57710c.removeMessages(5);
-        this.f57710c.sendMessageDelayed(obtainMessage, 300000L);
+        obtainMessage.obj = c1390c;
+        this.f57711c.removeMessages(5);
+        this.f57711c.sendMessageDelayed(obtainMessage, 300000L);
     }
 
     public final String i(a2 a2Var) {
@@ -328,25 +328,25 @@ public class c {
         if (bVar == null) {
             return 5;
         }
-        int i = bVar.f57704f;
+        int i = bVar.f57705f;
         if (i > 0) {
-            int i2 = bVar.f57702d;
+            int i2 = bVar.f57703d;
             if (i2 == 1120 || i2 == 1121) {
                 return 15;
             }
-            if (bVar.f57705g == 3) {
+            if (bVar.f57706g == 3) {
                 return 13;
             }
             return i;
         }
-        int i3 = bVar.f57700b;
+        int i3 = bVar.f57701b;
         if (i3 == 8) {
             i3 = 9;
         }
-        if (bVar.f57702d == 504) {
+        if (bVar.f57703d == 504) {
             i3 = 11;
         }
-        int i4 = bVar.f57702d;
+        int i4 = bVar.f57703d;
         if (i4 == 1120 || i4 == 1121) {
             return 15;
         }
@@ -355,27 +355,27 @@ public class c {
 
     /* renamed from: d.b.i0.p0.j2.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1389c {
+    public class C1390c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f57713a;
+        public boolean f57714a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57714b;
+        public int f57715b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f57715c;
+        public long f57716c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f57716d;
+        public boolean f57717d;
 
-        public C1389c(c cVar) {
-            this.f57713a = false;
-            this.f57714b = 0;
-            this.f57716d = false;
+        public C1390c(c cVar) {
+            this.f57714a = false;
+            this.f57715b = 0;
+            this.f57717d = false;
         }
 
-        public /* synthetic */ C1389c(c cVar, a aVar) {
+        public /* synthetic */ C1390c(c cVar, a aVar) {
             this(cVar);
         }
     }

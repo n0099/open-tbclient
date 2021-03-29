@@ -24,7 +24,7 @@ public class m extends d.b.i0.p0.k<d.b.i0.p0.v, ReadProgressViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: t0 */
     public ReadProgressViewHolder R(ViewGroup viewGroup) {
-        return new ReadProgressViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.frs_read_progress_item, viewGroup, false), this.o.getPageActivity());
+        return new ReadProgressViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.frs_read_progress_item, viewGroup, false), this.o.getPageActivity());
     }
 
     public View u0(int i, View view, ViewGroup viewGroup, d.b.i0.p0.v vVar, ReadProgressViewHolder readProgressViewHolder) {

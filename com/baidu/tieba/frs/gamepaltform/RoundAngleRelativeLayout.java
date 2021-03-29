@@ -13,16 +13,16 @@ import android.widget.RelativeLayout;
 public class RoundAngleRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16367e;
+    public float f16368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f16368f;
+    public float f16369f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16369g;
+    public float f16370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f16370h;
+    public float f16371h;
     public Paint i;
     public Paint j;
 
@@ -31,14 +31,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public final void a(Canvas canvas) {
-        if (this.f16369g > 0.0f) {
+        if (this.f16370g > 0.0f) {
             int height = getHeight();
             Path path = new Path();
             float f2 = height;
-            path.moveTo(0.0f, f2 - this.f16369g);
+            path.moveTo(0.0f, f2 - this.f16370g);
             path.lineTo(0.0f, f2);
-            path.lineTo(this.f16369g, f2);
-            float f3 = this.f16369g;
+            path.lineTo(this.f16370g, f2);
+            float f3 = this.f16370g;
             path.arcTo(new RectF(0.0f, f2 - (f3 * 2.0f), f3 * 2.0f, f2), 90.0f, 90.0f);
             path.close();
             canvas.drawPath(path, this.i);
@@ -46,16 +46,16 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public final void b(Canvas canvas) {
-        if (this.f16370h > 0.0f) {
+        if (this.f16371h > 0.0f) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
             float f3 = height;
-            path.moveTo(f2 - this.f16370h, f3);
+            path.moveTo(f2 - this.f16371h, f3);
             path.lineTo(f2, f3);
-            path.lineTo(f2, f3 - this.f16370h);
-            float f4 = this.f16370h;
+            path.lineTo(f2, f3 - this.f16371h);
+            float f4 = this.f16371h;
             path.arcTo(new RectF(f2 - (f4 * 2.0f), f3 - (f4 * 2.0f), f2, f3), 0.0f, 90.0f);
             path.close();
             canvas.drawPath(path, this.i);
@@ -63,12 +63,12 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public final void c(Canvas canvas) {
-        if (this.f16367e > 0.0f) {
+        if (this.f16368e > 0.0f) {
             Path path = new Path();
-            path.moveTo(0.0f, this.f16367e);
+            path.moveTo(0.0f, this.f16368e);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.f16367e, 0.0f);
-            float f2 = this.f16367e;
+            path.lineTo(this.f16368e, 0.0f);
+            float f2 = this.f16368e;
             path.arcTo(new RectF(0.0f, 0.0f, f2 * 2.0f, f2 * 2.0f), -90.0f, -90.0f);
             path.close();
             canvas.drawPath(path, this.i);
@@ -76,14 +76,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public final void d(Canvas canvas) {
-        if (this.f16368f > 0.0f) {
+        if (this.f16369f > 0.0f) {
             int width = getWidth();
             Path path = new Path();
             float f2 = width;
-            path.moveTo(f2 - this.f16368f, 0.0f);
+            path.moveTo(f2 - this.f16369f, 0.0f);
             path.lineTo(f2, 0.0f);
-            path.lineTo(f2, this.f16368f);
-            float f3 = this.f16368f;
+            path.lineTo(f2, this.f16369f);
+            float f3 = this.f16369f;
             path.arcTo(new RectF(f2 - (f3 * 2.0f), 0.0f, f2, f3 * 2.0f), 0.0f, -90.0f);
             path.close();
             canvas.drawPath(path, this.i);
@@ -102,27 +102,27 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     public void setBottomLeftRadius(float f2) {
-        this.f16369g = f2;
+        this.f16370g = f2;
     }
 
     public void setBottomRightRadius(float f2) {
-        this.f16370h = f2;
+        this.f16371h = f2;
     }
 
     public void setRadius(float f2) {
-        this.f16367e = f2;
-        this.f16369g = f2;
-        this.f16368f = f2;
-        this.f16370h = f2;
+        this.f16368e = f2;
+        this.f16370g = f2;
+        this.f16369f = f2;
+        this.f16371h = f2;
         invalidate();
     }
 
     public void setTopLeftRadius(float f2) {
-        this.f16367e = f2;
+        this.f16368e = f2;
     }
 
     public void setTopRightRadius(float f2) {
-        this.f16368f = f2;
+        this.f16369f = f2;
     }
 
     public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet) {

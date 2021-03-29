@@ -12,48 +12,48 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class TTRatingBar extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28842a;
+    public int f28843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28843b;
+    public int f28844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28844c;
+    public int f28845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28845d;
+    public float f28846d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28846e;
+    public float f28847e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28847f;
+    public float f28848f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f28848g;
+    public Drawable f28849g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f28849h;
+    public Drawable f28850h;
     public Drawable i;
 
     public TTRatingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28842a = 5;
-        this.f28843b = 0;
-        this.f28844c = 0;
+        this.f28843a = 5;
+        this.f28844b = 0;
+        this.f28845c = 0;
         setOrientation(0);
-        this.f28848g = ad.c(context, "tt_star_empty_bg");
-        this.f28849h = ad.c(context, "tt_star_full_bg");
+        this.f28849g = ad.c(context, "tt_star_empty_bg");
+        this.f28850h = ad.c(context, "tt_star_full_bg");
         this.i = ad.c(context, "tt_star_empty_bg");
-        this.f28845d = al.c(context, 15.0f);
-        this.f28846e = al.c(context, 15.0f);
-        this.f28847f = al.c(context, 5.0f);
+        this.f28846d = al.c(context, 15.0f);
+        this.f28847e = al.c(context, 15.0f);
+        this.f28848f = al.c(context, 5.0f);
     }
 
     private ImageView getStarImageView() {
         ImageView imageView = new ImageView(getContext());
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f28845d), Math.round(this.f28846e)));
-        imageView.setPadding(0, 0, Math.round(this.f28847f), 0);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f28846d), Math.round(this.f28847e)));
+        imageView.setPadding(0, 0, Math.round(this.f28848f), 0);
         return imageView;
     }
 
@@ -77,19 +77,19 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public Drawable getStarEmptyDrawable() {
-        return this.f28848g;
+        return this.f28849g;
     }
 
     public int getStarEmptyNum() {
-        return this.f28844c;
+        return this.f28845c;
     }
 
     public Drawable getStarFillDrawable() {
-        return this.f28849h;
+        return this.f28850h;
     }
 
     public int getStarFillNum() {
-        return this.f28842a;
+        return this.f28843a;
     }
 
     public Drawable getStarHalfDrawable() {
@@ -97,35 +97,35 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public int getStarHalfNum() {
-        return this.f28843b;
+        return this.f28844b;
     }
 
     public float getStarImageHeight() {
-        return this.f28846e;
+        return this.f28847e;
     }
 
     public float getStarImagePadding() {
-        return this.f28847f;
+        return this.f28848f;
     }
 
     public float getStarImageWidth() {
-        return this.f28845d;
+        return this.f28846d;
     }
 
     public void setStarEmptyDrawable(Drawable drawable) {
-        this.f28848g = drawable;
+        this.f28849g = drawable;
     }
 
     public void setStarEmptyNum(int i) {
-        this.f28844c = i;
+        this.f28845c = i;
     }
 
     public void setStarFillDrawable(Drawable drawable) {
-        this.f28849h = drawable;
+        this.f28850h = drawable;
     }
 
     public void setStarFillNum(int i) {
-        this.f28842a = i;
+        this.f28843a = i;
     }
 
     public void setStarHalfDrawable(Drawable drawable) {
@@ -133,18 +133,18 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public void setStarHalfNum(int i) {
-        this.f28843b = i;
+        this.f28844b = i;
     }
 
     public void setStarImageHeight(float f2) {
-        this.f28846e = f2;
+        this.f28847e = f2;
     }
 
     public void setStarImagePadding(float f2) {
-        this.f28847f = f2;
+        this.f28848f = f2;
     }
 
     public void setStarImageWidth(float f2) {
-        this.f28845d = f2;
+        this.f28846d = f2;
     }
 }

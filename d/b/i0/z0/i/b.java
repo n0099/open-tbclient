@@ -13,7 +13,7 @@ import d.b.h0.r.q.a2;
 import d.b.h0.r.q.l;
 import d.b.h0.r.q.n1;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static void a(String str, Object obj, int i) {
         if (obj instanceof d.b.i0.z0.e.a.e.c) {
@@ -21,7 +21,7 @@ public class b {
             statisticItem.param("obj_type", 2);
             statisticItem.param("obj_locate", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", ((d.b.i0.z0.e.a.e.c) obj).f62967a);
+            statisticItem.param("topic_id", ((d.b.i0.z0.e.a.e.c) obj).f62968a);
             statisticItem.eventStat();
         }
         if (obj instanceof SpecialColumnItemData) {

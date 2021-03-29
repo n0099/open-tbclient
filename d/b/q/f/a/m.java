@@ -14,17 +14,17 @@ public class m {
     public static class a implements Comparator<JSONObject> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64376e;
+        public final /* synthetic */ String f64377e;
 
         public a(String str) {
-            this.f64376e = str;
+            this.f64377e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
-            return jSONObject.optString(this.f64376e, "").compareTo(jSONObject2.optString(this.f64376e, ""));
+            return jSONObject.optString(this.f64377e, "").compareTo(jSONObject2.optString(this.f64377e, ""));
         }
     }
 

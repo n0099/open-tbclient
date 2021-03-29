@@ -25,16 +25,16 @@ import java.nio.ByteBuffer;
 public class d extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58979e;
+    public String f58980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f58980f;
+    public Context f58981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f58981g;
+    public e f58982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f58982h;
+    public long f58983h;
     public b.c i;
 
     /* loaded from: classes5.dex */
@@ -50,10 +50,10 @@ public class d extends Thread {
 
     public d(Context context, String str, e eVar, b.c cVar) {
         super("FilterAudioThread");
-        this.f58982h = -1L;
-        this.f58980f = context;
-        this.f58979e = str;
-        this.f58981g = eVar;
+        this.f58983h = -1L;
+        this.f58981f = context;
+        this.f58980e = str;
+        this.f58982g = eVar;
         this.i = cVar;
     }
 
@@ -113,7 +113,7 @@ public class d extends Thread {
 
     public final MediaExtractor c() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
-        mediaExtractor.setDataSource(this.f58979e);
+        mediaExtractor.setDataSource(this.f58980e);
         return mediaExtractor;
     }
 
@@ -128,7 +128,7 @@ public class d extends Thread {
     /* JADX WARN: Type inference failed for: r11v10 */
     /* JADX WARN: Type inference failed for: r11v11 */
     /* JADX WARN: Type inference failed for: r11v2 */
-    /* JADX WARN: Type inference failed for: r11v3, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r11v3, types: [boolean, int] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -168,7 +168,7 @@ public class d extends Thread {
         boolean z7 = false;
         ByteBuffer[] byteBufferArr5 = inputBuffers2;
         while (!z5 && i()) {
-            if (z4 || !((mediaFormat2 == null || this.f58981g.b()) && i() && (dequeueInputBuffer2 = mediaCodec.dequeueInputBuffer(10000L)) != i5)) {
+            if (z4 || !((mediaFormat2 == null || this.f58982g.b()) && i() && (dequeueInputBuffer2 = mediaCodec.dequeueInputBuffer(10000L)) != i5)) {
                 i = i8;
                 byteBufferArr = inputBuffers;
                 bufferInfo = bufferInfo4;
@@ -201,7 +201,7 @@ public class d extends Thread {
                     r11 = z3;
                 }
             }
-            if (!z6 && i2 == -1 && ((mediaFormat2 == null || this.f58981g.b()) && i() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo3, 10000L)) != -1)) {
+            if (!z6 && i2 == -1 && ((mediaFormat2 == null || this.f58982g.b()) && i() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo3, 10000L)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -233,7 +233,7 @@ public class d extends Thread {
                         } else {
                             i7 = i3;
                         }
-                        if (z5 && ((mediaFormat2 == null || this.f58981g.b()) && i())) {
+                        if (z5 && ((mediaFormat2 == null || this.f58982g.b()) && i())) {
                             bufferInfo2 = bufferInfo;
                             int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
                             if (dequeueOutputBuffer2 != -1) {
@@ -248,9 +248,9 @@ public class d extends Thread {
                                     } else {
                                         if (bufferInfo2.size != 0) {
                                             byteBufferArr3 = byteBufferArr5;
-                                            if (bufferInfo2.presentationTimeUs > this.f58982h) {
-                                                this.f58981g.g(i, byteBuffer3, bufferInfo2);
-                                                this.f58982h = bufferInfo2.presentationTimeUs;
+                                            if (bufferInfo2.presentationTimeUs > this.f58983h) {
+                                                this.f58982g.g(i, byteBuffer3, bufferInfo2);
+                                                this.f58983h = bufferInfo2.presentationTimeUs;
                                             }
                                         } else {
                                             byteBufferArr3 = byteBufferArr5;
@@ -265,16 +265,16 @@ public class d extends Thread {
                                         mediaFormat = mediaFormat2;
                                         if (mediaFormat != null && !z7) {
                                             j("InnerAudioProcessor", "muxer: adding audio track.");
-                                            i = this.f58981g.a(mediaFormat);
+                                            i = this.f58982g.a(mediaFormat);
                                             z7 = true;
                                         }
-                                        if (!this.f58981g.b() && z7) {
-                                            this.f58981g.c();
-                                            if (this.f58981g.e()) {
-                                                synchronized (this.f58981g) {
-                                                    while (!this.f58981g.b()) {
+                                        if (!this.f58982g.b() && z7) {
+                                            this.f58982g.c();
+                                            if (this.f58982g.e()) {
+                                                synchronized (this.f58982g) {
+                                                    while (!this.f58982g.b()) {
                                                         try {
-                                                            this.f58981g.wait(100L);
+                                                            this.f58982g.wait(100L);
                                                         } catch (InterruptedException e2) {
                                                             e2.printStackTrace();
                                                         }
@@ -302,12 +302,12 @@ public class d extends Thread {
                                 }
                                 if (mediaFormat != null) {
                                     j("InnerAudioProcessor", "muxer: adding audio track.");
-                                    i = this.f58981g.a(mediaFormat);
+                                    i = this.f58982g.a(mediaFormat);
                                     z7 = true;
                                 }
-                                if (!this.f58981g.b()) {
-                                    this.f58981g.c();
-                                    if (this.f58981g.e()) {
+                                if (!this.f58982g.b()) {
+                                    this.f58982g.c();
+                                    if (this.f58982g.e()) {
                                     }
                                 }
                                 byteBufferArr5 = byteBufferArr3;
@@ -328,7 +328,7 @@ public class d extends Thread {
                         mediaFormat = mediaFormat2;
                         if (mediaFormat != null) {
                         }
-                        if (!this.f58981g.b()) {
+                        if (!this.f58982g.b()) {
                         }
                         byteBufferArr5 = byteBufferArr3;
                         mediaFormat2 = mediaFormat;
@@ -355,7 +355,7 @@ public class d extends Thread {
             mediaFormat = mediaFormat2;
             if (mediaFormat != null) {
             }
-            if (!this.f58981g.b()) {
+            if (!this.f58982g.b()) {
             }
             byteBufferArr5 = byteBufferArr3;
             mediaFormat2 = mediaFormat;
@@ -380,9 +380,9 @@ public class d extends Thread {
      */
     /* JADX WARN: Removed duplicated region for block: B:101:0x015b A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:102:0x015c  */
-    /* JADX WARN: Removed duplicated region for block: B:140:0x018a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x0172 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x0160 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x018a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x0172 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x0160 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -425,8 +425,8 @@ public class d extends Thread {
             mediaCodec2 = null;
             mediaExtractor = null;
         }
-        if (f2 < 0 && this.f58981g != null) {
-            this.f58981g.c();
+        if (f2 < 0 && this.f58982g != null) {
+            this.f58982g.c();
             if (c2 != null) {
                 try {
                     c2.release();
@@ -623,9 +623,7 @@ public class d extends Thread {
         return !Thread.currentThread().isInterrupted();
     }
 
-    public void k() {
-        throw null;
-    }
+    public abstract void k();
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {

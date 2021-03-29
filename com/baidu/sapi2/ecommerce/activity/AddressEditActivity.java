@@ -1086,7 +1086,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (z) {
             this.addressElementStatus |= i;
         } else {
-            this.addressElementStatus &= i ^ (-1);
+            this.addressElementStatus &= ~i;
         }
         setTopRightBtnEnableStatus();
     }

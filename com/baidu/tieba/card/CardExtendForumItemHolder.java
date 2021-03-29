@@ -16,48 +16,48 @@ import d.b.i0.x.e0.g;
 public class CardExtendForumItemHolder extends ItemViewHolder {
 
     /* renamed from: b  reason: collision with root package name */
-    public BarImageView f15222b;
+    public BarImageView f15223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15223c;
+    public TextView f15224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EntelechyUserLikeButton f15224d;
+    public EntelechyUserLikeButton f15225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f15225e;
+    public g f15226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15226f;
+    public int f15227f;
 
     public CardExtendForumItemHolder(View view) {
         super(view);
-        this.f15222b = null;
-        this.f15223c = null;
-        this.f15224d = null;
-        this.f15226f = 3;
+        this.f15223b = null;
+        this.f15224c = null;
+        this.f15225d = null;
+        this.f15227f = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void b(c cVar) {
         if (cVar != null && (cVar instanceof g)) {
             g gVar = (g) cVar;
-            this.f15225e = gVar;
-            this.f15222b.setTag(gVar.f62205b);
-            this.f15222b.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
-            this.f15222b.W(this.f15225e.f62205b, 15, false);
-            TextView textView = this.f15223c;
-            textView.setText(StringHelper.getFixedText(this.f15225e.f62206c, 4, true) + a().getContext().getResources().getString(R.string.forum));
-            this.f15223c.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
-            this.f15224d.setTag(R.id.tag_forum_id, Long.valueOf(this.f15225e.f62207d));
-            this.f15224d.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
-            a().setTag(R.id.tag_forum_id, Long.valueOf(this.f15225e.f62207d));
-            a().setTag(R.id.tag_forum_name, this.f15225e.f62206c);
-            f(this.f15224d, this.f15225e.f62208e);
-            this.f15222b.setOnClickListener(this.f17525a);
-            this.f15224d.setOnClickListener(this.f17525a);
-            this.f15223c.setOnClickListener(this.f17525a);
-            a().setOnClickListener(this.f17525a);
+            this.f15226e = gVar;
+            this.f15223b.setTag(gVar.f62206b);
+            this.f15223b.setTag(R.id.tag_forum_name, this.f15226e.f62207c);
+            this.f15223b.W(this.f15226e.f62206b, 15, false);
+            TextView textView = this.f15224c;
+            textView.setText(StringHelper.getFixedText(this.f15226e.f62207c, 4, true) + a().getContext().getResources().getString(R.string.forum));
+            this.f15224c.setTag(R.id.tag_forum_name, this.f15226e.f62207c);
+            this.f15225d.setTag(R.id.tag_forum_id, Long.valueOf(this.f15226e.f62208d));
+            this.f15225d.setTag(R.id.tag_forum_name, this.f15226e.f62207c);
+            a().setTag(R.id.tag_forum_id, Long.valueOf(this.f15226e.f62208d));
+            a().setTag(R.id.tag_forum_name, this.f15226e.f62207c);
+            f(this.f15225d, this.f15226e.f62209e);
+            this.f15223b.setOnClickListener(this.f17526a);
+            this.f15225d.setOnClickListener(this.f17526a);
+            this.f15224c.setOnClickListener(this.f17526a);
+            a().setOnClickListener(this.f17526a);
         }
         d(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -66,21 +66,21 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public ItemViewHolder c(View view) {
         CardExtendForumItemHolder cardExtendForumItemHolder = new CardExtendForumItemHolder(view);
         BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-        cardExtendForumItemHolder.f15222b = barImageView;
+        cardExtendForumItemHolder.f15223b = barImageView;
         barImageView.setGifIconSupport(false);
-        cardExtendForumItemHolder.f15223c = (TextView) view.findViewById(R.id.m_forum_name_textview);
-        cardExtendForumItemHolder.f15224d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+        cardExtendForumItemHolder.f15224c = (TextView) view.findViewById(R.id.m_forum_name_textview);
+        cardExtendForumItemHolder.f15225d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
         return cardExtendForumItemHolder;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void d(int i) {
-        if (this.f15226f != i) {
+        if (this.f15227f != i) {
             SkinManager.setBackgroundColor(a(), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f15223c, R.color.CAM_X0105);
-            f(this.f15224d, this.f15225e.f62208e);
+            SkinManager.setViewTextColor(this.f15224c, R.color.CAM_X0105);
+            f(this.f15225d, this.f15226e.f62209e);
         }
-        this.f15226f = i;
+        this.f15227f = i;
     }
 
     @SuppressLint({"ResourceAsColor"})

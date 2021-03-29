@@ -18,25 +18,25 @@ import java.util.HashMap;
 public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24173b = "#invoke_config_impact_js_result";
+    public static final String f24174b = "#invoke_config_impact_js_result";
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<b> f24175d = new ArrayList<>();
+    public ArrayList<b> f24176d = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f24176e;
+    public HandlerThread f24177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f24177f;
+    public Handler f24178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f24178g;
+    public Runnable f24179g;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24172a = ActLifecycleCbs.class.getName();
+    public static final String f24173a = ActLifecycleCbs.class.getName();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f24174c = 30000;
+    public static int f24175c = 30000;
 
     /* loaded from: classes5.dex */
     public enum FROM {
@@ -53,17 +53,17 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f24182a;
+        public a f24183a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f24183b;
+        public long f24184b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f24184c = System.currentTimeMillis();
+        public long f24185c = System.currentTimeMillis();
 
         public b(a aVar, long j) {
-            this.f24182a = aVar;
-            this.f24183b = j;
+            this.f24183a = aVar;
+            this.f24184b = j;
         }
     }
 
@@ -71,11 +71,11 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final ActLifecycleCbs f24185a = new ActLifecycleCbs();
+        public static final ActLifecycleCbs f24186a = new ActLifecycleCbs();
     }
 
     private void b() {
-        this.f24177f.removeCallbacksAndMessages(null);
+        this.f24178f.removeCallbacksAndMessages(null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -113,22 +113,22 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     }
 
     public static ActLifecycleCbs a() {
-        return c.f24185a;
+        return c.f24186a;
     }
 
     public void a(Application application) {
         if (application != null) {
             application.registerActivityLifecycleCallbacks(this);
             HandlerThread handlerThread = new HandlerThread("poll");
-            this.f24176e = handlerThread;
+            this.f24177e = handlerThread;
             handlerThread.start();
-            this.f24177f = new Handler(this.f24176e.getLooper());
+            this.f24178f = new Handler(this.f24177e.getLooper());
             com.baidu.wallet.core.a.a(application);
             LocalRouter.getInstance(application).route(application, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data("keys", new String[]{"common", "multi-webview"}), new RouterCallback() { // from class: com.baidu.wallet.core.ActLifecycleCbs.1
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i, HashMap hashMap) {
                     LogUtil.d("jsHook", "routercb resultCode = " + i);
-                    PayStatisticsUtil.onEventWithValue(ActLifecycleCbs.f24173b, String.valueOf(i));
+                    PayStatisticsUtil.onEventWithValue(ActLifecycleCbs.f24174b, String.valueOf(i));
                 }
             });
         }
@@ -136,25 +136,25 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
 
     public void a(a aVar, long j) {
         if (aVar != null) {
-            for (int i = 0; i < this.f24175d.size(); i++) {
-                b bVar = this.f24175d.get(i);
-                if (bVar != null && aVar == bVar.f24182a) {
-                    bVar.f24183b = j;
+            for (int i = 0; i < this.f24176d.size(); i++) {
+                b bVar = this.f24176d.get(i);
+                if (bVar != null && aVar == bVar.f24183a) {
+                    bVar.f24184b = j;
                     return;
                 }
             }
-            this.f24175d.add(new b(aVar, j));
+            this.f24176d.add(new b(aVar, j));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, FROM from) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f24175d != null) {
-            for (int i = 0; i < this.f24175d.size(); i++) {
-                b bVar = this.f24175d.get(i);
-                if (bVar != null && currentTimeMillis - bVar.f24184c >= bVar.f24183b && bVar.f24182a.onInvoke(context, from)) {
-                    bVar.f24184c = currentTimeMillis;
+        if (this.f24176d != null) {
+            for (int i = 0; i < this.f24176d.size(); i++) {
+                b bVar = this.f24176d.get(i);
+                if (bVar != null && currentTimeMillis - bVar.f24185c >= bVar.f24184b && bVar.f24183a.onInvoke(context, from)) {
+                    bVar.f24185c = currentTimeMillis;
                 }
             }
         }
@@ -162,8 +162,8 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Activity activity) {
-        if (this.f24178g == null) {
-            this.f24178g = new Runnable() { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
+        if (this.f24179g == null) {
+            this.f24179g = new Runnable() { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
                 @Override // java.lang.Runnable
                 public void run() {
                     LogUtil.d("poll", "任务轮询30s一次");
@@ -172,6 +172,6 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 }
             };
         }
-        this.f24177f.postDelayed(this.f24178g, f24174c);
+        this.f24178f.postDelayed(this.f24179g, f24175c);
     }
 }

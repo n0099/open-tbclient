@@ -5,28 +5,28 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f4736a;
+    public static TelephonyManager f4737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f4737b;
+    public static ConnectivityManager f4738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f4738c;
+    public static Context f4739c;
 
     public static void a(Context context) {
-        f4738c = context;
+        f4739c = context;
     }
 
     public static String b() {
         try {
-            if (f4737b == null) {
-                f4737b = (ConnectivityManager) f4738c.getSystemService("connectivity");
+            if (f4738b == null) {
+                f4738b = (ConnectivityManager) f4739c.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = f4737b.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = f4738b.getActiveNetworkInfo();
             return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException unused) {
             return RomUtils.UNKNOWN;
@@ -38,10 +38,10 @@ public final class m {
         String str2 = "\n";
         StringBuilder sb = new StringBuilder();
         try {
-            if (f4737b == null) {
-                f4737b = (ConnectivityManager) f4738c.getSystemService("connectivity");
+            if (f4738b == null) {
+                f4738b = (ConnectivityManager) f4739c.getSystemService("connectivity");
             }
-            activeNetworkInfo = f4737b.getActiveNetworkInfo();
+            activeNetworkInfo = f4738b.getActiveNetworkInfo();
         } catch (RuntimeException e2) {
             com.baidu.crabsdk.lite.b.a.e(str, "getNetworkInfo", e2);
         }
@@ -56,11 +56,11 @@ public final class m {
                 sb.append("subType: ");
                 sb.append(activeNetworkInfo.getSubtypeName());
                 sb.append("\n");
-                if (f4736a == null) {
-                    f4736a = (TelephonyManager) f4738c.getSystemService("phone");
+                if (f4737a == null) {
+                    f4737a = (TelephonyManager) f4739c.getSystemService("phone");
                 }
                 sb.append("isRoaming: ");
-                sb.append(f4736a.isNetworkRoaming() ? "yes" : "no");
+                sb.append(f4737a.isNetworkRoaming() ? "yes" : "no");
             }
             return sb.toString();
         }

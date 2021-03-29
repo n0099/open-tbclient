@@ -12,28 +12,28 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53410a;
+    public String f53411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MetaData f53411b;
+    public MetaData f53412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<AbstractData> f53412c = new ArrayList();
+    public List<AbstractData> f53413c = new ArrayList();
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f53410a = jSONObject.optString("id");
+            this.f53411a = jSONObject.optString("id");
             MetaData metaData = new MetaData();
-            this.f53411b = metaData;
+            this.f53412b = metaData;
             metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
             JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-            this.f53412c = new ArrayList();
+            this.f53413c = new ArrayList();
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parserJson(optJSONArray.getJSONObject(i));
-                    this.f53412c.add(abstractData);
+                    this.f53413c.add(abstractData);
                 }
             }
         } catch (JSONException e2) {

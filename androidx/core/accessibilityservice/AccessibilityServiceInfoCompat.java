@@ -32,7 +32,7 @@ public final class AccessibilityServiceInfoCompat {
         sb.append("[");
         while (i > 0) {
             int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(i);
-            i &= numberOfTrailingZeros ^ (-1);
+            i &= ~numberOfTrailingZeros;
             if (sb.length() > 1) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

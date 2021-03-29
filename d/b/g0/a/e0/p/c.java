@@ -6,81 +6,81 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44138b = d.b.g0.a.k.f45050a;
+    public static final boolean f44139b = d.b.g0.a.k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<d.b.g0.l.k.e, Set<InterfaceC0667c>> f44139a;
+    public HashMap<d.b.g0.l.k.e, Set<InterfaceC0668c>> f44140a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f44140a = new c();
+        public static c f44141a = new c();
     }
 
     /* renamed from: d.b.g0.a.e0.p.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0667c {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0668c {
         void a(PMSDownloadType pMSDownloadType);
 
         void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar);
     }
 
     public static c c() {
-        return b.f44140a;
+        return b.f44141a;
     }
 
     public synchronized void a(d.b.g0.l.k.e eVar, PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
-        if (f44138b) {
+        if (f44139b) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
         }
-        Set<InterfaceC0667c> set = this.f44139a.get(eVar);
+        Set<InterfaceC0668c> set = this.f44140a.get(eVar);
         if (set != null) {
-            for (InterfaceC0667c interfaceC0667c : set) {
-                if (interfaceC0667c != null) {
-                    interfaceC0667c.b(pMSDownloadType, aVar);
+            for (InterfaceC0668c interfaceC0668c : set) {
+                if (interfaceC0668c != null) {
+                    interfaceC0668c.b(pMSDownloadType, aVar);
                 }
             }
-            this.f44139a.remove(eVar);
+            this.f44140a.remove(eVar);
         }
     }
 
     public synchronized void b(d.b.g0.l.k.e eVar, PMSDownloadType pMSDownloadType) {
-        if (f44138b) {
+        if (f44139b) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
         }
-        Set<InterfaceC0667c> set = this.f44139a.get(eVar);
+        Set<InterfaceC0668c> set = this.f44140a.get(eVar);
         if (set != null) {
-            for (InterfaceC0667c interfaceC0667c : set) {
-                if (interfaceC0667c != null) {
-                    interfaceC0667c.a(pMSDownloadType);
+            for (InterfaceC0668c interfaceC0668c : set) {
+                if (interfaceC0668c != null) {
+                    interfaceC0668c.a(pMSDownloadType);
                 }
             }
-            this.f44139a.remove(eVar);
+            this.f44140a.remove(eVar);
         }
     }
 
-    public synchronized void d(d.b.g0.l.k.e eVar, InterfaceC0667c interfaceC0667c) {
-        if (f44138b) {
+    public synchronized void d(d.b.g0.l.k.e eVar, InterfaceC0668c interfaceC0668c) {
+        if (f44139b) {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
-        if (eVar != null && interfaceC0667c != null) {
-            Set<InterfaceC0667c> set = this.f44139a.get(eVar);
+        if (eVar != null && interfaceC0668c != null) {
+            Set<InterfaceC0668c> set = this.f44140a.get(eVar);
             if (set != null) {
-                set.add(interfaceC0667c);
+                set.add(interfaceC0668c);
             } else {
                 HashSet hashSet = new HashSet();
-                hashSet.add(interfaceC0667c);
-                this.f44139a.put(eVar, hashSet);
+                hashSet.add(interfaceC0668c);
+                this.f44140a.put(eVar, hashSet);
             }
         }
     }
 
     public c() {
-        this.f44139a = new HashMap<>();
+        this.f44140a = new HashMap<>();
     }
 }

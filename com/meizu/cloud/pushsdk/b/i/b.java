@@ -16,15 +16,7 @@ import java.net.URLConnection;
 /* loaded from: classes6.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
-        double d2 = i;
-        double d3 = i3;
-        Double.isNaN(d2);
-        Double.isNaN(d3);
-        double d4 = i2;
-        double d5 = i4;
-        Double.isNaN(d4);
-        Double.isNaN(d5);
-        double min = Math.min(d2 / d3, d4 / d5);
+        double min = Math.min(i / i3, i2 / i4);
         float f2 = 1.0f;
         while (true) {
             float f3 = 2.0f * f2;
@@ -42,39 +34,17 @@ public class b {
         if (scaleType == ImageView.ScaleType.FIT_XY) {
             return i == 0 ? i3 : i;
         } else if (i == 0) {
-            double d2 = i2;
-            double d3 = i4;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            double d4 = i3;
-            Double.isNaN(d4);
-            return (int) (d4 * (d2 / d3));
+            return (int) (i3 * (i2 / i4));
         } else if (i2 == 0) {
             return i;
         } else {
-            double d5 = i4;
-            double d6 = i3;
-            Double.isNaN(d5);
-            Double.isNaN(d6);
-            double d7 = d5 / d6;
+            double d2 = i4 / i3;
             if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                double d8 = i;
-                Double.isNaN(d8);
-                double d9 = i2;
-                if (d8 * d7 < d9) {
-                    Double.isNaN(d9);
-                    return (int) (d9 / d7);
-                }
-                return i;
+                double d3 = i2;
+                return ((double) i) * d2 < d3 ? (int) (d3 / d2) : i;
             }
-            double d10 = i;
-            Double.isNaN(d10);
-            double d11 = i2;
-            if (d10 * d7 > d11) {
-                Double.isNaN(d11);
-                return (int) (d11 / d7);
-            }
-            return i;
+            double d4 = i2;
+            return ((double) i) * d2 > d4 ? (int) (d4 / d2) : i;
         }
     }
 

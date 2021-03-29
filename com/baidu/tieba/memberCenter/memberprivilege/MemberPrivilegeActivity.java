@@ -144,8 +144,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (i == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i)) {
             return;
         }
-        String str = ((a.C1483a) this.mMemberPrivilegeView.e().getItem(i)).f59444d;
-        String str2 = ((a.C1483a) this.mMemberPrivilegeView.e().getItem(i)).f59442b;
+        String str = ((a.C1484a) this.mMemberPrivilegeView.e().getItem(i)).f59445d;
+        String str2 = ((a.C1484a) this.mMemberPrivilegeView.e().getItem(i)).f59443b;
         if (k.isEmpty(str)) {
             return;
         }

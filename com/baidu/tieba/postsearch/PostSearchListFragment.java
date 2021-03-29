@@ -25,16 +25,16 @@ import java.util.List;
 public class PostSearchListFragment extends BaseFragment implements BdListView.p {
 
     /* renamed from: e  reason: collision with root package name */
-    public PostSearchActivity f20598e;
+    public PostSearchActivity f20599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20599f;
+    public View f20600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdListView f20600g;
+    public BdListView f20601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f20601h;
+    public e f20602h;
     public PbListView i;
     public NoDataView j;
     public b k;
@@ -49,17 +49,17 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public void E0() {
         List<b.a> list;
         b bVar = this.k;
-        if (bVar != null && (list = bVar.f56889a) != null) {
+        if (bVar != null && (list = bVar.f56890a) != null) {
             list.clear();
-            this.f20601h.c(this.k.f56889a);
-            this.f20601h.notifyDataSetChanged();
+            this.f20602h.c(this.k.f56890a);
+            this.f20602h.notifyDataSetChanged();
         }
         F0();
         G0();
     }
 
     public final void F0() {
-        BdListView bdListView = this.f20600g;
+        BdListView bdListView = this.f20601g;
         if (bdListView == null) {
             return;
         }
@@ -74,7 +74,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     }
 
     public final void H0() {
-        this.f20600g = (BdListView) this.f20599f.findViewById(R.id.result_list);
+        this.f20601g = (BdListView) this.f20600f.findViewById(R.id.result_list);
     }
 
     public void I0(b bVar, boolean z) {
@@ -84,10 +84,10 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         b bVar3;
         List<b.a> list3;
         G0();
-        hideLoadingView(this.f20599f);
-        if (bVar == null || (list2 = bVar.f56889a) == null || list2.size() == 0) {
-            if (z && (bVar2 = this.k) != null && (list = bVar2.f56889a) != null && list.size() != 0) {
-                if (this.k.f56890b.b() == 1) {
+        hideLoadingView(this.f20600f);
+        if (bVar == null || (list2 = bVar.f56890a) == null || list2.size() == 0) {
+            if (z && (bVar2 = this.k) != null && (list = bVar2.f56890a) != null && list.size() != 0) {
+                if (this.k.f56891b.b() == 1) {
                     K0();
                     return;
                 } else {
@@ -97,35 +97,35 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             }
             F0();
             L0();
-            this.f20600g.setVisibility(8);
+            this.f20601g.setVisibility(8);
             this.k = bVar;
             return;
         }
-        if (z && (bVar3 = this.k) != null && (list3 = bVar3.f56889a) != null && list3.size() != 0) {
+        if (z && (bVar3 = this.k) != null && (list3 = bVar3.f56890a) != null && list3.size() != 0) {
             b bVar4 = this.k;
-            bVar4.f56890b = bVar.f56890b;
-            bVar4.f56889a.addAll(bVar.f56889a);
+            bVar4.f56891b = bVar.f56891b;
+            bVar4.f56890a.addAll(bVar.f56890a);
         } else {
             this.k = bVar;
         }
         if (z) {
             O0();
         }
-        if (this.k.f56890b.b() == 1) {
+        if (this.k.f56891b.b() == 1) {
             K0();
         } else {
             M0();
         }
-        this.f20601h.c(this.k.f56889a);
-        this.f20601h.notifyDataSetChanged();
+        this.f20602h.c(this.k.f56890a);
+        this.f20602h.notifyDataSetChanged();
         if (!z) {
-            this.f20600g.setSelection(0);
+            this.f20601g.setSelection(0);
         }
-        this.f20600g.setVisibility(0);
+        this.f20601g.setVisibility(0);
     }
 
     public void J0(boolean z) {
-        PostSearchActivity postSearchActivity = this.f20598e;
+        PostSearchActivity postSearchActivity = this.f20599e;
         if (postSearchActivity == null) {
             return;
         }
@@ -140,72 +140,72 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             z2 = z3;
         }
         if (z2) {
-            showLoadingView(this.f20599f, false, this.f20598e.getResources().getDimensionPixelSize(R.dimen.ds320));
-            this.f20598e.getModel().l(str, this.l);
+            showLoadingView(this.f20600f, false, this.f20599e.getResources().getDimensionPixelSize(R.dimen.ds320));
+            this.f20599e.getModel().l(str, this.l);
             this.m = str;
         }
     }
 
     public final void K0() {
-        this.f20600g.setNextPage(this.i);
+        this.f20601g.setNextPage(this.i);
         this.i.f();
-        this.i.A(this.f20598e.getResources().getString(R.string.pb_load_more));
+        this.i.A(this.f20599e.getResources().getString(R.string.pb_load_more));
     }
 
     public final void L0() {
         if (this.j == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.f20598e.getPageContext().getPageActivity(), this.f20599f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f20598e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
+            NoDataView a2 = NoDataViewFactory.a(this.f20599e.getPageContext().getPageActivity(), this.f20600f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f20599e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
             this.j = a2;
-            a2.f(this.f20598e.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            a2.f(this.f20599e.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.j.setVisibility(0);
     }
 
     public final void M0() {
-        this.f20600g.setNextPage(this.i);
+        this.f20601g.setNextPage(this.i);
         this.i.f();
-        this.i.A(this.f20598e.getResources().getString(R.string.list_no_more));
+        this.i.A(this.f20599e.getResources().getString(R.string.list_no_more));
     }
 
     public final void N0() {
-        this.f20600g.setNextPage(this.i);
+        this.f20601g.setNextPage(this.i);
         this.i.O();
     }
 
     public final void O0() {
-        if (this.f20598e == null) {
+        if (this.f20599e == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12406").param("fid", this.f20598e.mForumId).param("fname", this.f20598e.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tab_id", this.l));
+        TiebaStatic.log(new StatisticItem("c12406").param("fid", this.f20599e.mForumId).param("fname", this.f20599e.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tab_id", this.l));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f20598e = (PostSearchActivity) getBaseFragmentActivity();
-        e eVar = new e(this.f20598e.getPageContext());
-        this.f20601h = eVar;
+        this.f20599e = (PostSearchActivity) getBaseFragmentActivity();
+        e eVar = new e(this.f20599e.getPageContext());
+        this.f20602h = eVar;
         eVar.d(this.l);
-        BdListViewHelper.d(this.f20598e.getActivity(), this.f20600g, BdListViewHelper.HeadType.HASTAB);
-        this.f20600g.setAdapter((ListAdapter) this.f20601h);
-        PbListView pbListView = new PbListView(this.f20598e.getPageContext().getPageActivity());
+        BdListViewHelper.d(this.f20599e.getActivity(), this.f20601g, BdListViewHelper.HeadType.HASTAB);
+        this.f20601g.setAdapter((ListAdapter) this.f20602h);
+        PbListView pbListView = new PbListView(this.f20599e.getPageContext().getPageActivity());
         this.i = pbListView;
         pbListView.a();
-        this.f20600g.setOnSrollToBottomListener(this);
+        this.f20601g.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        PostSearchActivity postSearchActivity = this.f20598e;
+        PostSearchActivity postSearchActivity = this.f20599e;
         if (postSearchActivity != null) {
-            a.a(postSearchActivity.getPageContext(), this.f20599f);
+            a.a(postSearchActivity.getPageContext(), this.f20600f);
         }
         PbListView pbListView = this.i;
         if (pbListView != null) {
             pbListView.d(i);
         }
-        e eVar = this.f20601h;
+        e eVar = this.f20602h;
         if (eVar != null) {
             eVar.notifyDataSetChanged();
         }
@@ -213,15 +213,15 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f20599f = layoutInflater.inflate(R.layout.post_search_list_fragment, (ViewGroup) null);
+        this.f20600f = layoutInflater.inflate(R.layout.post_search_list_fragment, (ViewGroup) null);
         H0();
-        return this.f20599f;
+        return this.f20600f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.l == this.f20598e.getPostSearchView().a()) {
+        if (this.l == this.f20599e.getPostSearchView().a()) {
             O0();
             J0(false);
         }
@@ -230,7 +230,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
         b bVar;
-        if (!StringUtils.isNull(this.m) && (bVar = this.k) != null && bVar.b() && this.f20598e.getModel().l(this.m, this.l)) {
+        if (!StringUtils.isNull(this.m) && (bVar = this.k) != null && bVar.b() && this.f20599e.getModel().l(this.m, this.l)) {
             N0();
         }
     }

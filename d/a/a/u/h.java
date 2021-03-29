@@ -8,7 +8,7 @@ import java.io.IOException;
 public class h implements j0<d.a.a.s.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f41428a = new h();
+    public static final h f41429a = new h();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.u.j0

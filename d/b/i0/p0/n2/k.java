@@ -20,22 +20,22 @@ public class k {
     public static int s = 5000;
 
     /* renamed from: a  reason: collision with root package name */
-    public PullRefreshFrameLayout f58201a;
+    public PullRefreshFrameLayout f58202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsHeaderViewContainer f58202b;
+    public FrsHeaderViewContainer f58203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppBarLayout f58203c;
+    public AppBarLayout f58204c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeRecyclerView f58204d;
+    public BdTypeRecyclerView f58205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueAnimator f58205e;
+    public ValueAnimator f58206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueAnimator f58206f;
+    public ValueAnimator f58207f;
     public s0 i;
     public o j;
     public View k;
@@ -43,10 +43,10 @@ public class k {
     public int o;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58207g = false;
+    public boolean f58208g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58208h = false;
+    public boolean f58209h = false;
     public RelativeLayout.LayoutParams l = null;
     public int m = 0;
     public PullRefreshFrameLayout.i p = new a();
@@ -58,30 +58,30 @@ public class k {
 
         /* renamed from: d.b.i0.p0.n2.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1415a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1416a implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f58210e;
+            public final /* synthetic */ int f58211e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f58211f;
+            public final /* synthetic */ int f58212f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f58212g;
+            public final /* synthetic */ int f58213g;
 
-            public C1415a(int i, int i2, int i3) {
-                this.f58210e = i;
-                this.f58211f = i2;
-                this.f58212g = i3;
+            public C1416a(int i, int i2, int i3) {
+                this.f58211e = i;
+                this.f58212f = i2;
+                this.f58213g = i3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                k.this.l.height = (int) (this.f58210e - (this.f58211f * animatedFraction));
+                k.this.l.height = (int) (this.f58211e - (this.f58212f * animatedFraction));
                 k.this.k.setLayoutParams(k.this.l);
                 if (k.this.j != null) {
-                    k.this.j.f((int) (this.f58212g - (animatedFraction * this.f58211f)));
+                    k.this.j.f((int) (this.f58213g - (animatedFraction * this.f58212f)));
                 }
             }
         }
@@ -114,29 +114,29 @@ public class k {
         public class c implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f58215e;
+            public final /* synthetic */ int f58216e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f58216f;
+            public final /* synthetic */ int f58217f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f58217g;
+            public final /* synthetic */ int f58218g;
 
             public c(int i, int i2, int i3) {
-                this.f58215e = i;
-                this.f58216f = i2;
-                this.f58217g = i3;
+                this.f58216e = i;
+                this.f58217f = i2;
+                this.f58218g = i3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                k.this.l.height = (int) (this.f58215e - (this.f58216f * floatValue));
+                k.this.l.height = (int) (this.f58216e - (this.f58217f * floatValue));
                 k.this.k.setLayoutParams(k.this.l);
-                if (k.this.j == null || this.f58217g <= 0) {
+                if (k.this.j == null || this.f58218g <= 0) {
                     return;
                 }
-                k.this.j.f((int) (this.f58217g - (floatValue * this.f58216f)));
+                k.this.j.f((int) (this.f58218g - (floatValue * this.f58217f)));
             }
         }
 
@@ -175,11 +175,11 @@ public class k {
             int i2 = k.this.l.height - k.this.m;
             int a2 = k.this.j != null ? k.this.j.a() : 0;
             if (i2 > 0) {
-                k.this.f58206f = ValueAnimator.ofFloat(0.0f, 1.0f);
-                k.this.f58206f.setDuration(300L);
-                k.this.f58206f.addUpdateListener(new c(i, i2, a2));
-                k.this.f58206f.start();
-                k.this.f58206f.addListener(new d());
+                k.this.f58207f = ValueAnimator.ofFloat(0.0f, 1.0f);
+                k.this.f58207f.setDuration(300L);
+                k.this.f58207f.addUpdateListener(new c(i, i2, a2));
+                k.this.f58207f.start();
+                k.this.f58207f.addListener(new d());
                 if (k.this.i != null) {
                     k.this.i.o();
                 }
@@ -191,17 +191,12 @@ public class k {
             if (k.this.k == null || k.this.l == null) {
                 return;
             }
-            RelativeLayout.LayoutParams layoutParams = k.this.l;
-            double d3 = k.this.m;
-            double d4 = PullRefreshFrameLayout.E;
-            Double.isNaN(d4);
-            Double.isNaN(d3);
-            layoutParams.height = (int) (d3 + (d4 * d2));
+            k.this.l.height = (int) (k.this.m + (PullRefreshFrameLayout.E * d2));
             k.this.k.setLayoutParams(k.this.l);
             if (k.this.j != null) {
                 k.this.j.d(d2);
             }
-            k.this.f58201a.r();
+            k.this.f58202a.r();
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.i
@@ -209,11 +204,11 @@ public class k {
             if (k.this.k == null || k.this.l == null || k.this.j == null) {
                 return;
             }
-            k.this.f58206f = ValueAnimator.ofFloat(0.0f, 1.0f);
-            k.this.f58206f.setDuration(150L);
-            k.this.f58206f.addUpdateListener(new C1415a(k.this.l.height, i, k.this.j.b()));
-            k.this.f58206f.addListener(new b());
-            k.this.f58206f.start();
+            k.this.f58207f = ValueAnimator.ofFloat(0.0f, 1.0f);
+            k.this.f58207f.setDuration(150L);
+            k.this.f58207f.addUpdateListener(new C1416a(k.this.l.height, i, k.this.j.b()));
+            k.this.f58207f.addListener(new b());
+            k.this.f58207f.start();
         }
     }
 
@@ -235,7 +230,7 @@ public class k {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (k.this.f58208h) {
+            if (k.this.f58209h) {
                 k.this.v();
             }
         }
@@ -270,7 +265,7 @@ public class k {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (k.this.f58208h || k.this.f58201a == null || k.this.f58201a.o()) {
+            if (k.this.f58209h || k.this.f58202a == null || k.this.f58202a.o()) {
                 return;
             }
             k.this.v();
@@ -289,79 +284,79 @@ public class k {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f58224e;
+        public final /* synthetic */ View f58225e;
 
         public f(View view) {
-            this.f58224e = view;
+            this.f58225e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (k.this.j.c() < 0) {
-                k.this.j.g(this.f58224e.getMeasuredHeight());
+                k.this.j.g(this.f58225e.getMeasuredHeight());
             }
             if (k.this.j.a() < 0) {
-                k.this.j.e(this.f58224e.getMeasuredHeight());
+                k.this.j.e(this.f58225e.getMeasuredHeight());
             }
         }
     }
 
     public k(@NonNull FrsFragment frsFragment) {
-        this.f58201a = null;
+        this.f58202a = null;
         View y2 = frsFragment.y2();
         PullRefreshFrameLayout pullRefreshFrameLayout = (PullRefreshFrameLayout) y2.findViewById(R.id.frs_content_layout);
-        this.f58201a = pullRefreshFrameLayout;
+        this.f58202a = pullRefreshFrameLayout;
         pullRefreshFrameLayout.setFromFrs();
-        this.f58201a.setOnTouchCallback(this.p);
-        this.f58201a.setOnPullRefreshListener(this.q);
-        this.f58201a.h();
-        this.f58202b = (FrsHeaderViewContainer) y2.findViewById(R.id.header_view_container);
-        this.f58203c = (AppBarLayout) y2.findViewById(R.id.frs_app_bar_layout);
-        this.f58204d = (BdTypeRecyclerView) y2.findViewById(R.id.frs_lv_thread);
+        this.f58202a.setOnTouchCallback(this.p);
+        this.f58202a.setOnPullRefreshListener(this.q);
+        this.f58202a.h();
+        this.f58203b = (FrsHeaderViewContainer) y2.findViewById(R.id.header_view_container);
+        this.f58204c = (AppBarLayout) y2.findViewById(R.id.frs_app_bar_layout);
+        this.f58205d = (BdTypeRecyclerView) y2.findViewById(R.id.frs_lv_thread);
         t();
     }
 
     public void A(boolean z) {
-        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58201a;
+        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58202a;
         if (pullRefreshFrameLayout != null) {
             pullRefreshFrameLayout.setEnable(z);
         }
     }
 
     public void B() {
-        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58201a;
+        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58202a;
         if (pullRefreshFrameLayout != null || pullRefreshFrameLayout.n()) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f58204d;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f58205d;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setSelection(0);
             }
-            AppBarLayout appBarLayout = this.f58203c;
+            AppBarLayout appBarLayout = this.f58204c;
             if (appBarLayout != null) {
                 appBarLayout.setExpanded(true);
             }
-            if (this.f58208h) {
+            if (this.f58209h) {
                 return;
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f58205e = ofFloat;
+            this.f58206e = ofFloat;
             ofFloat.setDuration(300L);
-            this.f58205e.addUpdateListener(new d());
-            this.f58205e.addListener(new e());
-            this.f58205e.start();
-            this.f58201a.setRefreshing(true);
+            this.f58206e.addUpdateListener(new d());
+            this.f58206e.addListener(new e());
+            this.f58206e.start();
+            this.f58202a.setRefreshing(true);
             m();
         }
     }
 
     public void C() {
-        if (this.f58208h) {
+        if (this.f58209h) {
             v();
             d.b.b.e.m.e.a().removeCallbacks(this.r);
         }
     }
 
     public void l() {
-        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58201a;
+        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58202a;
         if (pullRefreshFrameLayout != null) {
             pullRefreshFrameLayout.i();
         }
@@ -369,7 +364,7 @@ public class k {
 
     public final void m() {
         d.b.b.e.m.e.a().postDelayed(this.r, s);
-        this.f58208h = true;
+        this.f58209h = true;
         s0 s0Var = this.i;
         if (s0Var != null) {
             s0Var.m();
@@ -378,7 +373,7 @@ public class k {
     }
 
     public PullRefreshFrameLayout n() {
-        return this.f58201a;
+        return this.f58202a;
     }
 
     public s0 o() {
@@ -394,12 +389,12 @@ public class k {
     }
 
     public boolean r() {
-        return this.f58207g;
+        return this.f58208g;
     }
 
     public void s() {
         View headBgContainer;
-        FrsHeaderViewContainer frsHeaderViewContainer = this.f58202b;
+        FrsHeaderViewContainer frsHeaderViewContainer = this.f58203b;
         if (frsHeaderViewContainer == null || (headBgContainer = frsHeaderViewContainer.getHeadBgContainer()) == null) {
             return;
         }
@@ -414,7 +409,7 @@ public class k {
     }
 
     public void t() {
-        FrsHeaderViewContainer frsHeaderViewContainer = this.f58202b;
+        FrsHeaderViewContainer frsHeaderViewContainer = this.f58203b;
         if (frsHeaderViewContainer == null) {
             return;
         }
@@ -432,22 +427,22 @@ public class k {
     }
 
     public void u() {
-        if (this.f58208h) {
+        if (this.f58209h) {
             v();
         }
-        ValueAnimator valueAnimator = this.f58206f;
+        ValueAnimator valueAnimator = this.f58207f;
         if (valueAnimator != null) {
             valueAnimator.cancel();
-            this.f58206f.removeAllListeners();
-            this.f58206f.removeAllUpdateListeners();
-            this.f58206f = null;
+            this.f58207f.removeAllListeners();
+            this.f58207f.removeAllUpdateListeners();
+            this.f58207f = null;
         }
         d.b.b.e.m.e.a().removeCallbacks(this.r);
     }
 
     public void v() {
-        this.f58208h = false;
-        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58201a;
+        this.f58209h = false;
+        PullRefreshFrameLayout pullRefreshFrameLayout = this.f58202a;
         if (pullRefreshFrameLayout != null) {
             pullRefreshFrameLayout.p();
         }
@@ -462,19 +457,19 @@ public class k {
     }
 
     public void y(boolean z) {
-        this.f58201a.setInterceptScrollDown(z);
+        this.f58202a.setInterceptScrollDown(z);
     }
 
     public void z(int i, boolean z) {
         if (i != this.o) {
             return;
         }
-        this.f58207g = z;
+        this.f58208g = z;
         if (z) {
             B();
             return;
         }
-        this.f58204d.getAdapter().notifyDataSetChanged();
+        this.f58205d.getAdapter().notifyDataSetChanged();
         C();
     }
 }

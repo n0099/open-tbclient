@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeCollecter {
     public static final String CLASSIFY_ALL = "all";
     public static final String CLASSIFY_BASE = "base";
@@ -7,13 +7,13 @@ public class SchemeCollecter {
     public static final String CLASSIFY_SWAN_V8 = "swan/v8";
     public static final String CLASSIFY_SWAN_WEBVIEW = "swan/webview";
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0036  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004e  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0066  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0074  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0096 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003c  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0072  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00a6 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

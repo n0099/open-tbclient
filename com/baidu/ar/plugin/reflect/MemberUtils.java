@@ -5,7 +5,7 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MemberUtils {
     public static final int ACCESS_TEST = 7;
     public static final Class<?>[] ORDERED_PRIMITIVE_TYPES = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};

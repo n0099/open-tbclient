@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NewFaceShopActivity extends BaseActivity {
     public NewFaceGroupDownloadModel mFaceGroupDownloadModel;
     public NewFaceGroupShareModel mFaceGroupShareModel;
@@ -70,7 +70,7 @@ public class NewFaceShopActivity extends BaseActivity {
     public CustomMessageListener mVoteListener = new k(2921062);
     public CustomMessageListener mFaceGroupUploadFinishListener = new h(2921040);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
         public a() {
         }
@@ -81,7 +81,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -105,42 +105,42 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19195e;
+        public final /* synthetic */ String f19196e;
 
         public c(String str) {
-            this.f19195e = str;
+            this.f19196e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (NewFaceShopActivity.this.mWebView != null) {
-                NewFaceShopActivity.this.mWebView.loadUrl(this.f19195e);
+                NewFaceShopActivity.this.mWebView.loadUrl(this.f19196e);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f19197e;
+        public final /* synthetic */ JSONObject f19198e;
 
         public d(JSONObject jSONObject) {
-            this.f19197e = jSONObject;
+            this.f19198e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.i0.x1.c.i().j(new ArrayList(Arrays.asList(this.f19197e.optString("id").split(","))), true);
+            d.b.i0.x1.c.i().j(new ArrayList(Arrays.asList(this.f19198e.optString("id").split(","))), true);
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements d.b.i0.x1.e.b {
         public e() {
         }
@@ -165,19 +165,19 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f19200e;
+        public final /* synthetic */ JSONObject f19201e;
 
         public f(JSONObject jSONObject) {
-            this.f19200e = jSONObject;
+            this.f19201e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f19200e.optString("id").split(",")));
+            ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f19201e.optString("id").split(",")));
             boolean c2 = d.b.i0.x1.c.i().c(arrayList, true);
             for (String str : arrayList) {
                 d.b.i0.l0.g.k().h(str);
@@ -190,24 +190,24 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f19202e;
+        public final /* synthetic */ ShareItem f19203e;
 
         public g(ShareItem shareItem) {
-            this.f19202e = shareItem;
+            this.f19203e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f19202e.t);
+            d.b.b.e.p.a.a(this.f19203e.t);
             d.b.b.e.p.l.L(NewFaceShopActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h extends CustomMessageListener {
         public h(int i) {
             super(i);
@@ -238,7 +238,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i extends CustomMessageListener {
         public i(int i) {
             super(i);
@@ -251,7 +251,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public j(int i) {
             super(i);
@@ -266,7 +266,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k extends CustomMessageListener {
         public k(int i) {
             super(i);
@@ -287,7 +287,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l implements View.OnClickListener {
         public l() {
         }
@@ -298,7 +298,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m implements d.b.i0.l0.y.d.c {
         public m() {
         }
@@ -314,35 +314,35 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n extends d.b.b.a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LikeModel f19210a;
+        public final /* synthetic */ LikeModel f19211a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19211b;
+        public final /* synthetic */ String f19212b;
 
         public n(LikeModel likeModel, String str) {
-            this.f19210a = likeModel;
-            this.f19211b = str;
+            this.f19211a = likeModel;
+            this.f19212b = str;
         }
 
         @Override // d.b.b.a.e
         public void c(Object obj) {
-            if (this.f19210a.getErrorCode() == 22) {
+            if (this.f19211a.getErrorCode() == 22) {
                 NewFaceShopActivity.this.showToast(R.string.unfollow_title);
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
-            } else if (AntiHelper.m(this.f19210a.getErrorCode(), this.f19210a.getErrorString())) {
-                AntiHelper.u(NewFaceShopActivity.this.getPageContext().getPageActivity(), this.f19210a.getErrorString());
-            } else if (this.f19210a.getErrorCode() != 0) {
-                NewFaceShopActivity.this.showToast(this.f19210a.getErrorString());
+            } else if (AntiHelper.m(this.f19211a.getErrorCode(), this.f19211a.getErrorString())) {
+                AntiHelper.u(NewFaceShopActivity.this.getPageContext().getPageActivity(), this.f19211a.getErrorString());
+            } else if (this.f19211a.getErrorCode() != 0) {
+                NewFaceShopActivity.this.showToast(this.f19211a.getErrorString());
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
             } else {
                 w wVar = (w) obj;
                 if (wVar != null) {
                     NewFaceShopActivity.this.showToast(R.string.attention_success);
-                    TbadkApplication.getInst().addLikeForum(this.f19211b);
+                    TbadkApplication.getInst().addLikeForum(this.f19212b);
                     wVar.v(1);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
@@ -355,7 +355,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class o implements d.b.i0.x1.e.b {
         public o() {
         }
@@ -375,7 +375,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class p implements a.e {
         public p() {
         }
@@ -387,7 +387,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class q implements a.e {
         public q() {
         }
@@ -399,7 +399,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class r extends WebViewClient {
         public r() {
         }

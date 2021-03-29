@@ -26,74 +26,74 @@ public abstract class d {
     public static String q = "exps";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f47658b;
+    public Context f47659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47659c;
+    public String f47660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47660d;
+    public String f47661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47661e;
+    public String f47662e;
     public b i;
     public String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47657a = "https://mobads.baidu.com/cpro/ui/mads.php";
+    public String f47658a = "https://mobads.baidu.com/cpro/ui/mads.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47662f = "1";
+    public String f47663f = "1";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47663g = "2";
+    public String f47664g = "2";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47664h = "8.800201";
+    public String f47665h = "8.800201";
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47665a;
+        public static final /* synthetic */ int[] f47666a;
 
         static {
             int[] iArr = new int[SwanAppNetworkUtils.NetType.values().length];
-            f47665a = iArr;
+            f47666a = iArr;
             try {
                 iArr[SwanAppNetworkUtils.NetType.NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47665a[SwanAppNetworkUtils.NetType.WIFI.ordinal()] = 2;
+                f47666a[SwanAppNetworkUtils.NetType.WIFI.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47665a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 3;
+                f47666a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47665a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 4;
+                f47666a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47665a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 5;
+                f47666a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47665a[SwanAppNetworkUtils.NetType.UNKOWN.ordinal()] = 6;
+                f47666a[SwanAppNetworkUtils.NetType.UNKOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public d(Context context, b bVar) {
-        this.f47658b = context;
+        this.f47659b = context;
         this.i = bVar;
         if (bVar != null) {
-            this.f47659c = bVar.b();
-            this.f47660d = this.i.e();
-            this.f47661e = this.i.f();
+            this.f47660c = bVar.b();
+            this.f47661d = this.i.e();
+            this.f47662e = this.i.f();
         }
         if (k0.D()) {
             return;
@@ -109,17 +109,17 @@ public abstract class d {
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(h0.m(this.f47658b) / h0.j(this.f47658b))));
-            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(h0.l(this.f47658b) / h0.j(this.f47658b))));
+            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(h0.m(this.f47659b) / h0.j(this.f47659b))));
+            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(h0.l(this.f47659b) / h0.j(this.f47659b))));
             hashMap.put("net", "" + f());
-            hashMap.put("n", this.f47662f);
-            hashMap.put("pk", this.f47661e);
-            hashMap.put("appid", this.f47660d);
-            hashMap.put("sw", "" + h0.m(this.f47658b));
-            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + h0.l(this.f47658b));
+            hashMap.put("n", this.f47663f);
+            hashMap.put("pk", this.f47662e);
+            hashMap.put("appid", this.f47661d);
+            hashMap.put("sw", "" + h0.m(this.f47659b));
+            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + h0.l(this.f47659b));
             hashMap.put(IXAdRequestInfo.SN, "" + g());
             hashMap.put(IXAdRequestInfo.OS, "android");
-            hashMap.put("apid", "" + this.f47659c);
+            hashMap.put("apid", "" + this.f47660c);
             hashMap.put("chid", "0");
             String r = k0.r();
             if (r.equals("0")) {
@@ -132,8 +132,8 @@ public abstract class d {
             hashMap.put("app_ver", k0.z());
             String k2 = i0.k(d(), "BAIDUID");
             hashMap.put(ETAG.KEY_BAIDU_ID, (TextUtils.isEmpty(k2) || k2.split(":").length <= 0) ? "" : k2.split(":")[0]);
-            hashMap.put(IXAdRequestInfo.P_VER, this.f47664h);
-            hashMap.put("rpt", this.f47663g);
+            hashMap.put(IXAdRequestInfo.P_VER, this.f47665h);
+            hashMap.put("rpt", this.f47664g);
             hashMap.put(BaiduWalletServiceProviderMap.PLUGIN_TAB, "2");
             hashMap.put("req_id", "");
             d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
@@ -202,7 +202,7 @@ public abstract class d {
     public abstract String e();
 
     public final int f() {
-        int i = a.f47665a[SwanAppNetworkUtils.f().ordinal()];
+        int i = a.f47666a[SwanAppNetworkUtils.f().ordinal()];
         if (i != 2) {
             if (i != 3) {
                 if (i != 4) {
@@ -221,7 +221,7 @@ public abstract class d {
     public final String g() {
         try {
             String r = k0.r();
-            return TextUtils.isEmpty(r) ? k0.A(this.f47658b) : r;
+            return TextUtils.isEmpty(r) ? k0.A(this.f47659b) : r;
         } catch (Exception unused) {
             return "";
         }
@@ -230,6 +230,6 @@ public abstract class d {
     public String h() {
         HashMap<String, String> b2 = b();
         b2.putAll(a());
-        return d.b.g0.e.a.q.c.a(this.f47657a, b2);
+        return d.b.g0.e.a.q.c.a(this.f47658a, b2);
     }
 }

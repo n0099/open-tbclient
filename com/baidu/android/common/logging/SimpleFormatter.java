@@ -7,7 +7,7 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SimpleFormatter extends Formatter {
     public static String format = "{0,date} {0,time}";
     public MessageFormat formatter;

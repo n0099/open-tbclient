@@ -8,7 +8,7 @@ import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NativeCrashCapture implements NoProGuard {
     public static final String SO_INIT_FLAG_FILE = "jnicrash_so_init_fail_flag";
     public static final String SO_LOAD_FLAG_FILE = "jnicrash_so_load_fail_flag";
@@ -21,13 +21,13 @@ public class NativeCrashCapture implements NoProGuard {
     public static Context sContext = null;
     public static d.b.o.a.b sNativeCrashHandler = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends Thread {
         public static void a() {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends Thread {
         public static void a() {
         }

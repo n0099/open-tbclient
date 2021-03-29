@@ -6,7 +6,7 @@ import d.b.h0.z0.w;
 import d.b.i0.r2.a0.a;
 import tbclient.MoreTreasureTrove.DataReq;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MoreTreasureTroveReqMsg extends NetMessage {
     public String lfUser;
     public String tabCode;

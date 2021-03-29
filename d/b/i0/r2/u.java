@@ -26,7 +26,7 @@ import tbclient.VideoInfo;
 public class u implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AppData> f59855a;
+    public List<AppData> f59856a;
 
     @Override // d.b.i0.r2.r
     public d.b.b.j.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
@@ -84,7 +84,7 @@ public class u implements r {
         bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, adCard.goodsStyle);
         AdCard.g gVar = adCard.tailFrame;
         if (gVar != null) {
-            gVar.f20721e = adCard.buttonText;
+            gVar.f20722e = adCard.buttonText;
             bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, gVar.e());
         }
         AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", m, true, true, true, bundle));
@@ -147,15 +147,15 @@ public class u implements r {
 
     @Override // d.b.i0.r2.r
     public void m() {
-        List<AppData> list = this.f59855a;
+        List<AppData> list = this.f59856a;
         AdDebugService.updateFloatView(list != null ? StringUtils.string(Integer.valueOf(list.size())) : "0");
     }
 
     @Override // d.b.i0.r2.r
     public List<AppData> n() {
-        if (this.f59855a == null) {
-            this.f59855a = new ArrayList();
+        if (this.f59856a == null) {
+            this.f59856a = new ArrayList();
         }
-        return this.f59855a;
+        return this.f59856a;
     }
 }

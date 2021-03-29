@@ -5,28 +5,28 @@ import com.baidu.rtc.PeerConnectionClient;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64777a = "/sdcard/AR/video/arvideo.mp4";
+    public String f64778a = "/sdcard/AR/video/arvideo.mp4";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64778b = 0;
+    public int f64779b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64779c = 0;
+    public long f64780c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64780d = true;
+    public boolean f64781d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64781e = PeerConnectionClient.HD_VIDEO_HEIGHT;
+    public int f64782e = PeerConnectionClient.HD_VIDEO_HEIGHT;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64782f = 1280;
+    public int f64783f = 1280;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f64783g = "video/avc";
+    public String f64784g = "video/avc";
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64784h = 8294400;
+    public int f64785h = 8294400;
     public int i = 30;
     public int j = 1;
     public boolean k = false;
@@ -57,23 +57,23 @@ public class d {
     }
 
     public String f() {
-        return this.f64777a;
+        return this.f64778a;
     }
 
     public int g() {
-        return this.f64778b;
+        return this.f64779b;
     }
 
     public long h() {
-        return this.f64779c;
+        return this.f64780c;
     }
 
     public int i() {
-        return this.f64784h;
+        return this.f64785h;
     }
 
     public String j() {
-        return this.f64783g;
+        return this.f64784g;
     }
 
     public int k() {
@@ -81,7 +81,7 @@ public class d {
     }
 
     public int l() {
-        return this.f64782f;
+        return this.f64783f;
     }
 
     public int m() {
@@ -89,7 +89,7 @@ public class d {
     }
 
     public int n() {
-        return this.f64781e;
+        return this.f64782e;
     }
 
     public boolean o() {
@@ -97,7 +97,7 @@ public class d {
     }
 
     public boolean p() {
-        return this.f64780d;
+        return this.f64781d;
     }
 
     public void q(int i) {
@@ -120,18 +120,18 @@ public class d {
         if (str == null || str.isEmpty()) {
             return;
         }
-        this.f64777a = str;
+        this.f64778a = str;
     }
 
     public void v(long j) {
-        this.f64779c = j;
+        this.f64780c = j;
     }
 
     public void w(int i) {
-        this.f64782f = i;
+        this.f64783f = i;
     }
 
     public void x(int i) {
-        this.f64781e = i;
+        this.f64782e = i;
     }
 }

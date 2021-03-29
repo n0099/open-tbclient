@@ -119,11 +119,11 @@ public class h extends d.b.i0.p0.k<a2, c> {
     public static class c extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.p0.n1.g.d f57987a;
+        public d.b.i0.p0.n1.g.d f57988a;
 
         public c(d.b.i0.p0.n1.g.d dVar) {
             super(dVar.m());
-            this.f57987a = dVar;
+            this.f57988a = dVar;
         }
     }
 
@@ -150,8 +150,8 @@ public class h extends d.b.i0.p0.k<a2, c> {
     /* renamed from: w0 */
     public View X(int i, View view, ViewGroup viewGroup, a2 a2Var, c cVar) {
         super.X(i, view, viewGroup, a2Var, cVar);
-        cVar.f57987a.o(this.o, this.r);
-        cVar.f57987a.n(a2Var);
+        cVar.f57988a.o(this.o, this.r);
+        cVar.f57988a.n(a2Var);
         if (a2Var != null) {
             a2Var.x4();
         }

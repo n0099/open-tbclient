@@ -12,13 +12,13 @@ import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 public class a extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final IXAdLogger f8159a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    public final IXAdLogger f8160a = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mobads.command.a f8160b;
+    public com.baidu.mobads.command.a f8161b;
 
     public a(com.baidu.mobads.command.a aVar) {
-        this.f8160b = aVar;
+        this.f8161b = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -27,15 +27,15 @@ public class a extends BroadcastReceiver {
         String str;
         if (intent.getAction().equals(PackageChangedReceiver.ACTION_INSTALL)) {
             String replace = intent.getDataString().replace("package:", "");
-            if (replace.equals(this.f8160b.f8185f)) {
+            if (replace.equals(this.f8161b.f8186f)) {
                 r packageUtils = XAdSDKFoundationFacade.getInstance().getPackageUtils();
-                com.baidu.mobads.command.a aVar = this.f8160b;
+                com.baidu.mobads.command.a aVar = this.f8161b;
                 if (aVar.k && (str = aVar.l) != null && !str.equals("")) {
-                    if (packageUtils.sendAPOInfo(context, this.f8160b.l, replace, 381, XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload(), 0)) {
-                        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(context, this.f8160b.l);
+                    if (packageUtils.sendAPOInfo(context, this.f8161b.l, replace, 381, XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload(), 0)) {
+                        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(context, this.f8161b.l);
                     }
                     context.unregisterReceiver(this);
-                } else if (this.f8160b.f8186g) {
+                } else if (this.f8161b.f8187g) {
                     try {
                         Thread.sleep(600L);
                         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(replace);
@@ -43,7 +43,7 @@ public class a extends BroadcastReceiver {
                         context.startActivity(launchIntentForPackage);
                         context.unregisterReceiver(this);
                     } catch (Exception e2) {
-                        this.f8159a.d("InstallReceiver", e2);
+                        this.f8160a.d("InstallReceiver", e2);
                     }
                 }
             }

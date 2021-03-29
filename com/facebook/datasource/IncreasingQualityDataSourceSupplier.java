@@ -17,7 +17,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable

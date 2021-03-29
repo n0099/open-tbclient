@@ -34,53 +34,53 @@ import org.xmlpull.v1.XmlPullParser;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11454a = "e";
+    public static final String f11455a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11455b = "file:///android_asset/";
+    public static final String f11456b = "file:///android_asset/";
 
     /* loaded from: classes2.dex */
     public static class a extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f11456a;
+        public final /* synthetic */ WebView f11457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11457b;
+        public final /* synthetic */ String f11458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.callback.a.a f11458c;
+        public final /* synthetic */ com.baidu.sapi2.callback.a.a f11459c;
 
         /* renamed from: com.baidu.sapi2.utils.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0146a implements ValueCallback<String> {
-            public C0146a() {
+        public class C0147a implements ValueCallback<String> {
+            public C0147a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             /* renamed from: a */
             public void onReceiveValue(String str) {
-                a.this.f11458c.a(str);
-                a.this.f11456a.destroy();
+                a.this.f11459c.a(str);
+                a.this.f11457a.destroy();
             }
         }
 
         public a(WebView webView, String str, com.baidu.sapi2.callback.a.a aVar) {
-            this.f11456a = webView;
-            this.f11457b = str;
-            this.f11458c = aVar;
+            this.f11457a = webView;
+            this.f11458b = str;
+            this.f11459c = aVar;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f11456a.evaluateJavascript(this.f11457b, new C0146a());
+                this.f11457a.evaluateJavascript(this.f11458b, new C0147a());
                 return;
             }
-            this.f11458c.a(null);
-            this.f11456a.destroy();
+            this.f11459c.a(null);
+            this.f11457a.destroy();
         }
     }
 
@@ -103,7 +103,7 @@ public class e {
             return null;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(r.f7663a, 4);
+        hashMap.put(r.f7664a, 4);
         hashMap.put("w", 2);
         int i = 1;
         hashMap.put("x", 1);
@@ -144,7 +144,7 @@ public class e {
     /* JADX WARN: Code restructure failed: missing block: B:43:0x00f4, code lost:
         return false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:?, code lost:
         return true;
      */
     @TargetApi(4)
@@ -188,7 +188,7 @@ public class e {
                 } else if (b2.substring(2, 3).equals("0")) {
                     str = "chmod " + b2.substring(0, 2) + "1 " + file;
                 }
-                Log.e(f11454a, "chmodFile", "command", str, "originPer", b2);
+                Log.e(f11455a, "chmodFile", "command", str, "originPer", b2);
                 if (str != null) {
                     process = runtime.exec(str);
                     if (TextUtils.isEmpty(SapiContext.getInstance().getPackageDirExecutePer())) {
@@ -206,7 +206,7 @@ public class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:116:0x022a  */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x0228  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -234,6 +234,7 @@ public class e {
                                 sapiAccountResponse2 = sapiAccountResponse;
                                 Log.e(th);
                                 if (sapiAccountResponse2 != null) {
+                                    sapiAccountResponse2.errorCode = 0;
                                 }
                                 return sapiAccountResponse2;
                             }
@@ -249,7 +250,7 @@ public class e {
                                 sapiAccountResponse2.errorMsg = newPullParser.nextText();
                             } else if (name.equalsIgnoreCase("bduss")) {
                                 sapiAccountResponse2.bduss = newPullParser.nextText();
-                            } else if (name.equalsIgnoreCase(SapiAccount.f10605h)) {
+                            } else if (name.equalsIgnoreCase(SapiAccount.f10606h)) {
                                 sapiAccountResponse2.ptoken = newPullParser.nextText();
                             } else if (name.equalsIgnoreCase("stoken")) {
                                 if (z) {
@@ -314,7 +315,6 @@ public class e {
                     sapiAccountResponse2 = sapiAccountResponse;
                     Log.e(th);
                     if (sapiAccountResponse2 != null) {
-                        sapiAccountResponse2.errorCode = 0;
                     }
                     return sapiAccountResponse2;
                 }

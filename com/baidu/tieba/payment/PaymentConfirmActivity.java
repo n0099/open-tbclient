@@ -36,7 +36,7 @@ import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import d.b.h0.r.s.a;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public String mClickZone;
     public long mNeedTbean;
@@ -55,7 +55,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public CustomMessageListener mBindPhoneListener = new j(2001359);
     public CustomMessageListener mBuyTbeanListener = new k(2001227);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -67,28 +67,28 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19436e;
+        public final /* synthetic */ int f19437e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19437f;
+        public final /* synthetic */ String f19438f;
 
         public b(int i, String str) {
-            this.f19436e = i;
-            this.f19437f = str;
+            this.f19437e = i;
+            this.f19438f = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            PaymentConfirmActivity.this.goToUEGValidate(this.f19436e, this.f19437f);
+            PaymentConfirmActivity.this.goToUEGValidate(this.f19437e, this.f19438f);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -99,24 +99,24 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19440e;
+        public final /* synthetic */ String f19441e;
 
         public d(String str) {
-            this.f19440e = str;
+            this.f19441e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f19440e, true, true, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f19441e, true, true, true)));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements a.e {
         public e() {
         }
@@ -128,7 +128,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements CompoundButton.OnCheckedChangeListener {
         public f() {
         }
@@ -143,7 +143,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -162,7 +162,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h extends HttpMessageListener {
         public h(int i) {
             super(i);
@@ -203,7 +203,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i extends HttpMessageListener {
         public i(int i) {
             super(i);
@@ -293,7 +293,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public j(int i) {
             super(i);
@@ -314,7 +314,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k extends CustomMessageListener {
         public k(int i) {
             super(i);
@@ -337,7 +337,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l implements a.e {
         public l() {
         }
@@ -348,14 +348,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19450e;
+        public final /* synthetic */ String f19451e;
 
         public m(String str) {
-            this.f19450e = str;
+            this.f19451e = str;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -365,23 +365,23 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (StringUtils.isNull(l)) {
                 return;
             }
-            PaymentConfirmActivity.this.goToPayment(this.f19450e, l, null, null, null, false);
+            PaymentConfirmActivity.this.goToPayment(this.f19451e, l, null, null, null, false);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19452e;
+        public final /* synthetic */ d.b.h0.r.s.a f19453e;
 
         public n(d.b.h0.r.s.a aVar) {
-            this.f19452e = aVar;
+            this.f19453e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            this.f19452e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
+            this.f19453e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher

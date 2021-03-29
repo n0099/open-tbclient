@@ -16,22 +16,22 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class HandlerBox extends AbstractFullBox {
     public static final String TYPE = "hdlr";
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
     public static final Map<String, String> readableTypes;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30716a;
+    public long f30717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30717b;
+    public long f30718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30718c;
+    public long f30719c;
     public String handlerType;
     public String name;
     public long shouldBeZeroButAppleWritesHereSomeValue;
@@ -79,9 +79,9 @@ public class HandlerBox extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         this.shouldBeZeroButAppleWritesHereSomeValue = IsoTypeReader.readUInt32(byteBuffer);
         this.handlerType = IsoTypeReader.read4cc(byteBuffer);
-        this.f30716a = IsoTypeReader.readUInt32(byteBuffer);
-        this.f30717b = IsoTypeReader.readUInt32(byteBuffer);
-        this.f30718c = IsoTypeReader.readUInt32(byteBuffer);
+        this.f30717a = IsoTypeReader.readUInt32(byteBuffer);
+        this.f30718b = IsoTypeReader.readUInt32(byteBuffer);
+        this.f30719c = IsoTypeReader.readUInt32(byteBuffer);
         if (byteBuffer.remaining() > 0) {
             String readString = IsoTypeReader.readString(byteBuffer, byteBuffer.remaining());
             this.name = readString;
@@ -102,9 +102,9 @@ public class HandlerBox extends AbstractFullBox {
         writeVersionAndFlags(byteBuffer);
         IsoTypeWriter.writeUInt32(byteBuffer, this.shouldBeZeroButAppleWritesHereSomeValue);
         byteBuffer.put(IsoFile.fourCCtoBytes(this.handlerType));
-        IsoTypeWriter.writeUInt32(byteBuffer, this.f30716a);
-        IsoTypeWriter.writeUInt32(byteBuffer, this.f30717b);
-        IsoTypeWriter.writeUInt32(byteBuffer, this.f30718c);
+        IsoTypeWriter.writeUInt32(byteBuffer, this.f30717a);
+        IsoTypeWriter.writeUInt32(byteBuffer, this.f30718b);
+        IsoTypeWriter.writeUInt32(byteBuffer, this.f30719c);
         String str = this.name;
         if (str != null) {
             byteBuffer.put(Utf8.convert(str));

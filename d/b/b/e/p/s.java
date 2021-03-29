@@ -18,11 +18,11 @@ import javax.crypto.spec.PBEKeySpec;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f42034a;
+    public static final byte[] f42035a;
 
     static {
         Charset.forName("UTF-8");
-        f42034a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
+        f42035a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
@@ -60,7 +60,7 @@ public class s {
         for (int i = 0; i < length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f42034a, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f42035a, 5, 256));
     }
 
     public static String g(int i) {

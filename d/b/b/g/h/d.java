@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42181a = "11446";
+    public static String f42182a = "11446";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42182b = "type";
+    public static String f42183b = "type";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42183c = "value";
+    public static String f42184c = "value";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42184d = "ext";
+    public static String f42185d = "ext";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42185e = "suc";
+    public static String f42186e = "suc";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f42186f = "fail";
+    public static String f42187f = "fail";
 
     public static String a(String str) {
         return TextUtils.isEmpty(str) ? "-" : str;
@@ -35,8 +35,8 @@ public class d {
     public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f42182b, f42186f);
-            jSONObject.put(f42183c, str);
+            jSONObject.put(f42183b, f42187f);
+            jSONObject.put(f42184c, str);
             JSONObject jSONObject2 = new JSONObject();
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < list.size(); i++) {
@@ -46,8 +46,8 @@ public class d {
                     }
                 }
             }
-            jSONObject.put(f42184d, jSONObject2);
-            d(f42181a, jSONObject);
+            jSONObject.put(f42185d, jSONObject2);
+            d(f42182a, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -56,8 +56,8 @@ public class d {
     public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f42182b, f42185e);
-            jSONObject.put(f42183c, str);
+            jSONObject.put(f42183b, f42186e);
+            jSONObject.put(f42184c, str);
             JSONObject jSONObject2 = new JSONObject();
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < list.size(); i++) {
@@ -67,8 +67,8 @@ public class d {
                     }
                 }
             }
-            jSONObject.put(f42184d, jSONObject2);
-            d(f42181a, jSONObject);
+            jSONObject.put(f42185d, jSONObject2);
+            d(f42182a, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

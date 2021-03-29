@@ -15,33 +15,33 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
 
     /* renamed from: d.b.g0.a.c2.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0633a implements a.b {
+    /* loaded from: classes2.dex */
+    public class C0634a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43762a;
+        public final /* synthetic */ UnitedSchemeEntity f43763a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43763b;
+        public final /* synthetic */ CallbackHandler f43764b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ k f43764c;
+        public final /* synthetic */ k f43765c;
 
-        public C0633a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
-            this.f43762a = unitedSchemeEntity;
-            this.f43763b = callbackHandler;
-            this.f43764c = kVar;
+        public C0634a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
+            this.f43763a = unitedSchemeEntity;
+            this.f43764b = callbackHandler;
+            this.f43765c = kVar;
         }
 
         @Override // d.b.g0.a.c2.a.a.b
         public void a(double[] dArr) {
             if (dArr != null && dArr.length == 3) {
                 c.g("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                a.this.k(this.f43762a, this.f43763b, this.f43764c, dArr);
+                a.this.k(this.f43763a, this.f43764b, this.f43765c, dArr);
                 return;
             }
             c.b("accelerometer", "illegal accelerometers");
@@ -57,21 +57,21 @@ public class a extends a0 {
         if (eVar == null) {
             c.b("accelerometer", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             c.b("accelerometer", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "startAccelerometer --- illegal context");
             }
             return false;
         } else {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SwanAppAction", "startAccelerometer --- params is empty");
                 }
                 c.b("accelerometer", "none params");
@@ -80,7 +80,7 @@ public class a extends a0 {
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
                 }
                 c.b("accelerometer", "cb is empty");
@@ -91,7 +91,7 @@ public class a extends a0 {
             k kVar = new k("accelerometerChange", optParamsAsJo, optString);
             d.b.g0.a.c2.a.a g2 = d.b.g0.a.c2.a.a.g();
             g2.h(context, a.b.a(optParamsAsJo.optString("interval")));
-            g2.k(new C0633a(unitedSchemeEntity, callbackHandler, kVar));
+            g2.k(new C0634a(unitedSchemeEntity, callbackHandler, kVar));
             g2.l();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);

@@ -19,40 +19,45 @@ public final class FlowableCreate$BufferAsyncEmitter<T> extends FlowableCreate$B
     }
 
     public void drain() {
+        int i;
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
         c<? super T> cVar = this.actual;
         a<T> aVar = this.queue;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = get();
             long j2 = 0;
-            while (j2 != j) {
-                if (isCancelled()) {
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
+                    break;
+                } else if (isCancelled()) {
                     aVar.clear();
                     return;
-                }
-                boolean z = this.done;
-                Object obj = (T) aVar.poll();
-                boolean z2 = obj == null;
-                if (z && z2) {
-                    Throwable th = this.error;
-                    if (th != null) {
-                        error(th);
-                        return;
-                    } else {
-                        complete();
-                        return;
-                    }
-                } else if (z2) {
-                    break;
                 } else {
-                    cVar.onNext(obj);
-                    j2++;
+                    boolean z = this.done;
+                    Object obj = (T) aVar.poll();
+                    boolean z2 = obj == null;
+                    if (z && z2) {
+                        Throwable th = this.error;
+                        if (th != null) {
+                            error(th);
+                            return;
+                        } else {
+                            complete();
+                            return;
+                        }
+                    } else if (z2) {
+                        break;
+                    } else {
+                        cVar.onNext(obj);
+                        j2++;
+                    }
                 }
             }
-            if (j2 == j) {
+            if (i == 0) {
                 if (isCancelled()) {
                     aVar.clear();
                     return;
@@ -73,8 +78,8 @@ public final class FlowableCreate$BufferAsyncEmitter<T> extends FlowableCreate$B
             if (j2 != 0) {
                 b.e(this, j2);
             }
-            i = this.wip.addAndGet(-i);
-        } while (i != 0);
+            i2 = this.wip.addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // io.reactivex.internal.operators.flowable.FlowableCreate$BaseEmitter, f.a.d

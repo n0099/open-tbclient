@@ -14,7 +14,7 @@ import com.baidu.nps.utils.ContextHolder;
 import d.b.z.g.a;
 import d.b.z.h.c;
 import d.b.z.h.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Bundle {
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
     public static final String EXTRA_KEY_CLAZZ = "clazz";

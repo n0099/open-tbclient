@@ -16,52 +16,52 @@ import d.b.g0.p.e;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43582a = k.f45050a;
+    public static final boolean f43583a = k.f45051a;
 
     /* renamed from: d.b.g0.a.b2.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class RunnableC0615a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class RunnableC0616a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f43583e;
+        public final /* synthetic */ long f43584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43584f;
+        public final /* synthetic */ int f43585f;
 
-        public RunnableC0615a(long j, int i) {
-            this.f43583e = j;
-            this.f43584f = i;
+        public RunnableC0616a(long j, int i) {
+            this.f43584e = j;
+            this.f43585f = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.b.g0.a.b2.a.c().a(this.f43583e, this.f43584f);
+                d.b.g0.a.b2.a.c().a(this.f43584e, this.f43585f);
             } catch (Exception e2) {
-                if (a.f43582a) {
+                if (a.f43583a) {
                     e2.printStackTrace();
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43585a = 0;
+        public int f43586a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43586b;
+        public String f43587b;
 
         public static b a(int i, String str) {
             b bVar = new b();
-            bVar.f43585a = i;
-            bVar.f43586b = str;
+            bVar.f43586a = i;
+            bVar.f43587b = str;
             return bVar;
         }
 
@@ -74,12 +74,12 @@ public class a {
         }
 
         public boolean c() {
-            return this.f43585a == 0;
+            return this.f43586a == 0;
         }
 
         @NonNull
         public String toString() {
-            return "RemoteCoreUpdateStatus{statusCode=" + this.f43585a + ", message='" + this.f43586b + "'}";
+            return "RemoteCoreUpdateStatus{statusCode=" + this.f43586a + ", message='" + this.f43587b + "'}";
         }
     }
 
@@ -88,7 +88,7 @@ public class a {
     }
 
     public static b c(String str, String str2, String str3, int i) {
-        if (f43582a) {
+        if (f43583a) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
@@ -101,7 +101,7 @@ public class a {
             if (!d.F(str2, f(h2, i).getPath())) {
                 return b.b("unzip bundle failed.");
             }
-            if (f43582a) {
+            if (f43583a) {
                 String b2 = e.b(new File(str2), false);
                 if (!TextUtils.isEmpty(b2)) {
                     h.a().putString(d.b.g0.a.b2.a.d(i), b2);
@@ -111,7 +111,7 @@ public class a {
                 d.b.g0.a.b2.b.a(e(i), i(d(i), h2));
             }
             j(h2, i);
-            if (f43582a) {
+            if (f43583a) {
                 Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + h2);
             }
             return b.d();
@@ -155,7 +155,7 @@ public class a {
                 arrayList.add(Long.valueOf(b2.swanCoreVersion));
             }
         }
-        if (f43582a) {
+        if (f43583a) {
             Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
         return arrayList;
@@ -163,6 +163,6 @@ public class a {
 
     public static void j(long j, int i) {
         h.a().putLong(h(i), j);
-        p.k(new RunnableC0615a(j, i), "cacheSwanCoreInfo");
+        p.k(new RunnableC0616a(j, i), "cacheSwanCoreInfo");
     }
 }

@@ -12,19 +12,19 @@ import java.lang.Thread;
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8305a = "";
+    public static String f8306a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Thread.UncaughtExceptionHandler f8306b;
+    public static Thread.UncaughtExceptionHandler f8307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile q f8307c;
+    public static volatile q f8308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f8308d;
+    public Context f8309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f8309e;
+    public a f8310e;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -32,13 +32,13 @@ public class q implements Thread.UncaughtExceptionHandler {
     }
 
     public q(Context context) {
-        this.f8308d = context.getApplicationContext();
-        f8306b = Thread.getDefaultUncaughtExceptionHandler();
+        this.f8309d = context.getApplicationContext();
+        f8307b = Thread.getDefaultUncaughtExceptionHandler();
         com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new r(this));
     }
 
     private SharedPreferences c() {
-        return this.f8308d.getSharedPreferences("baidu_mobads_crash", 0);
+        return this.f8309d.getSharedPreferences("baidu_mobads_crash", 0);
     }
 
     private SharedPreferences.Editor d() {
@@ -57,7 +57,7 @@ public class q implements Thread.UncaughtExceptionHandler {
     }
 
     public void b() {
-        this.f8309e = null;
+        this.f8310e = null;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -66,12 +66,12 @@ public class q implements Thread.UncaughtExceptionHandler {
             String a2 = a(th);
             if (a2 != null) {
                 a(a2, Log.getStackTraceString(th));
-                if (this.f8309e != null) {
-                    this.f8309e.a(a2);
+                if (this.f8310e != null) {
+                    this.f8310e.a(a2);
                 }
             }
-            if (f8306b != null) {
-                f8306b.uncaughtException(thread, th);
+            if (f8307b != null) {
+                f8307b.uncaughtException(thread, th);
             }
         } catch (Exception e2) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e2);
@@ -79,14 +79,14 @@ public class q implements Thread.UncaughtExceptionHandler {
     }
 
     public static q a(Context context) {
-        if (f8307c == null) {
+        if (f8308c == null) {
             synchronized (q.class) {
-                if (f8307c == null) {
-                    f8307c = new q(context);
+                if (f8308c == null) {
+                    f8308c = new q(context);
                 }
             }
         }
-        return f8307c;
+        return f8308c;
     }
 
     public void a() {
@@ -97,7 +97,7 @@ public class q implements Thread.UncaughtExceptionHandler {
     }
 
     public void a(a aVar) {
-        this.f8309e = aVar;
+        this.f8310e = aVar;
     }
 
     private String a(Throwable th) {
@@ -134,7 +134,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d2 = d();
         d2.putString("key_crash_source", str);
         d2.putString("key_crash_trace", ("crashtime:" + System.currentTimeMillis() + " ") + str2);
-        d2.putString("key_crash_ad", f8305a);
+        d2.putString("key_crash_ad", f8306a);
         if (Build.VERSION.SDK_INT >= 9) {
             d2.apply();
         } else {

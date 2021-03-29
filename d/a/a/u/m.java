@@ -40,7 +40,7 @@ public class m {
             } else if (hashCode != 3519) {
                 switch (hashCode) {
                     case 114:
-                        if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7663a)) {
+                        if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7664a)) {
                             c2 = 6;
                             break;
                         }

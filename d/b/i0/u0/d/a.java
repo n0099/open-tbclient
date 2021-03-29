@@ -57,14 +57,14 @@ public class a extends d.b.i0.x.b<h> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(m(), R.drawable.home_thread_card_item_bg);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0109);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -84,16 +84,16 @@ public class a extends d.b.i0.x.b<h> {
     /* renamed from: u */
     public void n(h hVar) {
         MetaData metaData;
-        if (hVar == null || (metaData = hVar.f62210e) == null || metaData.getGodUserData() == null) {
+        if (hVar == null || (metaData = hVar.f62211e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.w = hVar;
-        this.v = hVar.f62210e;
-        w(hVar.f62212g);
-        this.o.setData(hVar.f62210e);
-        this.q.setText(hVar.f62210e.getName_show());
-        this.r.setText(hVar.f62210e.getGodUserData().getIntro());
-        this.n.n(hVar.f62210e);
+        this.v = hVar.f62211e;
+        w(hVar.f62213g);
+        this.o.setData(hVar.f62211e);
+        this.q.setText(hVar.f62211e.getName_show());
+        this.r.setText(hVar.f62211e.getGodUserData().getIntro());
+        this.n.n(hVar.f62211e);
         o(null, TbadkCoreApplication.getInst().getSkinType());
     }
 

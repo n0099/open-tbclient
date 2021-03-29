@@ -21,7 +21,7 @@ import java.io.Serializable;
 public class a extends com.kwad.sdk.contentalliance.detail.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32159h;
+    public int f32160h;
     public AdTemplate i;
     public DetailVideoView j;
 
@@ -44,7 +44,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.a.e());
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.a.b.a());
         if (com.kwad.sdk.core.config.c.e()) {
-            h hVar = this.f31923e;
+            h hVar = this.f31924e;
             presenter.a((Presenter) new b(hVar != null && hVar.j));
         }
         if (!com.kwad.sdk.core.response.b.c.B(this.i)) {
@@ -55,7 +55,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.photo.a.c());
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.a.a());
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.a.b());
-        h hVar2 = this.f31923e;
+        h hVar2 = this.f31924e;
         if (hVar2 != null && hVar2.i) {
             presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.photo.a.a());
             presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.a.b());
@@ -64,10 +64,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         if (com.kwad.sdk.core.config.c.R()) {
             presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.photo.newui.c.a());
         }
-        h hVar3 = this.f31923e;
+        h hVar3 = this.f31924e;
         if (hVar3 != null && ((pageScene = hVar3.k.getPageScene()) == 1 || pageScene == 12)) {
             if (com.kwad.sdk.core.config.c.ak()) {
-                if (this.f31923e.i && ae.a(getContext())) {
+                if (this.f31924e.i && ae.a(getContext())) {
                     aVar = new com.kwad.sdk.contentalliance.detail.photo.b.a();
                     presenter.a((Presenter) aVar);
                 }
@@ -75,7 +75,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
                 if (ae.c(getContext())) {
                     presenter.a((Presenter) new com.kwad.sdk.contentalliance.detail.photo.b.b());
                 }
-                if (this.f31923e.i && ae.a(getContext())) {
+                if (this.f31924e.i && ae.a(getContext())) {
                     aVar = new com.kwad.sdk.contentalliance.detail.photo.b.a();
                     presenter.a((Presenter) aVar);
                 }
@@ -98,19 +98,19 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         if (arguments == null) {
             str = "bundle is null";
         } else {
-            this.f32159h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
+            this.f32160h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
             Serializable serializable = getArguments().getSerializable("key_template");
             if (serializable instanceof AdTemplate) {
                 this.i = (AdTemplate) serializable;
-                DetailVideoView detailVideoView = (DetailVideoView) this.f31885c.findViewById(R.id.ksad_video_player);
+                DetailVideoView detailVideoView = (DetailVideoView) this.f31886c.findViewById(R.id.ksad_video_player);
                 this.j = detailVideoView;
                 detailVideoView.setVideoInfo(this.i.photoInfo.videoInfo);
-                return this.f31885c;
+                return this.f31886c;
             }
             str = "data is not instanceof AdTemplate:" + serializable;
         }
         com.kwad.sdk.core.d.a.d("DetailPhotoFragment", str);
-        return this.f31885c;
+        return this.f31886c;
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.a, com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -124,13 +124,13 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f32151a = this.f31923e;
-        cVar.l = this.f31922d;
+        cVar.f32152a = this.f31924e;
+        cVar.l = this.f31923d;
         cVar.j = this.i;
-        cVar.i = this.f32159h;
-        com.kwad.sdk.contentalliance.detail.video.b bVar = new com.kwad.sdk.contentalliance.detail.video.b(this, this.f31922d, this.j, this.i, this.f32159h);
-        cVar.f32152b.add(bVar);
-        cVar.f32153c.add(bVar.d());
+        cVar.i = this.f32160h;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = new com.kwad.sdk.contentalliance.detail.video.b(this, this.f31923d, this.j, this.i, this.f32160h);
+        cVar.f32153b.add(bVar);
+        cVar.f32154c.add(bVar.d());
         cVar.m = bVar;
         return cVar;
     }

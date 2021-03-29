@@ -11,85 +11,85 @@ public final class s {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f36786a;
+        public int f36787a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36787b;
+        public int f36788b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36788c;
+        public int f36789c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f36789d;
+        public int f36790d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f36790e;
+        public int f36791e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f36791f;
+        public int f36792f;
 
         public a() {
-            this.f36786a = -1;
-            this.f36787b = -1;
-            this.f36788c = -1;
-            this.f36789d = -1;
-            this.f36790e = -1;
-            this.f36791f = -1;
+            this.f36787a = -1;
+            this.f36788b = -1;
+            this.f36789c = -1;
+            this.f36790d = -1;
+            this.f36791e = -1;
+            this.f36792f = -1;
         }
 
         public a(int i, int i2) {
-            this.f36786a = -1;
-            this.f36787b = -1;
-            this.f36788c = -1;
-            this.f36789d = -1;
-            this.f36790e = -1;
-            this.f36791f = -1;
-            this.f36786a = i;
-            this.f36787b = i2;
+            this.f36787a = -1;
+            this.f36788b = -1;
+            this.f36789c = -1;
+            this.f36790d = -1;
+            this.f36791e = -1;
+            this.f36792f = -1;
+            this.f36787a = i;
+            this.f36788b = i2;
         }
 
         public int a() {
-            return this.f36786a;
+            return this.f36787a;
         }
 
         public void a(float f2, float f3) {
-            this.f36788c = (int) f2;
-            this.f36789d = (int) f3;
+            this.f36789c = (int) f2;
+            this.f36790d = (int) f3;
         }
 
         public void a(int i, int i2) {
-            this.f36786a = i;
-            this.f36787b = i2;
+            this.f36787a = i;
+            this.f36788b = i2;
         }
 
         public int b() {
-            return this.f36787b;
+            return this.f36788b;
         }
 
         public void b(float f2, float f3) {
-            this.f36790e = (int) f2;
-            this.f36791f = (int) f3;
+            this.f36791e = (int) f2;
+            this.f36792f = (int) f3;
         }
 
         public int c() {
-            return this.f36788c;
+            return this.f36789c;
         }
 
         public int d() {
-            return this.f36789d;
+            return this.f36790d;
         }
 
         public int e() {
-            return this.f36790e;
+            return this.f36791e;
         }
 
         public int f() {
-            return this.f36791f;
+            return this.f36792f;
         }
 
         @NonNull
         public String toString() {
-            return "[" + this.f36786a + "," + this.f36787b + "," + this.f36788c + "," + this.f36789d + "," + this.f36790e + "," + this.f36791f + "]";
+            return "[" + this.f36787a + "," + this.f36788b + "," + this.f36789c + "," + this.f36790d + "," + this.f36791e + "," + this.f36792f + "]";
         }
     }
 

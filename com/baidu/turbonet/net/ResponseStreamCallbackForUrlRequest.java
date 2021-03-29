@@ -9,41 +9,41 @@ import java.util.concurrent.Executors;
 public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Callback {
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f22830c = Executors.newCachedThreadPool();
+    public static ExecutorService f22831c = Executors.newCachedThreadPool();
 
     /* renamed from: a  reason: collision with root package name */
-    public PipedOutputStreamAndroid25 f22831a;
+    public PipedOutputStreamAndroid25 f22832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RequestBodyOutputStream f22832b;
+    public RequestBodyOutputStream f22833b;
 
     /* loaded from: classes5.dex */
     public final class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public UrlRequest f22833e;
+        public UrlRequest f22834e;
 
         /* renamed from: f  reason: collision with root package name */
-        public UrlResponseInfo f22834f;
+        public UrlResponseInfo f22835f;
 
         /* renamed from: g  reason: collision with root package name */
-        public InputStream f22835g;
+        public InputStream f22836g;
 
         public a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, InputStream inputStream) {
-            this.f22833e = urlRequest;
-            this.f22834f = urlResponseInfo;
-            this.f22835g = inputStream;
+            this.f22834e = urlRequest;
+            this.f22835f = urlResponseInfo;
+            this.f22836g = inputStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ResponseStreamCallbackForUrlRequest.this.i(this.f22833e, this.f22834f, this.f22835g);
+            ResponseStreamCallbackForUrlRequest.this.i(this.f22834e, this.f22835f, this.f22836g);
         }
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest.Callback
     public final void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-        RequestBodyOutputStream requestBodyOutputStream = this.f22832b;
+        RequestBodyOutputStream requestBodyOutputStream = this.f22833b;
         if (requestBodyOutputStream != null) {
             try {
                 requestBodyOutputStream.o();
@@ -52,7 +52,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
             }
         }
         try {
-            this.f22831a.close();
+            this.f22832a.close();
         } catch (Exception unused2) {
             d.b.j0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
         }
@@ -62,7 +62,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     @Override // com.baidu.turbonet.net.UrlRequest.Callback
     public final void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
         d.b.j0.a.a.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
-        RequestBodyOutputStream requestBodyOutputStream = this.f22832b;
+        RequestBodyOutputStream requestBodyOutputStream = this.f22833b;
         if (requestBodyOutputStream != null) {
             try {
                 requestBodyOutputStream.o();
@@ -71,7 +71,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
             }
         }
         try {
-            this.f22831a.close();
+            this.f22832a.close();
         } catch (Exception unused2) {
             d.b.j0.a.a.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
         }
@@ -82,8 +82,8 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) throws Exception {
         byteBuffer.flip();
         d.b.j0.a.a.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
-        this.f22831a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
-        this.f22831a.flush();
+        this.f22832a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
+        this.f22832a.flush();
         byteBuffer.clear();
         urlRequest.read(byteBuffer);
     }
@@ -92,9 +92,9 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception {
         d.b.j0.a.a.h("ChromiumNetwork", "****** Response Started ******", new Object[0]);
         d.b.j0.a.a.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
-        this.f22831a = new PipedOutputStreamAndroid25();
+        this.f22832a = new PipedOutputStreamAndroid25();
         try {
-            f22830c.execute(new a(urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.f22831a, 4096)));
+            f22831c.execute(new a(urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.f22832a, 4096)));
             urlRequest.read(ByteBuffer.allocateDirect(32768));
         } catch (Exception e2) {
             d.b.j0.a.a.c("ChromiumNetwork", "Exception in onResponseStarted ", e2);
@@ -106,7 +106,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         d.b.j0.a.a.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
         try {
-            this.f22831a.close();
+            this.f22832a.close();
         } catch (Exception unused) {
             d.b.j0.a.a.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
         }

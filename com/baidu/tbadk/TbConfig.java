@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import d.b.h0.a0.c;
 import java.util.HashSet;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -732,9 +732,7 @@ public class TbConfig {
     }
 
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        double bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext());
-        Double.isNaN(bitmapMaxMemory);
-        return (int) (bitmapMaxMemory * 0.28d);
+        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d);
     }
 
     public static int getBigImageSize() {
@@ -972,12 +970,8 @@ public class TbConfig {
     public static void initBigImageMaxUsedMemory(Context context) {
         int initPbImageSize = initPbImageSize(context) * 13;
         BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize;
-        double bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(context);
-        Double.isNaN(bitmapMaxMemory);
-        if (initPbImageSize < bitmapMaxMemory * 0.35d) {
-            double bitmapMaxMemory2 = UtilHelper.getBitmapMaxMemory(context);
-            Double.isNaN(bitmapMaxMemory2);
-            BIG_IMAGE_MAX_USED_MEMORY = (int) (bitmapMaxMemory2 * 0.35d);
+        if (initPbImageSize < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
+            BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
         }
     }
 
@@ -991,9 +985,7 @@ public class TbConfig {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
         if (Runtime.getRuntime().maxMemory() <= 16777216) {
-            double d2 = THREAD_IMAGE_MAX_WIDTH;
-            Double.isNaN(d2);
-            THREAD_IMAGE_MAX_WIDTH = (int) (d2 * 0.8d);
+            THREAD_IMAGE_MAX_WIDTH = (int) (THREAD_IMAGE_MAX_WIDTH * 0.8d);
         }
     }
 

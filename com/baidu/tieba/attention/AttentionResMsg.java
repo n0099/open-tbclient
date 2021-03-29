@@ -30,19 +30,19 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = jSONArray.optJSONObject(i);
             if (optJSONObject2 != null) {
                 i iVar = new i();
-                iVar.f51470a = optJSONObject2.optString("id");
-                iVar.f51471b = optJSONObject2.optString("avatar");
-                iVar.f51472c = optJSONObject2.optString("name");
-                iVar.f51473d = optJSONObject2.optInt("level_id");
-                iVar.f51474e = optJSONObject2.optInt("this_week_post") == 1;
+                iVar.f51471a = optJSONObject2.optString("id");
+                iVar.f51472b = optJSONObject2.optString("avatar");
+                iVar.f51473c = optJSONObject2.optString("name");
+                iVar.f51474d = optJSONObject2.optInt("level_id");
+                iVar.f51475e = optJSONObject2.optInt("this_week_post") == 1;
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                 if (optJSONObject3 != null) {
-                    iVar.f51475f = optJSONObject3.optInt("can_post") == 1;
-                    iVar.f51476g = optJSONObject3.optString("block_info");
+                    iVar.f51476f = optJSONObject3.optInt("can_post") == 1;
+                    iVar.f51477g = optJSONObject3.optString("block_info");
                 }
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    iVar.f51477h = new ArrayList();
+                    iVar.f51478h = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject4 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject4 != null) {
@@ -57,7 +57,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             builder.tab_code = optJSONObject4.optString(LowFlowsActivityConfig.TAB_CODE);
                             builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                             builder.is_default = Integer.valueOf(optJSONObject4.optInt(AddressField.KEY_IS_DEFAULT));
-                            iVar.f51477h.add(new FrsTabItemData(builder.build(true)));
+                            iVar.f51478h.add(new FrsTabItemData(builder.build(true)));
                         }
                     }
                 }

@@ -16,16 +16,16 @@ import com.baidu.tieba.R;
 public class FrsRedpackRunView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public AutoScrollTextView f16751e;
+    public AutoScrollTextView f16752e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f16752f;
+    public TBLottieAnimationView f16753f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16753g;
+    public View f16754g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f16754h;
+    public Context f16755h;
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -35,7 +35,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                FrsRedpackRunView.this.f16751e.d(valueAnimator.getAnimatedFraction());
+                FrsRedpackRunView.this.f16752e.d(valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -51,8 +51,8 @@ public class FrsRedpackRunView extends RelativeLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            FrsRedpackRunView.this.f16751e.a(((Activity) FrsRedpackRunView.this.f16754h).getWindowManager());
-            FrsRedpackRunView.this.f16751e.c();
+            FrsRedpackRunView.this.f16752e.a(((Activity) FrsRedpackRunView.this.f16755h).getWindowManager());
+            FrsRedpackRunView.this.f16752e.c();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -66,7 +66,7 @@ public class FrsRedpackRunView extends RelativeLayout {
 
     public FrsRedpackRunView(Context context) {
         super(context);
-        this.f16754h = context;
+        this.f16755h = context;
         d(context);
     }
 
@@ -74,42 +74,42 @@ public class FrsRedpackRunView extends RelativeLayout {
     }
 
     public final void d(Context context) {
-        this.f16753g = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-        this.f16751e = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-        this.f16752f = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+        this.f16754g = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
+        this.f16752e = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
+        this.f16753f = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
     }
 
     public void e() {
-        SkinManager.setLottieAnimation(this.f16752f, R.raw.lottie_redpack_run);
-        this.f16752f.setImageAssetsFolder("lottie_redpack_runscoll");
-        this.f16752f.addAnimatorUpdateListener(new a());
-        this.f16752f.addAnimatorListener(new b());
-        this.f16752f.playAnimation();
+        SkinManager.setLottieAnimation(this.f16753f, R.raw.lottie_redpack_run);
+        this.f16753f.setImageAssetsFolder("lottie_redpack_runscoll");
+        this.f16753f.addAnimatorUpdateListener(new a());
+        this.f16753f.addAnimatorListener(new b());
+        this.f16753f.playAnimation();
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        View view = this.f16753g;
+        View view = this.f16754g;
         if (view != null) {
             view.setOnClickListener(onClickListener);
         }
-        AutoScrollTextView autoScrollTextView = this.f16751e;
+        AutoScrollTextView autoScrollTextView = this.f16752e;
         if (autoScrollTextView != null) {
             autoScrollTextView.setClickliner(onClickListener);
         }
     }
 
     public void settextTitle(String str) {
-        AutoScrollTextView autoScrollTextView = this.f16751e;
+        AutoScrollTextView autoScrollTextView = this.f16752e;
         if (autoScrollTextView != null) {
             autoScrollTextView.setText(str);
-            this.f16751e.a(((Activity) this.f16754h).getWindowManager());
+            this.f16752e.a(((Activity) this.f16755h).getWindowManager());
             e();
         }
     }
 
     public FrsRedpackRunView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16754h = context;
+        this.f16755h = context;
         d(context);
     }
 }

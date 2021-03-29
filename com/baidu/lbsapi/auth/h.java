@@ -7,10 +7,10 @@ import javax.net.ssl.SSLSession;
 public class h implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f6335a;
+    public final /* synthetic */ g f6336a;
 
     public h(g gVar) {
-        this.f6335a = gVar;
+        this.f6336a = gVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

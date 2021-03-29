@@ -10,25 +10,25 @@ public class d {
     public static class a extends d.b.b.e.a.f.d {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41962c;
+        public final /* synthetic */ d.b.b.e.n.h.a f41963c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f41963d;
+        public final /* synthetic */ boolean f41964d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar, boolean z) {
             super(str, str2, action);
-            this.f41962c = aVar;
-            this.f41963d = z;
+            this.f41963c = aVar;
+            this.f41964d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41962c.G(getFileInfo().length());
-                if (this.f41963d || this.f41962c.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                    d.c(this.f41962c, false, false, false);
+                this.f41963c.G(getFileInfo().length());
+                if (this.f41964d || this.f41963c.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                    d.c(this.f41963c, false, false, false);
                 }
             }
         }
@@ -38,35 +38,35 @@ public class d {
     public static class b extends DiskFileOperate {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41964a;
+        public final /* synthetic */ d.b.b.e.n.h.a f41965a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f41965b;
+        public final /* synthetic */ boolean f41966b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f41966c;
+        public final /* synthetic */ boolean f41967c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f41967d;
+        public final /* synthetic */ boolean f41968d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar, boolean z, boolean z2, boolean z3) {
             super(str, str2, str3, str4, action);
-            this.f41964a = aVar;
-            this.f41965b = z;
-            this.f41966c = z2;
-            this.f41967d = z3;
+            this.f41965a = aVar;
+            this.f41966b = z;
+            this.f41967c = z2;
+            this.f41968d = z3;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41964a.G(0L);
-                d.b.b.e.n.l.b.m().r(this.f41964a, this.f41965b, this.f41966c, this.f41967d);
-            } else if (this.f41964a.t() < 307200 || this.f41964a.o() == "stat") {
+                this.f41965a.G(0L);
+                d.b.b.e.n.l.b.m().r(this.f41965a, this.f41966b, this.f41967c, this.f41968d);
+            } else if (this.f41965a.t() < 307200 || this.f41965a.o() == "stat") {
             } else {
-                d.a(BdStatisticsManager.getInstance().getWriteDir(), this.f41964a.r(), this.f41964a);
+                d.a(BdStatisticsManager.getInstance().getWriteDir(), this.f41965a.r(), this.f41965a);
             }
         }
     }
@@ -75,19 +75,19 @@ public class d {
     public static class c extends d.b.b.e.a.f.d {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41968c;
+        public final /* synthetic */ d.b.b.e.n.h.a f41969c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar) {
             super(str, str2, action);
-            this.f41968c = aVar;
+            this.f41969c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41968c.G(getFileInfo().length());
+                this.f41969c.G(getFileInfo().length());
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.android.lbspay.channelpay;
 
 import android.app.Activity;
 import com.baidu.android.lbspay.network.GetPayContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IChannelPay {
     public static final String BAIDU_CHANNEL_ALIAS = "BAIDU-BAIFUBAO-WISE-CARD";
     public static final int ID_ALI_PAY = 105;
@@ -20,7 +20,7 @@ public interface IChannelPay {
     public static final int ID_WX_PAY = 158;
     public static final String KUAIQIAN_CHANNEL_ALIAS = "BAIDU-QUICKPAY-WISE";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum State {
         Init,
         Paying,

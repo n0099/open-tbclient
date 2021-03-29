@@ -3,11 +3,11 @@ package d.b.f0.l;
 import android.text.TextUtils;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43027a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f43028a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
         r3 = r3;
@@ -20,7 +20,7 @@ public final class g {
         if (b2 < 0) {
             i = b2 + 256;
         }
-        return f43027a[i / 16] + f43027a[i % 16];
+        return f43028a[i / 16] + f43028a[i % 16];
     }
 
     public static String b(String str) {

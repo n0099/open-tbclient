@@ -22,20 +22,20 @@ public class PbListView extends b {
     public boolean r;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f13454f = R.drawable.new_pic_emotion_03;
+    public final int f13455f = R.drawable.new_pic_emotion_03;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f13455g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+    public final int f13456g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f13456h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+    public final int f13457h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
     public final int i = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     public TextView k = null;
     public ProgressBar l = null;
     public View.OnClickListener m = null;
     public View n = null;
     public View o = null;
-    public int q = this.f13454f;
+    public int q = this.f13455f;
     public int s = 0;
     public String t = null;
     public LinearLayout u = null;
@@ -85,7 +85,7 @@ public class PbListView extends b {
         this.k.setText(str);
         this.r = true;
         this.p.setVisibility(0);
-        this.q = this.f13454f;
+        this.q = this.f13455f;
         d(TbadkCoreApplication.getInst().getSkinType());
         e(i);
         this.D = false;
@@ -114,11 +114,11 @@ public class PbListView extends b {
         this.p.setVisibility(0);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
         layoutParams.topMargin = i2;
-        layoutParams.bottomMargin = this.f13455g;
+        layoutParams.bottomMargin = this.f13456g;
         this.p.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.u.getLayoutParams();
         layoutParams2.height = -2;
-        layoutParams2.bottomMargin = this.f13456h;
+        layoutParams2.bottomMargin = this.f13457h;
         this.u.setLayoutParams(layoutParams2);
         d(TbadkCoreApplication.getInst().getSkinType());
     }

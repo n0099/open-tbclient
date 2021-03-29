@@ -19,17 +19,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements l {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44610c = k.f45050a;
+    public static final boolean f44611c = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f44612b = null;
+    public Boolean f44613b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f44611a = AppRuntime.getAppContext();
+    public Context f44612a = AppRuntime.getAppContext();
 
     @Override // d.b.g0.n.l
     public boolean a(String str) {
@@ -83,7 +83,7 @@ public class a implements l {
     @Override // d.b.g0.n.l
     public String getAppId() {
         e t = f.V().t();
-        return t != null ? t.f45739f : "";
+        return t != null ? t.f45740f : "";
     }
 
     @Override // d.b.g0.n.l
@@ -135,16 +135,16 @@ public class a implements l {
 
     @Override // d.b.g0.n.l
     public boolean o() {
-        if (this.f44612b == null) {
+        if (this.f44613b == null) {
             d.b.g0.a.w0.a.N().getSwitch("swan_ceres_add_counter", false);
-            this.f44612b = false;
+            this.f44613b = false;
         }
-        return this.f44612b.booleanValue();
+        return this.f44613b.booleanValue();
     }
 
     @Override // d.b.g0.n.l
     public boolean p() {
-        return d.b.g0.a.m1.a.a.R() && (r() || k.f45051b);
+        return d.b.g0.a.m1.a.a.R() && (r() || k.f45052b);
     }
 
     @Override // d.b.g0.n.l
@@ -154,6 +154,6 @@ public class a implements l {
 
     @Override // d.b.g0.n.l
     public boolean r() {
-        return f44610c && PreferenceManager.getDefaultSharedPreferences(d.b.g0.a.w0.a.c()).getBoolean("KEY_UBC_DEBUG", true);
+        return f44611c && PreferenceManager.getDefaultSharedPreferences(d.b.g0.a.w0.a.c()).getBoolean("KEY_UBC_DEBUG", true);
     }
 }

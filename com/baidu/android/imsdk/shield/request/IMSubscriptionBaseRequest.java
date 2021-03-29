@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static final String TAG = "IMSubscriptionBaseRequest";
     public String mKey;

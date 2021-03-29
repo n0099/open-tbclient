@@ -12,17 +12,17 @@ import org.json.JSONObject;
 public abstract class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f51075a;
+    public final l f51076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Method> f51076b = new HashMap<>();
+    public final HashMap<String, Method> f51077b = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: d.b.h0.r.y.d */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.f51075a = lVar;
+        this.f51076a = lVar;
         c(getClass());
-        if (this.f51076b.isEmpty()) {
+        if (this.f51077b.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
@@ -30,7 +30,7 @@ public abstract class d implements h {
     @Override // d.b.h0.r.y.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.f51076b.get(str);
+        Method method = this.f51077b.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -93,7 +93,7 @@ public abstract class d implements h {
     }
 
     public Context b() {
-        return this.f51075a.f();
+        return this.f51076a.f();
     }
 
     public final void c(Class<? extends d> cls) {
@@ -110,7 +110,7 @@ public abstract class d implements h {
                     str = method.getName();
                 }
                 method.setAccessible(true);
-                this.f51076b.put(str, method);
+                this.f51077b.put(str, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();
@@ -135,7 +135,7 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.f51075a.c(m.k(str, hashMap));
+        this.f51076a.c(m.k(str, hashMap));
     }
 
     public final void f(String str, JSONObject jSONObject, String str2, String str3) {
@@ -147,6 +147,6 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.f51075a.c(m.k(optString, hashMap));
+        this.f51076a.c(m.k(optString, hashMap));
     }
 }

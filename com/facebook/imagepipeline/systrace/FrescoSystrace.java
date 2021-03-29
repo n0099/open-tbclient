@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.systrace;
 
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class FrescoSystrace {
     public static final ArgsBuilder NO_OP_ARGS_BUILDER = new NoOpArgsBuilder();
     @Nullable

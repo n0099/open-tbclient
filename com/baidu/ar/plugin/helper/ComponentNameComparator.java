@@ -3,7 +3,7 @@ package com.baidu.ar.plugin.helper;
 import android.content.ComponentName;
 import android.text.TextUtils;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ComponentNameComparator implements Comparator<ComponentName> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator

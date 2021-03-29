@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class s extends d.b.b.j.e.a<d.b.i0.z0.j.b.c.a, ThreadCardViewHolder<d.b.i0.z0.j.b.c.a>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public String o;
     public NEGFeedBackView.b p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.j.e.w {
         public a() {
         }
@@ -36,7 +36,7 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.j.b.c.a, ThreadCardViewHolder<d.b.i
                 if (aVar != null && aVar.a0 == 1) {
                     TiebaStatic.log(new StatisticItem("c13449").param("topic_id", aVar.T));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(s.this.f42357e, aVar.T)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(s.this.f42358e, aVar.T)));
             }
         }
     }
@@ -51,7 +51,7 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.j.b.c.a, ThreadCardViewHolder<d.b.i
     /* renamed from: i0 */
     public ThreadCardViewHolder<d.b.i0.z0.j.b.c.a> R(ViewGroup viewGroup) {
         k0.b bVar = new k0.b(this.n.getPageActivity(), false);
-        d.b.i0.z0.g.n.d dVar = new d.b.i0.z0.g.n.d(this.f42357e, this.n);
+        d.b.i0.z0.g.n.d dVar = new d.b.i0.z0.g.n.d(this.f42358e, this.n);
         dVar.p(this.i);
         bVar.n(dVar);
         bVar.l().a(0);

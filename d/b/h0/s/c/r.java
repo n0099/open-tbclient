@@ -33,31 +33,31 @@ public class r {
     public String p;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51218f = true;
+    public boolean f51219f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51219g = true;
+    public boolean f51220g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51220h = 100000;
+    public int f51221h = 100000;
     public int j = 100;
     public boolean m = false;
     public int o = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51214b = null;
+    public String f51215b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51215c = null;
+    public String f51216c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51216d = null;
+    public String f51217d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51217e = null;
+    public String f51218e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BannerData f51213a = new BannerData();
+    public final BannerData f51214a = new BannerData();
     public d.b.h0.r.q.r l = new d.b.h0.r.q.r();
     public e0 n = new e0();
 
@@ -90,7 +90,7 @@ public class r {
     }
 
     public int d() {
-        return this.f51220h;
+        return this.f51221h;
     }
 
     public e0 e() {
@@ -103,11 +103,11 @@ public class r {
             return;
         }
         try {
-            this.f51213a.parserJson(jSONObject.optJSONObject("banner"));
-            this.f51214b = jSONObject.optString("big_head_image_host");
-            this.f51215c = jSONObject.optString("small_head_image_host");
-            this.f51216d = jSONObject.optString("yijianfankui_fname");
-            this.f51217e = jSONObject.optString("yijianfankui_fid");
+            this.f51214a.parserJson(jSONObject.optJSONObject("banner"));
+            this.f51215b = jSONObject.optString("big_head_image_host");
+            this.f51216c = jSONObject.optString("small_head_image_host");
+            this.f51217d = jSONObject.optString("yijianfankui_fname");
+            this.f51218e = jSONObject.optString("yijianfankui_fid");
             this.j = jSONObject.optInt("crash_limit_count", 100);
             int optInt = jSONObject.optInt("app_recommend", -1);
             this.i = jSONObject.optLong("vip_new_task", 0L);
@@ -118,7 +118,7 @@ public class r {
                 d.b.h0.u.a.l().x(optJSONObject.optInt("items_num", 10));
                 d.b.h0.u.a.l().y(1 == optJSONObject.optInt("ad_show", 1));
             }
-            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f51216d);
+            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f51217d);
             if (this.l == null) {
                 this.l = new d.b.h0.r.q.r();
             }
@@ -224,14 +224,14 @@ public class r {
             }
             d.b.h0.r.d0.b.i().u("force_update_auto_play_video", optInt2);
             CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
-            this.f51219g = jSONObject.optInt("is_pushservice_open", 1) == 1;
-            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f51219g);
-            if (!this.f51219g) {
+            this.f51220g = jSONObject.optInt("is_pushservice_open", 1) == 1;
+            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f51220g);
+            if (!this.f51220g) {
                 UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
             }
             TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
-            this.f51218f = jSONObject.optInt("gpu_open", 1) == 1;
-            TbadkCoreApplication.getInst().setGpuOpen(this.f51218f);
+            this.f51219f = jSONObject.optInt("gpu_open", 1) == 1;
+            TbadkCoreApplication.getInst().setGpuOpen(this.f51219f);
             TbadkCoreApplication.getInst().setHttpClientOpen(jSONObject.optInt("http_client", 1) == 1);
             TbadkCoreApplication.getInst().setHttpAutoSwitch(jSONObject.optInt("http_client_auto", 1) == 1);
             boolean z = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
@@ -249,7 +249,7 @@ public class r {
             } else if (optInt == 0) {
                 TbadkCoreApplication.getInst().setIsAppOn(false);
             }
-            this.f51220h = jSONObject.optInt("perform_sample_param", 100000);
+            this.f51221h = jSONObject.optInt("perform_sample_param", 100000);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
             if (optJSONObject3 != null) {
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
@@ -287,9 +287,9 @@ public class r {
                 TbSingleton.getInstance().setAnimAverageFpsThreshold(optInt5);
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
-            TbConfig.setBigPhotoAdress(this.f51214b);
-            TbConfig.setSmallPhotoAdress(this.f51215c);
-            TbConfig.setFeedBack(this.f51216d, this.f51217e);
+            TbConfig.setBigPhotoAdress(this.f51215b);
+            TbConfig.setSmallPhotoAdress(this.f51216c);
+            TbConfig.setFeedBack(this.f51217d, this.f51218e);
             PreLoadVideoSwitchManager.getInstance().setSyncSwitchJson(jSONObject.optString("android_preload_conf"));
             JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
             if (optJSONObject10 != null) {

@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IYYLiveNPSPlugin {
     void clearLiveResourceSize(Context context);
 

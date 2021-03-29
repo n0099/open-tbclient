@@ -28,14 +28,14 @@ import java.io.StringWriter;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object[] f66781a = new Object[0];
+    public static Object[] f66786a = new Object[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f66782b = new Object[73];
+    public static Object[] f66787b = new Object[73];
 
     public static String A(Throwable th) {
         if (th == null) {
@@ -377,10 +377,10 @@ public class k {
             PackageInfo packageInfo = n.a().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 dVar.d(packageInfo.versionCode);
-                dVar.a(c.d.f66529d);
+                dVar.a(c.d.f66530d);
                 o r = n.r();
                 if (r != null && r.a() && !t(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                    dVar.a(c.d.f66530e);
+                    dVar.a(c.d.f66531e);
                 }
             }
         } catch (Exception unused) {

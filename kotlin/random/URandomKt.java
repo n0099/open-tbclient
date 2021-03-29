@@ -117,10 +117,10 @@ public final class URandomKt {
     public static final long nextULong(Random random, ULongRange uLongRange) {
         if (!uLongRange.isEmpty()) {
             if (UnsignedKt.ulongCompare(uLongRange.getLast(), -1L) < 0) {
-                return m1503nextULongjmpaWc(random, uLongRange.getFirst(), ULong.m782constructorimpl(uLongRange.getLast() + ULong.m782constructorimpl(4294967295L & 1)));
+                return m1503nextULongjmpaWc(random, uLongRange.getFirst(), ULong.m782constructorimpl(uLongRange.getLast() + ULong.m782constructorimpl(1 & 4294967295L)));
             }
             if (UnsignedKt.ulongCompare(uLongRange.getFirst(), 0L) > 0) {
-                long j = 4294967295L & 1;
+                long j = 1 & 4294967295L;
                 return ULong.m782constructorimpl(m1503nextULongjmpaWc(random, ULong.m782constructorimpl(uLongRange.getFirst() - ULong.m782constructorimpl(j)), uLongRange.getLast()) + ULong.m782constructorimpl(j));
             }
             return nextULong(random);

@@ -1,5 +1,5 @@
 package d.b.i0.l1;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static final int CAM_X0101 = 2131099648;
     public static final int CAM_X0101_1 = 2131099649;

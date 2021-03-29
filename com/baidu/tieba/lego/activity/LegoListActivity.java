@@ -34,7 +34,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, d.b.i0.i1.b {
     public String animationInfo;
     public TbImageView floatBtn;
@@ -62,7 +62,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public CustomMessageListener mShowComponentViewListener = new a(2016455);
     public final View.OnClickListener mCommonOnClickListener = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -89,26 +89,26 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18560e;
+        public final /* synthetic */ String f18561e;
 
         public b(String str) {
-            this.f18560e = str;
+            this.f18561e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18560e)) {
+            if (TextUtils.isEmpty(this.f18561e)) {
                 return;
             }
-            v.c(LegoListActivity.this.getPageContext(), this.f18560e);
+            v.c(LegoListActivity.this.getPageContext(), this.f18561e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -116,7 +116,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             LegoListActivity legoListActivity = LegoListActivity.this;
-            if (view == legoListActivity.navigationBarViewHolder.f55887e) {
+            if (view == legoListActivity.navigationBarViewHolder.f55888e) {
                 legoListActivity.finish();
             }
         }
@@ -233,7 +233,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.navigationBarViewHolder.f55883a.onChangeSkinType(getPageContext(), i);
+        this.navigationBarViewHolder.f55884a.onChangeSkinType(getPageContext(), i);
         if (this.pageType == 1) {
             LegoTabFragment legoTabFragment = this.legoTabFragment;
             if (legoTabFragment != null) {
@@ -311,10 +311,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         setContentView(R.layout.lego_list_activity);
         registerListener(this.mShowComponentViewListener);
         e eVar = new e();
-        eVar.f56030a = this.pageId;
-        eVar.f56031b = this.itemId;
-        eVar.f56033d = this.rn;
-        eVar.f56034e = this.params;
+        eVar.f56031a = this.pageId;
+        eVar.f56032b = this.itemId;
+        eVar.f56034d = this.rn;
+        eVar.f56035e = this.params;
         eVar.b();
         VoiceManager voiceManager = getVoiceManager();
         this.mVoiceManager = voiceManager;

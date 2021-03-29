@@ -12,11 +12,11 @@ import d.b.b.e.p.k;
 public class SingleLineEllipsizeTextView extends EMTextView {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13478f;
+    public String f13479f;
 
     public SingleLineEllipsizeTextView(Context context) {
         super(context);
-        this.f13478f = StringHelper.STRING_MORE;
+        this.f13479f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -28,7 +28,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
             return;
         }
         TextPaint paint = getPaint();
-        float measureText = paint.measureText(this.f13478f);
+        float measureText = paint.measureText(this.f13479f);
         float measureText2 = paint.measureText(text.toString());
         float paddingRight = getPaddingRight() + getPaddingLeft();
         Drawable[] compoundDrawables = getCompoundDrawables();
@@ -48,12 +48,12 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 measureText2 = paint.measureText(text, 0, length - 1);
             }
             if (length > 0) {
-                if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.f13478f) > measuredWidth) {
+                if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.f13479f) > measuredWidth) {
                     length--;
                 }
             }
             if (length > 0) {
-                text = ((Object) text.subSequence(0, length - 1)) + this.f13478f;
+                text = ((Object) text.subSequence(0, length - 1)) + this.f13479f;
             }
             float measureText3 = paint.measureText(text.toString());
             setText(text);
@@ -62,18 +62,18 @@ public class SingleLineEllipsizeTextView extends EMTextView {
     }
 
     public void setEllipsisSuffix(String str) {
-        this.f13478f = str;
+        this.f13479f = str;
     }
 
     public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13478f = StringHelper.STRING_MORE;
+        this.f13479f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
     public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13478f = StringHelper.STRING_MORE;
+        this.f13479f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 }

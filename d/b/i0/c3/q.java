@@ -6,23 +6,23 @@ import tbclient.ActBtn;
 public class q implements d.b.b.j.e.n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f53571g = BdUniqueId.gen();
+    public static final BdUniqueId f53572g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53572e;
+    public String f53573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53573f;
+    public String f53574f;
 
     public void a(ActBtn actBtn) {
         if (actBtn != null) {
-            this.f53572e = actBtn.text;
-            this.f53573f = actBtn.url;
+            this.f53573e = actBtn.text;
+            this.f53574f = actBtn.url;
         }
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f53571g;
+        return f53572g;
     }
 }

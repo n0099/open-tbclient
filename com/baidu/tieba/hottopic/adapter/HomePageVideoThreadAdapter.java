@@ -10,22 +10,22 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import d.b.i0.i2.e;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThreadViewHolder> {
     public BdUniqueId m;
     public TbPageContext<HotTopicActivity> n;
     public d.b.i0.x.l o;
     public b0<l> p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements e {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.i0.x.l f17526e;
+        public d.b.i0.x.l f17527e;
 
         public HomePageVideoThreadViewHolder(d.b.i0.x.l lVar) {
             super(lVar.m());
-            this.f17526e = lVar;
+            this.f17527e = lVar;
         }
 
         @Override // d.b.i0.i2.e
@@ -35,7 +35,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public int getCurrentPosition() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar == null) {
                 return 0;
             }
@@ -44,7 +44,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public String getPlayUrl() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar == null) {
                 return null;
             }
@@ -53,7 +53,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public View getVideoContainer() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar == null) {
                 return null;
             }
@@ -62,7 +62,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public boolean isPlayStarted() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar == null) {
                 return false;
             }
@@ -71,7 +71,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public boolean isPlaying() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar == null) {
                 return false;
             }
@@ -80,7 +80,7 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public void startPlay() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar != null) {
                 lVar.startPlay();
             }
@@ -88,14 +88,14 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
 
         @Override // d.b.i0.i2.e
         public void stopPlay() {
-            d.b.i0.x.l lVar = this.f17526e;
+            d.b.i0.x.l lVar = this.f17527e;
             if (lVar != null) {
                 lVar.stopPlay();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<l> {
         public a() {
         }
@@ -138,8 +138,8 @@ public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThre
             lVar.U(i + 1);
             lVar.U = 1;
         }
-        homePageVideoThreadViewHolder.f17526e.n(lVar);
-        homePageVideoThreadViewHolder.f17526e.q(this.p);
+        homePageVideoThreadViewHolder.f17527e.n(lVar);
+        homePageVideoThreadViewHolder.f17527e.q(this.p);
         TbPageContext<HotTopicActivity> tbPageContext = this.n;
         if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.b.i0.b1.b.a)) {
             this.n.getOrignalPage().businessStatisticForTopic(lVar);

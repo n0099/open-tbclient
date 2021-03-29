@@ -12,30 +12,30 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f42955a;
+    public static volatile c f42956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static X509TrustManager f42956b;
+    public static X509TrustManager f42957b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f42957a;
+        public X509TrustManager f42958a;
 
         public a(c cVar, X509TrustManager x509TrustManager) {
-            this.f42957a = null;
-            this.f42957a = x509TrustManager;
+            this.f42958a = null;
+            this.f42958a = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
             try {
-                this.f42957a.checkClientTrusted(x509CertificateArr, str);
+                this.f42958a.checkClientTrusted(x509CertificateArr, str);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
             }
@@ -45,7 +45,7 @@ public class c {
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
             try {
-                this.f42957a.checkServerTrusted(x509CertificateArr, str);
+                this.f42958a.checkServerTrusted(x509CertificateArr, str);
             } catch (Throwable th) {
                 try {
                     d.b.f0.l.c.d(th);
@@ -61,7 +61,7 @@ public class c {
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return this.f42957a.getAcceptedIssuers();
+            return this.f42958a.getAcceptedIssuers();
         }
     }
 
@@ -71,12 +71,12 @@ public class c {
 
     public static void b(HttpsURLConnection httpsURLConnection) {
         try {
-            if (f42955a == null) {
+            if (f42956a == null) {
                 synchronized (c.class) {
-                    f42955a = new c();
+                    f42956a = new c();
                 }
             }
-            f42955a.c(httpsURLConnection);
+            f42956a.c(httpsURLConnection);
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }
@@ -115,7 +115,7 @@ public class c {
                 cls = Class.forName("org.apache.harmony.xnet.provider.jsse.TrustManagerImpl");
             }
             if (cls != null) {
-                f42956b = (X509TrustManager) cls.getDeclaredConstructor(KeyStore.class).newInstance(keyStore);
+                f42957b = (X509TrustManager) cls.getDeclaredConstructor(KeyStore.class).newInstance(keyStore);
             }
         }
     }
@@ -123,11 +123,11 @@ public class c {
     public final void c(HttpsURLConnection httpsURLConnection) {
         if (httpsURLConnection != null) {
             try {
-                if (f42956b == null) {
+                if (f42957b == null) {
                     return;
                 }
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{new a(this, f42956b)}, new SecureRandom());
+                sSLContext.init(null, new TrustManager[]{new a(this, f42957b)}, new SecureRandom());
                 httpsURLConnection.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                 httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
             } catch (Throwable th) {

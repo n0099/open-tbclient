@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class e implements n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<n0> f57397a = new AtomicReference<>(null);
+    public static final AtomicReference<n0> f57398a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n0 f57398b = new e();
+    public static final n0 f57399b = new e();
 
     public static n0 e() {
-        n0 n0Var = f57397a.get();
-        return n0Var == null ? f57398b : n0Var;
+        n0 n0Var = f57398a.get();
+        return n0Var == null ? f57399b : n0Var;
     }
 
     @Override // d.b.i0.p0.n0

@@ -170,9 +170,9 @@ public class TextAppearance {
 
     public void updateTextPaintMeasureState(@NonNull TextPaint textPaint, @NonNull Typeface typeface) {
         textPaint.setTypeface(typeface);
-        int style = (typeface.getStyle() ^ (-1)) & this.textStyle;
-        textPaint.setFakeBoldText((style & 1) != 0);
-        textPaint.setTextSkewX((style & 2) != 0 ? -0.25f : 0.0f);
+        int i = (~typeface.getStyle()) & this.textStyle;
+        textPaint.setFakeBoldText((i & 1) != 0);
+        textPaint.setTextSkewX((i & 2) != 0 ? -0.25f : 0.0f);
         textPaint.setTextSize(this.textSize);
     }
 }

@@ -1,7 +1,5 @@
 package d.o.a.a.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
-    public String a() {
-        throw null;
-    }
+    public abstract String a();
 }

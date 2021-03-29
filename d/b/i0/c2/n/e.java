@@ -23,28 +23,28 @@ import d.b.i0.c2.h.p;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53121a;
+    public TbPageContext f53122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f53122b;
+    public View f53123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f53123c;
+    public HeadImageView f53124c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f53124d;
+    public TextView f53125d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f53125e;
+    public RelativeLayout f53126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53126f;
+    public TextView f53127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f53127g;
+    public ImageView f53128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbVideoFullUserInfoLikeButton f53128h;
+    public PbVideoFullUserInfoLikeButton f53129h;
     public d i;
     public View.OnClickListener j;
     public LinearLayout k;
@@ -57,32 +57,32 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == e.this.f53123c || view == e.this.f53124d || view == e.this.f53127g) {
+            if (view == e.this.f53124c || view == e.this.f53125d || view == e.this.f53128g) {
                 e.this.l(view);
             }
         }
     }
 
     public e(TbPageContext tbPageContext, FrameLayout frameLayout) {
-        this.f53121a = tbPageContext;
-        this.f53122b = g(tbPageContext);
+        this.f53122a = tbPageContext;
+        this.f53123b = g(tbPageContext);
         h();
-        frameLayout.addView(this.f53122b);
+        frameLayout.addView(this.f53123b);
     }
 
     public final void e(PostData postData) {
-        this.f53127g.setVisibility(8);
-        this.f53123c.setUserId(postData.s().getUserId());
-        this.f53123c.setUserName(postData.s().getUserName());
-        this.f53123c.setIsBigV(postData.s().isBigV());
-        this.f53124d.setText(postData.s().getName_show());
-        this.f53124d.setTag(postData.s().getUserId());
-        this.f53123c.W(postData.s().getAvater(), 28, false);
+        this.f53128g.setVisibility(8);
+        this.f53124c.setUserId(postData.s().getUserId());
+        this.f53124c.setUserName(postData.s().getUserName());
+        this.f53124c.setIsBigV(postData.s().isBigV());
+        this.f53125d.setText(postData.s().getName_show());
+        this.f53125d.setTag(postData.s().getUserId());
+        this.f53124c.W(postData.s().getAvater(), 28, false);
         this.i.n(postData.s());
     }
 
     public View f() {
-        return this.f53125e;
+        return this.f53126e;
     }
 
     public final View g(TbPageContext<?> tbPageContext) {
@@ -93,25 +93,25 @@ public class e {
     }
 
     public final void h() {
-        this.f53125e = (RelativeLayout) this.f53122b.findViewById(R.id.pbVideoFullUserInfoPanel);
-        HeadImageView headImageView = (HeadImageView) this.f53122b.findViewById(R.id.pbVideoFullPhoto);
-        this.f53123c = headImageView;
+        this.f53126e = (RelativeLayout) this.f53123b.findViewById(R.id.pbVideoFullUserInfoPanel);
+        HeadImageView headImageView = (HeadImageView) this.f53123b.findViewById(R.id.pbVideoFullPhoto);
+        this.f53124c = headImageView;
         headImageView.setOnClickListener(this.l);
-        LinearLayout linearLayout = (LinearLayout) this.f53122b.findViewById(R.id.pbVideoFullNameLayout);
+        LinearLayout linearLayout = (LinearLayout) this.f53123b.findViewById(R.id.pbVideoFullNameLayout);
         this.k = linearLayout;
         SkinManager.setBackgroundResource(linearLayout, R.drawable.video_author_bg);
-        TextView textView = (TextView) this.f53122b.findViewById(R.id.pbVideoFullUserName);
-        this.f53124d = textView;
+        TextView textView = (TextView) this.f53123b.findViewById(R.id.pbVideoFullUserName);
+        this.f53125d = textView;
         textView.setOnClickListener(this.l);
-        TextView textView2 = (TextView) this.f53122b.findViewById(R.id.pbVideoFullAttention);
-        this.f53126f = textView2;
+        TextView textView2 = (TextView) this.f53123b.findViewById(R.id.pbVideoFullAttention);
+        this.f53127f = textView2;
         textView2.setOnClickListener(this.l);
-        this.f53127g = (ImageView) this.f53122b.findViewById(R.id.pbVideoFullChannelIcon);
-        PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = (PbVideoFullUserInfoLikeButton) this.f53122b.findViewById(R.id.pbVideoFullLikeButton);
-        this.f53128h = pbVideoFullUserInfoLikeButton;
-        pbVideoFullUserInfoLikeButton.setTextSize(0, l.g(this.f53121a.getPageActivity(), R.dimen.tbds30));
-        this.i = new d(this.f53121a, this.f53128h);
-        this.f53123c.setRadius(l.g(this.f53121a.getPageActivity(), R.dimen.ds40));
+        this.f53128g = (ImageView) this.f53123b.findViewById(R.id.pbVideoFullChannelIcon);
+        PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = (PbVideoFullUserInfoLikeButton) this.f53123b.findViewById(R.id.pbVideoFullLikeButton);
+        this.f53129h = pbVideoFullUserInfoLikeButton;
+        pbVideoFullUserInfoLikeButton.setTextSize(0, l.g(this.f53122a.getPageActivity(), R.dimen.tbds30));
+        this.i = new d(this.f53122a, this.f53129h);
+        this.f53124c.setRadius(l.g(this.f53122a.getPageActivity(), R.dimen.ds40));
     }
 
     public final boolean i(a2 a2Var) {
@@ -122,16 +122,16 @@ public class e {
     }
 
     public void j(int i) {
-        PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = this.f53128h;
+        PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = this.f53129h;
         if (pbVideoFullUserInfoLikeButton != null) {
             pbVideoFullUserInfoLikeButton.g(i);
         }
-        SkinManager.setViewTextColor(this.f53126f, R.color.CAM_X0101);
-        TextView textView = this.f53124d;
+        SkinManager.setViewTextColor(this.f53127f, R.color.CAM_X0101);
+        TextView textView = this.f53125d;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
         }
-        ImageView imageView = this.f53127g;
+        ImageView imageView = this.f53128g;
         if (imageView != null) {
             SkinManager.setBackgroundResource(imageView, R.drawable.icon_weiba);
         }
@@ -148,17 +148,17 @@ public class e {
     }
 
     public void m(PostData postData, a2 a2Var, p pVar) {
-        this.f53128h.setVisibility(0);
-        this.f53126f.setVisibility(8);
+        this.f53129h.setVisibility(0);
+        this.f53127f.setVisibility(8);
         e(postData);
         if (i(a2Var)) {
-            this.f53126f.setVisibility(8);
-            this.f53128h.setVisibility(8);
+            this.f53127f.setVisibility(8);
+            this.f53129h.setVisibility(8);
         }
     }
 
     public void n(float f2) {
-        this.f53125e.setAlpha(f2);
+        this.f53126e.setAlpha(f2);
     }
 
     public void o(View.OnClickListener onClickListener) {

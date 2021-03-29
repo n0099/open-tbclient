@@ -5,21 +5,21 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47920a;
+    public String f47921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47921b;
+    public String f47922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47922c;
+    public String f47923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f47923d;
+    public JSONObject f47924d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f47924e;
+    public d f47925e;
 
     public String toString() {
-        return "{ videoPath=" + this.f47920a + " , query=" + this.f47921b + " , title=" + this.f47922c + ", extra=" + this.f47923d + ", videoEditorParams=" + this.f47924e + " }";
+        return "{ videoPath=" + this.f47921a + " , query=" + this.f47922b + " , title=" + this.f47923c + ", extra=" + this.f47924d + ", videoEditorParams=" + this.f47925e + " }";
     }
 }

@@ -49,42 +49,42 @@ public class b extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
 
     /* renamed from: d.b.i0.h2.c.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1264b implements a.InterfaceC1115a {
+    public class C1265b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f0 f55174a;
+        public final /* synthetic */ f0 f55175a;
 
-        public C1264b(f0 f0Var) {
-            this.f55174a = f0Var;
+        public C1265b(f0 f0Var) {
+            this.f55175a = f0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, b.this.f42357e, 4);
-            d.b.i0.h2.a.a(this.f55174a.g(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, b.this.f42358e, 4);
+            d.b.i0.h2.a.a(this.f55175a.g(), aVar, 6);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements a.InterfaceC1115a {
+    public class c implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n0 f55176a;
+        public final /* synthetic */ n0 f55177a;
 
         public c(n0 n0Var) {
-            this.f55176a = n0Var;
+            this.f55177a = n0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, b.this.f42357e, 4);
-            d.b.i0.h2.a.a(this.f55176a.g(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, b.this.f42358e, 4);
+            d.b.i0.h2.a.a(this.f55177a.g(), aVar, 6);
         }
     }
 
@@ -103,7 +103,7 @@ public class b extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
                     b.this.s.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 4, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -135,14 +135,14 @@ public class b extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
         f0 f0Var = new f0(this.n);
         f0Var.n(Boolean.FALSE);
         f0Var.v(ImageViewerConfig.FROM_CONCERN);
-        f0Var.r(l.g(this.f42357e, R.dimen.tbds9));
+        f0Var.r(l.g(this.f42358e, R.dimen.tbds9));
         bVar.n(f0Var);
-        bVar.l().d(l.g(this.f42357e, R.dimen.tbds25));
+        bVar.l().d(l.g(this.f42358e, R.dimen.tbds25));
         f0 f0Var2 = new f0(this.n);
         f0Var2.n(Boolean.TRUE);
         f0Var2.v(ImageViewerConfig.FROM_CONCERN);
         f0Var2.y(d.b.h0.b.g.b.a(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), d.b.h0.b.g.b.a(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
-        f0Var2.w(new C1264b(f0Var2));
+        f0Var2.w(new C1265b(f0Var2));
         bVar.h(f0Var2);
         n0 n0Var = new n0(this.n.getPageActivity());
         n0Var.n(Boolean.TRUE);
@@ -151,8 +151,8 @@ public class b extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
         bVar.h(new d.b.i.k(this.n.getPageActivity()));
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 3;
-        eVar.f50768h = 3;
+        eVar.f50763b = 3;
+        eVar.f50769h = 3;
         m0Var.v(eVar);
         m0Var.w(8);
         m0Var.A(6);
@@ -171,7 +171,7 @@ public class b extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

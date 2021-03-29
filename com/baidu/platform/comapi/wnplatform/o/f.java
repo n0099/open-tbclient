@@ -3,13 +3,13 @@ package com.baidu.platform.comapi.wnplatform.o;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f10360a = {"m", "km", "米", "公里"};
+    public static final String[] f10361a = {"m", "km", "米", "公里"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f10361b = {"m", "h", "分钟", "小时"};
+    public static final String[] f10362b = {"m", "h", "分钟", "小时"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f10362c = {"m", "h", "d", "分钟", "小时", "天"};
+    public static final String[] f10363c = {"m", "h", "d", "分钟", "小时", "天"};
 
     /* loaded from: classes2.dex */
     public enum a {
@@ -18,14 +18,14 @@ public class f {
         
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10366c;
+        public int f10367c;
 
         a(int i) {
-            this.f10366c = i;
+            this.f10367c = i;
         }
 
         public int a() {
-            return this.f10366c;
+            return this.f10367c;
         }
     }
 
@@ -40,7 +40,7 @@ public class f {
         }
         if (i < 1000) {
             if (stringBuffer != null) {
-                stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f10360a[a2 + 0]));
+                stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f10361a[a2 + 0]));
                 return;
             }
             return;
@@ -49,12 +49,10 @@ public class f {
         if (stringBuffer != null) {
             int i2 = i / 1000;
             if (i2 >= 100) {
-                stringBuffer.append(String.format("%d%s", Integer.valueOf(i2), f10360a[a2 + 1]));
-                return;
+                stringBuffer.append(String.format("%d%s", Integer.valueOf(i2), f10361a[a2 + 1]));
+            } else {
+                stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f10361a[a2 + 1]));
             }
-            double d2 = i;
-            Double.isNaN(d2);
-            stringBuffer.append(String.format(str, Double.valueOf(d2 / 1000.0d), f10360a[a2 + 1]));
         }
     }
 
@@ -76,20 +74,20 @@ public class f {
             int i4 = (i / 60) % 60;
             if (i < 3600) {
                 stringBuffer.append(i4);
-                stringBuffer.append(f10362c[i2 + 1]);
+                stringBuffer.append(f10363c[i2 + 1]);
             } else if (i < 86400) {
                 stringBuffer.append(i3);
-                stringBuffer.append(f10362c[i2 + 2]);
+                stringBuffer.append(f10363c[i2 + 2]);
                 if (i4 > 0) {
                     stringBuffer.append(i4);
                     stringBuffer.append("分");
                 }
             } else {
                 stringBuffer.append(i / 86400);
-                stringBuffer.append(f10362c[i2 + 3]);
+                stringBuffer.append(f10363c[i2 + 3]);
                 if (i3 > 0) {
                     stringBuffer.append(i3);
-                    stringBuffer.append(f10362c[i2 + 2]);
+                    stringBuffer.append(f10363c[i2 + 2]);
                 }
             }
         }

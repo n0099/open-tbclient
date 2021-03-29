@@ -12,7 +12,7 @@ import java.util.zip.Adler32;
 public class fd {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40495a;
+    public int f40496a;
 
     /* renamed from: a  reason: collision with other field name */
     public fh f368a;
@@ -24,7 +24,7 @@ public class fd {
     public byte[] f372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40496b;
+    public int f40497b;
 
     /* renamed from: a  reason: collision with other field name */
     public ByteBuffer f370a = ByteBuffer.allocate(2048);
@@ -39,8 +39,8 @@ public class fd {
         this.f369a = new BufferedOutputStream(outputStream);
         this.f368a = fhVar;
         TimeZone timeZone = TimeZone.getDefault();
-        this.f40495a = timeZone.getRawOffset() / 3600000;
-        this.f40496b = timeZone.useDaylightTime() ? 1 : 0;
+        this.f40496a = timeZone.getRawOffset() / 3600000;
+        this.f40497b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fa faVar) {
@@ -97,7 +97,7 @@ public class fd {
         faVar.a(0L, "xiaomi.com", null);
         faVar.a(eVar.m262a(), (String) null);
         a(faVar);
-        com.xiaomi.channel.commonutils.logger.b.m51a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m593a() + " tz=" + this.f40495a + ":" + this.f40496b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.m51a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m593a() + " tz=" + this.f40496a + ":" + this.f40497b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {

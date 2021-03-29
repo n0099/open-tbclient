@@ -10,7 +10,7 @@ public final class ObservablePublishSelector$TargetObserver<T, R> extends Atomic
     public final o<? super R> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68061d;
+    public b f68066d;
 
     public ObservablePublishSelector$TargetObserver(o<? super R> oVar) {
         this.actual = oVar;
@@ -18,13 +18,13 @@ public final class ObservablePublishSelector$TargetObserver<T, R> extends Atomic
 
     @Override // f.a.t.b
     public void dispose() {
-        this.f68061d.dispose();
+        this.f68066d.dispose();
         DisposableHelper.dispose(this);
     }
 
     @Override // f.a.t.b
     public boolean isDisposed() {
-        return this.f68061d.isDisposed();
+        return this.f68066d.isDisposed();
     }
 
     @Override // f.a.o
@@ -46,8 +46,8 @@ public final class ObservablePublishSelector$TargetObserver<T, R> extends Atomic
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68061d, bVar)) {
-            this.f68061d = bVar;
+        if (DisposableHelper.validate(this.f68066d, bVar)) {
+            this.f68066d = bVar;
             this.actual.onSubscribe(this);
         }
     }

@@ -9,22 +9,22 @@ import org.json.JSONObject;
 public class OneKeyLoginOptResult implements NoProguard {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11311f = "OneKeyLoginOptResult";
+    public static final String f11312f = "OneKeyLoginOptResult";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11312a;
+    public int f11313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11313b;
+    public int f11314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11314c;
+    public String f11315c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11315d;
+    public String f11316d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11316e;
+    public String f11317e;
 
     /* loaded from: classes2.dex */
     public interface OptResultFields {
@@ -40,58 +40,58 @@ public class OneKeyLoginOptResult implements NoProguard {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                oneKeyLoginOptResult.f11312a = jSONObject.optInt("0", -202);
-                oneKeyLoginOptResult.f11313b = jSONObject.optInt("1", -202);
-                oneKeyLoginOptResult.f11314c = jSONObject.optString("2");
-                oneKeyLoginOptResult.f11315d = jSONObject.optString("3");
+                oneKeyLoginOptResult.f11313a = jSONObject.optInt("0", -202);
+                oneKeyLoginOptResult.f11314b = jSONObject.optInt("1", -202);
+                oneKeyLoginOptResult.f11315c = jSONObject.optString("2");
+                oneKeyLoginOptResult.f11316d = jSONObject.optString("3");
             } catch (JSONException e2) {
-                Log.e(f11311f, e2.getMessage());
+                Log.e(f11312f, e2.getMessage());
             }
         }
         return oneKeyLoginOptResult;
     }
 
     public static boolean isValid(OneKeyLoginOptResult oneKeyLoginOptResult) {
-        return (oneKeyLoginOptResult == null || oneKeyLoginOptResult.f11312a != 0 || oneKeyLoginOptResult.f11313b != 0 || TextUtils.isEmpty(oneKeyLoginOptResult.f11314c) || TextUtils.isEmpty(oneKeyLoginOptResult.f11315d)) ? false : true;
+        return (oneKeyLoginOptResult == null || oneKeyLoginOptResult.f11313a != 0 || oneKeyLoginOptResult.f11314b != 0 || TextUtils.isEmpty(oneKeyLoginOptResult.f11315c) || TextUtils.isEmpty(oneKeyLoginOptResult.f11316d)) ? false : true;
     }
 
     public void generateSecurityPhone() {
-        Log.d(f11311f, "generateSecurityPhone extraStr=" + this.f11315d);
-        if (TextUtils.isEmpty(this.f11315d)) {
+        Log.d(f11312f, "generateSecurityPhone extraStr=" + this.f11316d);
+        if (TextUtils.isEmpty(this.f11316d)) {
             return;
         }
         try {
-            this.f11316e = new JSONObject(this.f11315d).optString(OptResultFields.SECURITY_PHONE);
+            this.f11317e = new JSONObject(this.f11316d).optString(OptResultFields.SECURITY_PHONE);
         } catch (JSONException e2) {
-            Log.e(f11311f, e2.getMessage());
+            Log.e(f11312f, e2.getMessage());
         }
     }
 
     public int getCode() {
-        return this.f11312a;
+        return this.f11313a;
     }
 
     public String getExtraStr() {
-        return this.f11315d;
+        return this.f11316d;
     }
 
     public String getOperateType() {
-        return this.f11314c;
+        return this.f11315c;
     }
 
     public String getSecurityPhone() {
-        return this.f11316e;
+        return this.f11317e;
     }
 
     public int getSubCode() {
-        return this.f11313b;
+        return this.f11314b;
     }
 
     public void setCode(int i) {
-        this.f11312a = i;
+        this.f11313a = i;
     }
 
     public void setSubCode(int i) {
-        this.f11313b = i;
+        this.f11314b = i;
     }
 }

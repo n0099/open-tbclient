@@ -37,7 +37,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.mView.b();
             if (ListUtils.isEmpty(list)) {
                 GodSquareActivity.this.mView.d();
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61253e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61254e)) {
                     GodSquareActivity.this.mView.k(str);
                     return;
                 }
@@ -50,10 +50,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             }
             GodSquareActivity.this.mView.c();
             if (z) {
-                GodSquareActivity.this.mModel.f61253e = list;
-                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f61253e);
+                GodSquareActivity.this.mModel.f61254e = list;
+                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f61254e);
             } else {
-                GodSquareActivity.this.mModel.f61253e.addAll(list);
+                GodSquareActivity.this.mModel.f61254e.addAll(list);
                 GodSquareActivity.this.mView.g();
             }
             if (z2) {
@@ -75,10 +75,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13694c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13695c)) {
                     return;
                 }
-                if (GodSquareActivity.this.mModel.g(d.b.b.e.m.b.f(updateAttentionMessage.getData().f13694c, 0L))) {
+                if (GodSquareActivity.this.mModel.g(d.b.b.e.m.b.f(updateAttentionMessage.getData().f13695c, 0L))) {
                     GodSquareActivity.this.needRefreshView = true;
                 }
             }
@@ -93,7 +93,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61253e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61254e)) {
                     GodSquareActivity.this.loadFirstTime();
                 } else {
                     GodSquareActivity.this.mView.l();

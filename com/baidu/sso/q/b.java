@@ -2,7 +2,7 @@ package com.baidu.sso.q;
 
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public enum b {
     UNSUPPORT(-1, "unsupport"),
     HUA_WEI(0, "HUAWEI"),

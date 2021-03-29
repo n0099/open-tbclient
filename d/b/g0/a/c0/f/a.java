@@ -4,47 +4,47 @@ import android.content.Context;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import d.b.g0.a.a2.g.h;
 import d.b.g0.a.c0.d.e.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f43672d;
+    public static int f43673d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43673a;
+    public Context f43674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f43674b;
+    public b f43675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f43675c;
+    public c f43676c;
 
     /* renamed from: d.b.g0.a.c0.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0623a implements Runnable {
-        public RunnableC0623a() {
+    /* loaded from: classes2.dex */
+    public class RunnableC0624a implements Runnable {
+        public RunnableC0624a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (d.b.g0.a.c0.d.b.e() || a.e() != 0) {
-                a.this.f43675c = new d.b.g0.a.c0.f.c.c(String.format("v8in%s_devtools_remote", a.this.f43673a.getPackageName()), a.this.f43674b);
+                a.this.f43676c = new d.b.g0.a.c0.f.c.c(String.format("v8in%s_devtools_remote", a.this.f43674a.getPackageName()), a.this.f43675b);
             } else if (d.b.g0.a.c0.d.b.f()) {
-                a.this.f43675c = new d.b.g0.a.c0.f.c.b(d.e(), a.this.f43674b);
+                a.this.f43676c = new d.b.g0.a.c0.f.c.b(d.e(), a.this.f43675b);
             } else {
                 d.b.g0.a.c0.c.b("V8Inspector", "Unknown inspect mode");
                 return;
             }
-            a.this.f43675c.start();
+            a.this.f43676c.start();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void onConnected();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void start();
 
@@ -52,35 +52,35 @@ public class a {
     }
 
     static {
-        f43672d = h.a().getBoolean("Inspector", false) ? 2 : 0;
+        f43673d = h.a().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
-        this.f43673a = context;
+        this.f43674a = context;
     }
 
     public static int e() {
-        return f43672d;
+        return f43673d;
     }
 
     public static void g(int i) {
         h.a().putBoolean("Inspector", i == 2);
-        f43672d = i;
+        f43673d = i;
     }
 
     public void f(b bVar) {
-        this.f43674b = bVar;
+        this.f43675b = bVar;
     }
 
     public void h() {
-        ExecutorUtilsExt.postOnSerial(new RunnableC0623a(), "V8Inspector");
+        ExecutorUtilsExt.postOnSerial(new RunnableC0624a(), "V8Inspector");
     }
 
     public void i() {
-        c cVar = this.f43675c;
+        c cVar = this.f43676c;
         if (cVar != null) {
             cVar.stop();
-            this.f43675c = null;
+            this.f43676c = null;
         }
     }
 }

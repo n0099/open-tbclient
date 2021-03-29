@@ -12,7 +12,7 @@ import com.baidu.apollon.utils.ResUtils;
 public class WalletBaseButtonWithImage extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23973a;
+    public TextView f23974a;
 
     public WalletBaseButtonWithImage(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -23,25 +23,25 @@ public class WalletBaseButtonWithImage extends LinearLayout {
         } else {
             setBackgroundDrawable(drawable);
         }
-        this.f23973a = (TextView) findViewById(ResUtils.id(context, "wallet_base_btn_image"));
+        this.f23974a = (TextView) findViewById(ResUtils.id(context, "wallet_base_btn_image"));
         a();
     }
 
     private void a() {
         Drawable drawable = ResUtils.getDrawable(getContext(), "wallet_base_cashdesk_order_btn_img_selector");
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.f23973a.setCompoundDrawables(drawable, null, null, null);
+        this.f23974a.setCompoundDrawables(drawable, null, null, null);
     }
 
     public void setDrawableLeftVisible(boolean z) {
         if (z) {
             a();
         } else {
-            this.f23973a.setCompoundDrawables(null, null, null, null);
+            this.f23974a.setCompoundDrawables(null, null, null, null);
         }
     }
 
     public void setText(CharSequence charSequence) {
-        this.f23973a.setText(charSequence);
+        this.f23974a.setText(charSequence);
     }
 }

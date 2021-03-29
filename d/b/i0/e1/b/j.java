@@ -10,22 +10,22 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f54425d;
+    public static j f54426d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpMessageListener f54426a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    public final HttpMessageListener f54427a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
 
     /* renamed from: b  reason: collision with root package name */
-    public long f54427b = 0;
+    public long f54428b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f54428c = new b();
+    public final Handler f54429c = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public a(j jVar, int i) {
             super(i);
@@ -55,7 +55,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         public b() {
         }
@@ -64,7 +64,7 @@ public class j {
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                j.this.f54427b = System.currentTimeMillis();
+                j.this.f54428b = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().v();
                 if (i == 2 || (z && d.b.b.e.p.j.z())) {
                     j.this.h();
@@ -82,34 +82,34 @@ public class j {
     }
 
     public j() {
-        MessageManager.getInstance().registerListener(this.f54426a);
+        MessageManager.getInstance().registerListener(this.f54427a);
     }
 
     public static synchronized j e() {
         j jVar;
         synchronized (j.class) {
-            if (f54425d == null) {
-                f54425d = new j();
+            if (f54426d == null) {
+                f54426d = new j();
             }
-            jVar = f54425d;
+            jVar = f54426d;
         }
         return jVar;
     }
 
     public void d() {
-        this.f54428c.removeMessages(1);
+        this.f54429c.removeMessages(1);
     }
 
     public void f() {
-        this.f54427b = 0L;
+        this.f54428b = 0L;
         d();
         i();
     }
 
     public final void g(int i, long j) {
-        Message obtainMessage = this.f54428c.obtainMessage(1);
+        Message obtainMessage = this.f54429c.obtainMessage(1);
         obtainMessage.arg1 = i;
-        this.f54428c.sendMessageDelayed(obtainMessage, j);
+        this.f54429c.sendMessageDelayed(obtainMessage, j);
     }
 
     public final void h() {
@@ -119,7 +119,7 @@ public class j {
     public void i() {
         long j;
         int i;
-        long currentTimeMillis = System.currentTimeMillis() - this.f54427b;
+        long currentTimeMillis = System.currentTimeMillis() - this.f54428b;
         if (currentTimeMillis <= 0) {
             currentTimeMillis = 0;
         }
@@ -131,6 +131,6 @@ public class j {
             i = 1;
         }
         g(i, j);
-        this.f54427b = System.currentTimeMillis();
+        this.f54428b = System.currentTimeMillis();
     }
 }

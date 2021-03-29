@@ -18,17 +18,17 @@ import d.b.g0.a.k;
 import d.b.g0.a.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46202a = k.f45050a;
+    public static final boolean f46203a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f46203b;
+    public static JSONObject f46204b;
 
     public static JSONObject a(@NonNull Context context) {
-        if (f46202a) {
+        if (f46203a) {
             Log.d("SystemInfoCacheHelper", "start create System Info");
         }
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
@@ -52,12 +52,12 @@ public class e {
             jSONObject.put("host", d.b.g0.a.w0.a.k().g());
             jSONObject.put("statusBarHeight", h0.H(h0.s()));
             jSONObject.put("navigationBarHeight", h0.H(h0.h()));
-            if (f46202a) {
+            if (f46203a) {
                 Log.d("SystemInfoCacheHelper", "end create System Info");
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f46202a) {
+            if (f46203a) {
                 Log.d("SystemInfoCacheHelper", "crate system info error : ");
                 e2.printStackTrace();
                 return null;
@@ -70,16 +70,16 @@ public class e {
     public static synchronized JSONObject b(Context context) {
         JSONObject jSONObject;
         synchronized (e.class) {
-            if (f46203b == null && context != null) {
-                if (f46202a) {
+            if (f46204b == null && context != null) {
+                if (f46203a) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                f46203b = a(context);
+                f46204b = a(context);
             }
-            if (f46202a) {
+            if (f46203a) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = f46203b;
+            jSONObject = f46204b;
         }
         return jSONObject;
     }
@@ -98,17 +98,17 @@ public class e {
     @Nullable
     public static synchronized void d(Context context) {
         synchronized (e.class) {
-            if (f46202a) {
+            if (f46203a) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
             if (d.b.g0.a.w0.a.N().f()) {
-                if (f46203b == null && context != null) {
-                    if (f46202a) {
+                if (f46204b == null && context != null) {
+                    if (f46203a) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    f46203b = a(context);
+                    f46204b = a(context);
                 }
-                if (f46202a) {
+                if (f46203a) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
                 }
             }
@@ -117,10 +117,10 @@ public class e {
 
     public static synchronized void e() {
         synchronized (e.class) {
-            if (f46202a) {
+            if (f46203a) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            f46203b = null;
+            f46204b = null;
         }
     }
 }

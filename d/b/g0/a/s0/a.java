@@ -7,11 +7,11 @@ import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import d.b.g0.a.k;
 import d.b.g0.a.s0.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<W extends d> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45782a = k.f45050a;
+    public static final boolean f45783a = k.f45051a;
 
     public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
 
@@ -22,7 +22,7 @@ public abstract class a<W extends d> {
     }
 
     public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
-        if (f45782a) {
+        if (f45783a) {
             String str3 = ("【" + w.c0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";

@@ -31,30 +31,30 @@ import java.util.Map;
 public class c extends d.b.i0.c2.o.h.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ReplyFragment f53170a;
+    public ReplyFragment f53171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f53171b;
+    public BdTypeRecyclerView f53172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.c2.h.e f53172c;
+    public d.b.i0.c2.h.e f53173c;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f53174e;
+    public k f53175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbReplyLoadMoreAdapter f53175f;
+    public PbReplyLoadMoreAdapter f53176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.j.e.a f53176g;
+    public d.b.b.j.e.a f53177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.j.e.a f53177h;
+    public d.b.b.j.e.a f53178h;
     public ArrayList<PostData> j;
     public ArrayList<n> k;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d.b.b.j.e.a> f53173d = new ArrayList();
+    public final List<d.b.b.j.e.a> f53174d = new ArrayList();
     public boolean i = true;
     public String l = null;
     public boolean m = true;
@@ -66,8 +66,8 @@ public class c extends d.b.i0.c2.o.h.a {
     public View.OnLongClickListener s = null;
 
     public c(ReplyFragment replyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f53170a = replyFragment;
-        this.f53171b = bdTypeRecyclerView;
+        this.f53171a = replyFragment;
+        this.f53172b = bdTypeRecyclerView;
         d();
     }
 
@@ -78,24 +78,24 @@ public class c extends d.b.i0.c2.o.h.a {
 
     public final void b(o oVar) {
         ForumData l;
-        if (oVar == null || this.f53172c == null || oVar.B0() == null) {
+        if (oVar == null || this.f53173c == null || oVar.B0() == null) {
             return;
         }
         oVar.B0().advertAppContext = new d.b.h0.r.q.d();
-        if (this.f53172c.w() != null) {
-            oVar.B0().advertAppContext.f50749b = this.f53172c.w().a();
+        if (this.f53173c.w() != null) {
+            oVar.B0().advertAppContext.f50750b = this.f53173c.w().a();
         }
-        oVar.B0().advertAppContext.f50748a = oVar.C0();
-        if (this.f53172c.l() != null && (l = this.f53172c.l()) != null) {
-            oVar.B0().advertAppContext.f50751d = l.getId();
-            oVar.B0().advertAppContext.f50752e = l.getFirst_class();
-            oVar.B0().advertAppContext.f50753f = l.getSecond_class();
+        oVar.B0().advertAppContext.f50749a = oVar.C0();
+        if (this.f53173c.l() != null && (l = this.f53173c.l()) != null) {
+            oVar.B0().advertAppContext.f50752d = l.getId();
+            oVar.B0().advertAppContext.f50753e = l.getFirst_class();
+            oVar.B0().advertAppContext.f50754f = l.getSecond_class();
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            oVar.B0().advertAppContext.f50754g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            oVar.B0().advertAppContext.f50755g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
         }
-        oVar.B0().advertAppContext.f50755h = oVar.B0().ext_info;
+        oVar.B0().advertAppContext.f50756h = oVar.B0().ext_info;
         oVar.B0().advertAppContext.i = false;
     }
 
@@ -109,22 +109,22 @@ public class c extends d.b.i0.c2.o.h.a {
     }
 
     public final void d() {
-        k kVar = new k(this.f53170a.I(), PostData.o0);
-        this.f53174e = kVar;
-        kVar.Y0(this.f53170a.I());
-        this.f53175f = new PbReplyLoadMoreAdapter(this.f53170a.I(), PostData.u0);
-        this.f53176g = s.o().a(this.f53170a.I().getBaseFragmentActivity(), AdvertAppInfo.i4);
-        this.f53177h = s.o().a(this.f53170a.I().getBaseFragmentActivity(), AdvertAppInfo.k4);
-        this.f53173d.add(this.f53176g);
-        this.f53173d.add(this.f53177h);
-        this.f53173d.add(this.f53174e);
-        this.f53173d.add(this.f53175f);
-        this.f53171b.a(this.f53173d);
+        k kVar = new k(this.f53171a.I(), PostData.o0);
+        this.f53175e = kVar;
+        kVar.Y0(this.f53171a.I());
+        this.f53176f = new PbReplyLoadMoreAdapter(this.f53171a.I(), PostData.u0);
+        this.f53177g = s.o().a(this.f53171a.I().getBaseFragmentActivity(), AdvertAppInfo.i4);
+        this.f53178h = s.o().a(this.f53171a.I().getBaseFragmentActivity(), AdvertAppInfo.k4);
+        this.f53174d.add(this.f53177g);
+        this.f53174d.add(this.f53178h);
+        this.f53174d.add(this.f53175e);
+        this.f53174d.add(this.f53176f);
+        this.f53172b.a(this.f53174d);
     }
 
     public void e() {
-        if (this.f53171b.getAdapter() instanceof BdRecyclerAdapter) {
-            this.f53171b.getAdapter().notifyDataSetChanged();
+        if (this.f53172b.getAdapter() instanceof BdRecyclerAdapter) {
+            this.f53172b.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -132,7 +132,7 @@ public class c extends d.b.i0.c2.o.h.a {
         if (eVar == null) {
             return;
         }
-        this.f53172c = eVar;
+        this.f53173c = eVar;
         if (eVar != null && eVar.L() != null && eVar.L().T() != null) {
             this.l = eVar.L().T().getUserId();
         }
@@ -140,22 +140,22 @@ public class c extends d.b.i0.c2.o.h.a {
             this.j = new ArrayList<>();
         }
         this.j.clear();
-        d.b.i0.c2.h.e eVar2 = this.f53172c;
-        if (eVar2 != null && eVar2.D() != null && this.f53172c.D().size() > 0) {
-            this.j.addAll(this.f53172c.D());
+        d.b.i0.c2.h.e eVar2 = this.f53173c;
+        if (eVar2 != null && eVar2.D() != null && this.f53173c.D().size() > 0) {
+            this.j.addAll(this.f53173c.D());
         }
-        this.f53174e.s(eVar);
-        this.f53174e.setFromCDN(this.n);
-        this.f53174e.n(this.l);
-        this.f53174e.h(this.m);
-        this.f53174e.l(this.p);
-        this.f53174e.e(this.o);
-        this.f53174e.j(this.q);
-        this.f53174e.k(this.s);
-        this.f53174e.X0(this.r);
-        this.f53175f.m0(this.p);
+        this.f53175e.s(eVar);
+        this.f53175e.setFromCDN(this.n);
+        this.f53175e.n(this.l);
+        this.f53175e.h(this.m);
+        this.f53175e.l(this.p);
+        this.f53175e.e(this.o);
+        this.f53175e.j(this.q);
+        this.f53175e.k(this.s);
+        this.f53175e.X0(this.r);
+        this.f53176f.m0(this.p);
         n();
-        d.b.b.j.e.a aVar = this.f53177h;
+        d.b.b.j.e.a aVar = this.f53178h;
         if (aVar != null && (aVar instanceof p)) {
             ((p) aVar).c(this.n);
         }
@@ -180,7 +180,7 @@ public class c extends d.b.i0.c2.o.h.a {
         if (z) {
             arrayList.remove(postData);
         }
-        BdTypeRecyclerView bdTypeRecyclerView = this.f53171b;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f53172b;
         if (bdTypeRecyclerView != null) {
             this.k = arrayList;
             bdTypeRecyclerView.setData(arrayList);
@@ -218,12 +218,12 @@ public class c extends d.b.i0.c2.o.h.a {
     public final void n() {
         o oVar;
         o oVar2;
-        d.b.i0.c2.h.e eVar = this.f53172c;
+        d.b.i0.c2.h.e eVar = this.f53173c;
         if (eVar == null || eVar.Y || eVar.Z == 2) {
             return;
         }
         ArrayList<PostData> D = eVar.D();
-        ArrayList<o> e2 = this.f53172c.e();
+        ArrayList<o> e2 = this.f53173c.e();
         if (e2 == null || e2.isEmpty() || D == null || D.isEmpty()) {
             return;
         }
@@ -285,18 +285,18 @@ public class c extends d.b.i0.c2.o.h.a {
         Collections.sort(arrayList);
         for (int i3 = 0; i3 < arrayList.size(); i3++) {
             o oVar4 = (o) sparseArray.get(((Integer) arrayList.get(i3)).intValue());
-            if (this.f53172c.l() != null) {
-                oVar4.A0 = this.f53172c.l().getId();
+            if (this.f53173c.l() != null) {
+                oVar4.A0 = this.f53173c.l().getId();
             }
-            if (this.f53172c.L() != null) {
-                oVar4.D0 = d.b.b.e.m.b.f(this.f53172c.L().o0(), 0L);
+            if (this.f53173c.L() != null) {
+                oVar4.D0 = d.b.b.e.m.b.f(this.f53173c.L().o0(), 0L);
             }
-            d.b.i0.c2.h.e eVar2 = this.f53172c;
+            d.b.i0.c2.h.e eVar2 = this.f53173c;
             if (eVar2 != null && eVar2.w() != null) {
-                oVar4.E0 = this.f53172c.w().a();
+                oVar4.E0 = this.f53173c.w().a();
             }
             b(oVar4);
-            int position = oVar4.getPosition() + this.f53172c.X;
+            int position = oVar4.getPosition() + this.f53173c.X;
             if (position >= D.size()) {
                 oVar4.L0 = position;
                 d.b.i0.r2.b0.d.i(oVar4, 2, position + i3, d.b.i0.i1.o.k.a.j(arrayList));
@@ -312,7 +312,7 @@ public class c extends d.b.i0.c2.o.h.a {
                 d.b.i0.r2.b0.d.h(oVar4, 1);
             } else {
                 D.add(position, oVar4);
-                TiebaStatic.eventStat(this.f53170a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, DpStatConstants.KEY_APP_NAME, oVar4.B0().apk_name);
+                TiebaStatic.eventStat(this.f53171a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, DpStatConstants.KEY_APP_NAME, oVar4.B0().apk_name);
             }
         }
     }

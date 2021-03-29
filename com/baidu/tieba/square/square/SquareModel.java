@@ -9,16 +9,16 @@ import d.b.i0.z2.j.f;
 public class SquareModel extends BdBaseModel<Object> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21275e;
+    public b f21276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f21276f;
+    public f f21277f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f21277g;
+    public a f21278g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f21278h;
+    public long f21279h;
     public long i;
     public long j;
     public long k;
@@ -33,17 +33,17 @@ public class SquareModel extends BdBaseModel<Object> {
     public class b extends BdAsyncTask<Object, f, f> {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21280b;
+        public int f21281b;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.z2.g.a f21279a = null;
+        public d.b.i0.z2.g.a f21280a = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public l<String> f21281c = null;
+        public l<String> f21282c = null;
 
         public b(int i) {
-            this.f21280b = 1;
-            this.f21280b = i;
+            this.f21281b = 1;
+            this.f21281b = i;
             setPriority(3);
         }
 
@@ -52,11 +52,11 @@ public class SquareModel extends BdBaseModel<Object> {
         /* renamed from: b */
         public f doInBackground(Object... objArr) {
             f fVar;
-            this.f21279a = new d.b.i0.z2.g.a();
+            this.f21280a = new d.b.i0.z2.g.a();
             l<String> g2 = d.b.h0.r.r.a.f().g("tb.square");
-            this.f21281c = g2;
+            this.f21282c = g2;
             String str = null;
-            if (this.f21280b == 0) {
+            if (this.f21281b == 0) {
                 String str2 = g2.get("square_cache_key");
                 if (str2 == null) {
                     return null;
@@ -70,37 +70,37 @@ public class SquareModel extends BdBaseModel<Object> {
                 if (fVar2.c()) {
                     return fVar2;
                 }
-                this.f21280b = 1;
+                this.f21281b = 1;
                 str = str2;
                 fVar = fVar2;
             } else {
                 fVar = null;
             }
-            if (this.f21280b == 1) {
-                SquareModel.this.f21278h = System.currentTimeMillis();
-                this.f21279a.a("prevtime", SquareModel.this.l + "");
-                str = this.f21279a.i();
-                SquareModel.this.i = this.f21279a.h();
-                SquareModel.this.j = this.f21279a.g();
+            if (this.f21281b == 1) {
+                SquareModel.this.f21279h = System.currentTimeMillis();
+                this.f21280a.a("prevtime", SquareModel.this.l + "");
+                str = this.f21280a.i();
+                SquareModel.this.i = this.f21280a.h();
+                SquareModel.this.j = this.f21280a.g();
                 SquareModel.this.k = System.currentTimeMillis();
             }
-            if (this.f21279a.e()) {
+            if (this.f21280a.e()) {
                 fVar = new f();
                 fVar.j(str);
                 Long valueOf = Long.valueOf(fVar.f());
                 if (valueOf.longValue() > SquareModel.this.l) {
-                    this.f21281c.e("square_cache_key", str, 86400000L);
+                    this.f21282c.e("square_cache_key", str, 86400000L);
                 } else {
-                    String str3 = this.f21281c.get("square_cache_key");
+                    String str3 = this.f21282c.get("square_cache_key");
                     if (str3 != null) {
                         f fVar3 = new f();
                         fVar3.j(str3);
                         fVar3.m(fVar.e());
                         fVar3.n(valueOf.longValue());
-                        this.f21281c.e("square_cache_key", fVar3.d(), 86400000L);
+                        this.f21282c.e("square_cache_key", fVar3.d(), 86400000L);
                         fVar = fVar3;
                     } else {
-                        this.f21281c.e("square_cache_key", str, 86400000L);
+                        this.f21282c.e("square_cache_key", str, 86400000L);
                     }
                 }
                 SquareModel.this.l = valueOf.longValue();
@@ -112,42 +112,42 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(f fVar) {
-            SquareModel.this.f21275e = null;
-            SquareModel.this.f21276f = fVar;
-            if (SquareModel.this.f21277g != null) {
-                if (this.f21280b == 0 || this.f21279a.e()) {
-                    SquareModel.this.f21277g.a(true, null, fVar);
+            SquareModel.this.f21276e = null;
+            SquareModel.this.f21277f = fVar;
+            if (SquareModel.this.f21278g != null) {
+                if (this.f21281b == 0 || this.f21280a.e()) {
+                    SquareModel.this.f21278g.a(true, null, fVar);
                     return;
                 }
-                SquareModel.this.f21277g.a(false, this.f21279a.c(), fVar);
+                SquareModel.this.f21278g.a(false, this.f21280a.c(), fVar);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            d.b.i0.z2.g.a aVar = this.f21279a;
+            d.b.i0.z2.g.a aVar = this.f21280a;
             if (aVar != null) {
                 aVar.b();
             }
-            SquareModel.this.f21275e = null;
+            SquareModel.this.f21276e = null;
         }
     }
 
     public SquareModel(TbPageContext<Object> tbPageContext) {
         super(tbPageContext);
-        this.f21275e = null;
-        this.f21276f = null;
-        this.f21277g = null;
-        this.f21278h = 0L;
+        this.f21276e = null;
+        this.f21277f = null;
+        this.f21278g = null;
+        this.f21279h = 0L;
         this.i = 0L;
         this.j = 0L;
         this.k = 0L;
-        this.f21276f = new f();
+        this.f21277f = new f();
     }
 
     public f B() {
-        return this.f21276f;
+        return this.f21277f;
     }
 
     public long C() {
@@ -155,7 +155,7 @@ public class SquareModel extends BdBaseModel<Object> {
     }
 
     public long D() {
-        return this.f21278h;
+        return this.f21279h;
     }
 
     public long E() {
@@ -167,11 +167,11 @@ public class SquareModel extends BdBaseModel<Object> {
     }
 
     public boolean G(int i) {
-        if (this.f21275e != null) {
+        if (this.f21276e != null) {
             return false;
         }
         b bVar = new b(i);
-        this.f21275e = bVar;
+        this.f21276e = bVar;
         bVar.execute(new Object[0]);
         return true;
     }
@@ -185,7 +185,7 @@ public class SquareModel extends BdBaseModel<Object> {
     }
 
     public void J(a aVar) {
-        this.f21277g = aVar;
+        this.f21278g = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -195,7 +195,7 @@ public class SquareModel extends BdBaseModel<Object> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f21275e;
+        b bVar = this.f21276e;
         if (bVar != null) {
             bVar.cancel();
             return false;

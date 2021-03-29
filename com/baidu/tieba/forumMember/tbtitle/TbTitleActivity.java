@@ -83,23 +83,23 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public class c extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f15949a;
+        public final /* synthetic */ String f15950a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f15950b;
+        public final /* synthetic */ boolean f15951b;
 
         public c(String str, boolean z) {
-            this.f15949a = str;
-            this.f15950b = z;
+            this.f15950a = str;
+            this.f15951b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f15949a)) {
+            if (TextUtils.isEmpty(this.f15950a)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15949a), this.f15950b);
+            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15950a), this.f15951b);
             return null;
         }
     }

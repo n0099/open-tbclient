@@ -8,48 +8,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3847a = "c";
+    public static final String f3848a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f3848b;
+    public JSONArray f3849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3849c;
+    public int f3850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f3850d;
+    public byte[] f3851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f3851e;
+    public byte[] f3852e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3852a;
+        public int f3853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3853b;
+        public String f3854b;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f3854a = new c();
+        public static c f3855a = new c();
     }
 
     public static c a() {
-        return b.f3854a;
+        return b.f3855a;
     }
 
     @SuppressLint({"NewApi"})
     private void d() {
-        int i = this.f3849c;
+        int i = this.f3850c;
         if (i <= 0) {
             return;
         }
@@ -57,10 +57,10 @@ public class c {
             while (true) {
                 int i2 = i - 1;
                 if (i > 0) {
-                    this.f3848b.remove(0);
+                    this.f3849b.remove(0);
                     i = i2;
                 } else {
-                    this.f3849c = 0;
+                    this.f3850c = 0;
                     return;
                 }
             }
@@ -68,8 +68,8 @@ public class c {
             try {
                 Field declaredField = JSONArray.class.getDeclaredField("values");
                 declaredField.setAccessible(true);
-                List list = (List) declaredField.get(this.f3848b);
-                int i3 = this.f3849c;
+                List list = (List) declaredField.get(this.f3849b);
+                int i3 = this.f3850c;
                 while (true) {
                     int i4 = i3 - 1;
                     if (i3 > 0) {
@@ -78,7 +78,7 @@ public class c {
                         }
                         i3 = i4;
                     } else {
-                        this.f3849c = 0;
+                        this.f3850c = 0;
                         return;
                     }
                 }
@@ -95,8 +95,8 @@ public class c {
                 return;
             }
             try {
-                synchronized (this.f3850d) {
-                    this.f3848b = new JSONArray(a2);
+                synchronized (this.f3851d) {
+                    this.f3849b = new JSONArray(a2);
                 }
             } catch (JSONException unused) {
             }
@@ -105,29 +105,29 @@ public class c {
 
     public boolean c() {
         boolean z;
-        synchronized (this.f3850d) {
-            z = this.f3848b.length() == 0;
+        synchronized (this.f3851d) {
+            z = this.f3849b.length() == 0;
         }
         return z;
     }
 
     public c() {
-        this.f3848b = new JSONArray();
-        this.f3849c = 0;
-        this.f3850d = new byte[0];
-        this.f3851e = new byte[0];
+        this.f3849b = new JSONArray();
+        this.f3850c = 0;
+        this.f3851d = new byte[0];
+        this.f3852e = new byte[0];
     }
 
     public void a(e eVar) {
         if (eVar == null) {
             return;
         }
-        synchronized (this.f3850d) {
+        synchronized (this.f3851d) {
             try {
-                this.f3848b.put(this.f3848b.length(), eVar.a());
+                this.f3849b.put(this.f3849b.length(), eVar.a());
             } catch (JSONException unused) {
             }
-            a(g.a().a(eVar.f3869h));
+            a(g.a().a(eVar.f3870h));
             if (CustomerService.getInstance().isEnabled()) {
                 CustomerService.getInstance().enqueEvent(eVar);
             }
@@ -136,7 +136,7 @@ public class c {
 
     public void b(String str) {
         if ("normal_log".equals(str)) {
-            synchronized (this.f3850d) {
+            synchronized (this.f3851d) {
                 d();
             }
             a(false);
@@ -145,12 +145,12 @@ public class c {
 
     private void a(boolean z) {
         int i;
-        synchronized (this.f3850d) {
-            if (this.f3848b.length() == 0) {
+        synchronized (this.f3851d) {
+            if (this.f3849b.length() == 0) {
                 com.baidu.apollon.statistics.a.a(false, PayStatisticsUtil.c(), Config.v, "", false);
                 return;
             }
-            String jSONArray = this.f3848b.toString();
+            String jSONArray = this.f3849b.toString();
             try {
                 i = jSONArray.getBytes().length;
             } catch (Throwable th) {
@@ -175,7 +175,7 @@ public class c {
     public a a(String str) {
         JSONObject jSONObject;
         a aVar = new a();
-        synchronized (this.f3851e) {
+        synchronized (this.f3852e) {
             try {
                 StatisticsSettings a2 = PayStatisticsUtil.getInstance().a();
                 jSONObject = a2 != null ? new JSONObject(a2.getCommonHeader()) : null;
@@ -186,11 +186,11 @@ public class c {
         if (jSONObject == null) {
             return aVar;
         }
-        synchronized (this.f3850d) {
+        synchronized (this.f3851d) {
             try {
-                jSONObject.put("array", this.f3848b);
-                aVar.f3852a = this.f3848b.length();
-                aVar.f3853b = jSONObject.toString();
+                jSONObject.put("array", this.f3849b);
+                aVar.f3853a = this.f3849b.length();
+                aVar.f3854b = jSONObject.toString();
             } catch (JSONException unused2) {
             }
         }
@@ -199,7 +199,7 @@ public class c {
 
     public void a(int i, String str) {
         if ("normal_log".equals(str)) {
-            this.f3849c = i;
+            this.f3850c = i;
         }
     }
 }

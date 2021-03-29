@@ -79,7 +79,7 @@ public class a {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         if (!eVar.Z()) {
-            int i4 = eVar.f52425g;
+            int i4 = eVar.f52426g;
             if (i4 == 2) {
                 i3 = 1;
             } else if (i4 == 1) {

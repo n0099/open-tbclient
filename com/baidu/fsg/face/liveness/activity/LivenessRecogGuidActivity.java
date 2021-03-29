@@ -29,33 +29,33 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public static final String EXTRA_PARAM_SWITCH_RECORD_VIDEO = "extra_switch_record_video";
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f5779a;
+    public Button f5780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f5780b;
+    public ImageView f5781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f5781c;
+    public TextView f5782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f5782d;
+    public ImageView f5783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LivenessRecogCallback f5783e;
+    public LivenessRecogCallback f5784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5784f = null;
+    public String f5785f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5785g = false;
+    public boolean f5786g = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f5783e != null) {
+        if (this.f5784e != null) {
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             livenessRecogResult.setResultMsg(a.ERROR_MSG_USER_CANCEL);
             livenessRecogResult.setResultCode(-204);
-            this.f5783e.b(livenessRecogResult);
+            this.f5784e.b(livenessRecogResult);
         }
         LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
         RimStatisticsUtil.onEventWithValue(d.n, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
@@ -93,7 +93,7 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
             return;
         }
         b();
-        if (!this.f5785g) {
+        if (!this.f5786g) {
             setContentView(R.layout.layout_sapi_liveness_guide_page);
         } else {
             setContentView(R.layout.layout_sapi_liveness_record_video_guide_page);
@@ -112,18 +112,18 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
 
     private void a() {
         Button button = (Button) findViewById(R.id.btn_start_photo);
-        this.f5779a = button;
+        this.f5780a = button;
         button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessRecogDTO livenessRecogDTO = LivenessRecogGuidActivity.this.livenessRecogDTO;
-                RimStatisticsUtil.onEventWithValue(d.f5975c, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventWithValue(d.f5976c, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEvent(StatServiceEvent.ENTERLIVENESS):  用户点击立即验证");
                 LivenessRecogGuidActivity.this.d();
             }
         });
         ImageView imageView = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-        this.f5780b = imageView;
+        this.f5781b = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -131,29 +131,29 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                 LivenessRecogGuidActivity.this.finish();
             }
         });
-        this.f5781c = (TextView) findViewById(R.id.tv_name);
-        this.f5784f = this.livenessRecogDTO.realName;
-        this.f5782d = (ImageView) findViewById(R.id.guide_imageview);
-        if (!TextUtils.isEmpty(this.f5784f)) {
-            String format = String.format(getString(R.string.sapi_liveness_guide_photo_tip), this.f5784f);
+        this.f5782c = (TextView) findViewById(R.id.tv_name);
+        this.f5785f = this.livenessRecogDTO.realName;
+        this.f5783d = (ImageView) findViewById(R.id.guide_imageview);
+        if (!TextUtils.isEmpty(this.f5785f)) {
+            String format = String.format(getString(R.string.sapi_liveness_guide_photo_tip), this.f5785f);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(format);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.sapi_liveness_recog_guide_tip_color));
             if (format.indexOf("*") > 0) {
-                spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf("*"), format.indexOf("*") + this.f5784f.length(), 33);
+                spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf("*"), format.indexOf("*") + this.f5785f.length(), 33);
             } else {
-                spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf(this.f5784f), format.indexOf(this.f5784f) + this.f5784f.length(), 33);
+                spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf(this.f5785f), format.indexOf(this.f5785f) + this.f5785f.length(), 33);
             }
-            this.f5781c.setText(spannableStringBuilder);
+            this.f5782c.setText(spannableStringBuilder);
         } else {
-            this.f5781c.setText(String.format(getString(R.string.sapi_liveness_guide_photo_tip), ""));
+            this.f5782c.setText(String.format(getString(R.string.sapi_liveness_guide_photo_tip), ""));
         }
-        this.f5782d.setImageBitmap(a(R.drawable.sapi_liveness_recognized_time_out_guide));
+        this.f5783d.setImageBitmap(a(R.drawable.sapi_liveness_recognized_time_out_guide));
         f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
     }
 
     private void b() {
-        this.f5783e = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
-        this.f5785g = c.a().a(getActivity()).getSwitchRecordVideo() && this.livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS;
+        this.f5784e = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+        this.f5786g = c.a().a(getActivity()).getSwitchRecordVideo() && this.livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS;
     }
 
     private Bitmap a(int i) {

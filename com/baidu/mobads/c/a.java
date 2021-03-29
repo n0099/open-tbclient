@@ -18,28 +18,28 @@ import java.util.Observer;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f8169b = new Handler(Looper.getMainLooper());
+    public static final Handler f8170b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f8170c;
+    public static a f8171c;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Bitmap> f8171a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
+    public LruCache<String, Bitmap> f8172a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
 
     /* renamed from: com.baidu.mobads.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0104a {
+    public static class C0105a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8172a;
+        public int f8173a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8173b;
+        public int f8174b;
 
-        public C0104a() {
+        public C0105a() {
         }
 
-        public /* synthetic */ C0104a(b bVar) {
+        public /* synthetic */ C0105a(b bVar) {
             this();
         }
     }
@@ -71,14 +71,14 @@ public class a {
     }
 
     public static a a() {
-        if (f8170c == null) {
+        if (f8171c == null) {
             synchronized (a.class) {
-                if (f8170c == null) {
-                    f8170c = new a();
+                if (f8171c == null) {
+                    f8171c = new a();
                 }
             }
         }
-        return f8170c;
+        return f8171c;
     }
 
     public static String b(String str) {
@@ -94,7 +94,7 @@ public class a {
         if (imageView == null || str == null) {
             return;
         }
-        Bitmap bitmap = this.f8171a.get(str);
+        Bitmap bitmap = this.f8172a.get(str);
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
             return;
@@ -118,7 +118,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        if (TextUtils.isEmpty(str) || this.f8171a.get(str) != null) {
+        if (TextUtils.isEmpty(str) || this.f8172a.get(str) != null) {
             return false;
         }
         Bitmap c2 = c(b(str));
@@ -131,10 +131,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Bitmap bitmap) {
-        if (this.f8171a.get(str) != null || str == null || bitmap == null) {
+        if (this.f8172a.get(str) != null || str == null || bitmap == null) {
             return;
         }
-        this.f8171a.put(str, bitmap);
+        this.f8172a.put(str, bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -153,17 +153,17 @@ public class a {
     }
 
     public static int a(BitmapFactory.Options options, ImageView imageView) {
-        C0104a a2 = a(imageView);
+        C0105a a2 = a(imageView);
         int i = options.outWidth;
         int i2 = options.outHeight;
-        if (i > a2.f8172a || i2 > a2.f8173b) {
-            return Math.max(Math.round((i * 1.0f) / a2.f8172a), Math.round((i2 * 1.0f) / a2.f8173b));
+        if (i > a2.f8173a || i2 > a2.f8174b) {
+            return Math.max(Math.round((i * 1.0f) / a2.f8173a), Math.round((i2 * 1.0f) / a2.f8174b));
         }
         return 1;
     }
 
-    public static C0104a a(ImageView imageView) {
-        C0104a c0104a = new C0104a(null);
+    public static C0105a a(ImageView imageView) {
+        C0105a c0105a = new C0105a(null);
         DisplayMetrics displayMetrics = imageView.getContext().getResources().getDisplayMetrics();
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         int width = imageView.getWidth();
@@ -186,8 +186,8 @@ public class a {
         if (height <= 0) {
             height = displayMetrics.heightPixels;
         }
-        c0104a.f8172a = width;
-        c0104a.f8173b = height;
-        return c0104a;
+        c0105a.f8173a = width;
+        c0105a.f8174b = height;
+        return c0105a;
     }
 }

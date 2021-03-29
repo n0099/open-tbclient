@@ -3,25 +3,25 @@ package com.baidu.apollon.permission;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3701a = 0;
+    public static final int f3702a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3702b = 1;
+    public static final int f3703b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3703c = 3;
+    public static final int f3704c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f3704d;
+    public static final b f3705d;
 
     /* renamed from: com.baidu.apollon.permission.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0062a extends b {
-        public C0062a() {
+    /* loaded from: classes.dex */
+    public static class C0063a extends b {
+        public C0063a() {
             super();
         }
 
@@ -41,7 +41,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
         public b() {
         }
@@ -61,21 +61,21 @@ public final class a {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            f3704d = new C0062a();
+            f3705d = new C0063a();
         } else {
-            f3704d = new b();
+            f3705d = new b();
         }
     }
 
     public static String a(@NonNull String str) {
-        return f3704d.a(str);
+        return f3705d.a(str);
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
-        return f3704d.a(context, str, i, str2);
+        return f3705d.a(context, str, i, str2);
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        return f3704d.a(context, str, str2);
+        return f3705d.a(context, str, str2);
     }
 }

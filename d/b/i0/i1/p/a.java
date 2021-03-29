@@ -3,7 +3,7 @@ package d.b.i0.i1.p;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.squareup.wire.Message;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
     int a();
 

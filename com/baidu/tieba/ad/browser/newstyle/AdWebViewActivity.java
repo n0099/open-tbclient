@@ -94,15 +94,15 @@ public class AdWebViewActivity extends AdBaseWebViewActivity {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ShareItem f14497e;
+            public final /* synthetic */ ShareItem f14498e;
 
             public a(ShareItem shareItem) {
-                this.f14497e = shareItem;
+                this.f14498e = shareItem;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                AdWebViewActivity.this.mView.B(this.f14497e);
+                AdWebViewActivity.this.mView.B(this.f14498e);
             }
         }
 

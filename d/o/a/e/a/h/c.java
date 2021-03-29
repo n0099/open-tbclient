@@ -12,25 +12,25 @@ import java.io.InputStreamReader;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66881a = null;
+    public static String f66886a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f66882b = "";
+    public static String f66887b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66883c = "";
+    public static String f66888c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66884d;
+    public static String f66889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f66885e;
+    public static String f66890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f66886f;
+    public static String f66891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66887g;
+    public static String f66892g;
 
     public static boolean a() {
         return b("EMUI");
@@ -38,73 +38,73 @@ public class c {
 
     public static boolean b(String str) {
         p();
-        String str2 = f66884d;
+        String str2 = f66889d;
         if (str2 != null) {
             return str2.equals(str);
         }
         String c2 = c("ro.miui.ui.version.name");
-        f66885e = c2;
+        f66890e = c2;
         if (!TextUtils.isEmpty(c2)) {
-            f66884d = "MIUI";
-            f66886f = "com.xiaomi.market";
+            f66889d = "MIUI";
+            f66891f = "com.xiaomi.market";
         } else {
             String c3 = c("ro.build.version.emui");
-            f66885e = c3;
+            f66890e = c3;
             if (!TextUtils.isEmpty(c3)) {
-                f66884d = "EMUI";
-                f66886f = "com.huawei.appmarket";
+                f66889d = "EMUI";
+                f66891f = "com.huawei.appmarket";
             } else {
-                String c4 = c(f66882b);
-                f66885e = c4;
+                String c4 = c(f66887b);
+                f66890e = c4;
                 if (!TextUtils.isEmpty(c4)) {
-                    f66884d = f66881a;
-                    if (j.a(f66883c) > -1) {
-                        f66886f = f66883c;
+                    f66889d = f66886a;
+                    if (j.a(f66888c) > -1) {
+                        f66891f = f66888c;
                     } else {
-                        f66886f = "com.heytap.market";
+                        f66891f = "com.heytap.market";
                     }
                 } else {
                     String c5 = c("ro.vivo.os.version");
-                    f66885e = c5;
+                    f66890e = c5;
                     if (!TextUtils.isEmpty(c5)) {
-                        f66884d = "VIVO";
-                        f66886f = "com.bbk.appstore";
+                        f66889d = "VIVO";
+                        f66891f = "com.bbk.appstore";
                     } else {
                         String c6 = c("ro.smartisan.version");
-                        f66885e = c6;
+                        f66890e = c6;
                         if (!TextUtils.isEmpty(c6)) {
-                            f66884d = "SMARTISAN";
-                            f66886f = "com.smartisanos.appstore";
+                            f66889d = "SMARTISAN";
+                            f66891f = "com.smartisanos.appstore";
                         } else {
                             String c7 = c(RomUtils.KEY_VERSION_GIONEE);
-                            f66885e = c7;
+                            f66890e = c7;
                             if (!TextUtils.isEmpty(c7)) {
-                                f66884d = "QIONEE";
-                                f66886f = "com.gionee.aora.market";
+                                f66889d = "QIONEE";
+                                f66891f = "com.gionee.aora.market";
                             } else {
                                 String c8 = c("ro.lenovo.lvp.version");
-                                f66885e = c8;
+                                f66890e = c8;
                                 if (!TextUtils.isEmpty(c8)) {
-                                    f66884d = "LENOVO";
-                                    f66886f = "com.lenovo.leos.appstore";
+                                    f66889d = "LENOVO";
+                                    f66891f = "com.lenovo.leos.appstore";
                                 } else if (l().toUpperCase().contains("SAMSUNG")) {
-                                    f66884d = "SAMSUNG";
-                                    f66886f = "com.sec.android.app.samsungapps";
+                                    f66889d = "SAMSUNG";
+                                    f66891f = "com.sec.android.app.samsungapps";
                                 } else if (l().toUpperCase().contains("ZTE")) {
-                                    f66884d = "ZTE";
-                                    f66886f = "zte.com.market";
+                                    f66889d = "ZTE";
+                                    f66891f = "zte.com.market";
                                 } else if (l().toLowerCase().contains(RomUtils.ROM_NUBIA)) {
-                                    f66884d = RomUtils.ROM_NUBIA;
-                                    f66886f = "cn.nubia.neostore";
+                                    f66889d = RomUtils.ROM_NUBIA;
+                                    f66891f = "cn.nubia.neostore";
                                 } else {
                                     String str3 = Build.DISPLAY;
-                                    f66885e = str3;
+                                    f66890e = str3;
                                     if (str3.toUpperCase().contains("FLYME")) {
-                                        f66884d = "FLYME";
-                                        f66886f = "com.meizu.mstore";
+                                        f66889d = "FLYME";
+                                        f66891f = "com.meizu.mstore";
                                     } else {
-                                        f66885e = "unknown";
-                                        f66884d = Build.MANUFACTURER.toUpperCase();
+                                        f66890e = "unknown";
+                                        f66889d = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -113,7 +113,7 @@ public class c {
                 }
             }
         }
-        return f66884d.equals(str);
+        return f66889d.equals(str);
     }
 
     public static String c(String str) {
@@ -144,7 +144,7 @@ public class c {
 
     public static boolean f() {
         p();
-        return b(f66881a);
+        return b(f66886a);
     }
 
     public static boolean g() {
@@ -156,24 +156,24 @@ public class c {
     }
 
     public static String i() {
-        if (f66884d == null) {
+        if (f66889d == null) {
             b("");
         }
-        return f66884d;
+        return f66889d;
     }
 
     public static String j() {
-        if (f66885e == null) {
+        if (f66890e == null) {
             b("");
         }
-        return f66885e;
+        return f66890e;
     }
 
     public static String k() {
-        if (f66886f == null) {
+        if (f66891f == null) {
             b("");
         }
-        return f66886f;
+        return f66891f;
     }
 
     public static final String l() {
@@ -183,39 +183,39 @@ public class c {
 
     public static boolean m() {
         q();
-        return "V10".equals(f66887g);
+        return "V10".equals(f66892g);
     }
 
     public static boolean n() {
         q();
-        return "V11".equals(f66887g);
+        return "V11".equals(f66892g);
     }
 
     public static boolean o() {
         q();
-        return "V12".equals(f66887g);
+        return "V12".equals(f66892g);
     }
 
     public static void p() {
-        if (TextUtils.isEmpty(f66881a)) {
-            f66881a = d.o.a.e.b.d.c.f66949b;
-            f66882b = "ro.build.version." + d.o.a.e.b.d.c.f66950c + Config.ROM;
-            f66883c = "com." + d.o.a.e.b.d.c.f66950c + ".market";
+        if (TextUtils.isEmpty(f66886a)) {
+            f66886a = d.o.a.e.b.d.c.f66954b;
+            f66887b = "ro.build.version." + d.o.a.e.b.d.c.f66955c + Config.ROM;
+            f66888c = "com." + d.o.a.e.b.d.c.f66955c + ".market";
         }
     }
 
     public static void q() {
-        if (f66887g == null) {
+        if (f66892g == null) {
             try {
-                f66887g = c("ro.miui.ui.version.name");
+                f66892g = c("ro.miui.ui.version.name");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            String str = f66887g;
+            String str = f66892g;
             if (str == null) {
                 str = "";
             }
-            f66887g = str;
+            f66892g = str;
         }
     }
 }

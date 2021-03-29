@@ -6,7 +6,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVideoView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FlutterCyberView extends CyberVideoView {
     public Context H;
     public PowerManager.WakeLock I;
@@ -23,7 +23,7 @@ public class FlutterCyberView extends CyberVideoView {
     public CyberPlayerManager.OnSeekCompleteListener T;
     public CyberPlayerManager.OnInfoListener U;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements CyberPlayerManager.OnPreparedListener {
         public a() {
         }
@@ -41,7 +41,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements CyberPlayerManager.OnCompletionListener {
         public b() {
         }
@@ -56,7 +56,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
         public c() {
         }
@@ -74,7 +74,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements CyberPlayerManager.OnSeekCompleteListener {
         public d() {
         }
@@ -87,7 +87,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e implements CyberPlayerManager.OnInfoListener {
         public e() {
         }
@@ -102,7 +102,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface f {
     }
 

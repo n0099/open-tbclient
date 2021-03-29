@@ -22,7 +22,7 @@ import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -33,7 +33,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public d.b.b.e.k.b<GifView> s;
     public b0<a2> t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.e.k.c<ImageView> {
         public a() {
         }
@@ -122,7 +122,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<GifView> {
         public b() {
         }
@@ -201,7 +201,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends b0<a2> {
         public c() {
         }
@@ -215,7 +215,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements w {
         public d() {
         }
@@ -230,7 +230,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     e.this.t.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -255,7 +255,7 @@ public class e extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         oVar.x("index");
         oVar.z(2);
         oVar.C(this.r, this.s);
-        oVar.F(0, d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds44), 0, 0);
+        oVar.F(0, d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds44), 0, 0);
         oVar.y(this.p);
         oVar.w(1);
         bVar.n(oVar);

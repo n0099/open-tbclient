@@ -27,20 +27,20 @@ public class d extends d.b.b.j.e.a<t, VideoPbEnterForumAndTopicViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public VideoPbEnterForumAndTopicViewHolder R(ViewGroup viewGroup) {
-        FrameLayout frameLayout = new FrameLayout(this.f42357e);
-        FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f42357e);
+        FrameLayout frameLayout = new FrameLayout(this.f42358e);
+        FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.f42358e);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = l.g(this.f42357e, R.dimen.M_W_X007);
-        layoutParams.topMargin = l.g(this.f42357e, R.dimen.M_W_X004);
-        layoutParams.rightMargin = l.g(this.f42357e, R.dimen.M_W_X007);
-        layoutParams.bottomMargin = l.g(this.f42357e, R.dimen.M_W_X004);
+        layoutParams.leftMargin = l.g(this.f42358e, R.dimen.M_W_X007);
+        layoutParams.topMargin = l.g(this.f42358e, R.dimen.M_W_X004);
+        layoutParams.rightMargin = l.g(this.f42358e, R.dimen.M_W_X007);
+        layoutParams.bottomMargin = l.g(this.f42358e, R.dimen.M_W_X004);
         frameLayout.addView(flowLabelLayout, layoutParams);
-        return new VideoPbEnterForumAndTopicViewHolder(this.f42357e, frameLayout);
+        return new VideoPbEnterForumAndTopicViewHolder(this.f42358e, frameLayout);
     }
 
     public View i0(int i, View view, ViewGroup viewGroup, t tVar, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
         if (tVar != null) {
-            videoPbEnterForumAndTopicViewHolder.setData(tVar.f52475e);
+            videoPbEnterForumAndTopicViewHolder.setData(tVar.f52476e);
         }
         videoPbEnterForumAndTopicViewHolder.b();
         return view;

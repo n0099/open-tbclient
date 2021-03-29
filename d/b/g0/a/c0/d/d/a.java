@@ -29,94 +29,94 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
 
     /* renamed from: g  reason: collision with root package name */
-    public static Set<String> f43601g;
+    public static Set<String> f43602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<String> f43602h = new HashSet();
+    public static Set<String> f43603h = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public c f43603c;
+    public c f43604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f43604d;
+    public ExecutorService f43605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43605e;
+    public int f43606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f43606f;
+    public c.a f43607f;
 
     /* renamed from: d.b.g0.a.c0.d.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0619a implements e.a {
+    /* loaded from: classes2.dex */
+    public class C0620a implements e.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43607a;
+        public final /* synthetic */ UnitedSchemeEntity f43608a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f43608b;
+        public final /* synthetic */ Context f43609b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43609c;
+        public final /* synthetic */ CallbackHandler f43610c;
 
-        public C0619a(UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
-            this.f43607a = unitedSchemeEntity;
-            this.f43608b = context;
-            this.f43609c = callbackHandler;
+        public C0620a(UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
+            this.f43608a = unitedSchemeEntity;
+            this.f43609b = context;
+            this.f43610c = callbackHandler;
         }
 
         @Override // d.b.g0.a.p.c.e.a
         public void a(boolean z) {
             if (z) {
                 d.b.g0.a.c0.c.b("DebuggerLaunchAction", "Authentication Success");
-                a.f43602h.add(a.this.o(this.f43608b));
-                a.this.p(this.f43608b, this.f43607a, this.f43609c);
+                a.f43603h.add(a.this.o(this.f43609b));
+                a.this.p(this.f43609b, this.f43608a, this.f43610c);
                 return;
             }
             d.b.g0.a.c0.c.b("DebuggerLaunchAction", "Authentication Fail : Not developer");
-            this.f43607a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-            a.this.v(this.f43608b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+            this.f43608a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+            a.this.v(this.f43609b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
         }
 
         @Override // d.b.g0.a.p.c.e.a
         public void b(Exception exc) {
             d.b.g0.a.c0.c.c("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
-            this.f43607a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-            a.this.v(this.f43608b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+            this.f43608a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+            a.this.v(this.f43609b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43611e;
+        public final /* synthetic */ Context f43612e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43612f;
+        public final /* synthetic */ String f43613f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ File f43613g;
+        public final /* synthetic */ File f43614g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43614h;
+        public final /* synthetic */ UnitedSchemeEntity f43615h;
         public final /* synthetic */ CallbackHandler i;
 
         public b(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f43611e = context;
-            this.f43612f = str;
-            this.f43613g = file;
-            this.f43614h = unitedSchemeEntity;
+            this.f43612e = context;
+            this.f43613f = str;
+            this.f43614g = file;
+            this.f43615h = unitedSchemeEntity;
             this.i = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.w(this.f43611e, this.f43612f, this.f43613g, this.f43614h, this.i);
+            a.this.w(this.f43612e, this.f43613f, this.f43614g, this.f43615h, this.i);
         }
     }
 
@@ -130,9 +130,9 @@ public class a extends a0 {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo != null && optParamsAsJo.length() > 0 && equals) {
             c b2 = c.b(optParamsAsJo);
-            this.f43603c = b2;
+            this.f43604c = b2;
             if (b2 == null) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.e("DebuggerLaunchAction", "Remote Debug params is invalid");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -140,8 +140,8 @@ public class a extends a0 {
             } else if (!u()) {
                 v(context, "404");
                 return false;
-            } else if (!f.f45696d.e() && !t().contains(d.b.g0.a.w0.a.O().a(context)) && !f43602h.contains(o(context))) {
-                d.b.g0.a.m.b.b(this.f43603c.f43616a, new C0619a(unitedSchemeEntity, context, callbackHandler));
+            } else if (!f.f45697d.e() && !t().contains(d.b.g0.a.w0.a.O().a(context)) && !f43603h.contains(o(context))) {
+                d.b.g0.a.m.b.b(this.f43604c.f43617a, new C0620a(unitedSchemeEntity, context, callbackHandler));
                 return true;
             } else {
                 p(context, unitedSchemeEntity, callbackHandler);
@@ -154,7 +154,7 @@ public class a extends a0 {
     }
 
     public final String o(Context context) {
-        return d.b.g0.a.w0.a.O().a(context) + this.f43603c.f43616a;
+        return d.b.g0.a.w0.a.O().a(context) + this.f43604c.f43617a;
     }
 
     public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -163,19 +163,19 @@ public class a extends a0 {
         if (b2.exists()) {
             b2.delete();
         }
-        this.f43604d = Executors.newFixedThreadPool(4);
-        this.f43605e = 0;
-        for (int i = 0; i < this.f43603c.f43617b.length(); i++) {
-            String a2 = this.f43603c.a(i);
+        this.f43605d = Executors.newFixedThreadPool(4);
+        this.f43606e = 0;
+        for (int i = 0; i < this.f43604c.f43618b.length(); i++) {
+            String a2 = this.f43604c.a(i);
             if (TextUtils.isEmpty(a2)) {
-                int i2 = this.f43605e + 1;
-                this.f43605e = i2;
-                if (i2 >= this.f43603c.f43617b.length()) {
+                int i2 = this.f43606e + 1;
+                this.f43606e = i2;
+                if (i2 >= this.f43604c.f43618b.length()) {
                     d.b.g0.a.c0.c.b("DebuggerLaunchAction", "IPs are invalid");
                     v(context, "404");
                 }
             } else {
-                this.f43604d.execute(new b(context, a2, b2, unitedSchemeEntity, callbackHandler));
+                this.f43605d.execute(new b(context, a2, b2, unitedSchemeEntity, callbackHandler));
             }
         }
     }
@@ -190,10 +190,10 @@ public class a extends a0 {
     }
 
     public final c.a r() {
-        if (this.f43606f == null) {
-            this.f43606f = (c.a) ((c.a) ((c.a) ((c.a) new c.a().q0(this.f43603c.f43616a)).v0(false)).J0(this.f43603c.f43619d)).H0("1");
+        if (this.f43607f == null) {
+            this.f43607f = (c.a) ((c.a) ((c.a) ((c.a) new c.a().q0(this.f43604c.f43617a)).v0(false)).J0(this.f43604c.f43620d)).H0("1");
         }
-        return this.f43606f;
+        return this.f43607f;
     }
 
     public final String s(String str) {
@@ -220,25 +220,25 @@ public class a extends a0 {
     }
 
     public final Set<String> t() {
-        if (f43601g == null) {
-            f43601g = new HashSet();
+        if (f43602g == null) {
+            f43602g = new HashSet();
             try {
                 JSONArray jSONArray = new JSONArray(h.a().getString("authWlist", ""));
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    f43601g.add(jSONArray.optString(i));
+                    f43602g.add(jSONArray.optString(i));
                 }
             } catch (JSONException unused) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("DebuggerLaunchAction", "Cloud White List is invalid");
                 }
             }
         }
-        return f43601g;
+        return f43602g;
     }
 
     public final boolean u() {
-        JSONArray jSONArray = this.f43603c.f43617b;
-        return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f43603c.f43618c)) ? false : true;
+        JSONArray jSONArray = this.f43604c.f43618b;
+        return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f43604c.f43619c)) ? false : true;
     }
 
     public final void v(Context context, String str) {
@@ -267,9 +267,9 @@ public class a extends a0 {
                 W0.putExtra("remoteDebugUrl", str);
                 context.startActivity(W0);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.f43604d != null) {
-                    this.f43604d.shutdownNow();
-                    this.f43604d = null;
+                if (this.f43605d != null) {
+                    this.f43605d.shutdownNow();
+                    this.f43605d = null;
                 }
                 d.m(r);
                 d.g().h("downloadsuccess");
@@ -279,9 +279,9 @@ public class a extends a0 {
             }
         } catch (IOException unused) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            int i = this.f43605e + 1;
-            this.f43605e = i;
-            if (i >= this.f43603c.f43617b.length()) {
+            int i = this.f43606e + 1;
+            this.f43606e = i;
+            if (i >= this.f43604c.f43618b.length()) {
                 d.b.g0.a.c0.c.b("DebuggerLaunchAction", "IPs are invalid");
                 v(context, "404");
                 d.g().h("downloadfail");

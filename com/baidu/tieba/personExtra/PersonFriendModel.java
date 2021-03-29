@@ -14,29 +14,29 @@ import d.b.h0.r.q.f1;
 public class PersonFriendModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f20371g;
+    public static final String f20372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f20372h;
+    public static TbHttpMessageTask f20373h;
 
     /* renamed from: e  reason: collision with root package name */
-    public f1 f20373e;
+    public f1 f20374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20374f;
+    public String f20375f;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f20371g = str;
+        f20372g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f20372h = tbHttpMessageTask;
+        f20373h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f20372h);
+        MessageManager.getInstance().registerTask(f20373h);
     }
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f20373e = new f1();
+        this.f20374e = new f1();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,11 +50,11 @@ public class PersonFriendModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f20374f;
+        return this.f20375f;
     }
 
     public f1 s() {
-        return this.f20373e;
+        return this.f20374e;
     }
 
     public void setSex(int i) {
@@ -77,10 +77,10 @@ public class PersonFriendModel extends BdBaseModel {
     }
 
     public void v(f1 f1Var) {
-        this.f20373e = f1Var;
+        this.f20374e = f1Var;
     }
 
     public void w(String str) {
-        this.f20374f = str;
+        this.f20375f = str;
     }
 }

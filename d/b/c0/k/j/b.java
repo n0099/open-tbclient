@@ -17,43 +17,43 @@ public class b {
     public static class a extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.j.a f42669a;
+        public final /* synthetic */ d.b.c0.k.j.a f42670a;
 
         public a(d.b.c0.k.j.a aVar) {
-            this.f42669a = aVar;
+            this.f42670a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            a.C0569a c0569a = new a.C0569a();
-            c0569a.f42665a = 2;
-            c0569a.f42666b = g.a().getResources().getString(h.calculate_price_default_error);
-            this.f42669a.a(c0569a);
+            a.C0570a c0570a = new a.C0570a();
+            c0570a.f42666a = 2;
+            c0570a.f42667b = g.a().getResources().getString(h.calculate_price_default_error);
+            this.f42670a.a(c0570a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.c0.k.a.a
         /* renamed from: c */
         public void a(String str) {
-            a.C0569a c0569a = new a.C0569a();
+            a.C0570a c0570a = new a.C0570a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt("errno") == 0) {
-                    c0569a.f42665a = 0;
-                    c0569a.f42666b = jSONObject.optString("msg");
+                    c0570a.f42666a = 0;
+                    c0570a.f42667b = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     optJSONObject.optLong("totalAmount");
-                    c0569a.f42667c = optJSONObject.optLong("userPayAmount");
-                    c0569a.f42668d = optJSONObject.optString("usedhostMarketingDetail");
+                    c0570a.f42668c = optJSONObject.optLong("userPayAmount");
+                    c0570a.f42669d = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0569a.f42665a = jSONObject.optInt("errorLevel", 2);
-                    c0569a.f42666b = jSONObject.optString("msg");
+                    c0570a.f42666a = jSONObject.optInt("errorLevel", 2);
+                    c0570a.f42667b = jSONObject.optString("msg");
                 }
             } catch (Exception unused) {
-                c0569a.f42665a = 2;
-                c0569a.f42666b = g.a().getResources().getString(h.calculate_price_default_error);
+                c0570a.f42666a = 2;
+                c0570a.f42667b = g.a().getResources().getString(h.calculate_price_default_error);
             }
-            this.f42669a.a(c0569a);
+            this.f42670a.a(c0570a);
         }
     }
 

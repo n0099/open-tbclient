@@ -19,20 +19,20 @@ import d.b.h0.d0.h;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicListView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17429e;
+    public int f17430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f17430f;
+    public TbPageContext<?> f17431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z0.j.b.a f17431g;
+    public d.b.i0.z0.j.b.a f17432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f17432h;
+    public BdSwipeRefreshLayout f17433h;
     public BdTypeRecyclerView i;
     public d.b.i0.z0.j.b.b.a j;
     public g k;
@@ -43,18 +43,18 @@ public class TopicListView extends FrameLayout {
     public RecyclerView.OnScrollListener p;
     public ScrollFragmentTabHost.q q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || TopicListView.this.f17431g == null) {
+            if (!j.A() || TopicListView.this.f17432g == null) {
                 return;
             }
             TopicListView.this.i.setVisibility(0);
-            TopicListView.this.f17431g.loadData();
+            TopicListView.this.f17432g.loadData();
         }
     }
 
@@ -108,10 +108,10 @@ public class TopicListView extends FrameLayout {
 
     public void i() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f17429e) {
+        if (skinType == this.f17430e) {
             return;
         }
-        this.f17429e = skinType;
+        this.f17430e = skinType;
         g gVar = this.k;
         if (gVar != null) {
             gVar.I(skinType);
@@ -125,17 +125,14 @@ public class TopicListView extends FrameLayout {
             hVar.onChangeSkinType();
         }
         d.b.i0.z0.j.b.b.a aVar = this.j;
-        if (aVar == null) {
-            PbListView pbListView = this.o;
-            if (pbListView != null) {
-                pbListView.d(skinType);
-                this.o.o(R.color.CAM_X0205);
-                return;
-            }
-            return;
+        if (aVar != null) {
+            aVar.a();
         }
-        aVar.a();
-        throw null;
+        PbListView pbListView = this.o;
+        if (pbListView != null) {
+            pbListView.d(skinType);
+            this.o.o(R.color.CAM_X0205);
+        }
     }
 
     public void j() {
@@ -184,12 +181,12 @@ public class TopicListView extends FrameLayout {
         this.i.setNextPage(this.o);
         this.o.f();
         this.o.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.o.r(l.g(this.f17430f.getPageActivity(), R.dimen.tbds150));
+        this.o.r(l.g(this.f17431f.getPageActivity(), R.dimen.tbds150));
         this.o.A(getResources().getString(R.string.really_great));
     }
 
     public void o() {
-        this.f17432h.setRefreshing(true);
+        this.f17433h.setRefreshing(true);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -199,7 +196,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void p() {
-        this.f17432h.setRefreshing(false);
+        this.f17433h.setRefreshing(false);
     }
 
     public void setData(List<n> list) {
@@ -207,7 +204,6 @@ public class TopicListView extends FrameLayout {
             return;
         }
         this.j.b(list);
-        throw null;
     }
 
     public void setListPullRefreshListener(f.g gVar) {
@@ -219,20 +215,17 @@ public class TopicListView extends FrameLayout {
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         d.b.i0.z0.j.b.b.a aVar = this.j;
-        if (aVar == null) {
-            g gVar = this.k;
-            if (gVar != null) {
-                gVar.Z(bdUniqueId);
-                return;
-            }
-            return;
+        if (aVar != null) {
+            aVar.c(bdUniqueId);
         }
-        aVar.c(bdUniqueId);
-        throw null;
+        g gVar = this.k;
+        if (gVar != null) {
+            gVar.Z(bdUniqueId);
+        }
     }
 
     public void setPresenter(d.b.i0.z0.j.b.a aVar) {
-        this.f17431g = aVar;
+        this.f17432g = aVar;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {

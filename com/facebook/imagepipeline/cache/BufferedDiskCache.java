@@ -21,7 +21,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class BufferedDiskCache {
     public static final Class<?> TAG = BufferedDiskCache.class;
     public final FileCache mFileCache;

@@ -6,31 +6,31 @@ import org.json.JSONObject;
 public class d extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30623a;
+    public String f30624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30624b;
+    public String f30625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30625c;
+    public String f30626c;
 
     public d(String str, String str2, String str3) {
-        this.f30623a = str;
-        this.f30624b = str2;
-        this.f30625c = str3;
+        this.f30624a = str;
+        this.f30625b = str2;
+        this.f30626c = str3;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30623a;
+        return this.f30624a;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ver", this.f30624b);
-            jSONObject.put("data", this.f30625c);
+            jSONObject.put("ver", this.f30625b);
+            jSONObject.put("data", this.f30626c);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

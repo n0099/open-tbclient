@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Long f42614a = 0L;
+    public static Long f42615a = 0L;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Long f42615b = 0L;
+    public static Long f42616b = 0L;
 
     public static final void a() {
-        Long l = f42615b;
+        Long l = f42616b;
         if (l != null) {
             if (l == null) {
                 Intrinsics.throwNpe();
@@ -22,7 +22,7 @@ public final class a {
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = f42615b;
+                    Long l2 = f42616b;
                     if (l2 == null) {
                         Intrinsics.throwNpe();
                     }
@@ -33,13 +33,13 @@ public final class a {
                 b bVar = new b(Constants.DEFAULT_UIN);
                 bVar.b(jSONObject);
                 d.b(bVar);
-                f42615b = 0L;
+                f42616b = 0L;
             }
         }
     }
 
     public static final void b() {
-        Long l = f42614a;
+        Long l = f42615a;
         if (l != null) {
             if (l == null) {
                 Intrinsics.throwNpe();
@@ -47,7 +47,7 @@ public final class a {
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = f42614a;
+                    Long l2 = f42615a;
                     if (l2 == null) {
                         Intrinsics.throwNpe();
                     }
@@ -58,13 +58,13 @@ public final class a {
                 b bVar = new b(Constants.DEFAULT_UIN);
                 bVar.b(jSONObject);
                 d.b(bVar);
-                f42614a = 0L;
+                f42615a = 0L;
             }
         }
     }
 
     public static final void c(Long l) {
-        f42614a = l;
+        f42615a = l;
     }
 
     public static final void d(String str, String str2, String str3) {
@@ -85,7 +85,7 @@ public final class a {
     }
 
     public static final void e(Long l) {
-        f42615b = l;
+        f42616b = l;
     }
 
     public static final void f(String str) {

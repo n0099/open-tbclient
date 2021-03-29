@@ -6,19 +6,19 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements d.b.h0.s.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f51958a;
+    public static d f51959a;
 
     public static synchronized d d() {
         d dVar;
         synchronized (d.class) {
-            if (f51958a == null) {
-                f51958a = new d();
+            if (f51959a == null) {
+                f51959a = new d();
             }
-            dVar = f51958a;
+            dVar = f51959a;
         }
         return dVar;
     }

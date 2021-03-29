@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f41008a = new Object();
+    public static final Object f41009a = new Object();
 
     public static void a(Context context, hj hjVar) {
         if (bm.a(hjVar.e())) {
@@ -39,7 +39,7 @@ public class bn {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x00db */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0005 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0005 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0, types: [byte[]] */
     /* JADX WARN: Type inference failed for: r0v19 */

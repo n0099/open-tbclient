@@ -17,30 +17,30 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements Runnable {
     public static final String[] i = {"image/jpeg", "image/png", "image/gif"};
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.g0.a.b1.d.e.a> f43449e = new ArrayList<>();
+    public ArrayList<d.b.g0.a.b1.d.e.a> f43450e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MediaModel> f43450f = new ArrayList<>();
+    public ArrayList<MediaModel> f43451f = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43451g;
+    public String f43452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f43452h;
+    public Handler f43453h;
 
     public a(String str, Handler handler) {
-        this.f43451g = str;
-        this.f43452h = handler;
+        this.f43452g = str;
+        this.f43453h = handler;
     }
 
     public final void a() {
         String[] strArr;
-        if (TextUtils.equals(this.f43451g, "video")) {
+        if (TextUtils.equals(this.f43452g, "video")) {
             return;
         }
         Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -53,7 +53,7 @@ public class a implements Runnable {
         sb.append("=?");
         String[] strArr2 = i;
         String[] strArr3 = {strArr2[0], strArr2[1]};
-        if (c.f43428d) {
+        if (c.f43429d) {
             sb.append(" or ");
             sb.append("mime_type");
             sb.append("=?");
@@ -66,7 +66,7 @@ public class a implements Runnable {
             try {
                 cursor = contentResolver.query(uri, null, sb.toString(), strArr, "date_added DESC");
             } catch (Exception e2) {
-                if (c.f43425a) {
+                if (c.f43426a) {
                     e2.printStackTrace();
                 }
             }
@@ -78,7 +78,7 @@ public class a implements Runnable {
                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                 File file = new File(string);
-                if (file.exists() && (c.f43428d || !d.d(string))) {
+                if (file.exists() && (c.f43429d || !d.d(string))) {
                     ImageModel imageModel = new ImageModel(string);
                     imageModel.f(j);
                     imageModel.g(j2);
@@ -91,7 +91,7 @@ public class a implements Runnable {
     }
 
     public final void b() {
-        if (TextUtils.equals(this.f43451g, "Image")) {
+        if (TextUtils.equals(this.f43452g, "Image")) {
             return;
         }
         Cursor cursor = null;
@@ -99,7 +99,7 @@ public class a implements Runnable {
             try {
                 cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
             } catch (Exception e2) {
-                if (c.f43425a) {
+                if (c.f43426a) {
                     e2.printStackTrace();
                 }
             }
@@ -151,34 +151,34 @@ public class a implements Runnable {
         d.b.g0.a.b1.d.e.a aVar = new d.b.g0.a.b1.d.e.a();
         aVar.h(name);
         aVar.g(path);
-        int indexOf = this.f43449e.indexOf(aVar);
+        int indexOf = this.f43450e.indexOf(aVar);
         if (indexOf >= 0) {
-            this.f43449e.get(indexOf).a(mediaModel);
+            this.f43450e.get(indexOf).a(mediaModel);
         } else {
             aVar.a(mediaModel);
-            this.f43449e.add(aVar);
+            this.f43450e.add(aVar);
         }
-        this.f43450f.add(mediaModel);
+        this.f43451f.add(mediaModel);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a();
         b();
-        c(this.f43449e);
+        c(this.f43450e);
         d.b.g0.a.b1.d.e.a aVar = new d.b.g0.a.b1.d.e.a();
-        aVar.h(d.b(AppRuntime.getAppContext(), this.f43451g));
-        aVar.f43448h = this.f43450f;
-        this.f43449e.add(0, aVar);
-        Iterator<d.b.g0.a.b1.d.e.a> it = this.f43449e.iterator();
+        aVar.h(d.b(AppRuntime.getAppContext(), this.f43452g));
+        aVar.f43449h = this.f43451f;
+        this.f43450e.add(0, aVar);
+        Iterator<d.b.g0.a.b1.d.e.a> it = this.f43450e.iterator();
         while (it.hasNext()) {
             Collections.sort(it.next().f());
         }
-        Handler handler = this.f43452h;
+        Handler handler = this.f43453h;
         if (handler != null) {
             Message obtainMessage = handler.obtainMessage(0);
-            obtainMessage.obj = this.f43449e;
-            this.f43452h.sendMessage(obtainMessage);
+            obtainMessage.obj = this.f43450e;
+            this.f43453h.sendMessage(obtainMessage);
         }
     }
 }

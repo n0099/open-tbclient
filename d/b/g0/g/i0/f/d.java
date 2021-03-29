@@ -11,20 +11,20 @@ import java.util.Iterator;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48222a = k.f45050a;
+    public static final boolean f48223a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f48223b = -1;
+    public static long f48224b = -1;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long f48224a = d.f48223b;
+        public static final long f48225a = d.f48224b;
 
         static {
-            if (d.f48222a) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + f48224a);
+            if (d.f48223a) {
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + f48225a);
             }
         }
     }
@@ -51,16 +51,16 @@ public final class d {
     }
 
     public static String e() {
-        return d.b.g0.a.w0.a.L().g(a.f48224a);
+        return d.b.g0.a.w0.a.L().g(a.f48225a);
     }
 
     public static long f() {
-        return a.f48224a;
+        return a.f48225a;
     }
 
     public static boolean g() {
-        boolean z = a.f48224a > -1;
-        if (f48222a) {
+        boolean z = a.f48225a > -1;
+        if (f48223a) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
         return z;
@@ -75,7 +75,7 @@ public final class d {
             return d.b.g0.a.e0.u.a.c(false);
         }
         if (g()) {
-            d.b.g0.a.w0.a.L().c(a.f48224a);
+            d.b.g0.a.w0.a.L().c(a.f48225a);
             return f.e();
         }
         return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
@@ -87,10 +87,10 @@ public final class d {
 
     public static void k(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            f48223b = intent.getLongExtra("bundle_key_new_v8_so_switch", f48223b);
+            f48224b = intent.getLongExtra("bundle_key_new_v8_so_switch", f48224b);
         }
-        if (f48222a) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + f48223b);
+        if (f48223a) {
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + f48224b);
         }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class a extends d.g.c.d.a {
-    public static final Reader y = new C1809a();
+    public static final Reader y = new C1810a();
     public static final Object z = new Object();
     public Object[] u;
     public int v;
@@ -23,7 +23,7 @@ public final class a extends d.g.c.d.a {
 
     /* renamed from: d.g.c.b.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1809a extends Reader {
+    public static class C1810a extends Reader {
         @Override // java.io.Reader, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             throw new AssertionError();

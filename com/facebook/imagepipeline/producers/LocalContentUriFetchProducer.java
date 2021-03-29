@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class LocalContentUriFetchProducer extends LocalFetchProducer {
     public static final String PRODUCER_NAME = "LocalContentUriFetchProducer";
     public static final String[] PROJECTION = {"_id", "_data"};
@@ -66,7 +66,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
             createInputStream = this.mContentResolver.openInputStream(sourceUri);
         } else if (sourceUri.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f7663a).createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f7664a).createInputStream();
             } catch (IOException unused) {
                 throw new IOException("Contact photo does not exist: " + sourceUri);
             }

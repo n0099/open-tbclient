@@ -6,7 +6,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import d.b.g0.a.h;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public String A;
     public String B;
@@ -15,28 +15,28 @@ public class a {
     public String E;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43816a;
+    public String f43817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43817b;
+    public String f43818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43818c;
+    public String f43819c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43819d;
+    public String f43820d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43820e;
+    public String f43821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43821f;
+    public String f43822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43822g;
+    public String f43823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43823h;
+    public String f43824h;
     public String i;
     public String j;
     public String k;
@@ -60,14 +60,14 @@ public class a {
         a aVar = new a();
         if (jSONObject != null) {
             jSONObject.optString("photoFilePath");
-            aVar.f43816a = jSONObject.optString("nickName");
-            aVar.f43817b = jSONObject.optString("lastName");
-            aVar.f43818c = jSONObject.optString("middleName");
-            aVar.f43819d = jSONObject.optString("firstName");
-            aVar.f43820e = jSONObject.optString("remark");
-            aVar.f43821f = jSONObject.optString("mobilePhoneNumber");
-            aVar.f43822g = jSONObject.optString("weChatNumber");
-            aVar.f43823h = jSONObject.optString("addressCountry");
+            aVar.f43817a = jSONObject.optString("nickName");
+            aVar.f43818b = jSONObject.optString("lastName");
+            aVar.f43819c = jSONObject.optString("middleName");
+            aVar.f43820d = jSONObject.optString("firstName");
+            aVar.f43821e = jSONObject.optString("remark");
+            aVar.f43822f = jSONObject.optString("mobilePhoneNumber");
+            aVar.f43823g = jSONObject.optString("weChatNumber");
+            aVar.f43824h = jSONObject.optString("addressCountry");
             aVar.i = jSONObject.optString("addressState");
             aVar.j = jSONObject.optString("addressCity");
             aVar.k = jSONObject.optString("addressStreet");
@@ -106,8 +106,8 @@ public class a {
 
     public String c() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f43823h)) {
-            sb.append(this.f43823h);
+        if (!TextUtils.isEmpty(this.f43824h)) {
+            sb.append(this.f43824h);
         }
         if (!TextUtils.isEmpty(this.i)) {
             sb.append(this.i);
@@ -127,14 +127,14 @@ public class a {
 
     public String d() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f43817b)) {
-            sb.append(this.f43817b);
+        if (!TextUtils.isEmpty(this.f43818b)) {
+            sb.append(this.f43818b);
         }
-        if (!TextUtils.isEmpty(this.f43818c)) {
-            sb.append(this.f43818c);
+        if (!TextUtils.isEmpty(this.f43819c)) {
+            sb.append(this.f43819c);
         }
-        if (!TextUtils.isEmpty(this.f43819d)) {
-            sb.append(this.f43819d);
+        if (!TextUtils.isEmpty(this.f43820d)) {
+            sb.append(this.f43820d);
         }
         return sb.toString();
     }
@@ -197,7 +197,7 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", this.f43821f);
+        contentValues.put("data1", this.f43822f);
         return contentValues;
     }
 
@@ -205,7 +205,7 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/nickname");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.f43816a);
+        contentValues.put("data1", this.f43817a);
         return contentValues;
     }
 
@@ -221,7 +221,7 @@ public class a {
     public ContentValues m() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/note");
-        contentValues.put("data1", this.f43820e);
+        contentValues.put("data1", this.f43821e);
         return contentValues;
     }
 
@@ -238,7 +238,7 @@ public class a {
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/im");
         contentValues.put("data5", (Integer) (-1));
         contentValues.put("data6", AppRuntime.getAppContext().getString(h.aiapps_cantact_wechat_lable));
-        contentValues.put("data1", this.f43822g);
+        contentValues.put("data1", this.f43823g);
         return contentValues;
     }
 
@@ -289,6 +289,6 @@ public class a {
     }
 
     public boolean t() {
-        return !TextUtils.isEmpty(this.f43819d);
+        return !TextUtils.isEmpty(this.f43820d);
     }
 }

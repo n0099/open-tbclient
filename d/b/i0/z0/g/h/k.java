@@ -15,13 +15,13 @@ import d.b.h0.r.q.a2;
 import d.b.i.k0;
 import d.b.i.u0.a;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public d.b.b.j.e.s o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.j.e.w {
         public a(k kVar) {
         }
@@ -31,16 +31,16 @@ public class k extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
             d.b.i0.x.e0.k kVar;
             a2 a2Var;
             boolean z = nVar instanceof d.b.i0.x.e0.k;
-            if (z && (kVar = (d.b.i0.x.e0.k) nVar) != null && kVar.y && (a2Var = kVar.f62196e) != null && a2Var.y0() != null) {
+            if (z && (kVar = (d.b.i0.x.e0.k) nVar) != null && kVar.y && (a2Var = kVar.f62197e) != null && a2Var.y0() != null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("itemID", String.valueOf(kVar.f62196e.y0().item_id));
+                hashMap.put("itemID", String.valueOf(kVar.f62197e.y0().item_id));
                 hashMap.put("source", 1);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new d.b.i0.c3.h0.m(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
             } else if (z && (view.getTag() instanceof ThreadCardViewHolder)) {
                 d.b.i0.x.e0.k kVar2 = (d.b.i0.x.e0.k) nVar;
                 kVar2.k = 1;
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar2, view.getContext(), 4, false);
-                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             }
         }
     }
@@ -70,7 +70,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

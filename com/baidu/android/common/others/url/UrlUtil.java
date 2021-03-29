@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UrlUtil {
     public static final boolean DEBUG = false;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";

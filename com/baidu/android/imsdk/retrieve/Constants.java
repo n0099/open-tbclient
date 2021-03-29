@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Constants {
     public static final String BUSSINESS_EXPIRED = "1";
     public static final String DATA_KEY_MISS = "1";
@@ -22,7 +22,7 @@ public class Constants {
     public static final String VALUE_DISPATCH_SUCCESS = "1";
     public static final String VALUE_SERVER_PARAMES_ERROR = "-1";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public final class MetaError {
         public static final String ERROR_COPY = "2";
         public static final String ERROR_EXIST = "1";

@@ -15,15 +15,15 @@ import java.util.List;
 public abstract class PayBaseBean<T> extends BaseBean<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25460a;
+    public long f25461a;
 
     public PayBaseBean(Context context) {
         super(context);
-        this.f25460a = 0L;
+        this.f25461a = 0L;
     }
 
     private void a(int i) {
-        long currentTimeMillis = System.currentTimeMillis() - this.f25460a;
+        long currentTimeMillis = System.currentTimeMillis() - this.f25461a;
         try {
             String path = new URL(getUrl()).getPath();
             List<String> collectData = StatHelper.collectData(path, i + "");
@@ -37,7 +37,7 @@ public abstract class PayBaseBean<T> extends BaseBean<T> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
-        this.f25460a = System.currentTimeMillis();
+        this.f25461a = System.currentTimeMillis();
         super.execBean(cls, cls2);
     }
 
@@ -67,6 +67,6 @@ public abstract class PayBaseBean<T> extends BaseBean<T> {
 
     public PayBaseBean(Context context, int i) {
         super(context, i);
-        this.f25460a = 0L;
+        this.f25461a = 0L;
     }
 }

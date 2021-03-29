@@ -28,7 +28,7 @@ import d.b.g0.a.i2.k0;
 import d.b.g0.a.i2.w;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> {
     public SwanAppActivity i;
     public d.b.g0.a.e0.l.e j;
@@ -41,68 +41,68 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
     public int q;
 
     /* renamed from: d.b.g0.a.a0.c.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0593a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0594a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.g.b f43145e;
+        public final /* synthetic */ d.b.g0.a.a0.c.g.b f43146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43146f;
+        public final /* synthetic */ SwanEditText f43147f;
 
-        public RunnableC0593a(d.b.g0.a.a0.c.g.b bVar, SwanEditText swanEditText) {
-            this.f43145e = bVar;
-            this.f43146f = swanEditText;
+        public RunnableC0594a(d.b.g0.a.a0.c.g.b bVar, SwanEditText swanEditText) {
+            this.f43146e = bVar;
+            this.f43147f = swanEditText;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.i != null) {
                 InputMethodManager inputMethodManager = (InputMethodManager) a.this.i.getSystemService("input_method");
-                if (inputMethodManager == null || !this.f43145e.S) {
+                if (inputMethodManager == null || !this.f43146e.S) {
                     return;
                 }
-                this.f43146f.setFocusable(true);
-                this.f43146f.setFocusableInTouchMode(true);
-                this.f43146f.requestFocus();
-                inputMethodManager.showSoftInput(this.f43146f, 0);
+                this.f43147f.setFocusable(true);
+                this.f43147f.setFocusableInTouchMode(true);
+                this.f43147f.requestFocus();
+                inputMethodManager.showSoftInput(this.f43147f, 0);
                 return;
             }
             d.b.g0.a.a0.g.a.a("Component-TextArea", "activity is null, set textarea attr failed");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements SwanEditText.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43148a;
+        public final /* synthetic */ SwanEditText f43149a;
 
         public b(SwanEditText swanEditText) {
-            this.f43148a = swanEditText;
+            this.f43149a = swanEditText;
         }
 
         @Override // com.baidu.swan.apps.component.components.textarea.SwanEditText.a
         public void a(int i, int i2) {
-            a.this.F0(this.f43148a, "selection");
+            a.this.F0(this.f43149a, "selection");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43150e;
+        public final /* synthetic */ SwanEditText f43151e;
 
         public c(SwanEditText swanEditText) {
-            this.f43150e = swanEditText;
+            this.f43151e = swanEditText;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (this.f43150e.hasFocus()) {
+            if (this.f43151e.hasFocus()) {
                 d.b.g0.a.c0.c.g("Component-TextArea", "send input callback");
-                a.this.F0(this.f43150e, Config.INPUT_PART);
+                a.this.F0(this.f43151e, Config.INPUT_PART);
             }
         }
 
@@ -112,88 +112,88 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            if (this.f43150e.getLineCount() <= 0 || a.this.q == this.f43150e.getLineCount()) {
+            if (this.f43151e.getLineCount() <= 0 || a.this.q == this.f43151e.getLineCount()) {
                 return;
             }
             d.b.g0.a.c0.c.g("Component-TextArea", "send line change callback");
-            a.this.F0(this.f43150e, "linechange");
+            a.this.F0(this.f43151e, "linechange");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements View.OnFocusChangeListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43152e;
+        public final /* synthetic */ SwanEditText f43153e;
 
         public d(SwanEditText swanEditText) {
-            this.f43152e = swanEditText;
+            this.f43153e = swanEditText;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (d.b.g0.a.a0.b.a.f43099h) {
+            if (d.b.g0.a.a0.b.a.f43100h) {
                 Log.d("Component-TextArea", "onFocusChange:" + z);
             }
             if (z) {
                 if (a.this.k != 0) {
-                    a.this.F0(this.f43152e, AddFriendActivityConfig.TYPE_FOCUS);
+                    a.this.F0(this.f43153e, AddFriendActivityConfig.TYPE_FOCUS);
                 }
                 a.this.I0();
                 return;
             }
-            a.this.F0(this.f43152e, "blur");
+            a.this.F0(this.f43153e, "blur");
             a.this.H0();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements d.b.g0.a.e2.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43154a;
+        public final /* synthetic */ SwanEditText f43155a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f43155b;
+        public final /* synthetic */ SwanAppActivity f43156b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f43156c;
+        public final /* synthetic */ View f43157c;
 
         /* renamed from: d.b.g0.a.a0.c.g.a$e$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0594a implements ShowConfirmBarLayout.b {
+        /* loaded from: classes2.dex */
+        public class C0595a implements ShowConfirmBarLayout.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.a0.c.g.b f43158a;
+            public final /* synthetic */ d.b.g0.a.a0.c.g.b f43159a;
 
-            public C0594a(d.b.g0.a.a0.c.g.b bVar) {
-                this.f43158a = bVar;
+            public C0595a(d.b.g0.a.a0.c.g.b bVar) {
+                this.f43159a = bVar;
             }
 
             @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.b
             public void onClick(View view) {
                 InputMethodManager inputMethodManager;
-                if (!this.f43158a.a0 && (inputMethodManager = (InputMethodManager) e.this.f43155b.getSystemService("input_method")) != null) {
-                    inputMethodManager.hideSoftInputFromWindow(e.this.f43154a.getWindowToken(), 0);
+                if (!this.f43159a.a0 && (inputMethodManager = (InputMethodManager) e.this.f43156b.getSystemService("input_method")) != null) {
+                    inputMethodManager.hideSoftInputFromWindow(e.this.f43155a.getWindowToken(), 0);
                 }
                 d.b.g0.a.c0.c.g("Component-TextArea", "send confirm change callback");
                 e eVar = e.this;
-                a.this.F0(eVar.f43154a, "confirm");
+                a.this.F0(eVar.f43155a, "confirm");
             }
         }
 
         public e(SwanEditText swanEditText, SwanAppActivity swanAppActivity, View view) {
-            this.f43154a = swanEditText;
-            this.f43155b = swanAppActivity;
-            this.f43156c = view;
+            this.f43155a = swanEditText;
+            this.f43156b = swanAppActivity;
+            this.f43157c = view;
         }
 
         @Override // d.b.g0.a.e2.a
         public void a(String str) {
-            if (a.this.q != this.f43154a.getLineCount()) {
+            if (a.this.q != this.f43155a.getLineCount()) {
                 d.b.g0.a.c0.c.g("Component-TextArea", "send line change callback");
-                a.this.F0(this.f43154a, "linechange");
-                a.this.E0(this.f43154a, str);
+                a.this.F0(this.f43155a, "linechange");
+                a.this.E0(this.f43155a, str);
             }
         }
 
@@ -206,13 +206,13 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
                     a.this.p = false;
                 }
                 if (a.this.o != null && a.this.o.getVisibility() == 0) {
-                    ((FrameLayout) this.f43156c.findViewById(16908290)).removeView(a.this.o);
+                    ((FrameLayout) this.f43157c.findViewById(16908290)).removeView(a.this.o);
                     a.this.o = null;
                 }
             }
-            if (this.f43154a.hasFocus()) {
-                this.f43154a.clearFocus();
-                if (d.b.g0.a.a0.b.a.f43099h) {
+            if (this.f43155a.hasFocus()) {
+                this.f43155a.clearFocus();
+                if (d.b.g0.a.a0.b.a.f43100h) {
                     Log.d("Component-TextArea", "clearFocus");
                 }
             }
@@ -223,21 +223,21 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
             int i2;
             d.b.g0.a.a0.c.g.b bVar = (d.b.g0.a.a0.c.g.b) a.this.n();
             d.b.g0.a.p.d.c o = d.b.g0.a.z0.f.V().o();
-            if (a.this.k == i || !this.f43154a.hasFocus() || o == null) {
+            if (a.this.k == i || !this.f43155a.hasFocus() || o == null) {
                 return;
             }
             a.this.k = i;
-            a.this.n = this.f43154a.getHeight();
-            a.this.F0(this.f43154a, AddFriendActivityConfig.TYPE_FOCUS);
+            a.this.n = this.f43155a.getHeight();
+            a.this.F0(this.f43155a, AddFriendActivityConfig.TYPE_FOCUS);
             boolean z = bVar.W;
             if (bVar.V) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 i2 = h0.f(38.0f);
                 if (a.this.o == null) {
-                    a.this.o = new ShowConfirmBarLayout(this.f43155b);
-                    a.this.o.setOnConfirmButtonClickListener(new C0594a(bVar));
-                    layoutParams.topMargin = ((this.f43156c.getHeight() - i) - i2) - h0.q();
-                    ((FrameLayout) this.f43156c.findViewById(16908290)).addView(a.this.o, layoutParams);
+                    a.this.o = new ShowConfirmBarLayout(this.f43156b);
+                    a.this.o.setOnConfirmButtonClickListener(new C0595a(bVar));
+                    layoutParams.topMargin = ((this.f43157c.getHeight() - i) - i2) - h0.q();
+                    ((FrameLayout) this.f43157c.findViewById(16908290)).addView(a.this.o, layoutParams);
                 }
             } else {
                 i2 = 0;
@@ -245,7 +245,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
             if (z) {
                 int webViewScrollY = !bVar.U ? o.getWebViewScrollY() : 0;
                 d.b.g0.a.e1.d.a.a aVar = bVar.l;
-                int height = ((a.this.j.b3().getHeight() - (aVar != null ? aVar.f() : 0)) - this.f43154a.getHeight()) + webViewScrollY;
+                int height = ((a.this.j.b3().getHeight() - (aVar != null ? aVar.f() : 0)) - this.f43155a.getHeight()) + webViewScrollY;
                 int i3 = bVar.H;
                 if (height - i3 < i) {
                     a.this.p = true;
@@ -262,44 +262,44 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43160e;
+        public final /* synthetic */ SwanEditText f43161e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43161f;
+        public final /* synthetic */ String f43162f;
 
         public f(SwanEditText swanEditText, String str) {
-            this.f43160e = swanEditText;
-            this.f43161f = str;
+            this.f43161e = swanEditText;
+            this.f43162f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f43160e != null) {
+            if (this.f43161e != null) {
                 JSONObject jSONObject = new JSONObject();
-                String obj = this.f43160e.getTag().toString();
-                if (!TextUtils.equals(obj, ((d.b.g0.a.a0.c.g.b) a.this.n()).f43112f)) {
+                String obj = this.f43161e.getTag().toString();
+                if (!TextUtils.equals(obj, ((d.b.g0.a.a0.c.g.b) a.this.n()).f43113f)) {
                     d.b.g0.a.a0.g.a.a("Component-TextArea", "changeTextAreaStatus with different id");
                 }
-                int D0 = a.this.D0(this.f43160e);
+                int D0 = a.this.D0(this.f43161e);
                 try {
-                    jSONObject.put("eventName", this.f43161f);
-                    jSONObject.put("value", this.f43160e.getText().toString());
-                    jSONObject.put(Constants.EXTRA_CONFIG_CURSOR, this.f43160e.getSelectionStart());
-                    jSONObject.put("selectionStart", this.f43160e.getSelectionStart());
-                    jSONObject.put("selectionEnd", this.f43160e.getSelectionEnd());
-                    jSONObject.put("lineCount", this.f43160e.getLineCount());
+                    jSONObject.put("eventName", this.f43162f);
+                    jSONObject.put("value", this.f43161e.getText().toString());
+                    jSONObject.put(Constants.EXTRA_CONFIG_CURSOR, this.f43161e.getSelectionStart());
+                    jSONObject.put("selectionStart", this.f43161e.getSelectionStart());
+                    jSONObject.put("selectionEnd", this.f43161e.getSelectionEnd());
+                    jSONObject.put("lineCount", this.f43161e.getLineCount());
                     jSONObject.put("height", h0.H(D0));
                     jSONObject.put("keyboardHeight", h0.H(a.this.k));
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.a0.b.a.f43099h) {
+                    if (d.b.g0.a.a0.b.a.f43100h) {
                         e2.printStackTrace();
                     }
                 }
-                if (d.b.g0.a.a0.b.a.f43099h) {
+                if (d.b.g0.a.a0.b.a.f43100h) {
                     Log.d("Component-TextArea", "changeTextAreaStatus:" + jSONObject.toString());
                 }
                 a.this.l.a(obj, a.this.m, jSONObject);
@@ -307,30 +307,30 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g implements TextView.OnEditorActionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f43163a;
+        public final /* synthetic */ SwanEditText f43164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a0.c.g.b f43164b;
+        public final /* synthetic */ d.b.g0.a.a0.c.g.b f43165b;
 
         public g(SwanEditText swanEditText, d.b.g0.a.a0.c.g.b bVar) {
-            this.f43163a = swanEditText;
-            this.f43164b = bVar;
+            this.f43164a = swanEditText;
+            this.f43165b = bVar;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if (i >= 2 && i <= 7) {
-                a.this.F0(this.f43163a, "confirm");
+                a.this.F0(this.f43164a, "confirm");
             }
-            return this.f43164b.a0;
+            return this.f43165b.a0;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface h {
         void a(String str, String str2, JSONObject jSONObject);
     }
@@ -363,7 +363,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
 
     public final void E0(SwanEditText swanEditText, String str) {
         d.b.g0.a.a0.c.g.b bVar = (d.b.g0.a.a0.c.g.b) n();
-        if (!TextUtils.equals(str, bVar.f43112f)) {
+        if (!TextUtils.equals(str, bVar.f43113f)) {
             d.b.g0.a.a0.g.a.a("Component-TextArea", "keyBoardShow with different id");
         }
         boolean z = bVar.W;
@@ -469,7 +469,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
             d.b.g0.a.c0.c.l("Component-TextArea", "activity is null when close input");
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextArea", "forceCloseKeyboard");
         }
         w.a(activity, activity.getWindow().getDecorView().getWindowToken());
@@ -481,7 +481,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
             d.b.g0.a.c0.c.l("Component-TextArea", "activity is null when open input");
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextArea", "forceOpenKeyboard");
         }
         w.b(activity, true);
@@ -501,7 +501,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
     public void B(@NonNull SwanEditText swanEditText) {
         super.B(swanEditText);
         d.b.g0.a.a0.c.g.b bVar = (d.b.g0.a.a0.c.g.b) n();
-        swanEditText.setTag(bVar.f43112f);
+        swanEditText.setTag(bVar.f43113f);
         swanEditText.setInputType(262144);
         swanEditText.setSingleLine(false);
         swanEditText.setHorizontallyScrolling(false);
@@ -521,7 +521,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
             swanEditText.setMinHeight(bVar.X);
             swanEditText.setMaxHeight(bVar.Y);
         }
-        k0.T(new RunnableC0593a(bVar, swanEditText));
+        k0.T(new RunnableC0594a(bVar, swanEditText));
         if (bVar2.a(15)) {
             O0(swanEditText, bVar);
         }
@@ -561,7 +561,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
     }
 
     public final void O0(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.g.b bVar) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextArea", "renderDisable");
         }
         swanEditText.setEnabled(!bVar.Z);
@@ -569,7 +569,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
 
     public final void P0(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.g.b bVar) {
         StyleSpan styleSpan;
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextArea", "renderPlaceHolder");
         }
         SpannableString spannableString = new SpannableString(bVar.O);
@@ -614,7 +614,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
     @Override // d.b.g0.a.a0.a.c.a
     /* renamed from: R0 */
     public void W(@NonNull SwanEditText swanEditText, @NonNull d.b.g0.a.a0.c.g.b bVar) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextArea", "renderText");
         }
         if (TextUtils.equals(swanEditText.getText(), bVar.x)) {
@@ -638,7 +638,7 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
     }
 
     public void U0(String str) {
-        if (!TextUtils.equals(((d.b.g0.a.a0.c.g.b) n()).f43112f, str)) {
+        if (!TextUtils.equals(((d.b.g0.a.a0.c.g.b) n()).f43113f, str)) {
             d.b.g0.a.a0.g.a.a("Component-TextArea", "sendLineChangeEvent with different id");
         }
         SwanEditText swanEditText = (SwanEditText) q();
@@ -653,6 +653,6 @@ public final class a extends d.b.g0.a.a0.a.a.a<SwanEditText, d.b.g0.a.a0.c.g.b> 
         swanEditText.setSelectListener(new b(swanEditText));
         swanEditText.addTextChangedListener(new c(swanEditText));
         swanEditText.setOnFocusChangeListener(new d(swanEditText));
-        d.b.g0.a.e2.b.g(((d.b.g0.a.a0.c.g.b) n()).f43112f, swanAppActivity, new e(swanEditText, swanAppActivity, swanAppActivity.getWindow().getDecorView()));
+        d.b.g0.a.e2.b.g(((d.b.g0.a.a0.c.g.b) n()).f43113f, swanAppActivity, new e(swanEditText, swanAppActivity, swanAppActivity.getWindow().getDecorView()));
     }
 }

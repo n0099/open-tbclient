@@ -23,7 +23,7 @@ import d.b.b.e.p.k;
 import d.b.b.e.p.l;
 import d.b.b.j.e.c;
 import d.b.h0.r.f0.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageView.a0 {
     public TbImageView k;
     public LottieAnimationView l;
@@ -35,11 +35,11 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
     public String r;
     public String s;
     public f.g t;
-    public f.InterfaceC1074f u;
+    public f.InterfaceC1075f u;
     public f.h v;
     public f.e w;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements TbImageView.g {
         public a() {
         }
@@ -50,10 +50,10 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void b(TbImageView tbImageView, Canvas canvas) {
-            if (b.this.k.getBdImage() != null || b.this.o == null || k.isEmpty(b.this.o.f50648a)) {
+            if (b.this.k.getBdImage() != null || b.this.o == null || k.isEmpty(b.this.o.f50649a)) {
                 return;
             }
-            b.this.k.W(b.this.o.f50648a, 41, false);
+            b.this.k.W(b.this.o.f50649a, 41, false);
         }
     }
 
@@ -85,7 +85,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         if (this.m.getBackground() != null || (aVar = this.o) == null) {
             return;
         }
-        if (aVar.f50650c == 1) {
+        if (aVar.f50651c == 1) {
             this.m.setBackgroundResource(R.drawable.bigday_text_mask_black);
         } else {
             this.m.setBackgroundResource(R.drawable.bigday_text_mask_white);
@@ -96,7 +96,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         if (aVar.a()) {
             this.o = aVar;
         }
-        if (aVar.f50650c == 1) {
+        if (aVar.f50651c == 1) {
             this.n.setTextColor(p().getResources().getColor(R.color.CAM_X0101));
             this.m.setBackgroundResource(R.drawable.bigday_text_mask_black);
             this.l.setAnimation(R.raw.lottie_refresh_light);
@@ -106,7 +106,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             this.l.setAnimation(R.raw.lottie_refresh_dark);
         }
         this.l.setFrame(0);
-        this.k.W(aVar.f50648a, 41, false);
+        this.k.W(aVar.f50649a, 41, false);
         this.k.setOnDrawListener(new a());
     }
 
@@ -146,8 +146,8 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a0
-    public void g(f.InterfaceC1074f interfaceC1074f) {
-        this.u = interfaceC1074f;
+    public void g(f.InterfaceC1075f interfaceC1075f) {
+        this.u = interfaceC1075f;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
@@ -171,14 +171,12 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         MessageManager messageManager = MessageManager.getInstance();
         Context p = p();
         d.b.h0.r.n.a aVar2 = this.o;
-        messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(p, aVar2.f50648a, aVar2.f50649b, aVar2.f50651d)));
+        messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(p, aVar2.f50649a, aVar2.f50650b, aVar2.f50652d)));
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
     public int l() {
-        double i = l.i(p());
-        Double.isNaN(i);
-        return (int) (i * 0.3d);
+        return (int) (l.i(p()) * 0.3d);
     }
 
     @Override // d.b.b.j.e.c
@@ -206,9 +204,9 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         if (eVar != null) {
             eVar.a();
         }
-        f.InterfaceC1074f interfaceC1074f = this.u;
-        if (interfaceC1074f != null) {
-            interfaceC1074f.a(getView(), z);
+        f.InterfaceC1075f interfaceC1075f = this.u;
+        if (interfaceC1075f != null) {
+            interfaceC1075f.a(getView(), z);
         }
         this.l.cancelAnimation();
     }

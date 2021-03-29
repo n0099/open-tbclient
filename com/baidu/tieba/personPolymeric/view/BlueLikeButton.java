@@ -24,15 +24,15 @@ import java.util.List;
 public class BlueLikeButton extends TextView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20458e;
+    public boolean f20459e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20459f;
+    public boolean f20460f;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.f20458e = false;
-        this.f20459f = false;
+        this.f20459e = false;
+        this.f20460f = false;
     }
 
     @Override // d.b.h0.r.f0.q.b
@@ -42,7 +42,7 @@ public class BlueLikeButton extends TextView implements b {
 
     @Override // d.b.h0.r.f0.q.b
     public void b(View view) {
-        if (this.f20459f) {
+        if (this.f20460f) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
@@ -53,7 +53,7 @@ public class BlueLikeButton extends TextView implements b {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(statisticItem);
         }
-        if (this.f20458e) {
+        if (this.f20459e) {
             return;
         }
         Context context = getContext();
@@ -82,9 +82,9 @@ public class BlueLikeButton extends TextView implements b {
     }
 
     public void f(boolean z) {
-        this.f20458e = z;
+        this.f20459e = z;
         if (z) {
-            if (this.f20459f) {
+            if (this.f20460f) {
                 setText(R.string.followed);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
@@ -95,7 +95,7 @@ public class BlueLikeButton extends TextView implements b {
             setPadding(0, 0, 0, 0);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
-        } else if (this.f20459f) {
+        } else if (this.f20460f) {
             setText(R.string.attention);
             TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
             SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
@@ -109,18 +109,18 @@ public class BlueLikeButton extends TextView implements b {
     }
 
     public void setBJH(boolean z) {
-        this.f20459f = z;
+        this.f20460f = z;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20458e = false;
-        this.f20459f = false;
+        this.f20459e = false;
+        this.f20460f = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20458e = false;
-        this.f20459f = false;
+        this.f20459e = false;
+        this.f20460f = false;
     }
 }

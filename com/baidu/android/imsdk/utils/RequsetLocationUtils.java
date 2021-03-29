@@ -4,7 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequsetLocationUtils extends BaseUtils {
     public static Location getLocatioin(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {

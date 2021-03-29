@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
     @VisibleForTesting
     public Matrix mDrawMatrix;

@@ -20,28 +20,28 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Object> f56862e;
+    public ArrayList<Object> f56863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<SelectLocationActivity> f56863f;
+    public TbPageContext<SelectLocationActivity> f56864f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56864g;
+    public boolean f56865g;
 
     /* renamed from: d.b.i0.m1.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1345b {
+    public static class C1346b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f56865a;
+        public TextView f56866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f56866b;
+        public TextView f56867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f56867c;
+        public ImageView f56868c;
 
-        public C1345b() {
+        public C1346b() {
         }
     }
 
@@ -49,56 +49,56 @@ public class b extends BaseAdapter {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f56868a;
+        public TextView f56869a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f56869b;
+        public ImageView f56870b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f56870c;
+        public View f56871c;
 
         public c() {
         }
     }
 
     public b(TbPageContext<SelectLocationActivity> tbPageContext) {
-        this.f56863f = tbPageContext;
+        this.f56864f = tbPageContext;
         LocationData b2 = d.b.i0.c3.m0.b.a().b();
-        this.f56864g = !d.b.i0.c3.m0.b.a().d();
+        this.f56865g = !d.b.i0.c3.m0.b.a().d();
         if (b2 == null) {
             return;
         }
-        this.f56862e = c(b2.getPoi_info(), b2.getFormatted_address());
+        this.f56863e = c(b2.getPoi_info(), b2.getFormatted_address());
     }
 
     public final View a(View view, int i, boolean z) {
-        C1345b c1345b;
+        C1346b c1346b;
         Object item = getItem(i);
         if (item instanceof LocationData.NearByAddressData) {
             LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
             if (view != null && (view.getTag() instanceof c)) {
-                c1345b = (C1345b) view.getTag();
+                c1346b = (C1346b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f56863f.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
-                c1345b = new C1345b();
-                c1345b.f56865a = (TextView) view.findViewById(R.id.select_location_name);
-                c1345b.f56866b = (TextView) view.findViewById(R.id.select_location_address);
-                c1345b.f56867c = (ImageView) view.findViewById(R.id.select_location_tick);
-                view.setTag(c1345b);
+                view = LayoutInflater.from(this.f56864f.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+                c1346b = new C1346b();
+                c1346b.f56866a = (TextView) view.findViewById(R.id.select_location_name);
+                c1346b.f56867b = (TextView) view.findViewById(R.id.select_location_address);
+                c1346b.f56868c = (ImageView) view.findViewById(R.id.select_location_tick);
+                view.setTag(c1346b);
             }
-            c1345b.f56866b.setText(nearByAddressData.getAddr());
-            if (this.f56864g && i == 1) {
-                c1345b.f56867c.setVisibility(0);
-                c1345b.f56867c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            c1346b.f56867b.setText(nearByAddressData.getAddr());
+            if (this.f56865g && i == 1) {
+                c1346b.f56868c.setVisibility(0);
+                c1346b.f56868c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                    c1345b.f56866b.setText(R.string.select_location_current);
+                    c1346b.f56867b.setText(R.string.select_location_current);
                 }
             } else {
-                c1345b.f56867c.setVisibility(4);
+                c1346b.f56868c.setVisibility(4);
             }
-            c1345b.f56865a.setText(nearByAddressData.getName());
-            this.f56863f.getLayoutMode().k(z);
-            this.f56863f.getLayoutMode().j(view);
+            c1346b.f56866a.setText(nearByAddressData.getName());
+            this.f56864f.getLayoutMode().k(z);
+            this.f56864f.getLayoutMode().j(view);
             SkinManager.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
             return view;
         }
@@ -113,22 +113,22 @@ public class b extends BaseAdapter {
             if (view != null && (view.getTag() instanceof c)) {
                 cVar = (c) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f56863f.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f56864f.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                 cVar = new c();
-                cVar.f56868a = (TextView) view.findViewById(R.id.select_location_title);
-                cVar.f56869b = (ImageView) view.findViewById(R.id.select_location_tick);
-                cVar.f56870c = view.findViewById(R.id.select_location_line);
+                cVar.f56869a = (TextView) view.findViewById(R.id.select_location_title);
+                cVar.f56870b = (ImageView) view.findViewById(R.id.select_location_tick);
+                cVar.f56871c = view.findViewById(R.id.select_location_line);
                 view.setTag(cVar);
             }
-            if (i == 0 && !this.f56864g) {
-                cVar.f56869b.setVisibility(0);
-                cVar.f56869b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            if (i == 0 && !this.f56865g) {
+                cVar.f56870b.setVisibility(0);
+                cVar.f56870b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                cVar.f56869b.setVisibility(4);
+                cVar.f56870b.setVisibility(4);
             }
-            cVar.f56868a.setText(str);
-            SkinManager.setBackgroundColor(cVar.f56870c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(cVar.f56868a, R.color.CAM_X0302, 1);
+            cVar.f56869a.setText(str);
+            SkinManager.setBackgroundColor(cVar.f56871c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(cVar.f56869a, R.color.CAM_X0302, 1);
             SkinManager.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
             return view;
         }
@@ -157,7 +157,7 @@ public class b extends BaseAdapter {
             nearByAddressData3.setName(str);
             arrayList.add(0, nearByAddressData3);
         }
-        TbPageContext<SelectLocationActivity> tbPageContext = this.f56863f;
+        TbPageContext<SelectLocationActivity> tbPageContext = this.f56864f;
         if (tbPageContext != null) {
             arrayList.add(0, tbPageContext.getString(R.string.select_position_no_location));
         }
@@ -166,7 +166,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<Object> arrayList = this.f56862e;
+        ArrayList<Object> arrayList = this.f56863e;
         if (arrayList == null) {
             return 0;
         }
@@ -175,11 +175,11 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        ArrayList<Object> arrayList = this.f56862e;
+        ArrayList<Object> arrayList = this.f56863e;
         if (arrayList == null || i < 0 || i >= arrayList.size()) {
             return null;
         }
-        return this.f56862e.get(i);
+        return this.f56863e.get(i);
     }
 
     @Override // android.widget.Adapter

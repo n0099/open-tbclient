@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMConfigInternal {
     public static final String TAG = "IMConfigInternal";
     public static IMConfigInternal sConfig;

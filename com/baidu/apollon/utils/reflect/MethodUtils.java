@@ -8,11 +8,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MethodUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f3993a = new HashMap();
+    public static Map<String, Method> f3994a = new HashMap();
 
     public static String a(Class<?> cls, String str, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder();
@@ -68,8 +68,8 @@ public class MethodUtils {
         Method[] methods;
         Method a2;
         String a3 = a(cls, str, clsArr);
-        synchronized (f3993a) {
-            method = f3993a.get(a3);
+        synchronized (f3994a) {
+            method = f3994a.get(a3);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -80,8 +80,8 @@ public class MethodUtils {
         try {
             Method method2 = cls.getMethod(str, clsArr);
             a.a((AccessibleObject) method2);
-            synchronized (f3993a) {
-                f3993a.put(a3, method2);
+            synchronized (f3994a) {
+                f3994a.put(a3, method2);
             }
             return method2;
         } catch (NoSuchMethodException unused) {
@@ -94,8 +94,8 @@ public class MethodUtils {
             if (method3 != null) {
                 a.a((AccessibleObject) method3);
             }
-            synchronized (f3993a) {
-                f3993a.put(a3, method3);
+            synchronized (f3994a) {
+                f3994a.put(a3, method3);
                 return method3;
             }
         }
@@ -104,8 +104,8 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
         Method method;
         String a2 = a(cls, str, clsArr);
-        synchronized (f3993a) {
-            method = f3993a.get(a2);
+        synchronized (f3994a) {
+            method = f3994a.get(a2);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -114,8 +114,8 @@ public class MethodUtils {
             return method;
         }
         Method a3 = a(cls.getMethod(str, clsArr));
-        synchronized (f3993a) {
-            f3993a.put(a2, a3);
+        synchronized (f3994a) {
+            f3994a.put(a2, a3);
         }
         return a3;
     }

@@ -3,29 +3,29 @@ package com.baidu.sofire.l;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f11833a;
+    public Object f11834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f11834b;
+    public Class<?> f11835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f11835c;
+    public Method f11836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f11836d;
+    public Method f11837d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f11837e;
+    public Method f11838e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11838f;
+    public String f11839f;
 
     public final String a(Context context, Method method) {
-        Object obj = this.f11833a;
+        Object obj = this.f11834a;
         if (obj == null || method == null) {
             return null;
         }

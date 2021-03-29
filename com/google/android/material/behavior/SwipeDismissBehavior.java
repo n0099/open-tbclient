@@ -34,26 +34,27 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         public int originalCapturedViewLeft;
 
         private boolean shouldDismiss(View view, float f2) {
-            if (f2 == 0.0f) {
+            int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+            if (i == 0) {
                 return Math.abs(view.getLeft() - this.originalCapturedViewLeft) >= Math.round(((float) view.getWidth()) * SwipeDismissBehavior.this.dragDismissThreshold);
             }
             boolean z = ViewCompat.getLayoutDirection(view) == 1;
-            int i = SwipeDismissBehavior.this.swipeDirection;
-            if (i == 2) {
+            int i2 = SwipeDismissBehavior.this.swipeDirection;
+            if (i2 == 2) {
                 return true;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 if (z) {
                     if (f2 >= 0.0f) {
                         return false;
                     }
-                } else if (f2 <= 0.0f) {
+                } else if (i <= 0) {
                     return false;
                 }
                 return true;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 if (z) {
-                    if (f2 <= 0.0f) {
+                    if (i <= 0) {
                         return false;
                     }
                 } else if (f2 >= 0.0f) {

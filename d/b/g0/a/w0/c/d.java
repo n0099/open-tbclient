@@ -1,10 +1,10 @@
 package d.b.g0.a.w0.c;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(d.b.g0.a.t1.k.k0.b bVar);
 

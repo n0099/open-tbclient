@@ -14,24 +14,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47779e = k.f45050a;
+    public static final boolean f47780e = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47780a;
+    public String f47781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47781b;
+    public String f47782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47782c;
+    public String f47783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f47783d;
+    public long f47784d;
 
     public a() {
-        this.f47780a = "";
-        this.f47782c = "";
-        this.f47783d = System.currentTimeMillis();
+        this.f47781a = "";
+        this.f47783c = "";
+        this.f47784d = System.currentTimeMillis();
     }
 
     public static String d() {
@@ -47,20 +47,20 @@ public class a {
     }
 
     public a a(String str) {
-        this.f47782c = str;
+        this.f47783c = str;
         return this;
     }
 
     public Download b() {
         Download download = new Download();
-        download.setUrl(this.f47780a);
-        download.setKeyByUser(this.f47781b);
+        download.setUrl(this.f47781a);
+        download.setKeyByUser(this.f47782b);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.f47782c);
-            jSONObject.put("download_time", this.f47783d);
+            jSONObject.put("apk_id", this.f47783c);
+            jSONObject.put("download_time", this.f47784d);
         } catch (JSONException e2) {
-            if (f47779e) {
+            if (f47780e) {
                 e2.printStackTrace();
             }
         }
@@ -76,39 +76,39 @@ public class a {
     }
 
     public String c() {
-        return this.f47782c;
+        return this.f47783c;
     }
 
     public long e() {
-        return this.f47783d;
+        return this.f47784d;
     }
 
     public a f(String str) {
-        this.f47781b = str;
+        this.f47782b = str;
         return this;
     }
 
     public a g(String str) {
-        this.f47780a = str;
+        this.f47781a = str;
         return this;
     }
 
     public a(@NonNull Download download) {
-        this.f47780a = "";
-        this.f47782c = "";
-        this.f47783d = System.currentTimeMillis();
-        this.f47780a = download.getUrl();
-        this.f47781b = download.getKeyByUser();
+        this.f47781a = "";
+        this.f47783c = "";
+        this.f47784d = System.currentTimeMillis();
+        this.f47781a = download.getUrl();
+        this.f47782b = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (TextUtils.isEmpty(fromParam)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(fromParam);
-            this.f47782c = jSONObject.optString("apk_id");
-            this.f47783d = jSONObject.optLong("download_time", System.currentTimeMillis());
+            this.f47783c = jSONObject.optString("apk_id");
+            this.f47784d = jSONObject.optLong("download_time", System.currentTimeMillis());
         } catch (JSONException e2) {
-            if (f47779e) {
+            if (f47780e) {
                 e2.printStackTrace();
             }
         }

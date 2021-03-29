@@ -12,18 +12,18 @@ import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelBaiduPayForTransCashier {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2610a = new ChannelBaiduPayForTransCashier();
+        public static ChannelBaiduPayForTransCashier f2611a = new ChannelBaiduPayForTransCashier();
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
-        return a.f2610a;
+        return a.f2611a;
     }
 
     private String getNotify(String str) {

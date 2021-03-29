@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
 import d.b.h0.m.f;
-/* loaded from: classes4.dex */
-public class b extends d.b.b.j.e.a<d.b.i0.z1.d.b, C1716b> {
+/* loaded from: classes3.dex */
+public class b extends d.b.b.j.e.a<d.b.i0.z1.d.b, C1717b> {
     public f<d.b.i0.z1.d.b> m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements f<d.b.i0.z1.d.b> {
         public a(b bVar) {
         }
@@ -35,54 +35,54 @@ public class b extends d.b.b.j.e.a<d.b.i0.z1.d.b, C1716b> {
     }
 
     /* renamed from: d.b.i0.z1.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1716b extends TypeAdapter.ViewHolder {
+    /* loaded from: classes3.dex */
+    public static class C1717b extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicListInfoItem f63432a;
+        public HotTopicListInfoItem f63433a;
 
-        public C1716b(HotTopicListInfoItem hotTopicListInfoItem) {
+        public C1717b(HotTopicListInfoItem hotTopicListInfoItem) {
             super(hotTopicListInfoItem);
-            this.f63432a = hotTopicListInfoItem;
+            this.f63433a = hotTopicListInfoItem;
         }
 
         public void b(d.b.i0.z1.d.b bVar) {
             if (bVar != null) {
-                this.f63432a.a(bVar);
+                this.f63433a.a(bVar);
             }
         }
 
         public void c(int i) {
-            this.f63432a.d(i);
+            this.f63433a.d(i);
         }
     }
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.z1.d.a.f63433a);
+        super(tbPageContext.getPageActivity(), d.b.i0.z1.d.a.f63434a);
         this.m = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
-    public C1716b R(ViewGroup viewGroup) {
+    public C1717b R(ViewGroup viewGroup) {
         HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
         hotTopicListInfoItem.setOnItemCoverListener(this.m);
         hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-        C1716b c1716b = new C1716b(hotTopicListInfoItem);
-        c1716b.c(TbadkCoreApplication.getInst().getSkinType());
-        return c1716b;
+        C1717b c1717b = new C1717b(hotTopicListInfoItem);
+        c1717b.c(TbadkCoreApplication.getInst().getSkinType());
+        return c1717b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
-    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.z1.d.b bVar, C1716b c1716b) {
-        if (bVar == null || c1716b == null) {
+    public View X(int i, View view, ViewGroup viewGroup, d.b.i0.z1.d.b bVar, C1717b c1717b) {
+        if (bVar == null || c1717b == null) {
             return null;
         }
-        c1716b.b(bVar);
-        c1716b.c(TbadkCoreApplication.getInst().getSkinType());
-        return c1716b.a();
+        c1717b.b(bVar);
+        c1717b.c(TbadkCoreApplication.getInst().getSkinType());
+        return c1717b.a();
     }
 }

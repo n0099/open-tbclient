@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import d.b.b.j.e.s;
 import d.b.h0.r.q.a2;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.b.b.j.e.a<T, V> {
     public boolean m;
     public TbPageContext<?> n;
@@ -43,7 +43,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.b.b.j.e.a
 
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f42357e = tbPageContext.getPageActivity();
+            this.f42358e = tbPageContext.getPageActivity();
             this.n = tbPageContext;
             this.i = bdUniqueId;
         }

@@ -12,37 +12,37 @@ import com.baidu.tieba.R;
 import d.b.b.a.j;
 import d.b.h0.m.f;
 import d.b.h0.r.q.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17343e;
+    public TbPageContext<?> f17344e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoBannerLayout f17344f;
+    public AutoBannerLayout f17345f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridIconLayout f17345g;
+    public GridIconLayout f17346g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f17346h;
+    public f f17347h;
     public d.b.h0.r.w.b.d<l> i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.m.c {
         public a() {
         }
 
         @Override // d.b.h0.m.c
         public void a(View view, boolean z, Object obj) {
-            if (!z || HomePageTabFeedHeaderView.this.f17344f == null) {
+            if (!z || HomePageTabFeedHeaderView.this.f17345f == null) {
                 return;
             }
-            HomePageTabFeedHeaderView.this.f17344f.d();
+            HomePageTabFeedHeaderView.this.f17345f.d();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.h0.m.c {
         public b() {
         }
@@ -55,7 +55,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements f<l> {
         public c() {
         }
@@ -74,7 +74,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements d.b.h0.r.w.b.d<l> {
         public d() {
         }
@@ -96,7 +96,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.f17346h = new c();
+        this.f17347h = new c();
         this.i = new d();
         b();
     }
@@ -104,17 +104,17 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public void b() {
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.f17343e = (TbPageContext) j.a(getContext());
+        this.f17344e = (TbPageContext) j.a(getContext());
     }
 
     public void c(int i) {
-        AutoBannerLayout autoBannerLayout = this.f17344f;
+        AutoBannerLayout autoBannerLayout = this.f17345f;
         if (autoBannerLayout != null) {
-            autoBannerLayout.onChangeSkinType(this.f17343e, i);
+            autoBannerLayout.onChangeSkinType(this.f17344e, i);
         }
-        GridIconLayout gridIconLayout = this.f17345g;
+        GridIconLayout gridIconLayout = this.f17346g;
         if (gridIconLayout != null) {
-            gridIconLayout.onChangeSkinType(this.f17343e, i);
+            gridIconLayout.onChangeSkinType(this.f17344e, i);
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
     }
@@ -133,41 +133,41 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             return;
         }
         setPadding(0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds44), 0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds60));
-        if (this.f17344f == null) {
+        if (this.f17345f == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.f17344f = autoBannerLayout;
+            this.f17345f = autoBannerLayout;
             autoBannerLayout.setMarqueenTime(3000L);
-            this.f17344f.setOnCoverViewCallback(this.i);
-            this.f17344f.setBannerHeight(d.b.b.e.p.l.g(getContext(), R.dimen.tbds328));
+            this.f17345f.setOnCoverViewCallback(this.i);
+            this.f17345f.setBannerHeight(d.b.b.e.p.l.g(getContext(), R.dimen.tbds328));
             int g2 = d.b.b.e.p.l.g(getContext(), R.dimen.tbds44);
-            this.f17344f.setPadding(g2, 0, g2, 0);
-            addView(this.f17344f);
-            this.f17344f.setIWindowChangedListener(new a());
+            this.f17345f.setPadding(g2, 0, g2, 0);
+            addView(this.f17345f);
+            this.f17345f.setIWindowChangedListener(new a());
         }
-        this.f17344f.a(cVar.f63279d);
-        if (this.f17345g == null) {
+        this.f17345f.a(cVar.f63280d);
+        if (this.f17346g == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.f17345g = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.f17346h);
-            addView(this.f17345g);
-            this.f17345g.setIWindowChangedListener(new b());
-            this.f17345g.setPadding(0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
-            this.f17345g.setVerticalSpace(d.b.b.e.p.l.g(getContext(), R.dimen.tbds61));
-            this.f17345g.setMaxItem(10);
+            this.f17346g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f17347h);
+            addView(this.f17346g);
+            this.f17346g.setIWindowChangedListener(new b());
+            this.f17346g.setPadding(0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
+            this.f17346g.setVerticalSpace(d.b.b.e.p.l.g(getContext(), R.dimen.tbds61));
+            this.f17346g.setMaxItem(10);
         }
-        this.f17345g.a(cVar.f63280e);
+        this.f17346g.a(cVar.f63281e);
     }
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17346h = new c();
+        this.f17347h = new c();
         this.i = new d();
         b();
     }
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17346h = new c();
+        this.f17347h = new c();
         this.i = new d();
         b();
     }

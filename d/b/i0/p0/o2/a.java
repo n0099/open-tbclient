@@ -109,13 +109,13 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
 
     /* renamed from: d.b.i0.p0.o2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1419a implements f.c {
+    public class C1420a implements f.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.g f58269a;
+        public final /* synthetic */ d.b.i0.p0.i1.g f58270a;
 
-        public C1419a(d.b.i0.p0.i1.g gVar) {
-            this.f58269a = gVar;
+        public C1420a(d.b.i0.p0.i1.g gVar) {
+            this.f58270a = gVar;
         }
 
         @Override // d.b.i0.i2.f.c
@@ -133,28 +133,28 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                     d.b.i0.i2.c cVar = a.this.z;
                     dVar.I(z2, cVar != null && cVar.S0(), "VIDEO_LIST");
                 } else if (i != 0 && (i2 * 100) / i >= 80 && i > 15000) {
-                    aVar.b0.K(a.this.c0(this.f58269a));
+                    aVar.b0.K(a.this.c0(this.f58270a));
                 }
             }
-            if (aVar2 == null || a.this.K || a.this.z.S0() || d.b.v.b.b().a(aVar2.f57625d)) {
+            if (aVar2 == null || a.this.K || a.this.z.S0() || d.b.v.b.b().a(aVar2.f57626d)) {
                 return;
             }
-            boolean z3 = a.this.i0 >= (aVar2.f57622a * 1000) + 1000;
+            boolean z3 = a.this.i0 >= (aVar2.f57623a * 1000) + 1000;
             long j = i2;
-            if ((j < aVar2.f57622a * 1000 || j >= aVar2.f57623b * 1000) ? false : false) {
+            if ((j < aVar2.f57623a * 1000 || j >= aVar2.f57624b * 1000) ? false : false) {
                 if (a.this.d0.c()) {
                     return;
                 }
                 d.b.v.a aVar3 = new d.b.v.a();
-                aVar3.f64790b = aVar2.f57626e;
-                aVar3.f64791c = aVar2.f57627f;
-                aVar3.f64792d = aVar2.f57625d;
-                aVar3.f64789a = aVar2.f57624c;
+                aVar3.f64791b = aVar2.f57627e;
+                aVar3.f64792c = aVar2.f57628f;
+                aVar3.f64793d = aVar2.f57626d;
+                aVar3.f64790a = aVar2.f57625c;
                 d.b.i0.p0.i1.g gVar = a.this.D;
-                aVar3.f64794f = gVar != null ? gVar.f57618e : null;
+                aVar3.f64795f = gVar != null ? gVar.f57619e : null;
                 d.b.i0.p0.i1.g gVar2 = a.this.D;
-                aVar3.f64793e = gVar2 != null ? gVar2.f57619f : null;
-                aVar3.f64795g = 3;
+                aVar3.f64794e = gVar2 != null ? gVar2.f57620f : null;
+                aVar3.f64796g = 3;
                 if (z3) {
                     a.this.d0.f(aVar3, (ViewGroup) a.this.z.E0());
                 } else {
@@ -170,14 +170,14 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     public class b implements CyberPlayerManager.OnCompletionListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.a f58271e;
+        public final /* synthetic */ d.b.i0.p0.i1.a f58272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f58272f;
+        public final /* synthetic */ int f58273f;
 
         public b(d.b.i0.p0.i1.a aVar, int i) {
-            this.f58271e = aVar;
-            this.f58272f = i;
+            this.f58272e = aVar;
+            this.f58273f = i;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
@@ -193,10 +193,10 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                 a.this.M = true;
                 a.this.J = false;
             }
-            if (this.f58271e == null || a.this.K) {
+            if (this.f58272e == null || a.this.K) {
                 return;
             }
-            this.f58271e.a(this.f58272f);
+            this.f58272e.a(this.f58273f);
             a.this.z.a1();
         }
     }
@@ -205,19 +205,19 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     public class c implements CyberPlayerManager.OnErrorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.a f58274e;
+        public final /* synthetic */ d.b.i0.p0.i1.a f58275e;
 
         public c(d.b.i0.p0.i1.a aVar) {
-            this.f58274e = aVar;
+            this.f58275e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i, int i2, Object obj) {
             d.b.i0.p0.i1.g gVar = a.this.D;
             if (gVar != null && gVar.z != null) {
-                BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i), "extra", Integer.valueOf(i2), "url", a.this.D.z.f57645d);
+                BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i), "extra", Integer.valueOf(i2), "url", a.this.D.z.f57646d);
             }
-            d.b.i0.p0.i1.a aVar = this.f58274e;
+            d.b.i0.p0.i1.a aVar = this.f58275e;
             if (aVar != null) {
                 aVar.cancel();
             }
@@ -226,20 +226,20 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.InterfaceC0556d {
+    public class d implements d.InterfaceC0557d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.a f58276a;
+        public final /* synthetic */ d.b.i0.p0.i1.a f58277a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f58277b;
+        public final /* synthetic */ int f58278b;
 
         public d(d.b.i0.p0.i1.a aVar, int i) {
-            this.f58276a = aVar;
-            this.f58277b = i;
+            this.f58277a = aVar;
+            this.f58278b = i;
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void a() {
             d.b.i0.i2.c cVar = a.this.z;
             if (cVar != null) {
@@ -247,26 +247,26 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             }
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void b() {
             if (a.this.K) {
                 a.this.L = true;
                 a.this.M = true;
                 a.this.J = false;
             }
-            if (this.f58276a == null || a.this.K) {
+            if (this.f58277a == null || a.this.K) {
                 return;
             }
-            this.f58276a.a(this.f58277b);
+            this.f58277a.a(this.f58278b);
             a.this.z.a1();
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public boolean c() {
             return a.this.W();
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void d() {
             a.this.M = false;
         }
@@ -324,15 +324,15 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.i1.g f58281e;
+        public final /* synthetic */ d.b.i0.p0.i1.g f58282e;
 
         public g(d.b.i0.p0.i1.g gVar) {
-            this.f58281e = gVar;
+            this.f58282e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f58281e.j().hasAgree && this.f58281e.j().agreeType == 2) {
+            if (this.f58282e.j().hasAgree && this.f58282e.j().agreeType == 2) {
                 a.this.Z.g(0);
             }
         }
@@ -376,8 +376,8 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             d.b.i0.p0.o2.j.a aVar2 = aVar.X;
             if (aVar2 != null) {
                 g.c cVar = aVar.D.z;
-                if (cVar.f57646e > 8) {
-                    aVar2.a(aVar.I, cVar.f57645d);
+                if (cVar.f57647e > 8) {
+                    aVar2.a(aVar.I, cVar.f57646d);
                 }
             }
         }
@@ -416,18 +416,18 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     public class m implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f58288e;
+        public final /* synthetic */ String f58289e;
 
         public m(String str) {
-            this.f58288e = str;
+            this.f58289e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f58288e)) {
+            if (TextUtils.isEmpty(this.f58289e)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(a.this.l().getPageActivity()), new String[]{this.f58288e}, true);
+            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(a.this.l().getPageActivity()), new String[]{this.f58289e}, true);
         }
     }
 
@@ -452,7 +452,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             if (gVar == null || (cVar = gVar.z) == null) {
                 return;
             }
-            aVar.z.d2(cVar.f57645d, gVar.f57619f);
+            aVar.z.d2(cVar.f57646d, gVar.f57620f);
         }
     }
 
@@ -503,7 +503,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         public void a() {
             g.c cVar;
             d.b.i0.p0.i1.g gVar = a.this.D;
-            if (gVar != null && (cVar = gVar.z) != null && d.b.b.e.m.b.d(cVar.f57648g, 0) > d.b.b.e.m.b.d(a.this.D.z.f57647f, 0)) {
+            if (gVar != null && (cVar = gVar.z) != null && d.b.b.e.m.b.d(cVar.f57649g, 0) > d.b.b.e.m.b.d(a.this.D.z.f57648f, 0)) {
                 a.this.z.M1(false, false);
             } else {
                 a.this.z.M1(true, false);
@@ -538,7 +538,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             a aVar = a.this;
             d.b.i0.i2.c cVar = aVar.z;
             d.b.i0.p0.i1.g gVar = aVar.D;
-            cVar.d2(gVar.z.f57645d, gVar.f57619f);
+            cVar.d2(gVar.z.f57646d, gVar.f57620f);
             a.this.r0("2");
             a aVar2 = a.this;
             aVar2.onClick(aVar2.n);
@@ -580,8 +580,8 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         this.r = (TextView) m2.findViewById(R.id.user_name);
         this.s = (AgreeView) m2.findViewById(R.id.agree_view);
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50763c = 2;
-        eVar.f50768h = 6;
+        eVar.f50764c = 2;
+        eVar.f50769h = 6;
         this.s.setStatisticData(eVar);
         this.s.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
         this.t = (TextView) m2.findViewById(R.id.thread_info_commont_num);
@@ -629,7 +629,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         this.W.setAnimationListener(this.k0);
         this.Z = new s(this, null);
         this.b0 = new d.b.c.m.d(b(), this.n);
-        this.d0 = new d.b.v.c(this.f62181g);
+        this.d0 = new d.b.v.c(this.f62182g);
     }
 
     public final void A0(d.b.i0.p0.i1.g gVar) {
@@ -637,35 +637,35 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (bVar == null) {
             return;
         }
-        g.b.a aVar = bVar.f57635h;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f57637b)) {
-            this.q.W(gVar.y.f57635h.f57637b, 12, false);
-        } else if (!StringUtils.isNull(gVar.y.f57631d) && gVar.y.f57631d.startsWith("http")) {
-            this.q.W(gVar.y.f57631d, 10, false);
+        g.b.a aVar = bVar.f57636h;
+        if (aVar != null && !TextUtils.isEmpty(aVar.f57638b)) {
+            this.q.W(gVar.y.f57636h.f57638b, 12, false);
+        } else if (!StringUtils.isNull(gVar.y.f57632d) && gVar.y.f57632d.startsWith("http")) {
+            this.q.W(gVar.y.f57632d, 10, false);
         } else {
-            this.q.W(gVar.y.f57631d, 12, false);
+            this.q.W(gVar.y.f57632d, 12, false);
         }
-        g.b.a aVar2 = gVar.y.f57635h;
-        if (aVar2 != null && aVar2.f57640e.intValue() > 0) {
-            this.q.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(gVar.y.f57635h.f57640e.intValue(), 1));
+        g.b.a aVar2 = gVar.y.f57636h;
+        if (aVar2 != null && aVar2.f57641e.intValue() > 0) {
+            this.q.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(gVar.y.f57636h.f57641e.intValue(), 1));
             this.q.setShowV(true);
             this.q.setGodIconWidth(R.dimen.tbds31);
             return;
         }
         this.q.setBjhAuthIconRes(0);
         g.b bVar2 = gVar.y;
-        boolean z = bVar2.f57634g;
+        boolean z = bVar2.f57635g;
         if (z) {
             this.q.setShowV(z);
-            this.q.setIsBigV(gVar.y.f57634g);
+            this.q.setIsBigV(gVar.y.f57635g);
         } else {
-            boolean z2 = bVar2.f57633f;
+            boolean z2 = bVar2.f57634f;
             if (z2) {
                 this.q.setShowV(z2);
-                this.q.setIsBigV(gVar.y.f57633f);
+                this.q.setIsBigV(gVar.y.f57634f);
             } else {
                 this.q.setShowV(z2);
-                this.q.setIsBigV(gVar.y.f57633f);
+                this.q.setIsBigV(gVar.y.f57634f);
             }
         }
         this.q.setGodIconWidth(R.dimen.tbds31);
@@ -676,7 +676,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (gVar == null || (bVar = gVar.y) == null) {
             return;
         }
-        this.r.setText(TextUtils.isEmpty(bVar.f57630c) ? gVar.y.f57629b : gVar.y.f57630c);
+        this.r.setText(TextUtils.isEmpty(bVar.f57631c) ? gVar.y.f57630b : gVar.y.f57631c);
         A0(gVar);
         y0(gVar);
         v0(gVar);
@@ -711,10 +711,10 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         String format;
         g.b bVar;
         d.b.i0.p0.i1.g gVar = this.D;
-        if (gVar == null || this.f62181g == null) {
+        if (gVar == null || this.f62182g == null) {
             return;
         }
-        String valueOf = String.valueOf(gVar.f57618e);
+        String valueOf = String.valueOf(gVar.f57619e);
         d.b.i0.p0.i1.g gVar2 = this.D;
         String str3 = gVar2.x;
         BaijiahaoData baijiahaoData = gVar2.A;
@@ -722,18 +722,18 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             str = baijiahaoData.oriUgcTid;
             str2 = "?share=9105&fr=dshare&dtype=" + this.D.A.oriUgcType + "&dvid=" + this.D.A.oriUgcVid + "&nid=" + this.D.A.oriUgcNid;
         } else {
-            str = gVar2.f57619f;
+            str = gVar2.f57620f;
             str2 = "?share=9105&fr=share";
         }
         String str4 = "http://tieba.baidu.com/p/" + str + (str2 + "&share_from=post");
         String str5 = this.D.z.j;
         Uri parse = str5 == null ? null : Uri.parse(str5);
         String str6 = this.D.x;
-        String string = this.f62181g.getResources().getString(R.string.share_content_tpl);
-        String string2 = this.f62181g.getResources().getString(R.string.default_share_content_tpl);
+        String string = this.f62182g.getResources().getString(R.string.share_content_tpl);
+        String string2 = this.f62182g.getResources().getString(R.string.default_share_content_tpl);
         d.b.i0.p0.i1.g gVar3 = this.D;
         if (gVar3.A != null && (bVar = gVar3.y) != null) {
-            format = MessageFormat.format(string2, bVar.f57630c, this.f62181g.getResources().getString(R.string.default_share_content_tpl_suffix));
+            format = MessageFormat.format(string2, bVar.f57631c, this.f62182g.getResources().getString(R.string.default_share_content_tpl_suffix));
         } else {
             format = MessageFormat.format(string, str3, str6);
         }
@@ -754,7 +754,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         shareItem.I = valueOf;
         shareItem.p = "";
         shareItem.J = str;
-        shareItem.f13716f = true;
+        shareItem.f13717f = true;
         shareItem.D = 11;
         if (this.D.o() == 1) {
             shareItem.L = 2;
@@ -770,10 +770,10 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             shareItem.d0 = false;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.f13212c = str5;
-        originalThreadInfo.f13210a = 3;
-        originalThreadInfo.f13211b = str3;
-        originalThreadInfo.f13215f = str;
+        originalThreadInfo.f13213c = str5;
+        originalThreadInfo.f13211a = 3;
+        originalThreadInfo.f13212b = str3;
+        originalThreadInfo.f13216f = str;
         originalThreadInfo.p = this.D.A;
         shareItem.S = OriginalThreadInfo.ShareInfo.generateShareInfo(originalThreadInfo);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
@@ -781,7 +781,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         statisticItem.param("tid", str);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         statisticItem.param("obj_locate", 12);
-        statisticItem.param("nid", this.D.f57620g);
+        statisticItem.param("nid", this.D.f57621g);
         BaijiahaoData baijiahaoData2 = this.D.A;
         if (baijiahaoData2 != null && !d.b.b.e.p.k.isEmpty(baijiahaoData2.oriUgcVid)) {
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.D.A.oriUgcVid);
@@ -811,7 +811,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         bundle.putString("tid", shareItem.J);
         bundle.putInt("obj_source", shareItem.o);
         shareItem.i(bundle);
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f62181g, shareItem, true, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f62182g, shareItem, true, true);
         shareDialogConfig.setFrom(ShareDialogConfig.From.VideoMiddlePageHorizontal);
         d.b.i0.b0.f.b().k(shareDialogConfig);
     }
@@ -970,16 +970,16 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                 i2 = (b2 - a2) - 1;
                 cVar = gVar.z;
                 if (cVar == null) {
-                    i3 = d.b.b.e.m.b.d(cVar.f57647f, 0);
-                    i4 = d.b.b.e.m.b.d(gVar.z.f57648g, 0);
+                    i3 = d.b.b.e.m.b.d(cVar.f57648f, 0);
+                    i4 = d.b.b.e.m.b.d(gVar.z.f57649g, 0);
                 } else {
                     i3 = 0;
                     i4 = 0;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put("video_vid", gVar.f57619f);
+                hashMap.put("video_vid", gVar.f57620f);
                 hashMap.put("video_title", gVar.x);
-                hashMap.put("forum_id", gVar.f57618e);
+                hashMap.put("forum_id", gVar.f57619e);
                 hashMap.put("forum_name", "");
                 hashMap.put("up_distance", String.valueOf(i5));
                 hashMap.put("down_distance", String.valueOf(i2));
@@ -994,9 +994,9 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (cVar == null) {
         }
         HashMap hashMap2 = new HashMap();
-        hashMap2.put("video_vid", gVar.f57619f);
+        hashMap2.put("video_vid", gVar.f57620f);
         hashMap2.put("video_title", gVar.x);
-        hashMap2.put("forum_id", gVar.f57618e);
+        hashMap2.put("forum_id", gVar.f57619e);
         hashMap2.put("forum_name", "");
         hashMap2.put("up_distance", String.valueOf(i5));
         hashMap2.put("down_distance", String.valueOf(i2));
@@ -1012,7 +1012,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (gVar == null || (bVar = gVar.y) == null) {
             return;
         }
-        bVar.f57632e = z;
+        bVar.f57633e = z;
     }
 
     public final void d0(boolean z) {
@@ -1055,18 +1055,18 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
         this.i0 = -1L;
         if (this.z.I0() != null && this.z.I0().getMediaProgressObserver() != null) {
-            this.z.I0().getMediaProgressObserver().j(new C1419a(gVar));
+            this.z.I0().getMediaProgressObserver().j(new C1420a(gVar));
         }
         d.b.i0.i2.o oVar = new d.b.i0.i2.o();
         this.G = oVar;
-        oVar.f56165c = gVar.f57619f;
-        oVar.t = gVar.f57620g;
-        oVar.f56166d = gVar.f57618e;
-        oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f56166c = gVar.f57620f;
+        oVar.t = gVar.f57621g;
+        oVar.f56167d = gVar.f57619e;
+        oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
         d.b.i0.i2.o oVar2 = this.G;
-        oVar2.f56163a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-        oVar2.f56168f = gVar.q;
-        oVar2.f56169g = gVar.r;
+        oVar2.f56164a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+        oVar2.f56169f = gVar.q;
+        oVar2.f56170g = gVar.r;
         oVar2.i = this.Q;
         oVar2.l = gVar.t;
         oVar2.k = this.R;
@@ -1075,29 +1075,29 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         oVar2.j = gVar.o();
         d.b.i0.i2.o oVar3 = new d.b.i0.i2.o();
         this.H = oVar3;
-        oVar3.f56165c = gVar.f57619f;
-        oVar3.f56166d = gVar.f57618e;
-        oVar3.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar3.f56166c = gVar.f57620f;
+        oVar3.f56167d = gVar.f57619e;
+        oVar3.f56168e = TbadkCoreApplication.getCurrentAccount();
         d.b.i0.i2.o oVar4 = this.H;
-        oVar4.f56169g = "auto_midpage";
-        oVar4.f56163a = "auto_midpage";
+        oVar4.f56170g = "auto_midpage";
+        oVar4.f56164a = "auto_midpage";
         oVar4.i = this.Q;
-        oVar4.f56168f = gVar.q;
+        oVar4.f56169f = gVar.q;
         oVar4.p = "0";
         g.c cVar2 = gVar.z;
         if (cVar2 != null) {
             d.b.i0.i2.o oVar5 = this.G;
-            String str = cVar2.f57644c;
+            String str = cVar2.f57645c;
             oVar5.m = str;
             oVar4.m = str;
         }
         StatisticItem statisticItem = new StatisticItem("c12590");
-        statisticItem.param("tid", gVar.f57619f);
-        statisticItem.param("nid", gVar.f57620g);
+        statisticItem.param("tid", gVar.f57620f);
+        statisticItem.param("nid", gVar.f57621g);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", i2);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
-        statisticItem.param("fid", gVar.f57618e);
+        statisticItem.param("fid", gVar.f57619e);
         statisticItem.param("obj_param1", d.b.b.e.p.k.isEmpty(gVar.r) ? "0" : gVar.r);
         statisticItem.param("extra", d.b.b.e.p.k.isEmpty(gVar.s) ? "0" : gVar.s);
         statisticItem.param("obj_id", this.R);
@@ -1121,9 +1121,9 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
         this.b0.G(new d(aVar, i2));
         this.z.S1(gVar.z.j);
-        this.z.T1(gVar.z.f57646e);
-        this.z.Y1(gVar.z.f57645d, gVar.f57619f);
-        this.z.m1(gVar.f57618e);
+        this.z.T1(gVar.z.f57647e);
+        this.z.Y1(gVar.z.f57646d, gVar.f57620f);
+        this.z.m1(gVar.f57619e);
         this.z.a1();
         this.z.a2();
         C0(false);
@@ -1133,7 +1133,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                 this.z.c2(false);
                 this.a0.f();
                 this.z.n1(true);
-                this.z.U0(gVar.z.f57645d, gVar.f57619f);
+                this.z.U0(gVar.z.f57646d, gVar.f57620f);
                 if (this.b0.r()) {
                     this.b0.L();
                     this.b0.J();
@@ -1144,7 +1144,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                 this.a0.b();
                 d.b.c.m.d dVar = this.b0;
                 if (dVar == null || (dVar != null && !dVar.r())) {
-                    this.z.i2(gVar.z.f57645d, gVar.f57619f, null, new Object[0]);
+                    this.z.i2(gVar.z.f57646d, gVar.f57620f, null, new Object[0]);
                 }
             }
             if (i2 == 0 && gVar.G) {
@@ -1162,7 +1162,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             this.a0.b();
             this.z.c2(true);
             this.Z.g(3);
-            this.z.U0(gVar.z.f57645d, gVar.f57619f);
+            this.z.U0(gVar.z.f57646d, gVar.f57620f);
         }
         this.L = false;
         this.M = false;
@@ -1187,8 +1187,8 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
 
     public final boolean h0() {
         try {
-            int parseInt = Integer.parseInt(this.D.z.f57647f);
-            return parseInt <= 0 || ((float) Integer.parseInt(this.D.z.f57648g)) / ((float) parseInt) < 1.0f;
+            int parseInt = Integer.parseInt(this.D.z.f57648f);
+            return parseInt <= 0 || ((float) Integer.parseInt(this.D.z.f57649g)) / ((float) parseInt) < 1.0f;
         } catch (NumberFormatException unused) {
             return true;
         }
@@ -1237,14 +1237,14 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (cVar != null && !StringUtils.isNull(cVar.n)) {
             this.o.setTextMaxLine(2);
             this.o.setExpandable(false);
-            d.b.i0.p0.o2.k.a.a(this.f62181g, this.o.getContentView(), gVar.x, gVar.z.n, gVar.n());
+            d.b.i0.p0.o2.k.a.a(this.f62182g, this.o.getContentView(), gVar.x, gVar.z.n, gVar.n());
         } else {
             this.o.setTextMaxLine(Integer.MAX_VALUE);
             this.o.setExpandable(true);
             this.o.setOnStatusChangedListener(new o());
             this.o.setData(gVar.x, gVar.H, gVar.E);
         }
-        int k2 = d.b.b.e.p.l.k(this.f62181g);
+        int k2 = d.b.b.e.p.l.k(this.f62182g);
         this.E = k2;
         if (k2 != this.j0) {
             this.z.c1();
@@ -1321,8 +1321,8 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                     return;
                 }
                 this.Z.g(0);
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62181g);
-                pbActivityConfig.createNormalCfg(this.D.f57619f, null, null);
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62182g);
+                pbActivityConfig.createNormalCfg(this.D.f57620f, null, null);
                 pbActivityConfig.setVideo_source("auto_midpage");
                 pbActivityConfig.setBjhData(this.D.A);
                 pbActivityConfig.setJumpToCommentArea(true);
@@ -1350,8 +1350,8 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
                 if (z) {
                     return;
                 }
-                PbActivityConfig pbActivityConfig2 = new PbActivityConfig(this.f62181g);
-                pbActivityConfig2.createNormalCfg(this.D.f57619f, null, null);
+                PbActivityConfig pbActivityConfig2 = new PbActivityConfig(this.f62182g);
+                pbActivityConfig2.createNormalCfg(this.D.f57620f, null, null);
                 pbActivityConfig2.setVideo_source("auto_midpage");
                 pbActivityConfig2.setBjhData(this.D.A);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig2));
@@ -1359,11 +1359,11 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             }
         }
         d.b.i0.p0.i1.g gVar = this.D;
-        if (gVar == null || (bVar = gVar.y) == null || TextUtils.isEmpty(bVar.f57628a)) {
+        if (gVar == null || (bVar = gVar.y) == null || TextUtils.isEmpty(bVar.f57629a)) {
             return;
         }
         this.Z.g(0);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.C.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(this.D.y.f57628a, 0L), (TbadkCoreApplication.isLogin() && this.D.y.f57628a.equals(TbadkCoreApplication.getCurrentAccount())) ? false : false, this.D.y.f57633f)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.C.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(this.D.y.f57629a, 0L), (TbadkCoreApplication.isLogin() && this.D.y.f57629a.equals(TbadkCoreApplication.getCurrentAccount())) ? false : false, this.D.y.f57634f)));
     }
 
     @Override // d.b.i0.i1.o.l.k
@@ -1399,7 +1399,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
             return;
         }
         if ("1".equals(str) || "2".equals(str)) {
-            d.b.i0.i2.h.e(this.D.z.f57644c, "", str, this.H, this.z.I0().getPcdnState());
+            d.b.i0.i2.h.e(this.D.z.f57645c, "", str, this.H, this.z.I0().getPcdnState());
         }
     }
 
@@ -1465,7 +1465,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (j2 > 0) {
             this.t.setText(StringHelper.numFormatOverWan(j2));
         } else {
-            this.t.setText(this.f62181g.getString(R.string.reply));
+            this.t.setText(this.f62182g.getString(R.string.reply));
         }
     }
 
@@ -1486,7 +1486,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
         if (gVar.j() != null) {
             gVar.j().isInThread = true;
-            gVar.j().nid = gVar.f57620g;
+            gVar.j().nid = gVar.f57621g;
             if (this.D.o() == 1) {
                 gVar.j().cardType = 2;
             } else if (this.D.o() == 2) {
@@ -1516,7 +1516,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         if (j2 > 0) {
             this.w.setText(StringHelper.numFormatOverWan(j2));
         } else {
-            this.w.setText(this.f62181g.getString(R.string.share));
+            this.w.setText(this.f62182g.getString(R.string.share));
         }
     }
 
@@ -1524,36 +1524,36 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
     public class s {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f58295a;
+        public int f58296a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f58296b;
+        public Runnable f58297b;
 
         /* renamed from: d.b.i0.p0.o2.a$s$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1420a implements Runnable {
-            public RunnableC1420a() {
+        public class RunnableC1421a implements Runnable {
+            public RunnableC1421a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.b.e.m.e.a().removeCallbacks(s.this.f58296b);
+                d.b.b.e.m.e.a().removeCallbacks(s.this.f58297b);
                 s.this.g(2);
             }
         }
 
         public s() {
-            this.f58295a = -1;
-            this.f58296b = new RunnableC1420a();
+            this.f58296a = -1;
+            this.f58297b = new RunnableC1421a();
         }
 
         public final void b() {
-            d.b.b.e.m.e.a().removeCallbacks(this.f58296b);
-            d.b.b.e.m.e.a().postDelayed(this.f58296b, 3000L);
+            d.b.b.e.m.e.a().removeCallbacks(this.f58297b);
+            d.b.b.e.m.e.a().postDelayed(this.f58297b, 3000L);
         }
 
         public final int c(int i) {
-            int i2 = this.f58295a;
+            int i2 = this.f58296a;
             if (i == i2) {
                 return i2;
             }
@@ -1563,7 +1563,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
 
         public final int d(int i) {
-            int i2 = this.f58295a;
+            int i2 = this.f58296a;
             if (i == i2) {
                 return i2;
             }
@@ -1573,7 +1573,7 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
 
         public final int e(int i) {
-            int i2 = this.f58295a;
+            int i2 = this.f58296a;
             if (i == i2) {
                 return i2;
             }
@@ -1586,22 +1586,22 @@ public class a extends d.b.i0.x.b<d.b.i0.p0.i1.g> implements d.b.i0.p0.i1.c, d.b
         }
 
         public int f() {
-            return this.f58295a;
+            return this.f58296a;
         }
 
         public void g(int i) {
             if (i == 0) {
-                this.f58295a = c(i);
+                this.f58296a = c(i);
                 b();
             } else if (i == 1) {
-                this.f58295a = c(i);
-                d.b.b.e.m.e.a().removeCallbacks(this.f58296b);
+                this.f58296a = c(i);
+                d.b.b.e.m.e.a().removeCallbacks(this.f58297b);
             } else if (i == 2) {
-                this.f58295a = e(i);
+                this.f58296a = e(i);
             } else if (i != 3) {
-                this.f58295a = e(i);
+                this.f58296a = e(i);
             } else {
-                this.f58295a = d(i);
+                this.f58296a = d(i);
                 b();
             }
         }

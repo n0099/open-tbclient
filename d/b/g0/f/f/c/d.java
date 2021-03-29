@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class d extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47776c = k.f45050a;
+    public static final boolean f47777c = k.f45051a;
 
     public d() {
         super("getAppList");
@@ -23,11 +23,11 @@ public class d extends d.b.g0.f.i.a {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put("data", c());
-            if (f47776c) {
+            if (f47777c) {
                 Log.i("GetAppListAction", jSONObject2.toString());
             }
         } catch (JSONException e2) {
-            if (f47776c) {
+            if (f47777c) {
                 e2.printStackTrace();
             }
         }

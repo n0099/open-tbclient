@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static final String KEY_TYPE = "type";
     public boolean mIsShowFirstFrame;

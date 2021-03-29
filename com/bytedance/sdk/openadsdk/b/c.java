@@ -9,20 +9,20 @@ import java.util.TreeMap;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27529a;
+    public int f27530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27530b;
+    public int f27531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f27531c;
+    public volatile boolean f27532c;
 
     public c(int i, int i2) {
-        this.f27529a = 15;
-        this.f27530b = 3;
+        this.f27530a = 15;
+        this.f27531b = 3;
         if (i > 0) {
-            this.f27529a = i;
-            this.f27530b = i2;
+            this.f27530a = i;
+            this.f27531b = i2;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");
@@ -79,7 +79,7 @@ public class c extends b {
                             u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                         }
                         if (a(file2, b2, size)) {
-                            u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f27529a + " 最小个数 " + this.f27530b);
+                            u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f27530a + " 最小个数 " + this.f27531b);
                             return;
                         }
                     }
@@ -91,31 +91,31 @@ public class c extends b {
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(long j, int i) {
-        return i <= this.f27529a;
+        return i <= this.f27530a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(File file, long j, int i) {
-        return i <= this.f27530b;
+        return i <= this.f27531b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public void a(List<File> list) {
-        if (this.f27531c) {
+        if (this.f27532c) {
             d(list);
-            this.f27531c = false;
+            this.f27532c = false;
             return;
         }
         c(list);
     }
 
     public c(int i, int i2, boolean z) {
-        this.f27529a = 15;
-        this.f27530b = 3;
+        this.f27530a = 15;
+        this.f27531b = 3;
         if (i > 0) {
-            this.f27529a = i;
-            this.f27530b = i2;
-            this.f27531c = z;
+            this.f27530a = i;
+            this.f27531b = i2;
+            this.f27532c = z;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");

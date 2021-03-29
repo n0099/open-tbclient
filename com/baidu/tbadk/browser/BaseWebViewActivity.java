@@ -128,7 +128,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (!TextUtils.isEmpty(BaseWebViewActivity.this.getShareInfo())) {
                 BaseWebViewActivity baseWebViewActivity = BaseWebViewActivity.this;
                 ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
-                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f13130e;
+                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f13131e;
                 if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
                     d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(BaseWebViewActivity.this);
                     if (threadAchievementShareDialogView.h(BaseWebViewActivity.this.getPageContext(), aVar)) {
@@ -303,11 +303,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         a.b d2 = d.b.h0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f50628a;
+            String str3 = d2.f50629a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f50629b;
+            str = d2.f50630b;
             if (str == null) {
                 str = "";
             }
@@ -457,7 +457,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.v = Uri.parse(str4);
         }
-        shareItem.f13717g = true;
+        shareItem.f13718g = true;
         shareItem.q = this.mUrl;
         shareItem.D = 13;
         Bundle bundle = new Bundle();
@@ -645,7 +645,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.w(this.mUrlTitle);
         }
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f50257b, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f50258b, R.color.CAM_X0303, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();

@@ -14,23 +14,23 @@ import java.util.Set;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44793a = k.f45050a;
+    public static final boolean f44794a = k.f45051a;
 
     /* renamed from: d.b.g0.a.j0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0703a extends ResponseCallback<JSONObject> {
-        public C0703a(a aVar) {
+    /* loaded from: classes2.dex */
+    public class C0704a extends ResponseCallback<JSONObject> {
+        public C0704a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (a.f44793a) {
+            if (a.f44794a) {
                 Log.e("AbsDefaultPurger", "onSuccess: ");
             }
         }
@@ -39,7 +39,7 @@ public abstract class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
         public JSONObject parseResponse(Response response, int i) throws Exception {
-            if (a.f44793a) {
+            if (a.f44794a) {
                 Log.d("AbsDefaultPurger", "parseResponse");
             }
             if (response == null || response.body() == null) {
@@ -54,7 +54,7 @@ public abstract class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (a.f44793a) {
+            if (a.f44794a) {
                 Log.e("AbsDefaultPurger", "onFail: " + exc);
             }
         }
@@ -62,7 +62,7 @@ public abstract class a {
 
     @NonNull
     public final ResponseCallback<JSONObject> b() {
-        return new C0703a(this);
+        return new C0704a(this);
     }
 
     public void c(String str) {
@@ -73,7 +73,7 @@ public abstract class a {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (f44793a) {
+        if (f44794a) {
             Log.d("AbsDefaultPurger", "clearData");
         }
         Set<String> d2 = d.d(list);
@@ -84,7 +84,7 @@ public abstract class a {
         d.b.g0.a.w0.a.Z().b("aiapp_setting_", hashSet, false);
         d.b.g0.a.w0.a.Z().b("aiapp_", hashSet, false);
         for (String str : hashSet) {
-            if (f44793a) {
+            if (f44794a) {
                 Log.d("AbsDefaultPurger", "clear storage files: " + str);
             }
             String f2 = d.b.g0.a.a2.b.f(str);
@@ -107,7 +107,7 @@ public abstract class a {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (f44793a) {
+        if (f44794a) {
             Log.d("AbsDefaultPurger", "resetAccredit");
         }
         ArrayMap arrayMap = new ArrayMap();
@@ -119,7 +119,7 @@ public abstract class a {
             ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) d.b.g0.k.e.a.f().postFormRequest().url(d.b.g0.a.w0.a.l().c())).addParam("data", jSONObject.toString()).cookieManager(a2)).build().executeAsyncOnUIBack(b());
         } catch (JSONException e2) {
             e2.printStackTrace();
-            if (f44793a) {
+            if (f44794a) {
                 Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e2);
             }
         }

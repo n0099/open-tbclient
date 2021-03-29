@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import d.b.b.c.e.c.a;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a {
     public long hasSentMsgId;
     public long toUid;

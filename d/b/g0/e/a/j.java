@@ -24,13 +24,10 @@ public class j extends b {
         if (J < H) {
             this.F = true;
             int i = this.m;
-            double d2 = (i - J) / 2;
-            Double.isNaN(d2);
-            int i2 = (int) (d2 * 0.8d);
-            double d3 = (i - J) / 2;
-            Double.isNaN(d3);
+            int i2 = (int) (((i - J) / 2) * 0.8d);
+            int i3 = (int) (((i - J) / 2) * 0.1d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
-            layoutParams.leftMargin = (this.m - i2) - ((int) (d3 * 0.1d));
+            layoutParams.leftMargin = (this.m - i2) - i3;
             layoutParams.addRule(15);
             layoutParams.removeRule(13);
             layoutParams.removeRule(12);

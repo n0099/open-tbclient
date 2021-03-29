@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class DnsIpData extends Message {
     public static final String DEFAULT_ADDRESS = "";
     public static final List<Integer> DEFAULT_DATA = Collections.emptyList();

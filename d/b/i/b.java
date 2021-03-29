@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends d.b.i.a<d.b.h0.r.q.a> {
     public BjhArticleLayout j;
     public d.b.h0.r.q.a k;
     public View.OnClickListener l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -23,18 +23,18 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar = b.this;
-            bVar.r(bVar.f51761e.j(), b.this.k);
+            bVar.r(bVar.f51762e.j(), b.this.k);
         }
     }
 
     /* renamed from: d.b.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C1116b implements a.b {
-        public C1116b() {
+    /* loaded from: classes.dex */
+    public class C1117b implements a.b {
+        public C1117b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (b.this.k != null && b.this.k.n() != null) {
                 d.b.i0.x.m.a(b.this.k.n().o0());
                 d.b.i0.x.m.l(b.this.j.getTitle(), b.this.k.n().o0(), R.color.CAM_X0101, R.color.CAM_X0109);
@@ -59,7 +59,7 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
     @Override // d.b.i.a
     public void h() {
         super.h();
-        i(1, new C1116b());
+        i(1, new C1117b());
     }
 
     @Override // d.b.i.a
@@ -80,13 +80,13 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
             if (nVar instanceof d.b.i0.x.e0.e) {
                 d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) this.k;
                 eVar.k = 1;
-                ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), eVar.f62196e.T1 ? 2 : 1, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), eVar.f62197e.T1 ? 2 : 1, false);
+                threadCardViewHolder.b().o(new a.C1118a(1));
             } else if (nVar instanceof a2) {
                 a2 a2Var = (a2) this.k;
                 a2Var.objType = 1;
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 3, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

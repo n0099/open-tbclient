@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import rx.schedulers.Schedulers;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class EventBusWrapper {
     public static final boolean DEBUG = false;
     public static final int LAZY_POST_MSG = 2;
@@ -23,7 +23,7 @@ public final class EventBusWrapper {
     public static final int THREAD_MODE_MAIN = 0;
     public static ConcurrentHashMap<Object, ConcurrentLinkedQueue<LazySubscriber>> sLazySubscribers = new ConcurrentHashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class LazySubscriber {
         public final b action;
         public final int mode;

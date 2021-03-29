@@ -63,22 +63,22 @@ public class p extends d.b.b.j.e.a<PersonPostModel.PostInfoList, PersonCommentHo
                     arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), StringHelper.getFormatTime(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            personCommentHolder.f20426e.setContent(arrayList);
+            personCommentHolder.f20427e.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                personCommentHolder.f20427f.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                personCommentHolder.f20428f.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                personCommentHolder.f20427f.setText(postInfoList.title);
+                personCommentHolder.f20428f.setText(postInfoList.title);
             }
-            personCommentHolder.f20427f.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+            personCommentHolder.f20428f.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                personCommentHolder.f20427f.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                personCommentHolder.f20428f.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                personCommentHolder.f20427f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                personCommentHolder.f20428f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            SkinManager.setBackgroundResource(personCommentHolder.f20427f, R.drawable.person_post_line);
-            SkinManager.setViewTextColor(personCommentHolder.f20427f, R.color.common_color_10039, 1);
+            SkinManager.setBackgroundResource(personCommentHolder.f20428f, R.drawable.person_post_line);
+            SkinManager.setViewTextColor(personCommentHolder.f20428f, R.color.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
-            personCommentHolder.f20427f.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            personCommentHolder.f20428f.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             personCommentHolder.b(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

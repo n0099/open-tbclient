@@ -22,7 +22,6 @@ public final class SingleCache<T> extends q<T> implements r<T> {
         public void dispose() {
             if (compareAndSet(false, true)) {
                 this.parent.c(this);
-                throw null;
             }
         }
 
@@ -32,7 +31,5 @@ public final class SingleCache<T> extends q<T> implements r<T> {
         }
     }
 
-    public void c(CacheDisposable<T> cacheDisposable) {
-        throw null;
-    }
+    public abstract void c(CacheDisposable<T> cacheDisposable);
 }

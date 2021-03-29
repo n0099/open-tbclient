@@ -11,7 +11,7 @@ import android.util.DisplayMetrics;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class PlatformBitmapFactory {
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */

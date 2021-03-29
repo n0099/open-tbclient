@@ -8,10 +8,10 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class f implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f10255a;
+    public final /* synthetic */ d f10256a;
 
     public f(d dVar) {
-        this.f10255a = dVar;
+        this.f10256a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -21,29 +21,29 @@ public class f implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.f10255a.u;
+            location2 = this.f10256a.u;
             if (location2 != null) {
-                d dVar = this.f10255a;
+                d dVar = this.f10256a;
                 location3 = dVar.u;
                 if (dVar.a(location, location3)) {
-                    this.f10255a.u = location;
+                    this.f10256a.u = location;
                 }
-                d dVar2 = this.f10255a;
+                d dVar2 = this.f10256a;
                 location4 = dVar2.u;
                 dVar2.a(location4);
             } else {
-                this.f10255a.a(location);
+                this.f10256a.a(location);
             }
-            d dVar3 = this.f10255a;
-            wLocData = dVar3.f10248c;
+            d dVar3 = this.f10256a;
+            wLocData = dVar3.f10249c;
             dVar3.a(wLocData, "gps");
-            this.f10255a.f10252h = true;
+            this.f10256a.f10253h = true;
         }
     }
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f10255a.f10251f) {
+        for (a aVar : this.f10256a.f10252f) {
             if (aVar != null) {
                 aVar.d(5);
             }
@@ -52,7 +52,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f10255a.f10251f) {
+        for (a aVar : this.f10256a.f10252f) {
             if (aVar != null) {
                 aVar.d(4);
             }

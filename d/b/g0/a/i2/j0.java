@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class j0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44699a = d.b.g0.a.k.f45050a;
+    public static final boolean f44700a = d.b.g0.a.k.f45051a;
 
     public static String a() {
-        return d.b.g0.a.r1.e.y() != null ? d.b.g0.a.r1.e.y().f45739f : "";
+        return d.b.g0.a.r1.e.y() != null ? d.b.g0.a.r1.e.y().f45740f : "";
     }
 
     public static String b() {
@@ -28,7 +28,7 @@ public class j0 {
 
     public static JSONObject d(String str) {
         String string = d.b.g0.a.a2.g.h.a().getString("dailyInfo", "");
-        if (f44699a) {
+        if (f44700a) {
             Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
         }
         JSONObject jSONObject = null;
@@ -44,7 +44,7 @@ public class j0 {
                 return jSONObject;
             }
         } catch (JSONException e2) {
-            if (f44699a) {
+            if (f44700a) {
                 Log.e("SwanAppUserVisitInfoUtils", e2.getMessage());
             }
         }
@@ -56,7 +56,7 @@ public class j0 {
         JSONObject d2 = d(a());
         long optLong = d2 != null ? d2.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
         if (d2 != null) {
-            return (currentTimeMillis - optLong) + d2.optLong("visit_duration", 0L);
+            return d2.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
@@ -78,7 +78,7 @@ public class j0 {
     public static void i(String str, String str2, Object obj) {
         JSONObject jSONObject;
         String string = d.b.g0.a.a2.g.h.a().getString("dailyInfo", "");
-        if (f44699a) {
+        if (f44700a) {
             Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
         }
         try {
@@ -95,7 +95,7 @@ public class j0 {
             }
             d.b.g0.a.a2.g.h.a().putString("dailyInfo", jSONObject.toString());
         } catch (JSONException e2) {
-            if (f44699a) {
+            if (f44700a) {
                 Log.e("SwanAppUserVisitInfoUtils", e2.getMessage());
             }
         }

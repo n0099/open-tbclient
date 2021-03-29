@@ -10,34 +10,34 @@ public class b extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f31665a;
+    public KsNativeAd.AdInteractionListener f31666a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f31666b;
+    public KsNativeAd.VideoPlayListener f31667b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f31667c;
+    public AdBaseFrameLayout f31668c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f31668d;
+    public AdTemplate f31669d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f31669e;
+    public com.kwad.sdk.core.download.b.b f31670e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.a.c.a f31670f;
+    public com.kwad.sdk.a.c.a f31671f;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        com.kwad.sdk.core.download.b.b bVar = this.f31669e;
+        com.kwad.sdk.core.download.b.b bVar = this.f31670e;
         if (bVar != null) {
             bVar.f();
         }
-        this.f31670f.e();
+        this.f31671f.e();
     }
 }

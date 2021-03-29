@@ -17,19 +17,19 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f15769a;
+        public EmotionHorizontalView f15770a;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.f15769a = (EmotionHorizontalView) view;
+            this.f15770a = (EmotionHorizontalView) view;
         }
 
         public void b(b bVar) {
-            EmotionHorizontalView emotionHorizontalView = this.f15769a;
+            EmotionHorizontalView emotionHorizontalView = this.f15770a;
             if (emotionHorizontalView == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f56683e);
+            emotionHorizontalView.setData(bVar.f56684e);
         }
     }
 

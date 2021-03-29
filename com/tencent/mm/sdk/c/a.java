@@ -7,7 +7,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0514a {
+    public static final class C0515a {
         public static Object a(int i, String str) {
             try {
                 switch (i) {

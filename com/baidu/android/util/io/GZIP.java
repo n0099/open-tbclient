@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class GZIP {
     public static final boolean DEBUG = false;
     public static final int NUM_1024 = 1024;

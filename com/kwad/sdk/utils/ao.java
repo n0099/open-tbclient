@@ -32,32 +32,32 @@ import java.util.HashSet;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f36754a;
+    public static int f36755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f36755b;
+    public static long f36756b;
 
     public static int a(@Nullable Context context) {
-        int i = f36754a;
+        int i = f36755a;
         if (i <= 0 && context != null) {
             int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
             if (identifier > 0) {
-                f36754a = context.getResources().getDimensionPixelSize(identifier);
+                f36755a = context.getResources().getDimensionPixelSize(identifier);
             } else {
                 try {
                     Class<?> cls = Class.forName("com.android.internal.R$dimen");
                     Object newInstance = cls.newInstance();
                     Field field = cls.getField("status_bar_height");
                     field.setAccessible(true);
-                    f36754a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
+                    f36755a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (f36754a <= 0) {
-                f36754a = a(context, 25.0f);
+            if (f36755a <= 0) {
+                f36755a = a(context, 25.0f);
             }
-            return f36754a;
+            return f36755a;
         }
         return i;
     }
@@ -183,8 +183,8 @@ public class ao {
 
     public static boolean a() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        int i = (Math.abs(uptimeMillis - f36755b) > 500L ? 1 : (Math.abs(uptimeMillis - f36755b) == 500L ? 0 : -1));
-        f36755b = uptimeMillis;
+        int i = (Math.abs(uptimeMillis - f36756b) > 500L ? 1 : (Math.abs(uptimeMillis - f36756b) == 500L ? 0 : -1));
+        f36756b = uptimeMillis;
         return i < 0;
     }
 

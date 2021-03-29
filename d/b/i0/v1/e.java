@@ -28,7 +28,7 @@ import com.baidu.tieba.card.OriginalThreadCardView;
 import d.b.b.e.p.l;
 import d.b.h0.r.k;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends BaseAdapter {
     public static final float q = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32);
     public static final float r = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds36);
@@ -37,17 +37,17 @@ public class e extends BaseAdapter {
     public static final int u = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f61986e;
+    public TbPageContext<?> f61987e;
     public Runnable n;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<MarkData> f61987f = new ArrayList<>();
+    public final ArrayList<MarkData> f61988f = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61988g = false;
+    public boolean f61989g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f61989h = null;
+    public View.OnClickListener f61990h = null;
     public View.OnClickListener i = null;
     public View.OnClickListener j = null;
     public boolean k = false;
@@ -56,7 +56,7 @@ public class e extends BaseAdapter {
     public final View.OnClickListener o = new c();
     public View.OnClickListener p = new d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -67,7 +67,7 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements OriginalThreadCardView.b {
         public b(e eVar) {
         }
@@ -78,7 +78,7 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -99,7 +99,7 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -111,38 +111,38 @@ public class e extends BaseAdapter {
     }
 
     /* renamed from: d.b.i0.v1.e$e  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1638e {
+    /* loaded from: classes3.dex */
+    public class C1639e {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageButton f61993a;
+        public ImageButton f61994a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ClickableHeaderImageView f61994b;
+        public ClickableHeaderImageView f61995b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f61995c;
+        public TextView f61996c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CommonUserLikeButton f61996d;
+        public CommonUserLikeButton f61997d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f61997e;
+        public TextView f61998e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f61998f;
+        public TextView f61999f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f61999g;
+        public ImageView f62000g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f62000h;
+        public LinearLayout f62001h;
         public LinearLayout i;
         public LinearLayout j;
         public View k;
         public d.b.h0.r.f0.q.c l;
 
-        public C1638e() {
+        public C1639e() {
         }
 
         public void a(MarkData markData) {
@@ -152,41 +152,41 @@ public class e extends BaseAdapter {
             String title = markData.getTitle();
             if (!TextUtils.isEmpty(title)) {
                 if (markData.is_deleted()) {
-                    this.f61997e.setText(title);
-                    this.f61997e.setTextSize(0, e.q);
-                    SkinManager.setViewTextColor(this.f61997e, R.color.CAM_X0110);
+                    this.f61998e.setText(title);
+                    this.f61998e.setTextSize(0, e.q);
+                    SkinManager.setViewTextColor(this.f61998e, R.color.CAM_X0110);
                 } else {
-                    this.f61997e.setText(title);
-                    this.f61997e.setTextSize(0, e.r);
-                    SkinManager.setViewTextColor(this.f61997e, R.color.CAM_X0105);
+                    this.f61998e.setText(title);
+                    this.f61998e.setTextSize(0, e.r);
+                    SkinManager.setViewTextColor(this.f61998e, R.color.CAM_X0105);
                 }
             } else {
-                this.f61997e.setText("");
+                this.f61998e.setText("");
             }
             c(markData);
-            this.f61994b.setData(markData.metaData);
-            this.f61994b.setShowV(markData.metaData.isBigV());
+            this.f61995b.setData(markData.metaData);
+            this.f61995b.setShowV(markData.metaData.isBigV());
             this.l.n(markData.metaData);
-            this.f61996d.g(TbadkCoreApplication.getInst().getSkinType());
-            this.f61996d.setTextSize(0, e.s);
+            this.f61997d.g(TbadkCoreApplication.getInst().getSkinType());
+            this.f61997d.setTextSize(0, e.s);
             if ((markData.metaData.getIsLike() || StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), markData.getUesrId())) && !markData.isLikeInPage()) {
-                this.f61996d.setVisibility(8);
+                this.f61997d.setVisibility(8);
             } else {
-                this.f61996d.setVisibility(0);
+                this.f61997d.setVisibility(0);
             }
             if ((!StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) || markData.is_deleted()) {
                 this.j.setVisibility(0);
                 if (markData.isRedTipShow() && !markData.is_deleted()) {
-                    this.f61999g.setVisibility(0);
+                    this.f62000g.setVisibility(0);
                 } else {
-                    this.f61999g.setVisibility(8);
+                    this.f62000g.setVisibility(8);
                 }
                 if (markData.is_deleted()) {
-                    this.f61998f.setText(e.this.f61986e.getString(R.string.mark_thread_deleted));
+                    this.f61999f.setText(e.this.f61987e.getString(R.string.mark_thread_deleted));
                 } else {
-                    this.f61998f.setText(markData.getmState());
+                    this.f61999f.setText(markData.getmState());
                 }
-                SkinManager.setViewTextColor(this.f61998f, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f61999f, R.color.CAM_X0109);
             } else {
                 this.j.setVisibility(8);
             }
@@ -207,27 +207,27 @@ public class e extends BaseAdapter {
             if (markData == null) {
                 return;
             }
-            this.f61995c.setText(markData.getAuthorName());
+            this.f61996c.setText(markData.getAuthorName());
             if (markData.metaData.isBigV()) {
-                SkinManager.setViewTextColor(this.f61995c, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(this.f61996c, R.color.CAM_X0301);
             } else {
-                SkinManager.setViewTextColor(this.f61995c, R.color.CAM_X0106);
+                SkinManager.setViewTextColor(this.f61996c, R.color.CAM_X0106);
             }
         }
 
-        public /* synthetic */ C1638e(e eVar, a aVar) {
+        public /* synthetic */ C1639e(e eVar, a aVar) {
             this();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f62001a;
+        public TextView f62002a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ProgressBar f62002b;
+        public ProgressBar f62003b;
 
         public f(e eVar) {
         }
@@ -237,29 +237,29 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g extends C1638e {
+    /* loaded from: classes3.dex */
+    public class g extends C1639e {
         public OriginalThreadCardView n;
 
         public g(e eVar, View view) {
             super(eVar, null);
-            this.f62000h = (LinearLayout) view.findViewById(R.id.share_lv_markitem);
-            this.f61993a = (ImageButton) view.findViewById(R.id.share_lv_markitem_delete);
-            this.f61994b = (ClickableHeaderImageView) view.findViewById(R.id.share_mark_userinfo_header_view);
-            this.f61995c = (TextView) view.findViewById(R.id.share_mark_userinfo_name);
-            this.f61996d = (CommonUserLikeButton) view.findViewById(R.id.share_mark_item_userinfo_like_btn);
-            this.l = new d.b.h0.r.f0.q.c(eVar.f61986e, this.f61996d);
+            this.f62001h = (LinearLayout) view.findViewById(R.id.share_lv_markitem);
+            this.f61994a = (ImageButton) view.findViewById(R.id.share_lv_markitem_delete);
+            this.f61995b = (ClickableHeaderImageView) view.findViewById(R.id.share_mark_userinfo_header_view);
+            this.f61996c = (TextView) view.findViewById(R.id.share_mark_userinfo_name);
+            this.f61997d = (CommonUserLikeButton) view.findViewById(R.id.share_mark_item_userinfo_like_btn);
+            this.l = new d.b.h0.r.f0.q.c(eVar.f61987e, this.f61997d);
             this.i = (LinearLayout) view.findViewById(R.id.share_lv_markitem_userinfo);
-            this.f61997e = (TextView) view.findViewById(R.id.share_thread_title);
+            this.f61998e = (TextView) view.findViewById(R.id.share_thread_title);
             this.n = (OriginalThreadCardView) view.findViewById(R.id.share_original_thread_view);
-            this.f61998f = (TextView) view.findViewById(R.id.share_mark_item_state_text);
-            this.f61999g = (ImageView) view.findViewById(R.id.share_new_mark_mention_redtip);
+            this.f61999f = (TextView) view.findViewById(R.id.share_mark_item_state_text);
+            this.f62000g = (ImageView) view.findViewById(R.id.share_new_mark_mention_redtip);
             this.j = (LinearLayout) view.findViewById(R.id.share_mark_item_state);
             this.k = view.findViewById(R.id.share_text_divider);
-            b(this.f61994b);
+            b(this.f61995b);
         }
 
-        @Override // d.b.i0.v1.e.C1638e
+        @Override // d.b.i0.v1.e.C1639e
         public void a(MarkData markData) {
             super.a(markData);
             this.n.f(markData.getOriginalThreadInfo());
@@ -273,32 +273,32 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class h extends C1638e {
+    /* loaded from: classes3.dex */
+    public class h extends C1639e {
         public TbImageView n;
         public LinearLayout o;
 
         public h(e eVar, View view) {
             super(eVar, null);
-            this.f62000h = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
-            this.f61994b = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);
-            this.f61995c = (TextView) view.findViewById(R.id.mark_userinfo_name);
+            this.f62001h = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
+            this.f61995b = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);
+            this.f61996c = (TextView) view.findViewById(R.id.mark_userinfo_name);
             this.i = (LinearLayout) view.findViewById(R.id.home_lv_markitem_userinfo);
             this.o = (LinearLayout) view.findViewById(R.id.home_lv_markitem_thread);
-            this.f61996d = (CommonUserLikeButton) view.findViewById(R.id.markitem_userinfo_like_btn);
-            this.l = new d.b.h0.r.f0.q.c(eVar.f61986e, this.f61996d);
+            this.f61997d = (CommonUserLikeButton) view.findViewById(R.id.markitem_userinfo_like_btn);
+            this.l = new d.b.h0.r.f0.q.c(eVar.f61987e, this.f61997d);
             this.n = (TbImageView) view.findViewById(R.id.markitem_thread_image);
-            this.f61997e = (TextView) view.findViewById(R.id.markitem_thread_title);
-            this.f61998f = (TextView) view.findViewById(R.id.markitem_state_text);
-            this.f61993a = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
-            this.f61999g = (ImageView) view.findViewById(R.id.new_mark_mention_redtip);
+            this.f61998e = (TextView) view.findViewById(R.id.markitem_thread_title);
+            this.f61999f = (TextView) view.findViewById(R.id.markitem_state_text);
+            this.f61994a = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
+            this.f62000g = (ImageView) view.findViewById(R.id.new_mark_mention_redtip);
             this.j = (LinearLayout) view.findViewById(R.id.markitem_state);
             this.k = view.findViewById(R.id.text_divider);
-            b(this.f61994b);
+            b(this.f61995b);
             this.n.setPlaceHolder(1);
         }
 
-        @Override // d.b.i0.v1.e.C1638e
+        @Override // d.b.i0.v1.e.C1639e
         public void a(MarkData markData) {
             super.a(markData);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
@@ -323,20 +323,20 @@ public class e extends BaseAdapter {
     }
 
     public e(TbPageContext<?> tbPageContext) {
-        this.f61986e = tbPageContext;
+        this.f61987e = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f61987f)) {
+        if (ListUtils.isEmpty(this.f61988f)) {
             return 0;
         }
-        return this.m ? ListUtils.getCount(this.f61987f) + 1 : ListUtils.getCount(this.f61987f);
+        return this.m ? ListUtils.getCount(this.f61988f) + 1 : ListUtils.getCount(this.f61988f);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (ListUtils.getCount(this.f61987f) <= i) {
+        if (ListUtils.getCount(this.f61988f) <= i) {
             return -1L;
         }
         return i;
@@ -353,7 +353,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1638e hVar;
+        C1639e hVar;
         f fVar;
         g gVar;
         int itemViewType = getItemViewType(i);
@@ -361,21 +361,21 @@ public class e extends BaseAdapter {
             if (view != null && (view.getTag() instanceof h)) {
                 hVar = (h) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f61986e.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f61987e.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
                 hVar = new h(this, view);
                 view.setTag(hVar);
             }
             MarkData item = getItem(i);
             if (item == null) {
-                hVar.f61993a.setVisibility(8);
+                hVar.f61994a.setVisibility(8);
                 return view;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) hVar.f62000h.getLayoutParams();
-            if (this.f61988g) {
-                hVar.f61993a.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) hVar.f62001h.getLayoutParams();
+            if (this.f61989g) {
+                hVar.f61994a.setVisibility(0);
                 layoutParams.leftMargin = 0;
             } else {
-                hVar.f61993a.setVisibility(8);
+                hVar.f61994a.setVisibility(8);
                 layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.ds34);
             }
             hVar.a(item);
@@ -384,53 +384,53 @@ public class e extends BaseAdapter {
             if (view != null && (view.getTag() instanceof f)) {
                 fVar = (f) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f61986e.getPageActivity()).inflate(R.layout.page_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f61987e.getPageActivity()).inflate(R.layout.page_item, (ViewGroup) null);
                 fVar = new f(this, null);
-                fVar.f62001a = (TextView) view.findViewById(R.id.page_text);
-                fVar.f62002b = (ProgressBar) view.findViewById(R.id.progress);
+                fVar.f62002a = (TextView) view.findViewById(R.id.page_text);
+                fVar.f62003b = (ProgressBar) view.findViewById(R.id.progress);
                 view.setTag(fVar);
             }
-            fVar.f62001a.setVisibility(0);
+            fVar.f62002a.setVisibility(0);
             if (this.k) {
-                fVar.f62002b.setVisibility(0);
-                fVar.f62001a.setText(this.f61986e.getString(R.string.loading));
-                SkinManager.setViewTextColor(fVar.f62001a, R.color.common_color_10039, 1);
+                fVar.f62003b.setVisibility(0);
+                fVar.f62002a.setText(this.f61987e.getString(R.string.loading));
+                SkinManager.setViewTextColor(fVar.f62002a, R.color.common_color_10039, 1);
             } else if (!this.l) {
-                fVar.f62002b.setVisibility(8);
-                fVar.f62001a.setText(this.f61986e.getString(R.string.no_more_mark));
-                SkinManager.setViewTextColor(fVar.f62001a, R.color.common_color_10005, 1);
+                fVar.f62003b.setVisibility(8);
+                fVar.f62002a.setText(this.f61987e.getString(R.string.no_more_mark));
+                SkinManager.setViewTextColor(fVar.f62002a, R.color.common_color_10005, 1);
             } else {
-                fVar.f62002b.setVisibility(8);
-                fVar.f62001a.setText(this.f61986e.getString(R.string.loading));
-                SkinManager.setViewTextColor(fVar.f62001a, R.color.common_color_10039, 1);
+                fVar.f62003b.setVisibility(8);
+                fVar.f62002a.setText(this.f61987e.getString(R.string.loading));
+                SkinManager.setViewTextColor(fVar.f62002a, R.color.common_color_10039, 1);
             }
         } else if (itemViewType == 2) {
             if (view != null && (view.getTag() instanceof g)) {
                 gVar = (g) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f61986e.getPageActivity()).inflate(R.layout.cell_collect_share_view, (ViewGroup) null);
+                view = LayoutInflater.from(this.f61987e.getPageActivity()).inflate(R.layout.cell_collect_share_view, (ViewGroup) null);
                 gVar = new g(this, view);
                 view.setTag(gVar);
             }
             MarkData item2 = getItem(i);
             if (item2 == null) {
-                gVar.f61993a.setVisibility(8);
+                gVar.f61994a.setVisibility(8);
                 return view;
             }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f62000h.getLayoutParams();
-            if (this.f61988g) {
-                gVar.f61993a.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f62001h.getLayoutParams();
+            if (this.f61989g) {
+                gVar.f61994a.setVisibility(0);
                 layoutParams2.leftMargin = 0;
             } else {
-                gVar.f61993a.setVisibility(8);
+                gVar.f61994a.setVisibility(8);
                 layoutParams2.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.ds34);
             }
             gVar.a(item2);
             o(i, gVar);
             gVar.n.setSubClickListener(new b(this));
         }
-        this.f61986e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.f61986e.getLayoutMode().j(view);
+        this.f61987e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.f61987e.getLayoutMode().j(view);
         d.b.i0.v1.c.b("c14062", getItem(i));
         return view;
     }
@@ -444,7 +444,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: h */
     public MarkData getItem(int i) {
-        return (MarkData) ListUtils.getItem(this.f61987f, i);
+        return (MarkData) ListUtils.getItem(this.f61988f, i);
     }
 
     public void i() {
@@ -455,7 +455,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (ListUtils.isEmpty(this.f61987f)) {
+        if (ListUtils.isEmpty(this.f61988f)) {
             return false;
         }
         if (this.l || getItemViewType(i) != 1) {
@@ -465,19 +465,19 @@ public class e extends BaseAdapter {
     }
 
     public void j(ArrayList<MarkData> arrayList) {
-        this.f61987f.clear();
+        this.f61988f.clear();
         if (arrayList != null) {
-            this.f61987f.addAll(arrayList);
+            this.f61988f.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.f61989h = onClickListener;
+        this.f61990h = onClickListener;
     }
 
     public void l(boolean z) {
-        this.f61988g = z;
+        this.f61989g = z;
     }
 
     public void m(boolean z) {
@@ -500,20 +500,20 @@ public class e extends BaseAdapter {
         super.notifyDataSetChanged();
     }
 
-    public final void o(int i, C1638e c1638e) {
+    public final void o(int i, C1639e c1639e) {
         Integer valueOf = Integer.valueOf(i);
-        c1638e.i.setOnClickListener(this.i);
-        c1638e.i.setTag(valueOf);
-        c1638e.f61994b.setAfterClickListener(this.o);
-        c1638e.f61994b.setTag(valueOf);
-        c1638e.f61996d.setAfterOnClickListener(this.o);
-        c1638e.f61996d.setAfterOnClickListener(this.p);
-        c1638e.f61996d.setTag(valueOf);
-        c1638e.j.setOnClickListener(this.j);
-        c1638e.j.setTag(valueOf);
-        c1638e.f61993a.setOnClickListener(this.f61989h);
-        c1638e.f61993a.setFocusable(false);
-        c1638e.f61993a.setTag(valueOf);
+        c1639e.i.setOnClickListener(this.i);
+        c1639e.i.setTag(valueOf);
+        c1639e.f61995b.setAfterClickListener(this.o);
+        c1639e.f61995b.setTag(valueOf);
+        c1639e.f61997d.setAfterOnClickListener(this.o);
+        c1639e.f61997d.setAfterOnClickListener(this.p);
+        c1639e.f61997d.setTag(valueOf);
+        c1639e.j.setOnClickListener(this.j);
+        c1639e.j.setTag(valueOf);
+        c1639e.f61994a.setOnClickListener(this.f61990h);
+        c1639e.f61994a.setFocusable(false);
+        c1639e.f61994a.setTag(valueOf);
     }
 
     public void p(boolean z) {

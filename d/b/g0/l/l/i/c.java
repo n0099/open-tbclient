@@ -22,7 +22,7 @@ public class c extends d.b.g0.l.l.d<d.b.g0.l.l.j.c> {
         if (cVar == null) {
             return false;
         }
-        h hVar = cVar.f48988a;
+        h hVar = cVar.f48989a;
         return hVar == null || hVar.a();
     }
 
@@ -30,15 +30,15 @@ public class c extends d.b.g0.l.l.d<d.b.g0.l.l.j.c> {
     @Override // d.b.g0.l.l.d
     /* renamed from: o */
     public d.b.g0.l.k.a l(d.b.g0.l.l.j.c cVar) {
-        this.f48931e.E();
+        this.f48932e.E();
         f fVar = new f();
-        j(cVar.f48988a, fVar);
+        j(cVar.f48989a, fVar);
         if (fVar.k() == 0) {
-            this.f48931e.F();
+            this.f48932e.F();
             return null;
         }
-        this.f48931e.G(fVar);
-        d.b.g0.l.l.h.a.c(cVar, this.f48931e);
+        this.f48932e.G(fVar);
+        d.b.g0.l.l.h.a.c(cVar, this.f48932e);
         return null;
     }
 

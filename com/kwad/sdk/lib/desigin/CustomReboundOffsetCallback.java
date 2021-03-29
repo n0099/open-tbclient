@@ -11,7 +11,7 @@ public interface CustomReboundOffsetCallback {
     public static final int REBOUND_TYPE_TOUCH = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface ReboundType {
     }
 

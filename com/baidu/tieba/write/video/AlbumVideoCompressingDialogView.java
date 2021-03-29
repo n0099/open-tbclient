@@ -10,10 +10,10 @@ import com.baidu.tieba.R;
 public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f22354e;
+    public AlbumCompressProgressView f22355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22355f;
+    public TextView f22356f;
 
     public AlbumVideoCompressingDialogView(Context context) {
         super(context);
@@ -22,8 +22,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-        this.f22354e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-        this.f22355f = (TextView) findViewById(R.id.txt_compress_progress);
+        this.f22355e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+        this.f22356f = (TextView) findViewById(R.id.txt_compress_progress);
     }
 
     public boolean b() {
@@ -34,8 +34,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (i < 0 || i > 100) {
             return;
         }
-        this.f22354e.setProgress(i);
-        TextView textView = this.f22355f;
+        this.f22355e.setProgress(i);
+        TextView textView = this.f22356f;
         textView.setText(i + "%");
     }
 

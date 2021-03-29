@@ -7,37 +7,37 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 public class n0 extends BaseCardInfo {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f50848h = BdUniqueId.gen();
+    public static final BdUniqueId f50849h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50849e;
+    public boolean f50850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50850f;
+    public String f50851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ICardInfo f50851g;
+    public ICardInfo f50852g;
 
     public ICardInfo g() {
-        return this.f50851g;
+        return this.f50852g;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f50848h;
+        return f50849h;
     }
 
     public boolean isValid() {
-        return this.f50849e;
+        return this.f50850e;
     }
 
     public void j() {
-        ICardInfo i = d.b.i0.i1.o.b.i(this.f50850f);
-        this.f50851g = i;
-        this.f50849e = i != null;
+        ICardInfo i = d.b.i0.i1.o.b.i(this.f50851f);
+        this.f50852g = i;
+        this.f50850e = i != null;
     }
 
     public void n(String str) {
-        this.f50850f = str;
+        this.f50851f = str;
     }
 }

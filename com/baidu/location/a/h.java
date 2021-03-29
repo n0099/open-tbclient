@@ -16,44 +16,44 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f6502d;
+    public static h f6503d;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f6501c = new Object();
+    public static Object f6502c = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6503e = com.baidu.location.d.j.h() + "/hst.db";
+    public static final String f6504e = com.baidu.location.d.j.h() + "/hst.db";
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteDatabase f6506f = null;
+    public SQLiteDatabase f6507f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6507g = false;
+    public boolean f6508g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f6504a = null;
+    public a f6505a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f6505b = null;
+    public a f6506b = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6508h = null;
+    public String f6509h = null;
     public int i = -2;
 
     /* loaded from: classes2.dex */
     public class a extends com.baidu.location.d.e {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6510b = null;
+        public String f6511b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6511c = null;
+        public String f6512c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f6512d = true;
+        public boolean f6513d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f6513e = false;
+        public boolean f6514e = false;
 
         public a() {
             this.k = new HashMap();
@@ -62,20 +62,20 @@ public class h {
         @Override // com.baidu.location.d.e
         public void a() {
             this.i = 1;
-            this.f6705h = com.baidu.location.d.j.c();
-            String encodeTp4 = Jni.encodeTp4(this.f6511c);
-            this.f6511c = null;
+            this.f6706h = com.baidu.location.d.j.c();
+            String encodeTp4 = Jni.encodeTp4(this.f6512c);
+            this.f6512c = null;
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
         }
 
         public void a(String str, String str2) {
-            if (h.this.f6507g) {
+            if (h.this.f6508g) {
                 return;
             }
-            h.this.f6507g = true;
-            this.f6510b = str;
-            this.f6511c = str2;
-            b(com.baidu.location.d.j.f6719f);
+            h.this.f6508g = true;
+            this.f6511b = str;
+            this.f6512c = str2;
+            b(com.baidu.location.d.j.f6720f);
         }
 
         @Override // com.baidu.location.d.e
@@ -83,26 +83,26 @@ public class h {
             String str;
             if (z && (str = this.j) != null) {
                 try {
-                    if (this.f6512d) {
+                    if (this.f6513d) {
                         JSONObject jSONObject = new JSONObject(str);
                         JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
                         if (jSONObject2 != null && jSONObject2.has("imo")) {
                             Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                             int i = jSONObject2.getJSONObject("imo").getInt("mv");
-                            if (Jni.encode3(this.f6510b).longValue() == valueOf.longValue()) {
+                            if (Jni.encode3(this.f6511b).longValue() == valueOf.longValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
                                 try {
-                                    SQLiteDatabase sQLiteDatabase = h.this.f6506f;
+                                    SQLiteDatabase sQLiteDatabase = h.this.f6507f;
                                     if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                         contentValues.put("id", valueOf);
-                                        h.this.f6506f.insert("hstdata", null, contentValues);
+                                        h.this.f6507f.insert("hstdata", null, contentValues);
                                     }
                                 } catch (Exception unused) {
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putByteArray("mac", this.f6510b.getBytes());
+                                bundle.putByteArray("mac", this.f6511b.getBytes());
                                 bundle.putInt("hotspot", i);
                                 h.this.a(bundle);
                             }
@@ -110,24 +110,24 @@ public class h {
                     }
                 } catch (Exception unused2) {
                 }
-            } else if (this.f6512d) {
+            } else if (this.f6513d) {
                 h.this.f();
             }
             Map<String, Object> map = this.k;
             if (map != null) {
                 map.clear();
             }
-            h.this.f6507g = false;
+            h.this.f6508g = false;
         }
     }
 
     public static h a() {
         h hVar;
-        synchronized (f6501c) {
-            if (f6502d == null) {
-                f6502d = new h();
+        synchronized (f6502c) {
+            if (f6503d == null) {
+                f6503d = new h();
             }
-            hVar = f6502d;
+            hVar = f6503d;
         }
         return hVar;
     }
@@ -177,7 +177,7 @@ public class h {
     }
 
     public void a(String str) {
-        if (this.f6507g) {
+        if (this.f6508g) {
             return;
         }
         try {
@@ -191,10 +191,10 @@ public class h {
             ContentValues contentValues = new ContentValues();
             contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i));
-            SQLiteDatabase sQLiteDatabase = this.f6506f;
+            SQLiteDatabase sQLiteDatabase = this.f6507f;
             if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                 contentValues.put("id", valueOf);
-                this.f6506f.insert("hstdata", null, contentValues);
+                this.f6507f.insert("hstdata", null, contentValues);
             }
         } catch (Exception unused) {
         }
@@ -202,32 +202,32 @@ public class h {
 
     public void b() {
         try {
-            File file = new File(f6503e);
+            File file = new File(f6504e);
             if (!file.exists()) {
                 file.createNewFile();
             }
             if (file.exists()) {
                 SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                this.f6506f = openOrCreateDatabase;
+                this.f6507f = openOrCreateDatabase;
                 openOrCreateDatabase.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                this.f6506f.setVersion(1);
+                this.f6507f.setVersion(1);
             }
         } catch (Exception unused) {
-            this.f6506f = null;
+            this.f6507f = null;
         }
     }
 
     public void c() {
-        SQLiteDatabase sQLiteDatabase = this.f6506f;
+        SQLiteDatabase sQLiteDatabase = this.f6507f;
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.f6506f = null;
+                this.f6507f = null;
                 throw th;
             }
-            this.f6506f = null;
+            this.f6507f = null;
         }
     }
 
@@ -246,23 +246,23 @@ public class h {
     public synchronized int d() {
         WifiInfo k;
         int i = -3;
-        if (this.f6507g) {
+        if (this.f6508g) {
             return -3;
         }
         try {
-            if (com.baidu.location.b.i.i() && this.f6506f != null && (k = com.baidu.location.b.i.a().k()) != null && k.getBSSID() != null) {
+            if (com.baidu.location.b.i.i() && this.f6507f != null && (k = com.baidu.location.b.i.a().k()) != null && k.getBSSID() != null) {
                 String replace = k.getBSSID().replace(":", "");
                 Long encode3 = Jni.encode3(replace);
-                if (this.f6508h == null || !replace.equals(this.f6508h) || this.i <= -2) {
+                if (this.f6509h == null || !replace.equals(this.f6509h) || this.i <= -2) {
                     Cursor cursor = null;
                     try {
-                        SQLiteDatabase sQLiteDatabase = this.f6506f;
+                        SQLiteDatabase sQLiteDatabase = this.f6507f;
                         cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                         if (cursor == null || !cursor.moveToFirst()) {
                             i = -2;
                         } else {
                             i = cursor.getInt(1);
-                            this.f6508h = replace;
+                            this.f6509h = replace;
                             this.i = i;
                         }
                     } catch (Exception unused) {
@@ -293,11 +293,11 @@ public class h {
     */
     public void e() {
         WifiInfo k;
-        if (this.f6507g) {
+        if (this.f6508g) {
             return;
         }
         try {
-            if (!com.baidu.location.b.i.i() || this.f6506f == null || (k = com.baidu.location.b.i.a().k()) == null || k.getBSSID() == null) {
+            if (!com.baidu.location.b.i.i() || this.f6507f == null || (k = com.baidu.location.b.i.a().k()) == null || k.getBSSID() == null) {
                 f();
                 return;
             }
@@ -306,7 +306,7 @@ public class h {
             boolean z = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f6506f;
+                SQLiteDatabase sQLiteDatabase = this.f6507f;
                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                 if (cursor != null && cursor.moveToFirst()) {
                     int i = cursor.getInt(1);
@@ -326,11 +326,11 @@ public class h {
                     }
                 }
                 if (z) {
-                    if (this.f6504a == null) {
-                        this.f6504a = new a();
+                    if (this.f6505a == null) {
+                        this.f6505a = new a();
                     }
-                    if (this.f6504a != null) {
-                        this.f6504a.a(replace, a(true));
+                    if (this.f6505a != null) {
+                        this.f6505a.a(replace, a(true));
                     }
                 }
             } catch (Throwable th) {

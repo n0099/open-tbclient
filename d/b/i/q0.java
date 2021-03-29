@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class q0 extends c implements p<a2>, q {
     public static final int k = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     public UnfollowedDecorView i;
@@ -71,7 +71,7 @@ public class q0 extends c implements p<a2>, q {
         if (aVar.isSupportTop()) {
             k(Align.ALIGN_RIGHT_TOP);
         } else if (aVar.isSupportBottom()) {
-            k0 k0Var = this.f51770h;
+            k0 k0Var = this.f51771h;
             if (k0Var != null) {
                 k0Var.n(this);
             }

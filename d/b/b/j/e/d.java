@@ -13,13 +13,13 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c> f42366a;
+    public ArrayList<c> f42367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c> f42367b;
+    public ArrayList<c> f42368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f42368c = null;
+    public a f42369c = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -37,29 +37,29 @@ public class d {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f42369a;
+        public long f42370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42370b;
+        public int f42371b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TypeAdapter.ViewHolder f42371c;
+        public TypeAdapter.ViewHolder f42372c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f42372d;
+        public Object f42373d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42373e;
+        public boolean f42374e;
 
         public c(d dVar) {
         }
     }
 
     public d() {
-        this.f42366a = null;
-        this.f42367b = null;
-        this.f42366a = new ArrayList<>();
-        this.f42367b = new ArrayList<>();
+        this.f42367a = null;
+        this.f42368b = null;
+        this.f42367a = new ArrayList<>();
+        this.f42368b = new ArrayList<>();
     }
 
     public void a(View view, Object obj, boolean z, boolean z2, int i) {
@@ -67,17 +67,17 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f42371c = new TypeAdapter.ViewHolder(view);
-        cVar.f42372d = obj;
-        cVar.f42373e = z2;
+        cVar.f42372c = new TypeAdapter.ViewHolder(view);
+        cVar.f42373d = obj;
+        cVar.f42374e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f42370b = id;
-        cVar.f42369a = id;
+        cVar.f42371b = id;
+        cVar.f42370a = id;
         view.setTag("FOOTER");
-        if (i >= 0 && i <= this.f42367b.size()) {
-            this.f42367b.add(i, cVar);
+        if (i >= 0 && i <= this.f42368b.size()) {
+            this.f42368b.add(i, cVar);
         } else {
-            this.f42367b.add(cVar);
+            this.f42368b.add(cVar);
         }
     }
 
@@ -86,17 +86,17 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f42371c = new TypeAdapter.ViewHolder(view);
-        cVar.f42372d = obj;
-        cVar.f42373e = z2;
+        cVar.f42372c = new TypeAdapter.ViewHolder(view);
+        cVar.f42373d = obj;
+        cVar.f42374e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f42370b = id;
-        cVar.f42369a = id;
+        cVar.f42371b = id;
+        cVar.f42370a = id;
         view.setTag("HEADER");
-        if (i >= 0 && i <= this.f42366a.size()) {
-            this.f42366a.add(i, cVar);
+        if (i >= 0 && i <= this.f42367a.size()) {
+            this.f42367a.add(i, cVar);
         } else {
-            this.f42366a.add(cVar);
+            this.f42367a.add(cVar);
         }
     }
 
@@ -111,9 +111,9 @@ public class d {
 
     public int d(View view) {
         TypeAdapter.ViewHolder viewHolder;
-        for (int i = 0; i < this.f42367b.size(); i++) {
-            c cVar = this.f42367b.get(i);
-            if (cVar != null && (viewHolder = cVar.f42371c) != null && viewHolder.itemView == view) {
+        for (int i = 0; i < this.f42368b.size(); i++) {
+            c cVar = this.f42368b.get(i);
+            if (cVar != null && (viewHolder = cVar.f42372c) != null && viewHolder.itemView == view) {
                 return i;
             }
         }
@@ -121,10 +121,10 @@ public class d {
     }
 
     public c e(int i) {
-        Iterator<c> it = this.f42367b.iterator();
+        Iterator<c> it = this.f42368b.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (next != null && i == next.f42370b) {
+            if (next != null && i == next.f42371b) {
                 return next;
             }
         }
@@ -133,9 +133,9 @@ public class d {
 
     public int f(View view) {
         TypeAdapter.ViewHolder viewHolder;
-        for (int i = 0; i < this.f42366a.size(); i++) {
-            c cVar = this.f42366a.get(i);
-            if (cVar != null && (viewHolder = cVar.f42371c) != null && viewHolder.itemView == view) {
+        for (int i = 0; i < this.f42367a.size(); i++) {
+            c cVar = this.f42367a.get(i);
+            if (cVar != null && (viewHolder = cVar.f42372c) != null && viewHolder.itemView == view) {
                 return i;
             }
         }
@@ -143,10 +143,10 @@ public class d {
     }
 
     public c g(int i) {
-        Iterator<c> it = this.f42366a.iterator();
+        Iterator<c> it = this.f42367a.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (next != null && i == next.f42370b) {
+            if (next != null && i == next.f42371b) {
                 return next;
             }
         }
@@ -154,11 +154,11 @@ public class d {
     }
 
     public int h() {
-        return this.f42367b.size();
+        return this.f42368b.size();
     }
 
     public int i() {
-        return this.f42366a.size();
+        return this.f42367a.size();
     }
 
     public boolean j(View view) {
@@ -166,10 +166,10 @@ public class d {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.f42367b.size(); i++) {
-            c cVar = this.f42367b.get(i);
-            if (cVar != null && (viewHolder = cVar.f42371c) != null && viewHolder.itemView == view) {
-                this.f42367b.remove(i);
+        for (int i = 0; i < this.f42368b.size(); i++) {
+            c cVar = this.f42368b.get(i);
+            if (cVar != null && (viewHolder = cVar.f42372c) != null && viewHolder.itemView == view) {
+                this.f42368b.remove(i);
                 return true;
             }
         }
@@ -181,10 +181,10 @@ public class d {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.f42366a.size(); i++) {
-            c cVar = this.f42366a.get(i);
-            if (cVar != null && (viewHolder = cVar.f42371c) != null && viewHolder.itemView == view) {
-                this.f42366a.remove(i);
+        for (int i = 0; i < this.f42367a.size(); i++) {
+            c cVar = this.f42367a.get(i);
+            if (cVar != null && (viewHolder = cVar.f42372c) != null && viewHolder.itemView == view) {
+                this.f42367a.remove(i);
                 return true;
             }
         }
@@ -192,6 +192,6 @@ public class d {
     }
 
     public void l(a aVar) {
-        this.f42368c = aVar;
+        this.f42369c = aVar;
     }
 }

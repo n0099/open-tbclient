@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataRes extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 3)
     public final List<GroupInfo> commonGroups;

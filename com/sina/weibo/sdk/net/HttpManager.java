@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HttpManager {
     public static final String BOUNDARY;
     public static final String END_MP_BOUNDARY;
@@ -209,8 +209,8 @@ public class HttpManager {
         return requestHttpExecute;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

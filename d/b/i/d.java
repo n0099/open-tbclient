@@ -5,14 +5,14 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d extends d.b.i.a<d.b.h0.r.q.a> {
     public CardUserInfoLayout j;
     public int k;
     public d.b.h0.r.q.a l;
     public b m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -28,7 +28,7 @@ public class d extends d.b.i.a<d.b.h0.r.q.a> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void a(d.b.h0.r.q.a aVar, View view);
     }
@@ -51,7 +51,7 @@ public class d extends d.b.i.a<d.b.h0.r.q.a> {
 
     @Override // d.b.i.a
     public void c(int i) {
-        int i2 = (i ^ (-1)) & this.k;
+        int i2 = (~i) & this.k;
         this.k = i2;
         u(i2);
     }

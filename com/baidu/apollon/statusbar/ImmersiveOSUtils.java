@@ -3,7 +3,7 @@ package com.baidu.apollon.statusbar;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImmersiveOSUtils {
     public static final String FLYME = "flyme";
     public static final String KEY_DISPLAY = "ro.build.display.id";

@@ -90,7 +90,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                 httpHashMapWrap = new HttpHashMapWrap();
                 httpHashMapWrap.put("client_id", getOpenBdussDTO.clientId);
                 httpHashMapWrap.put("bduss", currentAccount.bduss);
-                httpHashMapWrap.put(SapiAccount.f10605h, currentAccount.ptoken);
+                httpHashMapWrap.put(SapiAccount.f10606h, currentAccount.ptoken);
                 httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(g.C));
                 list = getOpenBdussDTO.targetTplList;
                 if (list != null && list.size() > 0) {
@@ -156,7 +156,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
         httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("client_id", getOpenBdussDTO.clientId);
         httpHashMapWrap.put("bduss", currentAccount.bduss);
-        httpHashMapWrap.put(SapiAccount.f10605h, currentAccount.ptoken);
+        httpHashMapWrap.put(SapiAccount.f10606h, currentAccount.ptoken);
         httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(g.C));
         list = getOpenBdussDTO.targetTplList;
         if (list != null) {

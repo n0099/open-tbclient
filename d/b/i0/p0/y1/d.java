@@ -28,28 +28,28 @@ import d.b.b.e.p.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f58754a;
+    public f f58755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f58755b;
+    public NavigationBar f58756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SpecialFrsWebFragment f58756c;
+    public SpecialFrsWebFragment f58757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.b0.d f58757d;
+    public d.b.i0.b0.d f58758d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f58758e;
+    public ImageView f58759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f58759f;
+    public ImageView f58760f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f58760g;
+    public ImageView f58761g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f58761h = new a();
+    public View.OnClickListener f58762h = new a();
     public CustomMessageListener i = new b(2001626);
 
     /* loaded from: classes4.dex */
@@ -59,21 +59,21 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == d.this.f58758e) {
+            if (view == d.this.f58759e) {
                 d.this.r();
-            } else if (d.this.f58757d == null || view != d.this.f58757d.c()) {
-                if (view != d.this.f58760g) {
-                    if (view == d.this.f58759f) {
+            } else if (d.this.f58758d == null || view != d.this.f58758d.c()) {
+                if (view != d.this.f58761g) {
+                    if (view == d.this.f58760f) {
                         d dVar = d.this;
-                        dVar.q(dVar.f58756c.n1(null, null, null, null));
+                        dVar.q(dVar.f58757c.n1(null, null, null, null));
                     }
                 } else if (StringUtils.isNull(d.this.h())) {
                 } else {
-                    d.this.f58754a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(d.this.f58754a.getPageActivity(), d.this.h(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+                    d.this.f58755a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(d.this.f58755a.getPageActivity(), d.this.h(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
                 }
-            } else if (ViewHelper.checkUpIsLogin(d.this.f58754a.getPageActivity())) {
+            } else if (ViewHelper.checkUpIsLogin(d.this.f58755a.getPageActivity())) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.MESSAGE_ENTER_ICON_CLICK).param("obj_locate", 2));
-                d.this.f58754a.sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(d.this.f58754a.getPageActivity())));
+                d.this.f58755a.sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(d.this.f58755a.getPageActivity())));
             }
         }
     }
@@ -93,53 +93,53 @@ public class d {
             }
             int msgCount = newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount() + newsRemindMessage.getNotificationCount();
             boolean z = newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
-            if (d.this.f58757d != null) {
-                d.this.f58757d.e(z, msgCount);
+            if (d.this.f58758d != null) {
+                d.this.f58758d.e(z, msgCount);
             }
         }
     }
 
     public d(f fVar) {
-        this.f58754a = fVar;
+        this.f58755a = fVar;
         d.b.i0.b0.d dVar = new d.b.i0.b0.d(fVar.getPageActivity());
-        this.f58757d = dVar;
-        dVar.c().setOnClickListener(this.f58761h);
-        this.f58754a.registerListener(this.i);
+        this.f58758d = dVar;
+        dVar.c().setOnClickListener(this.f58762h);
+        this.f58755a.registerListener(this.i);
     }
 
     public String h() {
-        SpecialFrsWebFragment specialFrsWebFragment = this.f58756c;
+        SpecialFrsWebFragment specialFrsWebFragment = this.f58757c;
         return specialFrsWebFragment != null ? specialFrsWebFragment.h() : "";
     }
 
     public String i() {
-        SpecialFrsWebFragment specialFrsWebFragment = this.f58756c;
+        SpecialFrsWebFragment specialFrsWebFragment = this.f58757c;
         return specialFrsWebFragment != null ? specialFrsWebFragment.i() : "";
     }
 
     public NavigationBar j() {
-        return this.f58755b;
+        return this.f58756b;
     }
 
     public void k(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
-        this.f58755b = navigationBar;
-        this.f58756c = specialFrsWebFragment;
+        this.f58756b = navigationBar;
+        this.f58757c = specialFrsWebFragment;
         navigationBar.showBottomLine();
-        this.f58755b.getBarBgView().setAlpha(1.0f);
-        this.f58755b.setCenterTextTitle(i());
-        ImageView imageView = (ImageView) this.f58755b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
-        this.f58758e = imageView;
-        imageView.setOnClickListener(this.f58761h);
+        this.f58756b.getBarBgView().setAlpha(1.0f);
+        this.f58756b.setCenterTextTitle(i());
+        ImageView imageView = (ImageView) this.f58756b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
+        this.f58759e = imageView;
+        imageView.setOnClickListener(this.f58762h);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, l.g(this.f58754a.getPageActivity(), R.dimen.ds24), 0);
-        ImageView imageView2 = (ImageView) this.f58755b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
-        this.f58759f = imageView2;
+        layoutParams.setMargins(0, 0, l.g(this.f58755a.getPageActivity(), R.dimen.ds24), 0);
+        ImageView imageView2 = (ImageView) this.f58756b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
+        this.f58760f = imageView2;
         imageView2.setLayoutParams(layoutParams);
-        this.f58759f.setOnClickListener(this.f58761h);
-        ImageView imageView3 = (ImageView) this.f58755b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.f58760g = imageView3;
+        this.f58760f.setOnClickListener(this.f58762h);
+        ImageView imageView3 = (ImageView) this.f58756b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.f58761g = imageView3;
         imageView3.setLayoutParams(layoutParams);
-        this.f58760g.setOnClickListener(this.f58761h);
+        this.f58761g.setOnClickListener(this.f58762h);
         o(specialFrsWebFragment.I0());
         p(specialFrsWebFragment.J0());
         n(specialFrsWebFragment.H0());
@@ -148,24 +148,24 @@ public class d {
 
     public void l(int i) {
         NavigationBar navigationBar;
-        if (this.f58756c == null || (navigationBar = this.f58755b) == null) {
+        if (this.f58757c == null || (navigationBar = this.f58756b) == null) {
             return;
         }
-        navigationBar.onChangeSkinType(this.f58754a, i);
-        SkinManager.setViewTextColor(this.f58755b.mTextTitle, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f58755b.mCenterText, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundColor(this.f58755b.getBottomLine(), R.color.CAM_X0204);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58758e, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        d.b.i0.b0.d dVar = this.f58757d;
+        navigationBar.onChangeSkinType(this.f58755a, i);
+        SkinManager.setViewTextColor(this.f58756b.mTextTitle, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f58756b.mCenterText, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundColor(this.f58756b.getBottomLine(), R.color.CAM_X0204);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58759e, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        d.b.i0.b0.d dVar = this.f58758d;
         if (dVar != null) {
             dVar.d(i);
         }
-        SkinManager.setNavbarIconSrc(this.f58760g, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58759f, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setNavbarIconSrc(this.f58761g, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58760f, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void m() {
-        NavigationBar navigationBar = this.f58755b;
+        NavigationBar navigationBar = this.f58756b;
         if (navigationBar != null) {
             navigationBar.release();
         }
@@ -173,28 +173,28 @@ public class d {
     }
 
     public void n(boolean z) {
-        ImageView imageView = this.f58760g;
+        ImageView imageView = this.f58761g;
         if (imageView != null) {
             imageView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void o(boolean z) {
-        NavigationBar navigationBar = this.f58755b;
+        NavigationBar navigationBar = this.f58756b;
         if (navigationBar != null) {
             navigationBar.setVisibility(z ? 0 : 8);
         }
     }
 
     public void p(boolean z) {
-        ImageView imageView = this.f58759f;
+        ImageView imageView = this.f58760f;
         if (imageView != null) {
             imageView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void q(ShareItem shareItem) {
-        SpecialFrsWebFragment specialFrsWebFragment = this.f58756c;
+        SpecialFrsWebFragment specialFrsWebFragment = this.f58757c;
         if (specialFrsWebFragment != null) {
             specialFrsWebFragment.y1(shareItem);
         }
@@ -202,7 +202,7 @@ public class d {
 
     public final void r() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-        customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f58754a.getUniqueId()));
+        customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f58755a.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 }

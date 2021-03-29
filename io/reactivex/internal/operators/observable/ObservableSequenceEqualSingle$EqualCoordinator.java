@@ -46,8 +46,8 @@ public final class ObservableSequenceEqualSingle$EqualCoordinator<T> extends Ato
         this.resources.dispose();
         if (getAndIncrement() == 0) {
             k<T>[] kVarArr = this.observers;
-            kVarArr[0].f67504f.clear();
-            kVarArr[1].f67504f.clear();
+            kVarArr[0].f67509f.clear();
+            kVarArr[1].f67509f.clear();
         }
     }
 
@@ -61,18 +61,18 @@ public final class ObservableSequenceEqualSingle$EqualCoordinator<T> extends Ato
         }
         k<T>[] kVarArr = this.observers;
         k<T> kVar = kVarArr[0];
-        a<T> aVar = kVar.f67504f;
+        a<T> aVar = kVar.f67509f;
         k<T> kVar2 = kVarArr[1];
-        a<T> aVar2 = kVar2.f67504f;
+        a<T> aVar2 = kVar2.f67509f;
         int i = 1;
         while (!this.cancelled) {
-            boolean z = kVar.f67506h;
+            boolean z = kVar.f67511h;
             if (z && (th2 = kVar.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th2);
                 return;
             }
-            boolean z2 = kVar2.f67506h;
+            boolean z2 = kVar2.f67511h;
             if (z2 && (th = kVar2.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th);

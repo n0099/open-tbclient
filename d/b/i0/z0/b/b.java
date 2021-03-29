@@ -25,43 +25,43 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
 import d.b.h0.z0.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f62679a;
+    public Context f62680a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f62680b;
+    public View f62681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f62681c;
+    public View f62682c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f62682d;
+    public LinearLayout f62683d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f62683e;
+    public LinearLayout f62684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f62684f;
+    public FrameLayout f62685f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f62685g;
+    public FrameLayout f62686g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f62686h;
+    public TBSpecificationBtn f62687h;
     public TBSpecificationBtn i;
     public d.b.h0.r.f0.m.c j;
     public d.b.h0.r.f0.m.c k;
     public PopupWindow m;
     public boolean l = true;
     public float n = 1.0f;
-    public View.OnClickListener o = new View$OnClickListenerC1680b();
+    public View.OnClickListener o = new View$OnClickListenerC1681b();
     public View.OnClickListener p = new c();
     public View.OnClickListener q = new d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
         public a() {
         }
@@ -93,9 +93,9 @@ public class b {
     }
 
     /* renamed from: d.b.i0.z0.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1680b implements View.OnClickListener {
-        public View$OnClickListenerC1680b() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1681b implements View.OnClickListener {
+        public View$OnClickListenerC1681b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -104,7 +104,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -122,7 +122,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -140,7 +140,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnTouchListener {
         public e() {
         }
@@ -155,7 +155,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements PopupWindow.OnDismissListener {
         public f(b bVar) {
         }
@@ -166,7 +166,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -177,7 +177,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
         public h(b bVar) {
         }
@@ -187,7 +187,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public i() {
         }
@@ -195,15 +195,15 @@ public class b {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            b.this.f62685g.setAlpha(floatValue);
-            if (b.this.f62685g.getMeasuredHeight() > 0) {
-                b.this.f62685g.setTranslationY(b.this.f62685g.getMeasuredHeight() * (floatValue - 1.0f));
+            b.this.f62686g.setAlpha(floatValue);
+            if (b.this.f62686g.getMeasuredHeight() > 0) {
+                b.this.f62686g.setTranslationY(b.this.f62686g.getMeasuredHeight() * (floatValue - 1.0f));
             }
-            b.this.f62681c.setAlpha(floatValue);
+            b.this.f62682c.setAlpha(floatValue);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j implements ValueAnimator.AnimatorUpdateListener {
         public j() {
         }
@@ -211,16 +211,16 @@ public class b {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            b.this.f62685g.setAlpha(floatValue);
-            if (b.this.f62685g.getMeasuredHeight() > 0) {
-                b.this.f62685g.setTranslationY(b.this.f62685g.getMeasuredHeight() * (floatValue - 1.0f));
+            b.this.f62686g.setAlpha(floatValue);
+            if (b.this.f62686g.getMeasuredHeight() > 0) {
+                b.this.f62686g.setTranslationY(b.this.f62686g.getMeasuredHeight() * (floatValue - 1.0f));
             }
-            b.this.f62681c.setAlpha(floatValue);
+            b.this.f62682c.setAlpha(floatValue);
         }
     }
 
     public b(Context context) {
-        this.f62679a = context;
+        this.f62680a = context;
         j();
     }
 
@@ -237,22 +237,22 @@ public class b {
     }
 
     public final void j() {
-        View inflate = LayoutInflater.from(this.f62679a).inflate(R.layout.home_page_concern_dialog_thread, (ViewGroup) null);
-        this.f62680b = inflate;
-        this.f62682d = (LinearLayout) inflate.findViewById(R.id.root_main);
-        this.f62684f = (FrameLayout) this.f62680b.findViewById(R.id.type_container);
-        this.f62683e = (LinearLayout) this.f62680b.findViewById(R.id.ll_btn);
-        this.f62681c = this.f62680b.findViewById(R.id.mask_view);
-        this.f62685g = (FrameLayout) this.f62680b.findViewById(R.id.bottom_background_view);
-        this.f62686h = (TBSpecificationBtn) this.f62680b.findViewById(R.id.btn_all_concern);
-        this.i = (TBSpecificationBtn) this.f62680b.findViewById(R.id.btn_person_concern);
-        this.f62686h.setTextSize(R.dimen.tbds34);
-        this.f62686h.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+        View inflate = LayoutInflater.from(this.f62680a).inflate(R.layout.home_page_concern_dialog_thread, (ViewGroup) null);
+        this.f62681b = inflate;
+        this.f62683d = (LinearLayout) inflate.findViewById(R.id.root_main);
+        this.f62685f = (FrameLayout) this.f62681b.findViewById(R.id.type_container);
+        this.f62684e = (LinearLayout) this.f62681b.findViewById(R.id.ll_btn);
+        this.f62682c = this.f62681b.findViewById(R.id.mask_view);
+        this.f62686g = (FrameLayout) this.f62681b.findViewById(R.id.bottom_background_view);
+        this.f62687h = (TBSpecificationBtn) this.f62681b.findViewById(R.id.btn_all_concern);
+        this.i = (TBSpecificationBtn) this.f62681b.findViewById(R.id.btn_person_concern);
+        this.f62687h.setTextSize(R.dimen.tbds34);
+        this.f62687h.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
         this.i.setTextSize(R.dimen.tbds34);
         this.i.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
         this.i.setOnClickListener(this.q);
-        this.f62686h.setOnClickListener(this.p);
-        this.f62684f.setOnClickListener(this.o);
+        this.f62687h.setOnClickListener(this.p);
+        this.f62685f.setOnClickListener(this.o);
         d.b.h0.r.f0.m.c cVar = new d.b.h0.r.f0.m.c();
         this.j = cVar;
         cVar.o(R.color.CAM_X0304);
@@ -265,14 +265,14 @@ public class b {
     }
 
     public void k(int i2) {
-        if (this.f62680b == null) {
+        if (this.f62681b == null) {
             return;
         }
-        this.f62686h.l(i2);
+        this.f62687h.l(i2);
         this.i.l(i2);
-        SkinManager.setBackgroundColorWithAlpha(this.f62683e, R.color.CAM_X0208, this.n, i2);
-        SkinManager.setBackgroundColor(this.f62685g, R.color.CAM_X0202);
-        SkinManager.setBackgroundColor(this.f62681c, R.color.CAM_X0605);
+        SkinManager.setBackgroundColorWithAlpha(this.f62684e, R.color.CAM_X0208, this.n, i2);
+        SkinManager.setBackgroundColor(this.f62686g, R.color.CAM_X0202);
+        SkinManager.setBackgroundColor(this.f62682c, R.color.CAM_X0605);
     }
 
     public void l(float f2) {
@@ -293,9 +293,9 @@ public class b {
 
     public final void o(StickyAppBarLayout stickyAppBarLayout) {
         if (this.m == null) {
-            PopupWindow popupWindow = new PopupWindow(this.f62680b, -1, -1, true);
+            PopupWindow popupWindow = new PopupWindow(this.f62681b, -1, -1, true);
             this.m = popupWindow;
-            popupWindow.setContentView(this.f62680b);
+            popupWindow.setContentView(this.f62681b);
             this.m.setOutsideTouchable(true);
             this.m.setBackgroundDrawable(new ColorDrawable(0));
             this.m.setFocusable(true);
@@ -306,17 +306,17 @@ public class b {
         int[] iArr = new int[2];
         stickyAppBarLayout.getLocationInWindow(iArr);
         int height = (iArr[1] + stickyAppBarLayout.getHeight()) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-        int dimensionPixelOffset = iArr[0] - this.f62679a.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        int dimensionPixelOffset = iArr[0] - this.f62680a.getResources().getDimensionPixelOffset(R.dimen.tbds44);
         if (UtilHelper.canUseStyleImmersiveSticky() && (!"Meizu".equalsIgnoreCase(Build.BRAND) || Build.VERSION.SDK_INT > 24)) {
             height -= UtilHelper.getStatusBarHeight();
         }
-        this.f62682d.setOnClickListener(new g());
-        this.f62683e.setOnClickListener(new h(this));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62684f.getLayoutParams();
+        this.f62683d.setOnClickListener(new g());
+        this.f62684e.setOnClickListener(new h(this));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62685f.getLayoutParams();
         if (!"Meizu".equalsIgnoreCase(Build.BRAND) || Build.VERSION.SDK_INT > 24) {
             layoutParams.topMargin = height;
         }
-        this.f62684f.setLayoutParams(layoutParams);
+        this.f62685f.setLayoutParams(layoutParams);
         if (d.b.b.e.m.g.m(this.m, stickyAppBarLayout, 0, dimensionPixelOffset, height)) {
             m();
         }
@@ -329,7 +329,7 @@ public class b {
     }
 
     public final void q() {
-        TBSpecificationBtn tBSpecificationBtn = this.f62686h;
+        TBSpecificationBtn tBSpecificationBtn = this.f62687h;
         if (tBSpecificationBtn == null || this.i == null) {
             return;
         }

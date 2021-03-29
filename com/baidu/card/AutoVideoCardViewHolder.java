@@ -6,7 +6,7 @@ import d.b.i.k0;
 import d.b.i.s0;
 import d.b.i0.i2.e;
 import d.b.i0.i2.o;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
     public s0 n;
 

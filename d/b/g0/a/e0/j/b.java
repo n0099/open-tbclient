@@ -3,10 +3,10 @@ package d.b.g0.a.e0.j;
 import d.b.g0.a.k;
 import d.b.g0.a.z0.f;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public static void a(String str, String str2) {

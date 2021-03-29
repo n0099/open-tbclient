@@ -35,7 +35,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     public static final boolean DEBUG = false;
     public static final String DOWNFLOW_DOWNLOAD_INNER = "download_inner";
@@ -288,62 +288,61 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void parserHttpDNSData(JSONObject jSONObject, OnFetchDataRequestListener onFetchDataRequestListener, TreeSet<HttpDNSInfo> treeSet, HttpDNSCacheInfo httpDNSCacheInfo) {
-        if (jSONObject != null) {
+        if (jSONObject == null || jSONObject == null) {
+            return;
+        }
+        try {
             try {
-                if (jSONObject != null) {
-                    try {
-                        String string = jSONObject.getString("data");
-                        if (TextUtils.isEmpty(string)) {
-                            return;
-                        }
-                        String host = new URL(getReplaceIpUrl()).getHost();
-                        String decryptCdnData = CryptUtil.decryptCdnData(this.mContext, string);
-                        if (TextUtils.isEmpty(decryptCdnData)) {
-                            return;
-                        }
-                        JSONObject jSONObject2 = new JSONObject(decryptCdnData);
-                        int optInt = jSONObject.optInt("status");
-                        if (optInt == 0) {
-                            JSONArray optJSONArray = jSONObject2.optJSONArray("vips");
-                            String optString = jSONObject2.optString("xcode");
-                            httpDNSCacheInfo.mXCode = optString;
-                            String optString2 = jSONObject2.optString("host");
-                            this.mHost = optString2;
-                            httpDNSCacheInfo.mHost = optString2;
-                            httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt("live_time");
-                            httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
-                            httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
-                            if (optJSONArray != null && !TextUtils.isEmpty(this.mHost)) {
-                                for (int i = 0; i < optJSONArray.length(); i++) {
-                                    if (Utils.isIpAddress(optJSONArray.getString(i))) {
-                                        HttpDNSInfo httpDNSInfo = new HttpDNSInfo();
-                                        String replace = getReplaceIpUrl().replace(host, optJSONArray.getString(i));
-                                        httpDNSInfo.mUrl = replace;
-                                        if (Utils.isUrlContainsQ(replace)) {
-                                            httpDNSInfo.mUrl += "&xcode=" + optString;
-                                        } else {
-                                            httpDNSInfo.mUrl += "?xcode=" + optString;
-                                        }
-                                        httpDNSInfo.mCDNSequence = i;
-                                        httpDNSInfo.mCNDIp = optJSONArray.getString(i);
-                                        treeSet.add(httpDNSInfo);
-                                        httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
-                                    }
-                                }
-                            }
-                        } else if (optInt == 1) {
-                            httpDNSCacheInfo.mIpLiveTime = 600;
-                            httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
-                            httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
-                        }
-                        httpDNSCacheInfo.mStatus = optInt;
-                    } catch (MalformedURLException e2) {
-                        e2.printStackTrace();
-                    }
+                String string = jSONObject.getString("data");
+                if (TextUtils.isEmpty(string)) {
+                    return;
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                String host = new URL(getReplaceIpUrl()).getHost();
+                String decryptCdnData = CryptUtil.decryptCdnData(this.mContext, string);
+                if (TextUtils.isEmpty(decryptCdnData)) {
+                    return;
+                }
+                JSONObject jSONObject2 = new JSONObject(decryptCdnData);
+                int optInt = jSONObject.optInt("status");
+                if (optInt == 0) {
+                    JSONArray optJSONArray = jSONObject2.optJSONArray("vips");
+                    String optString = jSONObject2.optString("xcode");
+                    httpDNSCacheInfo.mXCode = optString;
+                    String optString2 = jSONObject2.optString("host");
+                    this.mHost = optString2;
+                    httpDNSCacheInfo.mHost = optString2;
+                    httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt("live_time");
+                    httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
+                    httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
+                    if (optJSONArray != null && !TextUtils.isEmpty(this.mHost)) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            if (Utils.isIpAddress(optJSONArray.getString(i))) {
+                                HttpDNSInfo httpDNSInfo = new HttpDNSInfo();
+                                String replace = getReplaceIpUrl().replace(host, optJSONArray.getString(i));
+                                httpDNSInfo.mUrl = replace;
+                                if (Utils.isUrlContainsQ(replace)) {
+                                    httpDNSInfo.mUrl += "&xcode=" + optString;
+                                } else {
+                                    httpDNSInfo.mUrl += "?xcode=" + optString;
+                                }
+                                httpDNSInfo.mCDNSequence = i;
+                                httpDNSInfo.mCNDIp = optJSONArray.getString(i);
+                                treeSet.add(httpDNSInfo);
+                                httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
+                            }
+                        }
+                    }
+                } else if (optInt == 1) {
+                    httpDNSCacheInfo.mIpLiveTime = 600;
+                    httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
+                    httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
+                }
+                httpDNSCacheInfo.mStatus = optInt;
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
             }
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
     }
 

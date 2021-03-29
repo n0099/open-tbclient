@@ -1,5 +1,5 @@
 package d.b.g0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static final int abc_background_cache_hint_selector_material_dark = 2131099931;
     public static final int abc_background_cache_hint_selector_material_light = 2131099932;

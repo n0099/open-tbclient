@@ -15,103 +15,103 @@ import java.util.concurrent.TimeUnit;
 public class a extends ThreadPoolExecutor {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29734a;
+    public String f29735a;
 
     /* renamed from: com.bytedance.sdk.openadsdk.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0326a {
+    public static class C0327a {
 
         /* renamed from: h  reason: collision with root package name */
-        public RejectedExecutionHandler f29749h;
+        public RejectedExecutionHandler f29750h;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29742a = "io";
+        public String f29743a = "io";
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29743b = 1;
+        public int f29744b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f29744c = 30;
+        public long f29745c = 30;
 
         /* renamed from: d  reason: collision with root package name */
-        public TimeUnit f29745d = TimeUnit.SECONDS;
+        public TimeUnit f29746d = TimeUnit.SECONDS;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f29746e = 1;
+        public int f29747e = 1;
 
         /* renamed from: f  reason: collision with root package name */
-        public BlockingQueue<Runnable> f29747f = null;
+        public BlockingQueue<Runnable> f29748f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public ThreadFactory f29748g = null;
+        public ThreadFactory f29749g = null;
         public int i = 5;
 
-        public C0326a a(String str) {
-            this.f29742a = str;
+        public C0327a a(String str) {
+            this.f29743a = str;
             return this;
         }
 
-        public C0326a b(int i) {
-            this.f29746e = i;
+        public C0327a b(int i) {
+            this.f29747e = i;
             return this;
         }
 
-        public C0326a a(int i) {
-            this.f29743b = i;
+        public C0327a a(int i) {
+            this.f29744b = i;
             return this;
         }
 
-        public C0326a a(long j) {
-            this.f29744c = j;
+        public C0327a a(long j) {
+            this.f29745c = j;
             return this;
         }
 
-        public C0326a a(TimeUnit timeUnit) {
-            this.f29745d = timeUnit;
+        public C0327a a(TimeUnit timeUnit) {
+            this.f29746d = timeUnit;
             return this;
         }
 
-        public C0326a a(BlockingQueue<Runnable> blockingQueue) {
-            this.f29747f = blockingQueue;
+        public C0327a a(BlockingQueue<Runnable> blockingQueue) {
+            this.f29748f = blockingQueue;
             return this;
         }
 
-        public C0326a a(RejectedExecutionHandler rejectedExecutionHandler) {
-            this.f29749h = rejectedExecutionHandler;
+        public C0327a a(RejectedExecutionHandler rejectedExecutionHandler) {
+            this.f29750h = rejectedExecutionHandler;
             return this;
         }
 
         public a a() {
-            if (this.f29748g == null) {
-                this.f29748g = new h(this.i, this.f29742a);
+            if (this.f29749g == null) {
+                this.f29749g = new h(this.i, this.f29743a);
             }
-            if (this.f29749h == null) {
-                this.f29749h = e.f();
+            if (this.f29750h == null) {
+                this.f29750h = e.f();
             }
-            if (this.f29747f == null) {
-                this.f29747f = new LinkedBlockingQueue();
+            if (this.f29748f == null) {
+                this.f29748f = new LinkedBlockingQueue();
             }
-            return new a(this.f29742a, this.f29743b, this.f29746e, this.f29744c, this.f29745d, this.f29747f, this.f29748g, this.f29749h);
+            return new a(this.f29743a, this.f29744b, this.f29747e, this.f29745c, this.f29746d, this.f29748f, this.f29749g, this.f29750h);
         }
     }
 
     public a(String str, int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler) {
         super(i, i2, j, timeUnit, blockingQueue, threadFactory, rejectedExecutionHandler);
-        this.f29734a = str;
+        this.f29735a = str;
     }
 
     public String a() {
-        return this.f29734a;
+        return this.f29735a;
     }
 
     @Override // java.util.concurrent.ThreadPoolExecutor
     public void afterExecute(Runnable runnable, Throwable th) {
         BlockingQueue<Runnable> queue;
         super.afterExecute(runnable, th);
-        if (!e.e() || TextUtils.isEmpty(this.f29734a) || (queue = getQueue()) == null) {
+        if (!e.e() || TextUtils.isEmpty(this.f29735a) || (queue = getQueue()) == null) {
             return;
         }
-        String str = this.f29734a;
+        String str = this.f29735a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 107332) {
@@ -125,14 +125,14 @@ public class a extends ThreadPoolExecutor {
             if (c2 == 1 && queue.size() >= 4 && getCorePoolSize() != 2) {
                 setCorePoolSize(2);
                 setMaximumPoolSize(4);
-                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29734a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29735a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
             }
         } else if (queue.size() >= 4 || getCorePoolSize() == 0) {
         } else {
             try {
                 setCorePoolSize(0);
                 setMaximumPoolSize(4);
-                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29734a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+                u.b("ADThreadPoolExecutor", "afterExecute: reduce ", this.f29735a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
             } catch (Exception e2) {
                 u.c("ADThreadPoolExecutor", e2.getMessage());
             }
@@ -152,10 +152,10 @@ public class a extends ThreadPoolExecutor {
                 }
             }, this));
         }
-        if (!e.e() || TextUtils.isEmpty(this.f29734a) || (queue = getQueue()) == null) {
+        if (!e.e() || TextUtils.isEmpty(this.f29735a) || (queue = getQueue()) == null) {
             return;
         }
-        String str = this.f29734a;
+        String str = this.f29735a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 107332) {
@@ -167,16 +167,16 @@ public class a extends ThreadPoolExecutor {
         }
         if (c2 != 0) {
             if (c2 == 1 && queue.size() >= 4 && getCorePoolSize() != 4) {
-                setMaximumPoolSize(e.f29766a + 4);
+                setMaximumPoolSize(e.f29767a + 4);
                 setCorePoolSize(4);
-                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29734a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29735a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
             }
         } else if (queue.size() < 4 || getCorePoolSize() == 4) {
         } else {
             try {
-                setMaximumPoolSize(e.f29766a + 4);
+                setMaximumPoolSize(e.f29767a + 4);
                 setCorePoolSize(4);
-                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29734a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+                u.b("ADThreadPoolExecutor", "execute: increase poolType =  ", this.f29735a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
             } catch (Exception e2) {
                 u.c("ADThreadPoolExecutor", e2.getMessage());
             }
@@ -185,7 +185,7 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
     public void shutdown() {
-        if ("io".equals(this.f29734a) || "aidl".equals(this.f29734a)) {
+        if ("io".equals(this.f29735a) || "aidl".equals(this.f29735a)) {
             return;
         }
         super.shutdown();
@@ -193,7 +193,7 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
     public List<Runnable> shutdownNow() {
-        if (!"io".equals(this.f29734a) && !"aidl".equals(this.f29734a)) {
+        if (!"io".equals(this.f29735a) && !"aidl".equals(this.f29735a)) {
             return super.shutdownNow();
         }
         return Collections.emptyList();

@@ -9,19 +9,19 @@ import java.util.Iterator;
 public class e extends DiskFileOperate implements d.b.b.e.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f41609a;
+    public ArrayList<String> f41610a;
 
     public e(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
         super(str, str2, action);
-        this.f41609a = arrayList;
+        this.f41610a = arrayList;
     }
 
     @Override // d.b.b.e.a.a
     public boolean compare(File file) {
-        if (this.f41609a != null && file != null) {
+        if (this.f41610a != null && file != null) {
             String name = file.getName();
             if (!TextUtils.isEmpty(name)) {
-                Iterator<String> it = this.f41609a.iterator();
+                Iterator<String> it = this.f41610a.iterator();
                 while (it.hasNext()) {
                     if (name.equals(it.next())) {
                         return true;

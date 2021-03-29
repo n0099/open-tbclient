@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -23,7 +23,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3967a = "NetworkUtils";
+    public static final String f3968a = "NetworkUtils";
 
     public static String getLocalIpAddress() {
         try {

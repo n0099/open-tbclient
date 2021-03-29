@@ -35,6 +35,6 @@ public class b extends d.b.i0.x.b<d.b.i0.f2.e.e> {
     @Override // d.b.i0.x.b
     /* renamed from: u */
     public void n(d.b.i0.f2.e.e eVar) {
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

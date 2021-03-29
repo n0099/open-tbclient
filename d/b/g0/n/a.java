@@ -29,49 +29,49 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f49176a;
+    public long f49177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.g0.n.o f49177b;
+    public final d.b.g0.n.o f49178b;
 
     /* renamed from: d.b.g0.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1029a extends q {
+    public class C1030a extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public long f49178c;
+        public long f49179c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f49179d;
+        public final /* synthetic */ SparseArray f49180d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f49180e;
+        public final /* synthetic */ String f49181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f49181f;
+        public final /* synthetic */ ArrayList f49182f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f49182g;
+        public final /* synthetic */ boolean f49183g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1029a(SparseArray sparseArray, String str, ArrayList arrayList, boolean z) {
+        public C1030a(SparseArray sparseArray, String str, ArrayList arrayList, boolean z) {
             super(a.this, null);
-            this.f49179d = sparseArray;
-            this.f49180e = str;
-            this.f49181f = arrayList;
-            this.f49182g = z;
-            this.f49178c = System.currentTimeMillis();
+            this.f49180d = sparseArray;
+            this.f49181e = str;
+            this.f49182f = arrayList;
+            this.f49183g = z;
+            this.f49179c = System.currentTimeMillis();
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ArrayList arrayList;
-            SparseArray sparseArray = this.f49179d;
+            SparseArray sparseArray = this.f49180d;
             if (sparseArray != null && sparseArray.size() > 0) {
-                int size = this.f49179d.size();
+                int size = this.f49180d.size();
                 ArrayList arrayList2 = new ArrayList(size);
                 for (int i = 0; i < size; i++) {
-                    arrayList2.add(Integer.valueOf(this.f49179d.keyAt(i)));
+                    arrayList2.add(Integer.valueOf(this.f49180d.keyAt(i)));
                 }
                 String s = a.this.s(arrayList2);
                 StringBuilder sb = new StringBuilder();
@@ -84,24 +84,24 @@ public class a {
                 int delete2 = sQLiteDatabase.delete("event", sb.toString(), null);
                 s.a("delete flow table event count:" + delete2);
             }
-            ArrayList arrayList3 = this.f49181f;
+            ArrayList arrayList3 = this.f49182f;
             if (arrayList3 != null && arrayList3.size() > 0) {
-                String s2 = a.this.s(this.f49181f);
+                String s2 = a.this.s(this.f49182f);
                 int delete3 = sQLiteDatabase.delete("event", "eventid in (" + s2 + SmallTailInfo.EMOTION_SUFFIX + " AND flowhandle = -1", null);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("delete event table event count:");
                 sb2.append(delete3);
                 s.a(sb2.toString());
             }
-            SparseArray sparseArray2 = this.f49179d;
-            if ((sparseArray2 != null && sparseArray2.size() > 0) || ((arrayList = this.f49181f) != null && arrayList.size() > 0)) {
+            SparseArray sparseArray2 = this.f49180d;
+            if ((sparseArray2 != null && sparseArray2.size() > 0) || ((arrayList = this.f49182f) != null && arrayList.size() > 0)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(BreakpointSQLiteKey.FILENAME, this.f49180e);
+                contentValues.put(BreakpointSQLiteKey.FILENAME, this.f49181e);
                 contentValues.put("state", "0");
-                contentValues.put("reserve1", this.f49182g ? "1" : "0");
+                contentValues.put("reserve1", this.f49183g ? "1" : "0");
                 sQLiteDatabase.replace("file", null, contentValues);
             }
-            s.a("delete total time:" + (System.currentTimeMillis() - this.f49178c));
+            s.a("delete total time:" + (System.currentTimeMillis() - this.f49179c));
             return true;
         }
     }
@@ -110,24 +110,24 @@ public class a {
     public class b extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49184c;
+        public final /* synthetic */ String f49185c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f49185d;
+        public final /* synthetic */ boolean f49186d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, String str, boolean z) {
             super(aVar, null);
-            this.f49184c = str;
-            this.f49185d = z;
+            this.f49185c = str;
+            this.f49186d = z;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("state", "1");
-            contentValues.put(BreakpointSQLiteKey.FILENAME, this.f49184c);
-            contentValues.put("reserve1", this.f49185d ? "1" : "0");
+            contentValues.put(BreakpointSQLiteKey.FILENAME, this.f49185c);
+            contentValues.put("reserve1", this.f49186d ? "1" : "0");
             sQLiteDatabase.replace("file", null, contentValues);
             return true;
         }
@@ -137,17 +137,17 @@ public class a {
     public class c extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49186c;
+        public final /* synthetic */ String f49187c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, String str) {
             super(aVar, null);
-            this.f49186c = str;
+            this.f49187c = str;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete("file", BreakpointSQLiteKey.FILENAME + "=\"" + this.f49186c + "\"", null);
+            sQLiteDatabase.delete("file", BreakpointSQLiteKey.FILENAME + "=\"" + this.f49187c + "\"", null);
             return true;
         }
     }
@@ -169,19 +169,19 @@ public class a {
     public class e extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49187c;
+        public final /* synthetic */ String f49188c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, String str) {
             super(aVar, null);
-            this.f49187c = str;
+            this.f49188c = str;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("state", "1");
-            sQLiteDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + this.f49187c + "\"", null);
+            sQLiteDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + this.f49188c + "\"", null);
             return true;
         }
     }
@@ -190,23 +190,23 @@ public class a {
     public class f extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49188c;
+        public final /* synthetic */ String f49189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f49189d;
+        public final /* synthetic */ String f49190d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(a aVar, String str, String str2) {
             super(aVar, null);
-            this.f49188c = str;
-            this.f49189d = str2;
+            this.f49189c = str;
+            this.f49190d = str2;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("state", this.f49189d);
-            sQLiteDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + this.f49188c + "\"", null);
+            contentValues.put("state", this.f49190d);
+            sQLiteDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + this.f49189c + "\"", null);
             return true;
         }
     }
@@ -230,29 +230,29 @@ public class a {
     public class h extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49190c;
+        public final /* synthetic */ String f49191c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f49191d;
+        public final /* synthetic */ String f49192d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f49192e;
+        public final /* synthetic */ int f49193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f49193f;
+        public final /* synthetic */ ContentValues f49194f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(String str, String str2, int i, ContentValues contentValues) {
             super(a.this, null);
-            this.f49190c = str;
-            this.f49191d = str2;
-            this.f49192e = i;
-            this.f49193f = contentValues;
+            this.f49191c = str;
+            this.f49192d = str2;
+            this.f49193e = i;
+            this.f49194f = contentValues;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return a.this.d(this.f49190c, this.f49191d, this.f49192e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f49193f) != -1;
+            return a.this.d(this.f49191c, this.f49192d, this.f49193e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f49194f) != -1;
         }
     }
 
@@ -260,18 +260,18 @@ public class a {
     public class i extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f49195c;
+        public final /* synthetic */ List f49196c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(List list) {
             super(a.this, null);
-            this.f49195c = list;
+            this.f49196c = list;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             boolean z = true;
-            for (d.b.g0.n.i iVar : this.f49195c) {
+            for (d.b.g0.n.i iVar : this.f49196c) {
                 if (!TextUtils.isEmpty(iVar.h()) && a.this.d(iVar.g(), iVar.h(), iVar.f(), sQLiteDatabase)) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("flowhandle", Integer.valueOf(iVar.f()));
@@ -308,17 +308,17 @@ public class a {
     public class j extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f49197c;
+        public final /* synthetic */ ContentValues f49198c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(a aVar, ContentValues contentValues) {
             super(aVar, null);
-            this.f49197c = contentValues;
+            this.f49198c = contentValues;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.insert("flow", null, this.f49197c) != -1;
+            return sQLiteDatabase.insert("flow", null, this.f49198c) != -1;
         }
     }
 
@@ -326,21 +326,21 @@ public class a {
     public class k extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f49198c;
+        public final /* synthetic */ ContentValues f49199c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f49199d;
+        public final /* synthetic */ String f49200d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(a aVar, ContentValues contentValues, String str) {
             super(aVar, null);
-            this.f49198c = contentValues;
-            this.f49199d = str;
+            this.f49199c = contentValues;
+            this.f49200d = str;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.update("flow", this.f49198c, this.f49199d, null) == 1;
+            return sQLiteDatabase.update("flow", this.f49199c, this.f49200d, null) == 1;
         }
     }
 
@@ -348,21 +348,21 @@ public class a {
     public class l extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f49200c;
+        public final /* synthetic */ ContentValues f49201c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f49201d;
+        public final /* synthetic */ String f49202d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(a aVar, ContentValues contentValues, String str) {
             super(aVar, null);
-            this.f49200c = contentValues;
-            this.f49201d = str;
+            this.f49201c = contentValues;
+            this.f49202d = str;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.update("flow", this.f49200c, this.f49201d, null) == 1;
+            return sQLiteDatabase.update("flow", this.f49201c, this.f49202d, null) == 1;
         }
     }
 
@@ -370,22 +370,22 @@ public class a {
     public class m extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49202c;
+        public final /* synthetic */ String f49203c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f49203d;
+        public final /* synthetic */ int f49204d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(a aVar, String str, int i) {
             super(aVar, null);
-            this.f49202c = str;
-            this.f49203d = i;
+            this.f49203c = str;
+            this.f49204d = i;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete("flow", this.f49202c, null);
-            sQLiteDatabase.delete("event", "flowhandle = " + this.f49203d, null);
+            sQLiteDatabase.delete("flow", this.f49203c, null);
+            sQLiteDatabase.delete("event", "flowhandle = " + this.f49204d, null);
             return true;
         }
     }
@@ -525,22 +525,22 @@ public class a {
     public class o extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49205c;
+        public final /* synthetic */ String f49206c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f49206d;
+        public final /* synthetic */ int f49207d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(a aVar, String str, int i) {
             super(aVar, null);
-            this.f49205c = str;
-            this.f49206d = i;
+            this.f49206c = str;
+            this.f49207d = i;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            String str = this.f49205c;
-            int delete = sQLiteDatabase.delete(str, "_id < " + this.f49206d, null);
+            String str = this.f49206c;
+            int delete = sQLiteDatabase.delete(str, "_id < " + this.f49207d, null);
             d.b.g0.n.e.h(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delLimit");
             return delete > 0;
         }
@@ -550,17 +550,17 @@ public class a {
     public class p extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f49207c;
+        public final /* synthetic */ List f49208c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(a aVar, List list) {
             super(aVar, null);
-            this.f49207c = list;
+            this.f49208c = list;
         }
 
         @Override // d.b.g0.n.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            for (d.b.g0.n.g gVar : this.f49207c) {
+            for (d.b.g0.n.g gVar : this.f49208c) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("eventid", gVar.c());
                 contentValues.put("type", gVar.k());
@@ -595,18 +595,18 @@ public class a {
     }
 
     public a(Context context) {
-        this.f49177b = new d.b.g0.n.o(context);
+        this.f49178b = new d.b.g0.n.o(context);
     }
 
     public void A() {
-        new g(this).c(this.f49177b.getWritableDatabase());
+        new g(this).c(this.f49178b.getWritableDatabase());
     }
 
     public void B(List<d.b.g0.n.g> list) {
         if (list == null || list.size() == 0) {
             return;
         }
-        new p(this, list).c(this.f49177b.getWritableDatabase());
+        new p(this, list).c(this.f49178b.getWritableDatabase());
     }
 
     public void C(String str, int i2, String str2) {
@@ -615,22 +615,22 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("content", str2);
-        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f49177b.getWritableDatabase());
+        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f49178b.getWritableDatabase());
     }
 
     public void D(String str) {
-        new e(this, str).c(this.f49177b.getWritableDatabase());
+        new e(this, str).c(this.f49178b.getWritableDatabase());
     }
 
     public void E(String str, String str2) {
-        new f(this, str, str2).c(this.f49177b.getWritableDatabase());
+        new f(this, str, str2).c(this.f49178b.getWritableDatabase());
     }
 
     public void c(String str, int i2) {
         if (i2 < 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f49177b.getWritableDatabase());
+        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f49178b.getWritableDatabase());
     }
 
     public final boolean d(String str, String str2, int i2, SQLiteDatabase sQLiteDatabase) {
@@ -663,23 +663,23 @@ public class a {
     }
 
     public void e() {
-        new n().c(this.f49177b.getWritableDatabase());
+        new n().c(this.f49178b.getWritableDatabase());
         j("flow");
         j("event");
     }
 
     public boolean f(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        C1029a c1029a = new C1029a(sparseArray, str, arrayList, z);
-        c1029a.c(this.f49177b.getWritableDatabase());
-        return c1029a.a();
+        C1030a c1030a = new C1030a(sparseArray, str, arrayList, z);
+        c1030a.c(this.f49178b.getWritableDatabase());
+        return c1030a.a();
     }
 
     public void g() {
-        new d(this).c(this.f49177b.getWritableDatabase());
+        new d(this).c(this.f49178b.getWritableDatabase());
     }
 
     public void h(String str) {
-        new c(this, str).c(this.f49177b.getWritableDatabase());
+        new c(this, str).c(this.f49178b.getWritableDatabase());
     }
 
     public void i(String str, int i2, long j2, JSONArray jSONArray) {
@@ -692,11 +692,11 @@ public class a {
         if (jSONArray != null && jSONArray.length() > 0) {
             contentValues.put("slot", jSONArray.toString());
         }
-        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f49177b.getWritableDatabase());
+        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f49178b.getWritableDatabase());
     }
 
     public final void j(String str) {
-        SQLiteDatabase writableDatabase = this.f49177b.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.f49178b.getWritableDatabase();
         int i2 = 0;
         Cursor cursor = null;
         try {
@@ -721,12 +721,12 @@ public class a {
     }
 
     public int k(u uVar) {
-        this.f49176a = 0L;
+        this.f49177a = 0L;
         StringBuilder sb = new StringBuilder(256);
         sb.append(" SELECT * FROM ");
         sb.append("flow");
         int p2 = p(sb.toString(), uVar);
-        if (this.f49176a >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
+        if (this.f49177a >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
             return 1;
         }
         StringBuilder sb2 = new StringBuilder(256);
@@ -741,7 +741,7 @@ public class a {
 
     public int l(ArrayList<d.b.g0.n.f> arrayList, u uVar) {
         int i2;
-        this.f49176a = 0L;
+        this.f49177a = 0L;
         String r = r(arrayList, true);
         if (TextUtils.isEmpty(r)) {
             i2 = 0;
@@ -777,11 +777,11 @@ public class a {
     }
 
     public final long m() {
-        return this.f49177b.e();
+        return this.f49178b.e();
     }
 
     public final long n() {
-        return this.f49177b.f();
+        return this.f49178b.f();
     }
 
     public final int o(String str, u uVar) {
@@ -798,7 +798,7 @@ public class a {
         long j4 = Long.MAX_VALUE;
         try {
             try {
-                cursor = this.f49177b.getReadableDatabase().rawQuery(str, null);
+                cursor = this.f49178b.getReadableDatabase().rawQuery(str, null);
                 if (cursor == null || cursor.getCount() <= 0) {
                     j2 = 0;
                     i2 = 0;
@@ -843,7 +843,7 @@ public class a {
                                     jSONObject.put("content", string3);
                                     i4 = columnIndex;
                                     obj = string;
-                                    this.f49176a += string3.getBytes("UTF-8").length;
+                                    this.f49177a += string3.getBytes("UTF-8").length;
                                 } catch (SQLiteFullException | UnsupportedEncodingException | JSONException unused2) {
                                     j2 = j5;
                                     j4 = j3;
@@ -866,7 +866,7 @@ public class a {
                             if (!TextUtils.isEmpty(string4)) {
                                 jSONObject.put("abtest", string4);
                                 uVar.p("1");
-                                this.f49176a += string4.getBytes("UTF-8").length;
+                                this.f49177a += string4.getBytes("UTF-8").length;
                             }
                             if (!TextUtils.isEmpty(cursor.getString(columnIndex5))) {
                                 jSONObject.put("c", cursor.getString(columnIndex5));
@@ -875,14 +875,14 @@ public class a {
                                 if (new JSONObject(cursor.getString(columnIndex6)).has("ctr")) {
                                     jSONObject.put("of", "1");
                                 }
-                                this.f49176a += string2.getBytes("UTF-8").length;
+                                this.f49177a += string2.getBytes("UTF-8").length;
                             }
                             jSONObject.put(Constant.ID_TYPE, d.b.g0.n.d.g().j(obj));
                             r.a(jSONObject);
                             uVar.a(jSONObject);
                             columnIndex = i4;
                             uVar.m(cursor.getString(columnIndex));
-                            if (this.f49176a >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE || !cursor.moveToNext()) {
+                            if (this.f49177a >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE || !cursor.moveToNext()) {
                                 break;
                             }
                             columnIndex2 = i3;
@@ -945,7 +945,7 @@ public class a {
             r2 = r31
             java.util.ArrayList r3 = new java.util.ArrayList
             r3.<init>()
-            d.b.g0.n.o r0 = r1.f49177b
+            d.b.g0.n.o r0 = r1.f49178b
             android.database.sqlite.SQLiteDatabase r0 = r0.getReadableDatabase()
             r4 = 0
             r10 = r30
@@ -1048,7 +1048,7 @@ public class a {
             r11 = r7
             r24 = r8
             long r7 = (long) r0     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
-            r1.f49176a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            r1.f49177a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             goto L119
         L116:
             r11 = r7
@@ -1058,14 +1058,14 @@ public class a {
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             if (r7 != 0) goto L136
             r2.s(r0)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
-            long r7 = r1.f49176a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            long r7 = r1.f49177a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             byte[] r0 = r0.getBytes(r12)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             int r0 = r0.length     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             r25 = r13
             r26 = r14
             long r13 = (long) r0     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             long r7 = r7 + r13
-            r1.f49176a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            r1.f49177a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             goto L13a
         L136:
             r25 = r13
@@ -1082,22 +1082,22 @@ public class a {
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             if (r7 != 0) goto L165
             r2.v(r0)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
-            long r7 = r1.f49176a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            long r7 = r1.f49177a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             byte[] r0 = r0.getBytes(r12)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             int r0 = r0.length     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             long r13 = (long) r0     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             long r7 = r7 + r13
-            r1.f49176a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            r1.f49177a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
         L165:
             java.lang.String r0 = r4.getString(r6)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             if (r7 != 0) goto L198
-            long r7 = r1.f49176a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            long r7 = r1.f49177a     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             byte[] r0 = r0.getBytes(r12)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             int r0 = r0.length     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             long r12 = (long) r0     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             long r7 = r7 + r12
-            r1.f49176a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
+            r1.f49177a = r7     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             org.json.JSONObject r0 = new org.json.JSONObject     // Catch: org.json.JSONException -> L192 java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             java.lang.String r7 = r4.getString(r6)     // Catch: org.json.JSONException -> L192 java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             r0.<init>(r7)     // Catch: org.json.JSONException -> L192 java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
@@ -1125,7 +1125,7 @@ public class a {
             int r2 = java.lang.Integer.parseInt(r2)     // Catch: java.io.UnsupportedEncodingException -> L1d0 java.lang.RuntimeException -> L1d3 android.database.sqlite.SQLiteFullException -> L1d7 java.lang.Throwable -> L1f6
             r8 = r31
             r8.n(r0, r2)     // Catch: java.lang.RuntimeException -> L1ce java.lang.Throwable -> L1e2 java.lang.Throwable -> L1f6
-            long r12 = r1.f49176a     // Catch: java.lang.RuntimeException -> L1ce java.lang.Throwable -> L1e2 java.lang.Throwable -> L1f6
+            long r12 = r1.f49177a     // Catch: java.lang.RuntimeException -> L1ce java.lang.Throwable -> L1e2 java.lang.Throwable -> L1f6
             r27 = 2097152(0x200000, double:1.036131E-317)
             int r0 = (r12 > r27 ? 1 : (r12 == r27 ? 0 : -1))
             if (r0 < 0) goto L1b7
@@ -1235,7 +1235,7 @@ public class a {
             org.json.JSONObject r6 = new org.json.JSONObject
             r6.<init>()
             r7 = r21
-            d.b.g0.n.o r8 = r7.f49177b
+            d.b.g0.n.o r8 = r7.f49178b
             android.database.sqlite.SQLiteDatabase r8 = r8.getReadableDatabase()
             java.util.Iterator r9 = r22.iterator()     // Catch: java.lang.RuntimeException -> L18e org.json.JSONException -> L192
             r11 = 0
@@ -1435,7 +1435,7 @@ public class a {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0041 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0041 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r0v1 */
@@ -1445,7 +1445,7 @@ public class a {
     public d.b.g0.n.j t(String str) {
         Closeable closeable;
         ?? sb = new StringBuilder();
-        SQLiteDatabase readableDatabase = this.f49177b.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.f49178b.getReadableDatabase();
         sb.append("SELECT ");
         sb.append("state");
         sb.append(" , ");
@@ -1508,7 +1508,7 @@ public class a {
     }
 
     public void u(SparseArray<ArrayList> sparseArray) {
-        SQLiteDatabase readableDatabase = this.f49177b.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.f49178b.getReadableDatabase();
         Cursor cursor = null;
         try {
             try {
@@ -1562,7 +1562,7 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void v(HashSet<String> hashSet, HashSet<String> hashSet2, HashSet<String> hashSet3, HashSet<String> hashSet4, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, HashMap<String, d.b.g0.n.h> hashMap3, HashSet<String> hashSet5) {
-        SQLiteDatabase readableDatabase = this.f49177b.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.f49178b.getReadableDatabase();
         if (readableDatabase == null) {
             return;
         }
@@ -1667,18 +1667,18 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new h(iVar.g(), iVar.h(), iVar.f(), contentValues).c(this.f49177b.getWritableDatabase());
+        new h(iVar.g(), iVar.h(), iVar.f(), contentValues).c(this.f49178b.getWritableDatabase());
     }
 
     public void x(List<d.b.g0.n.i> list) {
         if (list == null || list.size() == 0) {
             return;
         }
-        new i(list).c(this.f49177b.getWritableDatabase());
+        new i(list).c(this.f49178b.getWritableDatabase());
     }
 
     public void y(String str, boolean z) {
-        new b(this, str, z).c(this.f49177b.getWritableDatabase());
+        new b(this, str, z).c(this.f49178b.getWritableDatabase());
     }
 
     public void z(d.b.g0.n.k kVar) {
@@ -1709,21 +1709,21 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new j(this, contentValues).c(this.f49177b.getWritableDatabase());
+        new j(this, contentValues).c(this.f49178b.getWritableDatabase());
     }
 
     /* loaded from: classes3.dex */
     public abstract class q {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f49208a;
+        public boolean f49209a;
 
         public q() {
-            this.f49208a = false;
+            this.f49209a = false;
         }
 
         public boolean a() {
-            return this.f49208a;
+            return this.f49209a;
         }
 
         public abstract boolean b(SQLiteDatabase sQLiteDatabase);
@@ -1732,13 +1732,13 @@ public class a {
             if (sQLiteDatabase == null) {
                 return;
             }
-            this.f49208a = false;
+            this.f49209a = false;
             try {
                 try {
                     sQLiteDatabase.beginTransaction();
                     if (b(sQLiteDatabase)) {
                         sQLiteDatabase.setTransactionSuccessful();
-                        this.f49208a = true;
+                        this.f49209a = true;
                     }
                 } catch (Throwable th) {
                     try {

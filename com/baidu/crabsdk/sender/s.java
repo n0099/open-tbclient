@@ -6,23 +6,23 @@ import android.os.Looper;
 import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.OnAnrCrashListener;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class s extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4774a;
+    public Context f4775a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4775b;
+    public String f4776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f4776c;
+    public JSONObject f4777c;
 
     public s(Context context, String str) {
         super(str, 8);
-        this.f4776c = null;
-        this.f4774a = context;
-        this.f4775b = str;
+        this.f4777c = null;
+        this.f4775a = context;
+        this.f4776b = str;
     }
 
     @Override // android.os.FileObserver
@@ -34,7 +34,7 @@ public final class s extends FileObserver {
             com.baidu.crabsdk.c.a.d("file path is null!");
             return;
         }
-        com.baidu.crabsdk.c.a.b("File name is: " + (this.f4775b + "/" + str));
+        com.baidu.crabsdk.c.a.b("File name is: " + (this.f4776b + "/" + str));
         if (str.endsWith(".ydg")) {
             com.baidu.crabsdk.c.a.b("Delete .ydg file: " + i.j(str2));
             str = str.substring(4);
@@ -57,21 +57,21 @@ public final class s extends FileObserver {
             com.baidu.crabsdk.c.a.b("Key stack is:\n" + d2);
             try {
                 JSONObject g2 = g.g(System.currentTimeMillis(), true);
-                this.f4776c = g2;
+                this.f4777c = g2;
                 g2.put("javaLine", d2);
-                this.f4776c.put("errorTrace", c2);
+                this.f4777c.put("errorTrace", c2);
             } catch (Exception e3) {
                 com.baidu.crabsdk.c.a.a("Wrap java stack info error!", e3);
             }
         }
         if (str.endsWith(".dmp")) {
             com.baidu.crabsdk.c.a.b("Dump file is created!");
-            JSONObject jSONObject = this.f4776c;
+            JSONObject jSONObject = this.f4777c;
             if (jSONObject == null || (b2 = com.baidu.crabsdk.c.d.b(jSONObject.toString())) == null) {
                 return;
             }
             com.baidu.crabsdk.c.a.b("Write .ldg file here!");
-            i.d(this.f4774a, str + ".ldg", b2.getBytes());
+            i.d(this.f4775a, str + ".ldg", b2.getBytes());
         }
     }
 }

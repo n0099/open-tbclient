@@ -11,7 +11,7 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends h<e> {
     @NonNull
     public final String[] l;
@@ -25,23 +25,23 @@ public class b extends h<e> {
     public boolean t = false;
 
     /* renamed from: d.b.g0.a.v1.c.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0865b extends d.b.g0.a.v1.c.d {
+    /* loaded from: classes2.dex */
+    public class C0866b extends d.b.g0.a.v1.c.d {
 
         /* renamed from: d.b.g0.a.v1.c.i.b$b$a */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Activity f46814e;
+            public final /* synthetic */ Activity f46815e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.v1.c.e f46815f;
+            public final /* synthetic */ d.b.g0.a.v1.c.e f46816f;
 
             /* renamed from: d.b.g0.a.v1.c.i.b$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0866a implements d.b.g0.a.v1.c.a {
-                public C0866a() {
+            /* loaded from: classes2.dex */
+            public class C0867a implements d.b.g0.a.v1.c.a {
+                public C0867a() {
                 }
 
                 @Override // d.b.g0.a.v1.c.a
@@ -49,25 +49,25 @@ public class b extends h<e> {
                     b bVar = b.this;
                     bVar.o = z;
                     bVar.t = !z;
-                    C0865b.this.d();
+                    C0866b.this.d();
                 }
             }
 
             public a(Activity activity, d.b.g0.a.v1.c.e eVar) {
-                this.f46814e = activity;
-                this.f46815f = eVar;
+                this.f46815e = activity;
+                this.f46816f = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f46814e.isFinishing()) {
+                if (this.f46815e.isFinishing()) {
                     return;
                 }
-                d.b.g0.a.v1.c.c.q(this.f46814e, b.this.G(), this.f46815f, null, new C0866a());
+                d.b.g0.a.v1.c.c.q(this.f46815e, b.this.G(), this.f46816f, null, new C0867a());
             }
         }
 
-        public C0865b() {
+        public C0866b() {
         }
 
         @Override // d.b.g0.a.v1.c.d
@@ -79,7 +79,7 @@ public class b extends h<e> {
                 b.this.e(new OAuthException(10001));
                 d.b.g0.a.z1.h.q(10001, null);
                 return true;
-            } else if (eVar.f46770d) {
+            } else if (eVar.f46771d) {
                 bVar.e(new OAuthException(10005));
                 d.b.g0.a.z1.h.q(10005, eVar);
                 return true;
@@ -112,10 +112,10 @@ public class b extends h<e> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c extends d.b.g0.a.v1.c.d {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.e> {
             public a() {
             }
@@ -124,7 +124,7 @@ public class b extends h<e> {
             @Override // d.b.g0.a.i2.u0.b
             /* renamed from: a */
             public void onCallback(d.b.g0.a.v1.c.e eVar) {
-                if (d.b.g0.a.v1.c.b.f46747f) {
+                if (d.b.g0.a.v1.c.b.f46748f) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ListPreparation result: ");
                     sb.append(eVar == null ? StringUtil.NULL_STRING : eVar);
@@ -144,7 +144,7 @@ public class b extends h<e> {
                     }
                 }
                 b bVar2 = b.this;
-                bVar2.i(new C0865b());
+                bVar2.i(new C0866b());
                 c.this.d();
             }
         }
@@ -164,7 +164,7 @@ public class b extends h<e> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d extends d.b.g0.a.v1.c.d implements d.b.g0.a.m.a {
         public d() {
         }
@@ -213,22 +213,22 @@ public class b extends h<e> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f46821a;
+        public final String f46822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f46822b;
+        public final boolean f46823b;
 
         public e(boolean z, String str) {
-            this.f46821a = str == null ? "" : str;
-            this.f46822b = z;
+            this.f46822a = str == null ? "" : str;
+            this.f46823b = z;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.f46822b), this.f46821a);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.f46823b), this.f46822a);
         }
     }
 
@@ -283,7 +283,7 @@ public class b extends h<e> {
         String[] strArr;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", G().f45739f);
+            jSONObject.put("ma_id", G().f45740f);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(com.alipay.sdk.cons.b.f1858h, G().B());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
@@ -304,7 +304,7 @@ public class b extends h<e> {
                 jSONObject.put("provider_appkey", this.r);
             }
         } catch (JSONException e2) {
-            if (d.b.g0.a.v1.c.b.f46747f) {
+            if (d.b.g0.a.v1.c.b.f46748f) {
                 e2.printStackTrace();
             }
         }

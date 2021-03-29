@@ -9,28 +9,28 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class PatchVideoNative {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8047a;
+    public Context f8048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8048b;
+    public String f8049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f8049c;
+    public RelativeLayout f8050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IPatchVideoNativeListener f8050d;
+    public IPatchVideoNativeListener f8051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f8051e;
+    public a f8052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.mobads.i.b f8052f;
+    public com.baidu.mobads.i.b f8053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f8053g;
+    public e f8054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f8054h;
+    public boolean f8055h;
 
     /* loaded from: classes2.dex */
     public interface IPatchVideoNativeListener {
@@ -48,15 +48,15 @@ public class PatchVideoNative {
     }
 
     public PatchVideoNative(Context context, String str, RelativeLayout relativeLayout, IPatchVideoNativeListener iPatchVideoNativeListener) {
-        this.f8047a = context;
-        this.f8048b = str;
-        this.f8049c = relativeLayout;
-        this.f8050d = iPatchVideoNativeListener;
-        this.f8051e = new a(context, str, new b(this));
+        this.f8048a = context;
+        this.f8049b = str;
+        this.f8050c = relativeLayout;
+        this.f8051d = iPatchVideoNativeListener;
+        this.f8052e = new a(context, str, new b(this));
     }
 
     public long getCurrentPosition() {
-        com.baidu.mobads.i.b bVar = this.f8052f;
+        com.baidu.mobads.i.b bVar = this.f8053f;
         if (bVar != null) {
             return bVar.a();
         }
@@ -64,7 +64,7 @@ public class PatchVideoNative {
     }
 
     public long getDuration() {
-        com.baidu.mobads.i.b bVar = this.f8052f;
+        com.baidu.mobads.i.b bVar = this.f8053f;
         if (bVar != null) {
             return bVar.b();
         }
@@ -72,15 +72,15 @@ public class PatchVideoNative {
     }
 
     public void requestAd(RequestParameters requestParameters) {
-        a aVar = this.f8051e;
+        a aVar = this.f8052e;
         if (aVar != null) {
             aVar.a(requestParameters);
         }
     }
 
     public void setVideoMute(boolean z) {
-        this.f8054h = z;
-        com.baidu.mobads.i.b bVar = this.f8052f;
+        this.f8055h = z;
+        com.baidu.mobads.i.b bVar = this.f8053f;
         if (bVar != null) {
             bVar.a(z);
         }
@@ -88,7 +88,7 @@ public class PatchVideoNative {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8051d;
         if (iPatchVideoNativeListener != null) {
             iPatchVideoNativeListener.playCompletion();
         }
@@ -96,7 +96,7 @@ public class PatchVideoNative {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8051d;
         if (iPatchVideoNativeListener != null) {
             iPatchVideoNativeListener.playError();
         }
@@ -104,7 +104,7 @@ public class PatchVideoNative {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8051d;
         if (iPatchVideoNativeListener != null) {
             iPatchVideoNativeListener.onAdShow();
         }
@@ -117,7 +117,7 @@ public class PatchVideoNative {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NativeErrorCode nativeErrorCode) {
-        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8051d;
         if (iPatchVideoNativeListener != null) {
             iPatchVideoNativeListener.onAdFailed(nativeErrorCode);
         }

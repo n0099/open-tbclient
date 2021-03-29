@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.internal;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SocketState {
     public InputStream mInputStream;
     public OutputStream mOutputStream;

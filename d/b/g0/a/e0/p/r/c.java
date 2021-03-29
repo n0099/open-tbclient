@@ -14,39 +14,39 @@ import d.b.g0.a.f2.e;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.z1.h;
 import d.b.g0.a.z1.k.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f44234a;
+        public final /* synthetic */ b f44235a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f44235b;
+        public final /* synthetic */ int f44236b;
 
         public a(b bVar, int i) {
-            this.f44234a = bVar;
-            this.f44235b = i;
+            this.f44235a = bVar;
+            this.f44236b = i;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
         public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             super.onCancellation(dataSource);
-            c.b(this.f44235b, this.f44234a, "download icon fail: onCancellation");
+            c.b(this.f44236b, this.f44235a, "download icon fail: onCancellation");
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            c.b(this.f44235b, this.f44234a, "download icon fail: onFailureImpl");
+            c.b(this.f44236b, this.f44235a, "download icon fail: onFailureImpl");
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(Bitmap bitmap) {
             Bitmap copy;
             if (bitmap == null || bitmap.isRecycled()) {
-                c.b(this.f44235b, this.f44234a, "download icon fail: bitmap is null or is recycled");
+                c.b(this.f44236b, this.f44235a, "download icon fail: bitmap is null or is recycled");
                 return;
             }
             try {
@@ -55,18 +55,18 @@ public class c {
                 } else {
                     copy = bitmap.copy(bitmap.getConfig(), true);
                 }
-                if (this.f44234a != null) {
-                    this.f44234a.a(copy);
+                if (this.f44235a != null) {
+                    this.f44235a.a(copy);
                 }
             } catch (Exception e2) {
-                int i = this.f44235b;
-                b bVar = this.f44234a;
+                int i = this.f44236b;
+                b bVar = this.f44235a;
                 c.b(i, bVar, "download icon fail: " + e2.getMessage());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(Bitmap bitmap);
     }

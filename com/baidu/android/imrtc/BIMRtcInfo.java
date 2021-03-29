@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcInfo implements Parcelable {
     public static final Parcelable.Creator<BIMRtcInfo> CREATOR = new Parcelable.Creator<BIMRtcInfo>() { // from class: com.baidu.android.imrtc.BIMRtcInfo.1
         /* JADX DEBUG: Method merged with bridge method */

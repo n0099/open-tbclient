@@ -8,7 +8,7 @@ import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoSystemHelper {
     public static final String TAG = "VideoSystemHelper";
 

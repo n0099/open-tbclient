@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.sofire.b;
 import com.baidu.sofire.e;
 import com.baidu.sofire.g.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Receiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

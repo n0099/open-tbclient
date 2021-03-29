@@ -5,14 +5,14 @@ import com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener;
 public class c implements com.baidu.platform.comapi.walknavi.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IWNPCEngineInitListener f9907a;
+    public final /* synthetic */ IWNPCEngineInitListener f9908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f9908b;
+    public final /* synthetic */ b f9909b;
 
     public c(b bVar, IWNPCEngineInitListener iWNPCEngineInitListener) {
-        this.f9908b = bVar;
-        this.f9907a = iWNPCEngineInitListener;
+        this.f9909b = bVar;
+        this.f9908a = iWNPCEngineInitListener;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c
@@ -23,20 +23,20 @@ public class c implements com.baidu.platform.comapi.walknavi.d.c {
     public void a(int i, String str) {
         com.baidu.platform.comapi.wnplatform.d.a.b("downloadnpc:responseCode = " + i + ", responseMessage = " + str);
         if (i == 0) {
-            this.f9908b.N = true;
-            this.f9907a.onSuccess();
+            this.f9909b.N = true;
+            this.f9908a.onSuccess();
         } else if (i == 2 || i == 4 || i == 3) {
-            this.f9908b.N = false;
-            this.f9907a.onFail("您的手机暂不支持3D模型导航");
+            this.f9909b.N = false;
+            this.f9908a.onFail("您的手机暂不支持3D模型导航");
         } else if (i == 1) {
-            this.f9908b.N = false;
-            this.f9907a.onFail("当前网络异常，请稍候再试");
+            this.f9909b.N = false;
+            this.f9908a.onFail("当前网络异常，请稍候再试");
         } else if (i == 6 || i == 5 || i == -1) {
-            this.f9908b.N = false;
-            this.f9907a.onFail("初始化失败，请稍候再试");
+            this.f9909b.N = false;
+            this.f9908a.onFail("初始化失败，请稍候再试");
         } else {
-            this.f9908b.N = false;
-            this.f9907a.onFail("未知错误导致初始化失败");
+            this.f9909b.N = false;
+            this.f9908a.onFail("未知错误导致初始化失败");
         }
     }
 

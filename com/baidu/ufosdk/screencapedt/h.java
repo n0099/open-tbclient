@@ -7,26 +7,26 @@ import java.io.ByteArrayOutputStream;
 public final class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f22985a;
+    public final /* synthetic */ int f22986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f22986b;
+    public final /* synthetic */ ScreenCapEditActivity f22987b;
 
     public h(ScreenCapEditActivity screenCapEditActivity, int i) {
-        this.f22986b = screenCapEditActivity;
-        this.f22985a = i;
+        this.f22987b = screenCapEditActivity;
+        this.f22986a = i;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ByteArrayOutputStream byteArrayOutputStream;
         Intent intent = new Intent();
-        intent.setClass(this.f22986b, FeedbackEditActivity.class);
-        byteArrayOutputStream = this.f22986b.J;
+        intent.setClass(this.f22987b, FeedbackEditActivity.class);
+        byteArrayOutputStream = this.f22987b.J;
         intent.putExtra("shot", byteArrayOutputStream.toByteArray());
-        intent.putExtra("extend_feedback_channel", this.f22985a);
-        intent.putExtra("feedback_channel", this.f22985a);
-        this.f22986b.startActivity(intent);
-        this.f22986b.finish();
+        intent.putExtra("extend_feedback_channel", this.f22986a);
+        intent.putExtra("feedback_channel", this.f22986a);
+        this.f22987b.startActivity(intent);
+        this.f22987b.finish();
     }
 }

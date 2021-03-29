@@ -12,13 +12,13 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.h0.r.q.x0;
 import d.b.i0.d1.f.l.a;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f53755a;
+    public static g f53756a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements a.c {
         @Override // d.b.i0.d1.f.l.a.c
         public boolean a(String str) {
@@ -29,10 +29,10 @@ public class g {
     public static synchronized g b() {
         g gVar;
         synchronized (g.class) {
-            if (f53755a == null) {
-                f53755a = new g();
+            if (f53756a == null) {
+                f53756a = new g();
             }
-            gVar = f53755a;
+            gVar = f53756a;
         }
         return gVar;
     }

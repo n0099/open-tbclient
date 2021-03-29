@@ -98,16 +98,16 @@ public class CameraActivity extends BaseActivity {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f15140e;
+        public final /* synthetic */ Activity f15141e;
 
         public d(Activity activity) {
-            this.f15140e = activity;
+            this.f15141e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            this.f15140e.finish();
+            this.f15141e.finish();
         }
     }
 
@@ -115,10 +115,10 @@ public class CameraActivity extends BaseActivity {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f15142e;
+        public final /* synthetic */ Activity f15143e;
 
         public e(Activity activity) {
-            this.f15142e = activity;
+            this.f15143e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -127,9 +127,9 @@ public class CameraActivity extends BaseActivity {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", this.f15142e.getPackageName(), null));
-            this.f15142e.startActivity(intent);
-            this.f15142e.finish();
+            intent.setData(Uri.fromParts("package", this.f15143e.getPackageName(), null));
+            this.f15143e.startActivity(intent);
+            this.f15143e.finish();
         }
     }
 
@@ -196,18 +196,18 @@ public class CameraActivity extends BaseActivity {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f15149e;
+            public final /* synthetic */ Bitmap f15150e;
 
             public a(Bitmap bitmap) {
-                this.f15149e = bitmap;
+                this.f15150e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.outputFile);
-                    this.f15149e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                    this.f15149e.recycle();
+                    this.f15150e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                    this.f15150e.recycle();
                     fileOutputStream.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -235,10 +235,10 @@ public class CameraActivity extends BaseActivity {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f15152e;
+            public final /* synthetic */ Bitmap f15153e;
 
             public a(Bitmap bitmap) {
-                this.f15152e = bitmap;
+                this.f15153e = bitmap;
             }
 
             @Override // java.lang.Runnable
@@ -249,7 +249,7 @@ public class CameraActivity extends BaseActivity {
                     CameraActivity.this.showCrop();
                     return;
                 }
-                CameraActivity.this.displayImageView.setImageBitmap(this.f15152e);
+                CameraActivity.this.displayImageView.setImageBitmap(this.f15153e);
                 CameraActivity.this.showResultConfirm();
             }
         }

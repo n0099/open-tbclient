@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class m implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33674a;
+    public String f33675a;
 
     public static m a() {
         Map<String, String> extentParams;
         m mVar = new m();
         AdRequestExtentParamsProxy requestExtentParamsProxy = KsAdSDKImpl.get().getRequestExtentParamsProxy();
         if (requestExtentParamsProxy != null && (extentParams = requestExtentParamsProxy.getExtentParams()) != null) {
-            mVar.f33674a = extentParams.get("user_id");
+            mVar.f33675a = extentParams.get("user_id");
         }
         return mVar;
     }
@@ -24,7 +24,7 @@ public class m implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "user_id", this.f33674a);
+        o.a(jSONObject, "user_id", this.f33675a);
         return jSONObject;
     }
 }

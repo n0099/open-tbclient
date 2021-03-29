@@ -17,26 +17,26 @@ import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorHistoryMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorResidueMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.i0.d1.i.a.a f17929e;
+    public final d.b.i0.d1.i.a.a f17930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f17930f;
+    public final String f17931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17931g;
+    public boolean f17932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f17932h;
+    public long f17933h;
     public boolean i;
     public d.b.i0.d1.i.a.b.a j;
     public d.b.b.c.g.a k;
     public HttpMessageListener l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -44,7 +44,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ForumBroadCastMajorHistoryModel.this.f17931g = false;
+            ForumBroadCastMajorHistoryModel.this.f17932g = false;
             if (responsedMessage == null) {
                 return;
             }
@@ -59,11 +59,11 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
             ErrorData errorData = new ErrorData();
             errorData.setError_code(ForumBroadCastMajorHistoryModel.this.mErrorCode);
             errorData.setError_msg(ForumBroadCastMajorHistoryModel.this.mErrorString);
-            if (ForumBroadCastMajorHistoryModel.this.f17929e == null) {
+            if (ForumBroadCastMajorHistoryModel.this.f17930e == null) {
                 return;
             }
             if (ForumBroadCastMajorHistoryModel.this.mErrorCode != 0 || aVar == null) {
-                ForumBroadCastMajorHistoryModel.this.f17929e.onServerError(errorData);
+                ForumBroadCastMajorHistoryModel.this.f17930e.onServerError(errorData);
                 return;
             }
             ForumBroadCastMajorHistoryModel.this.j = aVar;
@@ -71,7 +71,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -84,15 +84,15 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                 return;
             }
             ForumBroadcastMajorResidueData data = httpResponsedMessage instanceof ResponseHttpMajorResidueMessage ? ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData() : null;
-            if (ForumBroadCastMajorHistoryModel.this.f17929e != null) {
-                ForumBroadCastMajorHistoryModel.this.f17929e.netResidueCallback(data);
+            if (ForumBroadCastMajorHistoryModel.this.f17930e != null) {
+                ForumBroadCastMajorHistoryModel.this.f17930e.netResidueCallback(data);
             }
         }
     }
 
     public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, d.b.i0.d1.i.a.a aVar, String str) {
         super(tbPageContext);
-        this.f17932h = 0L;
+        this.f17933h = 0L;
         this.j = null;
         this.k = new a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
         this.l = new b(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
@@ -101,14 +101,14 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         d.b.i0.c3.d0.a.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
         registerListener(this.k);
         registerListener(this.l);
-        this.f17929e = aVar;
-        this.f17930f = str;
+        this.f17930e = aVar;
+        this.f17931f = str;
     }
 
     public void B() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("forum_id", this.f17930f);
+        httpMessage.addParam("forum_id", this.f17931f);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -125,23 +125,23 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         broadcastMajorHistoryRequestMessage.queryType = 1;
         broadcastMajorHistoryRequestMessage.needCount = 15;
         try {
-            broadcastMajorHistoryRequestMessage.forumId = Long.parseLong(this.f17930f);
+            broadcastMajorHistoryRequestMessage.forumId = Long.parseLong(this.f17931f);
         } catch (Exception unused) {
             broadcastMajorHistoryRequestMessage.forumId = 0L;
         }
         if (i == 2) {
-            broadcastMajorHistoryRequestMessage.lastId = this.f17932h;
+            broadcastMajorHistoryRequestMessage.lastId = this.f17933h;
         } else if (i != 1) {
             return;
         } else {
             broadcastMajorHistoryRequestMessage.lastId = 0L;
         }
-        this.f17931g = true;
+        this.f17932g = true;
         sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
     public void E() {
-        if (this.f17931g) {
+        if (this.f17932g) {
             return;
         }
         this.i = false;
@@ -154,14 +154,14 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
 
     public final void G() {
         if (this.j.b() != null && this.j.b().size() > 1) {
-            this.f17932h = this.j.b().get(this.j.b().size() - 1).b();
+            this.f17933h = this.j.b().get(this.j.b().size() - 1).b();
         }
         this.j.e(this.i);
-        this.f17929e.netCallback(this.j);
+        this.f17930e.netCallback(this.j);
     }
 
     public void H() {
-        if (this.f17931g) {
+        if (this.f17932g) {
             return;
         }
         this.i = true;

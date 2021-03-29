@@ -24,16 +24,16 @@ import java.util.Map;
 public class PasswordView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f14391e;
+    public EditText f14392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f14392f;
+    public EditText f14393f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditText f14393g;
+    public EditText f14394g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditText f14394h;
+    public EditText f14395h;
     public EditText i;
     public ImageView j;
     public ImageView k;
@@ -89,26 +89,26 @@ public class PasswordView extends RelativeLayout {
     public class d implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f14398e;
+        public final /* synthetic */ ImageView f14399e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f14399f;
+        public final /* synthetic */ EditText f14400f;
 
         public d(ImageView imageView, EditText editText) {
-            this.f14398e = imageView;
-            this.f14399f = editText;
+            this.f14399e = imageView;
+            this.f14400f = editText;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             if (editable.length() > 0) {
-                this.f14398e.setVisibility(0);
-                PasswordView.this.r(this.f14399f);
-                this.f14399f.requestFocus();
-                PasswordView.this.i = this.f14399f;
+                this.f14399e.setVisibility(0);
+                PasswordView.this.r(this.f14400f);
+                this.f14400f.requestFocus();
+                PasswordView.this.i = this.f14400f;
                 return;
             }
-            this.f14398e.setVisibility(8);
+            this.f14399e.setVisibility(8);
         }
 
         @Override // android.text.TextWatcher
@@ -124,20 +124,20 @@ public class PasswordView extends RelativeLayout {
     public class e implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f14401e;
+        public final /* synthetic */ ImageView f14402e;
 
         public e(ImageView imageView) {
-            this.f14401e = imageView;
+            this.f14402e = imageView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             if (editable.length() > 0) {
-                this.f14401e.setVisibility(0);
+                this.f14402e.setVisibility(0);
                 d.b.b.e.m.e.a().post(PasswordView.this.t);
                 return;
             }
-            this.f14401e.setVisibility(8);
+            this.f14402e.setVisibility(8);
         }
 
         @Override // android.text.TextWatcher
@@ -153,32 +153,32 @@ public class PasswordView extends RelativeLayout {
     public class f implements View.OnKeyListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditText f14403e;
+        public final /* synthetic */ EditText f14404e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f14404f;
+        public final /* synthetic */ EditText f14405f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImageView f14405g;
+        public final /* synthetic */ ImageView f14406g;
 
         public f(EditText editText, EditText editText2, ImageView imageView) {
-            this.f14403e = editText;
-            this.f14404f = editText2;
-            this.f14405g = imageView;
+            this.f14404e = editText;
+            this.f14405f = editText2;
+            this.f14406g = imageView;
         }
 
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 67 && keyEvent.getAction() == 0) {
-                if (this.f14403e.getText().length() > 0) {
-                    this.f14403e.getText().clear();
+                if (this.f14404e.getText().length() > 0) {
+                    this.f14404e.getText().clear();
                 } else {
-                    this.f14404f.getText().clear();
+                    this.f14405f.getText().clear();
                 }
-                this.f14405g.setVisibility(8);
-                PasswordView.this.r(this.f14404f);
-                this.f14404f.requestFocus();
-                PasswordView.this.i = this.f14404f;
+                this.f14406g.setVisibility(8);
+                PasswordView.this.r(this.f14405f);
+                this.f14405f.requestFocus();
+                PasswordView.this.i = this.f14405f;
                 return true;
             }
             return false;
@@ -224,19 +224,19 @@ public class PasswordView extends RelativeLayout {
     }
 
     public void f() {
-        l.w(getContext(), this.f14391e);
+        l.w(getContext(), this.f14392e);
     }
 
     public final void g() {
         RelativeLayout.inflate(getContext(), R.layout.view_password, this);
-        this.f14391e = (EditText) findViewById(R.id.edit_password_a);
-        this.f14392f = (EditText) findViewById(R.id.edit_password_b);
-        this.f14393g = (EditText) findViewById(R.id.edit_password_c);
-        this.f14394h = (EditText) findViewById(R.id.edit_password_d);
-        this.o.add(this.f14391e);
-        this.o.add(this.f14392f);
-        this.o.add(this.f14393g);
-        this.o.add(this.f14394h);
+        this.f14392e = (EditText) findViewById(R.id.edit_password_a);
+        this.f14393f = (EditText) findViewById(R.id.edit_password_b);
+        this.f14394g = (EditText) findViewById(R.id.edit_password_c);
+        this.f14395h = (EditText) findViewById(R.id.edit_password_d);
+        this.o.add(this.f14392e);
+        this.o.add(this.f14393f);
+        this.o.add(this.f14394g);
+        this.o.add(this.f14395h);
         this.j = (ImageView) findViewById(R.id.edit_dot_a);
         this.k = (ImageView) findViewById(R.id.edit_dot_b);
         this.l = (ImageView) findViewById(R.id.edit_dot_c);
@@ -264,9 +264,9 @@ public class PasswordView extends RelativeLayout {
     }
 
     public final void h() {
-        r(this.f14391e);
-        this.f14391e.requestFocus();
-        this.i = this.f14391e;
+        r(this.f14392e);
+        this.f14392e.requestFocus();
+        this.i = this.f14392e;
     }
 
     public final void i() {

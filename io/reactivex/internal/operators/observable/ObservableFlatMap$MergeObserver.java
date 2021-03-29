@@ -79,7 +79,7 @@ public final class ObservableFlatMap$MergeObserver<T, U> extends AtomicInteger i
         }
         disposeAll();
         Throwable terminate = this.errors.terminate();
-        if (terminate != ExceptionHelper.f68092a) {
+        if (terminate != ExceptionHelper.f68097a) {
             this.actual.onError(terminate);
         }
         return true;
@@ -92,7 +92,7 @@ public final class ObservableFlatMap$MergeObserver<T, U> extends AtomicInteger i
             return;
         }
         this.cancelled = true;
-        if (!disposeAll() || (terminate = this.errors.terminate()) == null || terminate == ExceptionHelper.f68092a) {
+        if (!disposeAll() || (terminate = this.errors.terminate()) == null || terminate == ExceptionHelper.f68097a) {
             return;
         }
         a.f(terminate);
@@ -145,7 +145,7 @@ public final class ObservableFlatMap$MergeObserver<T, U> extends AtomicInteger i
             int length = observableFlatMap$InnerObserverArr.length;
             if (z && ((eVar2 == null || eVar2.isEmpty()) && length == 0)) {
                 Throwable terminate = this.errors.terminate();
-                if (terminate != ExceptionHelper.f68092a) {
+                if (terminate != ExceptionHelper.f68097a) {
                     if (terminate == null) {
                         oVar.onComplete();
                         return;

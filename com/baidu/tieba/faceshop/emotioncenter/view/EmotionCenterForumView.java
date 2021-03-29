@@ -18,36 +18,36 @@ import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15778e;
+    public TbPageContext f15779e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15779f;
+    public TextView f15780f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15780g;
+    public TextView f15781g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f15781h;
+    public ImageView f15782h;
     public EmotionCenterData.EmotionForumData i;
 
     public EmotionCenterForumView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f15778e = tbPageContext;
+        this.f15779e = tbPageContext;
         a();
     }
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-        this.f15779f = (TextView) findViewById(R.id.forum_title_tv);
-        this.f15780g = (TextView) findViewById(R.id.forum_recommend_tv);
-        this.f15781h = (ImageView) findViewById(R.id.forum_arrow);
+        this.f15780f = (TextView) findViewById(R.id.forum_title_tv);
+        this.f15781g = (TextView) findViewById(R.id.forum_recommend_tv);
+        this.f15782h = (ImageView) findViewById(R.id.forum_arrow);
         setOnClickListener(this);
     }
 
     public void b(int i) {
-        SkinManager.setViewTextColor(this.f15779f, R.color.CAM_X0105, i);
-        SkinManager.setViewTextColor(this.f15780g, R.color.cp_cont_r, i);
-        SkinManager.setBackgroundResource(this.f15781h, R.drawable.emotion_center_arrow, i);
+        SkinManager.setViewTextColor(this.f15780f, R.color.CAM_X0105, i);
+        SkinManager.setViewTextColor(this.f15781g, R.color.cp_cont_r, i);
+        SkinManager.setBackgroundResource(this.f15782h, R.drawable.emotion_center_arrow, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -55,7 +55,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         if (view != this || this.i == null) {
             return;
         }
-        this.f15778e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15778e.getPageActivity()).createNormalCfg(this.i.forum_name, null)));
+        this.f15779e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15779e.getPageActivity()).createNormalCfg(this.i.forum_name, null)));
     }
 
     public void setData(EmotionCenterData.EmotionForumData emotionForumData) {

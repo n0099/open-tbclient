@@ -16,12 +16,12 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import d.b.g0.a.i2.k0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends d.b.g0.a.e0.l.c {
     public String y0;
     public ForbiddenInfo z0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -35,14 +35,14 @@ public class d extends d.b.g0.a.e0.l.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f43993e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f43994e;
 
         public b(d.b.g0.a.y0.e.b bVar) {
-            this.f43993e = bVar;
+            this.f43994e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -51,19 +51,19 @@ public class d extends d.b.g0.a.e0.l.c {
             if (activity == null || !SwanAppNetworkUtils.h(activity)) {
                 return;
             }
-            SwanLauncher.j().n(this.f43993e, null);
+            SwanLauncher.j().n(this.f43994e, null);
             d.this.f0.finish();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43995e;
+        public final /* synthetic */ String f43996e;
 
         public c(String str) {
-            this.f43995e = str;
+            this.f43996e = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,7 +71,7 @@ public class d extends d.b.g0.a.e0.l.c {
             if (d.this.z0 == null || TextUtils.isEmpty(d.this.z0.forbiddenDetail)) {
                 return;
             }
-            d.b.g0.a.w0.a.q().b(d.this.f(), this.f43995e, d.this.z0.appTitle, d.this.z0.forbiddenDetail);
+            d.b.g0.a.w0.a.q().b(d.this.f(), this.f43996e, d.this.z0.appTitle, d.this.z0.forbiddenDetail);
         }
     }
 
@@ -92,11 +92,11 @@ public class d extends d.b.g0.a.e0.l.c {
         return forbiddenInfo.b();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00fb  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00da  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00ed  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00f4  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00fb  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0100  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

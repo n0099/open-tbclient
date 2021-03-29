@@ -70,34 +70,34 @@ public class k extends b {
     public StatisticItem A(String str) {
         int i;
         StatisticItem statisticItem = new StatisticItem(str);
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         if (a2Var != null) {
             if (a2Var.V() == null) {
-                statisticItem.param("fid", this.f62196e.c0());
-                statisticItem.param("tid", this.f62196e.w1());
+                statisticItem.param("fid", this.f62197e.c0());
+                statisticItem.param("tid", this.f62197e.w1());
             } else {
-                statisticItem.param("tid", this.f62196e.V().oriUgcNid);
+                statisticItem.param("tid", this.f62197e.V().oriUgcNid);
             }
-            if (this.f62196e.y2()) {
+            if (this.f62197e.y2()) {
                 i = 2;
-            } else if (this.f62196e.e2()) {
+            } else if (this.f62197e.e2()) {
                 i = 4;
             } else {
-                a2 a2Var2 = this.f62196e;
+                a2 a2Var2 = this.f62197e;
                 if (a2Var2.s1) {
                     i = 5;
                 } else if (a2Var2.O1()) {
                     i = 6;
-                } else if (this.f62196e.P1()) {
+                } else if (this.f62197e.P1()) {
                     i = 7;
-                } else if (this.f62196e.R1()) {
+                } else if (this.f62197e.R1()) {
                     i = 8;
                 } else {
-                    i = this.f62196e.Q1() ? 9 : 1;
+                    i = this.f62197e.Q1() ? 9 : 1;
                 }
             }
             statisticItem.param("obj_type", i);
-            statisticItem.param("obj_id", this.f62196e.T().getUserId());
+            statisticItem.param("obj_id", this.f62197e.T().getUserId());
             statisticItem.param("obj_param1", P() ? 2 : 1);
         }
         return statisticItem;
@@ -108,7 +108,7 @@ public class k extends b {
         if (h0()) {
             return G(b0);
         }
-        if (l.d0(this.f62196e)) {
+        if (l.d0(this.f62197e)) {
             StatisticItem I = I(j0, true);
             if (I != null && n() != null) {
                 a2 n = n();
@@ -256,7 +256,7 @@ public class k extends b {
 
     @Override // d.b.i0.x.e0.b
     public boolean Q() {
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         return a2Var != null && a2Var.y2();
     }
 
@@ -316,15 +316,15 @@ public class k extends b {
 
     public StatisticItem d0(String str) {
         StatisticItem G = G(str);
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         if (a2Var != null && a2Var.T() != null) {
-            G.param(TiebaStatic.Params.AB_TYPE, this.f62196e.T().hadConcerned() ? 1 : 0);
+            G.param(TiebaStatic.Params.AB_TYPE, this.f62197e.T().hadConcerned() ? 1 : 0);
         }
         return G;
     }
 
     public StatisticItem e0() {
-        if (l.d0(this.f62196e)) {
+        if (l.d0(this.f62197e)) {
             StatisticItem I = I(i0, true);
             if (I != null && n() != null) {
                 a2 n = n();
@@ -369,7 +369,7 @@ public class k extends b {
     }
 
     public boolean g0() {
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         return a2Var == null || a2Var.r2();
     }
 
@@ -378,7 +378,7 @@ public class k extends b {
         OriginalThreadInfo originalThreadInfo;
         int indexOf;
         int indexOf2;
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         if (a2Var == null) {
             return l0;
         }
@@ -407,7 +407,7 @@ public class k extends b {
             }
             return type;
         }
-        a2 a2Var2 = this.f62196e;
+        a2 a2Var2 = this.f62197e;
         int i = a2Var2.Z;
         if (i == 63) {
             return s0;
@@ -467,7 +467,7 @@ public class k extends b {
     }
 
     public boolean h0() {
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         return (a2Var == null || ListUtils.getCount(a2Var.H1()) == 0) ? false : true;
     }
 
@@ -483,14 +483,14 @@ public class k extends b {
 
     @Override // d.b.i0.x.e0.b, d.b.h0.r.q.a
     public a2 n() {
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         if (a2Var == null) {
             return null;
         }
         if (a2Var.a1() == 5) {
-            return this.f62196e;
+            return this.f62197e;
         }
-        this.f62196e.Z3(1);
-        return this.f62196e;
+        this.f62197e.Z3(1);
+        return this.f62197e;
     }
 }

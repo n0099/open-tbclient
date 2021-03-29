@@ -22,31 +22,31 @@ import d.b.b.e.p.l;
 public abstract class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f61439b;
+    public TbPageContext f61440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f61440c;
+    public g f61441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f61441d = new View$OnClickListenerC1603a();
+    public View.OnClickListener f61442d = new View$OnClickListenerC1604a();
 
     /* renamed from: a  reason: collision with root package name */
-    public View f61438a = b();
+    public View f61439a = b();
 
     /* renamed from: d.b.i0.u3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1603a implements View.OnClickListener {
-        public View$OnClickListenerC1603a() {
+    public class View$OnClickListenerC1604a implements View.OnClickListener {
+        public View$OnClickListenerC1604a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            g gVar = a.this.f61440c;
+            g gVar = a.this.f61441c;
             if (gVar != null) {
                 if (gVar.j() != 0) {
-                    UtilHelper.setNavigationBarBackground(a.this.f61439b.getPageActivity(), a.this.f61440c.j());
+                    UtilHelper.setNavigationBarBackground(a.this.f61440b.getPageActivity(), a.this.f61441c.j());
                 }
-                a.this.f61440c.n(true);
+                a.this.f61441c.n(true);
             }
         }
     }
@@ -59,16 +59,16 @@ public abstract class a {
         public int D;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f61443e;
+        public View f61444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LinearLayout f61444f;
+        public LinearLayout f61445f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f61445g;
+        public LinearLayout f61446g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f61446h;
+        public LinearLayout f61447h;
         public LinearLayout i;
         public LinearLayout j;
         public LinearLayout k;
@@ -90,13 +90,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1604a implements View.OnClickListener {
-            public View$OnClickListenerC1604a() {
+        public class View$OnClickListenerC1605a implements View.OnClickListener {
+            public View$OnClickListenerC1605a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.r(gVar.l());
                 }
@@ -105,13 +105,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1605b implements View.OnClickListener {
-            public View$OnClickListenerC1605b() {
+        public class View$OnClickListenerC1606b implements View.OnClickListener {
+            public View$OnClickListenerC1606b() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.q();
                 }
@@ -125,7 +125,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.v();
                 }
@@ -139,7 +139,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.p();
                 }
@@ -153,7 +153,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.w(gVar.l());
                 }
@@ -167,7 +167,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = b.this.f61440c;
+                g gVar = b.this.f61441c;
                 if (gVar != null) {
                     gVar.x();
                 }
@@ -176,40 +176,40 @@ public abstract class a {
 
         public b(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.f61443e = this.f61438a.findViewById(R.id.view_background);
-            this.f61444f = (LinearLayout) this.f61438a.findViewById(R.id.type_container);
-            this.f61445g = (LinearLayout) this.f61438a.findViewById(R.id.thread_text);
-            this.m = (ImageView) this.f61438a.findViewById(R.id.thread_text_iv);
-            this.s = (TextView) this.f61438a.findViewById(R.id.thread_text_tv);
-            this.f61446h = (LinearLayout) this.f61438a.findViewById(R.id.thread_pic);
-            this.n = (ImageView) this.f61438a.findViewById(R.id.thread_pic_iv);
-            this.t = (TextView) this.f61438a.findViewById(R.id.thread_pic_tv);
-            this.i = (LinearLayout) this.f61438a.findViewById(R.id.thread_video);
-            this.o = (ImageView) this.f61438a.findViewById(R.id.thread_video_iv);
-            this.u = (TextView) this.f61438a.findViewById(R.id.thread_video_tv);
-            this.j = (LinearLayout) this.f61438a.findViewById(R.id.thread_ala);
-            this.p = (ImageView) this.f61438a.findViewById(R.id.thread_ala_iv);
-            this.v = (TextView) this.f61438a.findViewById(R.id.thread_ala_tv);
-            this.k = (LinearLayout) this.f61438a.findViewById(R.id.thread_vote);
-            this.q = (ImageView) this.f61438a.findViewById(R.id.thread_vote_iv);
-            this.w = (TextView) this.f61438a.findViewById(R.id.thread_vote_tv);
-            this.l = (LinearLayout) this.f61438a.findViewById(R.id.thread_write_score);
-            this.r = (ImageView) this.f61438a.findViewById(R.id.thread_write_score_iv);
-            this.x = (TextView) this.f61438a.findViewById(R.id.thread_write_score_tv);
-            this.y = this.f61438a.findViewById(R.id.line_1);
-            this.z = this.f61438a.findViewById(R.id.line_2);
-            this.A = this.f61438a.findViewById(R.id.line_3);
-            this.B = this.f61438a.findViewById(R.id.line_4);
-            this.C = this.f61438a.findViewById(R.id.line_5);
+            this.f61444e = this.f61439a.findViewById(R.id.view_background);
+            this.f61445f = (LinearLayout) this.f61439a.findViewById(R.id.type_container);
+            this.f61446g = (LinearLayout) this.f61439a.findViewById(R.id.thread_text);
+            this.m = (ImageView) this.f61439a.findViewById(R.id.thread_text_iv);
+            this.s = (TextView) this.f61439a.findViewById(R.id.thread_text_tv);
+            this.f61447h = (LinearLayout) this.f61439a.findViewById(R.id.thread_pic);
+            this.n = (ImageView) this.f61439a.findViewById(R.id.thread_pic_iv);
+            this.t = (TextView) this.f61439a.findViewById(R.id.thread_pic_tv);
+            this.i = (LinearLayout) this.f61439a.findViewById(R.id.thread_video);
+            this.o = (ImageView) this.f61439a.findViewById(R.id.thread_video_iv);
+            this.u = (TextView) this.f61439a.findViewById(R.id.thread_video_tv);
+            this.j = (LinearLayout) this.f61439a.findViewById(R.id.thread_ala);
+            this.p = (ImageView) this.f61439a.findViewById(R.id.thread_ala_iv);
+            this.v = (TextView) this.f61439a.findViewById(R.id.thread_ala_tv);
+            this.k = (LinearLayout) this.f61439a.findViewById(R.id.thread_vote);
+            this.q = (ImageView) this.f61439a.findViewById(R.id.thread_vote_iv);
+            this.w = (TextView) this.f61439a.findViewById(R.id.thread_vote_tv);
+            this.l = (LinearLayout) this.f61439a.findViewById(R.id.thread_write_score);
+            this.r = (ImageView) this.f61439a.findViewById(R.id.thread_write_score_iv);
+            this.x = (TextView) this.f61439a.findViewById(R.id.thread_write_score_tv);
+            this.y = this.f61439a.findViewById(R.id.line_1);
+            this.z = this.f61439a.findViewById(R.id.line_2);
+            this.A = this.f61439a.findViewById(R.id.line_3);
+            this.B = this.f61439a.findViewById(R.id.line_4);
+            this.C = this.f61439a.findViewById(R.id.line_5);
             this.s.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_article_title));
             this.t.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
             this.u.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
             this.v.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
             this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_vote_title));
             this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.evaluate));
-            this.f61443e.setOnClickListener(this.f61441d);
-            this.f61445g.setOnClickListener(new View$OnClickListenerC1604a());
-            this.f61446h.setOnClickListener(new View$OnClickListenerC1605b());
+            this.f61444e.setOnClickListener(this.f61442d);
+            this.f61446g.setOnClickListener(new View$OnClickListenerC1605a());
+            this.f61447h.setOnClickListener(new View$OnClickListenerC1606b());
             this.i.setOnClickListener(new c());
             this.j.setOnClickListener(new d());
             this.k.setOnClickListener(new e());
@@ -220,14 +220,14 @@ public abstract class a {
 
         @Override // d.b.i0.u3.a
         public View b() {
-            return LayoutInflater.from(this.f61439b.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
+            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
         }
 
         @Override // d.b.i0.u3.a
         public void c(int i) {
             super.c(i);
-            SkinManager.setBackgroundColor(this.f61443e, R.color.CAM_X0603);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f61444f);
+            SkinManager.setBackgroundColor(this.f61444e, R.color.CAM_X0603);
+            TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f61445f);
             this.m.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_text24, WebPManager.ResourceStateType.NORMAL));
             this.n.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image24, WebPManager.ResourceStateType.NORMAL));
             this.o.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_photograph24, WebPManager.ResourceStateType.NORMAL));
@@ -240,8 +240,8 @@ public abstract class a {
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.x, R.color.CAM_X0101);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).tlRadius(this.D).trRadius(this.D).into(this.f61445g);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f61446h);
+            TBSelector.makeDrawableSelector().setShape(0).setType(1).tlRadius(this.D).trRadius(this.D).into(this.f61446g);
+            TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f61447h);
             TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.i);
             TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.j);
             TBSelector.makeDrawableSelector().setShape(0).setType(1).blRadius(this.D).brRadius(this.D).into(this.k);
@@ -258,16 +258,16 @@ public abstract class a {
     public static class c extends a {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f61453e;
+        public View f61454e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f61454f;
+        public View f61455f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TBLottieAnimationView f61455g;
+        public TBLottieAnimationView f61456g;
 
         /* renamed from: h  reason: collision with root package name */
-        public RelativeLayout f61456h;
+        public RelativeLayout f61457h;
         public View i;
         public View j;
         public View k;
@@ -277,13 +277,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1606a implements View.OnClickListener {
-            public View$OnClickListenerC1606a() {
+        public class View$OnClickListenerC1607a implements View.OnClickListener {
+            public View$OnClickListenerC1607a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = c.this.f61440c;
+                g gVar = c.this.f61441c;
                 if (gVar != null) {
                     gVar.r(gVar.l());
                 }
@@ -297,7 +297,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = c.this.f61440c;
+                g gVar = c.this.f61441c;
                 if (gVar != null) {
                     gVar.q();
                 }
@@ -306,13 +306,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1607c implements View.OnClickListener {
-            public View$OnClickListenerC1607c() {
+        public class View$OnClickListenerC1608c implements View.OnClickListener {
+            public View$OnClickListenerC1608c() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = c.this.f61440c;
+                g gVar = c.this.f61441c;
                 if (gVar != null) {
                     gVar.v();
                 }
@@ -326,7 +326,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g gVar = c.this.f61440c;
+                g gVar = c.this.f61441c;
                 if (gVar != null) {
                     gVar.p();
                 }
@@ -335,42 +335,42 @@ public abstract class a {
 
         public c(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.f61453e = this.f61438a.findViewById(R.id.transparent_back_view);
-            this.f61454f = this.f61438a.findViewById(R.id.view_background);
-            this.f61455g = (TBLottieAnimationView) this.f61438a.findViewById(R.id.bottom_bar_background);
-            this.f61456h = (RelativeLayout) this.f61438a.findViewById(R.id.type_container);
-            this.i = this.f61438a.findViewById(R.id.closeView);
-            this.j = this.f61438a.findViewById(R.id.publish_text_view);
-            this.k = this.f61438a.findViewById(R.id.publish_image_view);
-            this.l = this.f61438a.findViewById(R.id.publish_video_view);
-            this.m = this.f61438a.findViewById(R.id.publish_ala_view);
-            this.n = this.f61438a.findViewById(R.id.publish_ala_view_tip);
-            this.f61454f.setOnClickListener(this.f61441d);
-            this.f61456h.setOnClickListener(this.f61441d);
-            this.i.setOnClickListener(this.f61441d);
-            this.j.setOnClickListener(new View$OnClickListenerC1606a());
+            this.f61454e = this.f61439a.findViewById(R.id.transparent_back_view);
+            this.f61455f = this.f61439a.findViewById(R.id.view_background);
+            this.f61456g = (TBLottieAnimationView) this.f61439a.findViewById(R.id.bottom_bar_background);
+            this.f61457h = (RelativeLayout) this.f61439a.findViewById(R.id.type_container);
+            this.i = this.f61439a.findViewById(R.id.closeView);
+            this.j = this.f61439a.findViewById(R.id.publish_text_view);
+            this.k = this.f61439a.findViewById(R.id.publish_image_view);
+            this.l = this.f61439a.findViewById(R.id.publish_video_view);
+            this.m = this.f61439a.findViewById(R.id.publish_ala_view);
+            this.n = this.f61439a.findViewById(R.id.publish_ala_view_tip);
+            this.f61455f.setOnClickListener(this.f61442d);
+            this.f61457h.setOnClickListener(this.f61442d);
+            this.i.setOnClickListener(this.f61442d);
+            this.j.setOnClickListener(new View$OnClickListenerC1607a());
             this.k.setOnClickListener(new b());
-            this.l.setOnClickListener(new View$OnClickListenerC1607c());
+            this.l.setOnClickListener(new View$OnClickListenerC1608c());
             this.m.setOnClickListener(new d());
             d(false);
-            this.f61455g.setSpeed(1.4f);
+            this.f61456g.setSpeed(1.4f);
         }
 
         @Override // d.b.i0.u3.a
         public View b() {
-            return LayoutInflater.from(this.f61439b.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
+            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
         }
 
         @Override // d.b.i0.u3.a
         public void c(int i) {
-            SkinManager.setLottieAnimation(this.f61455g, R.raw.lottie_use_publish_n);
-            SkinManager.setBackgroundResource(this.f61454f, R.color.CAM_X0502);
+            SkinManager.setLottieAnimation(this.f61456g, R.raw.lottie_use_publish_n);
+            SkinManager.setBackgroundResource(this.f61455f, R.color.CAM_X0502);
             SkinManager.setBackgroundResource(this.n, R.drawable.home_publish_ala_red_tip);
         }
 
         public void d(boolean z) {
-            this.f61454f.setClickable(z);
-            this.f61456h.setClickable(z);
+            this.f61455f.setClickable(z);
+            this.f61457h.setClickable(z);
             this.i.setClickable(z);
             this.j.setClickable(z);
             this.k.setClickable(z);
@@ -399,16 +399,16 @@ public abstract class a {
         public TBLottieAnimationView D;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f61461e;
+        public View f61462e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f61462f;
+        public View f61463f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f61463g;
+        public LinearLayout f61464g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f61464h;
+        public ImageView f61465h;
         public TextView i;
         public LinearLayout j;
         public ImageView k;
@@ -430,13 +430,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1608a implements View.OnClickListener {
-            public View$OnClickListenerC1608a() {
+        public class View$OnClickListenerC1609a implements View.OnClickListener {
+            public View$OnClickListenerC1609a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.r(gVar.l());
                 }
@@ -450,7 +450,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.v();
                 }
@@ -464,7 +464,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.q();
                 }
@@ -473,13 +473,13 @@ public abstract class a {
 
         /* renamed from: d.b.i0.u3.a$d$d  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1609d implements View.OnClickListener {
-            public View$OnClickListenerC1609d() {
+        public class View$OnClickListenerC1610d implements View.OnClickListener {
+            public View$OnClickListenerC1610d() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.p();
                 }
@@ -493,7 +493,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.w(gVar.l());
                 }
@@ -507,7 +507,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.x();
                 }
@@ -521,7 +521,7 @@ public abstract class a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.b.i0.u3.g gVar = d.this.f61440c;
+                d.b.i0.u3.g gVar = d.this.f61441c;
                 if (gVar != null) {
                     gVar.t();
                 }
@@ -533,49 +533,49 @@ public abstract class a {
             if (tbPageContext == null) {
                 return;
             }
-            this.j = (LinearLayout) this.f61438a.findViewById(R.id.home_write_article);
-            this.k = (ImageView) this.f61438a.findViewById(R.id.home_write_article_icon);
-            this.l = (TextView) this.f61438a.findViewById(R.id.home_write_article_title);
-            this.f61463g = (LinearLayout) this.f61438a.findViewById(R.id.home_write_photo);
-            this.f61464h = (ImageView) this.f61438a.findViewById(R.id.home_write_photo_icon);
-            this.i = (TextView) this.f61438a.findViewById(R.id.home_write_photo_title);
-            this.m = (LinearLayout) this.f61438a.findViewById(R.id.home_write_album);
-            this.n = (ImageView) this.f61438a.findViewById(R.id.home_write_album_icon);
-            this.o = (TextView) this.f61438a.findViewById(R.id.home_write_album_title);
-            this.p = (LinearLayout) this.f61438a.findViewById(R.id.home_write_live);
-            this.q = (ImageView) this.f61438a.findViewById(R.id.home_write_live_icon);
-            this.r = (TextView) this.f61438a.findViewById(R.id.home_write_live_title);
-            this.s = (LinearLayout) this.f61438a.findViewById(R.id.home_write_vote);
-            this.t = (ImageView) this.f61438a.findViewById(R.id.home_write_vote_icon);
-            this.u = (TextView) this.f61438a.findViewById(R.id.home_write_vote_title);
-            this.v = (LinearLayout) this.f61438a.findViewById(R.id.home_write_score);
-            this.w = (ImageView) this.f61438a.findViewById(R.id.home_write_score_icon);
-            this.x = (TextView) this.f61438a.findViewById(R.id.home_write_score_title);
-            this.y = (LinearLayout) this.f61438a.findViewById(R.id.home_write_commodity);
-            this.z = (ImageView) this.f61438a.findViewById(R.id.home_write_commodity_icon);
-            this.A = (TextView) this.f61438a.findViewById(R.id.home_write_commodity_title);
-            this.B = (OvalActionButton) this.f61438a.findViewById(R.id.write_close_view);
-            d.b.i0.u3.g gVar2 = this.f61440c;
+            this.j = (LinearLayout) this.f61439a.findViewById(R.id.home_write_article);
+            this.k = (ImageView) this.f61439a.findViewById(R.id.home_write_article_icon);
+            this.l = (TextView) this.f61439a.findViewById(R.id.home_write_article_title);
+            this.f61464g = (LinearLayout) this.f61439a.findViewById(R.id.home_write_photo);
+            this.f61465h = (ImageView) this.f61439a.findViewById(R.id.home_write_photo_icon);
+            this.i = (TextView) this.f61439a.findViewById(R.id.home_write_photo_title);
+            this.m = (LinearLayout) this.f61439a.findViewById(R.id.home_write_album);
+            this.n = (ImageView) this.f61439a.findViewById(R.id.home_write_album_icon);
+            this.o = (TextView) this.f61439a.findViewById(R.id.home_write_album_title);
+            this.p = (LinearLayout) this.f61439a.findViewById(R.id.home_write_live);
+            this.q = (ImageView) this.f61439a.findViewById(R.id.home_write_live_icon);
+            this.r = (TextView) this.f61439a.findViewById(R.id.home_write_live_title);
+            this.s = (LinearLayout) this.f61439a.findViewById(R.id.home_write_vote);
+            this.t = (ImageView) this.f61439a.findViewById(R.id.home_write_vote_icon);
+            this.u = (TextView) this.f61439a.findViewById(R.id.home_write_vote_title);
+            this.v = (LinearLayout) this.f61439a.findViewById(R.id.home_write_score);
+            this.w = (ImageView) this.f61439a.findViewById(R.id.home_write_score_icon);
+            this.x = (TextView) this.f61439a.findViewById(R.id.home_write_score_title);
+            this.y = (LinearLayout) this.f61439a.findViewById(R.id.home_write_commodity);
+            this.z = (ImageView) this.f61439a.findViewById(R.id.home_write_commodity_icon);
+            this.A = (TextView) this.f61439a.findViewById(R.id.home_write_commodity_title);
+            this.B = (OvalActionButton) this.f61439a.findViewById(R.id.write_close_view);
+            d.b.i0.u3.g gVar2 = this.f61441c;
             if (gVar2 != null && "frs".equals(gVar2.k())) {
                 this.B.setIsCircle(true);
                 this.B.setHasShadow(false);
             }
-            this.f61462f = this.f61438a.findViewById(R.id.view_background_white);
-            this.f61461e = this.f61438a.findViewById(R.id.view_background_translate);
-            GridLayout gridLayout = (GridLayout) this.f61438a.findViewById(R.id.type_container);
+            this.f61463f = this.f61439a.findViewById(R.id.view_background_white);
+            this.f61462e = this.f61439a.findViewById(R.id.view_background_translate);
+            GridLayout gridLayout = (GridLayout) this.f61439a.findViewById(R.id.type_container);
             this.C = gridLayout;
             gridLayout.setMeasureAllChild(true);
             this.C.setVerNum(2);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f61438a.findViewById(R.id.bottom_bar_background);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f61439a.findViewById(R.id.bottom_bar_background);
             this.D = tBLottieAnimationView;
             tBLottieAnimationView.setSpeed(1.2f);
             a();
-            this.f61461e.setOnClickListener(this.f61441d);
-            this.f61461e.setClickable(true);
-            this.k.setOnClickListener(new View$OnClickListenerC1608a());
-            this.f61464h.setOnClickListener(new b());
+            this.f61462e.setOnClickListener(this.f61442d);
+            this.f61462e.setClickable(true);
+            this.k.setOnClickListener(new View$OnClickListenerC1609a());
+            this.f61465h.setOnClickListener(new b());
             this.n.setOnClickListener(new c());
-            this.q.setOnClickListener(new View$OnClickListenerC1609d());
+            this.q.setOnClickListener(new View$OnClickListenerC1610d());
             this.s.setOnClickListener(new e());
             this.v.setOnClickListener(new f());
             this.y.setOnClickListener(new g());
@@ -583,10 +583,10 @@ public abstract class a {
 
         @Override // d.b.i0.u3.a
         public void a() {
-            float k = l.k(this.f61439b.getPageActivity());
+            float k = l.k(this.f61440b.getPageActivity());
             int i = (int) (0.13518518f * k);
             d(this.k, i);
-            d(this.f61464h, i);
+            d(this.f61465h, i);
             d(this.n, i);
             d(this.q, i);
             d(this.t, i);
@@ -598,14 +598,14 @@ public abstract class a {
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds423) * g2);
                 this.C.setLayoutParams(layoutParams);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.f61462f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.f61463f.getLayoutParams();
             if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                 int g3 = (int) (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1023) * g2);
                 if (g3 <= 0) {
                     g3 = 1023;
                 }
                 ((RelativeLayout.LayoutParams) layoutParams2).height = g3;
-                this.f61462f.setLayoutParams(layoutParams2);
+                this.f61463f.setLayoutParams(layoutParams2);
             }
             ViewGroup.LayoutParams layoutParams3 = this.D.getLayoutParams();
             if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
@@ -616,15 +616,15 @@ public abstract class a {
 
         @Override // d.b.i0.u3.a
         public View b() {
-            return LayoutInflater.from(this.f61439b.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
+            return LayoutInflater.from(this.f61440b.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
         }
 
         @Override // d.b.i0.u3.a
         public void c(int i) {
             this.B.e(i);
             SkinManager.setLottieAnimation(this.D, R.raw.bottom_bar_bg);
-            SkinManager.setBackgroundResource(this.f61462f, R.drawable.write_tab_background);
-            SkinManager.setImageResource(this.f61464h, R.drawable.icon_mask_post_photograph56);
+            SkinManager.setBackgroundResource(this.f61463f, R.drawable.write_tab_background);
+            SkinManager.setImageResource(this.f61465h, R.drawable.icon_mask_post_photograph56);
             SkinManager.setImageResource(this.k, R.drawable.icon_mask_post_text56);
             SkinManager.setImageResource(this.n, R.drawable.icon_mask_post_image56);
             SkinManager.setImageResource(this.q, R.drawable.icon_mask_post_live56);
@@ -655,8 +655,8 @@ public abstract class a {
     }
 
     public a(TbPageContext tbPageContext, g gVar) {
-        this.f61439b = tbPageContext;
-        this.f61440c = gVar;
+        this.f61440b = tbPageContext;
+        this.f61441c = gVar;
     }
 
     public void a() {

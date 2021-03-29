@@ -32,29 +32,29 @@ public class i {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f57918e;
+        public final /* synthetic */ ShareItem f57919e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f57919f;
+        public final /* synthetic */ TbPageContext f57920f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsViewData f57920g;
+        public final /* synthetic */ FrsViewData f57921g;
 
         public a(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData) {
-            this.f57918e = shareItem;
-            this.f57919f = tbPageContext;
-            this.f57920g = frsViewData;
+            this.f57919e = shareItem;
+            this.f57920f = tbPageContext;
+            this.f57921g = frsViewData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.f57918e.q).param("obj_type", 18).param("obj_source", 10));
-            FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.f57919f.getPageActivity());
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f57919f.getPageActivity());
-            if (frsPrivateShareDialogView.d(this.f57920g, this.f57919f, aVar)) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.f57919e.q).param("obj_type", 18).param("obj_source", 10));
+            FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.f57920f.getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f57920f.getPageActivity());
+            if (frsPrivateShareDialogView.d(this.f57921g, this.f57920f, aVar)) {
                 aVar.setContentViewSize(2);
                 aVar.setContentView(frsPrivateShareDialogView);
-                aVar.create(this.f57919f).show();
+                aVar.create(this.f57920f).show();
             }
         }
     }
@@ -63,20 +63,20 @@ public class i {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f57921e;
+        public final /* synthetic */ String f57922e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f57922f;
+        public final /* synthetic */ TbPageContext f57923f;
 
         public b(String str, TbPageContext tbPageContext) {
-            this.f57921e = str;
-            this.f57922f = tbPageContext;
+            this.f57922e = str;
+            this.f57923f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f57921e);
-            d.b.b.e.p.l.L(this.f57922f.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            d.b.b.e.p.a.a(this.f57922e);
+            d.b.b.e.p.l.L(this.f57923f.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
@@ -84,32 +84,32 @@ public class i {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsFragment f57923e;
+        public final /* synthetic */ FrsFragment f57924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsShareCardView f57924f;
+        public final /* synthetic */ FrsShareCardView f57925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f57925g;
+        public final /* synthetic */ long f57926g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f57926h;
+        public final /* synthetic */ String f57927h;
         public final /* synthetic */ long i;
         public final /* synthetic */ ShareFromFrsMsgData j;
 
         public c(FrsFragment frsFragment, FrsShareCardView frsShareCardView, long j, String str, long j2, ShareFromFrsMsgData shareFromFrsMsgData) {
-            this.f57923e = frsFragment;
-            this.f57924f = frsShareCardView;
-            this.f57925g = j;
-            this.f57926h = str;
+            this.f57924e = frsFragment;
+            this.f57925f = frsShareCardView;
+            this.f57926g = j;
+            this.f57927h = str;
             this.i = j2;
             this.j = shareFromFrsMsgData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f57923e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f57924f.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f57923e.q().getPageActivity(), this.f57925g, this.f57926h, this.i, "from_share", this.f57924f.getLeaveMsg(), this.j.toChatMessageContent())));
+            this.f57924e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f57925f.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f57924e.q().getPageActivity(), this.f57926g, this.f57927h, this.i, "from_share", this.f57925f.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
         }
     }
@@ -118,19 +118,19 @@ public class i {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsFragment f57927e;
+        public final /* synthetic */ FrsFragment f57928e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsShareCardView f57928f;
+        public final /* synthetic */ FrsShareCardView f57929f;
 
         public d(FrsFragment frsFragment, FrsShareCardView frsShareCardView) {
-            this.f57927e = frsFragment;
-            this.f57928f = frsShareCardView;
+            this.f57928e = frsFragment;
+            this.f57929f = frsShareCardView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f57927e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f57928f.getChatMsgView());
+            this.f57928e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f57929f.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -188,7 +188,7 @@ public class i {
             shareItem.r = name + tbPageContext.getString(R.string.forum);
             shareItem.s = slogan;
             shareItem.t = str2;
-            shareItem.f13712b = true;
+            shareItem.f13713b = true;
             shareItem.D = 10;
             shareItem.q = str;
             if (parse2 != null) {
@@ -198,7 +198,7 @@ public class i {
             shareItem2.r = name + tbPageContext.getString(R.string.forum);
             shareItem2.s = slogan;
             shareItem2.t = str2;
-            shareItem2.f13712b = true;
+            shareItem2.f13713b = true;
             shareItem2.D = 10;
             shareItem2.q = str;
             shareItem2.p = frsViewData.getForum().getName();

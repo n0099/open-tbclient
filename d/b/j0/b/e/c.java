@@ -11,7 +11,7 @@ public final class c extends f {
     public static int m = 16384;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f63809h;
+    public final g f63810h;
     public final long i;
     public final ByteBuffer j;
     public final UploadDataProvider k = new b();
@@ -33,7 +33,7 @@ public final class c extends f {
                 byteBuffer.put(c.this.j);
                 c.this.j.clear();
                 uploadDataSink.c(false);
-                c.this.f63809h.quit();
+                c.this.f63810h.quit();
                 return;
             }
             int limit = c.this.j.limit();
@@ -56,7 +56,7 @@ public final class c extends f {
         if (j >= 0) {
             this.i = j;
             this.j = ByteBuffer.allocate((int) Math.min(j, m));
-            this.f63809h = gVar;
+            this.f63810h = gVar;
             this.l = 0L;
             return;
         }
@@ -112,7 +112,7 @@ public final class c extends f {
     public final void z() throws IOException {
         o();
         this.j.flip();
-        this.f63809h.a();
+        this.f63810h.a();
         n();
     }
 

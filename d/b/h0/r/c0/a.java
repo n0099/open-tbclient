@@ -28,33 +28,33 @@ public class a {
     public static CustomMessageListener j = new b(2921440);
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50434a;
+    public int f50435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50435b;
+    public int f50436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50436c;
+    public int f50437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50437d;
+    public int f50438d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50438e;
+    public int f50439e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f50439f;
+    public NewUserRedPackageData f50440f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f50440g = new C1071a(2921406);
+    public CustomMessageListener f50441g = new C1072a(2921406);
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.b.e.l.c<d.b.b.j.d.a> f50441h = new c();
+    public final d.b.b.e.l.c<d.b.b.j.d.a> f50442h = new c();
 
     /* renamed from: d.b.h0.r.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1071a extends CustomMessageListener {
-        public C1071a(int i) {
+    public class C1072a extends CustomMessageListener {
+        public C1072a(int i) {
             super(i);
         }
 
@@ -93,10 +93,10 @@ public class a {
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             Activity currentActivity;
-            if (aVar == null || a.this.f50439f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || a.this.d(currentActivity) == null) {
+            if (aVar == null || a.this.f50440f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || a.this.d(currentActivity) == null) {
                 return;
             }
-            TbSingleton.getInstance().setNewUserRedPackageData(a.this.f50439f);
+            TbSingleton.getInstance().setNewUserRedPackageData(a.this.f50440f);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
         }
     }
@@ -130,7 +130,7 @@ public class a {
     }
 
     public void f() {
-        MessageManager.getInstance().registerListener(this.f50440g);
+        MessageManager.getInstance().registerListener(this.f50441g);
         MessageManager.getInstance().registerListener(j);
     }
 
@@ -138,17 +138,17 @@ public class a {
         if (missionInfo == null || missionInfo.activityid.intValue() == 0 || missionInfo.missionid.intValue() == 0) {
             return;
         }
-        this.f50436c = missionInfo.activityid.intValue();
-        this.f50434a = missionInfo.missionid.intValue();
-        this.f50435b = missionInfo.total_limit.intValue();
-        this.f50438e = missionInfo.cleartype.intValue();
-        this.f50437d = missionInfo.cleartime.intValue();
+        this.f50437c = missionInfo.activityid.intValue();
+        this.f50435a = missionInfo.missionid.intValue();
+        this.f50436b = missionInfo.total_limit.intValue();
+        this.f50439e = missionInfo.cleartype.intValue();
+        this.f50438d = missionInfo.cleartime.intValue();
         d.b.h0.a.b bVar = new d.b.h0.a.b();
-        bVar.X(this.f50437d);
-        bVar.Y(this.f50438e);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_total_limit", this.f50435b);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_mission_id", this.f50434a);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_action_id", this.f50436c);
+        bVar.X(this.f50438d);
+        bVar.Y(this.f50439e);
+        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_total_limit", this.f50436b);
+        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_mission_id", this.f50435a);
+        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_action_id", this.f50437c);
         d.b.h0.r.d0.b.i().v("task_share_thread_success_data_specific_clear_time", bVar.c());
     }
 
@@ -175,12 +175,12 @@ public class a {
         if (bVar == null) {
             return;
         }
-        ActiveCenterData activeCenterData = bVar.f49666g;
-        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f49661b || StringUtils.isNull(bVar.f49662c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
+        ActiveCenterData activeCenterData = bVar.f49667g;
+        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f49662b || StringUtils.isNull(bVar.f49663c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
             return;
         }
-        this.f50439f = bVar.f49665f;
-        d.b.b.e.l.d.h().k(this.f50439f.topPicUrl, 10, this.f50441h, 0, 0, d2.getUniqueId(), new Object[0]);
+        this.f50440f = bVar.f49666f;
+        d.b.b.e.l.d.h().k(this.f50440f.topPicUrl, 10, this.f50442h, 0, 0, d2.getUniqueId(), new Object[0]);
     }
 
     public void k() {

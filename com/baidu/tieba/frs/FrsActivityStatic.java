@@ -58,19 +58,19 @@ import tbclient.StarTrends.StarTrendsResIdl;
 public class FrsActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f15962a = true;
+    public static boolean f15963a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f15963b = true;
+    public static boolean f15964b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f15964c = "";
+    public static String f15965c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CustomMessageListener f15965d = new g(2012111);
+    public static final CustomMessageListener f15966d = new g(2012111);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f15966e = new h(2012112);
+    public static final CustomMessageListener f15967e = new h(2012112);
 
     /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<TbPageContext> {
@@ -79,7 +79,7 @@ public class FrsActivityStatic {
             if (customMessage == null || !(customMessage.getData() instanceof TbPageContext)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f58578f));
+            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f58579f));
         }
     }
 
@@ -260,12 +260,12 @@ public class FrsActivityStatic {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue != 1 && intValue != 4 && intValue != 3 && intValue != 2) {
-                    FrsActivityStatic.f15963b = false;
-                    FrsActivityStatic.f15962a = false;
+                    FrsActivityStatic.f15964b = false;
+                    FrsActivityStatic.f15963a = false;
                     return;
                 }
-                FrsActivityStatic.f15963b = true;
-                FrsActivityStatic.f15962a = true;
+                FrsActivityStatic.f15964b = true;
+                FrsActivityStatic.f15963a = true;
             }
         }
     }
@@ -284,8 +284,8 @@ public class FrsActivityStatic {
             }
             int d2 = d.b.b.e.m.b.d(customResponsedMessage.getData().toString(), 1);
             if (d2 == 1 || d2 == 0) {
-                FrsActivityStatic.f15963b = false;
-                FrsActivityStatic.f15962a = false;
+                FrsActivityStatic.f15964b = false;
+                FrsActivityStatic.f15963a = false;
             }
         }
     }
@@ -365,8 +365,8 @@ public class FrsActivityStatic {
         i();
         f();
         o();
-        MessageManager.getInstance().registerListener(f15965d);
-        MessageManager.getInstance().registerListener(f15966e);
+        MessageManager.getInstance().registerListener(f15966d);
+        MessageManager.getInstance().registerListener(f15967e);
         h();
         m();
         n();

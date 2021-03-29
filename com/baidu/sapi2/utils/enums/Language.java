@@ -6,17 +6,17 @@ public enum Language {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11487a;
+    public int f11488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11488b;
+    public String f11489b;
 
     Language(int i, String str) {
-        this.f11487a = i;
-        this.f11488b = str;
+        this.f11488a = i;
+        this.f11489b = str;
     }
 
     public int getType() {
-        return this.f11487a;
+        return this.f11488a;
     }
 }

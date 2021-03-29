@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f53796a;
+    public static String f53797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f53797b;
+    public static volatile SQLiteDatabase f53798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, SQLiteDatabase> f53798c = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> f53799c = new HashMap<>();
 
     public static void a(String str) {
         try {
@@ -84,18 +84,18 @@ public class g {
                 return null;
             }
             String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-            if (f53798c.containsKey(str)) {
-                return f53798c.get(str);
-            } else if (f53797b != null && str.equals(f53796a) && f53797b.isOpen()) {
-                return f53797b;
+            if (f53799c.containsKey(str)) {
+                return f53799c.get(str);
+            } else if (f53798b != null && str.equals(f53797a) && f53798b.isOpen()) {
+                return f53798b;
             } else {
-                if (f53797b != null) {
-                    d.b.b.e.p.m.b(f53797b);
+                if (f53798b != null) {
+                    d.b.b.e.p.m.b(f53798b);
                 }
                 f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                f53796a = str;
-                f53797b = fVar.getWritableDatabase();
-                return f53797b;
+                f53797a = str;
+                f53798b = fVar.getWritableDatabase();
+                return f53798b;
             }
         }
     }

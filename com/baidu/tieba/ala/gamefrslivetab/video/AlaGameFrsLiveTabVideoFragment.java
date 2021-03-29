@@ -17,16 +17,16 @@ import java.net.URL;
 public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15015f;
+    public String f15016f;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t.g.a.b f15017h;
+    public d.b.i0.t.g.a.b f15018h;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15014e = false;
+    public boolean f15015e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15016g = true;
+    public boolean f15017g = true;
     public CustomMessageListener i = new a(0);
     public CustomMessageListener j = new b(2921023);
 
@@ -47,11 +47,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
                 return;
             }
             if ("FrsGameLive".equals(split[0]) && 8 == d.b.b.e.m.b.d(split[1], 0)) {
-                if (AlaGameFrsLiveTabVideoFragment.this.f15017h != null) {
-                    AlaGameFrsLiveTabVideoFragment.this.f15017h.i();
+                if (AlaGameFrsLiveTabVideoFragment.this.f15018h != null) {
+                    AlaGameFrsLiveTabVideoFragment.this.f15018h.i();
                 }
-            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == d.b.b.e.m.b.d(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.f15017h != null) {
-                AlaGameFrsLiveTabVideoFragment.this.f15017h.i();
+            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == d.b.b.e.m.b.d(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.f15018h != null) {
+                AlaGameFrsLiveTabVideoFragment.this.f15018h.i();
             }
         }
     }
@@ -68,7 +68,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (AlaGameFrsLiveTabVideoFragment.this.G0().contains(str) || str.contains(AlaGameFrsLiveTabVideoFragment.this.G0())) {
-                    AlaGameFrsLiveTabVideoFragment.this.f15017h.l();
+                    AlaGameFrsLiveTabVideoFragment.this.f15018h.l();
                 }
             }
         }
@@ -95,10 +95,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
             StringBuilder sb = new StringBuilder(o);
             if (o.endsWith("?")) {
                 sb.append("fid=");
-                sb.append(this.f15015f);
+                sb.append(this.f15016f);
             } else {
                 sb.append("?fid=");
-                sb.append(this.f15015f);
+                sb.append(this.f15016f);
             }
             return sb.toString();
         }
@@ -106,19 +106,19 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     }
 
     public void H0(String str) {
-        this.f15015f = str;
+        this.f15016f = str;
     }
 
     public void I0(String str) {
     }
 
     public void J0(boolean z) {
-        this.f15014e = z;
+        this.f15015e = z;
     }
 
     @Override // d.b.i0.p0.r0
     public NavigationBar Q() {
-        return this.f15017h.j();
+        return this.f15018h.j();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
@@ -129,22 +129,22 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f15017h.o(this);
+        this.f15018h.o(this);
         registerListener(this.j);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.f15016g) {
+        if (this.f15017g) {
             return;
         }
         if (i == 1) {
-            this.f15017h.y(F0(G0()));
+            this.f15018h.y(F0(G0()));
         } else {
-            this.f15017h.y(G0());
+            this.f15018h.y(G0());
         }
-        this.f15017h.A(i);
+        this.f15018h.A(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -155,15 +155,15 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        d.b.i0.t.g.a.b bVar = new d.b.i0.t.g.a.b(this.f15014e);
-        this.f15017h = bVar;
+        d.b.i0.t.g.a.b bVar = new d.b.i0.t.g.a.b(this.f15015e);
+        this.f15018h = bVar;
         return bVar.B(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.t.g.a.b bVar = this.f15017h;
+        d.b.i0.t.g.a.b bVar = this.f15018h;
         if (bVar != null) {
             bVar.C();
         }
@@ -177,13 +177,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.f15016g || StringUtils.isNull(this.f15017h.k().getUrl())) {
+        if (this.f15017g || StringUtils.isNull(this.f15018h.k().getUrl())) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f15017h.y(F0(G0()));
+                this.f15018h.y(F0(G0()));
             } else {
-                this.f15017h.y(G0());
+                this.f15018h.y(G0());
             }
-            this.f15016g = false;
+            this.f15017g = false;
         }
     }
 

@@ -20,30 +20,30 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f56912a;
+    public PostSearchActivity f56913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56913b;
+    public String f56914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56914c;
+    public String f56915c;
     public ArrayList<String> j;
     public CustomMessageListener m;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f56915d = 1;
+    public int f56916d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56916e = 1;
+    public int f56917e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56917f = 1;
+    public int f56918f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56918g = false;
+    public boolean f56919g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56919h = false;
+    public boolean f56920h = false;
     public boolean i = false;
     public int k = 0;
     public final HttpMessageListener l = new a(CmdConfigHttp.CMD_POST_SEARCH);
@@ -66,7 +66,7 @@ public class d {
                 boolean z = d.this.i(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.f56912a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.f56913a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.f(intValue);
                     d.this.r();
                     d.this.s();
@@ -74,10 +74,10 @@ public class d {
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.f56912a.getResources().getString(R.string.neterror);
+                    errorString = d.this.f56913a.getResources().getString(R.string.neterror);
                 }
-                d.this.f56912a.showToast(errorString);
-                d.this.f56912a.refreshResultListByTab(intValue, null, z);
+                d.this.f56913a.showToast(errorString);
+                d.this.f56913a.refreshResultListByTab(intValue, null, z);
             }
         }
     }
@@ -97,26 +97,26 @@ public class d {
             }
             d dVar = d.this;
             dVar.j = (ArrayList) data;
-            dVar.f56912a.refreshHistoryList();
+            dVar.f56913a.refreshHistoryList();
         }
     }
 
     public d(PostSearchActivity postSearchActivity) {
         b bVar = new b(2009001);
         this.m = bVar;
-        this.f56912a = postSearchActivity;
+        this.f56913a = postSearchActivity;
         postSearchActivity.registerListener(bVar);
-        this.f56912a.registerListener(this.l);
+        this.f56913a.registerListener(this.l);
     }
 
     public final void f(int i) {
         if (i == 1) {
-            this.f56915d++;
+            this.f56916d++;
         } else if (i == 2) {
-            this.f56916e++;
+            this.f56917e++;
         } else if (i != 3) {
         } else {
-            this.f56917f++;
+            this.f56918f++;
         }
     }
 
@@ -125,27 +125,27 @@ public class d {
         if (arrayList != null) {
             arrayList.clear();
         }
-        this.f56912a.sendMessage(new CustomMessage(2009004));
+        this.f56913a.sendMessage(new CustomMessage(2009004));
     }
 
     public final HttpMessage h(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.f56913b);
+        httpMessage.addParam("word", this.f56914b);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f56912a.mForumName);
+        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f56913a.mForumName);
         httpMessage.setExtra(Integer.valueOf(this.k));
         if (i == 1) {
             httpMessage.addParam("sm", 1);
             httpMessage.addParam("only_thread", 0);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f56915d);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f56916d);
         } else if (i == 2) {
             httpMessage.addParam("sm", 2);
             httpMessage.addParam("only_thread", 0);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f56916e);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f56917e);
         } else if (i == 3) {
             httpMessage.addParam("sm", 2);
             httpMessage.addParam("only_thread", 1);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f56917f);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f56918f);
         }
         return httpMessage;
     }
@@ -156,15 +156,15 @@ public class d {
                 if (i != 3) {
                     return 0;
                 }
-                return this.f56917f;
+                return this.f56918f;
             }
-            return this.f56916e;
+            return this.f56917e;
         }
-        return this.f56915d;
+        return this.f56916d;
     }
 
     public void j() {
-        this.f56912a.sendMessage(new CustomMessage(2009001));
+        this.f56913a.sendMessage(new CustomMessage(2009001));
     }
 
     public final void k(List<String> list) {
@@ -181,7 +181,7 @@ public class d {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.f56913b)) {
+        if (!str.equals(this.f56914b)) {
             q();
         }
         if (i != 1) {
@@ -200,40 +200,40 @@ public class d {
         if (this.i) {
             return false;
         }
-        this.f56913b = str;
+        this.f56914b = str;
         this.k = 3;
-        this.f56912a.sendMessage(h(3));
+        this.f56913a.sendMessage(h(3));
         this.i = true;
         return true;
     }
 
     public boolean n(String str) {
-        if (this.f56919h) {
+        if (this.f56920h) {
             return false;
         }
-        this.f56913b = str;
+        this.f56914b = str;
         this.k = 2;
-        this.f56912a.sendMessage(h(2));
-        this.f56919h = true;
+        this.f56913a.sendMessage(h(2));
+        this.f56920h = true;
         return true;
     }
 
     public boolean o(String str) {
-        if (this.f56918g) {
+        if (this.f56919g) {
             return false;
         }
-        this.f56913b = str;
+        this.f56914b = str;
         this.k = 1;
-        this.f56912a.sendMessage(h(1));
-        this.f56918g = true;
+        this.f56913a.sendMessage(h(1));
+        this.f56919g = true;
         return true;
     }
 
     public final void p(int i) {
         if (i == 1) {
-            this.f56918g = false;
+            this.f56919g = false;
         } else if (i == 2) {
-            this.f56919h = false;
+            this.f56920h = false;
         } else if (i != 3) {
         } else {
             this.i = false;
@@ -241,25 +241,25 @@ public class d {
     }
 
     public void q() {
-        this.f56915d = 1;
-        this.f56916e = 1;
-        this.f56917f = 1;
+        this.f56916d = 1;
+        this.f56917e = 1;
+        this.f56918f = 1;
     }
 
     public void r() {
-        if (StringUtils.isNull(this.f56913b) || this.f56913b.equals(this.f56914c)) {
+        if (StringUtils.isNull(this.f56914b) || this.f56914b.equals(this.f56915c)) {
             return;
         }
-        this.f56912a.sendMessage(new CustomMessage(2009003, this.f56913b));
-        this.f56914c = this.f56913b;
+        this.f56913a.sendMessage(new CustomMessage(2009003, this.f56914b));
+        this.f56915c = this.f56914b;
     }
 
     public final void s() {
         if (this.j == null) {
             this.j = new ArrayList<>();
         }
-        this.j.remove(this.f56913b);
-        this.j.add(0, this.f56913b);
+        this.j.remove(this.f56914b);
+        this.j.add(0, this.f56914b);
         k(this.j);
     }
 }

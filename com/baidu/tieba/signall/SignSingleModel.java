@@ -12,16 +12,16 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21167e;
+    public String f21168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21168f;
+    public String f21169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f21169g;
+    public c f21170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21170h;
+    public b f21171h;
     public String i;
 
     /* loaded from: classes5.dex */
@@ -35,10 +35,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public class c extends BdAsyncTask<Object, Integer, SignData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f21171a;
+        public volatile NetWork f21172a;
 
         public c() {
-            this.f21171a = null;
+            this.f21172a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,19 +49,19 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             Exception e2;
             SignData signData2 = null;
             try {
-                this.f21171a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                this.f21171a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, SignSingleModel.this.f21167e);
-                this.f21171a.addPostData("fid", SignSingleModel.this.f21168f);
-                this.f21171a.addPostData("authsid", SignSingleModel.this.i);
-                this.f21171a.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f21171a.setNeedSig(true);
-                String postNetData = this.f21171a.postNetData();
-                if (this.f21171a.isNetSuccess() && this.f21171a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f21172a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                this.f21172a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, SignSingleModel.this.f21168e);
+                this.f21172a.addPostData("fid", SignSingleModel.this.f21169f);
+                this.f21172a.addPostData("authsid", SignSingleModel.this.i);
+                this.f21172a.getNetContext().getRequest().mIsNeedTbs = true;
+                this.f21172a.setNeedSig(true);
+                String postNetData = this.f21172a.postNetData();
+                if (this.f21172a.isNetSuccess() && this.f21172a.getNetContext().getResponse().isRequestSuccess()) {
                     signData = new SignData();
                     try {
                         signData.parserJson(postNetData);
-                        signData.forumId = SignSingleModel.this.f21168f;
-                        signData.forumName = SignSingleModel.this.f21167e;
+                        signData.forumId = SignSingleModel.this.f21169f;
+                        signData.forumName = SignSingleModel.this.f21168e;
                         signData2 = signData;
                     } catch (Exception e3) {
                         e2 = e3;
@@ -81,24 +81,24 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.f21169g = null;
-            if (signData != null || this.f21171a == null) {
-                SignSingleModel.this.f21170h.a(signData);
+            SignSingleModel.this.f21170g = null;
+            if (signData != null || this.f21172a == null) {
+                SignSingleModel.this.f21171h.a(signData);
                 return;
             }
-            SignSingleModel.this.mErrorCode = this.f21171a.getServerErrorCode();
-            SignSingleModel.this.mErrorString = this.f21171a.getErrorString();
-            SignSingleModel.this.f21170h.onError(SignSingleModel.this.f21168f, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.mErrorCode = this.f21172a.getServerErrorCode();
+            SignSingleModel.this.mErrorString = this.f21172a.getErrorString();
+            SignSingleModel.this.f21171h.onError(SignSingleModel.this.f21169f, SignSingleModel.this.mErrorString);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.f21171a != null) {
-                this.f21171a.cancelNetConnect();
+            if (this.f21172a != null) {
+                this.f21172a.cancelNetConnect();
             }
-            SignSingleModel.this.f21169g = null;
+            SignSingleModel.this.f21170g = null;
             super.cancel(true);
-            SignSingleModel.this.f21170h.onError(SignSingleModel.this.f21168f, null);
+            SignSingleModel.this.f21171h.onError(SignSingleModel.this.f21169f, null);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -108,33 +108,33 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
 
     public SignSingleModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.f21167e = null;
-        this.f21168f = null;
-        this.f21169g = null;
+        this.f21168e = null;
+        this.f21169f = null;
+        this.f21170g = null;
     }
 
     public void A() {
-        c cVar = this.f21169g;
+        c cVar = this.f21170g;
         if (cVar != null) {
             cVar.cancel();
-            this.f21169g = null;
+            this.f21170g = null;
         }
     }
 
     public void B(b bVar) {
-        this.f21170h = bVar;
+        this.f21171h = bVar;
     }
 
     public void C(String str, String str2) {
-        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.f21169g != null) {
+        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.f21170g != null) {
             return;
         }
-        this.f21167e = str;
-        this.f21168f = str2;
+        this.f21168e = str;
+        this.f21169f = str2;
         c cVar = new c();
-        this.f21169g = cVar;
+        this.f21170g = cVar;
         cVar.setPriority(2);
-        this.f21169g.execute(new Object[0]);
+        this.f21170g.execute(new Object[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

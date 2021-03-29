@@ -8,46 +8,46 @@ import android.util.Base64;
 import com.baidu.apollon.imagemanager.ImageProcessor;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3952a = "ImageBase64Utils";
+    public static final String f3953a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3953b = 70;
+    public static int f3954b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f3954c;
+    public static ImageBase64Utils f3955c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends AsyncTask<String, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageBase64Listener f3956b;
+        public ImageBase64Listener f3957b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f3957c;
+        public String f3958c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f3958d;
+        public int f3959d;
 
         public a(ImageBase64Listener imageBase64Listener, String str, int i) {
-            this.f3956b = imageBase64Listener;
-            this.f3957c = str;
-            this.f3958d = i;
+            this.f3957b = imageBase64Listener;
+            this.f3958c = str;
+            this.f3959d = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(String... strArr) {
-            return ImageBase64Utils.b(this.f3957c, this.f3958d);
+            return ImageBase64Utils.b(this.f3958c, this.f3959d);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class ImageBase64Utils {
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            ImageBase64Listener imageBase64Listener = this.f3956b;
+            ImageBase64Listener imageBase64Listener = this.f3957b;
             if (imageBase64Listener != null) {
                 imageBase64Listener.onBase64Result(str);
             }
@@ -78,7 +78,7 @@ public class ImageBase64Utils {
                 options.inJustDecodeBounds = false;
                 Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                decodeFile.compress(Bitmap.CompressFormat.JPEG, f3953b, byteArrayOutputStream);
+                decodeFile.compress(Bitmap.CompressFormat.JPEG, f3954b, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a2 + "\twidth" + decodeFile.getWidth());
                 decodeFile.recycle();
@@ -97,10 +97,10 @@ public class ImageBase64Utils {
     }
 
     public static ImageBase64Utils getInstance() {
-        if (f3954c == null) {
-            f3954c = new ImageBase64Utils();
+        if (f3955c == null) {
+            f3955c = new ImageBase64Utils();
         }
-        return f3954c;
+        return f3955c;
     }
 
     public void getImgageBase64(String str, int i, ImageBase64Listener imageBase64Listener) {

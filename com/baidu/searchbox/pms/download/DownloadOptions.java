@@ -1,5 +1,5 @@
 package com.baidu.searchbox.pms.download;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DownloadOptions {
     public static final int PRIORITY_BACKGROUND = 2;
     public static final int PRIORITY_DEFAULT = 1;

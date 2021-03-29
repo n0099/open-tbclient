@@ -5,52 +5,52 @@ import d.b.b.j.e.n;
 import d.b.b.j.e.s;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f63297a;
+    public TbPageContext f63298a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f63298b;
+    public List<d.b.b.j.e.a> f63299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f63299c;
+    public s f63300c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f63300d;
+    public c f63301d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f63301e;
+    public a f63302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.z0.j.b.b.b f63302f;
+    public d.b.i0.z0.j.b.b.b f63303f;
 
     public b(TbPageContext tbPageContext, s sVar) {
-        this.f63297a = tbPageContext;
-        this.f63299c = sVar;
+        this.f63298a = tbPageContext;
+        this.f63300c = sVar;
         a();
-        this.f63299c.a(this.f63298b);
+        this.f63300c.a(this.f63299b);
     }
 
     public final void a() {
-        this.f63298b = new ArrayList();
-        this.f63300d = new c(this.f63297a);
-        this.f63301e = new a(this.f63297a);
-        this.f63302f = new d.b.i0.z0.j.b.b.b(this.f63297a);
-        this.f63298b.add(this.f63300d);
-        this.f63298b.add(this.f63301e);
-        this.f63298b.add(this.f63302f);
+        this.f63299b = new ArrayList();
+        this.f63301d = new c(this.f63298a);
+        this.f63302e = new a(this.f63298a);
+        this.f63303f = new d.b.i0.z0.j.b.b.b(this.f63298a);
+        this.f63299b.add(this.f63301d);
+        this.f63299b.add(this.f63302e);
+        this.f63299b.add(this.f63303f);
     }
 
     public void b() {
-        s sVar = this.f63299c;
+        s sVar = this.f63300c;
         if (sVar != null) {
             sVar.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(List<n> list) {
-        this.f63299c.setData(list);
+        this.f63300c.setData(list);
     }
 }

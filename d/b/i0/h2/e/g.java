@@ -13,16 +13,16 @@ public class g extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55286e;
+    public boolean f55287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55287f;
+    public boolean f55288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55288g;
+    public String f55289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55289h;
+    public String f55290h;
     public String i;
     public int j;
     public List<d.b.b.j.e.n> k;
@@ -31,20 +31,20 @@ public class g extends BaseCardInfo {
         if (user == null || ListUtils.isEmpty(user.gift_list)) {
             return;
         }
-        this.f55288g = String.valueOf(user.id);
-        this.f55289h = user.name;
+        this.f55289g = String.valueOf(user.id);
+        this.f55290h = user.name;
         this.i = user.name_show;
         this.j = user.sex.intValue();
-        String str = this.f55288g;
+        String str = this.f55289g;
         if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.f55286e = true;
+            this.f55287e = true;
         } else {
-            this.f55286e = false;
+            this.f55287e = false;
         }
         if (user.sex.intValue() == 2) {
-            this.f55287f = false;
+            this.f55288f = false;
         } else {
-            this.f55287f = true;
+            this.f55288f = true;
         }
         Integer num = user.gift_num;
         if (num != null) {

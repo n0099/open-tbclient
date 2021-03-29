@@ -12,26 +12,26 @@ import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
 import d.b.i0.z0.i.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageTabFeedNetModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17338e;
+    public boolean f17339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17339f;
+    public boolean f17340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17340g;
+    public int f17341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17341h;
+    public String f17342h;
     public String i;
     public c j;
     public d.b.i0.z0.i.f.a k;
     public d.b.b.c.g.a l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -39,7 +39,7 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            HomePageTabFeedNetModel.this.f17339f = false;
+            HomePageTabFeedNetModel.this.f17340f = false;
             if (responsedMessage == null) {
                 return;
             }
@@ -67,9 +67,9 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
 
     public HomePageTabFeedNetModel(TbPageContext tbPageContext, c cVar) {
         super(tbPageContext);
-        this.f17338e = true;
-        this.f17339f = false;
-        this.f17340g = 1;
+        this.f17339e = true;
+        this.f17340f = false;
+        this.f17341g = 1;
         this.l = new a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
         d.b.i0.c3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
         d.b.i0.c3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
@@ -89,40 +89,40 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
         tabFeedListRequestMessage.loadType = i;
         tabFeedListRequestMessage.tabCode = this.i;
-        tabFeedListRequestMessage.tabName = this.f17341h;
+        tabFeedListRequestMessage.tabName = this.f17342h;
         if (i == 2) {
-            tabFeedListRequestMessage.pn = this.f17340g + 1;
+            tabFeedListRequestMessage.pn = this.f17341g + 1;
         } else if (i != 1) {
             return;
         } else {
             tabFeedListRequestMessage.pn = 1;
         }
-        this.f17339f = true;
+        this.f17340f = true;
         sendMessage(tabFeedListRequestMessage);
     }
 
     public void C() {
-        if (this.f17339f) {
+        if (this.f17340f) {
             return;
         }
-        this.f17338e = false;
+        this.f17339e = false;
         B(2);
     }
 
     public final void D(d.b.i0.z0.i.e.a aVar) {
         if (aVar != null) {
-            this.f17340g = aVar.b();
+            this.f17341g = aVar.b();
         }
         if (this.j != null) {
-            this.j.q0(this.k.a(this.f17338e, aVar));
+            this.j.q0(this.k.a(this.f17339e, aVar));
         }
     }
 
     public void E() {
-        if (this.f17339f) {
+        if (this.f17340f) {
             return;
         }
-        this.f17338e = true;
+        this.f17339e = true;
         B(1);
     }
 
@@ -136,7 +136,7 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
 
     public void G(String str, String str2) {
         this.i = str;
-        this.f17341h = str2;
+        this.f17342h = str2;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -153,12 +153,12 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f17339f = false;
+        this.f17340f = false;
     }
 
     public void destory() {
         MessageManager.getInstance().unRegisterListener(this.l);
-        this.f17339f = false;
-        this.f17338e = true;
+        this.f17340f = false;
+        this.f17339e = true;
     }
 }

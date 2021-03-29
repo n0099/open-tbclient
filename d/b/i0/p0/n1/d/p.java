@@ -28,7 +28,7 @@ public class p extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
 
         @Override // d.b.b.j.e.w
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            BdToast.i(p.this.f42357e, p.this.f42357e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+            BdToast.i(p.this.f42358e, p.this.f42358e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
 

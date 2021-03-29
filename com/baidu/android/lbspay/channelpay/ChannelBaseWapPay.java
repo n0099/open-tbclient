@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.lbspay.activity.WapPayActivity;
 import com.baidu.android.lbspay.network.GetPayContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ChannelBaseWapPay extends AbstractChannelPay {
     public abstract String getUrl(GetPayContent getPayContent);
 

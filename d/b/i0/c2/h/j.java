@@ -5,13 +5,13 @@ import com.baidu.adp.BdUniqueId;
 public class j implements d.b.b.j.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f52436f = BdUniqueId.gen();
+    public static final BdUniqueId f52437f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52437e;
+    public String f52438e;
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f52436f;
+        return f52437f;
     }
 }

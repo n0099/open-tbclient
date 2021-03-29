@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class b extends d {
     public b(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
+        this.f8626b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
     }
 
     @Override // com.baidu.mobads.vo.d

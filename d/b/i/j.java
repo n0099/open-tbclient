@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j extends c implements p<a2>, q {
     public FollowUserDecorView i;
     public boolean j = true;

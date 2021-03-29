@@ -16,16 +16,16 @@ import java.util.ArrayList;
 public class FrsPublishFineGoodsDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16079e;
+    public LinearLayout f16080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16080f;
+    public Context f16081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16081g;
+    public TextView f16082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16082h;
+    public TextView f16083h;
     public TextView i;
     public LocalBannerLayout j;
     public d k;
@@ -48,18 +48,18 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public FrsPublishFineGoodsDialogView(Context context) {
         super(context);
         this.k = new a();
-        this.f16080f = context;
+        this.f16081f = context;
         b(context);
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_publish_major_fine_goods_dialog, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-        this.f16079e = linearLayout;
-        this.f16081g = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
-        this.f16082h = (TextView) this.f16079e.findViewById(R.id.frs_shop_guide_content);
-        this.j = (LocalBannerLayout) this.f16079e.findViewById(R.id.banner_layout);
-        TextView textView = (TextView) this.f16079e.findViewById(R.id.to_next_tv);
+        this.f16080e = linearLayout;
+        this.f16082g = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
+        this.f16083h = (TextView) this.f16080e.findViewById(R.id.frs_shop_guide_content);
+        this.j = (LocalBannerLayout) this.f16080e.findViewById(R.id.banner_layout);
+        TextView textView = (TextView) this.f16080e.findViewById(R.id.to_next_tv);
         this.i = textView;
         textView.setText(R.string.forum_broadcast_major_history_known);
         ArrayList arrayList = new ArrayList();
@@ -68,22 +68,22 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         arrayList.add(new h(String.valueOf(R.drawable.pic_good_guide3)));
         this.j.setData(arrayList);
         this.j.setOnCoverViewCallback(this.k);
-        SkinManager.setViewTextColor(this.f16081g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f16082h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f16082g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f16083h, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0302);
-        TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(l.g(this.f16080f, R.dimen.tbds30)).brRadius(l.g(this.f16080f, R.dimen.tbds30)).tlRadius(l.g(this.f16080f, R.dimen.tbds32)).trRadius(l.g(this.f16080f, R.dimen.tbds32)).into(this.f16079e);
+        TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(l.g(this.f16081f, R.dimen.tbds30)).brRadius(l.g(this.f16081f, R.dimen.tbds30)).tlRadius(l.g(this.f16081f, R.dimen.tbds32)).trRadius(l.g(this.f16081f, R.dimen.tbds32)).into(this.f16080e);
     }
 
     public final void c(int i) {
         if (i == 0 || i == 3) {
-            this.f16081g.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
-            this.f16082h.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
+            this.f16082g.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
+            this.f16083h.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
         } else if (i == 1) {
-            this.f16081g.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
-            this.f16082h.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
+            this.f16082g.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
+            this.f16083h.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
         } else if (i == 2) {
-            this.f16081g.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
-            this.f16082h.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
+            this.f16082g.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
+            this.f16083h.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
         }
     }
 

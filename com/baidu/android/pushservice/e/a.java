@@ -12,19 +12,19 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f2997a;
+    public static volatile a f2998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f2998b = new OkHttpClient.Builder().addInterceptor(new C0034a()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
+    public final OkHttpClient f2999b = new OkHttpClient.Builder().addInterceptor(new C0035a()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0034a implements Interceptor {
-        public C0034a() {
+    /* loaded from: classes.dex */
+    public class C0035a implements Interceptor {
+        public C0035a() {
         }
 
         @Override // okhttp3.Interceptor
@@ -42,14 +42,14 @@ public class a {
     }
 
     public static a a() {
-        if (f2997a == null) {
+        if (f2998a == null) {
             synchronized (a.class) {
-                if (f2997a == null) {
-                    f2997a = new a();
+                if (f2998a == null) {
+                    f2998a = new a();
                 }
             }
         }
-        return f2997a;
+        return f2998a;
     }
 
     public static Headers a(String str, String str2) {
@@ -94,7 +94,7 @@ public class a {
                 }
                 headers = new Request.Builder().url(str).headers(a(hashMap));
             }
-            Response execute = this.f2998b.newCall(headers.build()).execute();
+            Response execute = this.f2999b.newCall(headers.build()).execute();
             bVar.a(execute.code());
             bVar.a(execute.body().byteStream());
         } catch (IOException | Exception unused) {
@@ -114,7 +114,7 @@ public class a {
                 }
                 headers = new Request.Builder().url(str).headers(a(str3, str4));
             }
-            Response execute = this.f2998b.newCall(headers.build()).execute();
+            Response execute = this.f2999b.newCall(headers.build()).execute();
             bVar.a(execute.code());
             bVar.a(execute.body().byteStream());
         } catch (IOException | Exception unused) {

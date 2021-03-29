@@ -139,7 +139,7 @@ public class a implements e<d.b.b.j.d.a> {
                             if (bVar != null) {
                                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                 diskCancelWorker.setOperate(aVar2);
-                                bVar.f41847a = diskCancelWorker;
+                                bVar.f41848a = diskCancelWorker;
                             }
                             Iterator<c> it = d.b.i0.h0.b.e.i().h().iterator();
                             while (true) {
@@ -179,7 +179,7 @@ public class a implements e<d.b.b.j.d.a> {
                                 if (bVar != null) {
                                     DiskCancelWorker diskCancelWorker2 = new DiskCancelWorker();
                                     diskCancelWorker2.setOperate(cVar);
-                                    bVar.f41847a = diskCancelWorker2;
+                                    bVar.f41848a = diskCancelWorker2;
                                 }
                             }
                             aVar = aVar3;
@@ -215,7 +215,7 @@ public class a implements e<d.b.b.j.d.a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(aVar);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (d.g().a(aVar)) {
             int i = j.H() ? 500 : 2000;
@@ -253,7 +253,7 @@ public class a implements e<d.b.b.j.d.a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(diskEmotionOperate);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (d.g().a(diskEmotionOperate)) {
             int i = j.H() ? 300 : 2000;

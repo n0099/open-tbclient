@@ -28,25 +28,25 @@ import java.util.List;
 public class c extends d.b.b.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59043a;
+    public View f59044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoverSeekBar f59044b;
+    public CoverSeekBar f59045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f59045c;
+    public LinearLayout f59046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.p3.j.h.a f59046d;
+    public d.b.i0.p3.j.h.a f59047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f59047e;
+    public HListView f59048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.p3.j.c.a f59048f;
+    public d.b.i0.p3.j.c.a f59049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CoverPendantDragView f59049g;
+    public CoverPendantDragView f59050g;
 
     /* loaded from: classes5.dex */
     public class a implements a.b {
@@ -55,7 +55,7 @@ public class c extends d.b.b.a.d {
 
         @Override // d.b.i0.p3.j.c.a.b
         public void a(View view, int i, PendantData pendantData) {
-            c.this.f59049g.u(view, pendantData);
+            c.this.f59050g.u(view, pendantData);
             StatisticItem statisticItem = new StatisticItem("c12305");
             statisticItem.param("obj_locate", i + 1);
             TiebaStatic.log(statisticItem);
@@ -78,22 +78,22 @@ public class c extends d.b.b.a.d {
 
         @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.d
         public void onProgress(int i) {
-            int duration = (int) ((c.this.f59046d.z().getDuration() * i) / 1000);
-            c.this.f59044b.setProgressImage(i, duration);
-            c.this.f59046d.z().seekTo(duration);
+            int duration = (int) ((c.this.f59047d.z().getDuration() * i) / 1000);
+            c.this.f59045b.setProgressImage(i, duration);
+            c.this.f59047d.z().seekTo(duration);
         }
     }
 
     /* renamed from: d.b.i0.p3.j.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1465c extends AnimatorListenerAdapter {
-        public C1465c() {
+    public class C1466c extends AnimatorListenerAdapter {
+        public C1466c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             super.onAnimationEnd(animator);
-            c.this.f59045c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+            c.this.f59046c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
         }
     }
 
@@ -104,42 +104,42 @@ public class c extends d.b.b.a.d {
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.f59044b.k(c.this.f59044b.getCurrentPosition());
-            c.this.f59046d.I();
+            c.this.f59045b.k(c.this.f59045b.getCurrentPosition());
+            c.this.f59047d.I();
         }
     }
 
     public c(f fVar, d.b.i0.p3.j.h.a aVar) {
         super(fVar);
-        this.f59046d = aVar;
+        this.f59047d = aVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_cover_layout, (ViewGroup) null);
-        this.f59043a = inflate;
+        this.f59044a = inflate;
         inflate.getResources();
         o();
     }
 
     public int getCurrentPosition() {
-        return this.f59044b.getCurrentPosition();
+        return this.f59045b.getCurrentPosition();
     }
 
     public Bitmap h(Bitmap bitmap) {
-        this.f59049g.A();
-        String text = this.f59049g.getText();
+        this.f59050g.A();
+        String text = this.f59050g.getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.f59046d.z().getWidth();
-        int height = this.f59046d.z().getHeight();
+        int width = this.f59047d.z().getWidth();
+        int height = this.f59047d.z().getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-        Bitmap tempBitmap = this.f59049g.getTempBitmap();
+        Bitmap tempBitmap = this.f59050g.getTempBitmap();
         if (tempBitmap != null) {
             Matrix matrix = new Matrix();
             matrix.postScale(width2 / width, height2 / height);
-            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f59046d.z().getLeft(), this.f59046d.z().getTop(), width, height, matrix, true);
+            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f59047d.z().getLeft(), this.f59047d.z().getTop(), width, height, matrix, true);
             if (createBitmap2 != null) {
                 canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
             }
@@ -159,42 +159,42 @@ public class c extends d.b.b.a.d {
     }
 
     public View k() {
-        return this.f59043a;
+        return this.f59044a;
     }
 
     public String l() {
-        return this.f59049g.getText();
+        return this.f59050g.getText();
     }
 
     public void m() {
-        this.f59049g.A();
+        this.f59050g.A();
     }
 
     public void n(View view) {
         CoverPendantDragView coverPendantDragView = (CoverPendantDragView) view.findViewById(R.id.cover_pendant_view);
-        this.f59049g = coverPendantDragView;
+        this.f59050g = coverPendantDragView;
         coverPendantDragView.setParentViewController(this);
-        this.f59045c = (LinearLayout) view.findViewById(R.id.cover_tips);
+        this.f59046c = (LinearLayout) view.findViewById(R.id.cover_tips);
         if (d.b.h0.r.d0.b.i().g("video_cover_first_in", true)) {
-            this.f59045c.setVisibility(0);
-            this.f59045c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1465c()).start();
+            this.f59046c.setVisibility(0);
+            this.f59046c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1466c()).start();
             d.b.h0.r.d0.b.i().s("video_cover_first_in", false);
         }
     }
 
     public final void o() {
-        this.f59044b = (CoverSeekBar) this.f59043a.findViewById(R.id.cover_seek_bar);
-        this.f59047e = (HListView) this.f59043a.findViewById(R.id.pendant_list_view);
+        this.f59045b = (CoverSeekBar) this.f59044a.findViewById(R.id.cover_seek_bar);
+        this.f59048e = (HListView) this.f59044a.findViewById(R.id.pendant_list_view);
         d.b.i0.p3.j.c.a aVar = new d.b.i0.p3.j.c.a(getPageContext());
-        this.f59048f = aVar;
+        this.f59049f = aVar;
         aVar.d(new a());
-        this.f59047e.setAdapter((ListAdapter) this.f59048f);
-        this.f59048f.c(i());
-        this.f59044b.setOnProgressChanged(new b());
+        this.f59048e.setAdapter((ListAdapter) this.f59049f);
+        this.f59049f.c(i());
+        this.f59045b.setOnProgressChanged(new b());
     }
 
     public void q(f fVar, int i) {
-        SkinManager.setBackgroundColor(this.f59043a, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f59044a, R.color.CAM_X0201);
     }
 
     public void r() {
@@ -205,34 +205,34 @@ public class c extends d.b.b.a.d {
     }
 
     public void u(boolean z) {
-        this.f59049g.K(z);
+        this.f59050g.K(z);
         if (z) {
-            CoverSeekBar coverSeekBar = this.f59044b;
+            CoverSeekBar coverSeekBar = this.f59045b;
             coverSeekBar.k(coverSeekBar.getCurrentPosition());
         }
     }
 
     public void v() {
-        CoverSeekBar coverSeekBar = this.f59044b;
+        CoverSeekBar coverSeekBar = this.f59045b;
         if (coverSeekBar != null) {
             coverSeekBar.j();
         }
-        CoverPendantDragView coverPendantDragView = this.f59049g;
+        CoverPendantDragView coverPendantDragView = this.f59050g;
         if (coverPendantDragView != null) {
             coverPendantDragView.I();
         }
     }
 
     public void w() {
-        this.f59049g.setVideoSize(this.f59046d.z().getWidth(), this.f59046d.z().getHeight());
-        this.f59049g.setVideoLocation(this.f59046d.z().getLeft(), this.f59046d.z().getTop(), this.f59046d.z().getRight(), this.f59046d.z().getBottom());
+        this.f59050g.setVideoSize(this.f59047d.z().getWidth(), this.f59047d.z().getHeight());
+        this.f59050g.setVideoLocation(this.f59047d.z().getLeft(), this.f59047d.z().getTop(), this.f59047d.z().getRight(), this.f59047d.z().getBottom());
     }
 
     public void x(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f59044b.setData(str);
+        this.f59045b.setData(str);
     }
 
     public void y(List<PendantData> list) {
@@ -240,6 +240,6 @@ public class c extends d.b.b.a.d {
             list = new ArrayList<>();
         }
         list.addAll(0, i());
-        this.f59048f.c(list);
+        this.f59049f.c(list);
     }
 }

@@ -46,7 +46,7 @@ public class MaterialButton extends AppCompatButton {
     public final MaterialButtonHelper materialButtonHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface IconGravity {
     }
 

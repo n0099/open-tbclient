@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GridLineView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f18490e;
+    public Paint f18491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18491f;
+    public int f18492f;
 
     public GridLineView(Context context) {
         super(context);
@@ -25,15 +25,15 @@ public class GridLineView extends BdGridView {
 
     public final void c(Context context) {
         Paint paint = new Paint();
-        this.f18490e = paint;
+        this.f18491e = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f18490e.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        this.f18490e.setStrokeWidth(1.0f);
-        this.f18491f = l.g(context, R.dimen.ds26);
+        this.f18491e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18491e.setStrokeWidth(1.0f);
+        this.f18492f = l.g(context, R.dimen.ds26);
     }
 
     public void d() {
-        this.f18490e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18491e.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 
     @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -55,11 +55,11 @@ public class GridLineView extends BdGridView {
             int top = childAt.getTop();
             for (int i4 = 1; i4 <= i3; i4++) {
                 float f2 = top + (height * i4);
-                canvas.drawLine(0.0f, f2, width, f2, this.f18490e);
+                canvas.drawLine(0.0f, f2, width, f2, this.f18491e);
                 for (int i5 = 1; i5 < numColumns; i5++) {
                     float f3 = width2 * i5;
-                    int i6 = this.f18491f;
-                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18490e);
+                    int i6 = this.f18492f;
+                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18491e);
                 }
             }
         }

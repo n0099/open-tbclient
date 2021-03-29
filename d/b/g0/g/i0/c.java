@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f48210c = new c();
+    public static c f48211c = new c();
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f48211d = "banner_ad_close_btn_show_key";
+    public static String f48212d = "banner_ad_close_btn_show_key";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f48212e = "banner_ad_close_duration_key";
+    public static String f48213e = "banner_ad_close_duration_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f48213f = "gdt_banner_ad_app_id_key";
+    public static String f48214f = "gdt_banner_ad_app_id_key";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f48214g = "gdt_video_ad_app_id_key";
+    public static String f48215g = "gdt_video_ad_app_id_key";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f48215h = "gdt_banner_ad_id_key";
+    public static String f48216h = "gdt_banner_ad_id_key";
     public static String i = "gdt_video_ad_id_key";
     public static String j = "gdt_video_ad_config_time";
     public static String k = "video_interaction_optimization";
@@ -34,10 +34,10 @@ public class c {
     public static String m = "first_request_optimization";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f48216a;
+    public long f48217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f48217b;
+    public long f48218b;
 
     /* loaded from: classes3.dex */
     public class a extends StringResponseCallback {
@@ -117,7 +117,7 @@ public class c {
     }
 
     public static c A() {
-        return f48210c;
+        return f48211c;
     }
 
     public boolean B() {
@@ -129,11 +129,11 @@ public class c {
     }
 
     public void D() {
-        this.f48216a = System.currentTimeMillis();
+        this.f48217a = System.currentTimeMillis();
     }
 
     public void E() {
-        this.f48217b = System.currentTimeMillis();
+        this.f48218b = System.currentTimeMillis();
     }
 
     public void F() {
@@ -157,7 +157,7 @@ public class c {
     }
 
     public final void J(String str) {
-        h.a().putBoolean(f48211d, "1".equals(str));
+        h.a().putBoolean(f48212d, "1".equals(str));
     }
 
     public void K(String str, String str2) {
@@ -165,7 +165,7 @@ public class c {
     }
 
     public final void L(String str) {
-        h.a().putString(f48212e, str);
+        h.a().putString(f48213e, str);
     }
 
     public void M(boolean z) {
@@ -173,7 +173,7 @@ public class c {
     }
 
     public final void N(String str) {
-        h.a().putString(f48215h, str);
+        h.a().putString(f48216h, str);
     }
 
     public final void O(long j2) {
@@ -185,11 +185,11 @@ public class c {
     }
 
     public final void Q(String str) {
-        h.a().putString(f48213f, str);
+        h.a().putString(f48214f, str);
     }
 
     public final void R(String str) {
-        h.a().putString(f48214g, str);
+        h.a().putString(f48215g, str);
     }
 
     public void S(boolean z) {
@@ -201,11 +201,11 @@ public class c {
     }
 
     public boolean k() {
-        return this.f48216a != 0 && System.currentTimeMillis() - this.f48216a <= p();
+        return this.f48217a != 0 && System.currentTimeMillis() - this.f48217a <= p();
     }
 
     public boolean l() {
-        return this.f48217b != 0 && System.currentTimeMillis() - this.f48217b <= o();
+        return this.f48218b != 0 && System.currentTimeMillis() - this.f48218b <= o();
     }
 
     public void m() {
@@ -229,7 +229,7 @@ public class c {
     }
 
     public boolean q() {
-        return h.a().getBoolean(f48211d, true);
+        return h.a().getBoolean(f48212d, true);
     }
 
     public final long r(String str) {
@@ -241,7 +241,7 @@ public class c {
     }
 
     public final long s() {
-        String string = h.a().getString(f48212e, "1");
+        String string = h.a().getString(f48213e, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : VideoCloudSetting.HOUR_MILLISECOND;
     }
 
@@ -254,7 +254,7 @@ public class c {
     }
 
     public String v() {
-        return h.a().getString(f48215h, "");
+        return h.a().getString(f48216h, "");
     }
 
     public Long w() {
@@ -266,10 +266,10 @@ public class c {
     }
 
     public String y() {
-        return h.a().getString(f48213f, "");
+        return h.a().getString(f48214f, "");
     }
 
     public String z() {
-        return h.a().getString(f48214g, "");
+        return h.a().getString(f48215g, "");
     }
 }

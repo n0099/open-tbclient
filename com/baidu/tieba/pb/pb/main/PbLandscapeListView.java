@@ -37,7 +37,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return false;
                 }
                 if (PbLandscapeListView.this.S != null) {
-                    PbLandscapeListView.this.S.a(dVar.f19699a, dVar.f19700b, dVar.f19701c, dVar.f19703e, dVar.f19702d, dVar.f19704f);
+                    PbLandscapeListView.this.S.a(dVar.f19700a, dVar.f19701b, dVar.f19702c, dVar.f19704e, dVar.f19703d, dVar.f19705f);
                     return true;
                 }
                 return true;
@@ -60,22 +60,22 @@ public class PbLandscapeListView extends BdTypeListView {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19699a;
+        public int f19700a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19700b;
+        public int f19701b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19701c;
+        public float f19702c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19702d;
+        public float f19703d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19703e;
+        public float f19704e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19704f;
+        public float f19705f;
     }
 
     public PbLandscapeListView(Context context) {
@@ -101,12 +101,12 @@ public class PbLandscapeListView extends BdTypeListView {
         Message message = new Message();
         message.what = 0;
         d dVar = new d();
-        dVar.f19699a = i;
-        dVar.f19700b = i2;
-        dVar.f19701c = f2;
-        dVar.f19702d = f3;
-        dVar.f19703e = f4;
-        dVar.f19704f = f5;
+        dVar.f19700a = i;
+        dVar.f19701b = i2;
+        dVar.f19702c = f2;
+        dVar.f19703d = f3;
+        dVar.f19704e = f4;
+        dVar.f19705f = f5;
         message.obj = dVar;
         this.U.sendMessageDelayed(message, 60L);
     }

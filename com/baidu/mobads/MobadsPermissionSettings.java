@@ -5,49 +5,49 @@ import android.text.TextUtils;
 public class MobadsPermissionSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8145a = false;
+    public static boolean f8146a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8146b = false;
+    public static boolean f8147b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f8147c = false;
+    public static boolean f8148c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f8148d = true;
+    public static boolean f8149d = true;
 
     public static boolean hasPermissionGranted(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if ("permission_location".equalsIgnoreCase(str)) {
-            return f8146b;
+            return f8147b;
         }
         if ("permission_storage".equalsIgnoreCase(str)) {
-            return f8147c;
+            return f8148c;
         }
         if ("permission_app_list".equalsIgnoreCase(str)) {
-            return f8148d;
+            return f8149d;
         }
         if ("permission_read_phone_state".equalsIgnoreCase(str)) {
-            return f8145a;
+            return f8146a;
         }
         return false;
     }
 
     public static void setPermissionAppList(boolean z) {
-        f8148d = z;
+        f8149d = z;
     }
 
     public static void setPermissionLocation(boolean z) {
-        f8146b = z;
+        f8147b = z;
     }
 
     public static void setPermissionReadDeviceID(boolean z) {
-        f8145a = z;
+        f8146a = z;
     }
 
     public static void setPermissionStorage(boolean z) {
-        f8147c = z;
+        f8148c = z;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tieba.im.model.MsglistModel;
 import d.b.h0.z0.o;
 import d.b.i0.d1.f.c;
 import d.b.i0.d1.f.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c {
     public abstract boolean first(c cVar);
 
@@ -46,7 +46,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            h.f53683a = o.e();
+            h.f53684a = o.e();
         }
     }
 

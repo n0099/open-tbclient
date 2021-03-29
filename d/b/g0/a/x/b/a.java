@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends a0 {
     public a(j jVar, String str) {
         super(jVar, str);
@@ -27,7 +27,7 @@ public abstract class a extends a0 {
                 jSONObject.putOpt(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
         }

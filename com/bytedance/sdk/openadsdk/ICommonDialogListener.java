@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ICommonDialogListener extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Default implements ICommonDialogListener {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -28,25 +28,25 @@ public interface ICommonDialogListener extends IInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ICommonDialogListener {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class a implements ICommonDialogListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonDialogListener f27267a;
+            public static ICommonDialogListener f27268a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27268b;
+            public IBinder f27269b;
 
             public a(IBinder iBinder) {
-                this.f27268b = iBinder;
+                this.f27269b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27268b;
+                return this.f27269b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -55,7 +55,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f27268b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27269b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogBtnNo();
                     } else {
                         obtain2.readException();
@@ -72,7 +72,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f27268b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27269b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogBtnYes();
                     } else {
                         obtain2.readException();
@@ -89,7 +89,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    if (!this.f27268b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27269b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDialogCancel();
                     } else {
                         obtain2.readException();
@@ -117,14 +117,14 @@ public interface ICommonDialogListener extends IInterface {
         }
 
         public static ICommonDialogListener getDefaultImpl() {
-            return a.f27267a;
+            return a.f27268a;
         }
 
         public static boolean setDefaultImpl(ICommonDialogListener iCommonDialogListener) {
-            if (a.f27267a != null || iCommonDialogListener == null) {
+            if (a.f27268a != null || iCommonDialogListener == null) {
                 return false;
             }
-            a.f27267a = iCommonDialogListener;
+            a.f27268a = iCommonDialogListener;
             return true;
         }
 

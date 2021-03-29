@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import com.baidu.sofire.g.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class THProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {

@@ -6,10 +6,10 @@ import android.os.Message;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10139a;
+    public final /* synthetic */ a f10140a;
 
     public m(a aVar) {
-        this.f10139a = aVar;
+        this.f10140a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,9 +18,9 @@ public class m implements Runnable {
         Handler handler2;
         Message obtain = Message.obtain();
         obtain.what = 1;
-        handler = this.f10139a.Q;
+        handler = this.f10140a.Q;
         if (handler != null) {
-            handler2 = this.f10139a.Q;
+            handler2 = this.f10140a.Q;
             handler2.dispatchMessage(obtain);
         }
     }

@@ -6,14 +6,14 @@ import java.util.Map;
 public final class ck implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f23120a;
+    public final /* synthetic */ int f23121a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f23121b;
+    public final /* synthetic */ cg f23122b;
 
     public ck(cg cgVar, int i) {
-        this.f23121b = cgVar;
-        this.f23120a = i;
+        this.f23122b = cgVar;
+        this.f23121a = i;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0053: INVOKE  (r0v8 java.lang.Object A[REMOVE]) = 
@@ -29,16 +29,16 @@ public final class ck implements View.OnClickListener {
      type: INTERFACE call: java.util.Map.get(java.lang.Object):java.lang.Object)] */
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f23121b.f23114a.aF = this.f23120a;
+        this.f23122b.f23115a.aF = this.f23121a;
         com.baidu.ufosdk.f.c.a("点击未解决！！！");
-        ((Map) this.f23121b.f23114a.f23021h.get(this.f23120a)).put("ask", 3);
-        if (((Map) this.f23121b.f23114a.f23021h.get(this.f23120a)).containsKey("chatId")) {
-            FeedbackInputActivity feedbackInputActivity = this.f23121b.f23114a;
+        ((Map) this.f23122b.f23115a.f23022h.get(this.f23121a)).put("ask", 3);
+        if (((Map) this.f23122b.f23115a.f23022h.get(this.f23121a)).containsKey("chatId")) {
+            FeedbackInputActivity feedbackInputActivity = this.f23122b.f23115a;
             StringBuilder sb = new StringBuilder();
-            sb.append(((Map) this.f23121b.f23114a.f23021h.get(this.f23120a)).get("chatId"));
-            feedbackInputActivity.f23019f = sb.toString();
+            sb.append(((Map) this.f23122b.f23115a.f23022h.get(this.f23121a)).get("chatId"));
+            feedbackInputActivity.f23020f = sb.toString();
         }
-        this.f23121b.f23114a.l.execute(new cl(this));
-        FeedbackInputActivity.a(this.f23121b.f23114a, false, true);
+        this.f23122b.f23115a.l.execute(new cl(this));
+        FeedbackInputActivity.a(this.f23122b.f23115a, false, true);
     }
 }

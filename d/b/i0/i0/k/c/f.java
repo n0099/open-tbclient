@@ -5,33 +5,33 @@ import tbclient.Recommforum.TestInfo;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f55654a;
+    public long f55655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55655b;
+    public String f55656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55656c;
+    public String f55657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55657d;
+    public boolean f55658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55658e;
+    public String f55659e;
 
     public void a(TestInfo testInfo) {
         if (testInfo == null) {
             return;
         }
-        this.f55654a = testInfo.test_id.longValue();
+        this.f55655a = testInfo.test_id.longValue();
         String str = testInfo.title;
         if (str == null) {
             str = "";
         }
-        this.f55655b = str;
-        this.f55656c = testInfo.image_url;
+        this.f55656b = str;
+        this.f55657c = testInfo.image_url;
         testInfo.create_time.intValue();
-        this.f55657d = testInfo.answered.intValue() == 1;
-        this.f55658e = testInfo.result_img;
+        this.f55658d = testInfo.answered.intValue() == 1;
+        this.f55659e = testInfo.result_img;
     }
 }

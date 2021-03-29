@@ -20,15 +20,15 @@ public class PbReplyLoadMoreAdapter extends m<PostData, ReplyLoadMoreViewHolder>
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f19492a;
+        public TextView f19493a;
 
         public ReplyLoadMoreViewHolder(View view) {
             super(view);
-            this.f19492a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.f19493a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void b() {
-            SkinManager.setViewTextColor(this.f19492a, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f19493a, R.color.CAM_X0109);
         }
 
         public void c(PostData postData) {
@@ -38,12 +38,12 @@ public class PbReplyLoadMoreAdapter extends m<PostData, ReplyLoadMoreViewHolder>
             if (postData.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f19492a.setCompoundDrawables(null, null, drawable, null);
+                this.f19493a.setCompoundDrawables(null, null, drawable, null);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_down);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            this.f19492a.setCompoundDrawables(null, null, drawable2, null);
+            this.f19493a.setCompoundDrawables(null, null, drawable2, null);
         }
     }
 
@@ -55,7 +55,7 @@ public class PbReplyLoadMoreAdapter extends m<PostData, ReplyLoadMoreViewHolder>
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public ReplyLoadMoreViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
         inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.s);
         ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
         replyLoadMoreViewHolder.b();

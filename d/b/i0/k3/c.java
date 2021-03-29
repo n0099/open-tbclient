@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class c extends BdAsyncTask<String, String, Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56472a;
+    public String f56473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f56473b;
+    public a f56474b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -28,8 +28,8 @@ public class c extends BdAsyncTask<String, String, Integer> {
     }
 
     public c(String str, a aVar) {
-        this.f56472a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.f56473b = aVar;
+        this.f56473a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.f56474b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* renamed from: b */
     public Integer doInBackground(String... strArr) {
         try {
-            NetWork netWork = new NetWork(this.f56472a);
+            NetWork netWork = new NetWork(this.f56473a);
             netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
             netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
@@ -60,17 +60,17 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.f56473b == null || num == null) {
+        if (this.f56474b == null || num == null) {
             return;
         }
         if (num.intValue() == -1) {
-            this.f56473b.onError(null);
+            this.f56474b.onError(null);
         } else if (num.intValue() == 1) {
-            this.f56473b.c();
+            this.f56474b.c();
         } else if (num.intValue() != 2 && num.intValue() != 0) {
-            this.f56473b.a();
+            this.f56474b.a();
         } else {
-            this.f56473b.b();
+            this.f56474b.b();
         }
     }
 }

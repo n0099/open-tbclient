@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import d.b.g0.a.e0.l.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends c implements View.OnClickListener {
     public RelativeLayout y0;
     public RelativeLayout z0;
@@ -36,7 +36,7 @@ public class h extends c implements View.OnClickListener {
             return;
         }
         f.b i = F1.i("navigateTo");
-        i.n(f.f44012g, f.i);
+        i.n(f.f44013g, f.i);
         i.k("authority", null).a();
         d.b.g0.a.c1.a.p("permission");
     }

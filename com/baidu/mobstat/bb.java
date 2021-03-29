@@ -3,13 +3,13 @@ package com.baidu.mobstat;
 public class bb extends ba {
 
     /* renamed from: c  reason: collision with root package name */
-    public static bb f9060c = new bb();
+    public static bb f9061c = new bb();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9061b;
+    public boolean f9062b;
 
     public static bb c() {
-        return f9060c;
+        return f9061c;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -19,6 +19,6 @@ public class bb extends ba {
 
     @Override // com.baidu.mobstat.ba
     public boolean b() {
-        return this.f9061b;
+        return this.f9062b;
     }
 }

@@ -10,31 +10,31 @@ import d.b.g0.a.e0.o.d;
 import d.b.g0.a.k;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e implements d.b.g0.a.e0.o.a {
-    public static final boolean j = k.f45050a;
+    public static final boolean j = k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f44105e;
+    public d f44106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44106f;
+    public String f44107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f44107g;
+    public String f44108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44108h;
+    public boolean f44109h;
     public boolean i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements V8EngineConfiguration.JSCacheCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44109a;
+        public final /* synthetic */ String f44110a;
 
         public a(String str) {
-            this.f44109a = str;
+            this.f44110a = str;
         }
 
         @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
@@ -47,9 +47,9 @@ public class e implements d.b.g0.a.e0.o.a {
             }
             File file = new File(cacheInfo.jsPath);
             try {
-                if (file.getPath().startsWith(new File(this.f44109a).getCanonicalPath())) {
-                    e.this.f44108h = true;
-                } else if (!TextUtils.isEmpty(e.this.f44107g) && file.getCanonicalPath().startsWith(new File(e.this.f44107g).getCanonicalPath())) {
+                if (file.getPath().startsWith(new File(this.f44110a).getCanonicalPath())) {
+                    e.this.f44109h = true;
+                } else if (!TextUtils.isEmpty(e.this.f44108g) && file.getCanonicalPath().startsWith(new File(e.this.f44108g).getCanonicalPath())) {
                     e.this.i = true;
                 }
             } catch (IOException e2) {
@@ -60,21 +60,21 @@ public class e implements d.b.g0.a.e0.o.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f44111a;
+        public final /* synthetic */ g f44112a;
 
         public b(g gVar) {
-            this.f44111a = gVar;
+            this.f44112a = gVar;
         }
 
         @Override // d.b.g0.a.e0.o.d.b
         public void a(d.b.g0.g.i.a aVar) {
-            g gVar = this.f44111a;
+            g gVar = this.f44112a;
             if (gVar != null) {
-                gVar.a(e.this.f44106f);
+                gVar.a(e.this.f44107f);
             }
         }
     }
@@ -84,7 +84,7 @@ public class e implements d.b.g0.a.e0.o.a {
 
     @Override // d.b.g0.a.e0.o.a
     public String c() {
-        d dVar = this.f44105e;
+        d dVar = this.f44106e;
         if (dVar != null) {
             return dVar.g();
         }
@@ -97,12 +97,12 @@ public class e implements d.b.g0.a.e0.o.a {
 
     @Override // d.b.g0.a.e0.o.a
     public void d(Activity activity) {
-        this.f44105e.d(activity);
+        this.f44106e.d(activity);
     }
 
     @Override // d.b.g0.a.e0.o.a
     public void destroy() {
-        d dVar = this.f44105e;
+        d dVar = this.f44106e;
         if (dVar != null) {
             dVar.f();
         }
@@ -110,7 +110,7 @@ public class e implements d.b.g0.a.e0.o.a {
 
     @Override // d.b.g0.a.e0.o.a
     public void e(g gVar) {
-        d dVar = this.f44105e;
+        d dVar = this.f44106e;
         if (dVar != null) {
             dVar.k(new b(gVar));
         }
@@ -118,32 +118,32 @@ public class e implements d.b.g0.a.e0.o.a {
 
     @Override // d.b.g0.a.e0.o.a
     public d.b.g0.a.e0.k.a g() {
-        return this.f44105e.h();
+        return this.f44106e.h();
     }
 
     @Override // d.b.g0.a.e0.o.a
     public void j(d.b.g0.a.e0.w.a aVar) {
         if (d.b.g0.a.w0.a.N().G(0) && aVar != null) {
             if (j) {
-                Log.d("V8MasterAdapter", "pathList item: " + aVar.f44309b);
+                Log.d("V8MasterAdapter", "pathList item: " + aVar.f44310b);
             }
-            String str = aVar.f44309b;
-            this.f44107g = str;
-            this.f44105e.j(d.b.g0.a.e0.i.a.a("appjs", str));
+            String str = aVar.f44310b;
+            this.f44108g = str;
+            this.f44106e.j(d.b.g0.a.e0.i.a.a("appjs", str));
         }
     }
 
     public int k() {
-        return d.b.g0.a.e0.i.a.b(this.f44108h, this.i);
+        return d.b.g0.a.e0.i.a.b(this.f44109h, this.i);
     }
 
     @Override // d.b.g0.a.e0.o.a
     public void loadUrl(String str) {
-        if (this.f44105e == null) {
+        if (this.f44106e == null) {
             String S = d.b.g0.a.e0.w.d.L().S();
             d dVar = new d(S, "runtime/index.js");
-            this.f44105e = dVar;
-            this.f44106f = str;
+            this.f44106e = dVar;
+            this.f44107f = str;
             dVar.i(new a(S));
         } else if (j) {
             Log.e("V8MasterAdapter", Log.getStackTraceString(new Exception("same instance loadUrl should not be call twice.")));

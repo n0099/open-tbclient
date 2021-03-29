@@ -39,7 +39,7 @@ public class o0 extends d.b.h0.r.f0.q.c {
     @Override // d.b.h0.r.f0.q.c, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null && view.getAlpha() >= 0.4d) {
-            d.b.h0.r.f0.q.a aVar = this.f50556e;
+            d.b.h0.r.f0.q.a aVar = this.f50557e;
             String userId = aVar != null ? aVar.getUserId() : "";
             TiebaStatic.log(new StatisticItem("c12408").param("obj_source", u()).param("obj_id", userId).param("tid", this.v));
             int i = this.t;
@@ -90,10 +90,10 @@ public class o0 extends d.b.h0.r.f0.q.c {
             }
             TiebaStatic.log(statisticItem2);
             super.onClick(view);
-            if (this.r && this.f50556e != null) {
-                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f50556e.getUserId()));
+            if (this.r && this.f50557e != null) {
+                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f50557e.getUserId()));
             }
-            if (!this.s || this.f50556e == null) {
+            if (!this.s || this.f50557e == null) {
                 return;
             }
             int i4 = this.t;
@@ -102,7 +102,7 @@ public class o0 extends d.b.h0.r.f0.q.c {
             } else if (i4 == 2) {
                 i3 = 2;
             }
-            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i3).param("obj_id", this.f50556e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i3).param("obj_id", this.f50557e.getUserId()));
         }
     }
 

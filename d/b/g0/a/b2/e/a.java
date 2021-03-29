@@ -14,39 +14,39 @@ import java.io.File;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43571a = k.f45050a;
+    public static final boolean f43572a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static C0613a f43572b;
+    public static C0614a f43573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static C0613a f43573c;
+    public static C0614a f43574c;
 
     /* renamed from: d.b.g0.a.b2.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0613a {
+    /* loaded from: classes2.dex */
+    public static class C0614a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43574a;
+        public String f43575a;
 
         public static String a(int i) {
             return i == 1 ? "game-core-version" : "swan-core-version";
         }
 
-        public static C0613a c(JSONObject jSONObject, int i) {
-            C0613a c0613a = new C0613a();
+        public static C0614a c(JSONObject jSONObject, int i) {
+            C0614a c0614a = new C0614a();
             if (jSONObject != null) {
-                c0613a.f43574a = jSONObject.optString(a(i));
+                c0614a.f43575a = jSONObject.optString(a(i));
             }
-            return c0613a;
+            return c0614a;
         }
 
         public String b() {
-            return TextUtils.isEmpty(this.f43574a) ? "0" : this.f43574a;
+            return TextUtils.isEmpty(this.f43575a) ? "0" : this.f43575a;
         }
     }
 
@@ -70,7 +70,7 @@ public final class a {
             SwanJSVersionUpdateEvent.sendEvent(j);
         }
         q(false, i);
-        if (f43571a) {
+        if (f43572a) {
             String b2 = e.b(new File(f(i)), false);
             if (TextUtils.isEmpty(b2)) {
                 return null;
@@ -81,11 +81,11 @@ public final class a {
         return null;
     }
 
-    public static C0613a c() {
-        if (f43572b == null) {
-            f43572b = C0613a.c(p(0), 0);
+    public static C0614a c() {
+        if (f43573b == null) {
+            f43573b = C0614a.c(p(0), 0);
         }
-        return f43572b;
+        return f43573b;
     }
 
     public static String d(int i) {
@@ -100,18 +100,18 @@ public final class a {
         return i == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip";
     }
 
-    public static C0613a g() {
-        if (f43573c == null) {
-            f43573c = C0613a.c(p(1), 1);
+    public static C0614a g() {
+        if (f43574c == null) {
+            f43574c = C0614a.c(p(1), 1);
         }
-        return f43573c;
+        return f43574c;
     }
 
     public static File h(int i) {
         return new File(d.b.g0.a.b2.b.c(i), "preset");
     }
 
-    public static C0613a i(int i) {
+    public static C0614a i(int i) {
         if (i == 1) {
             return g();
         }
@@ -144,14 +144,14 @@ public final class a {
 
     public static synchronized Exception o(int i) {
         synchronized (a.class) {
-            if (f43571a) {
+            if (f43572a) {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
             if (n(i)) {
-                C0613a i2 = i(i);
+                C0614a i2 = i(i);
                 long j = h.a().getLong(f(i), 0L);
                 long h2 = d.b.g0.a.b2.b.h(i2.b());
-                if (f43571a) {
+                if (f43572a) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + h2);
                 }
                 return b(h2, i);
@@ -161,7 +161,7 @@ public final class a {
     }
 
     public static JSONObject p(int i) {
-        if (f43571a) {
+        if (f43572a) {
             Log.d("PresetSwanCoreControl", "readPresetConfig start.");
         }
         String q = d.q(AppRuntime.getAppContext(), d(i));
@@ -170,12 +170,12 @@ public final class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(q);
-            if (f43571a) {
+            if (f43572a) {
                 Log.d("PresetSwanCoreControl", "readPresetConfig end. config: " + jSONObject.toString());
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f43571a) {
+            if (f43572a) {
                 throw new RuntimeException(e2);
             }
             return null;

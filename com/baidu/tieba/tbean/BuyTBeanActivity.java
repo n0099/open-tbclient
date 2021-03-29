@@ -41,7 +41,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
         @Override // d.b.h0.l0.a
         public void a() {
-            d.b.h0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.h0.l0.b.f50294a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+            d.b.h0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.h0.l0.b.f50295a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
             BuyTBeanActivity.this.finish();
         }
 

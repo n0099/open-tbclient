@@ -11,40 +11,40 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0511a {
+    public static class C0512a {
         public int flags = -1;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f39155h;
+        public String f39156h;
         public String i;
         public String j;
         public Bundle k;
     }
 
-    public static boolean a(Context context, C0511a c0511a) {
-        if (context == null || c0511a == null) {
+    public static boolean a(Context context, C0512a c0512a) {
+        if (context == null || c0512a == null) {
             com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
             return false;
-        } else if (c.a(c0511a.f39155h)) {
-            com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0511a.f39155h);
+        } else if (c.a(c0512a.f39156h)) {
+            com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0512a.f39156h);
             return false;
         } else {
-            if (c.a(c0511a.i)) {
-                c0511a.i = c0511a.f39155h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+            if (c.a(c0512a.i)) {
+                c0512a.i = c0512a.f39156h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
             }
-            com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0511a.f39155h + ", targetClassName = " + c0511a.i);
+            com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0512a.f39156h + ", targetClassName = " + c0512a.i);
             Intent intent = new Intent();
-            intent.setClassName(c0511a.f39155h, c0511a.i);
-            Bundle bundle = c0511a.k;
+            intent.setClassName(c0512a.f39156h, c0512a.i);
+            Bundle bundle = c0512a.k;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 570490883);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0511a.j);
-            intent.putExtra("_mmessage_checksum", b.a(c0511a.j, 570490883, packageName));
-            int i = c0511a.flags;
+            intent.putExtra("_mmessage_content", c0512a.j);
+            intent.putExtra("_mmessage_checksum", b.a(c0512a.j, 570490883, packageName));
+            int i = c0512a.flags;
             if (i == -1) {
                 intent.addFlags(268435456).addFlags(134217728);
             } else {

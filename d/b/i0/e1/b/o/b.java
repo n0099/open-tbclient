@@ -17,31 +17,31 @@ import d.b.b.j.e.n;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f54470b;
+    public BdUniqueId f54471b;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f54472d;
+    public c f54473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f54473e;
+    public ArrayList<n> f54474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54474f;
+    public boolean f54475f;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54469a = false;
+    public boolean f54470a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f54471c = 0;
+    public long f54472c = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f54475g = new a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
+    public d.b.b.c.g.a f54476g = new a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -53,8 +53,8 @@ public class b {
                 return;
             }
             if (responsedMessage.hasError()) {
-                if (b.this.f54472d != null) {
-                    b.this.f54472d.onFailed(responsedMessage.getErrorString());
+                if (b.this.f54473d != null) {
+                    b.this.f54473d.onFailed(responsedMessage.getErrorString());
                     return;
                 }
                 return;
@@ -66,19 +66,19 @@ public class b {
             if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
                 AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
                 b.this.i(agreeMeHTTPResponseMessage.datas, z);
-                b.this.f54474f = agreeMeHTTPResponseMessage.hasMore;
+                b.this.f54475f = agreeMeHTTPResponseMessage.hasMore;
             } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
                 AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
                 b.this.i(agreeMeSocketResponseMessage.datas, z);
-                b.this.f54474f = agreeMeSocketResponseMessage.hasMore;
+                b.this.f54475f = agreeMeSocketResponseMessage.hasMore;
             }
         }
     }
 
     /* renamed from: d.b.i0.e1.b.o.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1239b extends BdAsyncTask<Void, Void, ArrayList<d.b.i0.e1.b.p.a>> {
-        public C1239b() {
+    /* loaded from: classes3.dex */
+    public class C1240b extends BdAsyncTask<Void, Void, ArrayList<d.b.i0.e1.b.p.a>> {
+        public C1240b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +94,7 @@ public class b {
             try {
                 AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                 if (agreeMeResIdl.data != null) {
-                    b.this.f54474f = agreeMeResIdl.data.has_more.intValue() == 1;
+                    b.this.f54475f = agreeMeResIdl.data.has_more.intValue() == 1;
                     for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                         if (agreeList != null) {
                             d.b.i0.e1.b.p.a aVar = new d.b.i0.e1.b.p.a();
@@ -121,7 +121,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void d(ArrayList<n> arrayList);
 
@@ -135,9 +135,9 @@ public class b {
 
     public b(TbPageContext tbPageContext, c cVar) {
         if (tbPageContext != null) {
-            this.f54470b = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.f54475g);
-            this.f54472d = cVar;
+            this.f54471b = tbPageContext.getUniqueId();
+            tbPageContext.registerListener(this.f54476g);
+            this.f54473d = cVar;
         }
     }
 
@@ -147,13 +147,13 @@ public class b {
     }
 
     public final void e() {
-        new C1239b().execute(new Void[0]);
+        new C1240b().execute(new Void[0]);
     }
 
     public final void f() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-        agreeMeRequestMessage.id = this.f54471c;
-        agreeMeRequestMessage.setTag(this.f54470b);
+        agreeMeRequestMessage.id = this.f54472c;
+        agreeMeRequestMessage.setTag(this.f54471b);
         MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
     }
 
@@ -162,50 +162,50 @@ public class b {
     }
 
     public final void h(ArrayList<d.b.i0.e1.b.p.a> arrayList) {
-        if (this.f54469a) {
+        if (this.f54470a) {
             return;
         }
-        if (ListUtils.isEmpty(this.f54473e)) {
-            this.f54473e = new ArrayList<>();
+        if (ListUtils.isEmpty(this.f54474e)) {
+            this.f54474e = new ArrayList<>();
         } else {
-            this.f54473e.clear();
+            this.f54474e.clear();
         }
-        this.f54473e.addAll(arrayList);
-        ArrayList<n> arrayList2 = this.f54473e;
+        this.f54474e.addAll(arrayList);
+        ArrayList<n> arrayList2 = this.f54474e;
         n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
         if (nVar instanceof d.b.i0.e1.b.p.a) {
-            this.f54471c = ((d.b.i0.e1.b.p.a) nVar).n();
+            this.f54472c = ((d.b.i0.e1.b.p.a) nVar).n();
         }
-        if (this.f54472d == null || ListUtils.isEmpty(this.f54473e)) {
+        if (this.f54473d == null || ListUtils.isEmpty(this.f54474e)) {
             return;
         }
-        this.f54472d.d(this.f54473e);
+        this.f54473d.d(this.f54474e);
     }
 
     public final void i(ArrayList<d.b.i0.e1.b.p.a> arrayList, boolean z) {
-        this.f54469a = true;
-        if (ListUtils.isEmpty(this.f54473e)) {
-            this.f54473e = new ArrayList<>();
+        this.f54470a = true;
+        if (ListUtils.isEmpty(this.f54474e)) {
+            this.f54474e = new ArrayList<>();
         }
         if (!z) {
-            this.f54473e.addAll(arrayList);
+            this.f54474e.addAll(arrayList);
         } else {
-            this.f54473e.clear();
-            this.f54473e.addAll(0, arrayList);
+            this.f54474e.clear();
+            this.f54474e.addAll(0, arrayList);
         }
-        ArrayList<n> arrayList2 = this.f54473e;
+        ArrayList<n> arrayList2 = this.f54474e;
         n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
         if (nVar instanceof d.b.i0.e1.b.p.a) {
-            this.f54471c = ((d.b.i0.e1.b.p.a) nVar).n();
+            this.f54472c = ((d.b.i0.e1.b.p.a) nVar).n();
         }
-        c cVar = this.f54472d;
+        c cVar = this.f54473d;
         if (cVar != null) {
-            cVar.d(this.f54473e);
+            cVar.d(this.f54474e);
         }
     }
 
     public void j() {
-        this.f54471c = 0L;
+        this.f54472c = 0L;
         f();
     }
 }

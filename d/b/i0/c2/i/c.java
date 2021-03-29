@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetector f52483e = new GestureDetector(TbadkCoreApplication.getInst(), this);
+    public GestureDetector f52484e = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* renamed from: f  reason: collision with root package name */
-    public a f52484f;
+    public a f52485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f52485g;
+    public View f52486g;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -26,27 +26,27 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
     }
 
     public c(a aVar) {
-        this.f52484f = aVar;
+        this.f52485f = aVar;
     }
 
     public void a(View view) {
-        this.f52485g = view;
+        this.f52486g = view;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        a aVar = this.f52484f;
+        a aVar = this.f52485f;
         if (aVar != null) {
-            return aVar.b(this.f52485g, motionEvent);
+            return aVar.b(this.f52486g, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        a aVar = this.f52484f;
+        a aVar = this.f52485f;
         if (aVar != null) {
-            return aVar.c(this.f52485g, motionEvent);
+            return aVar.c(this.f52486g, motionEvent);
         }
         return false;
     }
@@ -74,9 +74,9 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        a aVar = this.f52484f;
+        a aVar = this.f52485f;
         if (aVar != null) {
-            return aVar.a(this.f52485g, motionEvent);
+            return aVar.a(this.f52486g, motionEvent);
         }
         return false;
     }
@@ -88,8 +88,8 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.f52485g = view;
-        GestureDetector gestureDetector = this.f52483e;
+        this.f52486g = view;
+        GestureDetector gestureDetector = this.f52484e;
         if (gestureDetector != null) {
             return gestureDetector.onTouchEvent(motionEvent);
         }

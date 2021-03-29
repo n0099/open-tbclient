@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.chatmessage.request;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Type<T> {
     public T t;
 }

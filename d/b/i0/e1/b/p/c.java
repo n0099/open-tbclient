@@ -26,7 +26,7 @@ import com.baidu.tieba.imMessageCenter.mention.base.MessageCardBottomView;
 import d.b.b.e.p.k;
 import d.b.b.e.p.l;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.i0.x.b<d.b.i0.e1.b.p.a> {
     public d.b.i0.e1.b.p.a A;
     public int B;
@@ -47,7 +47,7 @@ public class c extends d.b.i0.x.b<d.b.i0.e1.b.p.a> {
     public TbPageContext y;
     public int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements OriginalThreadCardView.b {
         public a() {
         }

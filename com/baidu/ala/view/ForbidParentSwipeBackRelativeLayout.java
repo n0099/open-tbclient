@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     public static final int INVALID_POINTER = -1;
     public boolean isIntercept;

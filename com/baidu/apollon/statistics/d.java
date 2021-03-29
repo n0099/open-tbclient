@@ -4,48 +4,48 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3855a = 10001;
+    public static final int f3856a = 10001;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3856b = 10002;
+    public static final int f3857b = 10002;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3857c = 10003;
+    public static final int f3858c = 10003;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f3858e;
+    public static Handler f3859e;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3859d;
+    public boolean f3860d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f3861a = new d();
+        public static d f3862a = new d();
     }
 
     public static d a() {
-        return a.f3861a;
+        return a.f3862a;
     }
 
     public boolean b() {
-        if (this.f3859d) {
+        if (this.f3860d) {
             return false;
         }
-        this.f3859d = true;
-        f3858e.sendEmptyMessage(10003);
+        this.f3860d = true;
+        f3859e.sendEmptyMessage(10003);
         LogSender.getInstance().a();
         return true;
     }
 
     public d() {
-        this.f3859d = false;
-        f3858e = new Handler(b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
+        this.f3860d = false;
+        f3859e = new Handler(b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 int i = message.what;
@@ -84,10 +84,10 @@ public class d {
         if (!b() && g.a().b()) {
             LogSender.getInstance().a();
         }
-        f3858e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
+        f3859e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
     }
 
     public void a(String str, int i) {
-        f3858e.obtainMessage(10002, i, -1, str).sendToTarget();
+        f3859e.obtainMessage(10002, i, -1, str).sendToTarget();
     }
 }

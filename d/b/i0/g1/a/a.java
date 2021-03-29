@@ -8,37 +8,37 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.interestlabel.view.LabelItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54911e;
+    public Context f54912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.b.i0.g1.b.a> f54912f = new ArrayList();
+    public List<d.b.i0.g1.b.a> f54913f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f54913g;
+    public View.OnClickListener f54914g;
 
     public a(Context context) {
-        this.f54911e = context;
+        this.f54912e = context;
     }
 
     public void a(List<d.b.i0.g1.b.a> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f54912f = list;
+        this.f54913f = list;
         notifyDataSetChanged();
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.f54913g = onClickListener;
+        this.f54914g = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.f54912f.size();
+        int size = this.f54913f.size();
         int i = size % 3;
         int i2 = size / 3;
         return i == 0 ? i2 : i2 + 1;
@@ -58,13 +58,13 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         LabelItemView labelItemView;
         if (view == null) {
-            labelItemView = new LabelItemView(this.f54911e);
+            labelItemView = new LabelItemView(this.f54912e);
         } else {
             labelItemView = (LabelItemView) view;
         }
         int i2 = i * 3;
-        labelItemView.setData(this.f54912f.subList(i2, Math.min(this.f54912f.size(), i2 + 3)), i == getCount() - 1);
-        labelItemView.setOnClickListener(this.f54913g);
+        labelItemView.setData(this.f54913f.subList(i2, Math.min(this.f54913f.size(), i2 + 3)), i == getCount() - 1);
+        labelItemView.setOnClickListener(this.f54914g);
         return labelItemView;
     }
 }

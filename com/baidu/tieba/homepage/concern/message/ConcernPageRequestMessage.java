@@ -11,7 +11,7 @@ import d.b.i0.r2.b0.b;
 import d.b.i0.z0.b.d;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public c adInfo;
     public String pageTag;
@@ -28,7 +28,7 @@ public class ConcernPageRequestMessage extends NetMessage {
         String d2 = isEmpty ? "" : b.f().d("CONCERN");
         c cVar = this.adInfo;
         if (cVar != null && !isEmpty) {
-            str = cVar.f51657b;
+            str = cVar.f51658b;
         }
         AdExtParam.a b2 = AdExtParam.a.b();
         b2.g(e2);

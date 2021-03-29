@@ -8,16 +8,16 @@ public class d extends BaseCardInfo {
     public static BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54763e;
+    public int f54764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54764f;
+    public int f54765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54765g;
+    public int f54766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54766h;
+    public int f54767h;
     public boolean i;
     public UserData j;
 

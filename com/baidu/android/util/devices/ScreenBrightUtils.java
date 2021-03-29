@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ScreenBrightUtils {
     public static final int BRIGHT_MIN = 50;
     public static final String TAG = "BdBrightUtils";

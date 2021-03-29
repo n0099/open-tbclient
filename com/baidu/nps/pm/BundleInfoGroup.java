@@ -2,7 +2,7 @@ package com.baidu.nps.pm;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BundleInfoGroup {
     public Map<Integer, BundleInfo> bundleInfoMap = new HashMap();
     public long timeStamp;

@@ -126,6 +126,47 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0057, code lost:
+        if (r8 != 0) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x005b, code lost:
+        if (r12.cancelled == false) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x005d, code lost:
+        r3.clear();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0060, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0063, code lost:
+        if (r12.done == false) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x006b, code lost:
+        if (r12.errors.get() == null) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x006d, code lost:
+        r3.clear();
+        r2.onError(r12.errors.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0079, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x007e, code lost:
+        if (r3.isEmpty() == false) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0080, code lost:
+        r2.onComplete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0083, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0084, code lost:
+        r12.emitted = r0;
+        r5 = addAndGet(-r5);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
         if (getAndIncrement() != 0) {
             return;
@@ -136,46 +177,33 @@ public final class FlowableBufferBoundary$BufferBoundarySubscriber<T, C extends 
         int i = 1;
         do {
             long j2 = this.requested.get();
-            while (j != j2) {
-                if (this.cancelled) {
-                    aVar.clear();
-                    return;
-                }
-                boolean z = this.done;
-                if (z && this.errors.get() != null) {
-                    aVar.clear();
-                    cVar.onError(this.errors.terminate());
-                    return;
-                }
-                C poll = aVar.poll();
-                boolean z2 = poll == null;
-                if (z && z2) {
-                    cVar.onComplete();
-                    return;
-                } else if (z2) {
+            while (true) {
+                int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                if (i2 == 0) {
                     break;
-                } else {
-                    cVar.onNext(poll);
-                    j++;
-                }
-            }
-            if (j == j2) {
-                if (this.cancelled) {
+                } else if (this.cancelled) {
                     aVar.clear();
                     return;
-                } else if (this.done) {
-                    if (this.errors.get() != null) {
+                } else {
+                    boolean z = this.done;
+                    if (z && this.errors.get() != null) {
                         aVar.clear();
                         cVar.onError(this.errors.terminate());
                         return;
-                    } else if (aVar.isEmpty()) {
+                    }
+                    C poll = aVar.poll();
+                    boolean z2 = poll == null;
+                    if (z && z2) {
                         cVar.onComplete();
                         return;
+                    } else if (z2) {
+                        break;
+                    } else {
+                        cVar.onNext(poll);
+                        j++;
                     }
                 }
             }
-            this.emitted = j;
-            i = addAndGet(-i);
         } while (i != 0);
     }
 

@@ -30,12 +30,12 @@ import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
 import d.b.g0.a.p.d.c;
 import d.b.g0.a.p.d.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String TAG = "NgWebView";
     public static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
     public static final boolean sIsSetWebViewSize;
@@ -45,7 +45,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     public d.b.g0.a.e0.k.c mWebViewHookHandler;
     public d mWebViewManager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }

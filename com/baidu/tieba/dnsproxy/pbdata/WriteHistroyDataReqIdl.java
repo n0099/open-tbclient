@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class WriteHistroyDataReqIdl extends Message {
     public static final List<ConnectPointData> DEFAULT_CONNECT_POINT_LIST = Collections.emptyList();
     @ProtoField(label = Message.Label.REPEATED, tag = 1)

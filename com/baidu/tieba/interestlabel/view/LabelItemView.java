@@ -18,20 +18,20 @@ import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import d.b.i0.g1.b.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18492e;
+    public boolean f18493e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18493f;
+    public int f18494f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18494g;
+    public int f18495g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f18495h;
+    public Paint f18496h;
 
     public LabelItemView(Context context) {
         super(context);
@@ -46,11 +46,11 @@ public class LabelItemView extends LinearLayout {
         setWeightSum(3.0f);
         setOrientation(0);
         Paint paint = new Paint();
-        this.f18495h = paint;
+        this.f18496h = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f18495h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        this.f18495h.setStrokeWidth(1.0f);
-        this.f18494g = l.g(getContext(), R.dimen.ds46);
+        this.f18496h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18496h.setStrokeWidth(1.0f);
+        this.f18495g = l.g(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
             addView(a());
         }
@@ -61,15 +61,15 @@ public class LabelItemView extends LinearLayout {
         super.dispatchDraw(canvas);
         int width = getWidth() / 3;
         int height = getHeight();
-        for (int i = 1; i < this.f18493f; i++) {
+        for (int i = 1; i < this.f18494f; i++) {
             int i2 = width * i;
-            int i3 = this.f18494g;
-            canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.f18495h);
+            int i3 = this.f18495g;
+            canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.f18496h);
         }
-        if (this.f18492e) {
+        if (this.f18493e) {
             return;
         }
-        canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18495h);
+        canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18496h);
     }
 
     public void setData(List<a> list, boolean z) {
@@ -77,11 +77,11 @@ public class LabelItemView extends LinearLayout {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f18492e = z;
-        this.f18493f = Math.min(list.size(), 3);
+        this.f18493e = z;
+        this.f18494f = Math.min(list.size(), 3);
         int i2 = 0;
         while (true) {
-            i = this.f18493f;
+            i = this.f18494f;
             if (i2 >= i) {
                 break;
             }
@@ -89,14 +89,14 @@ public class LabelItemView extends LinearLayout {
             if (aVar != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = aVar.f54922b;
-                if (!StringUtils.isNull(str) && aVar.f54922b.length() > 4) {
-                    str = aVar.f54922b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = aVar.f54923b;
+                if (!StringUtils.isNull(str) && aVar.f54923b.length() > 4) {
+                    str = aVar.f54923b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f54923c);
+                textView.setSelected(aVar.f54924c);
                 textView.setTag(aVar);
             }
             i2++;

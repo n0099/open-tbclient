@@ -30,7 +30,7 @@ import com.baidu.tieba.tbadkCore.voice.VoiceButton;
 import d.b.b.a.j;
 import d.b.h0.r.s.a;
 import d.b.h0.w.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, d.b.b.e.q.f, VoiceManager.i, n {
     public Paint A;
     public int B;
@@ -61,19 +61,19 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f4255e;
+    public long f4256e;
     public final int[] e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f4256f;
+    public final int[] f4257f;
     public final g f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4257g;
+    public int f4258g;
     public SweepGradient g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4258h;
+    public int f4259h;
     public VoiceData$VoiceModel h0;
     public final int i;
     public int i0;
@@ -96,7 +96,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public Paint y;
     public Paint z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements a.e {
         public a() {
         }
@@ -107,14 +107,14 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c3.p0.a f4260e;
+        public final /* synthetic */ d.b.i0.c3.p0.a f4261e;
 
         public b(d.b.i0.c3.p0.a aVar) {
-            this.f4260e = aVar;
+            this.f4261e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -125,7 +125,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             if (VoiceRecordButton.this.getVoiceManager() == null || (voiceData$VoiceModel = VoiceRecordButton.this.h0) == null) {
                 return;
             }
-            d.b.i0.c3.p0.a aVar2 = this.f4260e;
+            d.b.i0.c3.p0.a aVar2 = this.f4261e;
             if (aVar2 != null) {
                 aVar2.a(voiceData$VoiceModel.voiceId);
             }
@@ -133,7 +133,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -147,7 +147,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -161,7 +161,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -175,7 +175,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class f implements Runnable {
         public f() {
         }
@@ -189,7 +189,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class g extends Handler {
         public g() {
         }
@@ -422,15 +422,15 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if (aVar == null) {
             return;
         }
-        if (aVar.f51523a == 9) {
+        if (aVar.f51524a == 9) {
             F();
             d(new d.b.h0.w.a(2, 6, null));
         }
-        if (aVar.f51523a == 52) {
-            if (aVar.f51525c instanceof VoiceData$VoiceModel) {
+        if (aVar.f51524a == 52) {
+            if (aVar.f51526c instanceof VoiceData$VoiceModel) {
                 I();
-                c((VoiceData$VoiceModel) aVar.f51525c);
-                this.h0 = (VoiceData$VoiceModel) aVar.f51525c;
+                c((VoiceData$VoiceModel) aVar.f51526c);
+                this.h0 = (VoiceData$VoiceModel) aVar.f51526c;
                 return;
             }
             F();
@@ -487,7 +487,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         int measuredHeight = this.R.getMeasuredHeight();
         int measuredWidth2 = this.O.getMeasuredWidth();
         int measuredHeight2 = this.O.getMeasuredHeight();
-        int i6 = this.f4257g;
+        int i6 = this.f4258g;
         this.O.layout((i5 - measuredWidth2) >> 1, i2 + i6, (measuredWidth2 + i5) >> 1, i6 + i2 + measuredHeight2);
         int bottom = this.O.getBottom();
         int i7 = (i5 - measuredWidth) >> 1;
@@ -515,7 +515,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         int measuredWidth7 = this.P.getMeasuredWidth();
         int measuredHeight5 = this.P.getMeasuredHeight();
         int bottom2 = this.R.getBottom();
-        int[] iArr = this.f4256f;
+        int[] iArr = this.f4257f;
         this.P.layout((i5 - measuredWidth7) >> 1, iArr[3] + bottom2, (measuredWidth7 + i5) >> 1, bottom2 + iArr[3] + measuredHeight5);
         this.L.set((i5 - this.J.getIntrinsicWidth()) >> 1, this.S.getTop() - this.k, (i5 + this.J.getIntrinsicHeight()) >> 1, (this.S.getTop() + this.J.getIntrinsicHeight()) - this.k);
         this.J.setBounds(this.L);
@@ -542,7 +542,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }
         }
         setMeasuredDimension(i3, i4);
-        this.f4257g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
+        this.f4258g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
     }
 
     @Override // d.b.b.e.q.f
@@ -596,9 +596,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public void onShowRecording(int i) {
         this.i0 = Math.max(i, this.i0);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.f4255e > 200) {
+        if (uptimeMillis - this.f4256e > 200) {
             this.i0 = 0;
-            this.f4255e = uptimeMillis;
+            this.f4256e = uptimeMillis;
         }
         int i2 = this.i0;
         if (i2 < 10) {
@@ -753,8 +753,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     public VoiceRecordButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4255e = 0L;
-        this.f4256f = new int[4];
+        this.f4256e = 0L;
+        this.f4257f = new int[4];
         this.n = 0;
         this.o = 0;
         this.p = 0;
@@ -781,10 +781,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.f0 = new g(this, null);
         this.i0 = 0;
         this.j0 = 0;
-        this.f4256f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.f4256f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
-        this.f4256f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
-        this.f4256f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
+        this.f4257f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.f4257f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
+        this.f4257f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f4257f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.ds134);
         this.r = dimensionPixelSize;
         int dimensionPixelSize2 = dimensionPixelSize + context.getResources().getDimensionPixelSize(R.dimen.ds14);
@@ -800,8 +800,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.v = context.getResources().getDimensionPixelSize(R.dimen.ds70);
             this.w = context.getResources().getDimensionPixelSize(R.dimen.ds210);
         }
-        this.f4257g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
-        this.f4258h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.f4258g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
+        this.f4259h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.ds14);
         this.j = context.getResources().getDimensionPixelSize(R.dimen.ds4);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.ds4);

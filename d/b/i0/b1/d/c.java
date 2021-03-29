@@ -18,7 +18,7 @@ import d.b.i0.x.b0;
 import d.b.i0.x.t;
 import d.b.i0.x.w;
 import d.b.i0.x.y;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends k<a2, CardViewHolder<w>> implements y {
     public d.b.b.e.k.b<TbImageView> A;
     public TbPageContext w;
@@ -26,7 +26,7 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
     public b0<a2> y;
     public d.b.b.e.k.b<ConstrainImageLayout> z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -47,7 +47,7 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<ConstrainImageLayout> {
         public b() {
         }
@@ -94,9 +94,9 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
     }
 
     /* renamed from: d.b.i0.b1.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1129c implements d.b.b.e.k.c<TbImageView> {
-        public C1129c() {
+    /* loaded from: classes3.dex */
+    public class C1130c implements d.b.b.e.k.c<TbImageView> {
+        public C1130c() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -151,7 +151,7 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
         super(tbPageContext, bdUniqueId);
         this.y = new a();
         this.z = new d.b.b.e.k.b<>(new b(), 6, 0);
-        this.A = new d.b.b.e.k.b<>(new C1129c(), 12, 0);
+        this.A = new d.b.b.e.k.b<>(new C1130c(), 12, 0);
         this.w = tbPageContext;
     }
 
@@ -163,7 +163,7 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
     @Override // d.b.i0.p0.k, d.b.i0.x.y
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f42357e = tbPageContext.getPageActivity();
+            this.f42358e = tbPageContext.getPageActivity();
             this.w = tbPageContext;
             this.i = bdUniqueId;
         }

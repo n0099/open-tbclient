@@ -14,7 +14,7 @@ import com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment;
 public class EemCardListFragment extends CardListBaseFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public k f26642a;
+    public k f26643a;
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
     public void bindCardData(boolean z) {
@@ -69,12 +69,12 @@ public class EemCardListFragment extends CardListBaseFragment {
         if (!a.d(activity, CardListBaseFragment.KEY_HAS_EEM_CARD_LIST_LOADED + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE)) {
             showLoading();
         }
-        if (this.f26642a == null) {
-            this.f26642a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
+        if (this.f26643a == null) {
+            this.f26643a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
         }
-        this.f26642a.setResponseCallback(this);
-        this.f26642a.a(SourceFlag.SDK);
-        this.f26642a.execBean();
+        this.f26643a.setResponseCallback(this);
+        this.f26643a.a(SourceFlag.SDK);
+        this.f26643a.execBean();
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment, com.baidu.wallet.core.BaseFragment, androidx.fragment.app.Fragment

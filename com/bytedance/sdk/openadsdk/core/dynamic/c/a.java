@@ -19,24 +19,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28290e;
+    public static String f28291e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28291a;
+    public Context f28292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f28292b;
+    public SSWebView f28293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28293c;
+    public String f28294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f28294d;
+    public c f28295d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0306a {
-        public C0306a() {
+    public class C0307a {
+        public C0307a() {
         }
 
         @JavascriptInterface
@@ -68,22 +68,16 @@ public class a {
                 u.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
                 if (z) {
                     d3 = optDouble4;
-                    Double.isNaN(d4);
-                    Double.isNaN(d3);
                     int i3 = ((int) (d4 / d3)) + 1;
                     if (!z2 || i3 < (i2 = i)) {
                         i2 = i3;
                     }
-                    double d5 = optDouble3 * optDouble * i2;
-                    Double.isNaN(d5);
-                    d2 = d5 * 1.2d;
+                    d2 = optDouble3 * optDouble * i2 * 1.2d;
                 } else {
-                    double d6 = optDouble3 * optDouble;
-                    Double.isNaN(d6);
-                    d2 = d6 * 1.2d;
-                    double d7 = optDouble4;
-                    if (d4 > d7) {
-                        d4 = d7;
+                    d2 = optDouble3 * optDouble * 1.2d;
+                    double d5 = optDouble4;
+                    if (d4 > d5) {
+                        d4 = d5;
                     }
                     d3 = d4;
                 }
@@ -101,8 +95,8 @@ public class a {
         public String jsCoreGlobal() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28291a)));
-                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28291a)));
+                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28292a)));
+                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28292a)));
                 jSONObject.put(IXAdRequestInfo.OS, "Android");
             } catch (Exception unused) {
             }
@@ -116,33 +110,33 @@ public class a {
     }
 
     public a(@NonNull Context context) {
-        this.f28291a = context;
-        SSWebView sSWebView = new SSWebView(this.f28291a);
-        this.f28292b = sSWebView;
+        this.f28292a = context;
+        SSWebView sSWebView = new SSWebView(this.f28292a);
+        this.f28293b = sSWebView;
         if (Build.VERSION.SDK_INT >= 19) {
-            sSWebView.addJavascriptInterface(new C0306a(), "JS_DYNAMIC_LAYOUT_OBJ");
+            sSWebView.addJavascriptInterface(new C0307a(), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f28292b.loadUrl("about:blank");
+        this.f28293b.loadUrl("about:blank");
         a();
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f28290e)) {
+        if (TextUtils.isEmpty(f28291e)) {
             return null;
         }
-        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28290e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28291e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
     }
 
     private void d() {
-        aa.a(this.f28291a, this.f28292b);
-        aa.a(this.f28292b);
-        this.f28292b = null;
+        aa.a(this.f28292a, this.f28293b);
+        aa.a(this.f28293b);
+        this.f28293b = null;
     }
 
     public void b(String str) {
         c cVar;
-        this.f28293c = str;
-        if (TextUtils.isEmpty(f28290e) && (cVar = this.f28294d) != null) {
+        this.f28294c = str;
+        if (TextUtils.isEmpty(f28291e) && (cVar = this.f28295d) != null) {
             cVar.a(null);
             d();
         }
@@ -150,7 +144,7 @@ public class a {
     }
 
     public static void a(String str) {
-        f28290e = str;
+        f28291e = str;
     }
 
     private void a() {
@@ -158,15 +152,15 @@ public class a {
         if (TextUtils.isEmpty(c2)) {
             return;
         }
-        t.a(this.f28292b, c2);
+        t.a(this.f28293b, c2);
     }
 
     private void b() {
-        t.a(this.f28292b, "javascript:var res = getLayoutInfo(" + this.f28293c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        t.a(this.f28293b, "javascript:var res = getLayoutInfo(" + this.f28294c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
     }
 
     public void a(c cVar) {
-        this.f28294d = cVar;
+        this.f28295d = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -177,7 +171,7 @@ public class a {
         } catch (Exception unused) {
             fVar = null;
         }
-        c cVar = this.f28294d;
+        c cVar = this.f28295d;
         if (cVar != null) {
             cVar.a(fVar);
         }

@@ -7,7 +7,7 @@ import android.util.JsonToken;
 public class y implements aj<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f31345a = new y();
+    public static final y f31346a = new y();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

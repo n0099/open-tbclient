@@ -11,13 +11,13 @@ import kotlin.jvm.internal.Intrinsics;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<Integer> f48583a = new ArrayList<>();
+    public final ArrayList<Integer> f48584a = new ArrayList<>();
 
     public final void a(n nVar) {
-        if (this.f48583a.isEmpty()) {
+        if (this.f48584a.isEmpty()) {
             return;
         }
-        Iterator<Integer> it = this.f48583a.iterator();
+        Iterator<Integer> it = this.f48584a.iterator();
         while (it.hasNext()) {
             Integer id = it.next();
             if (nVar != null) {
@@ -30,8 +30,8 @@ public final class a {
     public final boolean b(n nVar, String str) {
         Integer a2 = b.a(str);
         if (a2 != null) {
-            if (!this.f48583a.contains(a2)) {
-                this.f48583a.add(a2);
+            if (!this.f48584a.contains(a2)) {
+                this.f48584a.add(a2);
             }
             if (nVar != null) {
                 nVar.k(a2.intValue());

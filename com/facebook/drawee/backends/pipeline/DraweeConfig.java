@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.drawable.DrawableFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class DraweeConfig {
     @Nullable
     public final ImmutableList<DrawableFactory> mCustomDrawableFactories;

@@ -13,31 +13,31 @@ public class h extends com.kwad.sdk.core.network.d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<com.kwad.sdk.core.g.a.f> f33784a = new ArrayList(1);
+        public List<com.kwad.sdk.core.g.a.f> f33785a = new ArrayList(1);
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.c f33785b;
+        public com.kwad.sdk.core.g.a.c f33786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f33786c;
+        public String f33787c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.j f33787d;
+        public com.kwad.sdk.core.g.a.j f33788d;
     }
 
     public h(a aVar) {
         JSONArray jSONArray = new JSONArray();
-        for (com.kwad.sdk.core.g.a.f fVar : aVar.f33784a) {
+        for (com.kwad.sdk.core.g.a.f fVar : aVar.f33785a) {
             com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         }
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f33785b);
-        com.kwad.sdk.core.g.a.j jVar = aVar.f33787d;
+        a("contentInfo", aVar.f33786b);
+        com.kwad.sdk.core.g.a.j jVar = aVar.f33788d;
         if (jVar != null) {
             a("preloadInfo", jVar);
         }
-        if (!TextUtils.isEmpty(aVar.f33786c)) {
-            b("pushStr", aVar.f33786c);
+        if (!TextUtils.isEmpty(aVar.f33787c)) {
+            b("pushStr", aVar.f33787c);
         }
         b("appTag", ae.g(KsAdSDKImpl.get().getContext()));
     }

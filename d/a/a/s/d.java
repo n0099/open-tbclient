@@ -8,26 +8,26 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<j> f41338a;
+    public final List<j> f41339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final char f41339b;
+    public final char f41340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f41340c;
+    public final double f41341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f41341d;
+    public final String f41342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f41342e;
+    public final String f41343e;
 
     public d(List<j> list, char c2, double d2, double d3, String str, String str2) {
-        this.f41338a = list;
-        this.f41339b = c2;
-        this.f41340c = d3;
-        this.f41341d = str;
-        this.f41342e = str2;
+        this.f41339a = list;
+        this.f41340b = c2;
+        this.f41341c = d3;
+        this.f41342d = str;
+        this.f41343e = str2;
     }
 
     public static int c(char c2, String str, String str2) {
@@ -35,14 +35,14 @@ public class d {
     }
 
     public List<j> a() {
-        return this.f41338a;
+        return this.f41339a;
     }
 
     public double b() {
-        return this.f41340c;
+        return this.f41341c;
     }
 
     public int hashCode() {
-        return c(this.f41339b, this.f41342e, this.f41341d);
+        return c(this.f41340b, this.f41343e, this.f41342d);
     }
 }

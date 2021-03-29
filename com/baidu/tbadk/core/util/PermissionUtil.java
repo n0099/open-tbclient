@@ -21,7 +21,7 @@ import d.b.b.e.p.l;
 import d.b.h0.f0.b;
 import d.b.h0.z0.g;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy = false;
     public static boolean isSdkInited = false;

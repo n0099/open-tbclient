@@ -9,7 +9,7 @@ import android.os.IBinder;
 import com.baidu.sofire.g.t;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MyActivity extends Activity {
     public static String a(Activity activity) {
         if (activity == null) {

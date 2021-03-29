@@ -63,8 +63,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (cVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", cVar.f53449a);
-                        jSONObject.put("locate", cVar.f53451c);
+                        jSONObject.put("tid", cVar.f53450a);
+                        jSONObject.put("locate", cVar.f53452c);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e2) {
                         BdLog.e(e2);
@@ -85,9 +85,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (cVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("pid", cVar.f53450b);
+                        jSONObject.put("pid", cVar.f53451b);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", cVar.f53451c);
+                        jSONObject.put("locate", cVar.f53452c);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e2) {
                         BdLog.e(e2);

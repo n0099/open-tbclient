@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import d.b.i0.i1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ButtonCard extends BaseCardInfo {
     public static final int BUTTON_COLOR_FILL = 2;
     public static final int BUTTON_COLOR_FRAME = 1;
@@ -77,11 +77,7 @@ public class ButtonCard extends BaseCardInfo {
     public double getRatio() {
         int i = this.cardWidth;
         if (i > 0) {
-            double d2 = this.cardHeight;
-            double d3 = i;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            return d2 / d3;
+            return this.cardHeight / i;
         }
         return super.getRatio();
     }

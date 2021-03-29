@@ -26,29 +26,29 @@ import tbclient.User;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f61249a;
+    public c f61250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f61250b;
+    public BaseActivity f61251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61251c;
+    public boolean f61252c;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<MetaData> f61255g;
+    public LongSparseArray<MetaData> f61256g;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61252d = 0;
+    public int f61253d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f61253e = new ArrayList();
+    public List<n> f61254e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61254f = 1;
+    public int f61255f = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f61256h = new a(CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
-    public CustomMessageListener i = new C1595b(2016446);
+    public d.b.b.c.g.a f61257h = new a(CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
+    public CustomMessageListener i = new C1596b(2016446);
 
     /* loaded from: classes4.dex */
     public class a extends d.b.b.c.g.a {
@@ -58,30 +58,30 @@ public class b {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.f61249a == null) {
+            if (b.this.f61250a == null) {
                 return;
             }
             if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                 GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                b.this.f61249a.a(b.this.f(godSquareHttpResponsedMsg.getResult()), b.this.f61251c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                b.this.f61250a.a(b.this.f(godSquareHttpResponsedMsg.getResult()), b.this.f61252c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
             } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                 GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                b.this.f61249a.a(b.this.f(godSquareSocketResponsedMsg.getResult()), b.this.f61251c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                b.this.f61250a.a(b.this.f(godSquareSocketResponsedMsg.getResult()), b.this.f61252c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
             }
         }
     }
 
     /* renamed from: d.b.i0.u0.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1595b extends CustomMessageListener {
-        public C1595b(int i) {
+    public class C1596b extends CustomMessageListener {
+        public C1596b(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.f61249a == null) {
+            if (b.this.f61250a == null) {
                 return;
             }
             if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
@@ -92,7 +92,7 @@ public class b {
             if (godSquareCacheResponsedMsg.getResult() == null || ListUtils.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
                 b.this.i(1);
             } else {
-                b.this.f61249a.a(b.this.f(godSquareCacheResponsedMsg.getResult()), b.this.f61251c, true, godSquareCacheResponsedMsg.getErrorString());
+                b.this.f61250a.a(b.this.f(godSquareCacheResponsedMsg.getResult()), b.this.f61252c, true, godSquareCacheResponsedMsg.getErrorString());
             }
         }
     }
@@ -103,21 +103,21 @@ public class b {
     }
 
     public b(c cVar, BaseActivity baseActivity) {
-        this.f61249a = cVar;
-        this.f61250b = baseActivity;
+        this.f61250a = cVar;
+        this.f61251b = baseActivity;
         k();
     }
 
     public final void e(List<User> list) {
-        if (this.f61255g == null) {
-            this.f61255g = new LongSparseArray<>();
+        if (this.f61256g == null) {
+            this.f61256g = new LongSparseArray<>();
         }
         for (User user : list) {
             h hVar = new h();
             MetaData metaData = new MetaData();
-            hVar.f62210e = metaData;
+            hVar.f62211e = metaData;
             metaData.parserProtobuf(user);
-            this.f61255g.put(user.id.longValue(), hVar.f62210e);
+            this.f61256g.put(user.id.longValue(), hVar.f62211e);
         }
     }
 
@@ -131,18 +131,18 @@ public class b {
         e(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f61251c) {
+        if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f61252c) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.f61255g.get(l.longValue())) != null) {
+                if (l != null && (metaData2 = this.f61256g.get(l.longValue())) != null) {
                     h hVar = new h();
-                    hVar.f62210e = metaData2;
-                    hVar.f62211f = 1;
+                    hVar.f62211e = metaData2;
+                    hVar.f62212f = 1;
                     arrayList2.add(hVar);
                 }
             }
-            if (this.f61250b != null && !ListUtils.isEmpty(arrayList2)) {
+            if (this.f61251b != null && !ListUtils.isEmpty(arrayList2)) {
                 e eVar = new e();
-                eVar.f62232e = this.f61250b.getResources().getString(R.string.special_recommend);
+                eVar.f62233e = this.f61251b.getResources().getString(R.string.special_recommend);
                 eVar.needTopMargin = false;
                 arrayList2.add(0, eVar);
             }
@@ -150,18 +150,18 @@ public class b {
         }
         if (!ListUtils.isEmpty(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.f61255g.get(l2.longValue())) != null) {
+                if (l2 != null && (metaData = this.f61256g.get(l2.longValue())) != null) {
                     h hVar2 = new h();
-                    hVar2.f62210e = metaData;
-                    hVar2.f62211f = 0;
-                    hVar2.f62212g = this.f61254f;
+                    hVar2.f62211e = metaData;
+                    hVar2.f62212f = 0;
+                    hVar2.f62213g = this.f61255f;
                     arrayList3.add(hVar2);
-                    this.f61254f++;
+                    this.f61255f++;
                 }
             }
-            if (this.f61250b != null && !ListUtils.isEmpty(arrayList3) && this.f61251c) {
+            if (this.f61251b != null && !ListUtils.isEmpty(arrayList3) && this.f61252c) {
                 e eVar2 = new e();
-                eVar2.f62232e = this.f61250b.getResources().getString(R.string.hot_god);
+                eVar2.f62233e = this.f61251b.getResources().getString(R.string.hot_god);
                 if (ListUtils.isEmpty(arrayList2)) {
                     eVar2.needTopMargin = false;
                 } else {
@@ -175,46 +175,46 @@ public class b {
     }
 
     public boolean g(long j) {
-        LongSparseArray<MetaData> longSparseArray = this.f61255g;
+        LongSparseArray<MetaData> longSparseArray = this.f61256g;
         return (longSparseArray == null || longSparseArray.get(j) == null) ? false : true;
     }
 
     public final void h(int i) {
-        if (this.f61250b == null) {
+        if (this.f61251b == null) {
             return;
         }
         GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
         godSquareCacheRequestMsg.cacheKey = i + "";
-        this.f61250b.sendMessage(godSquareCacheRequestMsg);
+        this.f61251b.sendMessage(godSquareCacheRequestMsg);
     }
 
     public final void i(int i) {
-        if (this.f61250b == null) {
+        if (this.f61251b == null) {
             return;
         }
-        this.f61252d = i;
+        this.f61253d = i;
         GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
         godSquareRequestMsg.pn = i;
-        this.f61250b.sendMessage(godSquareRequestMsg);
+        this.f61251b.sendMessage(godSquareRequestMsg);
     }
 
     public void j() {
-        this.f61251c = false;
-        i(this.f61252d + 1);
+        this.f61252c = false;
+        i(this.f61253d + 1);
     }
 
     public final void k() {
-        BaseActivity baseActivity = this.f61250b;
+        BaseActivity baseActivity = this.f61251b;
         if (baseActivity == null) {
             return;
         }
         baseActivity.registerListener(this.i);
-        this.f61250b.registerListener(this.f61256h);
+        this.f61251b.registerListener(this.f61257h);
     }
 
     public void l() {
-        this.f61254f = 1;
-        this.f61251c = true;
+        this.f61255f = 1;
+        this.f61252c = true;
         if (j.A()) {
             i(1);
         } else {

@@ -30,20 +30,20 @@ public class MultiColumnListView extends PLA_ListView {
     public class a implements PLA_AbsListView.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31100a = 0;
+        public int f31101a = 0;
 
         public a() {
         }
 
         @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
         public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
-            this.f31100a = (i + i2) - 2;
+            this.f31101a = (i + i2) - 2;
         }
 
         @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
         public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
             int count = MultiColumnListView.this.getAdapter().getCount() - 2;
-            if (i == 0 && this.f31100a == count && MultiColumnListView.this.loadingMoreComplete) {
+            if (i == 0 && this.f31101a == count && MultiColumnListView.this.loadingMoreComplete) {
                 MultiColumnListView.this.loadMoreListener.a();
                 MultiColumnListView.this.loadingMoreComplete = false;
             }
@@ -54,27 +54,27 @@ public class MultiColumnListView extends PLA_ListView {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31102a;
+        public int f31103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31103b;
+        public int f31104b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31104c;
+        public int f31105c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31105d = 0;
+        public int f31106d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31106e = 0;
+        public int f31107e = 0;
 
         public b(int i) {
-            this.f31102a = i;
+            this.f31103a = i;
         }
 
         public void c() {
-            this.f31105d = 0;
-            this.f31106e = 0;
+            this.f31106d = 0;
+            this.f31107e = 0;
         }
 
         public int d() {
@@ -82,23 +82,23 @@ public class MultiColumnListView extends PLA_ListView {
             int i = Integer.MIN_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = MultiColumnListView.this.getChildAt(i2);
-                if ((childAt.getLeft() == this.f31104c || MultiColumnListView.this.isFixedView(childAt)) && i < childAt.getBottom()) {
+                if ((childAt.getLeft() == this.f31105c || MultiColumnListView.this.isFixedView(childAt)) && i < childAt.getBottom()) {
                     i = childAt.getBottom();
                 }
             }
-            return i == Integer.MIN_VALUE ? this.f31106e : i;
+            return i == Integer.MIN_VALUE ? this.f31107e : i;
         }
 
         public int e() {
-            return this.f31104c;
+            return this.f31105c;
         }
 
         public int f() {
-            return this.f31103b;
+            return this.f31104b;
         }
 
         public int g() {
-            return this.f31102a;
+            return this.f31103a;
         }
 
         public int h() {
@@ -106,11 +106,11 @@ public class MultiColumnListView extends PLA_ListView {
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = MultiColumnListView.this.getChildAt(i2);
-                if (childAt.getLeft() == this.f31104c || MultiColumnListView.this.isFixedView(childAt)) {
+                if (childAt.getLeft() == this.f31105c || MultiColumnListView.this.isFixedView(childAt)) {
                     i = Math.min(i, childAt.getTop());
                 }
             }
-            return i == Integer.MAX_VALUE ? this.f31105d : i;
+            return i == Integer.MAX_VALUE ? this.f31106d : i;
         }
 
         public void i(int i) {
@@ -120,15 +120,15 @@ public class MultiColumnListView extends PLA_ListView {
             int childCount = MultiColumnListView.this.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = MultiColumnListView.this.getChildAt(i2);
-                if (childAt.getLeft() == this.f31104c || MultiColumnListView.this.isFixedView(childAt)) {
+                if (childAt.getLeft() == this.f31105c || MultiColumnListView.this.isFixedView(childAt)) {
                     childAt.offsetTopAndBottom(i);
                 }
             }
         }
 
         public void j() {
-            this.f31105d = 0;
-            this.f31106e = h();
+            this.f31106d = 0;
+            this.f31107e = h();
         }
     }
 
@@ -390,15 +390,15 @@ public class MultiColumnListView extends PLA_ListView {
         Rect rect = this.mListPadding;
         int i3 = (((((measuredWidth - rect.left) - rect.right) - this.mColumnPaddingLeft) - this.mColumnPaddingRight) - this.mColumnDiv) / this.mColumnNumber;
         for (int i4 = 0; i4 < this.mColumnNumber; i4++) {
-            this.mColumns[i4].f31103b = i3;
+            this.mColumns[i4].f31104b = i3;
             if (i4 == 0) {
-                this.mColumns[i4].f31104c = this.mListPadding.left + this.mColumnPaddingLeft + (i3 * i4);
+                this.mColumns[i4].f31105c = this.mListPadding.left + this.mColumnPaddingLeft + (i3 * i4);
             } else {
-                this.mColumns[i4].f31104c = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (i3 * i4);
+                this.mColumns[i4].f31105c = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (i3 * i4);
             }
         }
-        this.mFixedColumn.f31104c = this.mListPadding.left;
-        this.mFixedColumn.f31103b = getMeasuredWidth();
+        this.mFixedColumn.f31105c = this.mListPadding.left;
+        this.mFixedColumn.f31104b = getMeasuredWidth();
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView

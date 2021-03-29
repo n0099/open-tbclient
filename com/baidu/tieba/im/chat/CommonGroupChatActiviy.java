@@ -34,12 +34,12 @@ import d.b.b.c.g.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     public c mListener = new a(0);
     public CustomMessageListener mCustomListener = new b(0);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends c {
         public a(int i) {
             super(i);
@@ -78,7 +78,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);

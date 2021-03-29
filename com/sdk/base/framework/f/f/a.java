@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f38547a;
+    public static b f38548a;
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x00a2  */
     /* JADX WARN: Removed duplicated region for block: B:16:0x00a7 A[ORIG_RETURN, RETURN] */
@@ -31,10 +31,10 @@ public class a {
                     break;
                 case 302003:
                     jSONObject = new JSONObject();
-                    jSONObject.put("clientTimeOut", f38547a.b());
+                    jSONObject.put("clientTimeOut", f38548a.b());
                     jSONObject.put("type", 2);
                     jSONArray = new JSONArray();
-                    jSONArray.put(f38547a.c().a());
+                    jSONArray.put(f38548a.c().a());
                     break;
                 default:
                     jSONObject = null;
@@ -43,14 +43,14 @@ public class a {
             return jSONObject == null ? jSONObject.toString() : "";
         }
         jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", f38547a.b());
+        jSONObject.put("clientTimeOut", f38548a.b());
         jSONObject.put("type", 1);
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("url", 2);
         jSONObject2.put("time", 3);
         jSONObject.put("fieldType", jSONObject2);
         jSONArray = new JSONArray();
-        for (d dVar : f38547a.c().b()) {
+        for (d dVar : f38548a.c().b()) {
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("url", dVar.a());
             jSONObject3.put("time", dVar.b());
@@ -62,61 +62,61 @@ public class a {
     }
 
     public static void a() {
-        f38547a = new b();
+        f38548a = new b();
     }
 
     public static void a(String str) {
         try {
-            List<String> c2 = f38547a.c().c();
+            List<String> c2 = f38548a.c().c();
             c2.add(str);
-            f38547a.c().b(c2);
+            f38548a.c().b(c2);
         } catch (Throwable unused) {
         }
     }
 
     public static void a(String str, long j) {
         try {
-            if (c.b(str).booleanValue() && c.a(f38547a.a()).booleanValue()) {
+            if (c.b(str).booleanValue() && c.a(f38548a.a()).booleanValue()) {
                 Uri parse = Uri.parse(str);
                 String queryParameter = parse.getQueryParameter("sequenceNumber");
                 String queryParameter2 = parse.getQueryParameter("ret_url");
                 if (c.b(queryParameter2).booleanValue()) {
                     queryParameter = Uri.parse(com.sdk.base.framework.f.i.d.a(queryParameter2)).getQueryParameter("seq");
                 }
-                f38547a.a(queryParameter);
+                f38548a.a(queryParameter);
             }
-            List<d> b2 = f38547a.c().b();
+            List<d> b2 = f38548a.c().b();
             d dVar = new d();
             dVar.a(str);
             dVar.a(j);
             b2.add(dVar);
-            f38547a.c().a(b2);
+            f38548a.c().a(b2);
         } catch (Throwable unused) {
         }
     }
 
     public static b b() {
-        if (f38547a == null) {
+        if (f38548a == null) {
             a();
         }
-        return f38547a;
+        return f38548a;
     }
 
     public static void b(String str) {
         try {
-            List<String> d2 = f38547a.c().d();
+            List<String> d2 = f38548a.c().d();
             d2.add(str);
-            f38547a.c().c(d2);
+            f38548a.c().c(d2);
         } catch (Throwable unused) {
         }
     }
 
     public static JSONObject c() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", f38547a.b());
+        jSONObject.put("clientTimeOut", f38548a.b());
         jSONObject.put("type", 2);
         JSONArray jSONArray = new JSONArray();
-        for (String str : f38547a.c().d()) {
+        for (String str : f38548a.c().d()) {
             jSONArray.put(str);
         }
         jSONObject.put("content", jSONArray);
@@ -125,17 +125,17 @@ public class a {
 
     public static void c(String str) {
         try {
-            f38547a.c().a(str);
+            f38548a.c().a(str);
         } catch (Throwable unused) {
         }
     }
 
     public static JSONObject d() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", f38547a.b());
+        jSONObject.put("clientTimeOut", f38548a.b());
         jSONObject.put("type", 2);
         JSONArray jSONArray = new JSONArray();
-        for (String str : f38547a.c().c()) {
+        for (String str : f38548a.c().c()) {
             jSONArray.put(str);
         }
         jSONObject.put("content", jSONArray);

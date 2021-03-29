@@ -40,7 +40,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.f50239a = true;
         }
         return pageStayDurationItem;
     }

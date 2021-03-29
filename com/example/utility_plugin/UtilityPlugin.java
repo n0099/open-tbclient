@@ -224,7 +224,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             sendMesage(i, L);
         }
         e eVar = new e();
-        eVar.f53376b = L;
+        eVar.f53377b = L;
         if (a2Var.V() != null) {
             L.nid = a2Var.V().oriUgcNid;
         }

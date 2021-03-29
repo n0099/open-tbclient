@@ -11,31 +11,31 @@ import com.kwad.sdk.reward.d;
 public class b extends d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f36416b;
+    public View f36417b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36418d;
+    public boolean f36419d;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f36417c = new Handler(Looper.getMainLooper());
+    public Handler f36418c = new Handler(Looper.getMainLooper());
 
     /* renamed from: e  reason: collision with root package name */
-    public e f36419e = new e() { // from class: com.kwad.sdk.reward.b.c.b.b.1
+    public e f36420e = new e() { // from class: com.kwad.sdk.reward.b.c.b.b.1
         @Override // com.kwad.sdk.reward.a.e
         public void a() {
             long P = com.kwad.sdk.core.config.c.P() * 1000;
-            if (P == 0 || !b.this.f36418d) {
+            if (P == 0 || !b.this.f36419d) {
                 b.this.e();
             } else {
-                b.this.f36417c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.b.c.b.b.1.1
+                b.this.f36418c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.b.c.b.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (b.this.m() == null || b.this.m().isFinishing()) {
                             return;
                         }
                         b.this.e();
-                        b.this.f36416b.setAlpha(0.0f);
-                        b.this.f36416b.animate().alpha(1.0f).setDuration(500L).start();
+                        b.this.f36417b.setAlpha(0.0f);
+                        b.this.f36417b.animate().alpha(1.0f).setDuration(500L).start();
                     }
                 }, P);
             }
@@ -44,58 +44,58 @@ public class b extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f36416b.setVisibility(0);
-        this.f36416b.setOnClickListener(this);
+        this.f36417b.setVisibility(0);
+        this.f36417b.setOnClickListener(this);
     }
 
     private void f() {
-        Activity activity = ((d) this).f36457a.f36222g;
+        Activity activity = ((d) this).f36458a.f36223g;
         if (activity != null) {
             activity.finish();
         }
     }
 
     private void g() {
-        ((d) this).f36457a.f36217b.a(false);
+        ((d) this).f36458a.f36218b.a(false);
     }
 
     private void h() {
-        ((d) this).f36457a.f36217b.e();
+        ((d) this).f36458a.f36218b.e();
     }
 
     public b a(boolean z) {
-        this.f36418d = z;
+        this.f36419d = z;
         return this;
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((d) this).f36457a.n.add(this.f36419e);
+        ((d) this).f36458a.n.add(this.f36420e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((d) this).f36457a.n.remove(this.f36419e);
-        this.f36417c.removeCallbacksAndMessages(null);
+        ((d) this).f36458a.n.remove(this.f36420e);
+        this.f36418c.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f36416b = b(R.id.ksad_end_close_btn);
+        this.f36417b = b(R.id.ksad_end_close_btn);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        this.f36417c.removeCallbacksAndMessages(null);
+        this.f36418c.removeCallbacksAndMessages(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f36416b) {
+        if (view == this.f36417b) {
             h();
             g();
             f();

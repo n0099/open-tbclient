@@ -6,12 +6,12 @@ import android.util.LruCache;
 public class b extends LruCache<String, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f8174a;
+    public final /* synthetic */ a f8175a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.f8174a = aVar;
+        this.f8175a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

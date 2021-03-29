@@ -7,40 +7,40 @@ import com.baidu.swan.apps.SwanAppBaseActivity;
 import d.b.g0.a.k;
 import d.b.g0.a.k1.c;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45070a = k.f45050a;
+    public static final boolean f45071a = k.f45051a;
 
     /* renamed from: d.b.g0.a.k1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0717a implements c.a {
+    /* loaded from: classes2.dex */
+    public static class C0718a implements c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f45071a;
+        public final /* synthetic */ int f45072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f45072b;
+        public final /* synthetic */ b f45073b;
 
-        public C0717a(int i, b bVar) {
-            this.f45071a = i;
-            this.f45072b = bVar;
+        public C0718a(int i, b bVar) {
+            this.f45072a = i;
+            this.f45073b = bVar;
         }
 
         @Override // d.b.g0.a.k1.c.a
         public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            if (i != this.f45071a) {
-                this.f45072b.b(2, "request permission fail");
+            if (i != this.f45072a) {
+                this.f45073b.b(2, "request permission fail");
                 return;
             }
             for (int i2 : iArr) {
                 if (i2 == -1) {
-                    this.f45072b.b(1, "user denied");
+                    this.f45073b.b(1, "user denied");
                     return;
                 }
             }
-            this.f45072b.a("permission granted successful");
+            this.f45073b.a("permission granted successful");
         }
     }
 
@@ -59,11 +59,11 @@ public class a {
 
     public static void b(Context context, String[] strArr, int i, @NonNull b bVar) {
         if (context != null && (context instanceof SwanAppBaseActivity)) {
-            ((SwanAppBaseActivity) context).requestPermissionsExt(i, strArr, new C0717a(i, bVar));
+            ((SwanAppBaseActivity) context).requestPermissionsExt(i, strArr, new C0718a(i, bVar));
             return;
         }
         bVar.b(2, "method should be called after setActivityRef");
-        if (f45070a) {
+        if (f45071a) {
             throw new IllegalStateException("this method should be called after setActivityRef");
         }
     }

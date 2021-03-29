@@ -8,7 +8,7 @@ import com.baidu.fsg.base.restnet.RestTemplate;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ApollonBean {
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     public static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";

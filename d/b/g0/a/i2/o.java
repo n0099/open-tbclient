@@ -11,10 +11,10 @@ import d.b.g0.a.y0.e.b;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44737a = d.b.g0.a.k.f45050a;
+    public static final boolean f44738a = d.b.g0.a.k.f45051a;
 
     public static String a(int i, boolean z) {
-        return f44737a ? d.b.g0.a.m1.a.a.n() ? i.d(i, true) : "" : !i.h() ? "" : i.d(i, z);
+        return f44738a ? d.b.g0.a.m1.a.a.n() ? i.d(i, true) : "" : !i.h() ? "" : i.d(i, z);
     }
 
     public static String b(int i) {
@@ -118,7 +118,7 @@ public class o {
         try {
             str = d(activity);
         } catch (Exception e2) {
-            if (!f44737a) {
+            if (!f44738a) {
                 d.b.g0.a.c0.c.i("SwanAppEnvironmentUtils", "getExtraInfo error", e2);
                 str = "";
             } else {

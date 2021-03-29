@@ -336,73 +336,73 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f31046a = 0;
+        public long f31047a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31047b = 0;
+        public int f31048b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public DataSource f31048c;
+        public DataSource f31049c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ByteBuffer f31049d;
+        public ByteBuffer f31050d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31050e;
+        public long f31051e;
 
         public a(DataSource dataSource) throws IOException {
-            this.f31048c = dataSource;
+            this.f31049c = dataSource;
             c();
         }
 
         public void a() {
-            this.f31047b++;
+            this.f31048b++;
         }
 
         public void b() {
-            int i = this.f31047b + 3;
-            this.f31047b = i;
-            this.f31050e = this.f31046a + i;
+            int i = this.f31048b + 3;
+            this.f31048b = i;
+            this.f31051e = this.f31047a + i;
         }
 
         public void c() throws IOException {
-            DataSource dataSource = this.f31048c;
-            this.f31049d = dataSource.map(this.f31046a, Math.min(dataSource.size() - this.f31046a, H264TrackImpl.BUFFER));
+            DataSource dataSource = this.f31049c;
+            this.f31050d = dataSource.map(this.f31047a, Math.min(dataSource.size() - this.f31047a, H264TrackImpl.BUFFER));
         }
 
         public ByteBuffer d() {
-            long j = this.f31050e;
-            long j2 = this.f31046a;
+            long j = this.f31051e;
+            long j2 = this.f31047a;
             if (j >= j2) {
-                this.f31049d.position((int) (j - j2));
-                ByteBuffer slice = this.f31049d.slice();
-                slice.limit((int) (this.f31047b - (this.f31050e - this.f31046a)));
+                this.f31050d.position((int) (j - j2));
+                ByteBuffer slice = this.f31050d.slice();
+                slice.limit((int) (this.f31048b - (this.f31051e - this.f31047a)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
         }
 
         public boolean e() throws IOException {
-            int limit = this.f31049d.limit();
-            int i = this.f31047b;
+            int limit = this.f31050d.limit();
+            int i = this.f31048b;
             if (limit - i >= 3) {
-                return this.f31049d.get(i) == 0 && this.f31049d.get(this.f31047b + 1) == 0 && (this.f31049d.get(this.f31047b + 2) == 0 || this.f31049d.get(this.f31047b + 2) == 1);
-            } else if (this.f31046a + i + 3 > this.f31048c.size()) {
-                return this.f31046a + ((long) this.f31047b) == this.f31048c.size();
+                return this.f31050d.get(i) == 0 && this.f31050d.get(this.f31048b + 1) == 0 && (this.f31050d.get(this.f31048b + 2) == 0 || this.f31050d.get(this.f31048b + 2) == 1);
+            } else if (this.f31047a + i + 3 > this.f31049c.size()) {
+                return this.f31047a + ((long) this.f31048b) == this.f31049c.size();
             } else {
-                this.f31046a = this.f31050e;
-                this.f31047b = 0;
+                this.f31047a = this.f31051e;
+                this.f31048b = 0;
                 c();
                 return e();
             }
         }
 
         public boolean f() throws IOException {
-            int limit = this.f31049d.limit();
-            int i = this.f31047b;
+            int limit = this.f31050d.limit();
+            int i = this.f31048b;
             if (limit - i >= 3) {
-                return this.f31049d.get(i) == 0 && this.f31049d.get(this.f31047b + 1) == 0 && this.f31049d.get(this.f31047b + 2) == 1;
-            } else if (this.f31046a + i != this.f31048c.size()) {
+                return this.f31050d.get(i) == 0 && this.f31050d.get(this.f31048b + 1) == 0 && this.f31050d.get(this.f31048b + 2) == 1;
+            } else if (this.f31047a + i != this.f31049c.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {

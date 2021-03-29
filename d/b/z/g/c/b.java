@@ -11,24 +11,24 @@ import java.util.concurrent.CountDownLatch;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64923a;
+    public Context f64924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownLatch f64924b;
+    public CountDownLatch f64925b;
 
     public b(Context context, CountDownLatch countDownLatch) {
         super(Looper.getMainLooper());
-        this.f64923a = context;
-        this.f64924b = countDownLatch;
+        this.f64924a = context;
+        this.f64925b = countDownLatch;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         h.a().c();
         try {
-            new WebView(this.f64923a);
+            new WebView(this.f64924a);
         } catch (Exception unused) {
         }
-        this.f64924b.countDown();
+        this.f64925b.countDown();
     }
 }

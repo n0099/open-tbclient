@@ -21,28 +21,28 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.q1.h.f.a<Void> f59581a;
+    public d.b.i0.q1.h.f.a<Void> f59582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.q1.h.f.a<Integer> f59582b;
+    public d.b.i0.q1.h.f.a<Integer> f59583b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Boolean f59584d = Boolean.FALSE;
+    public Boolean f59585d = Boolean.FALSE;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59585e = false;
+    public boolean f59586e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.c.g.a f59586f = new a(CmdConfigHttp.CMD_TAIL_GET, 305001);
+    public d.b.b.c.g.a f59587f = new a(CmdConfigHttp.CMD_TAIL_GET, 305001);
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f59587g = new b(CmdConfigHttp.CMD_TAIL_SET, 305104);
+    public d.b.b.c.g.a f59588g = new b(CmdConfigHttp.CMD_TAIL_SET, 305104);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f59588h = new c(2001340);
+    public CustomMessageListener f59589h = new c(2001340);
 
     /* renamed from: c  reason: collision with root package name */
-    public List<TailData> f59583c = new ArrayList();
+    public List<TailData> f59584c = new ArrayList();
 
     /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
@@ -53,7 +53,7 @@ public class g {
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d.b.i0.q1.h.a.d resultData;
-            if (g.this.f59581a != null) {
+            if (g.this.f59582a != null) {
                 if (responsedMessage instanceof GetTailsHttpResponseMessage) {
                     resultData = ((GetTailsHttpResponseMessage) responsedMessage).getResultData();
                 } else {
@@ -62,7 +62,7 @@ public class g {
                 if (resultData == null) {
                     return;
                 }
-                g.this.f59583c = new ArrayList();
+                g.this.f59584c = new ArrayList();
                 if (resultData.b() != null) {
                     for (TailData tailData : resultData.b()) {
                         TailData tailData2 = new TailData();
@@ -71,10 +71,10 @@ public class g {
                         tailData2.setFontColor(tailData.getFontColor());
                         tailData2.setFontType(tailData.getFontType());
                         tailData2.setSelected(tailData.isSelected());
-                        g.this.f59583c.add(tailData2);
+                        g.this.f59584c.add(tailData2);
                     }
                 }
-                g.this.f59581a.a(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
+                g.this.f59582a.a(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
                 g.this.q();
             }
         }
@@ -89,13 +89,13 @@ public class g {
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d.b.i0.q1.h.a.f resultData;
-            if (g.this.f59581a != null) {
+            if (g.this.f59582a != null) {
                 if (responsedMessage instanceof SetTailHttpResponseMessage) {
                     resultData = ((SetTailHttpResponseMessage) responsedMessage).getResultData();
                 } else {
                     resultData = responsedMessage instanceof SetTailSocketResponseMessage ? ((SetTailSocketResponseMessage) responsedMessage).getResultData() : null;
                 }
-                g.this.f59582b.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
+                g.this.f59583b.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
             }
         }
     }
@@ -110,9 +110,9 @@ public class g {
             boolean z = false;
             int i = 0;
             while (true) {
-                if (i >= g.this.f59583c.size()) {
+                if (i >= g.this.f59584c.size()) {
                     break;
-                } else if (((TailData) g.this.f59583c.get(i)).getId() == eVar.f59487b.getId()) {
+                } else if (((TailData) g.this.f59584c.get(i)).getId() == eVar.f59488b.getId()) {
                     z = true;
                     break;
                 } else {
@@ -122,16 +122,16 @@ public class g {
             if (z) {
                 return;
             }
-            g.this.f59583c.add(eVar.f59487b);
+            g.this.f59584c.add(eVar.f59488b);
         }
 
         public final void b(d.b.i0.q1.h.a.e eVar) {
             boolean z = false;
-            for (int i = 0; i < g.this.f59583c.size(); i++) {
-                if (((TailData) g.this.f59583c.get(i)).getId() == eVar.f59487b.getId()) {
-                    g.this.f59583c.remove(i);
-                    if (g.this.f59583c.size() != 0) {
-                        Iterator it = g.this.f59583c.iterator();
+            for (int i = 0; i < g.this.f59584c.size(); i++) {
+                if (((TailData) g.this.f59584c.get(i)).getId() == eVar.f59488b.getId()) {
+                    g.this.f59584c.remove(i);
+                    if (g.this.f59584c.size() != 0) {
+                        Iterator it = g.this.f59584c.iterator();
                         while (true) {
                             if (it.hasNext()) {
                                 if (((TailData) it.next()).isSelected()) {
@@ -150,11 +150,11 @@ public class g {
         }
 
         public final void c(d.b.i0.q1.h.a.e eVar) {
-            for (int i = 0; i < g.this.f59583c.size(); i++) {
-                if (((TailData) g.this.f59583c.get(i)).getId() == eVar.f59487b.getId()) {
-                    ((TailData) g.this.f59583c.get(i)).setContent(eVar.f59487b.getContent());
-                    ((TailData) g.this.f59583c.get(i)).setFontColor(eVar.f59487b.getFontColor());
-                    ((TailData) g.this.f59583c.get(i)).setSelected(eVar.f59487b.isSelected());
+            for (int i = 0; i < g.this.f59584c.size(); i++) {
+                if (((TailData) g.this.f59584c.get(i)).getId() == eVar.f59488b.getId()) {
+                    ((TailData) g.this.f59584c.get(i)).setContent(eVar.f59488b.getContent());
+                    ((TailData) g.this.f59584c.get(i)).setFontColor(eVar.f59488b.getFontColor());
+                    ((TailData) g.this.f59584c.get(i)).setSelected(eVar.f59488b.isSelected());
                     return;
                 }
             }
@@ -167,10 +167,10 @@ public class g {
                 return;
             }
             d.b.i0.q1.h.a.e eVar = (d.b.i0.q1.h.a.e) customResponsedMessage.getData();
-            if (eVar.f59487b == null || g.this.f59583c == null) {
+            if (eVar.f59488b == null || g.this.f59584c == null) {
                 return;
             }
-            int i = eVar.f59486a;
+            int i = eVar.f59487a;
             if (i == 1) {
                 a(eVar);
             } else if (i == 3) {
@@ -178,7 +178,7 @@ public class g {
             } else if (i == 2) {
                 c(eVar);
             }
-            g.this.f59581a.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
+            g.this.f59582a.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
         }
     }
 
@@ -187,19 +187,19 @@ public class g {
     }
 
     public final void f() {
-        this.f59584d = Boolean.valueOf(TbadkCoreApplication.getCurrentMemberType() != 0);
+        this.f59585d = Boolean.valueOf(TbadkCoreApplication.getCurrentMemberType() != 0);
     }
 
     public boolean g() {
-        return this.f59584d.booleanValue();
+        return this.f59585d.booleanValue();
     }
 
     public boolean h() {
-        return this.f59585e;
+        return this.f59586e;
     }
 
     public List<TailData> i() {
-        return this.f59583c;
+        return this.f59584c;
     }
 
     public void j() {
@@ -207,23 +207,23 @@ public class g {
     }
 
     public void k() {
-        MessageManager.getInstance().registerListener(this.f59586f);
-        MessageManager.getInstance().registerListener(this.f59587g);
-        MessageManager.getInstance().registerListener(this.f59588h);
+        MessageManager.getInstance().registerListener(this.f59587f);
+        MessageManager.getInstance().registerListener(this.f59588g);
+        MessageManager.getInstance().registerListener(this.f59589h);
     }
 
     public void l() {
-        MessageManager.getInstance().unRegisterListener(this.f59586f);
-        MessageManager.getInstance().unRegisterListener(this.f59587g);
-        MessageManager.getInstance().unRegisterListener(this.f59588h);
+        MessageManager.getInstance().unRegisterListener(this.f59587f);
+        MessageManager.getInstance().unRegisterListener(this.f59588g);
+        MessageManager.getInstance().unRegisterListener(this.f59589h);
     }
 
     public void m(boolean z) {
-        this.f59585e = z;
+        this.f59586e = z;
     }
 
     public void n(d.b.i0.q1.h.f.a<Integer> aVar) {
-        this.f59582b = aVar;
+        this.f59583b = aVar;
     }
 
     public void o(int i, boolean z) {
@@ -231,12 +231,12 @@ public class g {
     }
 
     public void p(d.b.i0.q1.h.f.a<Void> aVar) {
-        this.f59581a = aVar;
+        this.f59582a = aVar;
     }
 
     public final void q() {
         boolean z;
-        Iterator<TailData> it = this.f59583c.iterator();
+        Iterator<TailData> it = this.f59584c.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;

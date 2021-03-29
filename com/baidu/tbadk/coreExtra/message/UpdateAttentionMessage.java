@@ -13,31 +13,31 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13692a;
+        public boolean f13693a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13693b;
+        public String f13694b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13694c;
+        public String f13695c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f13695d;
+        public boolean f13696d;
 
         /* renamed from: f  reason: collision with root package name */
-        public HttpResponse f13697f;
+        public HttpResponse f13698f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f13698g;
+        public JSONObject f13699g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13699h;
+        public boolean f13700h;
         public boolean i;
         public String j;
         public BlockPopInfoData k;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13696e = false;
+        public boolean f13697e = false;
         public int l = 0;
 
         public final void a(JSONObject jSONObject) {
@@ -65,7 +65,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f13698g = jSONObject;
+                this.f13699g = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -89,20 +89,20 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13695d;
+        return getData().f13696d;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13696e;
+        return getData().f13697e;
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f13692a;
+        return getData().f13693a;
     }
 }

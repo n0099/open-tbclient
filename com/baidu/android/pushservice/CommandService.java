@@ -8,7 +8,7 @@ import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommandService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

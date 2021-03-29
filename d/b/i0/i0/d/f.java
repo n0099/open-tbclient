@@ -14,7 +14,7 @@ import tbclient.ThemeColorInfo;
 public class f extends w implements d.b.h0.g0.b.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55489h;
+    public String f55490h;
     public String i;
     public int j;
     public int k;
@@ -43,7 +43,7 @@ public class f extends w implements d.b.h0.g0.b.a {
     }
 
     public String D() {
-        return this.f55489h;
+        return this.f55490h;
     }
 
     public int E() {
@@ -127,7 +127,7 @@ public class f extends w implements d.b.h0.g0.b.a {
             return;
         }
         try {
-            this.f55489h = String.valueOf(likeForum.forum_id);
+            this.f55490h = String.valueOf(likeForum.forum_id);
             this.i = likeForum.forum_name;
             this.k = likeForum.is_sign.intValue();
             this.j = likeForum.level_id.intValue();

@@ -2,7 +2,7 @@ package protobuf.UpdateMask;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GIDS = "";
     @ProtoField(tag = 2, type = Message.Datatype.STRING)

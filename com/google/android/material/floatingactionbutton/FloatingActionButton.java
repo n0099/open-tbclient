@@ -314,7 +314,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface Size {
     }
 

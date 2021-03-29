@@ -36,43 +36,43 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39327a = "";
+    public static String f39328a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39328b = "";
+    public static String f39329b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39329c = "";
+    public static String f39330c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39330d = "";
+    public static String f39331d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39331e = -1;
+    public static int f39332e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f39332f = null;
+    public static String f39333f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f39333g = "0123456789ABCDEF";
+    public static String f39334g = "0123456789ABCDEF";
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39334a;
+        public String f39335a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39335b;
+        public long f39336b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39336c;
+        public long f39337c;
 
         public a(String str, int i) {
-            this.f39334a = str;
-            this.f39335b = i;
+            this.f39335a = str;
+            this.f39336b = i;
             if (str != null) {
-                this.f39336c = str.length();
+                this.f39337c = str.length();
             }
         }
     }
@@ -189,7 +189,7 @@ public class j {
             return "";
         }
         String d2 = d(context, str);
-        f39329c = d2;
+        f39330c = d2;
         return d2;
     }
 
@@ -227,7 +227,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f39332f = str;
+            f39333f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -280,7 +280,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f39327a;
+        return f39328a;
     }
 
     public static boolean d(Context context) {
@@ -321,10 +321,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f39328b = str2;
-            f39327a = str2.substring(0, str2.lastIndexOf(46));
-            f39330d = f39328b.substring(f39328b.lastIndexOf(46) + 1, f39328b.length());
-            f39331e = packageInfo.versionCode;
+            f39329b = str2;
+            f39328a = str2.substring(0, str2.lastIndexOf(46));
+            f39331d = f39329b.substring(f39329b.lastIndexOf(46) + 1, f39329b.length());
+            f39332e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -356,7 +356,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f39328b;
+        return f39329b;
     }
 
     public static boolean f(Context context, String str) {

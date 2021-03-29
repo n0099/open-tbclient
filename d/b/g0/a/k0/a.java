@@ -11,30 +11,30 @@ import d.b.g0.a.j1.m.c;
 import d.b.g0.a.k;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45052a = k.f45050a;
+    public static final boolean f45053a = k.f45051a;
 
     /* renamed from: d.b.g0.a.k0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class RunnableC0716a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class RunnableC0717a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.k.a f45053e;
+        public final /* synthetic */ d.b.g0.a.e0.k.a f45054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45054f;
+        public final /* synthetic */ String f45055f;
 
-        public RunnableC0716a(d.b.g0.a.e0.k.a aVar, String str) {
-            this.f45053e = aVar;
-            this.f45054f = str;
+        public RunnableC0717a(d.b.g0.a.e0.k.a aVar, String str) {
+            this.f45054e = aVar;
+            this.f45055f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.c(this.f45053e, this.f45054f);
+            a.c(this.f45054e, this.f45055f);
         }
     }
 
@@ -49,10 +49,10 @@ public final class a {
         String str2 = "";
         if (c.e()) {
             if (aVar.isWebView()) {
-                str = "var event = new Event('" + aVar2.f45055a + "');";
+                str = "var event = new Event('" + aVar2.f45056a + "');";
             } else {
                 str = "var event = new Object();";
-                str2 = e("event", "type", aVar2.f45055a);
+                str2 = e("event", "type", aVar2.f45056a);
             }
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("javascript:(function(){");
@@ -69,19 +69,19 @@ public final class a {
             format2 = stringBuffer.toString();
         } else {
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.f45055a);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.f45056a);
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", "event");
-                str2 = e("event", "type", aVar2.f45055a);
+                str2 = e("event", "type", aVar2.f45056a);
             }
             format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, str2 + aVar2.a("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", g(aVar), "event"));
         }
         h.a("postMessage", "dispatchJSEvent buildEvent");
-        if (f45052a) {
+        if (f45053a) {
             Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
         }
         if (aVar.isWebView()) {
-            k0.X(new RunnableC0716a(aVar, format2));
+            k0.X(new RunnableC0717a(aVar, format2));
         } else {
             c(aVar, format2);
         }
@@ -89,7 +89,7 @@ public final class a {
 
     public static void c(d.b.g0.a.e0.k.a aVar, String str) {
         if (aVar.isDestroyed()) {
-            if (f45052a) {
+            if (f45053a) {
                 Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
                 return;
             }

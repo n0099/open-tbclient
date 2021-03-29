@@ -25,7 +25,7 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class EncodedImage implements Closeable {
     public static final int DEFAULT_SAMPLE_SIZE = 1;
     public static final int UNKNOWN_HEIGHT = -1;

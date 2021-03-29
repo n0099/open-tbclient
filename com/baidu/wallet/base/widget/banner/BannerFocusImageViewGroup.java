@@ -34,28 +34,28 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static final int TOKEN_IS_EXPIRED = 112;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23983a = 1;
+    public static final int f23984a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23984b = 0;
+    public static final int f23985b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23985c = 1;
+    public static final int f23986c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f23986d = 200;
+    public static final int f23987d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f23987e = -1;
+    public static final int f23988e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f23988f = -999;
+    public static final int f23989f = -999;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f23989g = 3000;
+    public static final int f23990g = 3000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f23990h = 100;
+    public static final int f23991h = 100;
     public static final int i = 5;
     public static final float j = 0.23f;
     public static final float k = 1.0E9f;
@@ -103,28 +103,28 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f23998a = 1;
+        public static final int f23999a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f23999b = 2;
+        public static final int f24000b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public WeakReference<BannerFocusImageViewGroup> f24000c;
+        public WeakReference<BannerFocusImageViewGroup> f24001c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f24001d = 0;
+        public int f24002d = 0;
 
         public a(BannerFocusImageViewGroup bannerFocusImageViewGroup) {
-            this.f24000c = new WeakReference<>(bannerFocusImageViewGroup);
+            this.f24001c = new WeakReference<>(bannerFocusImageViewGroup);
         }
 
         public void a(int i) {
-            this.f24001d = i;
+            this.f24002d = i;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f24000c.get();
+            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f24001c.get();
             if (message == null || bannerFocusImageViewGroup == null) {
                 return;
             }
@@ -132,7 +132,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
             if (i == 1) {
                 Rect rect = new Rect();
                 bannerFocusImageViewGroup.getGlobalVisibleRect(rect);
-                if (this.f24001d == rect.left) {
+                if (this.f24002d == rect.left) {
                     bannerFocusImageViewGroup.moveToNext();
                 }
                 sendMessageDelayed(obtainMessage(1), 3000L);
@@ -146,7 +146,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                         if (!it.hasNext()) {
                             z = z2;
                             break;
-                        } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f23997c)) {
+                        } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f23998c)) {
                             break;
                         }
                     }
@@ -615,54 +615,54 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static class FoucsImageItem {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f23995a;
+        public int f23996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f23996b;
+        public String f23997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f23997c;
+        public String f23998c;
 
         public FoucsImageItem() {
-            this.f23995a = 0;
-            this.f23996b = "";
-            this.f23997c = "";
-            this.f23995a = 0;
-            this.f23996b = "";
-            this.f23997c = "";
+            this.f23996a = 0;
+            this.f23997b = "";
+            this.f23998c = "";
+            this.f23996a = 0;
+            this.f23997b = "";
+            this.f23998c = "";
         }
 
         public String getImageUrl() {
-            return this.f23997c;
+            return this.f23998c;
         }
 
         public String getPageID() {
-            return this.f23996b;
+            return this.f23997b;
         }
 
         public int getPageType() {
-            return this.f23995a;
+            return this.f23996a;
         }
 
         public void setImageUrl(String str) {
-            this.f23997c = str;
+            this.f23998c = str;
         }
 
         public void setPageID(String str) {
-            this.f23996b = str;
+            this.f23997b = str;
         }
 
         public void setPageTpye(int i) {
-            this.f23995a = i;
+            this.f23996a = i;
         }
 
         public FoucsImageItem(String str, int i, String str2) {
-            this.f23995a = 0;
-            this.f23996b = "";
-            this.f23997c = "";
-            this.f23996b = str;
-            this.f23995a = i;
-            this.f23997c = str2;
+            this.f23996a = 0;
+            this.f23997b = "";
+            this.f23998c = "";
+            this.f23997b = str;
+            this.f23996a = i;
+            this.f23998c = str2;
         }
     }
 

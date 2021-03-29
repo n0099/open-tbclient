@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {

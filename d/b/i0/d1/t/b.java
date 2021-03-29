@@ -9,37 +9,37 @@ import d.b.b.e.d.l;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.i0.d1.t.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f54034b = new b();
+    public static b f54035b = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54035a;
+        public final /* synthetic */ String f54036a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54036b;
+        public final /* synthetic */ String f54037b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f54037c;
+        public final /* synthetic */ long f54038c;
 
         public a(String str, String str2, long j) {
-            this.f54035a = str;
-            this.f54036b = str2;
-            this.f54037c = j;
+            this.f54036a = str;
+            this.f54037b = str2;
+            this.f54038c = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            GroupSettingItemData a2 = b.this.a(this.f54035a, this.f54036b);
+            GroupSettingItemData a2 = b.this.a(this.f54036a, this.f54037b);
             if (a2 != null && a2.isAlreadyApply()) {
-                if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f54037c) {
+                if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f54038c) {
                     return Boolean.FALSE;
                 }
             }
@@ -48,50 +48,50 @@ public class b extends d.b.i0.d1.t.a {
     }
 
     /* renamed from: d.b.i0.d1.t.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1213b extends f0<Void> {
+    /* loaded from: classes3.dex */
+    public class C1214b extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupSettingItemData f54039a;
+        public final /* synthetic */ GroupSettingItemData f54040a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54040b;
+        public final /* synthetic */ String f54041b;
 
-        public C1213b(GroupSettingItemData groupSettingItemData, String str) {
-            this.f54039a = groupSettingItemData;
-            this.f54040b = str;
+        public C1214b(GroupSettingItemData groupSettingItemData, String str) {
+            this.f54040a = groupSettingItemData;
+            this.f54041b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            b.this.b().g(this.f54040b, OrmObject.jsonStrWithObject(this.f54039a));
+            b.this.b().g(this.f54041b, OrmObject.jsonStrWithObject(this.f54040a));
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54042a;
+        public final /* synthetic */ String f54043a;
 
         public c(String str) {
-            this.f54042a = str;
+            this.f54043a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            b.this.b().remove(this.f54042a);
+            b.this.b().remove(this.f54043a);
             return null;
         }
     }
 
     public static b k() {
-        return f54034b;
+        return f54035b;
     }
 
     @Override // d.b.i0.d1.t.a
@@ -111,8 +111,8 @@ public class b extends d.b.i0.d1.t.a {
             l<String> b2 = b();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.f54030a) {
-                this.f54030a.put(str, groupSettingItemData);
+            synchronized (this.f54031a) {
+                this.f54031a.put(str, groupSettingItemData);
             }
             b2.g(str, jsonStrWithObject);
         } else if (TbConfig.getDebugSwitch()) {
@@ -130,10 +130,10 @@ public class b extends d.b.i0.d1.t.a {
         String gid = groupSettingItemData.getGid();
         if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
             String str = uid + "@" + gid;
-            synchronized (this.f54030a) {
-                this.f54030a.put(str, groupSettingItemData);
+            synchronized (this.f54031a) {
+                this.f54031a.put(str, groupSettingItemData);
             }
-            h0.c(new C1213b(groupSettingItemData, str), nVar);
+            h0.c(new C1214b(groupSettingItemData, str), nVar);
         } else if (TbConfig.getDebugSwitch()) {
             throw new RuntimeException("key param is null");
         }
@@ -144,8 +144,8 @@ public class b extends d.b.i0.d1.t.a {
             return;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54030a) {
-            this.f54030a.remove(str3);
+        synchronized (this.f54031a) {
+            this.f54031a.remove(str3);
         }
         h0.c(new c(str3), nVar);
     }
@@ -159,8 +159,8 @@ public class b extends d.b.i0.d1.t.a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54030a) {
-            ChatSetting chatSetting = this.f54030a.get(str3);
+        synchronized (this.f54031a) {
+            ChatSetting chatSetting = this.f54031a.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {

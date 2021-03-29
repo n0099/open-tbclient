@@ -15,39 +15,39 @@ public class a implements WrapperListAdapter, Filterable {
     public static final ArrayList<PLA_ListView.a> j = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final ListAdapter f66185e;
+    public final ListAdapter f66186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<PLA_ListView.a> f66186f;
+    public ArrayList<PLA_ListView.a> f66187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<PLA_ListView.a> f66187g;
+    public ArrayList<PLA_ListView.a> f66188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f66188h;
+    public boolean f66189h;
     public final boolean i;
 
     public a(ArrayList<PLA_ListView.a> arrayList, ArrayList<PLA_ListView.a> arrayList2, ListAdapter listAdapter) {
-        this.f66185e = listAdapter;
+        this.f66186e = listAdapter;
         this.i = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.f66186f = j;
+            this.f66187f = j;
         } else {
-            this.f66186f = arrayList;
+            this.f66187f = arrayList;
         }
         if (arrayList2 == null) {
-            this.f66187g = j;
+            this.f66188g = j;
         } else {
-            this.f66187g = arrayList2;
+            this.f66188g = arrayList2;
         }
-        this.f66188h = a(this.f66186f) && a(this.f66187g);
+        this.f66189h = a(this.f66187f) && a(this.f66188g);
     }
 
     public final boolean a(ArrayList<PLA_ListView.a> arrayList) {
         if (arrayList != null) {
             Iterator<PLA_ListView.a> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!it.next().f31148c) {
+                if (!it.next().f31149c) {
                     return false;
                 }
             }
@@ -58,30 +58,30 @@ public class a implements WrapperListAdapter, Filterable {
 
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null) {
-            return this.f66188h && listAdapter.areAllItemsEnabled();
+            return this.f66189h && listAdapter.areAllItemsEnabled();
         }
         return true;
     }
 
     public int b() {
-        return this.f66187g.size();
+        return this.f66188g.size();
     }
 
     public int c() {
-        return this.f66186f.size();
+        return this.f66187f.size();
     }
 
     public boolean d(View view) {
         boolean z = false;
-        for (int i = 0; i < this.f66187g.size(); i++) {
-            if (this.f66187g.get(i).f31146a == view) {
-                this.f66187g.remove(i);
-                if (a(this.f66186f) && a(this.f66187g)) {
+        for (int i = 0; i < this.f66188g.size(); i++) {
+            if (this.f66188g.get(i).f31147a == view) {
+                this.f66188g.remove(i);
+                if (a(this.f66187f) && a(this.f66188g)) {
                     z = true;
                 }
-                this.f66188h = z;
+                this.f66189h = z;
                 return true;
             }
         }
@@ -90,13 +90,13 @@ public class a implements WrapperListAdapter, Filterable {
 
     public boolean e(View view) {
         boolean z = false;
-        for (int i = 0; i < this.f66186f.size(); i++) {
-            if (this.f66186f.get(i).f31146a == view) {
-                this.f66186f.remove(i);
-                if (a(this.f66186f) && a(this.f66187g)) {
+        for (int i = 0; i < this.f66187f.size(); i++) {
+            if (this.f66187f.get(i).f31147a == view) {
+                this.f66187f.remove(i);
+                if (a(this.f66187f) && a(this.f66188g)) {
                     z = true;
                 }
-                this.f66188h = z;
+                this.f66189h = z;
                 return true;
             }
         }
@@ -107,9 +107,9 @@ public class a implements WrapperListAdapter, Filterable {
     public int getCount() {
         int b2;
         int c2;
-        if (this.f66185e != null) {
+        if (this.f66186e != null) {
             b2 = b() + c();
-            c2 = this.f66185e.getCount();
+            c2 = this.f66186e.getCount();
         } else {
             b2 = b();
             c2 = c();
@@ -120,7 +120,7 @@ public class a implements WrapperListAdapter, Filterable {
     @Override // android.widget.Filterable
     public Filter getFilter() {
         if (this.i) {
-            return ((Filterable) this.f66185e).getFilter();
+            return ((Filterable) this.f66186e).getFilter();
         }
         return null;
     }
@@ -129,57 +129,57 @@ public class a implements WrapperListAdapter, Filterable {
     public Object getItem(int i) {
         int c2 = c();
         if (i < c2) {
-            return this.f66186f.get(i).f31147b;
+            return this.f66187f.get(i).f31148b;
         }
         int i2 = i - c2;
         int i3 = 0;
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-            return this.f66185e.getItem(i2);
+            return this.f66186e.getItem(i2);
         }
-        return this.f66187g.get(i2 - i3).f31147b;
+        return this.f66188g.get(i2 - i3).f31148b;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2;
         int c2 = c();
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter == null || i < c2 || (i2 = i - c2) >= listAdapter.getCount()) {
             return -1L;
         }
-        return this.f66185e.getItemId(i2);
+        return this.f66186e.getItemId(i2);
     }
 
     @Override // android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
         int c2 = c();
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter == null || i < c2 || (i2 = i - c2) >= listAdapter.getCount()) {
             return -2;
         }
-        return this.f66185e.getItemViewType(i2);
+        return this.f66186e.getItemViewType(i2);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int c2 = c();
         if (i < c2) {
-            return this.f66186f.get(i).f31146a;
+            return this.f66187f.get(i).f31147a;
         }
         int i2 = i - c2;
         int i3 = 0;
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-            return this.f66185e.getView(i2, view, viewGroup);
+            return this.f66186e.getView(i2, view, viewGroup);
         }
-        return this.f66187g.get(i2 - i3).f31146a;
+        return this.f66188g.get(i2 - i3).f31147a;
     }
 
     @Override // android.widget.Adapter
     public int getViewTypeCount() {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null) {
             return listAdapter.getViewTypeCount();
         }
@@ -188,12 +188,12 @@ public class a implements WrapperListAdapter, Filterable {
 
     @Override // android.widget.WrapperListAdapter
     public ListAdapter getWrappedAdapter() {
-        return this.f66185e;
+        return this.f66186e;
     }
 
     @Override // android.widget.Adapter
     public boolean hasStableIds() {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null) {
             return listAdapter.hasStableIds();
         }
@@ -202,7 +202,7 @@ public class a implements WrapperListAdapter, Filterable {
 
     @Override // android.widget.Adapter
     public boolean isEmpty() {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         return listAdapter == null || listAdapter.isEmpty();
     }
 
@@ -210,20 +210,20 @@ public class a implements WrapperListAdapter, Filterable {
     public boolean isEnabled(int i) {
         int c2 = c();
         if (i < c2) {
-            return this.f66186f.get(i).f31148c;
+            return this.f66187f.get(i).f31149c;
         }
         int i2 = i - c2;
         int i3 = 0;
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-            return this.f66185e.isEnabled(i2);
+            return this.f66186e.isEnabled(i2);
         }
-        return this.f66187g.get(i2 - i3).f31148c;
+        return this.f66188g.get(i2 - i3).f31149c;
     }
 
     @Override // android.widget.Adapter
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null) {
             listAdapter.registerDataSetObserver(dataSetObserver);
         }
@@ -231,7 +231,7 @@ public class a implements WrapperListAdapter, Filterable {
 
     @Override // android.widget.Adapter
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter = this.f66185e;
+        ListAdapter listAdapter = this.f66186e;
         if (listAdapter != null) {
             listAdapter.unregisterDataSetObserver(dataSetObserver);
         }

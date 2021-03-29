@@ -15,32 +15,32 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: h  reason: collision with root package name */
-    public static g f50180h;
+    public static g f50181h;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f50184d;
+    public d f50185d;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50181a = false;
+    public boolean f50182a = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.h0.f0.c f50185e = new a();
+    public final d.b.h0.f0.c f50186e = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f50186f = new Handler(Looper.getMainLooper());
+    public Handler f50187f = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.h0.m.g f50187g = new c();
+    public final d.b.h0.m.g f50188g = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends d.b.h0.f0.a>, d.b.h0.f0.b> f50182b = new HashMap();
+    public final Map<Class<? extends d.b.h0.f0.a>, d.b.h0.f0.b> f50183b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends d.b.h0.f0.a>, LinkedList<h>> f50183c = new HashMap();
+    public final Map<Class<? extends d.b.h0.f0.a>, LinkedList<h>> f50184c = new HashMap();
 
     /* loaded from: classes3.dex */
     public class a implements d.b.h0.f0.c {
@@ -57,15 +57,15 @@ public class g {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.f0.a f50189e;
+        public final /* synthetic */ d.b.h0.f0.a f50190e;
 
         public b(d.b.h0.f0.a aVar) {
-            this.f50189e = aVar;
+            this.f50190e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.c(this.f50189e);
+            g.this.c(this.f50190e);
         }
     }
 
@@ -83,14 +83,14 @@ public class g {
     }
 
     public static g e() {
-        if (f50180h == null) {
+        if (f50181h == null) {
             synchronized (g.class) {
-                if (f50180h == null) {
-                    f50180h = new g();
+                if (f50181h == null) {
+                    f50181h = new g();
                 }
             }
         }
-        return f50180h;
+        return f50181h;
     }
 
     public static void g(d.b.h0.f0.a aVar) {
@@ -109,7 +109,7 @@ public class g {
         }
         Class<?> cls = aVar.getClass();
         try {
-            d.b.h0.f0.b bVar = this.f50182b.get(cls);
+            d.b.h0.f0.b bVar = this.f50183b.get(cls);
             if (bVar != null) {
                 bVar.onEvent(aVar);
             }
@@ -117,7 +117,7 @@ public class g {
             BdLog.detailException(cls.getName(), e2);
         }
         try {
-            LinkedList<h> linkedList = this.f50183c.get(cls);
+            LinkedList<h> linkedList = this.f50184c.get(cls);
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
@@ -140,28 +140,28 @@ public class g {
         if (l.B()) {
             c(aVar);
         } else {
-            this.f50186f.post(new b(aVar));
+            this.f50187f.post(new b(aVar));
         }
     }
 
     public void f(Application application) {
-        if (this.f50181a) {
+        if (this.f50182a) {
             return;
         }
         if (application != null) {
             i(application);
             e eVar = new e(application);
-            this.f50184d = eVar;
-            eVar.b(this.f50185e);
-            this.f50184d.c();
-            this.f50181a = true;
+            this.f50185d = eVar;
+            eVar.b(this.f50186e);
+            this.f50185d.c();
+            this.f50182a = true;
             return;
         }
         throw new NullPointerException("MutiProcessManager Initialized, application is null");
     }
 
     public final void h(d.b.h0.f0.a aVar) {
-        d dVar = this.f50184d;
+        d dVar = this.f50185d;
         if (dVar != null) {
             dVar.a(aVar);
         }
@@ -169,7 +169,7 @@ public class g {
 
     public final void i(Application application) {
         try {
-            application.registerActivityLifecycleCallbacks(this.f50187g);
+            application.registerActivityLifecycleCallbacks(this.f50188g);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -180,11 +180,11 @@ public class g {
             throw new NullPointerException("register listener is null");
         }
         if (cls != null) {
-            if (this.f50182b.containsKey(cls)) {
+            if (this.f50183b.containsKey(cls)) {
                 BdLog.e(cls + " has existed, Please unRegister old listener first！");
                 return;
             }
-            this.f50182b.put(cls, bVar);
+            this.f50183b.put(cls, bVar);
             return;
         }
         throw new NullPointerException("register IEvent class is null");
@@ -195,10 +195,10 @@ public class g {
             throw new NullPointerException("register listener is null");
         }
         if (cls != null) {
-            LinkedList<h> linkedList = this.f50183c.get(cls);
+            LinkedList<h> linkedList = this.f50184c.get(cls);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f50183c.put(cls, linkedList);
+                this.f50184c.put(cls, linkedList);
             }
             if (linkedList.contains(hVar)) {
                 BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -215,7 +215,7 @@ public class g {
         if (bdUniqueId == null) {
             return;
         }
-        for (Map.Entry<Class<? extends d.b.h0.f0.a>, LinkedList<h>> entry : this.f50183c.entrySet()) {
+        for (Map.Entry<Class<? extends d.b.h0.f0.a>, LinkedList<h>> entry : this.f50184c.entrySet()) {
             LinkedList<h> value = entry.getValue();
             if (!ListUtils.isEmpty(value)) {
                 Iterator<h> it = value.iterator();

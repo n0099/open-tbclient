@@ -23,10 +23,8 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
                 d2 = duration;
             }
         }
-        double d3 = this.fragmentLength;
-        Double.isNaN(d3);
         int i = 1;
-        int ceil = ((int) Math.ceil(d2 / d3)) - 1;
+        int ceil = ((int) Math.ceil(d2 / this.fragmentLength)) - 1;
         int i2 = ceil < 1 ? 1 : ceil;
         long[] jArr = new long[i2];
         Arrays.fill(jArr, -1L);

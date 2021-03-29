@@ -10,58 +10,58 @@ import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64567a;
+    public static int f64568a;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64568e;
+        public final /* synthetic */ Context f64569e;
 
         public a(Context context) {
-            this.f64568e = context;
+            this.f64569e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.i(this.f64568e);
+            b.i(this.f64569e);
         }
     }
 
     /* renamed from: d.b.s.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1765b implements IMPushUploadResponseListener {
+    public static class C1766b implements IMPushUploadResponseListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f64569a;
+        public final /* synthetic */ Context f64570a;
 
-        public C1765b(Context context) {
-            this.f64569a = context;
+        public C1766b(Context context) {
+            this.f64570a = context;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
         public void uploadResponse(int i, String str) {
             d.b.s.a.g.d.a("LcpTrackManager", "uploadIMData response :" + i + ", msg :" + str);
-            d.b.s.a.a.d.r(this.f64569a);
+            d.b.s.a.a.d.r(this.f64570a);
             if (i == 0) {
-                b.g(this.f64569a);
-                int unused = b.f64567a = 0;
+                b.g(this.f64570a);
+                int unused = b.f64568a = 0;
                 return;
             }
             int i2 = 1;
-            if (b.f64567a < 1) {
-                b.i(this.f64569a);
+            if (b.f64568a < 1) {
+                b.i(this.f64570a);
                 b.e();
                 return;
             }
-            int unused2 = b.f64567a = 0;
-            int h2 = d.b.s.a.a.d.h(this.f64569a);
+            int unused2 = b.f64568a = 0;
+            int h2 = d.b.s.a.a.d.h(this.f64570a);
             if (h2 >= 3) {
-                b.g(this.f64569a);
+                b.g(this.f64570a);
             } else {
                 i2 = 1 + h2;
             }
-            d.b.s.a.a.d.q(this.f64569a, i2);
+            d.b.s.a.a.d.q(this.f64570a, i2);
         }
     }
 
@@ -69,19 +69,19 @@ public class b {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64570e;
+        public final /* synthetic */ Context f64571e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IMPushPb.Action f64571f;
+        public final /* synthetic */ IMPushPb.Action f64572f;
 
         public c(Context context, IMPushPb.Action action) {
-            this.f64570e = context;
-            this.f64571f = action;
+            this.f64571e = context;
+            this.f64572f = action;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.h(this.f64570e, this.f64571f);
+            b.h(this.f64571e, this.f64572f);
         }
     }
 
@@ -89,34 +89,34 @@ public class b {
     public static class d implements IMPushUploadResponseListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f64572a;
+        public final /* synthetic */ Context f64573a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ byte[] f64573b;
+        public final /* synthetic */ byte[] f64574b;
 
         public d(Context context, byte[] bArr) {
-            this.f64572a = context;
-            this.f64573b = bArr;
+            this.f64573a = context;
+            this.f64574b = bArr;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
         public void uploadResponse(int i, String str) {
             d.b.s.a.g.d.a("LcpTrackManager", "uploadInitData response :" + i + ", msg :" + str);
             if (i != 0) {
-                IMPushUploadManager.getInstance(this.f64572a).requestUpload(null, this.f64573b, "", null);
+                IMPushUploadManager.getInstance(this.f64573a).requestUpload(null, this.f64574b, "", null);
             }
         }
     }
 
     public static /* synthetic */ int e() {
-        int i = f64567a;
-        f64567a = i + 1;
+        int i = f64568a;
+        f64568a = i + 1;
         return i;
     }
 
     public static void g(Context context) {
         d.b.s.a.a.d.b(context);
-        f64567a = 0;
+        f64568a = 0;
     }
 
     public static void h(Context context, @NonNull IMPushPb.Action action) {
@@ -135,7 +135,7 @@ public class b {
         d.b.s.a.g.d.a("LcpTrackManager", sb.toString());
         if (c2 != null && c2.length < 307200 && c2.length > 0) {
             d.b.s.a.g.d.a("LcpTrackManager", "requestUpload begin");
-            IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new C1765b(context));
+            IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new C1766b(context));
             return;
         }
         StringBuilder sb2 = new StringBuilder();

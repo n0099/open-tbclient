@@ -12,33 +12,33 @@ import java.util.concurrent.CountDownLatch;
 public final class n1<SERVICE, RESULT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final CountDownLatch f65041a = new CountDownLatch(1);
+    public final CountDownLatch f65042a = new CountDownLatch(1);
 
     /* renamed from: b  reason: collision with root package name */
-    public final Intent f65042b;
+    public final Intent f65043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b<SERVICE, RESULT> f65043c;
+    public final b<SERVICE, RESULT> f65044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f65044d;
+    public final Context f65045d;
 
     /* loaded from: classes5.dex */
     public class a implements ServiceConnection {
 
         /* renamed from: e  reason: collision with root package name */
-        public final CountDownLatch f65045e;
+        public final CountDownLatch f65046e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final b<SERVICE, RESULT> f65046f;
+        public final b<SERVICE, RESULT> f65047f;
         @Nullable
 
         /* renamed from: g  reason: collision with root package name */
-        public SERVICE f65047g;
+        public SERVICE f65048g;
 
         public a(n1 n1Var, CountDownLatch countDownLatch, b<SERVICE, RESULT> bVar) {
-            this.f65045e = countDownLatch;
-            this.f65046f = bVar;
+            this.f65046e = countDownLatch;
+            this.f65047f = bVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -46,8 +46,8 @@ public final class n1<SERVICE, RESULT> {
             String str = f1.j;
             y0.e(str, "ServiceBlockBinder#onServiceConnected " + componentName);
             try {
-                this.f65047g = this.f65046f.a(iBinder);
-                this.f65045e.countDown();
+                this.f65048g = this.f65047f.a(iBinder);
+                this.f65046e.countDown();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -58,7 +58,7 @@ public final class n1<SERVICE, RESULT> {
             String str = f1.j;
             y0.e(str, "ServiceBlockBinder#onServiceDisconnected" + componentName);
             try {
-                this.f65045e.countDown();
+                this.f65046e.countDown();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -73,9 +73,9 @@ public final class n1<SERVICE, RESULT> {
     }
 
     public n1(Context context, Intent intent, b<SERVICE, RESULT> bVar) {
-        this.f65044d = context;
-        this.f65042b = intent;
-        this.f65043c = bVar;
+        this.f65045d = context;
+        this.f65043b = intent;
+        this.f65044c = bVar;
     }
 
     public RESULT a() {
@@ -84,15 +84,15 @@ public final class n1<SERVICE, RESULT> {
             return null;
         }
         try {
-            aVar = new a(this, this.f65041a, this.f65043c);
-            this.f65044d.bindService(this.f65042b, aVar, 1);
-            this.f65041a.await();
+            aVar = new a(this, this.f65042a, this.f65044c);
+            this.f65045d.bindService(this.f65043b, aVar, 1);
+            this.f65042a.await();
         } catch (Throwable th) {
             th = th;
             aVar = null;
         }
         try {
-            return this.f65043c.a((b<SERVICE, RESULT>) aVar.f65047g);
+            return this.f65044c.a((b<SERVICE, RESULT>) aVar.f65048g);
         } catch (Throwable th2) {
             th = th2;
             try {
@@ -107,7 +107,7 @@ public final class n1<SERVICE, RESULT> {
     public final void b(n1<SERVICE, RESULT>.a aVar) {
         if (aVar != null) {
             try {
-                this.f65044d.unbindService(aVar);
+                this.f65045d.unbindService(aVar);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

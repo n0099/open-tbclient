@@ -24,16 +24,16 @@ public final class du {
         public boolean f256f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f40384g;
+        public boolean f40385g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f40385h;
+        public boolean f40386h;
         public boolean i;
         public boolean j;
         public boolean k;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40378a = 0;
+        public int f40379a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         public long f245a = 0;
@@ -54,26 +54,26 @@ public final class du {
         public String f254e = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40379b = 1;
+        public int f40380b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40380c = 0;
+        public int f40381c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f40381d = 0;
+        public int f40382d = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f40383f = "";
+        public String f40384f = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40382e = -1;
+        public int f40383e = -1;
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40382e < 0) {
+            if (this.f40383e < 0) {
                 b();
             }
-            return this.f40382e;
+            return this.f40383e;
         }
 
         @Override // com.xiaomi.push.e
@@ -90,7 +90,7 @@ public final class du {
 
         public a a(int i) {
             this.f247a = true;
-            this.f40378a = i;
+            this.f40379a = i;
             return this;
         }
 
@@ -237,13 +237,13 @@ public final class du {
             if (k()) {
                 a2 += com.xiaomi.push.c.a(11, m241f());
             }
-            this.f40382e = a2;
+            this.f40383e = a2;
             return a2;
         }
 
         public a b(int i) {
-            this.f40385h = true;
-            this.f40379b = i;
+            this.f40386h = true;
+            this.f40380b = i;
             return this;
         }
 
@@ -264,12 +264,12 @@ public final class du {
         }
 
         public int c() {
-            return this.f40378a;
+            return this.f40379a;
         }
 
         public a c(int i) {
             this.i = true;
-            this.f40380c = i;
+            this.f40381c = i;
             return this;
         }
 
@@ -290,12 +290,12 @@ public final class du {
         }
 
         public int d() {
-            return this.f40379b;
+            return this.f40380b;
         }
 
         public a d(int i) {
             this.j = true;
-            this.f40381d = i;
+            this.f40382d = i;
             return this;
         }
 
@@ -316,11 +316,11 @@ public final class du {
         }
 
         public int e() {
-            return this.f40380c;
+            return this.f40381c;
         }
 
         public a e(String str) {
-            this.f40384g = true;
+            this.f40385g = true;
             this.f254e = str;
             return this;
         }
@@ -336,18 +336,18 @@ public final class du {
         }
 
         public int f() {
-            return this.f40381d;
+            return this.f40382d;
         }
 
         public a f(String str) {
             this.k = true;
-            this.f40383f = str;
+            this.f40384f = str;
             return this;
         }
 
         /* renamed from: f  reason: collision with other method in class */
         public String m241f() {
-            return this.f40383f;
+            return this.f40384f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -356,11 +356,11 @@ public final class du {
         }
 
         public boolean g() {
-            return this.f40384g;
+            return this.f40385g;
         }
 
         public boolean h() {
-            return this.f40385h;
+            return this.f40386h;
         }
 
         public boolean i() {
@@ -389,22 +389,22 @@ public final class du {
         public boolean f260d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40390e;
+        public boolean f40391e;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f258b = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40386a = 0;
+        public int f40387a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40387b = 0;
+        public int f40388b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40388c = 0;
+        public int f40389c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f40389d = -1;
+        public int f40390d = -1;
 
         public static b a(byte[] bArr) {
             return (b) new b().a(bArr);
@@ -412,15 +412,15 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40389d < 0) {
+            if (this.f40390d < 0) {
                 b();
             }
-            return this.f40389d;
+            return this.f40390d;
         }
 
         public b a(int i) {
             this.f259c = true;
-            this.f40386a = i;
+            this.f40387a = i;
             return this;
         }
 
@@ -485,13 +485,13 @@ public final class du {
             if (m245e()) {
                 a2 += com.xiaomi.push.c.a(5, e());
             }
-            this.f40389d = a2;
+            this.f40390d = a2;
             return a2;
         }
 
         public b b(int i) {
             this.f260d = true;
-            this.f40387b = i;
+            this.f40388b = i;
             return this;
         }
 
@@ -501,12 +501,12 @@ public final class du {
         }
 
         public int c() {
-            return this.f40386a;
+            return this.f40387a;
         }
 
         public b c(int i) {
-            this.f40390e = true;
-            this.f40388c = i;
+            this.f40391e = true;
+            this.f40389c = i;
             return this;
         }
 
@@ -516,7 +516,7 @@ public final class du {
         }
 
         public int d() {
-            return this.f40387b;
+            return this.f40388b;
         }
 
         /* renamed from: d  reason: collision with other method in class */
@@ -525,12 +525,12 @@ public final class du {
         }
 
         public int e() {
-            return this.f40388c;
+            return this.f40389c;
         }
 
         /* renamed from: e  reason: collision with other method in class */
         public boolean m245e() {
-            return this.f40390e;
+            return this.f40391e;
         }
     }
 
@@ -559,29 +559,29 @@ public final class du {
         public String f261a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40392b = "";
+        public String f40393b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40393c = "";
+        public String f40394c = "";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40394d = "";
+        public String f40395d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40395e = "";
+        public String f40396e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f40396f = "";
+        public String f40397f = "";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40391a = -1;
+        public int f40392a = -1;
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40391a < 0) {
+            if (this.f40392a < 0) {
                 b();
             }
-            return this.f40391a;
+            return this.f40392a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -666,19 +666,19 @@ public final class du {
             if (m249f()) {
                 a2 += com.xiaomi.push.c.a(6, f());
             }
-            this.f40391a = a2;
+            this.f40392a = a2;
             return a2;
         }
 
         public c b(String str) {
             this.f263b = true;
-            this.f40392b = str;
+            this.f40393b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f40392b;
+            return this.f40393b;
         }
 
         @Override // com.xiaomi.push.e
@@ -688,12 +688,12 @@ public final class du {
 
         public c c(String str) {
             this.f264c = true;
-            this.f40393c = str;
+            this.f40394c = str;
             return this;
         }
 
         public String c() {
-            return this.f40393c;
+            return this.f40394c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -703,12 +703,12 @@ public final class du {
 
         public c d(String str) {
             this.f265d = true;
-            this.f40394d = str;
+            this.f40395d = str;
             return this;
         }
 
         public String d() {
-            return this.f40394d;
+            return this.f40395d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
@@ -718,12 +718,12 @@ public final class du {
 
         public c e(String str) {
             this.f266e = true;
-            this.f40395e = str;
+            this.f40396e = str;
             return this;
         }
 
         public String e() {
-            return this.f40395e;
+            return this.f40396e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
@@ -733,12 +733,12 @@ public final class du {
 
         public c f(String str) {
             this.f267f = true;
-            this.f40396f = str;
+            this.f40397f = str;
             return this;
         }
 
         public String f() {
-            return this.f40396f;
+            return this.f40397f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -757,10 +757,10 @@ public final class du {
         public boolean f271c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40400d;
+        public boolean f40401d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40401e;
+        public boolean f40402e;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f270b = false;
@@ -769,13 +769,13 @@ public final class du {
         public String f268a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40398b = "";
+        public String f40399b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40399c = "";
+        public String f40400c = "";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40397a = -1;
+        public int f40398a = -1;
 
         public static d a(byte[] bArr) {
             return (d) new d().a(bArr);
@@ -783,10 +783,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40397a < 0) {
+            if (this.f40398a < 0) {
                 b();
             }
-            return this.f40397a;
+            return this.f40398a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -861,19 +861,19 @@ public final class du {
             if (e()) {
                 a2 += com.xiaomi.push.c.a(4, c());
             }
-            this.f40397a = a2;
+            this.f40398a = a2;
             return a2;
         }
 
         public d b(String str) {
-            this.f40400d = true;
-            this.f40398b = str;
+            this.f40401d = true;
+            this.f40399b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f40398b;
+            return this.f40399b;
         }
 
         @Override // com.xiaomi.push.e
@@ -882,13 +882,13 @@ public final class du {
         }
 
         public d c(String str) {
-            this.f40401e = true;
-            this.f40399c = str;
+            this.f40402e = true;
+            this.f40400c = str;
             return this;
         }
 
         public String c() {
-            return this.f40399c;
+            return this.f40400c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -897,11 +897,11 @@ public final class du {
         }
 
         public boolean d() {
-            return this.f40400d;
+            return this.f40401d;
         }
 
         public boolean e() {
-            return this.f40401e;
+            return this.f40402e;
         }
     }
 
@@ -927,15 +927,15 @@ public final class du {
         public boolean f282f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f40408g;
+        public boolean f40409g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f40409h;
+        public boolean f40410h;
         public boolean i;
         public boolean j;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40402a = 0;
+        public int f40403a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         public String f273a = "";
@@ -947,32 +947,32 @@ public final class du {
         public String f277c = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40403b = 0;
+        public int f40404b = 0;
 
         /* renamed from: d  reason: collision with other field name */
         public String f279d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40406e = "";
+        public String f40407e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f40407f = "";
+        public String f40408f = "";
 
         /* renamed from: a  reason: collision with other field name */
         public b f272a = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40404c = 0;
+        public int f40405c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f40405d = -1;
+        public int f40406d = -1;
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40405d < 0) {
+            if (this.f40406d < 0) {
                 b();
             }
-            return this.f40405d;
+            return this.f40406d;
         }
 
         @Override // com.xiaomi.push.e
@@ -982,7 +982,7 @@ public final class du {
 
         public e a(int i) {
             this.f274a = true;
-            this.f40402a = i;
+            this.f40403a = i;
             return this;
         }
 
@@ -1125,13 +1125,13 @@ public final class du {
             if (j()) {
                 b2 += com.xiaomi.push.c.a(10, e());
             }
-            this.f40405d = b2;
+            this.f40406d = b2;
             return b2;
         }
 
         public e b(int i) {
             this.f281e = true;
-            this.f40403b = i;
+            this.f40404b = i;
             return this;
         }
 
@@ -1152,12 +1152,12 @@ public final class du {
         }
 
         public int c() {
-            return this.f40402a;
+            return this.f40403a;
         }
 
         public e c(int i) {
             this.j = true;
-            this.f40404c = i;
+            this.f40405c = i;
             return this;
         }
 
@@ -1178,7 +1178,7 @@ public final class du {
         }
 
         public int d() {
-            return this.f40403b;
+            return this.f40404b;
         }
 
         public e d(String str) {
@@ -1198,18 +1198,18 @@ public final class du {
         }
 
         public int e() {
-            return this.f40404c;
+            return this.f40405c;
         }
 
         public e e(String str) {
-            this.f40408g = true;
-            this.f40406e = str;
+            this.f40409g = true;
+            this.f40407e = str;
             return this;
         }
 
         /* renamed from: e  reason: collision with other method in class */
         public String m255e() {
-            return this.f40406e;
+            return this.f40407e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
@@ -1218,13 +1218,13 @@ public final class du {
         }
 
         public e f(String str) {
-            this.f40409h = true;
-            this.f40407f = str;
+            this.f40410h = true;
+            this.f40408f = str;
             return this;
         }
 
         public String f() {
-            return this.f40407f;
+            return this.f40408f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -1233,11 +1233,11 @@ public final class du {
         }
 
         public boolean g() {
-            return this.f40408g;
+            return this.f40409g;
         }
 
         public boolean h() {
-            return this.f40409h;
+            return this.f40410h;
         }
 
         public boolean i() {
@@ -1259,19 +1259,19 @@ public final class du {
         public boolean f286b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f40412c;
+        public boolean f40413c;
 
         /* renamed from: a  reason: collision with other field name */
         public String f284a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40411b = "";
+        public String f40412b = "";
 
         /* renamed from: a  reason: collision with other field name */
         public b f283a = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40410a = -1;
+        public int f40411a = -1;
 
         public static f a(byte[] bArr) {
             return (f) new f().a(bArr);
@@ -1279,10 +1279,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40410a < 0) {
+            if (this.f40411a < 0) {
                 b();
             }
-            return this.f40410a;
+            return this.f40411a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1314,7 +1314,7 @@ public final class du {
 
         public f a(b bVar) {
             if (bVar != null) {
-                this.f40412c = true;
+                this.f40413c = true;
                 this.f283a = bVar;
                 return this;
             }
@@ -1359,19 +1359,19 @@ public final class du {
             if (c()) {
                 a2 += com.xiaomi.push.c.a(3, (com.xiaomi.push.e) a());
             }
-            this.f40410a = a2;
+            this.f40411a = a2;
             return a2;
         }
 
         public f b(String str) {
             this.f286b = true;
-            this.f40411b = str;
+            this.f40412b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f40411b;
+            return this.f40412b;
         }
 
         @Override // com.xiaomi.push.e
@@ -1380,7 +1380,7 @@ public final class du {
         }
 
         public boolean c() {
-            return this.f40412c;
+            return this.f40413c;
         }
     }
 
@@ -1400,13 +1400,13 @@ public final class du {
         public String f287a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40414b = "";
+        public String f40415b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40415c = "";
+        public String f40416c = "";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40413a = -1;
+        public int f40414a = -1;
 
         public static g a(byte[] bArr) {
             return (g) new g().a(bArr);
@@ -1414,10 +1414,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40413a < 0) {
+            if (this.f40414a < 0) {
                 b();
             }
-            return this.f40413a;
+            return this.f40414a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1478,19 +1478,19 @@ public final class du {
             if (m258c()) {
                 a2 += com.xiaomi.push.c.a(3, c());
             }
-            this.f40413a = a2;
+            this.f40414a = a2;
             return a2;
         }
 
         public g b(String str) {
             this.f289b = true;
-            this.f40414b = str;
+            this.f40415b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f40414b;
+            return this.f40415b;
         }
 
         @Override // com.xiaomi.push.e
@@ -1500,12 +1500,12 @@ public final class du {
 
         public g c(String str) {
             this.f290c = true;
-            this.f40415c = str;
+            this.f40416c = str;
             return this;
         }
 
         public String c() {
-            return this.f40415c;
+            return this.f40416c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -1524,13 +1524,13 @@ public final class du {
         public boolean f293b;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40416a = 0;
+        public int f40417a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         public String f291a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40417b = -1;
+        public int f40418b = -1;
 
         public static h a(byte[] bArr) {
             return (h) new h().a(bArr);
@@ -1538,15 +1538,15 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40417b < 0) {
+            if (this.f40418b < 0) {
                 b();
             }
-            return this.f40417b;
+            return this.f40418b;
         }
 
         public h a(int i) {
             this.f292a = true;
-            this.f40416a = i;
+            this.f40417a = i;
             return this;
         }
 
@@ -1600,7 +1600,7 @@ public final class du {
             if (b()) {
                 a2 += com.xiaomi.push.c.a(2, a());
             }
-            this.f40417b = a2;
+            this.f40418b = a2;
             return a2;
         }
 
@@ -1610,7 +1610,7 @@ public final class du {
         }
 
         public int c() {
-            return this.f40416a;
+            return this.f40417a;
         }
     }
 
@@ -1621,10 +1621,10 @@ public final class du {
         public boolean f295a;
 
         /* renamed from: a  reason: collision with other field name */
-        public com.xiaomi.push.a f294a = com.xiaomi.push.a.f40213a;
+        public com.xiaomi.push.a f294a = com.xiaomi.push.a.f40214a;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40418a = -1;
+        public int f40419a = -1;
 
         public static i a(byte[] bArr) {
             return (i) new i().a(bArr);
@@ -1632,10 +1632,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40418a < 0) {
+            if (this.f40419a < 0) {
                 b();
             }
-            return this.f40418a;
+            return this.f40419a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1680,7 +1680,7 @@ public final class du {
         @Override // com.xiaomi.push.e
         public int b() {
             int a2 = a() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-            this.f40418a = a2;
+            this.f40419a = a2;
             return a2;
         }
     }
@@ -1692,16 +1692,16 @@ public final class du {
         public boolean f298a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f40420b;
+        public boolean f40421b;
 
         /* renamed from: a  reason: collision with other field name */
-        public com.xiaomi.push.a f296a = com.xiaomi.push.a.f40213a;
+        public com.xiaomi.push.a f296a = com.xiaomi.push.a.f40214a;
 
         /* renamed from: a  reason: collision with other field name */
         public b f297a = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40419a = -1;
+        public int f40420a = -1;
 
         public static j a(byte[] bArr) {
             return (j) new j().a(bArr);
@@ -1709,10 +1709,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40419a < 0) {
+            if (this.f40420a < 0) {
                 b();
             }
-            return this.f40419a;
+            return this.f40420a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1753,7 +1753,7 @@ public final class du {
 
         public j a(b bVar) {
             if (bVar != null) {
-                this.f40420b = true;
+                this.f40421b = true;
                 this.f297a = bVar;
                 return this;
             }
@@ -1781,13 +1781,13 @@ public final class du {
             if (b()) {
                 a2 += com.xiaomi.push.c.a(2, (com.xiaomi.push.e) a());
             }
-            this.f40419a = a2;
+            this.f40420a = a2;
             return a2;
         }
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f40420b;
+            return this.f40421b;
         }
     }
 
@@ -1801,16 +1801,16 @@ public final class du {
         public boolean f304b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f40423c;
+        public boolean f40424c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40424d;
+        public boolean f40425d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40425e;
+        public boolean f40426e;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f40427g;
+        public boolean f40428g;
 
         /* renamed from: a  reason: collision with other field name */
         public String f300a = "";
@@ -1825,13 +1825,13 @@ public final class du {
         public long f302b = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40426f = false;
+        public boolean f40427f = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40421a = 0;
+        public int f40422a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40422b = -1;
+        public int f40423b = -1;
 
         public static k a(byte[] bArr) {
             return (k) new k().a(bArr);
@@ -1839,10 +1839,10 @@ public final class du {
 
         @Override // com.xiaomi.push.e
         public int a() {
-            if (this.f40422b < 0) {
+            if (this.f40423b < 0) {
                 b();
             }
-            return this.f40422b;
+            return this.f40423b;
         }
 
         @Override // com.xiaomi.push.e
@@ -1851,13 +1851,13 @@ public final class du {
         }
 
         public k a(int i) {
-            this.f40427g = true;
-            this.f40421a = i;
+            this.f40428g = true;
+            this.f40422a = i;
             return this;
         }
 
         public k a(long j) {
-            this.f40423c = true;
+            this.f40424c = true;
             this.f299a = j;
             return this;
         }
@@ -1895,8 +1895,8 @@ public final class du {
         }
 
         public k a(boolean z) {
-            this.f40425e = true;
-            this.f40426f = z;
+            this.f40426e = true;
+            this.f40427f = z;
             return this;
         }
 
@@ -1950,7 +1950,7 @@ public final class du {
             if (g()) {
                 a2 += com.xiaomi.push.c.a(6, c());
             }
-            this.f40422b = a2;
+            this.f40423b = a2;
             return a2;
         }
 
@@ -1960,7 +1960,7 @@ public final class du {
         }
 
         public k b(long j) {
-            this.f40424d = true;
+            this.f40425d = true;
             this.f302b = j;
             return this;
         }
@@ -1982,28 +1982,28 @@ public final class du {
         }
 
         public int c() {
-            return this.f40421a;
+            return this.f40422a;
         }
 
         /* renamed from: c  reason: collision with other method in class */
         public boolean m259c() {
-            return this.f40423c;
+            return this.f40424c;
         }
 
         public boolean d() {
-            return this.f40424d;
+            return this.f40425d;
         }
 
         public boolean e() {
-            return this.f40426f;
+            return this.f40427f;
         }
 
         public boolean f() {
-            return this.f40425e;
+            return this.f40426e;
         }
 
         public boolean g() {
-            return this.f40427g;
+            return this.f40428g;
         }
     }
 }

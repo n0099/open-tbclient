@@ -33,24 +33,24 @@ import d.b.g0.a.y0.e.b;
 import d.b.g0.a.z0.f;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.o0.c {
-    public static final boolean v = k.f45050a;
+    public static final boolean v = k.f45051a;
 
     /* renamed from: d.b.g0.a.o0.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0749a implements Runnable {
-        public RunnableC0749a() {
+    /* loaded from: classes2.dex */
+    public class RunnableC0750a implements Runnable {
+        public RunnableC0750a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.b.g0.a.u1.b.d();
-            f.V().q(a.this.f45410f);
+            f.V().q(a.this.f45411f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public b(a aVar) {
         }
@@ -61,7 +61,7 @@ public class a extends d.b.g0.a.o0.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.e0.n.b<Boolean> {
         public c() {
         }
@@ -70,28 +70,28 @@ public class a extends d.b.g0.a.o0.c {
         @Override // d.b.g0.a.e0.n.b
         /* renamed from: b */
         public void a(Boolean bool) {
-            if (a.this.f45410f == null || !bool.booleanValue()) {
+            if (a.this.f45411f == null || !bool.booleanValue()) {
                 return;
             }
-            a.this.f45410f.onBackPressed();
+            a.this.f45411f.onBackPressed();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements c.b {
         public d() {
         }
 
         @Override // d.b.g0.a.q0.c.b
         public void a() {
-            if (a.this.f45410f != null) {
-                a.this.f45410f.moveTaskToBack(true);
+            if (a.this.f45411f != null) {
+                a.this.f45411f.moveTaskToBack(true);
                 p0.b().e(1);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements a.c {
         public e() {
         }
@@ -110,7 +110,7 @@ public class a extends d.b.g0.a.o0.c {
             } else if (i == 129) {
                 int p = d.b.g0.a.i2.b.m().p();
                 d.b.g0.a.c0.c.g("SwanAppFrame", "resetCore: client receive msg topTaskId = " + p);
-                if (a.this.f45410f != null && a.this.f45410f.isBackground() && p != -1 && a.this.f45410f.getTaskId() != p) {
+                if (a.this.f45411f != null && a.this.f45411f.isBackground() && p != -1 && a.this.f45411f.getTaskId() != p) {
                     d.b.g0.a.c0.c.g("SwanAppFrame", "resetCore: purgeSwanApp");
                     d.b.g0.a.r1.d.e().v();
                 }
@@ -118,8 +118,8 @@ public class a extends d.b.g0.a.o0.c {
             } else if (i == 102) {
                 boolean a2 = d.b.g0.a.w0.a.z().a();
                 d.b.g0.a.w0.a.z().d(a2);
-                if (a.this.f45410f != null) {
-                    a.this.f45410f.onNightModeCoverChanged(a2, false);
+                if (a.this.f45411f != null) {
+                    a.this.f45411f.onNightModeCoverChanged(a2, false);
                 }
                 return true;
             } else if (i == 103) {
@@ -199,11 +199,11 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void X() {
-        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45411g.k());
+        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45412g.k());
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47253d = j.j;
+        fVar.f47254d = j.j;
         D(fVar);
-        d.b.g0.a.e0.l.c m = this.f45411g.m();
+        d.b.g0.a.e0.l.c m = this.f45412g.m();
         if (m == null || !m.v()) {
             if (R()) {
                 d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
@@ -218,9 +218,9 @@ public class a extends d.b.g0.a.o0.c {
                 d.b.g0.a.z0.g.a().d(false);
                 return;
             }
-            d.b.g0.a.i2.f.a(P(), this.f45410f);
-            f.b i = this.f45411g.i("navigateBack");
-            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44013h);
+            d.b.g0.a.i2.f.a(P(), this.f45411f);
+            f.b i = this.f45412g.i("navigateBack");
+            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44014h);
             i.g();
             i.a();
         }
@@ -232,8 +232,8 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void Y() {
-        this.f45410f.setRequestedOrientation(1);
-        d.b.g0.a.i2.e.a(this.f45410f);
+        this.f45411f.setRequestedOrientation(1);
+        d.b.g0.a.i2.e.a(this.f45411f);
         if (d.b.g0.a.e0.e.d()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
@@ -288,14 +288,14 @@ public class a extends d.b.g0.a.o0.c {
         d.b.g0.a.u1.b.f();
         d.b.g0.a.f1.f.e().l();
         d.b.g0.a.w0.a.J().a();
-        d.b.g0.a.z0.f.V().w(this.f45410f);
+        d.b.g0.a.z0.f.V().w(this.f45411f);
     }
 
     public final void a1(boolean z) {
         d.b.g0.a.z1.l.b.e(M());
         if (z) {
             SearchFlowEvent searchFlowEvent = new SearchFlowEvent("dom_first_paint");
-            searchFlowEvent.f12654e = SearchFlowEvent.EventType.END;
+            searchFlowEvent.f12655e = SearchFlowEvent.EventType.END;
             d.b.g0.a.z1.l.b.a(searchFlowEvent);
         }
     }
@@ -348,15 +348,15 @@ public class a extends d.b.g0.a.o0.c {
     public boolean d0(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (d.b.g0.a.q0.a.b().c()) {
-                d.b.g0.a.q0.a.b().f(this.f45410f, new c());
+                d.b.g0.a.q0.a.b().f(this.f45411f, new c());
                 return true;
             }
-            d.b.g0.a.e0.l.f fVar = this.f45411g;
+            d.b.g0.a.e0.l.f fVar = this.f45412g;
             if (fVar != null && fVar.k() == 1) {
                 d.b.g0.a.q0.b bVar = new d.b.g0.a.q0.b();
                 bVar.i();
                 if (bVar.j()) {
-                    d.b.g0.a.q0.c.c().j(this.f45410f, bVar.g(), bVar.f(), W0());
+                    d.b.g0.a.q0.c.c().j(this.f45411f, bVar.g(), bVar.f(), W0());
                     return true;
                 }
             }
@@ -373,7 +373,7 @@ public class a extends d.b.g0.a.o0.c {
     public void e0() {
         super.e0();
         if (d.b.g0.a.e0.w.d.L().N() != null) {
-            d.b.g0.a.e0.w.d.L().N().d(this.f45410f);
+            d.b.g0.a.e0.w.d.L().N().d(this.f45411f);
         }
     }
 
@@ -404,7 +404,7 @@ public class a extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void i0() {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0749a(), "registerScreenshotEvent", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0750a(), "registerScreenshotEvent", 2);
     }
 
     @Override // d.b.g0.a.o0.c
@@ -479,7 +479,7 @@ public class a extends d.b.g0.a.o0.c {
                 d.b.g0.a.r1.e s = d.b.g0.a.r1.d.e().s();
                 s.R().j();
                 s.z().a();
-                if (d.b.g0.a.e0.s.a.f44263g) {
+                if (d.b.g0.a.e0.s.a.f44264g) {
                     if (v) {
                         Log.d("SwanAppFrame", "hot start: hit prelink");
                         Log.d("SwanPrelink", "hot start: hit prelink");

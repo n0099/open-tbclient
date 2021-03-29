@@ -9,10 +9,10 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class ESDescriptorBox extends AbstractDescriptorBox {
     public static final String TYPE = "esds";
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
 
     static {
         ajc$preClinit();

@@ -11,18 +11,18 @@ import java.util.List;
 public class e extends PayBaseBean<CardListResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25509a;
+    public SourceFlag f25510a;
 
     public e(Context context) {
         super(context);
-        this.f25509a = SourceFlag.SDK;
+        this.f25510a = SourceFlag.SDK;
     }
 
     public void a(SourceFlag sourceFlag) {
         if (sourceFlag == null) {
             sourceFlag = SourceFlag.SDK;
         }
-        this.f25509a = sourceFlag;
+        this.f25510a = sourceFlag;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -33,7 +33,7 @@ public class e extends PayBaseBean<CardListResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("source_flag", this.f25509a.value()));
+        arrayList.add(new RestNameValuePair("source_flag", this.f25510a.value()));
         return arrayList;
     }
 

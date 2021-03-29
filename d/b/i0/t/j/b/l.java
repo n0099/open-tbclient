@@ -21,20 +21,20 @@ public class l extends d.b.b.j.e.a<o, CardViewHolder<d.b.i0.t.j.h.a>> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f60839e;
+        public final /* synthetic */ o f60840e;
 
         public a(o oVar) {
-            this.f60839e = oVar;
+            this.f60840e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.this.j0(this.f60839e);
+            l.this.j0(this.f60840e);
         }
     }
 
     public l(TbPageContext tbPageContext, d.b.i0.t.j.e.a aVar) {
-        super(tbPageContext.getPageActivity(), o.f60873f);
+        super(tbPageContext.getPageActivity(), o.f60874f);
         this.m = tbPageContext;
         this.n = aVar;
     }
@@ -45,19 +45,19 @@ public class l extends d.b.b.j.e.a<o, CardViewHolder<d.b.i0.t.j.h.a>> {
             return;
         }
         aVar.z(0);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_live_real_authen));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_real_authen));
         int i = g2.b().certify_status;
         if (i == 0) {
-            aVar.x(this.f42357e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            aVar.x(this.f42358e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
             aVar.y(0);
         } else if (1 == i) {
-            aVar.x(this.f42357e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            aVar.x(this.f42358e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
             aVar.y(4);
         } else if (2 == i) {
-            aVar.x(this.f42357e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            aVar.x(this.f42358e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
             aVar.y(4);
         } else if (3 == i) {
-            aVar.x(this.f42357e.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            aVar.x(this.f42358e.getResources().getString(R.string.ala_person_live_real_authen_denied));
             aVar.y(0);
         }
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
@@ -69,7 +69,7 @@ public class l extends d.b.b.j.e.a<o, CardViewHolder<d.b.i0.t.j.h.a>> {
         if (oVar == null || oVar.g() == null || oVar.g().b() == null || 1 == (i = (b2 = oVar.g().b()).certify_status) || 2 == i) {
             return;
         }
-        Context context = this.f42357e;
+        Context context = this.f42358e;
         String str = b2.user_id;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b2.certify_status + "")));
         d.b.i0.t.j.e.a aVar = this.n;

@@ -20,11 +20,11 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f42310a = new Object();
+    public static Object f42311a = new Object();
 
     /* renamed from: d.b.b.h.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0547a implements Comparator<Object> {
+    public static class C0548a implements Comparator<Object> {
         @Override // java.util.Comparator
         public int compare(Object obj, Object obj2) {
             if ((obj instanceof String) && (obj2 instanceof String)) {
@@ -51,10 +51,10 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42311a;
+        public boolean f42312a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42312b;
+        public String f42313b;
     }
 
     public static Object b(Object obj, Object obj2) {
@@ -151,7 +151,7 @@ public class a {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
-        synchronized (f42310a) {
+        synchronized (f42311a) {
             boolean z2 = true;
             try {
                 Class.forName("dalvik.system.BaseDexClassLoader");
@@ -185,7 +185,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01fe  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01fd  */
     /* JADX WARN: Removed duplicated region for block: B:67:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -336,7 +336,7 @@ public class a {
                     for (String str2 : (String[]) g(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                         arrayList.add(str2);
                     }
-                    Collections.sort(arrayList, new C0547a());
+                    Collections.sort(arrayList, new C0548a());
                 } catch (Exception unused) {
                     p(pathClassLoader, PathClassLoader.class, "mLibPaths", d(g(pathClassLoader, PathClassLoader.class, "mLibPaths"), g(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                 }
@@ -360,8 +360,8 @@ public class a {
 
     public static c o(boolean z, Throwable th) {
         c cVar = new c();
-        cVar.f42311a = z;
-        cVar.f42312b = th != null ? th.getLocalizedMessage() : null;
+        cVar.f42312a = z;
+        cVar.f42313b = th != null ? th.getLocalizedMessage() : null;
         return cVar;
     }
 

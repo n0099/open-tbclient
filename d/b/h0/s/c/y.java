@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51241a;
+    public String f51242a;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject == null) {
@@ -15,10 +15,10 @@ public class y {
         jSONObject.optInt("offline");
         jSONObject.optString("title");
         String optString = jSONObject.optString("link");
-        this.f51241a = optString;
+        this.f51242a = optString;
         if (TextUtils.isEmpty(optString)) {
             return;
         }
-        this.f51241a = this.f51241a.replaceFirst("webview:", "http://");
+        this.f51242a = this.f51242a.replaceFirst("webview:", "http://");
     }
 }

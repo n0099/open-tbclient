@@ -9,22 +9,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {
-        if (favSyncPoi == null || favSyncPoi.f7536c == null || favSyncPoi.f7535b.equals("")) {
+        if (favSyncPoi == null || favSyncPoi.f7537c == null || favSyncPoi.f7536b.equals("")) {
             return null;
         }
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
-        favoritePoiInfo.f6771a = favSyncPoi.f7534a;
-        favoritePoiInfo.f6772b = favSyncPoi.f7535b;
-        Point point = favSyncPoi.f7536c;
-        double d2 = point.y;
-        Double.isNaN(d2);
-        double d3 = point.x;
-        Double.isNaN(d3);
-        favoritePoiInfo.f6773c = new LatLng(d2 / 1000000.0d, d3 / 1000000.0d);
-        favoritePoiInfo.f6775e = favSyncPoi.f7538e;
-        favoritePoiInfo.f6776f = favSyncPoi.f7539f;
-        favoritePoiInfo.f6774d = favSyncPoi.f7537d;
-        favoritePoiInfo.f6777g = Long.parseLong(favSyncPoi.f7541h);
+        favoritePoiInfo.f6772a = favSyncPoi.f7535a;
+        favoritePoiInfo.f6773b = favSyncPoi.f7536b;
+        Point point = favSyncPoi.f7537c;
+        favoritePoiInfo.f6774c = new LatLng(point.y / 1000000.0d, point.x / 1000000.0d);
+        favoritePoiInfo.f6776e = favSyncPoi.f7539e;
+        favoritePoiInfo.f6777f = favSyncPoi.f7540f;
+        favoritePoiInfo.f6775d = favSyncPoi.f7538d;
+        favoritePoiInfo.f6778g = Long.parseLong(favSyncPoi.f7542h);
         return favoritePoiInfo;
     }
 
@@ -35,34 +31,29 @@ public class a {
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.PLATFORM_TYPE);
         if (optJSONObject != null) {
-            int optInt = optJSONObject.optInt("x");
-            double optInt2 = optJSONObject.optInt("y");
-            Double.isNaN(optInt2);
-            double d2 = optInt;
-            Double.isNaN(d2);
-            favoritePoiInfo.f6773c = new LatLng(optInt2 / 1000000.0d, d2 / 1000000.0d);
+            favoritePoiInfo.f6774c = new LatLng(optJSONObject.optInt("y") / 1000000.0d, optJSONObject.optInt("x") / 1000000.0d);
         }
-        favoritePoiInfo.f6772b = jSONObject.optString("uspoiname");
-        favoritePoiInfo.f6777g = Long.parseLong(jSONObject.optString("addtimesec"));
-        favoritePoiInfo.f6774d = jSONObject.optString(DuPaBInfoMsg.B_ADDR);
-        favoritePoiInfo.f6776f = jSONObject.optString("uspoiuid");
-        favoritePoiInfo.f6775e = jSONObject.optString("ncityid");
-        favoritePoiInfo.f6771a = jSONObject.optString("key");
+        favoritePoiInfo.f6773b = jSONObject.optString("uspoiname");
+        favoritePoiInfo.f6778g = Long.parseLong(jSONObject.optString("addtimesec"));
+        favoritePoiInfo.f6775d = jSONObject.optString(DuPaBInfoMsg.B_ADDR);
+        favoritePoiInfo.f6777f = jSONObject.optString("uspoiuid");
+        favoritePoiInfo.f6776e = jSONObject.optString("ncityid");
+        favoritePoiInfo.f6772a = jSONObject.optString("key");
         return favoritePoiInfo;
     }
 
     public static FavSyncPoi a(FavoritePoiInfo favoritePoiInfo) {
         String str;
-        if (favoritePoiInfo == null || favoritePoiInfo.f6773c == null || (str = favoritePoiInfo.f6772b) == null || str.equals("")) {
+        if (favoritePoiInfo == null || favoritePoiInfo.f6774c == null || (str = favoritePoiInfo.f6773b) == null || str.equals("")) {
             return null;
         }
         FavSyncPoi favSyncPoi = new FavSyncPoi();
-        favSyncPoi.f7535b = favoritePoiInfo.f6772b;
-        LatLng latLng = favoritePoiInfo.f6773c;
-        favSyncPoi.f7536c = new Point((int) (latLng.longitude * 1000000.0d), (int) (latLng.latitude * 1000000.0d));
-        favSyncPoi.f7537d = favoritePoiInfo.f6774d;
-        favSyncPoi.f7538e = favoritePoiInfo.f6775e;
-        favSyncPoi.f7539f = favoritePoiInfo.f6776f;
+        favSyncPoi.f7536b = favoritePoiInfo.f6773b;
+        LatLng latLng = favoritePoiInfo.f6774c;
+        favSyncPoi.f7537c = new Point((int) (latLng.longitude * 1000000.0d), (int) (latLng.latitude * 1000000.0d));
+        favSyncPoi.f7538d = favoritePoiInfo.f6775d;
+        favSyncPoi.f7539e = favoritePoiInfo.f6776e;
+        favSyncPoi.f7540f = favoritePoiInfo.f6777f;
         favSyncPoi.i = false;
         return favSyncPoi;
     }

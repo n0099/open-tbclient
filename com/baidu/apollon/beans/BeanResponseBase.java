@@ -6,17 +6,17 @@ import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.StringUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BeanResponseBase implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3560a = "系统开小差，等一会儿再试吧";
+    public static final String f3561a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3561b = "content";
+    public static final String f3562b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3562c = "data";
+    public static final String f3563c = "data";
     public Session cashdesk;
     public String mdAlgorithm;
     public String result_string;
@@ -33,7 +33,7 @@ public class BeanResponseBase implements NoProguard {
     public String token = "";
     public int encrypted = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Session implements NoProguard, Serializable {
         public int biz_code;
         public String delete_flag;
@@ -67,7 +67,7 @@ public class BeanResponseBase implements NoProguard {
             return this.err_msg;
         }
         if (TextUtils.isEmpty(this.result_info)) {
-            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3560a;
+            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3561a;
         }
         return this.result_info;
     }

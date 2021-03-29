@@ -48,10 +48,10 @@ public abstract class c<T extends d.b.i0.x.e0.a> extends b<T> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             u();
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener

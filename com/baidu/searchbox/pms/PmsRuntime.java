@@ -4,7 +4,7 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import d.b.b.i.c;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PmsRuntime {
     @Inject(force = false)
     public static IPmsContext getPmsContext() {

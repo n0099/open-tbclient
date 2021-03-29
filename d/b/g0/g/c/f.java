@@ -17,13 +17,13 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f47945a;
+    public static final HashMap<String, String> f47946a;
 
     static {
         HashMap<String, String> hashMap = new HashMap<>();
-        f47945a = hashMap;
+        f47946a = hashMap;
         hashMap.put("494433", EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
-        f47945a.put("524946", ".wav");
+        f47946a.put("524946", ".wav");
     }
 
     public static String a(byte[] bArr) {
@@ -39,7 +39,7 @@ public class f {
             sb.append(upperCase);
         }
         String sb2 = sb.toString();
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.e("AudioDataUtils", "audio buffer header: " + sb2);
         }
         return sb2;
@@ -51,12 +51,12 @@ public class f {
 
     public static d c(g gVar) {
         d dVar = new d();
-        dVar.f47934a = gVar.f47947f;
-        dVar.f47938e = gVar.autoplay;
-        dVar.f47939f = gVar.loop;
-        dVar.f47936c = gVar.src;
-        dVar.f47937d = gVar.startTime;
-        dVar.f47940g = gVar.obeyMuteSwitch;
+        dVar.f47935a = gVar.f47948f;
+        dVar.f47939e = gVar.autoplay;
+        dVar.f47940f = gVar.loop;
+        dVar.f47937c = gVar.src;
+        dVar.f47938d = gVar.startTime;
+        dVar.f47941g = gVar.obeyMuteSwitch;
         dVar.i = gVar.volume;
         dVar.j = i().toString();
         return dVar;
@@ -95,7 +95,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return f47945a.get(a(bArr2));
+        return f47946a.get(a(bArr2));
     }
 
     public static JSONObject i() {
@@ -113,7 +113,7 @@ public class f {
             jSONObject.put("onBufferingUpdate", "buffered");
             jSONObject.put("onWaiting", "waiting");
         } catch (Exception e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }

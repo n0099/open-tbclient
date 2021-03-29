@@ -5,54 +5,54 @@ import android.util.Log;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44365e = k.f45050a;
+    public static final boolean f44366e = k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f44366f = "SwanAppParam";
+    public static String f44367f = "SwanAppParam";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44367a;
+    public String f44368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44368b;
+    public String f44369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44369c;
+    public String f44370c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44370d;
+    public boolean f44371d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f44371a = new c();
+        public c f44372a = new c();
 
         public c a() {
-            return this.f44371a;
+            return this.f44372a;
         }
 
         public a b(String str) {
-            this.f44371a.f44368b = str;
+            this.f44372a.f44369b = str;
             return this;
         }
 
         public a c(boolean z) {
-            this.f44371a.f44370d = z;
+            this.f44372a.f44371d = z;
             return this;
         }
 
         public a d(String str) {
-            this.f44371a.f44367a = str;
+            this.f44372a.f44368a = str;
             return this;
         }
 
         public a e(String str) {
-            this.f44371a.f44369c = str;
+            this.f44372a.f44370c = str;
             return this;
         }
     }
@@ -64,14 +64,14 @@ public final class c {
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.f44367a = jSONObject.optString("page");
-            cVar.f44369c = jSONObject.optString("params");
-            cVar.f44368b = jSONObject.optString("baseUrl");
-            cVar.f44370d = jSONObject.optBoolean("isFirstPage");
+            cVar.f44368a = jSONObject.optString("page");
+            cVar.f44370c = jSONObject.optString("params");
+            cVar.f44369b = jSONObject.optString("baseUrl");
+            cVar.f44371d = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e2) {
-            if (f44365e) {
-                String str2 = f44366f;
+            if (f44366e) {
+                String str2 = f44367f;
                 Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e2));
             }
             return null;
@@ -79,27 +79,27 @@ public final class c {
     }
 
     public String f() {
-        return this.f44368b;
+        return this.f44369b;
     }
 
     public String g() {
-        return this.f44367a;
+        return this.f44368a;
     }
 
     public String h() {
-        return this.f44369c;
+        return this.f44370c;
     }
 
     public String i() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.f44367a);
-            jSONObject.put("params", this.f44369c);
-            jSONObject.put("baseUrl", this.f44368b);
-            jSONObject.put("isFirstPage", this.f44370d);
+            jSONObject.put("page", this.f44368a);
+            jSONObject.put("params", this.f44370c);
+            jSONObject.put("baseUrl", this.f44369b);
+            jSONObject.put("isFirstPage", this.f44371d);
         } catch (JSONException e2) {
-            if (f44365e) {
-                String str = f44366f;
+            if (f44366e) {
+                String str = f44367f;
                 Log.e(str, "toJSONString error: " + Log.getStackTraceString(e2));
             }
         }
@@ -107,6 +107,6 @@ public final class c {
     }
 
     public void j() {
-        this.f44370d = false;
+        this.f44371d = false;
     }
 }

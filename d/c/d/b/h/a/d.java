@@ -8,7 +8,7 @@ import android.content.IntentFilter;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65841a;
+    public int f65842a;
 
     /* loaded from: classes6.dex */
     public class b extends BroadcastReceiver {
@@ -18,7 +18,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f65841a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f65842a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }
@@ -31,7 +31,7 @@ public class d {
     }
 
     public int a() {
-        return this.f65841a;
+        return this.f65842a;
     }
 
     public final void c(Context context) {

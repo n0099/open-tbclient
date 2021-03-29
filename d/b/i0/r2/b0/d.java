@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f59765a;
+    public static String f59766a;
 
     public static void a(c cVar, int i) {
         cVar.j(706);
@@ -66,7 +66,7 @@ public class d {
     public static void g(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
         AdvertAppInfo.a aVar;
         int i5;
-        if (advertAppInfo == null || (aVar = advertAppInfo.U3) == null || (i5 = aVar.f13209h) == 1001 || i5 == -1001) {
+        if (advertAppInfo == null || (aVar = advertAppInfo.U3) == null || (i5 = aVar.f13210h) == 1001 || i5 == -1001) {
             return;
         }
         c h2 = h.h(advertAppInfo, 5, i, i2);
@@ -77,10 +77,10 @@ public class d {
             h2.m(i4);
         }
         if (i2 == 31) {
-            if (TextUtils.isEmpty(f59765a)) {
-                f59765a = c();
+            if (TextUtils.isEmpty(f59766a)) {
+                f59766a = c();
             }
-            h2.p(f59765a);
+            h2.p(f59766a);
         }
         e.b().d(h2);
         AppData appData = advertAppInfo.e4;

@@ -20,30 +20,30 @@ public final class StatService implements NoProguard {
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11428a = "StatService";
+    public static final String f11429a = "StatService";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11429b = "auto_statistic";
+    public static final String f11430b = "auto_statistic";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f11430c;
+    public static final Map<String, String> f11431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f11431d;
+    public static List<String> f11432d;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HttpHashMapWrap f11432a;
+        public final /* synthetic */ HttpHashMapWrap f11433a;
 
         public a(HttpHashMapWrap httpHashMapWrap) {
-            this.f11432a = httpHashMapWrap;
+            this.f11433a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            StatService.b(this.f11432a);
+            StatService.b(this.f11433a);
         }
     }
 
@@ -60,18 +60,18 @@ public final class StatService implements NoProguard {
 
     static {
         HashMap hashMap = new HashMap();
-        f11430c = hashMap;
+        f11431c = hashMap;
         hashMap.put("pid", "111");
-        f11430c.put("type", "1023");
-        f11430c.put("device", Build.MODEL);
+        f11431c.put("type", "1023");
+        f11431c.put("device", Build.MODEL);
         ArrayList arrayList = new ArrayList();
-        f11431d = arrayList;
+        f11432d = arrayList;
         arrayList.add("share_read");
-        f11431d.add("share_silent_account");
-        f11431d.add("share_silent_account_success");
-        f11431d.add("load_login");
-        f11431d.add("share_account_open");
-        f11431d.add("pass_sdk_init");
+        f11432d.add("share_silent_account");
+        f11432d.add("share_silent_account_success");
+        f11432d.add("load_login");
+        f11432d.add("share_account_open");
+        f11432d.add("pass_sdk_init");
     }
 
     public static void b(HttpHashMapWrap httpHashMapWrap) {
@@ -84,7 +84,7 @@ public final class StatService implements NoProguard {
         }
         try {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.putAll(f11430c);
+            httpHashMapWrap.putAll(f11431c);
             httpHashMapWrap.put("name", str);
             httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
@@ -104,7 +104,7 @@ public final class StatService implements NoProguard {
                 }
             }
             Log.d("StatService", sb.toString());
-            if (f11431d.contains(str) && a()) {
+            if (f11432d.contains(str) && a()) {
                 NetworkRequestScheduler.execute(new a(httpHashMapWrap), "pass_sdk_".concat(str), 60000L, false);
             } else {
                 b(httpHashMapWrap);
@@ -133,8 +133,8 @@ public final class StatService implements NoProguard {
 
     public static void onEventAutoStat(String str, Map<String, String> map) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put(f11429b, Base64.encodeToString(a(str).getBytes(), 0));
-        httpHashMapWrap.putAll(f11430c);
+        httpHashMapWrap.put(f11430b, Base64.encodeToString(a(str).getBytes(), 0));
+        httpHashMapWrap.putAll(f11431c);
         httpHashMapWrap.put("source", "native");
         httpHashMapWrap.put("data_source", "client");
         httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
@@ -169,10 +169,10 @@ public final class StatService implements NoProguard {
         }
         sb.append("}");
         Log.d("StatService", "onEventAutoStatistic content=" + sb.toString());
-        map.put(f11429b, Base64.encodeToString(sb.toString().getBytes(), 0));
+        map.put(f11430b, Base64.encodeToString(sb.toString().getBytes(), 0));
         map.put("source", "native");
         map.put("data_source", "client");
-        onEvent(f11429b, map);
+        onEvent(f11430b, map);
     }
 
     public static String a(String str) {

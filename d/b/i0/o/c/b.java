@@ -10,30 +10,30 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<DownloadCacheKey, AdDownloadData> f57180a;
+    public Map<DownloadCacheKey, AdDownloadData> f57181a;
 
     /* renamed from: d.b.i0.o.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1362b {
+    public static final class C1363b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f57181a = new b();
+        public static final b f57182a = new b();
     }
 
     public static b c() {
-        return C1362b.f57181a;
+        return C1363b.f57182a;
     }
 
     public AdDownloadData a(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.f57180a.get(downloadCacheKey);
+        return this.f57181a.get(downloadCacheKey);
     }
 
     public Map<DownloadCacheKey, AdDownloadData> b(String str) {
-        HashMap hashMap = new HashMap(this.f57180a.size());
+        HashMap hashMap = new HashMap(this.f57181a.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.f57180a.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.f57181a.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }
@@ -42,12 +42,12 @@ public class b {
     }
 
     public void d(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.f57180a.get(downloadCacheKey) == null) {
-            this.f57180a.put(downloadCacheKey, adDownloadData);
+        if (this.f57181a.get(downloadCacheKey) == null) {
+            this.f57181a.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public b() {
-        this.f57180a = new HashMap();
+        this.f57181a = new HashMap();
     }
 }

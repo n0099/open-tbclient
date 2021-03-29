@@ -18,63 +18,63 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55873d;
+    public boolean f55874d;
 
     /* renamed from: h  reason: collision with root package name */
-    public final BdListView f55877h;
+    public final BdListView f55878h;
     public final d.b.i0.i1.n.a i;
     public long j;
     public String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f55870a = null;
+    public c f55871a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<ICardInfo> f55871b = new LinkedList();
+    public final List<ICardInfo> f55872b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55872c = 1;
+    public int f55873c = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55874e = "";
+    public String f55875e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55875f = false;
+    public boolean f55876f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55876g = false;
+    public boolean f55877g = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends f0<DataRes> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.d.l f55878a;
+        public final /* synthetic */ d.b.b.e.d.l f55879a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f55879b;
+        public final /* synthetic */ long f55880b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f55880c;
+        public final /* synthetic */ String f55881c;
 
         public a(h hVar, d.b.b.e.d.l lVar, long j, String str) {
-            this.f55878a = lVar;
-            this.f55879b = j;
-            this.f55880c = str;
+            this.f55879a = lVar;
+            this.f55880b = j;
+            this.f55881c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public DataRes doInBackground() {
-            d.b.b.e.d.l lVar = this.f55878a;
+            d.b.b.e.d.l lVar = this.f55879a;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f55879b);
+            sb.append(this.f55880b);
             sb.append("_");
-            sb.append(TextUtils.isEmpty(this.f55880c) ? "" : this.f55880c);
+            sb.append(TextUtils.isEmpty(this.f55881c) ? "" : this.f55881c);
             byte[] bArr = (byte[]) lVar.get(sb.toString());
             if (bArr != null && bArr.length != 0) {
                 try {
@@ -87,7 +87,7 @@ public class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements n<DataRes> {
         public b() {
         }
@@ -100,7 +100,7 @@ public class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(long j, String str);
 
@@ -116,20 +116,20 @@ public class h {
     }
 
     public h(BdListView bdListView, d.b.i0.i1.n.a aVar) {
-        this.f55877h = bdListView;
+        this.f55878h = bdListView;
         this.i = aVar;
     }
 
     public List<ICardInfo> b() {
-        return this.f55871b;
+        return this.f55872b;
     }
 
     public boolean c() {
-        return this.f55873d;
+        return this.f55874d;
     }
 
     public final boolean d() {
-        return this.f55875f;
+        return this.f55876f;
     }
 
     public final void e(long j, String str) {
@@ -137,26 +137,26 @@ public class h {
     }
 
     public final void f(long j, String str) {
-        c cVar = this.f55870a;
+        c cVar = this.f55871a;
         if (cVar != null) {
             cVar.a(j, str);
         }
     }
 
     public void g() {
-        if (d() || this.f55870a == null) {
+        if (d() || this.f55871a == null) {
             return;
         }
-        this.f55872c++;
+        this.f55873c++;
         k(true);
-        this.f55870a.c(this.f55872c, this.f55874e);
+        this.f55871a.c(this.f55873c, this.f55875e);
     }
 
     public final void h(DataRes dataRes) {
         c cVar;
-        this.f55876g = true;
+        this.f55877g = true;
         if (dataRes != null) {
-            if (j(true, dataRes) && (cVar = this.f55870a) != null) {
+            if (j(true, dataRes) && (cVar = this.f55871a) != null) {
                 cVar.onSuccess();
             }
             f(this.j, this.k);
@@ -168,23 +168,23 @@ public class h {
     public void i(boolean z, DataRes dataRes, int i, String str) {
         k(false);
         if (z) {
-            this.f55877h.z();
+            this.f55878h.z();
         }
         if (i == 0 && dataRes != null && j(z, dataRes)) {
-            c cVar = this.f55870a;
+            c cVar = this.f55871a;
             if (cVar != null) {
                 cVar.onSuccess();
             }
             if (z) {
                 n(dataRes);
             }
-        } else if (this.f55871b.size() > 0) {
-            c cVar2 = this.f55870a;
+        } else if (this.f55872b.size() > 0) {
+            c cVar2 = this.f55871a;
             if (cVar2 != null) {
                 cVar2.onError(1, str);
             }
         } else {
-            c cVar3 = this.f55870a;
+            c cVar3 = this.f55871a;
             if (cVar3 != null) {
                 cVar3.onError(2, str);
             }
@@ -201,9 +201,9 @@ public class h {
             return false;
         }
         if (z) {
-            this.f55871b.clear();
+            this.f55872b.clear();
         }
-        this.f55873d = dataRes.has_more.intValue() == 1;
+        this.f55874d = dataRes.has_more.intValue() == 1;
         ArrayList arrayList = new ArrayList();
         try {
             JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
@@ -224,13 +224,13 @@ public class h {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     if (optJSONObject2 != null) {
                         d.b.i0.i1.p.e eVar = new d.b.i0.i1.p.e();
-                        eVar.f56032c = optJSONObject2.optString("title");
+                        eVar.f56033c = optJSONObject2.optString("title");
                         jSONObject2 = jSONObject3;
-                        eVar.f56030a = optJSONObject2.optLong("page_id");
+                        eVar.f56031a = optJSONObject2.optLong("page_id");
                         optJSONObject2.optInt("page_type");
-                        eVar.f56033d = optJSONObject2.optInt("rn");
-                        eVar.f56031b = optJSONObject2.optString(LegoListActivityConfig.ITEM_ID);
-                        eVar.f56034e = optJSONObject2.optString("params");
+                        eVar.f56034d = optJSONObject2.optInt("rn");
+                        eVar.f56032b = optJSONObject2.optString(LegoListActivityConfig.ITEM_ID);
+                        eVar.f56035e = optJSONObject2.optString("params");
                         eVar.b();
                         arrayList.add(eVar);
                     } else {
@@ -240,7 +240,7 @@ public class h {
                     jSONObject3 = jSONObject2;
                 }
                 jSONObject = jSONObject3;
-                this.f55870a.d(str2, str3, str, arrayList);
+                this.f55871a.d(str2, str3, str, arrayList);
             } else {
                 jSONObject = jSONObject3;
             }
@@ -257,7 +257,7 @@ public class h {
                         }
                     }
                 }
-                this.f55870a.b(arrayList2);
+                this.f55871a.b(arrayList2);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -266,35 +266,35 @@ public class h {
             for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
                 ICardInfo i4 = d.b.i0.i1.o.b.i(dataRes.cards.get(i3));
                 if (i4 != null && i4.isValid()) {
-                    this.f55871b.add(i4);
+                    this.f55872b.add(i4);
                 }
             }
         }
-        if (this.f55871b.size() == 0) {
+        if (this.f55872b.size() == 0) {
             return false;
         }
         try {
-            this.f55874e = this.f55871b.get(this.f55871b.size() - 1).getFlipId();
+            this.f55875e = this.f55872b.get(this.f55872b.size() - 1).getFlipId();
         } catch (Exception unused) {
-            this.f55874e = "";
+            this.f55875e = "";
         }
-        this.i.C(this.f55871b);
+        this.i.C(this.f55872b);
         return true;
     }
 
     public final void k(boolean z) {
-        this.f55875f = z;
+        this.f55876f = z;
     }
 
     public void l(c cVar) {
-        this.f55870a = cVar;
+        this.f55871a = cVar;
     }
 
     public void m(long j, String str) {
-        this.f55872c = 1;
+        this.f55873c = 1;
         this.j = j;
         this.k = str;
-        if (this.f55871b.size() == 0 && !this.f55876g) {
+        if (this.f55872b.size() == 0 && !this.f55877g) {
             e(j, str);
         } else {
             f(j, str);

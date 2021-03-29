@@ -15,28 +15,28 @@ public class c {
     public static DateFormat y = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /* renamed from: a  reason: collision with root package name */
-    public View f50020a;
+    public View f50021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WheelView f50021b;
+    public WheelView f50022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WheelView f50022c;
+    public WheelView f50023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WheelView f50023d;
+    public WheelView f50024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WheelView f50024e;
+    public WheelView f50025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WheelView f50025f;
+    public WheelView f50026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WheelView f50026g;
+    public WheelView f50027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50027h;
+    public int f50028h;
     public boolean[] i;
     public int p;
     public int q;
@@ -63,25 +63,25 @@ public class c {
         public void a(int i) {
             int h2;
             int i2 = i + c.this.j;
-            c.this.f50022c.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.d(i2)));
-            if (d.b.h0.b1.o.a.e.a.g(i2) == 0 || c.this.f50022c.getCurrentItem() <= d.b.h0.b1.o.a.e.a.g(i2) - 1) {
-                c.this.f50022c.setCurrentItem(c.this.f50022c.getCurrentItem());
+            c.this.f50023c.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.d(i2)));
+            if (d.b.h0.b1.o.a.e.a.g(i2) == 0 || c.this.f50023c.getCurrentItem() <= d.b.h0.b1.o.a.e.a.g(i2) - 1) {
+                c.this.f50023c.setCurrentItem(c.this.f50023c.getCurrentItem());
             } else {
-                c.this.f50022c.setCurrentItem(c.this.f50022c.getCurrentItem() + 1);
+                c.this.f50023c.setCurrentItem(c.this.f50023c.getCurrentItem() + 1);
             }
-            if (d.b.h0.b1.o.a.e.a.g(i2) == 0 || c.this.f50022c.getCurrentItem() <= d.b.h0.b1.o.a.e.a.g(i2) - 1) {
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i2, c.this.f50022c.getCurrentItem() + 1))));
-                h2 = d.b.h0.b1.o.a.e.a.h(i2, c.this.f50022c.getCurrentItem() + 1);
-            } else if (c.this.f50022c.getCurrentItem() == d.b.h0.b1.o.a.e.a.g(i2) + 1) {
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(i2))));
+            if (d.b.h0.b1.o.a.e.a.g(i2) == 0 || c.this.f50023c.getCurrentItem() <= d.b.h0.b1.o.a.e.a.g(i2) - 1) {
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i2, c.this.f50023c.getCurrentItem() + 1))));
+                h2 = d.b.h0.b1.o.a.e.a.h(i2, c.this.f50023c.getCurrentItem() + 1);
+            } else if (c.this.f50023c.getCurrentItem() == d.b.h0.b1.o.a.e.a.g(i2) + 1) {
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(i2))));
                 h2 = d.b.h0.b1.o.a.e.a.f(i2);
             } else {
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i2, c.this.f50022c.getCurrentItem()))));
-                h2 = d.b.h0.b1.o.a.e.a.h(i2, c.this.f50022c.getCurrentItem());
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i2, c.this.f50023c.getCurrentItem()))));
+                h2 = d.b.h0.b1.o.a.e.a.h(i2, c.this.f50023c.getCurrentItem());
             }
             int i3 = h2 - 1;
-            if (c.this.f50023d.getCurrentItem() > i3) {
-                c.this.f50023d.setCurrentItem(i3);
+            if (c.this.f50024d.getCurrentItem() > i3) {
+                c.this.f50024d.setCurrentItem(i3);
             }
             if (c.this.x != null) {
                 c.this.x.a();
@@ -97,21 +97,21 @@ public class c {
         @Override // d.b.h0.b1.o.b.c.b
         public void a(int i) {
             int h2;
-            int currentItem = c.this.f50021b.getCurrentItem() + c.this.j;
+            int currentItem = c.this.f50022b.getCurrentItem() + c.this.j;
             if (d.b.h0.b1.o.a.e.a.g(currentItem) == 0 || i <= d.b.h0.b1.o.a.e.a.g(currentItem) - 1) {
                 int i2 = i + 1;
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(currentItem, i2))));
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(currentItem, i2))));
                 h2 = d.b.h0.b1.o.a.e.a.h(currentItem, i2);
-            } else if (c.this.f50022c.getCurrentItem() == d.b.h0.b1.o.a.e.a.g(currentItem) + 1) {
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(currentItem))));
+            } else if (c.this.f50023c.getCurrentItem() == d.b.h0.b1.o.a.e.a.g(currentItem) + 1) {
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(currentItem))));
                 h2 = d.b.h0.b1.o.a.e.a.f(currentItem);
             } else {
-                c.this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(currentItem, i))));
+                c.this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(currentItem, i))));
                 h2 = d.b.h0.b1.o.a.e.a.h(currentItem, i);
             }
             int i3 = h2 - 1;
-            if (c.this.f50023d.getCurrentItem() > i3) {
-                c.this.f50023d.setCurrentItem(i3);
+            if (c.this.f50024d.getCurrentItem() > i3) {
+                c.this.f50024d.setCurrentItem(i3);
             }
             if (c.this.x != null) {
                 c.this.x.a();
@@ -121,77 +121,77 @@ public class c {
 
     /* renamed from: d.b.h0.b1.o.a.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1057c implements d.b.h0.b1.o.b.c.b {
+    public class C1058c implements d.b.h0.b1.o.b.c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f50030a;
+        public final /* synthetic */ List f50031a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f50031b;
+        public final /* synthetic */ List f50032b;
 
-        public C1057c(List list, List list2) {
-            this.f50030a = list;
-            this.f50031b = list2;
+        public C1058c(List list, List list2) {
+            this.f50031a = list;
+            this.f50032b = list2;
         }
 
         @Override // d.b.h0.b1.o.b.c.b
         public void a(int i) {
             int i2 = i + c.this.j;
             c.this.p = i2;
-            int currentItem = c.this.f50022c.getCurrentItem();
+            int currentItem = c.this.f50023c.getCurrentItem();
             if (c.this.j == c.this.k) {
-                c.this.f50022c.setAdapter(new d.b.h0.b1.o.a.a.b(c.this.l, c.this.m));
-                if (currentItem > c.this.f50022c.getAdapter().a() - 1) {
-                    currentItem = c.this.f50022c.getAdapter().a() - 1;
-                    c.this.f50022c.setCurrentItem(currentItem);
+                c.this.f50023c.setAdapter(new d.b.h0.b1.o.a.a.b(c.this.l, c.this.m));
+                if (currentItem > c.this.f50023c.getAdapter().a() - 1) {
+                    currentItem = c.this.f50023c.getAdapter().a() - 1;
+                    c.this.f50023c.setCurrentItem(currentItem);
                 }
                 int i3 = currentItem + c.this.l;
                 if (c.this.l != c.this.m) {
                     if (i3 != c.this.l) {
                         if (i3 != c.this.m) {
-                            c.this.F(i2, i3, 1, 31, this.f50030a, this.f50031b);
+                            c.this.F(i2, i3, 1, 31, this.f50031a, this.f50032b);
                         } else {
                             c cVar = c.this;
-                            cVar.F(i2, i3, 1, cVar.o, this.f50030a, this.f50031b);
+                            cVar.F(i2, i3, 1, cVar.o, this.f50031a, this.f50032b);
                         }
                     } else {
                         c cVar2 = c.this;
-                        cVar2.F(i2, i3, cVar2.n, 31, this.f50030a, this.f50031b);
+                        cVar2.F(i2, i3, cVar2.n, 31, this.f50031a, this.f50032b);
                     }
                 } else {
                     c cVar3 = c.this;
-                    cVar3.F(i2, i3, cVar3.n, c.this.o, this.f50030a, this.f50031b);
+                    cVar3.F(i2, i3, cVar3.n, c.this.o, this.f50031a, this.f50032b);
                 }
             } else if (i2 == c.this.j) {
-                c.this.f50022c.setAdapter(new d.b.h0.b1.o.a.a.b(c.this.l, 12));
-                if (currentItem > c.this.f50022c.getAdapter().a() - 1) {
-                    currentItem = c.this.f50022c.getAdapter().a() - 1;
-                    c.this.f50022c.setCurrentItem(currentItem);
+                c.this.f50023c.setAdapter(new d.b.h0.b1.o.a.a.b(c.this.l, 12));
+                if (currentItem > c.this.f50023c.getAdapter().a() - 1) {
+                    currentItem = c.this.f50023c.getAdapter().a() - 1;
+                    c.this.f50023c.setCurrentItem(currentItem);
                 }
                 int i4 = currentItem + c.this.l;
                 if (i4 != c.this.l) {
-                    c.this.F(i2, i4, 1, 31, this.f50030a, this.f50031b);
+                    c.this.F(i2, i4, 1, 31, this.f50031a, this.f50032b);
                 } else {
                     c cVar4 = c.this;
-                    cVar4.F(i2, i4, cVar4.n, 31, this.f50030a, this.f50031b);
+                    cVar4.F(i2, i4, cVar4.n, 31, this.f50031a, this.f50032b);
                 }
             } else if (i2 == c.this.k) {
-                c.this.f50022c.setAdapter(new d.b.h0.b1.o.a.a.b(1, c.this.m));
-                if (currentItem > c.this.f50022c.getAdapter().a() - 1) {
-                    currentItem = c.this.f50022c.getAdapter().a() - 1;
-                    c.this.f50022c.setCurrentItem(currentItem);
+                c.this.f50023c.setAdapter(new d.b.h0.b1.o.a.a.b(1, c.this.m));
+                if (currentItem > c.this.f50023c.getAdapter().a() - 1) {
+                    currentItem = c.this.f50023c.getAdapter().a() - 1;
+                    c.this.f50023c.setCurrentItem(currentItem);
                 }
                 int i5 = 1 + currentItem;
                 if (i5 != c.this.m) {
-                    c.this.F(i2, i5, 1, 31, this.f50030a, this.f50031b);
+                    c.this.F(i2, i5, 1, 31, this.f50031a, this.f50032b);
                 } else {
                     c cVar5 = c.this;
-                    cVar5.F(i2, i5, 1, cVar5.o, this.f50030a, this.f50031b);
+                    cVar5.F(i2, i5, 1, cVar5.o, this.f50031a, this.f50032b);
                 }
             } else {
-                c.this.f50022c.setAdapter(new d.b.h0.b1.o.a.a.b(1, 12));
+                c.this.f50023c.setAdapter(new d.b.h0.b1.o.a.a.b(1, 12));
                 c cVar6 = c.this;
-                cVar6.F(i2, 1 + cVar6.f50022c.getCurrentItem(), 1, 31, this.f50030a, this.f50031b);
+                cVar6.F(i2, 1 + cVar6.f50023c.getCurrentItem(), 1, 31, this.f50031a, this.f50032b);
             }
             if (c.this.x != null) {
                 c.this.x.a();
@@ -203,14 +203,14 @@ public class c {
     public class d implements d.b.h0.b1.o.b.c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f50033a;
+        public final /* synthetic */ List f50034a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f50034b;
+        public final /* synthetic */ List f50035b;
 
         public d(List list, List list2) {
-            this.f50033a = list;
-            this.f50034b = list2;
+            this.f50034a = list;
+            this.f50035b = list2;
         }
 
         @Override // d.b.h0.b1.o.b.c.b
@@ -222,39 +222,39 @@ public class c {
                     if (c.this.l != i3) {
                         if (c.this.m == i3) {
                             c cVar = c.this;
-                            cVar.F(cVar.p, i3, 1, c.this.o, this.f50033a, this.f50034b);
+                            cVar.F(cVar.p, i3, 1, c.this.o, this.f50034a, this.f50035b);
                         } else {
                             c cVar2 = c.this;
-                            cVar2.F(cVar2.p, i3, 1, 31, this.f50033a, this.f50034b);
+                            cVar2.F(cVar2.p, i3, 1, 31, this.f50034a, this.f50035b);
                         }
                     } else {
                         c cVar3 = c.this;
-                        cVar3.F(cVar3.p, i3, c.this.n, 31, this.f50033a, this.f50034b);
+                        cVar3.F(cVar3.p, i3, c.this.n, 31, this.f50034a, this.f50035b);
                     }
                 } else {
                     c cVar4 = c.this;
-                    cVar4.F(cVar4.p, i3, c.this.n, c.this.o, this.f50033a, this.f50034b);
+                    cVar4.F(cVar4.p, i3, c.this.n, c.this.o, this.f50034a, this.f50035b);
                 }
             } else if (c.this.p == c.this.j) {
                 int i4 = (i2 + c.this.l) - 1;
                 if (i4 == c.this.l) {
                     c cVar5 = c.this;
-                    cVar5.F(cVar5.p, i4, c.this.n, 31, this.f50033a, this.f50034b);
+                    cVar5.F(cVar5.p, i4, c.this.n, 31, this.f50034a, this.f50035b);
                 } else {
                     c cVar6 = c.this;
-                    cVar6.F(cVar6.p, i4, 1, 31, this.f50033a, this.f50034b);
+                    cVar6.F(cVar6.p, i4, 1, 31, this.f50034a, this.f50035b);
                 }
             } else if (c.this.p == c.this.k) {
                 if (i2 == c.this.m) {
                     c cVar7 = c.this;
-                    cVar7.F(cVar7.p, c.this.f50022c.getCurrentItem() + 1, 1, c.this.o, this.f50033a, this.f50034b);
+                    cVar7.F(cVar7.p, c.this.f50023c.getCurrentItem() + 1, 1, c.this.o, this.f50034a, this.f50035b);
                 } else {
                     c cVar8 = c.this;
-                    cVar8.F(cVar8.p, c.this.f50022c.getCurrentItem() + 1, 1, 31, this.f50033a, this.f50034b);
+                    cVar8.F(cVar8.p, c.this.f50023c.getCurrentItem() + 1, 1, 31, this.f50034a, this.f50035b);
                 }
             } else {
                 c cVar9 = c.this;
-                cVar9.F(cVar9.p, i2, 1, 31, this.f50033a, this.f50034b);
+                cVar9.F(cVar9.p, i2, 1, 31, this.f50034a, this.f50035b);
             }
             if (c.this.x != null) {
                 c.this.x.a();
@@ -274,9 +274,9 @@ public class c {
     }
 
     public c(View view, boolean[] zArr, int i, int i2) {
-        this.f50020a = view;
+        this.f50021a = view;
         this.i = zArr;
-        this.f50027h = i;
+        this.f50028h = i;
         this.q = i2;
         O(view);
     }
@@ -287,61 +287,61 @@ public class c {
     }
 
     public final void B(int i, int i2, int i3, boolean z, int i4, int i5, int i6) {
-        WheelView wheelView = (WheelView) this.f50020a.findViewById(R.id.year);
-        this.f50021b = wheelView;
+        WheelView wheelView = (WheelView) this.f50021a.findViewById(R.id.year);
+        this.f50022b = wheelView;
         wheelView.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.e(this.j, this.k)));
-        this.f50021b.setLabel("");
-        this.f50021b.setCurrentItem(i - this.j);
-        this.f50021b.setGravity(this.f50027h);
-        WheelView wheelView2 = (WheelView) this.f50020a.findViewById(R.id.month);
-        this.f50022c = wheelView2;
+        this.f50022b.setLabel("");
+        this.f50022b.setCurrentItem(i - this.j);
+        this.f50022b.setGravity(this.f50028h);
+        WheelView wheelView2 = (WheelView) this.f50021a.findViewById(R.id.month);
+        this.f50023c = wheelView2;
         wheelView2.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.d(i)));
-        this.f50022c.setLabel("");
+        this.f50023c.setLabel("");
         int g2 = d.b.h0.b1.o.a.e.a.g(i);
         if (g2 != 0 && (i2 > g2 - 1 || z)) {
-            this.f50022c.setCurrentItem(i2 + 1);
+            this.f50023c.setCurrentItem(i2 + 1);
         } else {
-            this.f50022c.setCurrentItem(i2);
+            this.f50023c.setCurrentItem(i2);
         }
-        this.f50022c.setGravity(this.f50027h);
-        this.f50023d = (WheelView) this.f50020a.findViewById(R.id.day);
+        this.f50023c.setGravity(this.f50028h);
+        this.f50024d = (WheelView) this.f50021a.findViewById(R.id.day);
         if (d.b.h0.b1.o.a.e.a.g(i) == 0) {
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i, i2))));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.h(i, i2))));
         } else {
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(i))));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.a(d.b.h0.b1.o.a.e.a.b(d.b.h0.b1.o.a.e.a.f(i))));
         }
-        this.f50023d.setLabel("");
-        this.f50023d.setCurrentItem(i3 - 1);
-        this.f50023d.setGravity(this.f50027h);
-        WheelView wheelView3 = (WheelView) this.f50020a.findViewById(R.id.hour);
-        this.f50024e = wheelView3;
+        this.f50024d.setLabel("");
+        this.f50024d.setCurrentItem(i3 - 1);
+        this.f50024d.setGravity(this.f50028h);
+        WheelView wheelView3 = (WheelView) this.f50021a.findViewById(R.id.hour);
+        this.f50025e = wheelView3;
         wheelView3.setAdapter(new d.b.h0.b1.o.a.a.b(0, 23));
-        this.f50024e.setCurrentItem(i4);
-        this.f50024e.setGravity(this.f50027h);
-        WheelView wheelView4 = (WheelView) this.f50020a.findViewById(R.id.min);
-        this.f50025f = wheelView4;
+        this.f50025e.setCurrentItem(i4);
+        this.f50025e.setGravity(this.f50028h);
+        WheelView wheelView4 = (WheelView) this.f50021a.findViewById(R.id.min);
+        this.f50026f = wheelView4;
         wheelView4.setAdapter(new d.b.h0.b1.o.a.a.b(0, 59));
-        this.f50025f.setCurrentItem(i5);
-        this.f50025f.setGravity(this.f50027h);
-        WheelView wheelView5 = (WheelView) this.f50020a.findViewById(R.id.second);
-        this.f50026g = wheelView5;
+        this.f50026f.setCurrentItem(i5);
+        this.f50026f.setGravity(this.f50028h);
+        WheelView wheelView5 = (WheelView) this.f50021a.findViewById(R.id.second);
+        this.f50027g = wheelView5;
         wheelView5.setAdapter(new d.b.h0.b1.o.a.a.b(0, 59));
-        this.f50026g.setCurrentItem(i5);
-        this.f50026g.setGravity(this.f50027h);
-        this.f50021b.setOnItemSelectedListener(new a());
-        this.f50022c.setOnItemSelectedListener(new b());
-        q(this.f50023d);
-        q(this.f50024e);
-        q(this.f50025f);
-        q(this.f50026g);
+        this.f50027g.setCurrentItem(i5);
+        this.f50027g.setGravity(this.f50028h);
+        this.f50022b.setOnItemSelectedListener(new a());
+        this.f50023c.setOnItemSelectedListener(new b());
+        q(this.f50024d);
+        q(this.f50025e);
+        q(this.f50026f);
+        q(this.f50027g);
         boolean[] zArr = this.i;
         if (zArr.length == 6) {
-            this.f50021b.setVisibility(zArr[0] ? 0 : 8);
-            this.f50022c.setVisibility(this.i[1] ? 0 : 8);
-            this.f50023d.setVisibility(this.i[2] ? 0 : 8);
-            this.f50024e.setVisibility(this.i[3] ? 0 : 8);
-            this.f50025f.setVisibility(this.i[4] ? 0 : 8);
-            this.f50026g.setVisibility(this.i[5] ? 0 : 8);
+            this.f50022b.setVisibility(zArr[0] ? 0 : 8);
+            this.f50023c.setVisibility(this.i[1] ? 0 : 8);
+            this.f50024d.setVisibility(this.i[2] ? 0 : 8);
+            this.f50025e.setVisibility(this.i[3] ? 0 : 8);
+            this.f50026f.setVisibility(this.i[4] ? 0 : 8);
+            this.f50027g.setVisibility(this.i[5] ? 0 : 8);
             r();
             return;
         }
@@ -420,30 +420,30 @@ public class c {
     }
 
     public final void F(int i, int i2, int i3, int i4, List<String> list, List<String> list2) {
-        int currentItem = this.f50023d.getCurrentItem();
+        int currentItem = this.f50024d.getCurrentItem();
         if (list.contains(String.valueOf(i2))) {
             if (i4 > 31) {
                 i4 = 31;
             }
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
         } else if (list2.contains(String.valueOf(i2))) {
             if (i4 > 30) {
                 i4 = 30;
             }
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
         } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
             if (i4 > 29) {
                 i4 = 29;
             }
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
         } else {
             if (i4 > 28) {
                 i4 = 28;
             }
-            this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
+            this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(i3, i4));
         }
-        if (currentItem > this.f50023d.getAdapter().a() - 1) {
-            this.f50023d.setCurrentItem(this.f50023d.getAdapter().a() - 1);
+        if (currentItem > this.f50024d.getAdapter().a() - 1) {
+            this.f50024d.setCurrentItem(this.f50024d.getAdapter().a() - 1);
         }
     }
 
@@ -459,131 +459,131 @@ public class c {
         List asList = Arrays.asList(strArr);
         List asList2 = Arrays.asList(strArr2);
         this.p = i;
-        WheelView wheelView = (WheelView) this.f50020a.findViewById(R.id.year);
-        this.f50021b = wheelView;
+        WheelView wheelView = (WheelView) this.f50021a.findViewById(R.id.year);
+        this.f50022b = wheelView;
         wheelView.setAdapter(new d.b.h0.b1.o.a.a.b(this.j, this.k));
-        this.f50021b.setCurrentItem(i - this.j);
-        this.f50021b.setGravity(this.f50027h);
-        WheelView wheelView2 = (WheelView) this.f50020a.findViewById(R.id.month);
-        this.f50022c = wheelView2;
+        this.f50022b.setCurrentItem(i - this.j);
+        this.f50022b.setGravity(this.f50028h);
+        WheelView wheelView2 = (WheelView) this.f50021a.findViewById(R.id.month);
+        this.f50023c = wheelView2;
         int i9 = this.j;
         int i10 = this.k;
         if (i9 == i10) {
             wheelView2.setAdapter(new d.b.h0.b1.o.a.a.b(this.l, this.m));
-            this.f50022c.setCurrentItem((i2 + 1) - this.l);
+            this.f50023c.setCurrentItem((i2 + 1) - this.l);
         } else if (i == i9) {
             wheelView2.setAdapter(new d.b.h0.b1.o.a.a.b(this.l, 12));
-            this.f50022c.setCurrentItem((i2 + 1) - this.l);
+            this.f50023c.setCurrentItem((i2 + 1) - this.l);
         } else if (i == i10) {
             wheelView2.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.m));
-            this.f50022c.setCurrentItem(i2);
+            this.f50023c.setCurrentItem(i2);
         } else {
             wheelView2.setAdapter(new d.b.h0.b1.o.a.a.b(1, 12));
-            this.f50022c.setCurrentItem(i2);
+            this.f50023c.setCurrentItem(i2);
         }
-        this.f50022c.setGravity(this.f50027h);
-        this.f50023d = (WheelView) this.f50020a.findViewById(R.id.day);
+        this.f50023c.setGravity(this.f50028h);
+        this.f50024d = (WheelView) this.f50021a.findViewById(R.id.day);
         if (this.j == this.k && this.l == this.m) {
             int i11 = i2 + 1;
             if (asList.contains(String.valueOf(i11))) {
                 if (this.o > 31) {
                     this.o = 31;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
             } else if (asList2.contains(String.valueOf(i11))) {
                 if (this.o > 30) {
                     this.o = 30;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
                 if (this.o > 29) {
                     this.o = 29;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
             } else {
                 if (this.o > 28) {
                     this.o = 28;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, this.o));
             }
-            this.f50023d.setCurrentItem(i3 - this.n);
+            this.f50024d.setCurrentItem(i3 - this.n);
         } else if (i == this.j && (i8 = i2 + 1) == this.l) {
             if (asList.contains(String.valueOf(i8))) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 31));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 31));
             } else if (asList2.contains(String.valueOf(i8))) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 30));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 30));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 29));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 29));
             } else {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 28));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(this.n, 28));
             }
-            this.f50023d.setCurrentItem(i3 - this.n);
+            this.f50024d.setCurrentItem(i3 - this.n);
         } else if (i == this.k && (i7 = i2 + 1) == this.m) {
             if (asList.contains(String.valueOf(i7))) {
                 if (this.o > 31) {
                     this.o = 31;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
             } else if (asList2.contains(String.valueOf(i7))) {
                 if (this.o > 30) {
                     this.o = 30;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
                 if (this.o > 29) {
                     this.o = 29;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
             } else {
                 if (this.o > 28) {
                     this.o = 28;
                 }
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, this.o));
             }
-            this.f50023d.setCurrentItem(i3 - 1);
+            this.f50024d.setCurrentItem(i3 - 1);
         } else {
             int i12 = i2 + 1;
             if (asList.contains(String.valueOf(i12))) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 31));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 31));
             } else if (asList2.contains(String.valueOf(i12))) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 30));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 30));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 29));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 29));
             } else {
-                this.f50023d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 28));
+                this.f50024d.setAdapter(new d.b.h0.b1.o.a.a.b(1, 28));
             }
-            this.f50023d.setCurrentItem(i3 - 1);
+            this.f50024d.setCurrentItem(i3 - 1);
         }
-        this.f50023d.setGravity(this.f50027h);
-        WheelView wheelView3 = (WheelView) this.f50020a.findViewById(R.id.hour);
-        this.f50024e = wheelView3;
+        this.f50024d.setGravity(this.f50028h);
+        WheelView wheelView3 = (WheelView) this.f50021a.findViewById(R.id.hour);
+        this.f50025e = wheelView3;
         wheelView3.setAdapter(new d.b.h0.b1.o.a.a.b(0, 23));
-        this.f50024e.setCurrentItem(i4);
-        this.f50024e.setGravity(this.f50027h);
-        WheelView wheelView4 = (WheelView) this.f50020a.findViewById(R.id.min);
-        this.f50025f = wheelView4;
+        this.f50025e.setCurrentItem(i4);
+        this.f50025e.setGravity(this.f50028h);
+        WheelView wheelView4 = (WheelView) this.f50021a.findViewById(R.id.min);
+        this.f50026f = wheelView4;
         wheelView4.setAdapter(new d.b.h0.b1.o.a.a.b(0, 59));
-        this.f50025f.setCurrentItem(i5);
-        this.f50025f.setGravity(this.f50027h);
-        WheelView wheelView5 = (WheelView) this.f50020a.findViewById(R.id.second);
-        this.f50026g = wheelView5;
+        this.f50026f.setCurrentItem(i5);
+        this.f50026f.setGravity(this.f50028h);
+        WheelView wheelView5 = (WheelView) this.f50021a.findViewById(R.id.second);
+        this.f50027g = wheelView5;
         wheelView5.setAdapter(new d.b.h0.b1.o.a.a.b(0, 59));
-        this.f50026g.setCurrentItem(i6);
-        this.f50026g.setGravity(this.f50027h);
-        this.f50021b.setOnItemSelectedListener(new C1057c(asList, asList2));
-        this.f50022c.setOnItemSelectedListener(new d(asList, asList2));
-        q(this.f50023d);
-        q(this.f50024e);
-        q(this.f50025f);
-        q(this.f50026g);
+        this.f50027g.setCurrentItem(i6);
+        this.f50027g.setGravity(this.f50028h);
+        this.f50022b.setOnItemSelectedListener(new C1058c(asList, asList2));
+        this.f50023c.setOnItemSelectedListener(new d(asList, asList2));
+        q(this.f50024d);
+        q(this.f50025e);
+        q(this.f50026f);
+        q(this.f50027g);
         boolean[] zArr = this.i;
         if (zArr.length == 6) {
-            this.f50021b.setVisibility(zArr[0] ? 0 : 8);
-            this.f50022c.setVisibility(this.i[1] ? 0 : 8);
-            this.f50023d.setVisibility(this.i[2] ? 0 : 8);
-            this.f50024e.setVisibility(this.i[3] ? 0 : 8);
-            this.f50025f.setVisibility(this.i[4] ? 0 : 8);
-            this.f50026g.setVisibility(this.i[5] ? 0 : 8);
+            this.f50022b.setVisibility(zArr[0] ? 0 : 8);
+            this.f50023c.setVisibility(this.i[1] ? 0 : 8);
+            this.f50024d.setVisibility(this.i[2] ? 0 : 8);
+            this.f50025e.setVisibility(this.i[3] ? 0 : 8);
+            this.f50026f.setVisibility(this.i[4] ? 0 : 8);
+            this.f50027g.setVisibility(this.i[5] ? 0 : 8);
             r();
             return;
         }
@@ -595,12 +595,12 @@ public class c {
     }
 
     public final void J() {
-        this.f50023d.setTextColorCenter(this.s);
-        this.f50022c.setTextColorCenter(this.s);
-        this.f50021b.setTextColorCenter(this.s);
-        this.f50024e.setTextColorCenter(this.s);
-        this.f50025f.setTextColorCenter(this.s);
-        this.f50026g.setTextColorCenter(this.s);
+        this.f50024d.setTextColorCenter(this.s);
+        this.f50023c.setTextColorCenter(this.s);
+        this.f50022b.setTextColorCenter(this.s);
+        this.f50025e.setTextColorCenter(this.s);
+        this.f50026f.setTextColorCenter(this.s);
+        this.f50027g.setTextColorCenter(this.s);
     }
 
     public void K(int i) {
@@ -609,12 +609,12 @@ public class c {
     }
 
     public final void L() {
-        this.f50023d.setTextColorOut(this.r);
-        this.f50022c.setTextColorOut(this.r);
-        this.f50021b.setTextColorOut(this.r);
-        this.f50024e.setTextColorOut(this.r);
-        this.f50025f.setTextColorOut(this.r);
-        this.f50026g.setTextColorOut(this.r);
+        this.f50024d.setTextColorOut(this.r);
+        this.f50023c.setTextColorOut(this.r);
+        this.f50022b.setTextColorOut(this.r);
+        this.f50025e.setTextColorOut(this.r);
+        this.f50026f.setTextColorOut(this.r);
+        this.f50027g.setTextColorOut(this.r);
     }
 
     public void M(int i) {
@@ -623,16 +623,16 @@ public class c {
     }
 
     public void N(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.f50023d.setTextXOffset(i);
-        this.f50022c.setTextXOffset(i2);
-        this.f50021b.setTextXOffset(i3);
-        this.f50024e.setTextXOffset(i4);
-        this.f50025f.setTextXOffset(i5);
-        this.f50026g.setTextXOffset(i6);
+        this.f50024d.setTextXOffset(i);
+        this.f50023c.setTextXOffset(i2);
+        this.f50022b.setTextXOffset(i3);
+        this.f50025e.setTextXOffset(i4);
+        this.f50026f.setTextXOffset(i5);
+        this.f50027g.setTextXOffset(i6);
     }
 
     public void O(View view) {
-        this.f50020a = view;
+        this.f50021a = view;
     }
 
     public final String n() {
@@ -640,58 +640,58 @@ public class c {
         boolean z;
         int currentItem2;
         StringBuilder sb = new StringBuilder();
-        int currentItem3 = this.f50021b.getCurrentItem() + this.j;
+        int currentItem3 = this.f50022b.getCurrentItem() + this.j;
         if (d.b.h0.b1.o.a.e.a.g(currentItem3) == 0) {
-            currentItem2 = this.f50022c.getCurrentItem();
-        } else if ((this.f50022c.getCurrentItem() + 1) - d.b.h0.b1.o.a.e.a.g(currentItem3) <= 0) {
-            currentItem2 = this.f50022c.getCurrentItem();
-        } else if ((this.f50022c.getCurrentItem() + 1) - d.b.h0.b1.o.a.e.a.g(currentItem3) == 1) {
-            currentItem = this.f50022c.getCurrentItem();
+            currentItem2 = this.f50023c.getCurrentItem();
+        } else if ((this.f50023c.getCurrentItem() + 1) - d.b.h0.b1.o.a.e.a.g(currentItem3) <= 0) {
+            currentItem2 = this.f50023c.getCurrentItem();
+        } else if ((this.f50023c.getCurrentItem() + 1) - d.b.h0.b1.o.a.e.a.g(currentItem3) == 1) {
+            currentItem = this.f50023c.getCurrentItem();
             z = true;
-            int[] b2 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50023d.getCurrentItem() + 1, z);
+            int[] b2 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50024d.getCurrentItem() + 1, z);
             sb.append(b2[0]);
             sb.append("-");
             sb.append(b2[1]);
             sb.append("-");
             sb.append(b2[2]);
             sb.append(" ");
-            sb.append(this.f50024e.getCurrentItem());
+            sb.append(this.f50025e.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50025f.getCurrentItem());
+            sb.append(this.f50026f.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50026g.getCurrentItem());
+            sb.append(this.f50027g.getCurrentItem());
             return sb.toString();
         } else {
-            currentItem = this.f50022c.getCurrentItem();
+            currentItem = this.f50023c.getCurrentItem();
             z = false;
-            int[] b22 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50023d.getCurrentItem() + 1, z);
+            int[] b22 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50024d.getCurrentItem() + 1, z);
             sb.append(b22[0]);
             sb.append("-");
             sb.append(b22[1]);
             sb.append("-");
             sb.append(b22[2]);
             sb.append(" ");
-            sb.append(this.f50024e.getCurrentItem());
+            sb.append(this.f50025e.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50025f.getCurrentItem());
+            sb.append(this.f50026f.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50026g.getCurrentItem());
+            sb.append(this.f50027g.getCurrentItem());
             return sb.toString();
         }
         currentItem = currentItem2 + 1;
         z = false;
-        int[] b222 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50023d.getCurrentItem() + 1, z);
+        int[] b222 = d.b.h0.b1.o.a.e.b.b(currentItem3, currentItem, this.f50024d.getCurrentItem() + 1, z);
         sb.append(b222[0]);
         sb.append("-");
         sb.append(b222[1]);
         sb.append("-");
         sb.append(b222[2]);
         sb.append(" ");
-        sb.append(this.f50024e.getCurrentItem());
+        sb.append(this.f50025e.getCurrentItem());
         sb.append(":");
-        sb.append(this.f50025f.getCurrentItem());
+        sb.append(this.f50026f.getCurrentItem());
         sb.append(":");
-        sb.append(this.f50026g.getCurrentItem());
+        sb.append(this.f50027g.getCurrentItem());
         return sb.toString();
     }
 
@@ -701,56 +701,56 @@ public class c {
         }
         StringBuilder sb = new StringBuilder();
         if (this.p == this.j) {
-            int currentItem = this.f50022c.getCurrentItem();
+            int currentItem = this.f50023c.getCurrentItem();
             int i = this.l;
             if (currentItem + i == i) {
-                sb.append(this.f50021b.getCurrentItem() + this.j);
+                sb.append(this.f50022b.getCurrentItem() + this.j);
                 sb.append("-");
-                sb.append(this.f50022c.getCurrentItem() + this.l);
+                sb.append(this.f50023c.getCurrentItem() + this.l);
                 sb.append("-");
-                sb.append(this.f50023d.getCurrentItem() + this.n);
+                sb.append(this.f50024d.getCurrentItem() + this.n);
                 sb.append(" ");
-                sb.append(this.f50024e.getCurrentItem());
+                sb.append(this.f50025e.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f50025f.getCurrentItem());
+                sb.append(this.f50026f.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f50026g.getCurrentItem());
+                sb.append(this.f50027g.getCurrentItem());
             } else {
-                sb.append(this.f50021b.getCurrentItem() + this.j);
+                sb.append(this.f50022b.getCurrentItem() + this.j);
                 sb.append("-");
-                sb.append(this.f50022c.getCurrentItem() + this.l);
+                sb.append(this.f50023c.getCurrentItem() + this.l);
                 sb.append("-");
-                sb.append(this.f50023d.getCurrentItem() + 1);
+                sb.append(this.f50024d.getCurrentItem() + 1);
                 sb.append(" ");
-                sb.append(this.f50024e.getCurrentItem());
+                sb.append(this.f50025e.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f50025f.getCurrentItem());
+                sb.append(this.f50026f.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f50026g.getCurrentItem());
+                sb.append(this.f50027g.getCurrentItem());
             }
         } else {
-            sb.append(this.f50021b.getCurrentItem() + this.j);
+            sb.append(this.f50022b.getCurrentItem() + this.j);
             sb.append("-");
-            sb.append(this.f50022c.getCurrentItem() + 1);
+            sb.append(this.f50023c.getCurrentItem() + 1);
             sb.append("-");
-            sb.append(this.f50023d.getCurrentItem() + 1);
+            sb.append(this.f50024d.getCurrentItem() + 1);
             sb.append(" ");
-            sb.append(this.f50024e.getCurrentItem());
+            sb.append(this.f50025e.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50025f.getCurrentItem());
+            sb.append(this.f50026f.getCurrentItem());
             sb.append(":");
-            sb.append(this.f50026g.getCurrentItem());
+            sb.append(this.f50027g.getCurrentItem());
         }
         return sb.toString();
     }
 
     public void p(boolean z) {
-        this.f50023d.h(z);
-        this.f50022c.h(z);
-        this.f50021b.h(z);
-        this.f50024e.h(z);
-        this.f50025f.h(z);
-        this.f50026g.h(z);
+        this.f50024d.h(z);
+        this.f50023c.h(z);
+        this.f50022b.h(z);
+        this.f50025e.h(z);
+        this.f50026f.h(z);
+        this.f50027g.h(z);
     }
 
     public final void q(WheelView wheelView) {
@@ -760,30 +760,30 @@ public class c {
     }
 
     public final void r() {
-        this.f50023d.setTextSize(this.q);
-        this.f50022c.setTextSize(this.q);
-        this.f50021b.setTextSize(this.q);
-        this.f50024e.setTextSize(this.q);
-        this.f50025f.setTextSize(this.q);
-        this.f50026g.setTextSize(this.q);
+        this.f50024d.setTextSize(this.q);
+        this.f50023c.setTextSize(this.q);
+        this.f50022b.setTextSize(this.q);
+        this.f50025e.setTextSize(this.q);
+        this.f50026f.setTextSize(this.q);
+        this.f50027g.setTextSize(this.q);
     }
 
     public void s(boolean z) {
-        this.f50021b.setCyclic(z);
-        this.f50022c.setCyclic(z);
-        this.f50023d.setCyclic(z);
-        this.f50024e.setCyclic(z);
-        this.f50025f.setCyclic(z);
-        this.f50026g.setCyclic(z);
+        this.f50022b.setCyclic(z);
+        this.f50023c.setCyclic(z);
+        this.f50024d.setCyclic(z);
+        this.f50025e.setCyclic(z);
+        this.f50026f.setCyclic(z);
+        this.f50027g.setCyclic(z);
     }
 
     public final void t() {
-        this.f50023d.setDividerColor(this.t);
-        this.f50022c.setDividerColor(this.t);
-        this.f50021b.setDividerColor(this.t);
-        this.f50024e.setDividerColor(this.t);
-        this.f50025f.setDividerColor(this.t);
-        this.f50026g.setDividerColor(this.t);
+        this.f50024d.setDividerColor(this.t);
+        this.f50023c.setDividerColor(this.t);
+        this.f50022b.setDividerColor(this.t);
+        this.f50025e.setDividerColor(this.t);
+        this.f50026f.setDividerColor(this.t);
+        this.f50027g.setDividerColor(this.t);
     }
 
     public void u(int i) {
@@ -792,12 +792,12 @@ public class c {
     }
 
     public final void v() {
-        this.f50023d.setDividerType(this.v);
-        this.f50022c.setDividerType(this.v);
-        this.f50021b.setDividerType(this.v);
-        this.f50024e.setDividerType(this.v);
-        this.f50025f.setDividerType(this.v);
-        this.f50026g.setDividerType(this.v);
+        this.f50024d.setDividerType(this.v);
+        this.f50023c.setDividerType(this.v);
+        this.f50022b.setDividerType(this.v);
+        this.f50025e.setDividerType(this.v);
+        this.f50026f.setDividerType(this.v);
+        this.f50027g.setDividerType(this.v);
     }
 
     public void w(WheelView.DividerType dividerType) {
@@ -814,43 +814,43 @@ public class c {
             return;
         }
         if (str != null) {
-            this.f50021b.setLabel(str);
+            this.f50022b.setLabel(str);
         } else {
-            this.f50021b.setLabel(this.f50020a.getContext().getString(R.string.pickerview_year));
+            this.f50022b.setLabel(this.f50021a.getContext().getString(R.string.pickerview_year));
         }
         if (str2 != null) {
-            this.f50022c.setLabel(str2);
+            this.f50023c.setLabel(str2);
         } else {
-            this.f50022c.setLabel(this.f50020a.getContext().getString(R.string.pickerview_month));
+            this.f50023c.setLabel(this.f50021a.getContext().getString(R.string.pickerview_month));
         }
         if (str3 != null) {
-            this.f50023d.setLabel(str3);
+            this.f50024d.setLabel(str3);
         } else {
-            this.f50023d.setLabel(this.f50020a.getContext().getString(R.string.pickerview_day));
+            this.f50024d.setLabel(this.f50021a.getContext().getString(R.string.pickerview_day));
         }
         if (str4 != null) {
-            this.f50024e.setLabel(str4);
+            this.f50025e.setLabel(str4);
         } else {
-            this.f50024e.setLabel(this.f50020a.getContext().getString(R.string.pickerview_hours));
+            this.f50025e.setLabel(this.f50021a.getContext().getString(R.string.pickerview_hours));
         }
         if (str5 != null) {
-            this.f50025f.setLabel(str5);
+            this.f50026f.setLabel(str5);
         } else {
-            this.f50025f.setLabel(this.f50020a.getContext().getString(R.string.pickerview_minutes));
+            this.f50026f.setLabel(this.f50021a.getContext().getString(R.string.pickerview_minutes));
         }
         if (str6 != null) {
-            this.f50026g.setLabel(str6);
+            this.f50027g.setLabel(str6);
         } else {
-            this.f50026g.setLabel(this.f50020a.getContext().getString(R.string.pickerview_seconds));
+            this.f50027g.setLabel(this.f50021a.getContext().getString(R.string.pickerview_seconds));
         }
     }
 
     public final void z() {
-        this.f50023d.setLineSpacingMultiplier(this.u);
-        this.f50022c.setLineSpacingMultiplier(this.u);
-        this.f50021b.setLineSpacingMultiplier(this.u);
-        this.f50024e.setLineSpacingMultiplier(this.u);
-        this.f50025f.setLineSpacingMultiplier(this.u);
-        this.f50026g.setLineSpacingMultiplier(this.u);
+        this.f50024d.setLineSpacingMultiplier(this.u);
+        this.f50023c.setLineSpacingMultiplier(this.u);
+        this.f50022b.setLineSpacingMultiplier(this.u);
+        this.f50025e.setLineSpacingMultiplier(this.u);
+        this.f50026f.setLineSpacingMultiplier(this.u);
+        this.f50027g.setLineSpacingMultiplier(this.u);
     }
 }

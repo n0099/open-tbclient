@@ -22,12 +22,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import okio.BufferedSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class f extends d.b.g0.a.e0.p.j {
-    public static final boolean F = d.b.g0.a.k.f45050a;
+    public static final boolean F = d.b.g0.a.k.f45051a;
 
     /* renamed from: h  reason: collision with root package name */
-    public h.j<? super d.b.g0.l.k.f> f44152h;
+    public h.j<? super d.b.g0.l.k.f> f44153h;
     public h.j<? super d.b.g0.l.k.g> i;
     public h.j<? super d.b.g0.l.k.d> j;
     public h.j<? super d.b.g0.l.k.b> k;
@@ -41,7 +41,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
     public d.b.g0.l.k.g u;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f44151g = "";
+    public String f44152g = "";
     public String t = "0";
     public long v = -1;
     public final Set<d.b.g0.a.e0.p.m.a> w = new HashSet();
@@ -55,20 +55,20 @@ public abstract class f extends d.b.g0.a.e0.p.j {
     public h.j<d.b.g0.l.k.e> E = new i();
     public List<UbcFlowEvent> s = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends d.b.g0.l.h.b<d.b.g0.l.k.f> {
 
         /* renamed from: d.b.g0.a.e0.p.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0669a implements d.b.g0.a.i2.u0.b<i.a> {
-            public C0669a() {
+        /* loaded from: classes2.dex */
+        public class C0670a implements d.b.g0.a.i2.u0.b<i.a> {
+            public C0670a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.g0.a.i2.u0.b
             /* renamed from: a */
             public void onCallback(i.a aVar) {
-                if ("installer_on_pump_finish".equals(aVar.f45744g)) {
+                if ("installer_on_pump_finish".equals(aVar.f45745g)) {
                     Bundle bundle = new Bundle();
                     bundle.putString("performance_ubc_event_id", "670");
                     bundle.putString("performance_ubc_extra_key_for_event", "na_stream_bump_end");
@@ -95,7 +95,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         @Override // d.b.g0.l.h.c
         /* renamed from: m */
         public String j(d.b.g0.l.k.f fVar) {
-            int i = fVar.f48923h;
+            int i = fVar.f48924h;
             if (i == 0) {
                 return d.b.g0.a.e0.p.r.a.g();
             }
@@ -114,14 +114,14 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             f.this.l.i(fVar);
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(11L);
-            aVar2.h(aVar.f48913a);
+            aVar2.h(aVar.f48914a);
             aVar2.c("主包下载失败");
             aVar2.e(aVar.toString());
-            if (f.this.f44152h != null) {
-                f.this.f44152h.onError(new PkgDownloadError(fVar, aVar2));
+            if (f.this.f44153h != null) {
+                f.this.f44153h.onError(new PkgDownloadError(fVar, aVar2));
             }
             d.b.g0.a.e0.p.c.c().a(fVar, f.this.i0(), aVar2);
-            d.b.g0.p.d.g(fVar.f48916a);
+            d.b.g0.p.d.g(fVar.f48917a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,19 +140,19 @@ public abstract class f extends d.b.g0.a.e0.p.j {
                 f fVar2 = f.this;
                 fVar2.m = fVar;
                 fVar2.l.j(fVar);
-                if (f.this.f44152h != null) {
-                    f.this.f44152h.onNext(fVar);
+                if (f.this.f44153h != null) {
+                    f.this.f44153h.onNext(fVar);
                     if (f.F) {
                         Log.d("SwanAppPkgDownloadCallback", f.this.g0() + ": main onFileDownloaded: onCompleted");
                     }
-                    f.this.f44152h.onCompleted();
+                    f.this.f44153h.onCompleted();
                 }
                 d.b.g0.a.e0.p.c.c().b(fVar, f.this.i0());
                 return;
             }
             f.this.l.i(fVar);
-            if (f.this.f44152h != null) {
-                f.this.f44152h.onError(new PkgDownloadError(fVar, x0));
+            if (f.this.f44153h != null) {
+                f.this.f44153h.onError(new PkgDownloadError(fVar, x0));
             }
             d.b.g0.a.e0.p.c.c().a(fVar, f.this.i0(), x0);
         }
@@ -192,18 +192,18 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             if (f.F) {
                 d.b.g0.a.y0.g.a.d(j0).f(fVar.toString()).d(1);
             }
-            C0669a c0669a = new C0669a();
+            C0670a c0670a = new C0670a();
             Bundle bundle = new Bundle();
             bundle.putLong("length", j);
             bundle.putFloat("progress_granularity", 0.1f);
             d.b.g0.a.u0.f fVar2 = new d.b.g0.a.u0.f();
-            fVar2.i(c0669a);
+            fVar2.i(c0670a);
             fVar2.f(bundle);
             fVar2.e(new d.b.g0.a.u0.e(fVar, f.this));
             fVar2.e(new d.b.g0.a.u0.c(fVar.m, f.this));
             fVar2.y(bufferedSource);
             boolean z = fVar2.z();
-            fVar2.p(c0669a);
+            fVar2.p(c0670a);
             if (f.F) {
                 Log.i("SwanAppPkgDownloadCallback", f.this.g0() + ": onProcessStream: installOk=" + z);
             }
@@ -214,121 +214,121 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.e0.p.m.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44155e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44156e;
 
         public b(d.b.g0.a.i2.u0.b bVar) {
-            this.f44155e = bVar;
+            this.f44156e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.e0.p.m.a aVar) {
-            this.f44155e.onCallback(aVar);
+            this.f44156e.onCallback(aVar);
             f fVar = f.this;
             fVar.f0(fVar.w, aVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.i2.u0.b<d.b.g0.a.e0.p.m.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.f2.a f44157e;
+        public final /* synthetic */ d.b.g0.a.f2.a f44158e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44158f;
+        public final /* synthetic */ boolean f44159f;
 
         public c(f fVar, d.b.g0.a.f2.a aVar, boolean z) {
-            this.f44157e = aVar;
-            this.f44158f = z;
+            this.f44158e = aVar;
+            this.f44159f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.e0.p.m.a aVar) {
-            aVar.a(this.f44157e, this.f44158f);
+            aVar.a(this.f44158e, this.f44159f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements d.b.g0.a.i2.u0.b<d.b.g0.a.e0.p.m.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f44159e;
+        public final /* synthetic */ PMSAppInfo f44160e;
 
         public d(f fVar, PMSAppInfo pMSAppInfo) {
-            this.f44159e = pMSAppInfo;
+            this.f44160e = pMSAppInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.e0.p.m.a aVar) {
-            aVar.b(this.f44159e);
+            aVar.b(this.f44160e);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements c.InterfaceC0667c {
+    /* loaded from: classes2.dex */
+    public class e implements c.InterfaceC0668c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.l.k.f f44160a;
+        public final /* synthetic */ d.b.g0.l.k.f f44161a;
 
         public e(d.b.g0.l.k.f fVar) {
-            this.f44160a = fVar;
+            this.f44161a = fVar;
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void a(PMSDownloadType pMSDownloadType) {
             f fVar = f.this;
-            d.b.g0.l.k.f fVar2 = this.f44160a;
+            d.b.g0.l.k.f fVar2 = this.f44161a;
             fVar.m = fVar2;
             fVar.l.j(fVar2);
-            if (f.this.f44152h != null) {
-                f.this.f44152h.onNext(this.f44160a);
-                f.this.f44152h.onCompleted();
+            if (f.this.f44153h != null) {
+                f.this.f44153h.onNext(this.f44161a);
+                f.this.f44153h.onCompleted();
             }
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
-            f.this.l.i(this.f44160a);
-            if (f.this.f44152h != null) {
-                f.this.f44152h.onError(new PkgDownloadError(this.f44160a, aVar));
+            f.this.l.i(this.f44161a);
+            if (f.this.f44153h != null) {
+                f.this.f44153h.onError(new PkgDownloadError(this.f44161a, aVar));
             }
         }
     }
 
     /* renamed from: d.b.g0.a.e0.p.f$f  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0670f implements c.InterfaceC0667c {
+    /* loaded from: classes2.dex */
+    public class C0671f implements c.InterfaceC0668c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.l.k.g f44162a;
+        public final /* synthetic */ d.b.g0.l.k.g f44163a;
 
-        public C0670f(d.b.g0.l.k.g gVar) {
-            this.f44162a = gVar;
+        public C0671f(d.b.g0.l.k.g gVar) {
+            this.f44163a = gVar;
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void a(PMSDownloadType pMSDownloadType) {
             f fVar = f.this;
             if (fVar.n == null) {
                 fVar.n = new ArrayList();
             }
-            d.b.g0.l.k.g gVar = this.f44162a;
+            d.b.g0.l.k.g gVar = this.f44163a;
             f fVar2 = f.this;
             gVar.o = fVar2.r;
             fVar2.n.add(gVar);
-            f.this.l.j(this.f44162a);
+            f.this.l.j(this.f44163a);
             if (f.this.i != null) {
-                f.this.i.onNext(this.f44162a);
+                f.this.i.onNext(this.f44163a);
                 if (f.this.l.g()) {
                     return;
                 }
@@ -336,75 +336,75 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             }
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
-            f.this.l.i(this.f44162a);
+            f.this.l.i(this.f44163a);
             if (f.this.i != null) {
-                f.this.i.onError(new PkgDownloadError(this.f44162a, aVar));
+                f.this.i.onError(new PkgDownloadError(this.f44163a, aVar));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class g implements c.InterfaceC0667c {
+    /* loaded from: classes2.dex */
+    public class g implements c.InterfaceC0668c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.l.k.d f44164a;
+        public final /* synthetic */ d.b.g0.l.k.d f44165a;
 
         public g(d.b.g0.l.k.d dVar) {
-            this.f44164a = dVar;
+            this.f44165a = dVar;
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void a(PMSDownloadType pMSDownloadType) {
             f fVar = f.this;
-            d.b.g0.l.k.d dVar = this.f44164a;
+            d.b.g0.l.k.d dVar = this.f44165a;
             fVar.o = dVar;
             fVar.l.j(dVar);
             if (f.this.j != null) {
-                f.this.j.onNext(this.f44164a);
+                f.this.j.onNext(this.f44165a);
                 f.this.j.onCompleted();
             }
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
-            f.this.l.i(this.f44164a);
+            f.this.l.i(this.f44165a);
             if (f.this.j != null) {
-                f.this.j.onError(new PkgDownloadError(this.f44164a, aVar));
+                f.this.j.onError(new PkgDownloadError(this.f44165a, aVar));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class h implements c.InterfaceC0667c {
+    /* loaded from: classes2.dex */
+    public class h implements c.InterfaceC0668c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.l.k.b f44166a;
+        public final /* synthetic */ d.b.g0.l.k.b f44167a;
 
         public h(d.b.g0.l.k.b bVar) {
-            this.f44166a = bVar;
+            this.f44167a = bVar;
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void a(PMSDownloadType pMSDownloadType) {
             d.b.g0.a.c0.c.h("SwanAppPkgDownloadCallback", "Extension Repeat: onSuccess ：" + pMSDownloadType);
             f fVar = f.this;
-            d.b.g0.l.k.b bVar = this.f44166a;
+            d.b.g0.l.k.b bVar = this.f44167a;
             fVar.p = bVar;
             fVar.l.j(bVar);
-            f.this.o0(this.f44166a);
+            f.this.o0(this.f44167a);
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
             d.b.g0.a.c0.c.h("SwanAppPkgDownloadCallback", "Extension Repeat: onError ：" + pMSDownloadType + ":" + aVar.toString());
-            f.this.l.i(this.f44166a);
-            f.this.o0(this.f44166a);
+            f.this.l.i(this.f44167a);
+            f.this.o0(this.f44167a);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i extends h.j<d.b.g0.l.k.e> {
         public i() {
         }
@@ -429,7 +429,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class j implements d.a<d.b.g0.l.k.f> {
         public j() {
         }
@@ -438,11 +438,11 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         @Override // h.n.b
         /* renamed from: a */
         public void call(h.j<? super d.b.g0.l.k.f> jVar) {
-            f.this.f44152h = jVar;
+            f.this.f44153h = jVar;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class k implements d.a<d.b.g0.l.k.g> {
         public k() {
         }
@@ -455,7 +455,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class l implements d.a<d.b.g0.l.k.d> {
         public l() {
         }
@@ -468,7 +468,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class m implements d.a<d.b.g0.l.k.b> {
         public m() {
         }
@@ -481,7 +481,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class n extends d.b.g0.a.e0.p.k<f> {
         public n(f fVar) {
             super(fVar);
@@ -533,7 +533,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             f.this.l.i(gVar);
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(12L);
-            aVar2.h(aVar.f48913a);
+            aVar2.h(aVar.f48914a);
             aVar2.c("分包下载失败");
             aVar2.e(aVar.toString());
             if (f.this.i != null) {
@@ -559,7 +559,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class o extends d.b.g0.l.h.b<d.b.g0.l.k.d> {
         public o() {
         }
@@ -579,7 +579,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         @Override // d.b.g0.l.h.c
         /* renamed from: m */
         public String j(d.b.g0.l.k.d dVar) {
-            int i = dVar.f48923h;
+            int i = dVar.f48924h;
             if (i == 0) {
                 return d.b.g0.a.e0.p.r.a.h();
             }
@@ -598,14 +598,14 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             f.this.l.i(dVar);
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(13L);
-            aVar2.h(aVar.f48913a);
+            aVar2.h(aVar.f48914a);
             aVar2.c("Framework包下载失败");
             aVar2.e(aVar.toString());
             if (f.this.j != null) {
                 f.this.j.onError(new PkgDownloadError(dVar, aVar2));
             }
             d.b.g0.a.e0.p.c.c().a(dVar, f.this.i0(), aVar2);
-            d.b.g0.p.d.g(dVar.f48916a);
+            d.b.g0.p.d.g(dVar.f48917a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -653,7 +653,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class p extends d.b.g0.l.h.b<d.b.g0.l.k.b> {
         public p() {
         }
@@ -673,7 +673,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         @Override // d.b.g0.l.h.c
         /* renamed from: m */
         public String j(d.b.g0.l.k.b bVar) {
-            int i = bVar.f48923h;
+            int i = bVar.f48924h;
             if (i == 0) {
                 return d.b.g0.a.e0.p.r.a.d();
             }
@@ -692,7 +692,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             f.this.l.i(bVar);
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(14L);
-            aVar2.h(aVar.f48913a);
+            aVar2.h(aVar.f48914a);
             aVar2.c("Extension下载失败");
             aVar2.e(aVar.toString());
             if (f.F) {
@@ -700,7 +700,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             }
             f.this.o0(bVar);
             d.b.g0.a.e0.p.c.c().a(bVar, f.this.i0(), aVar2);
-            d.b.g0.p.d.g(bVar.f48916a);
+            d.b.g0.p.d.g(bVar.f48917a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -746,7 +746,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class q implements d.b.g0.l.h.f {
         public q() {
         }
@@ -765,82 +765,82 @@ public abstract class f extends d.b.g0.a.e0.p.j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class r implements d.b.g0.a.i2.u0.b<d.b.g0.a.i2.u0.b<PMSAppInfo>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f44177e;
+        public final /* synthetic */ PMSAppInfo f44178e;
 
         public r(f fVar, PMSAppInfo pMSAppInfo) {
-            this.f44177e = pMSAppInfo;
+            this.f44178e = pMSAppInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.i2.u0.b<PMSAppInfo> bVar) {
-            bVar.onCallback(this.f44177e);
+            bVar.onCallback(this.f44178e);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class s implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f44178e;
+        public final /* synthetic */ Collection f44179e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f44179f;
+        public final /* synthetic */ Object f44180f;
 
         public s(f fVar, Collection collection, Object obj) {
-            this.f44178e = collection;
-            this.f44179f = obj;
+            this.f44179e = collection;
+            this.f44180f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44178e.add(this.f44179f);
+            this.f44179e.add(this.f44180f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class t implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f44180e;
+        public final /* synthetic */ Collection f44181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f44181f;
+        public final /* synthetic */ Object f44182f;
 
         public t(f fVar, Collection collection, Object obj) {
-            this.f44180e = collection;
-            this.f44181f = obj;
+            this.f44181e = collection;
+            this.f44182f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44180e.remove(this.f44181f);
+            this.f44181e.remove(this.f44182f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class u implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f44182e;
+        public final /* synthetic */ Collection f44183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44183f;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44184f;
 
         public u(f fVar, Collection collection, d.b.g0.a.i2.u0.b bVar) {
-            this.f44182e = collection;
-            this.f44183f = bVar;
+            this.f44183e = collection;
+            this.f44184f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            for (Object obj : this.f44182e) {
-                this.f44183f.onCallback(obj);
+            for (Object obj : this.f44183e) {
+                this.f44184f.onCallback(obj);
             }
         }
     }
@@ -865,14 +865,14 @@ public abstract class f extends d.b.g0.a.e0.p.j {
     @Override // d.b.g0.l.h.g
     public void C(d.b.g0.l.k.a aVar) {
         d.b.g0.a.c0.c.h("SwanAppPkgDownloadCallback", "onFetchError: error=" + aVar);
-        if (aVar != null && aVar.f48913a == 1010) {
+        if (aVar != null && aVar.f48914a == 1010) {
             E0();
         }
         this.s.add(new UbcFlowEvent("na_pms_end_req"));
     }
 
     public final void C0(d.b.g0.l.k.g gVar) {
-        d.b.g0.a.e0.p.c.c().d(gVar, new C0670f(gVar));
+        d.b.g0.a.e0.p.c.c().d(gVar, new C0671f(gVar));
     }
 
     @Override // d.b.g0.l.h.g
@@ -958,7 +958,7 @@ public abstract class f extends d.b.g0.a.e0.p.j {
             r2.n(J());
             d.b.g0.l.k.f fVar = this.m;
             if (fVar != null) {
-                fVar.f48918c = r2.createTime;
+                fVar.f48919c = r2.createTime;
             }
             PMSAppInfo pMSAppInfo = this.q;
             if (pMSAppInfo != null) {
@@ -1015,10 +1015,10 @@ public abstract class f extends d.b.g0.a.e0.p.j {
     }
 
     public String g0() {
-        if (TextUtils.isEmpty(this.f44151g)) {
-            this.f44151g = getClass().toString();
+        if (TextUtils.isEmpty(this.f44152g)) {
+            this.f44152g = getClass().toString();
         }
-        return this.f44151g;
+        return this.f44152g;
     }
 
     public int h0() {
@@ -1137,10 +1137,10 @@ public abstract class f extends d.b.g0.a.e0.p.j {
 
     public d.b.g0.a.f2.a v0(d.b.g0.l.k.b bVar) {
         d.b.g0.a.l0.h.a aVar = new d.b.g0.a.l0.h.a();
-        aVar.f45153a = bVar.j;
-        aVar.f45154b = bVar.f48916a;
-        aVar.f45155c = bVar.m;
-        if (d.b.g0.a.l0.b.a(bVar.f48923h, aVar) == null) {
+        aVar.f45154a = bVar.j;
+        aVar.f45155b = bVar.f48917a;
+        aVar.f45156c = bVar.m;
+        if (d.b.g0.a.l0.b.a(bVar.f48924h, aVar) == null) {
             return null;
         }
         d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
@@ -1151,9 +1151,9 @@ public abstract class f extends d.b.g0.a.e0.p.j {
     }
 
     public d.b.g0.a.f2.a w0(d.b.g0.l.k.d dVar) {
-        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48916a, dVar.m, dVar.f48923h);
-        if (!TextUtils.isEmpty(dVar.f48916a)) {
-            d.b.g0.p.d.g(dVar.f48916a);
+        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48917a, dVar.m, dVar.f48924h);
+        if (!TextUtils.isEmpty(dVar.f48917a)) {
+            d.b.g0.p.d.g(dVar.f48917a);
         }
         if (c2.c()) {
             return null;

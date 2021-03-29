@@ -13,19 +13,19 @@ import d.b.h0.r.q.o1;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f55843a;
+    public TbPageContext<?> f55844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecommendForumLayout f55844b;
+    public RecommendForumLayout f55845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f55845c = new a();
+    public View.OnClickListener f55846c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public PullLeftRefreshLayout.f f55846d = new b();
+    public PullLeftRefreshLayout.f f55847d = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.m.f f55847e = new c();
+    public d.b.h0.m.f f55848e = new c();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -34,7 +34,7 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.i0.i0.b.a(d.this.f55843a, null);
+            d.b.i0.i0.b.a(d.this.f55844a, null);
         }
     }
 
@@ -45,7 +45,7 @@ public class d {
 
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
         public void a() {
-            d.b.i0.i0.b.a(d.this.f55843a, null);
+            d.b.i0.i0.b.a(d.this.f55844a, null);
         }
     }
 
@@ -65,34 +65,34 @@ public class d {
         /* renamed from: d */
         public void a(View view, n1 n1Var, int i, long j) {
             if (n1Var == null) {
-                d.b.i0.i0.b.a(d.this.f55843a, null);
+                d.b.i0.i0.b.a(d.this.f55844a, null);
                 return;
             }
             String D = n1Var.D();
             if (k.isForumName(D)) {
-                d.this.f55843a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(d.this.f55843a.getPageActivity()).createNormalCfg(D, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                d.this.f55844a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(d.this.f55844a.getPageActivity()).createNormalCfg(D, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             }
         }
     }
 
     public d(TbPageContext<?> tbPageContext) {
-        this.f55843a = tbPageContext;
+        this.f55844a = tbPageContext;
         RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f55844b = recommendForumLayout;
+        this.f55845b = recommendForumLayout;
         recommendForumLayout.setShowMore(true);
-        this.f55844b.setSquareEntranceAtStart(true);
-        this.f55844b.setTabName(null);
-        this.f55844b.setFrom(0);
-        this.f55844b.setOnClickRightArrowListener(this.f55845c);
-        this.f55844b.setOnRullOkCallbackr(this.f55846d);
-        this.f55844b.setOnItemCoverListener(this.f55847e);
+        this.f55845b.setSquareEntranceAtStart(true);
+        this.f55845b.setTabName(null);
+        this.f55845b.setFrom(0);
+        this.f55845b.setOnClickRightArrowListener(this.f55846c);
+        this.f55845b.setOnRullOkCallbackr(this.f55847d);
+        this.f55845b.setOnItemCoverListener(this.f55848e);
     }
 
     public void b(o1 o1Var) {
-        this.f55844b.a(o1Var);
+        this.f55845b.a(o1Var);
     }
 
     public RecommendForumLayout c() {
-        return this.f55844b;
+        return this.f55845b;
     }
 }

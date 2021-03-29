@@ -21,7 +21,7 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41478a;
+    public static int f41479a;
 
     public static String a(String str, Object obj, List list) {
         int i;
@@ -142,7 +142,7 @@ public class a {
         return stringBuffer.toString();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x005a A[Catch: IllegalAccessException -> 0x008c, TryCatch #0 {IllegalAccessException -> 0x008c, blocks: (B:3:0x0007, B:6:0x000f, B:9:0x0016, B:12:0x0048, B:14:0x004e, B:16:0x005a, B:17:0x006d, B:18:0x0072, B:10:0x0029), top: B:24:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x005a A[Catch: IllegalAccessException -> 0x008b, TryCatch #0 {IllegalAccessException -> 0x008b, blocks: (B:3:0x0007, B:6:0x000f, B:9:0x0016, B:12:0x0048, B:14:0x004e, B:16:0x005a, B:17:0x006d, B:18:0x0072, B:10:0x0029), top: B:24:0x0007 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x006d A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -159,9 +159,9 @@ public class a {
             stringBuffer.append(str + " = {\n");
             while (cls != null && g(cls)) {
                 if (cls.getSimpleName().equals("Object")) {
-                    f41478a++;
+                    f41479a++;
                     i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    f41478a--;
+                    f41479a--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -187,7 +187,7 @@ public class a {
 
     public static String d() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < f41478a; i++) {
+        for (int i = 0; i < f41479a; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -215,7 +215,7 @@ public class a {
 
     public static void h(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (c.f41480a) {
+        if (c.f41481a) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(j("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

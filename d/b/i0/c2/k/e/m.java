@@ -53,11 +53,11 @@ public abstract class m<T, V extends TypeAdapter.ViewHolder> extends d.b.b.j.e.a
             this.o = I;
             PbFragment pbFragment = this.n;
             if (pbFragment != null) {
-                this.f42357e = pbFragment.getActivity();
+                this.f42358e = pbFragment.getActivity();
             } else if (I != null) {
-                this.f42357e = I.getActivity();
+                this.f42358e = I.getActivity();
             } else {
-                this.f42357e = null;
+                this.f42358e = null;
             }
         }
     }

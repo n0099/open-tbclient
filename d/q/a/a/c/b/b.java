@@ -5,7 +5,7 @@ import com.baidu.android.imrtc.BuildConfig;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f67376a = false;
+    public static boolean f67381a = false;
 
     public static String a() {
         return BuildConfig.VERSION_NAME;
@@ -16,7 +16,7 @@ public final class b {
 
     public static void c(Throwable th) {
         try {
-            if (f67376a) {
+            if (f67381a) {
                 th.printStackTrace();
             }
         } catch (Exception unused) {

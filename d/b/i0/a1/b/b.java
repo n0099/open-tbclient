@@ -10,27 +10,27 @@ import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f51875e;
+    public LayoutInflater f51876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51876f;
+    public int f51877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemViewHolder f51877g;
+    public ItemViewHolder f51878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c> f51878h;
+    public List<c> f51879h;
     public final ArrayList<ItemViewHolder> i = new ArrayList<>();
     public View.OnClickListener j;
 
     public b(Context context, int i, ItemViewHolder itemViewHolder) {
-        this.f51875e = LayoutInflater.from(context);
-        this.f51876f = i;
-        this.f51877g = itemViewHolder;
+        this.f51876e = LayoutInflater.from(context);
+        this.f51877f = i;
+        this.f51878g = itemViewHolder;
     }
 
     public final void a(ItemViewHolder itemViewHolder, c cVar) {
@@ -50,7 +50,7 @@ public class b extends BaseAdapter {
     }
 
     public void c(List<c> list) {
-        this.f51878h = list;
+        this.f51879h = list;
     }
 
     public void d(View.OnClickListener onClickListener) {
@@ -59,34 +59,34 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f51878h);
+        return ListUtils.getCount(this.f51879h);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return ListUtils.getItem(this.f51878h, i);
+        return ListUtils.getItem(this.f51879h, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (ListUtils.getItem(this.f51878h, i) == null) {
+        if (ListUtils.getItem(this.f51879h, i) == null) {
             return -1L;
         }
-        return ((c) ListUtils.getItem(this.f51878h, i)).hashCode();
+        return ((c) ListUtils.getItem(this.f51879h, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.f51875e.inflate(this.f51876f, viewGroup, false);
-            ItemViewHolder c2 = this.f51877g.c(view);
+            view = this.f51876e.inflate(this.f51877f, viewGroup, false);
+            ItemViewHolder c2 = this.f51878g.c(view);
             c2.e(this.j);
             view.setTag(c2);
             this.i.add(c2);
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        if (ListUtils.getItem(this.f51878h, i) != null) {
-            a(itemViewHolder, this.f51878h.get(i));
+        if (ListUtils.getItem(this.f51879h, i) != null) {
+            a(itemViewHolder, this.f51879h.get(i));
         }
         return itemViewHolder.a();
     }

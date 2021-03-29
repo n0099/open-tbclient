@@ -19,30 +19,30 @@ import d.b.g0.a.i2.e;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.k;
 import d.b.g0.a.t.c.f.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45537a = k.f45050a;
+    public static boolean f45538a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45538b;
+    public static final boolean f45539b;
 
     /* renamed from: d.b.g0.a.q1.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class RunnableC0760a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class RunnableC0761a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.j2.c.b f45539e;
+        public final /* synthetic */ d.b.g0.a.j2.c.b f45540e;
 
-        public RunnableC0760a(d.b.g0.a.j2.c.b bVar) {
-            this.f45539e = bVar;
+        public RunnableC0761a(d.b.g0.a.j2.c.b bVar) {
+            this.f45540e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View e2;
-            d.b.g0.a.j2.c.b bVar = this.f45539e;
+            d.b.g0.a.j2.c.b bVar = this.f45540e;
             if (bVar == null || (e2 = bVar.e()) == null) {
                 return;
             }
@@ -50,28 +50,28 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.c f45540e;
+        public final /* synthetic */ d.b.g0.a.e0.l.c f45541e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f45541f;
+        public final /* synthetic */ View f45542f;
 
         public b(d.b.g0.a.e0.l.c cVar, View view) {
-            this.f45540e = cVar;
-            this.f45541f = view;
+            this.f45541e = cVar;
+            this.f45542f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View e2;
-            d.b.g0.a.j2.c.b B1 = this.f45540e.B1();
+            d.b.g0.a.j2.c.b B1 = this.f45541e.B1();
             if (B1 != null && (e2 = B1.e()) != null) {
                 e2.setVisibility(8);
             }
-            LinearLayout linearLayout = (LinearLayout) this.f45541f.findViewById(f.ai_apps_fragment_base_view);
+            LinearLayout linearLayout = (LinearLayout) this.f45542f.findViewById(f.ai_apps_fragment_base_view);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
             layoutParams.topMargin = 0;
             linearLayout.setLayoutParams(layoutParams);
@@ -82,30 +82,30 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f45542e;
+        public final /* synthetic */ Activity f45543e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f45543f;
+        public final /* synthetic */ boolean f45544f;
 
         public c(Activity activity, boolean z) {
-            this.f45542e = activity;
-            this.f45543f = z;
+            this.f45543e = activity;
+            this.f45544f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f45542e.getWindow().clearFlags(2048);
-            a.l(a.d(this.f45542e), this.f45543f);
+            this.f45543e.getWindow().clearFlags(2048);
+            a.l(a.d(this.f45543e), this.f45544f);
         }
     }
 
     static {
         Color.parseColor("#80000000");
-        f45538b = h();
+        f45539b = h();
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
             return;
         }
@@ -151,12 +151,12 @@ public class a {
     }
 
     public static boolean g(View view) {
-        return (!f45538b || view == null || view.findViewById(f.immersion_custom_statusbar_view) == null) ? false : true;
+        return (!f45539b || view == null || view.findViewById(f.immersion_custom_statusbar_view) == null) ? false : true;
     }
 
     public static boolean h() {
         boolean z = Build.VERSION.SDK_INT >= 21;
-        return f45537a ? z & a0.b("sp_key_immersion_switch", z) : z;
+        return f45538a ? z & a0.b("sp_key_immersion_switch", z) : z;
     }
 
     public static void i(Dialog dialog) {
@@ -192,6 +192,6 @@ public class a {
         if (W == null) {
             return;
         }
-        k0.T(new RunnableC0760a(W.m().B1()));
+        k0.T(new RunnableC0761a(W.m().B1()));
     }
 }

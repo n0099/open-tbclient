@@ -9,24 +9,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class w extends d.b.i.a<d.b.h0.r.q.a> {
     public MultiImgLayout j;
     public d.b.h0.r.q.a k;
     public int l;
     public String m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements a.b {
         public a() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (w.this.k != null && w.this.k.n() != null) {
                 d.b.i0.x.m.a(w.this.k.n().o0());
-                d.b.i0.x.m.l(w.this.j.f4424e, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(w.this.j.f4425f, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(w.this.j.f4425e, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(w.this.j.f4426f, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -57,7 +57,7 @@ public class w extends d.b.i.a<d.b.h0.r.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.l != i) {
             SkinManager.setBackgroundResource(g(), R.drawable.addresslist_item_bg);
-            this.j.f4427h.b();
+            this.j.f4428h.b();
         }
         this.l = i;
     }

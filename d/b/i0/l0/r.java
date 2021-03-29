@@ -15,10 +15,10 @@ import java.util.List;
 public class r extends d.b.h0.w.p.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static r f56598f;
+    public static r f56599f;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<d.b.h0.w.p.c> f56599e;
+    public LinkedList<d.b.h0.w.p.c> f56600e;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -59,25 +59,25 @@ public class r extends d.b.h0.w.p.a {
     }
 
     public static r f() {
-        if (f56598f == null) {
+        if (f56599f == null) {
             synchronized (r.class) {
-                if (f56598f == null) {
-                    f56598f = new r();
+                if (f56599f == null) {
+                    f56599f = new r();
                 }
             }
         }
-        return f56598f;
+        return f56599f;
     }
 
     @Override // d.b.h0.w.p.a
-    public void b(a.InterfaceC1108a interfaceC1108a) {
-        if (!FileHelper.checkSD() || this.f56599e == null) {
+    public void b(a.InterfaceC1109a interfaceC1109a) {
+        if (!FileHelper.checkSD() || this.f56600e == null) {
             return;
         }
-        for (int i = 0; i < this.f56599e.size(); i++) {
-            q qVar = (q) this.f56599e.get(i);
-            if (qVar.t() && d.b.i0.x1.c.i().g(qVar.f()) == null && interfaceC1108a != null) {
-                interfaceC1108a.a(qVar);
+        for (int i = 0; i < this.f56600e.size(); i++) {
+            q qVar = (q) this.f56600e.get(i);
+            if (qVar.t() && d.b.i0.x1.c.i().g(qVar.f()) == null && interfaceC1109a != null) {
+                interfaceC1109a.a(qVar);
             }
         }
     }
@@ -95,8 +95,8 @@ public class r extends d.b.h0.w.p.a {
     public final synchronized void g(List<d.b.i0.k0.c.b> list) {
         if (list != null) {
             if (!list.isEmpty()) {
-                if (this.f56599e != null) {
-                    this.f56599e = null;
+                if (this.f56600e != null) {
+                    this.f56600e = null;
                 }
                 LinkedList<d.b.h0.w.p.c> linkedList = new LinkedList<>();
                 boolean z = false;
@@ -107,14 +107,14 @@ public class r extends d.b.h0.w.p.a {
                         z = qVar.u(bVar, new b(this));
                     }
                 }
-                this.f56599e = linkedList;
+                this.f56600e = linkedList;
                 if (z) {
                     MessageManager.getInstance().runTask(2004603, (Class) null);
                 }
             }
         }
-        if (this.f56599e != null) {
-            this.f56599e = null;
+        if (this.f56600e != null) {
+            this.f56600e = null;
             MessageManager.getInstance().runTask(2004603, (Class) null);
         }
     }

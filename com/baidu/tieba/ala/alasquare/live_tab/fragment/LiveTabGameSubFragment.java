@@ -143,23 +143,23 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
 
     public final void R0() {
         this.n = (BdSwipeRefreshLayout) this.m.findViewById(R.id.live_tab_refresh_layout);
-        this.f14745f = (LinearLayout) this.m.findViewById(R.id.top_container);
+        this.f14746f = (LinearLayout) this.m.findViewById(R.id.top_container);
         g gVar = new g(getPageContext());
         this.q = gVar;
         this.n.setProgressView(gVar);
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.m.findViewById(R.id.live_tab_list_view);
         this.o = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f14744e));
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f14745e));
         this.o.setFadingEdgeLength(0);
         this.o.setOverScrollMode(2);
         d.b.i0.t.d.c.b bVar = new d.b.i0.t.d.c.b(getPageContext(), this.o);
         this.p = bVar;
         bVar.d(G0());
-        PbListView pbListView = new PbListView(this.f14744e);
+        PbListView pbListView = new PbListView(this.f14745e);
         this.r = pbListView;
         pbListView.a();
         this.r.o(R.color.transparent);
-        this.r.r(l.g(this.f14744e, R.dimen.tbds182));
+        this.r.r(l.g(this.f14745e, R.dimen.tbds182));
         this.r.v();
         this.r.E(R.dimen.tbfontsize33);
         this.r.C(SkinManager.getColor(R.color.CAM_X0107));
@@ -206,8 +206,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
             if (pbListView.b().getParent() == null) {
                 this.o.setNextPage(this.r);
             }
-            this.r.r(l.g(this.f14744e, R.dimen.tbds182));
-            this.r.A(this.f14744e.getResources().getString(R.string.loading));
+            this.r.r(l.g(this.f14745e, R.dimen.tbds182));
+            this.r.A(this.f14745e.getResources().getString(R.string.loading));
             this.r.O();
         }
     }
@@ -218,8 +218,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
             if (pbListView.b().getParent() == null) {
                 this.o.setNextPage(this.r);
             }
-            this.r.r(l.g(this.f14744e, R.dimen.tbds182));
-            this.r.A(this.f14744e.getResources().getString(R.string.list_no_more));
+            this.r.r(l.g(this.f14745e, R.dimen.tbds182));
+            this.r.A(this.f14745e.getResources().getString(R.string.list_no_more));
             this.r.f();
         }
     }
@@ -227,8 +227,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
     public final void Y0() {
         if (G0()) {
             u uVar = new u();
-            uVar.f58581a = 1121;
-            uVar.f58582b = true;
+            uVar.f58582a = 1121;
+            uVar.f58583b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
             return;
         }
@@ -238,8 +238,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
     public final void Z0() {
         if (G0()) {
             u uVar = new u();
-            uVar.f58581a = 1121;
-            uVar.f58582b = false;
+            uVar.f58582a = 1121;
+            uVar.f58583b = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
             return;
         }
@@ -292,10 +292,10 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f14744e = getPageContext().getPageActivity();
+        this.f14745e = getPageContext().getPageActivity();
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f14747h = arguments.getBoolean("arg_after_lazy_loaded", false);
+            this.f14748h = arguments.getBoolean("arg_after_lazy_loaded", false);
         }
         if (this.s == null) {
             this.s = new AlaLiveTabGameModel(getPageContext(), this.t);
@@ -311,7 +311,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements s0
             this.m = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
             R0();
         }
-        if (this.f14747h) {
+        if (this.f14748h) {
             loadData();
         }
         return this.m;

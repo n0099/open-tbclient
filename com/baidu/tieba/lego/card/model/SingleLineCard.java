@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SingleLineCard extends BaseCardInfo {
     public final int bgColor;
     public final int bgColorNight;

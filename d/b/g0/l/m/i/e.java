@@ -12,16 +12,16 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f49028d;
+    public static e f49029d;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f49029a = new a();
+    public a f49030a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49030b = AppRuntime.getAppContext().getString(d.b.g0.l.g.swan_launch_failed_default_dialog_msg);
+    public String f49031b = AppRuntime.getAppContext().getString(d.b.g0.l.g.swan_launch_failed_default_dialog_msg);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49031c = AppRuntime.getAppContext().getString(d.b.g0.l.g.swan_launch_failed_default_toast_msg);
+    public String f49032c = AppRuntime.getAppContext().getString(d.b.g0.l.g.swan_launch_failed_default_toast_msg);
 
     /* loaded from: classes3.dex */
     public static class a extends i {
@@ -31,26 +31,26 @@ public class e {
     }
 
     public static e b() {
-        if (f49028d == null) {
+        if (f49029d == null) {
             synchronized (e.class) {
-                if (f49028d == null) {
-                    f49028d = new e();
+                if (f49029d == null) {
+                    f49029d = new e();
                 }
             }
         }
-        return f49028d;
+        return f49029d;
     }
 
     public String a(long j) {
-        return this.f49029a.getString(String.format("%04d", Long.valueOf(j)), this.f49030b);
+        return this.f49030a.getString(String.format("%04d", Long.valueOf(j)), this.f49031b);
     }
 
     public String c(long j) {
-        return this.f49029a.getString(String.format("%04d", Long.valueOf(j)), this.f49031c);
+        return this.f49030a.getString(String.format("%04d", Long.valueOf(j)), this.f49032c);
     }
 
     public String d() {
-        return this.f49029a.getString("tips_config_version", "0");
+        return this.f49030a.getString("tips_config_version", "0");
     }
 
     public void e(JSONObject jSONObject) {
@@ -74,7 +74,7 @@ public class e {
         if (hashMap == null || hashMap.isEmpty() || TextUtils.isEmpty(str)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f49029a.edit();
+        SharedPreferences.Editor edit = this.f49030a.edit();
         edit.clear();
         edit.putString("tips_config_version", str);
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {

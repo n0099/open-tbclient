@@ -27,7 +27,7 @@ public class v extends m<w, PbImageAlaRecommendVH> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public PbImageAlaRecommendVH R(ViewGroup viewGroup) {
-        return new PbImageAlaRecommendVH(LayoutInflater.from(this.f42357e).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s);
+        return new PbImageAlaRecommendVH(LayoutInflater.from(this.f42358e).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s);
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, w wVar, PbImageAlaRecommendVH pbImageAlaRecommendVH) {

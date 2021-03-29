@@ -9,7 +9,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DeviceInfoUtils {
     public static final boolean DEBUG = false;
     public static final String SF_FILENAME = "device_info_shared_f";

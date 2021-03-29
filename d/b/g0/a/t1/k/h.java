@@ -21,81 +21,81 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46363e;
+        public final /* synthetic */ JSONObject f46364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46364f;
+        public final /* synthetic */ String f46365f;
 
         public a(JSONObject jSONObject, String str) {
-            this.f46363e = jSONObject;
-            this.f46364f = str;
+            this.f46364e = jSONObject;
+            this.f46365f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.this.o(this.f46363e, this.f46364f);
+            h.this.o(this.f46364e, this.f46365f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46366e;
+        public final /* synthetic */ UnitedSchemeEntity f46367e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46367f;
+        public final /* synthetic */ CallbackHandler f46368f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46368g;
+        public final /* synthetic */ JSONArray f46369g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46369h;
+        public final /* synthetic */ String f46370h;
 
         public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
-            this.f46366e = unitedSchemeEntity;
-            this.f46367f = callbackHandler;
-            this.f46368g = jSONArray;
-            this.f46369h = str;
+            this.f46367e = unitedSchemeEntity;
+            this.f46368f = callbackHandler;
+            this.f46369g = jSONArray;
+            this.f46370h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
-            h.this.m(hVar, this.f46366e, this.f46367f, this.f46368g, this.f46369h);
+            h.this.m(hVar, this.f46367e, this.f46368f, this.f46369g, this.f46370h);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f46370e;
+        public final /* synthetic */ List f46371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46371f;
+        public final /* synthetic */ String f46372f;
 
         public c(h hVar, List list, String str) {
-            this.f46370e = list;
-            this.f46371f = str;
+            this.f46371e = list;
+            this.f46372f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            List<String> h2 = d.b.g0.a.e0.p.p.a.h(this.f46370e);
+            List<String> h2 = d.b.g0.a.e0.p.p.a.h(this.f46371e);
             if (h2.isEmpty()) {
                 return;
             }
             d.b.g0.l.l.k.b bVar = new d.b.g0.l.l.k.b((Collection<String>) h2, (d.b.g0.l.r.a) m0.b());
-            bVar.e(this.f46371f);
+            bVar.e(this.f46372f);
             bVar.d("1");
             d.b.g0.a.e0.p.d dVar = new d.b.g0.a.e0.p.d();
             dVar.L(5);
@@ -194,7 +194,7 @@ public class h extends a0 {
                                     arrayList2.add(i0.m(next, parse, false));
                                 }
                             } catch (Exception e2) {
-                                if (a0.f46287b) {
+                                if (a0.f46288b) {
                                     e2.printStackTrace();
                                 }
                             }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
 import tbclient.CheckPost.ResData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CheckPostResponseMessage extends SocketResponsedMessage {
     public long forumId;
     public String forumName;

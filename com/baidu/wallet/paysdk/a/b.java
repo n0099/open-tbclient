@@ -12,7 +12,7 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f25375a;
+    public static a f25376a;
 
     public static boolean a() {
         return !TextUtils.isEmpty(PayDataCache.getInstance().getPureSign());
@@ -34,7 +34,7 @@ public class b {
     }
 
     public static void a(Context context, a aVar) {
-        f25375a = aVar;
+        f25376a = aVar;
         Intent intent = new Intent();
         intent.setClass(context, PayTypeActivity.class);
         if (!BaiduWalletUtils.isActivity(context)) {

@@ -8,29 +8,29 @@ import d.b.g0.g.d0.d.d;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.i.b f48086a;
+    public d.b.g0.g.i.b f48087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f48087b = new b();
+    public b f48088b = new b();
 
     public c(d.b.g0.g.i.b bVar) {
-        this.f48086a = bVar;
+        this.f48087a = bVar;
     }
 
     @NonNull
     public d a() {
-        this.f48087b.a();
-        d.b.g0.a.f2.d.f44466h.b();
+        this.f48088b.a();
+        d.b.g0.a.f2.d.f44467h.b();
         return d.i(null);
     }
 
     @NonNull
     public d.b.g0.g.d0.d.c b() {
-        String[] f2 = this.f48087b.f();
+        String[] f2 = this.f48088b.f();
         d.b.g0.g.d0.d.c cVar = new d.b.g0.g.d0.d.c();
         cVar.keys = f2;
-        cVar.currentSize = this.f48087b.e() / 1024;
-        cVar.limitSize = this.f48087b.k() / 1024;
+        cVar.currentSize = this.f48088b.e() / 1024;
+        cVar.limitSize = this.f48088b.k() / 1024;
         cVar.errMsg = d.b.g0.g.d0.d.a.b("getStorageInfoSync");
         return cVar;
     }
@@ -41,9 +41,9 @@ public class c {
             return d.b("parameter error: the key cannot be null.");
         }
         Object obj = null;
-        String h2 = this.f48087b.h(str, null);
+        String h2 = this.f48088b.h(str, null);
         if (h2 != null) {
-            obj = this.f48086a.d0(Base64.decode(h2, 2), true);
+            obj = this.f48087a.d0(Base64.decode(h2, 2), true);
         }
         if (obj == null) {
             obj = d.h();
@@ -62,8 +62,8 @@ public class c {
         if (str == null) {
             return d.b("parameter error: the key cannot be null.");
         }
-        this.f48087b.m(str);
-        d.b.g0.a.f2.d.f44466h.b();
+        this.f48088b.m(str);
+        d.b.g0.a.f2.d.f44467h.b();
         return d.i(null);
     }
 
@@ -75,19 +75,19 @@ public class c {
         } else if (jsSerializeValue == null) {
             return d.i(null);
         } else {
-            byte[] y = this.f48086a.y(jsSerializeValue, true);
+            byte[] y = this.f48087a.y(jsSerializeValue, true);
             d(jsSerializeValue);
             if (y == null) {
                 return d.b("parameter error: the data parse failed.");
             }
             String encodeToString = Base64.encodeToString(y, 2);
-            String h2 = this.f48087b.h(str, null);
+            String h2 = this.f48088b.h(str, null);
             int length = str.getBytes().length;
-            if (this.f48087b.k() - this.f48087b.e() < (encodeToString.length() + length) - (h2 == null ? 0 : h2.length() + length)) {
+            if (this.f48088b.k() - this.f48088b.e() < (encodeToString.length() + length) - (h2 == null ? 0 : h2.length() + length)) {
                 return d.b("storage error: the storage space insufficient.");
             }
-            boolean l = this.f48087b.l(str, encodeToString);
-            d.b.g0.a.f2.d.f44466h.b();
+            boolean l = this.f48088b.l(str, encodeToString);
+            d.b.g0.a.f2.d.f44467h.b();
             return l ? d.i(null) : d.b("storage error: the storage is invalid.");
         }
     }

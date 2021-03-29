@@ -16,19 +16,19 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public AsyncHttpClient f9808b = new AsyncHttpClient();
+    public AsyncHttpClient f9809b = new AsyncHttpClient();
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9809c = new Handler(Looper.getMainLooper());
+    public Handler f9810c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f9807a = new ReentrantLock();
+    public final Lock f9808a = new ReentrantLock();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9810d = true;
+    public boolean f9811d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public DistrictResult f9811e = null;
+    public DistrictResult f9812e = null;
 
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
         asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(), protoResultCallback);
@@ -40,7 +40,7 @@ public abstract class a {
     }
 
     private void a(SearchResult searchResult, Object obj, d dVar) {
-        this.f9809c.post(new c(this, dVar, searchResult, obj));
+        this.f9810c.post(new c(this, dVar, searchResult, obj));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -64,15 +64,15 @@ public abstract class a {
         } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
             a(a2, obj, dVar);
         } else {
-            DistrictResult districtResult = this.f9811e;
+            DistrictResult districtResult = this.f9812e;
             if (districtResult != null) {
                 DistrictResult districtResult2 = (DistrictResult) a2;
                 districtResult2.setCityCode(districtResult.getCityCode());
-                districtResult2.setCenterPt(this.f9811e.getCenterPt());
+                districtResult2.setCenterPt(this.f9812e.getCenterPt());
             }
             a(a2, obj, dVar);
-            this.f9810d = true;
-            this.f9811e = null;
+            this.f9811d = true;
+            this.f9812e = null;
             ((com.baidu.platform.core.a.b) dVar).a(false);
         }
     }
@@ -80,9 +80,9 @@ public abstract class a {
     private boolean a(d dVar, SearchResult searchResult) {
         if (dVar instanceof com.baidu.platform.core.a.b) {
             DistrictResult districtResult = (DistrictResult) searchResult;
-            if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9810d) {
-                this.f9810d = false;
-                this.f9811e = districtResult;
+            if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9811d) {
+                this.f9811d = false;
+                this.f9812e = districtResult;
                 ((com.baidu.platform.core.a.b) dVar).a(true);
                 return true;
             }
@@ -133,7 +133,7 @@ public abstract class a {
         }
         String a2 = eVar.a();
         if (a2 != null) {
-            this.f9808b.get(a2, new b(this, dVar, obj));
+            this.f9809b.get(a2, new b(this, dVar, obj));
             return true;
         }
         Log.e("BaseSearch", "The sendurl is: " + a2);

@@ -17,36 +17,36 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f61127a;
+    public Context f61128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61128b;
+    public View f61129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f61129c;
+    public LinearLayout f61130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61130d;
+    public TextView f61131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f61131e;
+    public View f61132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f61132f;
+    public TextView f61133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61133g;
+    public String f61134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<b> f61134h;
+    public List<b> f61135h;
     public e i;
     public c j;
     public boolean k;
 
     /* renamed from: d.b.i0.t3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1587a implements View.OnClickListener {
-        public View$OnClickListenerC1587a() {
+    public class View$OnClickListenerC1588a implements View.OnClickListener {
+        public View$OnClickListenerC1588a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -59,81 +59,81 @@ public class a {
     public static class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public a f61137b;
+        public a f61138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f61138c;
+        public View f61139c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f61139d;
+        public TextView f61140d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f61140e;
+        public View f61141e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f61141f;
+        public String f61142f;
 
         /* renamed from: h  reason: collision with root package name */
-        public d f61143h;
+        public d f61144h;
         public boolean j;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f61142g = 17;
+        public int f61143g = 17;
         public boolean i = true;
-        public final View.OnClickListener k = new View$OnClickListenerC1588a();
+        public final View.OnClickListener k = new View$OnClickListenerC1589a();
 
         /* renamed from: a  reason: collision with root package name */
-        public int f61136a = hashCode();
+        public int f61137a = hashCode();
 
         /* renamed from: d.b.i0.t3.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1588a implements View.OnClickListener {
-            public View$OnClickListenerC1588a() {
+        public class View$OnClickListenerC1589a implements View.OnClickListener {
+            public View$OnClickListenerC1589a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.f61143h != null) {
-                    b.this.f61143h.onClick();
+                if (b.this.f61144h != null) {
+                    b.this.f61144h.onClick();
                 }
-                if (b.this.f61137b == null || b.this.f61137b.d() == null) {
+                if (b.this.f61138b == null || b.this.f61138b.d() == null) {
                     return;
                 }
-                b.this.f61137b.d().a(b.this.f61136a, view);
+                b.this.f61138b.d().a(b.this.f61137a, view);
             }
         }
 
         public b(String str, a aVar) {
-            this.f61141f = str;
-            this.f61137b = aVar;
+            this.f61142f = str;
+            this.f61138b = aVar;
             f();
             e();
         }
 
         public View d() {
-            return this.f61138c;
+            return this.f61139c;
         }
 
         public final void e() {
-            TextView textView = this.f61139d;
+            TextView textView = this.f61140d;
             if (textView != null) {
                 textView.setOnClickListener(this.k);
             }
         }
 
         public final void f() {
-            a aVar = this.f61137b;
+            a aVar = this.f61138b;
             if (aVar == null || aVar.c() == null) {
                 return;
             }
-            View inflate = LayoutInflater.from(this.f61137b.c()).inflate(R.layout.bottom_up_list_dialog_item, this.f61137b.e(), false);
-            this.f61138c = inflate;
+            View inflate = LayoutInflater.from(this.f61138b.c()).inflate(R.layout.bottom_up_list_dialog_item, this.f61138b.e(), false);
+            this.f61139c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.item_view);
-            this.f61139d = textView;
-            textView.setText(this.f61141f);
-            this.f61139d.setGravity(this.f61142g);
-            View findViewById = this.f61138c.findViewById(R.id.divider_line);
-            this.f61140e = findViewById;
+            this.f61140d = textView;
+            textView.setText(this.f61142f);
+            this.f61140d.setGravity(this.f61143g);
+            View findViewById = this.f61139c.findViewById(R.id.divider_line);
+            this.f61141e = findViewById;
             if (this.i) {
                 findViewById.setVisibility(0);
             } else {
@@ -143,7 +143,7 @@ public class a {
         }
 
         public void g() {
-            TextView textView = this.f61139d;
+            TextView textView = this.f61140d;
             if (textView != null) {
                 if (this.j) {
                     SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
@@ -151,12 +151,12 @@ public class a {
                     textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
                 }
             }
-            SkinManager.setViewTextColor(this.f61139d, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f61140e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f61140d, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f61141e, R.color.CAM_X0204);
         }
 
         public void h(d dVar) {
-            this.f61143h = dVar;
+            this.f61144h = dVar;
             e();
         }
     }
@@ -180,33 +180,33 @@ public class a {
         if (context == null) {
             return;
         }
-        this.f61127a = context;
+        this.f61128a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
-        this.f61128b = inflate;
-        this.f61129c = (LinearLayout) inflate.findViewById(R.id.content_view);
-        this.f61130d = (TextView) this.f61128b.findViewById(R.id.title);
-        this.f61131e = this.f61128b.findViewById(R.id.title_divide_line);
-        this.f61134h = new ArrayList();
-        this.f61132f = (TextView) this.f61128b.findViewById(R.id.dialog_bottom_cancel_button);
+        this.f61129b = inflate;
+        this.f61130c = (LinearLayout) inflate.findViewById(R.id.content_view);
+        this.f61131d = (TextView) this.f61129b.findViewById(R.id.title);
+        this.f61132e = this.f61129b.findViewById(R.id.title_divide_line);
+        this.f61135h = new ArrayList();
+        this.f61133f = (TextView) this.f61129b.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
     public View b() {
-        if (!StringUtils.isNull(this.f61133g)) {
-            this.f61130d.setText(this.f61133g);
-            this.f61131e.setVisibility(0);
+        if (!StringUtils.isNull(this.f61134g)) {
+            this.f61131d.setText(this.f61134g);
+            this.f61132e.setVisibility(0);
         } else {
-            this.f61130d.setVisibility(8);
-            this.f61131e.setVisibility(8);
+            this.f61131d.setVisibility(8);
+            this.f61132e.setVisibility(8);
         }
         if (this.j != null) {
-            this.f61132f.setOnClickListener(new View$OnClickListenerC1587a());
+            this.f61133f.setOnClickListener(new View$OnClickListenerC1588a());
         }
         f();
-        return this.f61128b;
+        return this.f61129b;
     }
 
     public Context c() {
-        return this.f61127a;
+        return this.f61128a;
     }
 
     public e d() {
@@ -214,29 +214,29 @@ public class a {
     }
 
     public ViewGroup e() {
-        return this.f61129c;
+        return this.f61130c;
     }
 
     public void f() {
         TextView textView;
-        SkinManager.setBackgroundColor(this.f61128b, R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f61130d, R.drawable.bg_title_corner_dialog_item);
-        SkinManager.setViewTextColor(this.f61130d, R.color.CAM_X0108);
-        SkinManager.setBackgroundColor(this.f61131e, R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f61132f, R.drawable.bg_bottom_up_list_dialog_item);
-        SkinManager.setViewTextColor(this.f61132f, R.color.CAM_X0107);
-        List<b> list = this.f61134h;
+        SkinManager.setBackgroundColor(this.f61129b, R.color.CAM_X0204);
+        SkinManager.setBackgroundResource(this.f61131d, R.drawable.bg_title_corner_dialog_item);
+        SkinManager.setViewTextColor(this.f61131d, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f61132e, R.color.CAM_X0204);
+        SkinManager.setBackgroundResource(this.f61133f, R.drawable.bg_bottom_up_list_dialog_item);
+        SkinManager.setViewTextColor(this.f61133f, R.color.CAM_X0107);
+        List<b> list = this.f61135h;
         if (list != null) {
             for (b bVar : list) {
                 bVar.g();
             }
         }
         if (this.k) {
-            if (!StringUtils.isNull(this.f61133g) && (textView = this.f61130d) != null && (textView.getBackground() instanceof GradientDrawable)) {
+            if (!StringUtils.isNull(this.f61134g) && (textView = this.f61131d) != null && (textView.getBackground() instanceof GradientDrawable)) {
                 float dimension = c().getResources().getDimension(R.dimen.tbds32);
-                ((GradientDrawable) this.f61130d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
-            } else if (ListUtils.getCount(this.f61134h) > 0) {
-                b bVar2 = this.f61134h.get(0);
+                ((GradientDrawable) this.f61131d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
+            } else if (ListUtils.getCount(this.f61135h) > 0) {
+                b bVar2 = this.f61135h.get(0);
                 if (bVar2.j) {
                     return;
                 }
@@ -250,12 +250,12 @@ public class a {
         if (list == null) {
             return;
         }
-        this.f61134h = list;
-        this.f61129c.removeAllViews();
+        this.f61135h = list;
+        this.f61130c.removeAllViews();
         for (int i = 0; i < list.size(); i++) {
             b bVar = list.get(i);
             if (bVar != null) {
-                this.f61129c.addView(bVar.d());
+                this.f61130c.addView(bVar.d());
             }
         }
     }
@@ -265,6 +265,6 @@ public class a {
     }
 
     public void i(String str) {
-        this.f61133g = str;
+        this.f61134g = str;
     }
 }

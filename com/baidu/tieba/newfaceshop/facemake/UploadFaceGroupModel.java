@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19261e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+    public final HttpMessageListener f19262e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public a(int i) {
             super(i);
@@ -95,9 +95,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19261e.setTag(getUniqueId());
-        this.f19261e.setSelfListener(true);
-        registerListener(this.f19261e);
+        this.f19262e.setTag(getUniqueId());
+        this.f19262e.setSelfListener(true);
+        registerListener(this.f19262e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f19261e);
+        MessageManager.getInstance().unRegisterListener(this.f19262e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         return true;
     }

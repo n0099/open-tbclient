@@ -448,15 +448,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public class s implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16863e;
+        public int f16864e;
 
         public s(int i) {
-            this.f16863e = i;
+            this.f16864e = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int min = Math.min(this.f16863e, BuyGiftActivity.this.mPageInfos.size());
+            int min = Math.min(this.f16864e, BuyGiftActivity.this.mPageInfos.size());
             int i = 0;
             for (int i2 = 0; i2 < min; i2++) {
                 i += BuyGiftActivity.this.mPageInfos.get(i2);
@@ -694,9 +694,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     this.mCurrentItem = filterGiftItems.get(0);
                     countTotalPrice(true);
                 }
-                double d2 = size;
-                Double.isNaN(d2);
-                int ceil = (int) Math.ceil(d2 / 8.0d);
+                int ceil = (int) Math.ceil(size / 8.0d);
                 this.mPageInfos.append(i2, ceil);
                 for (int i3 = 0; i3 < ceil; i3++) {
                     if (i3 == ceil - 1) {

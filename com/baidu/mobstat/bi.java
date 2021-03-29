@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9092a;
+    public boolean f9093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f9093b = new ArrayList();
+    public List<b> f9094b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9094c;
+    public String f9095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public bk f9095d;
+    public bk f9096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9096e;
+    public boolean f9097e;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -37,29 +37,29 @@ public class bi {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9097a;
+        public String f9098a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9098b;
+        public String f9099b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f9099c;
+        public boolean f9100c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f9100d;
+        public int f9101d;
 
         public b(String str, String str2, boolean z, int i) {
-            this.f9097a = str;
-            this.f9098b = str2;
-            this.f9099c = z;
-            this.f9100d = i;
+            this.f9098a = str;
+            this.f9099b = str2;
+            this.f9100c = z;
+            this.f9101d = i;
         }
     }
 
     public bi(Activity activity, bk bkVar, boolean z) {
-        this.f9094c = activity.getClass().getName();
-        this.f9095d = bkVar;
-        this.f9096e = z;
+        this.f9095c = activity.getClass().getName();
+        this.f9096d = bkVar;
+        this.f9097e = z;
     }
 
     public void a(JSONObject jSONObject) {
@@ -67,10 +67,10 @@ public class bi {
             return;
         }
         try {
-            this.f9092a = ((JSONObject) jSONObject.get("meta")).getInt("matchAll") != 0;
+            this.f9093a = ((JSONObject) jSONObject.get("meta")).getInt("matchAll") != 0;
         } catch (Exception unused) {
         }
-        if (this.f9092a) {
+        if (this.f9093a) {
             return;
         }
         try {
@@ -81,8 +81,8 @@ public class bi {
                 String optString2 = jSONObject2.optString("layout");
                 int optInt = jSONObject2.optInt("contentAsLabel");
                 boolean z = jSONObject2.optInt("ignoreCellIndex") != 0;
-                if (this.f9094c.equals(optString)) {
-                    this.f9093b.add(new b(optString, optString2, z, optInt));
+                if (this.f9095c.equals(optString)) {
+                    this.f9094b.add(new b(optString, optString2, z, optInt));
                 }
             }
         } catch (Exception unused2) {
@@ -93,21 +93,21 @@ public class bi {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9102a;
+        public String f9103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9103b;
+        public String f9104b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9104c;
+        public String f9105c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c f9105d;
+        public c f9106d;
 
         public c(View view, c cVar, View view2) {
-            this.f9105d = cVar;
-            this.f9102a = bj.l(view);
-            this.f9103b = bj.b(view);
+            this.f9106d = cVar;
+            this.f9103a = bj.l(view);
+            this.f9104b = bj.b(view);
             String c2 = bj.c(view);
             if (TextUtils.isEmpty(c2)) {
                 c2 = bj.a(view, c());
@@ -115,12 +115,12 @@ public class bi {
                     c2 = bj.a(view, view2);
                 }
             }
-            this.f9104c = c2;
+            this.f9105c = c2;
         }
 
         public String a() {
             StringBuilder sb = new StringBuilder();
-            for (c cVar = this; cVar != null; cVar = cVar.f9105d) {
+            for (c cVar = this; cVar != null; cVar = cVar.f9106d) {
                 sb.insert(0, cVar.a(false));
             }
             return sb.toString();
@@ -129,7 +129,7 @@ public class bi {
         public String b() {
             StringBuilder sb = new StringBuilder();
             boolean z = false;
-            for (c cVar = this; cVar != null; cVar = cVar.f9105d) {
+            for (c cVar = this; cVar != null; cVar = cVar.f9106d) {
                 boolean z2 = true;
                 if (!z) {
                     String c2 = cVar.c();
@@ -145,17 +145,17 @@ public class bi {
         }
 
         public String c() {
-            c cVar = this.f9105d;
-            return cVar == null ? "" : cVar.f9103b;
+            c cVar = this.f9106d;
+            return cVar == null ? "" : cVar.f9104b;
         }
 
         public String a(boolean z) {
             StringBuilder sb = new StringBuilder();
             sb.append("/");
-            sb.append(this.f9102a);
+            sb.append(this.f9103a);
             if (!z) {
                 sb.append("[");
-                sb.append(this.f9104c);
+                sb.append(this.f9105c);
                 sb.append("]");
             }
             return sb.toString();
@@ -164,7 +164,7 @@ public class bi {
 
     public void a(Activity activity) {
         List<b> list;
-        if (this.f9096e || this.f9092a || !((list = this.f9093b) == null || list.size() == 0)) {
+        if (this.f9097e || this.f9093a || !((list = this.f9094b) == null || list.size() == 0)) {
             View a2 = bj.a(activity);
             a(activity, a2, null, a2);
         }
@@ -176,8 +176,8 @@ public class bi {
         }
         c cVar2 = new c(view, cVar, view2);
         if (cVar != null) {
-            boolean b2 = this.f9092a ? bj.b(view, cVar2.c()) : a(this.f9093b, cVar2.a(), cVar2.b());
-            if (b2 || this.f9096e) {
+            boolean b2 = this.f9093a ? bj.b(view, cVar2.c()) : a(this.f9094b, cVar2.a(), cVar2.b());
+            if (b2 || this.f9097e) {
                 if (bd.c().b() && b2) {
                     bd c2 = bd.c();
                     c2.a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
@@ -186,7 +186,7 @@ public class bi {
                     bh c3 = bh.c();
                     c3.a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
                 }
-                this.f9095d.a(view, b2);
+                this.f9096d.a(view, b2);
             }
         }
         if (!(view instanceof WebView) && (view instanceof ViewGroup)) {
@@ -199,8 +199,8 @@ public class bi {
 
     private boolean a(List<b> list, String str, String str2) {
         for (b bVar : list) {
-            String str3 = bVar.f9099c ? str2 : str;
-            if (!TextUtils.isEmpty(str3) && str3.equals(bVar.f9098b)) {
+            String str3 = bVar.f9100c ? str2 : str;
+            if (!TextUtils.isEmpty(str3) && str3.equals(bVar.f9099b)) {
                 return true;
             }
         }

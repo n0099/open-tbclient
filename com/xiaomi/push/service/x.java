@@ -11,7 +11,7 @@ import com.xiaomi.push.service.XMPushService;
 public final class x extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f41068a;
+    public final /* synthetic */ ib f41069a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ie f979a;
@@ -23,7 +23,7 @@ public final class x extends XMPushService.i {
     public x(int i, ie ieVar, ib ibVar, XMPushService xMPushService) {
         super(i);
         this.f979a = ieVar;
-        this.f41068a = ibVar;
+        this.f41069a = ibVar;
         this.f980a = xMPushService;
     }
 
@@ -43,7 +43,7 @@ public final class x extends XMPushService.i {
             hwVar.e(this.f979a.c());
             hwVar.a(0L);
             hwVar.d("success clear push message.");
-            y.a(this.f980a, y.b(this.f41068a.b(), this.f41068a.m432a(), hwVar, hf.Notification));
+            y.a(this.f980a, y.b(this.f41069a.b(), this.f41069a.m432a(), hwVar, hf.Notification));
         } catch (fw e2) {
             com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
             this.f980a.a(10, e2);

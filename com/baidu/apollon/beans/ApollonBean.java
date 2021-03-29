@@ -8,7 +8,7 @@ import com.baidu.apollon.taskmanager.TaskManager;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ApollonBean<T> {
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     public static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";

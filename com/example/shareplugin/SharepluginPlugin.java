@@ -268,7 +268,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.I = str3;
             shareItem.p = str2;
             shareItem.J = str6;
-            shareItem.f13716f = true;
+            shareItem.f13717f = true;
             shareItem.o = 6;
             shareItem.D = 8;
             shareItem.L = stateThreadType;
@@ -322,7 +322,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
         shareItem2.I = str3;
         shareItem2.p = str2;
         shareItem2.J = str6;
-        shareItem2.f13716f = true;
+        shareItem2.f13717f = true;
         shareItem2.o = 6;
         shareItem2.D = 8;
         shareItem2.L = stateThreadType2;

@@ -9,61 +9,61 @@ import java.util.Calendar;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b1.o.a.c.a f49992a;
+    public d.b.h0.b1.o.a.c.a f49993a;
 
     public a(Context context, e eVar) {
         d.b.h0.b1.o.a.c.a aVar = new d.b.h0.b1.o.a.c.a(2);
-        this.f49992a = aVar;
+        this.f49993a = aVar;
         aVar.A = context;
-        aVar.f49993a = eVar;
+        aVar.f49994a = eVar;
     }
 
     public b a() {
-        return new b(this.f49992a);
+        return new b(this.f49993a);
     }
 
     public a b(boolean z) {
-        this.f49992a.T = z;
+        this.f49993a.T = z;
         return this;
     }
 
     public a c(boolean z) {
-        this.f49992a.R = z;
+        this.f49993a.R = z;
         return this;
     }
 
     public a d(int i) {
-        this.f49992a.P = i;
+        this.f49993a.P = i;
         return this;
     }
 
     public a e(int i) {
-        this.f49992a.H = i;
+        this.f49993a.H = i;
         return this;
     }
 
     public a f(int i) {
-        this.f49992a.L = i;
+        this.f49993a.L = i;
         return this;
     }
 
     public a g(Calendar calendar) {
-        this.f49992a.f49997e = calendar;
+        this.f49993a.f49998e = calendar;
         return this;
     }
 
     public a h(ViewGroup viewGroup) {
-        this.f49992a.y = viewGroup;
+        this.f49993a.y = viewGroup;
         return this;
     }
 
     public a i(int i) {
-        this.f49992a.O = i;
+        this.f49993a.O = i;
         return this;
     }
 
     public a j(String str, String str2, String str3, String str4, String str5, String str6) {
-        d.b.h0.b1.o.a.c.a aVar = this.f49992a;
+        d.b.h0.b1.o.a.c.a aVar = this.f49993a;
         aVar.l = str;
         aVar.m = str2;
         aVar.n = str3;
@@ -74,29 +74,29 @@ public class a {
     }
 
     public a k(int i, d.b.h0.b1.o.a.d.a aVar) {
-        d.b.h0.b1.o.a.c.a aVar2 = this.f49992a;
+        d.b.h0.b1.o.a.c.a aVar2 = this.f49993a;
         aVar2.x = i;
-        aVar2.f49995c = aVar;
+        aVar2.f49996c = aVar;
         return this;
     }
 
     public a l(float f2) {
-        this.f49992a.Q = f2;
+        this.f49993a.Q = f2;
         return this;
     }
 
     public a m(int i) {
-        this.f49992a.N = i;
+        this.f49993a.N = i;
         return this;
     }
 
     public a n(int i) {
-        this.f49992a.M = i;
+        this.f49993a.M = i;
         return this;
     }
 
     public a o(int i, int i2, int i3, int i4, int i5, int i6) {
-        d.b.h0.b1.o.a.c.a aVar = this.f49992a;
+        d.b.h0.b1.o.a.c.a aVar = this.f49993a;
         aVar.r = i;
         aVar.s = i2;
         aVar.t = i3;
@@ -107,7 +107,7 @@ public class a {
     }
 
     public a p(boolean[] zArr) {
-        this.f49992a.f49996d = zArr;
+        this.f49993a.f49997d = zArr;
         return this;
     }
 }

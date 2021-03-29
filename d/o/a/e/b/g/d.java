@@ -45,28 +45,28 @@ public class d {
     public static volatile boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f66972a;
+    public static volatile Context f66977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f66973b;
+    public static volatile j f66978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f66974c;
+    public static volatile k f66979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f66975d;
+    public static volatile i f66980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d.o.a.e.b.f.i f66976e;
+    public static volatile d.o.a.e.b.f.i f66981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile d.o.a.e.b.m.a f66977f;
+    public static volatile d.o.a.e.b.m.a f66982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile o f66978g;
+    public static volatile o f66983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile o f66979h;
+    public static volatile o f66984h;
     public static volatile d.o.a.e.b.o.a i;
     public static volatile d.o.a.e.b.o.j j;
     public static volatile d.o.a.e.b.o.a k;
@@ -192,7 +192,7 @@ public class d {
 
     public static void D(d.o.a.e.b.f.i iVar) {
         if (iVar != null) {
-            f66976e = iVar;
+            f66981e = iVar;
         }
     }
 
@@ -247,23 +247,23 @@ public class d {
             }
             boolean z2 = C;
             g0(bVar);
-            if (f66973b == null) {
-                f66973b = new d.o.a.e.b.m.d();
+            if (f66978b == null) {
+                f66978b = new d.o.a.e.b.m.d();
             }
-            if (f66978g == null) {
-                f66978g = new d.o.a.e.b.m.h();
+            if (f66983g == null) {
+                f66983g = new d.o.a.e.b.m.h();
             }
-            if (f66979h == null) {
-                f66979h = new d.o.a.e.b.m.m();
+            if (f66984h == null) {
+                f66984h = new d.o.a.e.b.m.m();
             }
-            if (f66974c == null) {
-                f66974c = new d.o.a.e.b.m.i();
+            if (f66979c == null) {
+                f66979c = new d.o.a.e.b.m.i();
             }
-            if (f66977f == null) {
-                f66977f = new d.o.a.e.b.m.e();
+            if (f66982f == null) {
+                f66982f = new d.o.a.e.b.m.e();
             }
-            if (f66975d == null) {
-                f66975d = new d.o.a.e.b.m.c();
+            if (f66980d == null) {
+                f66980d = new d.o.a.e.b.m.c();
             }
             if (v == null) {
                 v = new d.o.a.e.b.m.b();
@@ -319,61 +319,61 @@ public class d {
 
     public static void I(i iVar) {
         if (iVar != null) {
-            f66975d = iVar;
+            f66980d = iVar;
         }
     }
 
     public static j I0() {
-        if (f66973b == null) {
+        if (f66978b == null) {
             synchronized (d.class) {
-                if (f66973b == null) {
-                    f66973b = new d.o.a.e.b.m.d();
+                if (f66978b == null) {
+                    f66978b = new d.o.a.e.b.m.d();
                 }
             }
         }
-        return f66973b;
+        return f66978b;
     }
 
     public static void J(j jVar) {
         if (jVar != null) {
-            f66973b = jVar;
+            f66978b = jVar;
         }
     }
 
     public static o J0() {
-        if (f66978g == null) {
+        if (f66983g == null) {
             synchronized (d.class) {
-                if (f66978g == null) {
-                    f66978g = new d.o.a.e.b.m.h();
+                if (f66983g == null) {
+                    f66983g = new d.o.a.e.b.m.h();
                 }
             }
         }
-        return f66978g;
+        return f66983g;
     }
 
     public static void K(k kVar) {
         if (kVar != null) {
-            f66974c = kVar;
+            f66979c = kVar;
         }
     }
 
     public static o K0() {
-        if (f66979h == null) {
+        if (f66984h == null) {
             synchronized (d.class) {
-                if (f66979h == null) {
-                    f66979h = new d.o.a.e.b.m.m();
+                if (f66984h == null) {
+                    f66984h = new d.o.a.e.b.m.m();
                 }
             }
         }
-        return f66979h;
+        return f66984h;
     }
 
     public static synchronized void L(l lVar) {
         synchronized (d.class) {
             if (lVar != null) {
                 m = lVar;
-                if (f66973b instanceof d.o.a.e.b.m.d) {
-                    ((d.o.a.e.b.m.d) f66973b).k();
+                if (f66978b instanceof d.o.a.e.b.m.d) {
+                    ((d.o.a.e.b.m.d) f66978b).k();
                 }
             }
         }
@@ -435,14 +435,14 @@ public class d {
     }
 
     public static void U(JSONObject jSONObject) {
-        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f66950c)) {
+        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f66955c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66950c = jSONObject.optString("kllk");
-        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f66950c)) {
+        d.o.a.e.b.d.c.f66955c = jSONObject.optString("kllk");
+        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f66955c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66949b = d.o.a.e.b.d.c.f66950c.toUpperCase();
+        d.o.a.e.b.d.c.f66954b = d.o.a.e.b.d.c.f66955c.toUpperCase();
     }
 
     public static void V(boolean z2) {
@@ -525,14 +525,14 @@ public class d {
     }
 
     public static k b() {
-        if (f66974c == null) {
+        if (f66979c == null) {
             synchronized (d.class) {
-                if (f66974c == null) {
-                    f66974c = new d.o.a.e.b.m.i();
+                if (f66979c == null) {
+                    f66979c = new d.o.a.e.b.m.i();
                 }
             }
         }
-        return f66974c;
+        return f66979c;
     }
 
     public static void b0(d.o.a.e.b.n.a aVar, int i2) {
@@ -546,14 +546,14 @@ public class d {
     }
 
     public static d.o.a.e.b.m.a c() {
-        if (f66977f == null) {
+        if (f66982f == null) {
             synchronized (d.class) {
-                if (f66977f == null) {
-                    f66977f = new d.o.a.e.b.m.e();
+                if (f66982f == null) {
+                    f66982f = new d.o.a.e.b.m.e();
                 }
             }
         }
-        return f66977f;
+        return f66982f;
     }
 
     public static void c0(Runnable runnable) {
@@ -589,7 +589,7 @@ public class d {
             U(a2);
             return a2;
         }
-        return d.o.a.e.b.d.c.f66954g;
+        return d.o.a.e.b.d.c.f66959g;
     }
 
     public static void e0(ExecutorService executorService) {
@@ -699,14 +699,14 @@ public class d {
     }
 
     public static i h() {
-        if (f66975d == null) {
+        if (f66980d == null) {
             synchronized (d.class) {
-                if (f66975d == null) {
-                    f66975d = new d.o.a.e.b.m.c();
+                if (f66980d == null) {
+                    f66980d = new d.o.a.e.b.m.c();
                 }
             }
         }
-        return f66975d;
+        return f66980d;
     }
 
     public static void h0(ExecutorService executorService) {
@@ -716,7 +716,7 @@ public class d {
     }
 
     public static d.o.a.e.b.f.i i() {
-        return f66976e;
+        return f66981e;
     }
 
     public static synchronized boolean i0() {
@@ -762,7 +762,7 @@ public class d {
     public static synchronized Context l() {
         Context context;
         synchronized (d.class) {
-            context = f66972a;
+            context = f66977a;
         }
         return context;
     }
@@ -829,7 +829,7 @@ public class d {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            f66972a.registerReceiver(w, intentFilter);
+            f66977a.registerReceiver(w, intentFilter);
             H = true;
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1031,9 +1031,9 @@ public class d {
     public static synchronized void y(Context context) {
         synchronized (d.class) {
             if (context != null) {
-                if (f66972a == null) {
-                    f66972a = context.getApplicationContext();
-                    d.o.a.e.b.a.a.c().e(f66972a);
+                if (f66977a == null) {
+                    f66977a = context.getApplicationContext();
+                    d.o.a.e.b.a.a.c().e(f66977a);
                 }
             }
         }

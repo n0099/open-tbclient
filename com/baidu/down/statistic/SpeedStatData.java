@@ -12,7 +12,7 @@ import com.baidu.down.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SpeedStatData {
     public static final String TAG = "SpeedStatData";
 

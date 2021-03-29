@@ -13,29 +13,29 @@ public class a {
 
     /* renamed from: d.b.i0.r2.x.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1514a {
+    public static class C1515a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f59935a = new a();
+        public static final a f59936a = new a();
     }
 
     public static a e() {
-        return C1514a.f59935a;
+        return C1515a.f59936a;
     }
 
     public final ContentValues a(b bVar) {
-        if (bVar == null || TextUtils.isEmpty(bVar.f59936a)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.f59937a)) {
             return null;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("download_key", bVar.f59936a);
-        contentValues.put("package_name", bVar.f59937b);
-        contentValues.put("finish_download_time", String.valueOf(bVar.f59938c));
-        contentValues.put("show_times", String.valueOf(bVar.f59939d));
-        contentValues.put("last_show_time", String.valueOf(bVar.f59940e));
-        contentValues.put("ad_string", bVar.f59941f);
-        contentValues.put("cmatch", bVar.f59942g);
-        contentValues.put("install_status", Integer.valueOf(bVar.f59943h));
+        contentValues.put("download_key", bVar.f59937a);
+        contentValues.put("package_name", bVar.f59938b);
+        contentValues.put("finish_download_time", String.valueOf(bVar.f59939c));
+        contentValues.put("show_times", String.valueOf(bVar.f59940d));
+        contentValues.put("last_show_time", String.valueOf(bVar.f59941e));
+        contentValues.put("ad_string", bVar.f59942f);
+        contentValues.put("cmatch", bVar.f59943g);
+        contentValues.put("install_status", Integer.valueOf(bVar.f59944h));
         contentValues.put("ad_extension_info1", bVar.i);
         contentValues.put("ad_extension_info2", bVar.j);
         contentValues.put("ad_extension_info3", bVar.k);
@@ -46,14 +46,14 @@ public class a {
         if (cursor != null && !cursor.isClosed()) {
             try {
                 b bVar = new b();
-                bVar.f59936a = cursor.getString(cursor.getColumnIndex("download_key"));
-                bVar.f59937b = cursor.getString(cursor.getColumnIndex("package_name"));
-                bVar.f59938c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
-                bVar.f59939d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
-                bVar.f59940e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
-                bVar.f59941f = cursor.getString(cursor.getColumnIndex("ad_string"));
-                bVar.f59942g = cursor.getString(cursor.getColumnIndex("cmatch"));
-                bVar.f59943h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
+                bVar.f59937a = cursor.getString(cursor.getColumnIndex("download_key"));
+                bVar.f59938b = cursor.getString(cursor.getColumnIndex("package_name"));
+                bVar.f59939c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
+                bVar.f59940d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
+                bVar.f59941e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
+                bVar.f59942f = cursor.getString(cursor.getColumnIndex("ad_string"));
+                bVar.f59943g = cursor.getString(cursor.getColumnIndex("cmatch"));
+                bVar.f59944h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
                 bVar.i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
                 bVar.j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
                 bVar.k = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
@@ -104,7 +104,7 @@ public class a {
 
     public synchronized void g(b bVar) {
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.f59936a) && !TextUtils.isEmpty(bVar.f59937b)) {
+            if (!TextUtils.isEmpty(bVar.f59937a) && !TextUtils.isEmpty(bVar.f59938b)) {
                 SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
                 f2.beginTransaction();
                 f2.replace("ad_follow_up_info_table", null, a(bVar));

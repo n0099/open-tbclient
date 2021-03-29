@@ -9,13 +9,13 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t.b.d;
 import d.b.g0.a.t1.k.p0.g;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
 
     /* renamed from: d.b.g0.a.t.c.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0796a implements d.b {
-        public C0796a() {
+    /* loaded from: classes2.dex */
+    public class C0797a implements d.b {
+        public C0797a() {
         }
 
         @Override // d.b.g0.a.t.b.d.b
@@ -30,61 +30,61 @@ public class a extends d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f45947e;
+        public final /* synthetic */ e f45948e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45948f;
+        public final /* synthetic */ String f45949f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45949g;
+        public final /* synthetic */ String f45950g;
 
         public b(e eVar, String str, String str2) {
-            this.f45947e = eVar;
-            this.f45948f = str;
-            this.f45949g = str2;
+            this.f45948e = eVar;
+            this.f45949f = str;
+            this.f45950g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f45947e.h0(this.f45948f) && this.f45947e.g0(this.f45948f)) {
+            if (this.f45948e.h0(this.f45949f) && this.f45948e.g0(this.f45949f)) {
                 d.b.g0.a.c0.c.g("Api-LoadSubPackage", "subPackage have existed");
-                a.this.c(this.f45949g, new d.b.g0.a.t.e.b(1001, "subPackage have existed"));
+                a.this.c(this.f45950g, new d.b.g0.a.t.e.b(1001, "subPackage have existed"));
                 return;
             }
-            String E = this.f45947e.E(this.f45948f);
+            String E = this.f45948e.E(this.f45949f);
             if (!TextUtils.isEmpty(E)) {
-                a.this.s(this.f45947e, this.f45948f, E, this.f45949g);
+                a.this.s(this.f45948e, this.f45949f, E, this.f45950g);
                 return;
             }
             d.b.g0.a.c0.c.g("Api-LoadSubPackage", "subPackage cannot find aps key");
-            a.this.c(this.f45949g, new d.b.g0.a.t.e.b(202));
+            a.this.c(this.f45950g, new d.b.g0.a.t.e.b(202));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45951a;
+        public final /* synthetic */ String f45952a;
 
         public c(String str) {
-            this.f45951a = str;
+            this.f45952a = str;
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void a(String str) {
             d.b.g0.a.c0.c.g("Api-LoadSubPackage", "preload subPackage success");
-            a.this.c(this.f45951a, new d.b.g0.a.t.e.b(0, "preload subPackage success"));
+            a.this.c(this.f45952a, new d.b.g0.a.t.e.b(0, "preload subPackage success"));
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void b(int i) {
             d.b.g0.a.c0.c.b("Api-LoadSubPackage", "preload subPackage failed");
-            a.this.c(this.f45951a, new d.b.g0.a.t.e.b(202, "No SubPackage"));
+            a.this.c(this.f45952a, new d.b.g0.a.t.e.b(202, "No SubPackage"));
         }
     }
 
@@ -93,7 +93,7 @@ public class a extends d {
     }
 
     public final void s(e eVar, String str, String str2, @Nullable String str3) {
-        g.c(eVar.f45739f, eVar.W(), str, str2, null, new c(str3));
+        g.c(eVar.f45740f, eVar.W(), str, str2, null, new c(str3));
     }
 
     public final void t(e eVar, String str, @Nullable String str2) {
@@ -101,9 +101,9 @@ public class a extends d {
     }
 
     public d.b.g0.a.t.e.b u(String str) {
-        if (d.f45928c) {
+        if (d.f45929c) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
-        return i(str, true, new C0796a());
+        return i(str, true, new C0797a());
     }
 }

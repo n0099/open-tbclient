@@ -2,7 +2,7 @@ package com.baidu.sofire.g;
 
 import android.content.Context;
 import android.os.Process;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class q {
     public static boolean a(Context context) {
         try {

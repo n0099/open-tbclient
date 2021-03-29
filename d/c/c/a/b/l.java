@@ -13,25 +13,25 @@ import java.util.TreeMap;
 public final class l {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f65503b = new a();
+    public static final Comparator<String> f65504b = new a();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, l> f65504c = new TreeMap(f65503b);
+    public static final Map<String, l> f65505c = new TreeMap(f65504b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f65505d;
+    public static final l f65506d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f65506e;
+    public static final l f65507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f65507f;
+    public static final l f65508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f65508g;
+    public static final l f65509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f65509h;
+    public static final l f65510h;
     public static final l i;
     public static final l j;
     public static final l k;
@@ -44,7 +44,7 @@ public final class l {
     public static final l r;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65510a;
+    public final String f65511a;
 
     /* loaded from: classes5.dex */
     public static class a implements Comparator<String> {
@@ -77,7 +77,7 @@ public final class l {
         b("SSL_RSA_WITH_RC4_128_SHA", 5);
         b("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         b("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f65505d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f65506d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         b("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         b("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         b("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -99,11 +99,11 @@ public final class l {
         b("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         b("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         b("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f65506e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f65507e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         b("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         b("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         b("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f65507f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f65508f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         b("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         b("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         b("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -127,8 +127,8 @@ public final class l {
         b("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         b("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         b("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f65508g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f65509h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
+        f65509g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
+        f65510h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
         b("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         b("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", Opcodes.IF_ICMPEQ);
         b("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -186,7 +186,7 @@ public final class l {
 
     public l(String str) {
         if (str != null) {
-            this.f65510a = str;
+            this.f65511a = str;
             return;
         }
         throw null;
@@ -195,10 +195,10 @@ public final class l {
     public static synchronized l a(String str) {
         l lVar;
         synchronized (l.class) {
-            lVar = f65504c.get(str);
+            lVar = f65505c.get(str);
             if (lVar == null) {
                 lVar = new l(str);
-                f65504c.put(str, lVar);
+                f65505c.put(str, lVar);
             }
         }
         return lVar;
@@ -217,6 +217,6 @@ public final class l {
     }
 
     public String toString() {
-        return this.f65510a;
+        return this.f65511a;
     }
 }

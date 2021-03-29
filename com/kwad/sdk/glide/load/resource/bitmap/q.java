@@ -9,14 +9,14 @@ import androidx.annotation.Nullable;
 public final class q implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.load.engine.s<BitmapDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Resources f35683a;
+    public final Resources f35684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.s<Bitmap> f35684b;
+    public final com.kwad.sdk.glide.load.engine.s<Bitmap> f35685b;
 
     public q(@NonNull Resources resources, @NonNull com.kwad.sdk.glide.load.engine.s<Bitmap> sVar) {
-        this.f35683a = (Resources) com.kwad.sdk.glide.g.j.a(resources);
-        this.f35684b = (com.kwad.sdk.glide.load.engine.s) com.kwad.sdk.glide.g.j.a(sVar);
+        this.f35684a = (Resources) com.kwad.sdk.glide.g.j.a(resources);
+        this.f35685b = (com.kwad.sdk.glide.load.engine.s) com.kwad.sdk.glide.g.j.a(sVar);
     }
 
     @Nullable
@@ -35,7 +35,7 @@ public final class q implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.g
 
     @Override // com.kwad.sdk.glide.load.engine.o
     public void b() {
-        com.kwad.sdk.glide.load.engine.s<Bitmap> sVar = this.f35684b;
+        com.kwad.sdk.glide.load.engine.s<Bitmap> sVar = this.f35685b;
         if (sVar instanceof com.kwad.sdk.glide.load.engine.o) {
             ((com.kwad.sdk.glide.load.engine.o) sVar).b();
         }
@@ -43,12 +43,12 @@ public final class q implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.g
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.f35684b.c();
+        return this.f35685b.c();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        this.f35684b.d_();
+        this.f35685b.d_();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,6 +56,6 @@ public final class q implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.g
     @NonNull
     /* renamed from: f */
     public BitmapDrawable e() {
-        return new BitmapDrawable(this.f35683a, this.f35684b.e());
+        return new BitmapDrawable(this.f35684a, this.f35685b.e());
     }
 }

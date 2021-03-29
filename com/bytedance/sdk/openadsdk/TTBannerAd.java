@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface TTBannerAd {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view, int i);
 

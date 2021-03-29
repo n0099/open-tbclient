@@ -14,28 +14,28 @@ public class a {
     public String B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49510a;
+    public int f49511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49511b;
+    public int f49512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49512c;
+    public int f49513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49513d;
+    public int f49514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49514e;
+    public String f49515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49515f;
+    public String f49516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49516g;
+    public String f49517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49517h;
+    public String f49518h;
     public int i;
     public String j;
     public String k;

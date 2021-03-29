@@ -1,8 +1,8 @@
 package com.baidu.searchbox.videoplayer.framework;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class attr {
         public static final int coordinatorLayoutStyle = 0x7f040138;
         public static final int font = 0x7f0401a5;
@@ -24,12 +24,12 @@ public final class R {
         public static final int statusBarBackground = 0x7f040447;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class color {
         public static final int notification_action_color_filter = 0x7f060687;
         public static final int notification_icon_bg_color = 0x7f060688;
@@ -43,7 +43,7 @@ public final class R {
         public static final int videoplayer_text_color_white = 0x7f0609a8;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class dimen {
         public static final int compat_button_inset_horizontal_material = 0x7f07018a;
         public static final int compat_button_inset_vertical_material = 0x7f07018b;
@@ -91,7 +91,7 @@ public final class R {
         public static final int videoplayer_dimens_7dp = 0x7f0707dd;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static final int notification_action_background = 0x7f08140d;
         public static final int notification_bg = 0x7f08140e;
@@ -114,7 +114,7 @@ public final class R {
         public static final int videoplayer_zeus_full_refresh_selector = 0x7f081a27;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class id {
         public static final int action0 = 0x7f09002c;
         public static final int action_container = 0x7f090037;
@@ -159,13 +159,13 @@ public final class R {
         public static final int tv_error = 0x7f0923ab;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class integer {
         public static final int cancel_button_image_alpha = 0x7f0a0008;
         public static final int status_bar_notification_info_maxnum = 0x7f0a0019;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class layout {
         public static final int notification_action = 0x7f0c057b;
         public static final int notification_action_tombstone = 0x7f0c057c;
@@ -186,7 +186,7 @@ public final class R {
         public static final int videoplayer_layout_net_error = 0x7f0c07cd;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int status_bar_notification_info_overflow = 0x7f0f11f4;
         public static final int videoplayer_btn_net_error_retry = 0x7f0f14cc;
@@ -194,7 +194,7 @@ public final class R {
         public static final int videoplayer_tip_net_error = 0x7f0f14ce;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f100180;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f100181;
@@ -211,7 +211,7 @@ public final class R {
         public static final int Widget_Support_CoordinatorLayout = 0x7f10027d;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class styleable {
         public static final int CoordinatorLayout_Layout_android_layout_gravity = 0x00000000;
         public static final int CoordinatorLayout_Layout_layout_anchor = 0x00000001;

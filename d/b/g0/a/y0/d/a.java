@@ -37,64 +37,64 @@ import d.b.g0.p.d;
 import java.io.File;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47082a = k.f45050a;
+    public static final boolean f47083a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f47083b = false;
+    public static boolean f47084b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f47084c = TimeUnit.SECONDS.toMillis(1);
+    public static final long f47085c = TimeUnit.SECONDS.toMillis(1);
 
     /* renamed from: d.b.g0.a.y0.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0882a implements d.b.g0.a.n1.c.f.a {
+    /* loaded from: classes2.dex */
+    public static class C0883a implements d.b.g0.a.n1.c.f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f47085a;
+        public final /* synthetic */ int f47086a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Set f47086b;
+        public final /* synthetic */ Set f47087b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47087c;
+        public final /* synthetic */ String f47088c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f47088d;
+        public final /* synthetic */ String f47089d;
 
-        public C0882a(int i, Set set, String str, String str2) {
-            this.f47085a = i;
-            this.f47086b = set;
-            this.f47087c = str;
-            this.f47088d = str2;
+        public C0883a(int i, Set set, String str, String str2) {
+            this.f47086a = i;
+            this.f47087b = set;
+            this.f47088c = str;
+            this.f47089d = str2;
         }
 
         @Override // d.b.g0.a.n1.c.f.a
         public void a(String str, d.b.g0.a.n1.c.f.c cVar) {
-            if (cVar.f45390f.index == this.f47085a && this.f47086b.contains(str)) {
+            if (cVar.f45391f.index == this.f47086a && this.f47087b.contains(str)) {
                 e.j().g(this);
-                a.i(this.f47087c, this.f47088d);
+                a.i(this.f47088c, this.f47089d);
             }
         }
 
         @Override // d.b.g0.a.n1.c.f.a
         public void timeout() {
-            a.i(this.f47087c, this.f47088d);
+            a.i(this.f47088c, this.f47089d);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements DialogInterface.OnDismissListener {
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            boolean unused = a.f47083b = false;
+            boolean unused = a.f47084b = false;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
@@ -156,7 +156,7 @@ public class a {
         sb.append(Part.CRLF);
         q.c(sb.toString(), false);
         d.b.g0.a.z1.l.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
-        if (k.f45050a) {
+        if (k.f45051a) {
             String u = k0.u();
             if (TextUtils.isEmpty(u) || (a2 = d.b.g0.a.i2.k.a()) == null) {
                 return;
@@ -179,7 +179,7 @@ public class a {
     }
 
     public static void i(String str, String str2) {
-        if (f47083b) {
+        if (f47084b) {
             return;
         }
         BaseActivityDialog.c newBuilder = SwanAppErrorDialog.newBuilder();
@@ -188,7 +188,7 @@ public class a {
         newBuilder.u(str2);
         newBuilder.y(h.aiapps_open_failed_button, null);
         newBuilder.C();
-        f47083b = true;
+        f47084b = true;
     }
 
     public static void j(String str, String str2, int i) {
@@ -203,19 +203,19 @@ public class a {
             DelegateUtils.callOnMainWithContentProvider(d.b.g0.a.w0.a.c(), c.class, bundle);
             return;
         }
-        if (f47082a) {
-            Log.d("LaunchError", "show normal err dialog, isShowing=" + f47083b);
+        if (f47083a) {
+            Log.d("LaunchError", "show normal err dialog, isShowing=" + f47084b);
         }
         if (!SwanAppProcessInfo.checkProcessId(i)) {
             i(str, str2);
             return;
         }
-        e.j().b(new C0882a(i, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f47084c);
+        e.j().b(new C0883a(i, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f47085c);
     }
 
     public static void k(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         String format = String.format(context.getResources().getString(h.swanapp_launch_err_toast_format), str, str2);
-        if (f47082a) {
+        if (f47083a) {
             Log.d("LaunchError", "show normal err toast: " + format);
         }
         d.b.g0.a.q1.b.f.d f2 = d.b.g0.a.q1.b.f.d.f(AppRuntime.getAppContext(), format);
@@ -248,14 +248,14 @@ public class a {
                 d.b.g0.a.q1.b.f.d.e(AppRuntime.getAppContext(), h.aiapps_net_error).C();
                 return;
             }
-            if (f47082a) {
+            if (f47083a) {
                 Log.w("LaunchError", "show network err toast: areNotificationsEnabled false");
             }
             j(str2, str4, i);
         } else if (x.a(context)) {
             k(context, str3, str4);
         } else {
-            if (f47082a) {
+            if (f47083a) {
                 Log.w("LaunchError", "handleLaunchError: areNotificationsEnabled false");
             }
             j(str2, str4, i);

@@ -3,7 +3,7 @@ package com.baidu.android.util.devices;
 import android.content.Context;
 import android.os.IBinder;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class KeyboardUtils {
     public static final boolean DEBUG = false;
     public static final String TAG = "KeyboardUtils";

@@ -15,23 +15,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f4974a;
+    public static Class f4975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f4975b;
+    public static Class f4976b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             CyberClassLoader.b(CyberClassLoader.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class b {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -47,7 +47,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class c {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -62,7 +62,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class d {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             String path = file.getPath();
@@ -99,9 +99,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     public static void a() throws Exception {
-        if (f4974a == null || f4975b == null) {
+        if (f4975a == null || f4976b == null) {
             Class<?> cls = Class.forName("dalvik.system.DexPathList");
-            f4974a = cls;
+            f4975a = cls;
             Class<?>[] declaredClasses = cls.getDeclaredClasses();
             int length = declaredClasses.length;
             int i = 0;
@@ -111,12 +111,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 }
                 Class<?> cls2 = declaredClasses[i];
                 if (cls2.getSimpleName().equals("Element")) {
-                    f4975b = cls2;
+                    f4976b = cls2;
                     break;
                 }
                 i++;
             }
-            if (f4975b == null) {
+            if (f4976b == null) {
                 throw new AndroidRuntimeException("DexPathList$Element not found!");
             }
         }
@@ -162,7 +162,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
             a();
             String replace = new File(str).getName().replace(".so", ".dex");
             DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-            Constructor<?> constructor = f4975b.getConstructors()[0];
+            Constructor<?> constructor = f4976b.getConstructors()[0];
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
                 newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -171,12 +171,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
             } else {
                 newInstance = constructor.newInstance(new File(str), null, loadDex);
             }
-            Object newInstance2 = Array.newInstance(f4975b, 1);
+            Object newInstance2 = Array.newInstance(f4976b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(f4974a, a2, "dexElements", newInstance2);
+            a(f4975a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(f4974a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f4975a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

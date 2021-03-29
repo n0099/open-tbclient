@@ -55,8 +55,8 @@ public class c {
 
     /* renamed from: d.b.h0.r.x.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1092c extends CustomMessageListener {
-        public C1092c(int i) {
+    public static class C1093c extends CustomMessageListener {
+        public C1093c(int i) {
             super(i);
         }
 
@@ -75,8 +75,8 @@ public class c {
         aVar.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().addMessageRule(aVar);
         MessageManager.getInstance().addResponsedMessageRule(new b(0));
-        C1092c c1092c = new C1092c(2000999);
-        c1092c.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(c1092c);
+        C1093c c1093c = new C1093c(2000999);
+        c1093c.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(c1093c);
     }
 }

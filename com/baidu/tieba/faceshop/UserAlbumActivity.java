@@ -46,15 +46,15 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public List<ImageFileInfo> mImageList = new ArrayList();
     public List<ImageFileInfo> mAllImageList = new ArrayList();
     public LinkedHashMap<String, ImageFileInfo> mChooseList = new LinkedHashMap<>();
-    public String mAlbumId = d.b.h0.e.a.f50119f;
+    public String mAlbumId = d.b.h0.e.a.f50120f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0185a implements d.b.h0.e.c {
-            public C0185a() {
+        public class C0186a implements d.b.h0.e.c {
+            public C0186a() {
             }
 
             @Override // d.b.h0.e.c
@@ -85,7 +85,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             UserAlbumActivity.this.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
-            UserAlbumActivity.this.mLoadModel.g(new C0185a());
+            UserAlbumActivity.this.mLoadModel.g(new C0186a());
         }
     }
 
@@ -134,7 +134,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 UserAlbumActivity.this.mAllImageList.addAll(list2);
                 UserAlbumActivity.this.mImageList.addAll(list2);
                 UserAlbumActivity.this.mAddData = new d.b.h0.e.a();
-                UserAlbumActivity.this.mAddData.h(d.b.h0.e.a.f50119f);
+                UserAlbumActivity.this.mAddData.h(d.b.h0.e.a.f50120f);
                 d.b.h0.e.a aVar = UserAlbumActivity.this.mAddData;
                 aVar.i(list2.size() + "");
                 UserAlbumActivity.this.mAddData.l(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
@@ -227,7 +227,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     private void loadAlbumData() {
-        this.mLoadModel.i(d.b.h0.e.a.f50119f, new d());
+        this.mLoadModel.i(d.b.h0.e.a.f50120f, new d());
     }
 
     private void refreshImages() {

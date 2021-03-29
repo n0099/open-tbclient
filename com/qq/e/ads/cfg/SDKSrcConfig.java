@@ -3,13 +3,13 @@ package com.qq.e.ads.cfg;
 public class SDKSrcConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38055a;
+    public static String f38056a;
 
     public static String getSdkSrc() {
-        return f38055a;
+        return f38056a;
     }
 
     public static void setSdkSrc(String str) {
-        f38055a = str;
+        f38056a = str;
     }
 }

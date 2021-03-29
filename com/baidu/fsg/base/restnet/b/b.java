@@ -22,52 +22,52 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5180a = "appcache";
+    public static final String f5181a = "appcache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5181b = 2;
+    public static final int f5182b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5182c;
+    public Context f5183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5183d;
+    public String f5184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f5184e;
+    public e f5185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public URLConnection f5185f;
+    public URLConnection f5186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5186g;
+    public boolean f5187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5187h;
+    public boolean f5188h;
 
     public b(Context context, String str, boolean z) {
-        this.f5187h = false;
-        this.f5182c = context.getApplicationContext();
-        this.f5183d = str;
-        this.f5187h = z;
+        this.f5188h = false;
+        this.f5183c = context.getApplicationContext();
+        this.f5184d = str;
+        this.f5188h = z;
     }
 
     private com.baidu.fsg.base.restnet.rest.e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
         URL url2 = new URL(a(url.toString()));
         URLConnection openConnection = url2.openConnection();
-        this.f5185f = openConnection;
+        this.f5186f = openConnection;
         a(openConnection);
-        return a(url2, this.f5185f, "GET");
+        return a(url2, this.f5186f, "GET");
     }
 
     private boolean c() {
-        if (this.f5184e != null) {
+        if (this.f5185e != null) {
             RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
-            String k = this.f5184e.k();
+            String k = this.f5185e.k();
             return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
         }
         return false;
@@ -75,7 +75,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     private void d() {
         try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f5182c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f5183c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
         } catch (Exception unused) {
         }
     }
@@ -89,28 +89,28 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public com.baidu.fsg.base.restnet.rest.e a(com.baidu.fsg.base.restnet.rest.d dVar) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.f5184e = (e) dVar;
+        this.f5185e = (e) dVar;
         URL url = new URL(dVar.d());
         LogUtil.v("apollon_rest", "con url: " + url + ", host: " + dVar.b().c("Host"));
-        if (this.f5184e.i()) {
+        if (this.f5185e.i()) {
             return a(url);
         }
-        if (this.f5184e.j()) {
+        if (this.f5185e.j()) {
             return b(url);
         }
         return null;
     }
 
     private void b() {
-        ((HttpsURLConnection) this.f5185f).setHostnameVerifier(new c(this));
+        ((HttpsURLConnection) this.f5186f).setHostnameVerifier(new c(this));
     }
 
     private void b(URLConnection uRLConnection) {
         DataOutputStream dataOutputStream;
-        e eVar = this.f5184e;
+        e eVar = this.f5185e;
         if (eVar != null) {
             String l = eVar.l();
-            RestMultipartEntity a2 = this.f5184e.a();
+            RestMultipartEntity a2 = this.f5185e.a();
             uRLConnection.setDoOutput(true);
             uRLConnection.setDoInput(true);
             if (a2 != null) {
@@ -162,26 +162,26 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public void a() {
-        URLConnection uRLConnection = this.f5185f;
+        URLConnection uRLConnection = this.f5186f;
         if (uRLConnection != null) {
             if (uRLConnection instanceof HttpsURLConnection) {
                 ((HttpsURLConnection) uRLConnection).disconnect();
             } else if (uRLConnection instanceof HttpURLConnection) {
                 ((HttpURLConnection) uRLConnection).disconnect();
             }
-            this.f5185f = null;
+            this.f5186f = null;
         }
-        if (this.f5187h) {
+        if (this.f5188h) {
             e();
         }
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
         URLConnection openConnection = url.openConnection();
-        this.f5185f = openConnection;
+        this.f5186f = openConnection;
         a(openConnection);
-        b(this.f5185f);
-        return a(url, this.f5185f, "POST");
+        b(this.f5186f);
+        return a(url, this.f5186f, "POST");
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url, URLConnection uRLConnection, String str) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
@@ -192,12 +192,12 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
     }
 
     private void a(URLConnection uRLConnection) {
-        if (this.f5186g) {
-            uRLConnection.setConnectTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
-            uRLConnection.setReadTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
+        if (this.f5187g) {
+            uRLConnection.setConnectTimeout(this.f5185e.h() > 0 ? this.f5185e.h() : 30000);
+            uRLConnection.setReadTimeout(this.f5185e.h() > 0 ? this.f5185e.h() : 30000);
         } else {
-            uRLConnection.setConnectTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
-            uRLConnection.setReadTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
+            uRLConnection.setConnectTimeout(this.f5185e.h() > 0 ? this.f5185e.h() : 30000);
+            uRLConnection.setReadTimeout(this.f5185e.h() > 0 ? this.f5185e.h() : 30000);
         }
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
@@ -210,22 +210,22 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
             uRLConnection.setRequestProperty("User-Agent", "");
             uRLConnection.setRequestProperty("Accept-Encoding", "");
         } else {
-            uRLConnection.setRequestProperty("User-Agent", this.f5183d);
-            for (Map.Entry<String, List<String>> entry : this.f5184e.b().entrySet()) {
+            uRLConnection.setRequestProperty("User-Agent", this.f5184d);
+            for (Map.Entry<String, List<String>> entry : this.f5185e.b().entrySet()) {
                 uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
             }
-            if (this.f5187h) {
+            if (this.f5188h) {
                 d();
             }
         }
-        if (!(this.f5185f instanceof HttpsURLConnection) || com.baidu.fsg.base.c.a().a()) {
+        if (!(this.f5186f instanceof HttpsURLConnection) || com.baidu.fsg.base.c.a().a()) {
             return;
         }
         b();
     }
 
     private String a(String str) {
-        e eVar = this.f5184e;
+        e eVar = this.f5185e;
         if (eVar != null) {
             String l = eVar.l();
             if (TextUtils.isEmpty(l)) {

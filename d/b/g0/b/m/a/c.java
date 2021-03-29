@@ -18,25 +18,25 @@ public class c extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f47348e;
+        public final /* synthetic */ Context f47349e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47349f;
+        public final /* synthetic */ CallbackHandler f47350f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47350g;
+        public final /* synthetic */ String f47351g;
 
         public a(Context context, CallbackHandler callbackHandler, String str) {
-            this.f47348e = context;
-            this.f47349f = callbackHandler;
-            this.f47350g = str;
+            this.f47349e = context;
+            this.f47350f = callbackHandler;
+            this.f47351g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
-            c.this.k(hVar, this.f47348e, this.f47349f, this.f47350g);
+            c.this.k(hVar, this.f47349e, this.f47350f, this.f47351g);
         }
     }
 
@@ -81,7 +81,7 @@ public class c extends a0 {
             jSONObject.put("bduss", i);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");

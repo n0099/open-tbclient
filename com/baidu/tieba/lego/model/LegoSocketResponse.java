@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoSocketResponse extends SocketResponsedMessage {
     public DataRes resultData;
 

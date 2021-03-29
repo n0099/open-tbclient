@@ -8,58 +8,58 @@ import tbclient.FrsTabInfo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<FrsTabInfo> f57513a;
+    public List<FrsTabInfo> f57514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<d.b.h0.e0.b> f57514b = new LinkedList();
+    public final List<d.b.h0.e0.b> f57515b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f57515c;
+    public Context f57516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57516d;
+    public String f57517d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57517e;
+    public String f57518e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57518f;
+    public String f57519f;
 
     public g(Context context, List<FrsTabInfo> list) {
-        this.f57513a = list;
-        this.f57515c = context;
+        this.f57514a = list;
+        this.f57516c = context;
     }
 
     public void a(d.b.h0.e0.b bVar) {
         if (bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        for (d.b.h0.e0.b bVar2 : this.f57514b) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f50158e == bVar.getFragmentTabStructure().f50158e) {
+        for (d.b.h0.e0.b bVar2 : this.f57515b) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f50159e == bVar.getFragmentTabStructure().f50159e) {
                 return;
             }
         }
-        this.f57514b.add(bVar);
+        this.f57515b.add(bVar);
     }
 
     public String b() {
-        return this.f57516d;
+        return this.f57517d;
     }
 
     public String c() {
-        return this.f57518f;
+        return this.f57519f;
     }
 
     public String d() {
-        return this.f57517e;
+        return this.f57518e;
     }
 
     public List<FrsTabInfo> e() {
-        return this.f57513a;
+        return this.f57514a;
     }
 
     public List<d.b.h0.e0.b> f() {
-        return this.f57514b;
+        return this.f57515b;
     }
 
     public void g(String str) {
@@ -69,15 +69,15 @@ public class g {
     }
 
     public void i(String str) {
-        this.f57516d = str;
+        this.f57517d = str;
     }
 
     public void j(String str) {
-        this.f57518f = str;
+        this.f57519f = str;
     }
 
     public void k(String str) {
-        this.f57517e = str;
+        this.f57518e = str;
     }
 
     public void l(String str) {

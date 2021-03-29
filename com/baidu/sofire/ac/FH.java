@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -45,7 +45,7 @@ public class FH {
         f a2;
         List<ApkInfo> b2;
         try {
-            if (c.f11658b != null && s.a(c.f11658b) && i2 == 1 && i > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+            if (c.f11659b != null && s.a(c.f11659b) && i2 == 1 && i > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                 for (ApkInfo apkInfo : b2) {
                     if (apkInfo.key == i) {
                         return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -96,8 +96,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if (optString.equals("callSync")) {
-                        if (c.f11658b == null && context != null) {
-                            c.f11658b = context.getApplicationContext();
+                        if (c.f11659b == null && context != null) {
+                            c.f11659b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -166,7 +166,7 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        Context context = c.f11658b;
+        Context context = c.f11659b;
         if (context != null && s.a(context)) {
             return com.baidu.sofire.g.d.a(i);
         }
@@ -268,8 +268,8 @@ public class FH {
                         if (cls.equals(Context.class)) {
                             if (context != null) {
                                 objArr[i3] = context;
-                            } else if (c.f11658b != null) {
-                                objArr[i3] = c.f11658b;
+                            } else if (c.f11659b != null) {
+                                objArr[i3] = c.f11659b;
                             } else {
                                 throw new IllegalArgumentException("method request context");
                             }

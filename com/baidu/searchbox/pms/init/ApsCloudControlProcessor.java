@@ -18,7 +18,7 @@ import com.baidu.searchbox.pms.utils.StatisticUtils;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ApsCloudControlProcessor implements ICloudControlProcessor {
     public static String SERVER_APS = "aps";
 

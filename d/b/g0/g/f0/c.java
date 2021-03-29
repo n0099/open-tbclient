@@ -13,16 +13,16 @@ import d.b.g0.g.f0.b;
 public class c extends EventTargetImpl {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f48138h = k.f45050a;
+    public static final boolean f48139h = k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.i.b f48139e;
+    public d.b.g0.g.i.b f48140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.e.d.a f48140f;
+    public d.b.g0.g.e.d.a f48141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48141g;
+    public String f48142g;
 
     /* loaded from: classes3.dex */
     public class a implements b.a {
@@ -38,7 +38,7 @@ public class c extends EventTargetImpl {
                 aVar.totalBytesExpectedToWrite = j2;
                 JSEvent jSEvent = new JSEvent("progressupdate");
                 jSEvent.data = aVar;
-                if (c.f48138h) {
+                if (c.f48139h) {
                     Log.i("LoadSubpackageTask", "progress :" + i + "totalBytesWritten :" + j + "totalBytesExpectedToWrite :" + j2);
                 }
                 c.this.dispatchEvent(jSEvent);
@@ -48,13 +48,13 @@ public class c extends EventTargetImpl {
         @Override // d.b.g0.g.f0.b.a
         public void b(int i) {
             c.this.F(false);
-            d.b.g0.g.c0.c.j(c.this.f48141g, i, "");
+            d.b.g0.g.c0.c.j(c.this.f48142g, i, "");
         }
 
         @Override // d.b.g0.g.f0.b.a
         public void success() {
             c cVar = c.this;
-            c.this.F(cVar.G(cVar.f48141g));
+            c.this.F(cVar.G(cVar.f48142g));
         }
     }
 
@@ -62,24 +62,24 @@ public class c extends EventTargetImpl {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48143e;
+        public final /* synthetic */ boolean f48144e;
 
         public b(boolean z) {
-            this.f48143e = z;
+            this.f48144e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f48143e) {
-                if (c.this.f48140f != null) {
-                    c.this.f48140f.c();
-                    if (c.f48138h) {
+            if (this.f48144e) {
+                if (c.this.f48141f != null) {
+                    c.this.f48141f.c();
+                    if (c.f48139h) {
                         Log.i("LoadSubpackageTask", "success call");
                     }
                 }
-            } else if (c.this.f48140f != null) {
-                c.this.f48140f.a();
-                if (c.f48138h) {
+            } else if (c.this.f48141f != null) {
+                c.this.f48141f.a();
+                if (c.f48139h) {
                     Log.i("LoadSubpackageTask", "fail call");
                 }
             }
@@ -88,18 +88,18 @@ public class c extends EventTargetImpl {
 
     public c(d.b.g0.g.i.b bVar) {
         super(bVar);
-        this.f48139e = bVar;
+        this.f48140e = bVar;
     }
 
     public final void F(boolean z) {
-        d.b.g0.g.i.b bVar = this.f48139e;
+        d.b.g0.g.i.b bVar = this.f48140e;
         if (bVar != null) {
             bVar.runOnJSThread(new b(z));
         }
     }
 
     public final boolean G(String str) {
-        if (this.f48139e == null) {
+        if (this.f48140e == null) {
             return false;
         }
         String str2 = f.V().h() + d.b.g0.g.f0.a.b().c(str, 2);
@@ -107,21 +107,21 @@ public class c extends EventTargetImpl {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(c2)) {
             return false;
         }
-        this.f48139e.N(str2, c2);
+        this.f48140e.N(str2, c2);
         return true;
     }
 
     public void H(JsObject jsObject) {
         J();
         I(jsObject);
-        if (TextUtils.isEmpty(this.f48141g)) {
-            if (f48138h) {
+        if (TextUtils.isEmpty(this.f48142g)) {
+            if (f48139h) {
                 Log.i("LoadSubpackageTask", "params error");
             }
-            d.b.g0.g.c0.c.j(this.f48141g, 2111, "");
+            d.b.g0.g.c0.c.j(this.f48142g, 2111, "");
             return;
         }
-        d.b.g0.g.f0.b.a(this.f48141g, new a());
+        d.b.g0.g.f0.b.a(this.f48142g, new a());
     }
 
     public final void I(JsObject jsObject) {
@@ -129,20 +129,20 @@ public class c extends EventTargetImpl {
         if (jsObject == null || (F = d.b.g0.g.e.d.c.F(jsObject)) == null) {
             return;
         }
-        this.f48140f = d.b.g0.g.e.d.a.e(F);
+        this.f48141f = d.b.g0.g.e.d.a.e(F);
         try {
-            this.f48141g = F.g("name");
+            this.f48142g = F.g("name");
         } catch (JSTypeMismatchException e2) {
-            if (f48138h) {
+            if (f48139h) {
                 e2.printStackTrace();
             }
-            d.b.g0.g.i0.b.e(this.f48139e, e2);
+            d.b.g0.g.i0.b.e(this.f48140e, e2);
             J();
         }
     }
 
     public final void J() {
-        this.f48140f = null;
-        this.f48141g = null;
+        this.f48141f = null;
+        this.f48142g = null;
     }
 }

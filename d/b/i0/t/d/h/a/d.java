@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView.LayoutManager f60668a;
+    public final RecyclerView.LayoutManager f60669a;
 
     /* loaded from: classes4.dex */
     public static class a extends d {
@@ -19,27 +19,27 @@ public abstract class d {
         @Override // d.b.i0.t.d.h.a.d
         public int c(View view) {
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-            return this.f60668a.getDecoratedMeasuredWidth(view) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+            return this.f60669a.getDecoratedMeasuredWidth(view) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int d(View view) {
-            return this.f60668a.getDecoratedLeft(view) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view.getLayoutParams())).leftMargin;
+            return this.f60669a.getDecoratedLeft(view) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view.getLayoutParams())).leftMargin;
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int e() {
-            return this.f60668a.getWidth();
+            return this.f60669a.getWidth();
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int f() {
-            return this.f60668a.getPaddingLeft();
+            return this.f60669a.getPaddingLeft();
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int g() {
-            return (this.f60668a.getWidth() - this.f60668a.getPaddingLeft()) - this.f60668a.getPaddingRight();
+            return (this.f60669a.getWidth() - this.f60669a.getPaddingLeft()) - this.f60669a.getPaddingRight();
         }
     }
 
@@ -52,27 +52,27 @@ public abstract class d {
         @Override // d.b.i0.t.d.h.a.d
         public int c(View view) {
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-            return this.f60668a.getDecoratedMeasuredHeight(view) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+            return this.f60669a.getDecoratedMeasuredHeight(view) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int d(View view) {
-            return this.f60668a.getDecoratedTop(view) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view.getLayoutParams())).topMargin;
+            return this.f60669a.getDecoratedTop(view) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view.getLayoutParams())).topMargin;
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int e() {
-            return this.f60668a.getHeight();
+            return this.f60669a.getHeight();
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int f() {
-            return this.f60668a.getPaddingTop();
+            return this.f60669a.getPaddingTop();
         }
 
         @Override // d.b.i0.t.d.h.a.d
         public int g() {
-            return (this.f60668a.getHeight() - this.f60668a.getPaddingTop()) - this.f60668a.getPaddingBottom();
+            return (this.f60669a.getHeight() - this.f60669a.getPaddingTop()) - this.f60669a.getPaddingBottom();
         }
     }
 
@@ -100,6 +100,6 @@ public abstract class d {
 
     public d(RecyclerView.LayoutManager layoutManager) {
         new Rect();
-        this.f60668a = layoutManager;
+        this.f60669a = layoutManager;
     }
 }

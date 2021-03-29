@@ -24,7 +24,7 @@ public class e extends d.b.g0.g.i.a {
 
     public e(@NonNull String str, @NonNull d.b.g0.g.i.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
-        V8Engine v8Engine = this.f48159e;
+        V8Engine v8Engine = this.f48160e;
         if (v8Engine == null) {
             return;
         }

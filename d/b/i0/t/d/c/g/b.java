@@ -11,33 +11,33 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60410a = false;
+    public boolean f60411a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f60411b = new ArrayList();
+    public List<String> f60412b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SdkLiveInfoData> f60412c = new ArrayList();
+    public List<SdkLiveInfoData> f60413c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f60413d = new ArrayList();
+    public List<n> f60414d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60414e;
+    public boolean f60415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60415f;
+    public String f60416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60416g;
+    public String f60417g;
 
     public b(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.f60414e = false;
+        this.f60415e = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.f60414e = true;
+            this.f60415e = true;
         }
-        this.f60415f = str;
-        this.f60416g = str2;
+        this.f60416f = str;
+        this.f60417g = str2;
         a(list, z);
     }
 
@@ -46,21 +46,21 @@ public class b {
             return false;
         }
         boolean e2 = e(list);
-        this.f60410a = z;
+        this.f60411a = z;
         return e2;
     }
 
     public void b() {
-        this.f60410a = false;
-        List<String> list = this.f60411b;
+        this.f60411a = false;
+        List<String> list = this.f60412b;
         if (list != null) {
             list.clear();
         }
-        List<SdkLiveInfoData> list2 = this.f60412c;
+        List<SdkLiveInfoData> list2 = this.f60413c;
         if (list2 != null) {
             list2.clear();
         }
-        List<n> list3 = this.f60413d;
+        List<n> list3 = this.f60414d;
         if (list3 != null) {
             list3.clear();
         }
@@ -72,22 +72,22 @@ public class b {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             d.b.i0.t.d.a.a aVar = new d.b.i0.t.d.a.a();
-            aVar.f60234e = list.get(i);
+            aVar.f60235e = list.get(i);
             aVar.j = true;
-            aVar.f60235f = this.f60414e;
-            aVar.f60236g = this.f60415f;
-            aVar.f60237h = this.f60416g;
+            aVar.f60236f = this.f60415e;
+            aVar.f60237g = this.f60416f;
+            aVar.f60238h = this.f60417g;
             int i2 = i + 1;
             aVar.i = i2;
-            eVar.f60328e = aVar;
+            eVar.f60329e = aVar;
             if (i2 < size) {
                 d.b.i0.t.d.a.a aVar2 = new d.b.i0.t.d.a.a();
-                aVar2.f60234e = list.get(i2);
-                aVar2.f60235f = this.f60414e;
-                aVar2.f60236g = this.f60415f;
-                aVar2.f60237h = this.f60416g;
+                aVar2.f60235e = list.get(i2);
+                aVar2.f60236f = this.f60415e;
+                aVar2.f60237g = this.f60416f;
+                aVar2.f60238h = this.f60417g;
                 aVar2.i = i + 2;
-                eVar.f60329f = aVar2;
+                eVar.f60330f = aVar2;
                 aVar2.k = true;
             } else {
                 aVar.j = false;
@@ -100,8 +100,8 @@ public class b {
 
     public List<n> d() {
         ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(this.f60413d)) {
-            arrayList.addAll(this.f60413d);
+        if (!ListUtils.isEmpty(this.f60414d)) {
+            arrayList.addAll(this.f60414d);
         }
         return arrayList;
     }
@@ -114,22 +114,22 @@ public class b {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.f60411b.contains(str)) {
+                if (!this.f60412b.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.f60411b.add(str);
+                    this.f60412b.add(str);
                 }
             }
         }
         if (ListUtils.isEmpty(arrayList)) {
             return false;
         }
-        this.f60412c.addAll(arrayList);
-        ArrayList<n> c2 = c(this.f60412c);
-        this.f60413d = c2;
+        this.f60413c.addAll(arrayList);
+        ArrayList<n> c2 = c(this.f60413c);
+        this.f60414d = c2;
         return !ListUtils.isEmpty(c2);
     }
 
     public boolean f() {
-        return this.f60410a;
+        return this.f60411a;
     }
 }

@@ -20,11 +20,11 @@ import d.b.i.k0;
 import d.b.i.m0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends d.b.i0.z0.f.d.a<z1, ThreadCardViewHolder<a2>> {
     public b0<z1> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<z1> {
         public a() {
         }
@@ -40,7 +40,7 @@ public class h extends d.b.i0.z0.f.d.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -56,33 +56,33 @@ public class h extends d.b.i0.z0.f.d.a<z1, ThreadCardViewHolder<a2>> {
                     h.this.q.a(threadCardViewHolder.a(), z1Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 0, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f63003a;
+        public final /* synthetic */ ViewGroup f63004a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f63004b;
+        public final /* synthetic */ View f63005b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f63005c;
+        public final /* synthetic */ int f63006c;
 
         public c(h hVar, ViewGroup viewGroup, View view, int i) {
-            this.f63003a = viewGroup;
-            this.f63004b = view;
-            this.f63005c = i;
+            this.f63004a = viewGroup;
+            this.f63005b = view;
+            this.f63006c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f63003a, this.f63004b, this.f63005c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f63004a, this.f63005b, this.f63006c));
             }
         }
     }
@@ -99,8 +99,8 @@ public class h extends d.b.i0.z0.f.d.a<z1, ThreadCardViewHolder<a2>> {
         k0.b bVar = new k0.b(this.n.getPageActivity(), false);
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.B("personalize_page");

@@ -9,7 +9,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.t.d.f.c.e, ConcernTabEmptyView.ViewHol
     public TbPageContext m;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.e.f60537f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.e.f60538f);
         this.m = tbPageContext;
     }
 

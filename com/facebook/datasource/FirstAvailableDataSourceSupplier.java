@@ -13,7 +13,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public int mIndex = 0;
         public DataSource<T> mCurrentDataSource = null;

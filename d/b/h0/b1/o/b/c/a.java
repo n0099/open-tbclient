@@ -7,15 +7,15 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 public final class a extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final WheelView f50037e;
+    public final WheelView f50038e;
 
     public a(WheelView wheelView) {
-        this.f50037e = wheelView;
+        this.f50038e = wheelView;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        this.f50037e.q(f3);
+        this.f50038e.q(f3);
         return true;
     }
 }

@@ -5,21 +5,21 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64020a;
+    public String f64021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64021b;
+    public String f64022b;
 
     public g() {
         d();
     }
 
     public String a() {
-        return this.f64021b;
+        return this.f64022b;
     }
 
     public final String b(Context context) {
@@ -33,7 +33,7 @@ public class g {
         stringBuffer.append("_");
         stringBuffer.append("android");
         stringBuffer.append("_");
-        stringBuffer.append(this.f64020a);
+        stringBuffer.append(this.f64021a);
         stringBuffer.append("_");
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();
@@ -54,7 +54,7 @@ public class g {
 
     public final void d() {
         Context appContext = AppRuntime.getAppContext();
-        this.f64020a = c(appContext);
-        this.f64021b = b(appContext);
+        this.f64021a = c(appContext);
+        this.f64022b = b(appContext);
     }
 }

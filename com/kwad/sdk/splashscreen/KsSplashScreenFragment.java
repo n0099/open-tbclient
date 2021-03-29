@@ -25,19 +25,19 @@ import org.json.JSONObject;
 public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
 
     /* renamed from: d  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f36589d;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f36590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f36590e;
+    public KsVideoPlayConfig f36591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdBaseFrameLayout f36591f;
+    public AdBaseFrameLayout f36592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DetailVideoView f36592g;
+    public DetailVideoView f36593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f36593h;
+    public com.kwad.sdk.core.download.b.b f36594h;
     public com.kwad.sdk.core.i.a i;
     public AdTemplate j;
     public KsScene k;
@@ -62,13 +62,13 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
         Serializable serializable = getArguments().getSerializable("KsSplashScreenFragment");
         if (!(serializable instanceof AdTemplate)) {
             com.kwad.sdk.core.d.a.d(KsFullScreenVideoActivityProxy.TAG, "data is not instanceof AdTemplate:" + serializable);
-            this.f36589d.onAdShowError(0, "返回数据格式错误");
+            this.f36590d.onAdShowError(0, "返回数据格式错误");
             return;
         }
         Serializable serializable2 = getArguments().getSerializable("adScene");
         if (!(serializable2 instanceof KsScene)) {
             com.kwad.sdk.core.d.a.d(KsFullScreenVideoActivityProxy.TAG, "data is not instanceof AdScene" + serializable);
-            this.f36589d.onAdShowError(0, "AdScene 数据错误");
+            this.f36590d.onAdShowError(0, "AdScene 数据错误");
             return;
         }
         AdTemplate adTemplate = (AdTemplate) serializable;
@@ -76,37 +76,37 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
         this.k = (KsScene) serializable2;
         this.l = com.kwad.sdk.core.response.b.c.j(adTemplate);
         KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-        this.f36590e = build;
+        this.f36591e = build;
         this.j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
-        this.f36593h = new com.kwad.sdk.core.download.b.b(this.j);
+        this.f36594h = new com.kwad.sdk.core.download.b.b(this.j);
     }
 
     private void g() {
-        this.f36591f = (AdBaseFrameLayout) this.f31885c.findViewById(R.id.ksad_splash_root_container);
-        DetailVideoView detailVideoView = (DetailVideoView) this.f31885c.findViewById(R.id.ksad_splash_video_player);
-        this.f36592g = detailVideoView;
+        this.f36592f = (AdBaseFrameLayout) this.f31886c.findViewById(R.id.ksad_splash_root_container);
+        DetailVideoView detailVideoView = (DetailVideoView) this.f31886c.findViewById(R.id.ksad_splash_video_player);
+        this.f36593g = detailVideoView;
         detailVideoView.setAd(true);
-        this.f36592g.setVisibility(8);
-        this.f36591f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1
+        this.f36593g.setVisibility(8);
+        this.f36592f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), KsSplashScreenFragment.this.j, new a.InterfaceC0378a() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1.1
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), KsSplashScreenFragment.this.j, new a.InterfaceC0379a() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
                     public void a() {
-                        if (KsSplashScreenFragment.this.f36589d != null) {
-                            KsSplashScreenFragment.this.f36589d.onAdClicked();
+                        if (KsSplashScreenFragment.this.f36590d != null) {
+                            KsSplashScreenFragment.this.f36590d.onAdClicked();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (KsSplashScreenFragment.this.f31884b != null && ((c) KsSplashScreenFragment.this.f31884b).f36661e != null) {
-                                jSONObject.put("duration", ((c) KsSplashScreenFragment.this.f31884b).f36661e.c());
+                            if (KsSplashScreenFragment.this.f31885b != null && ((c) KsSplashScreenFragment.this.f31885b).f36662e != null) {
+                                jSONObject.put("duration", ((c) KsSplashScreenFragment.this.f31885b).f36662e.c());
                             }
                         } catch (JSONException e2) {
                             com.kwad.sdk.core.d.a.a(e2);
                         }
-                        com.kwad.sdk.core.report.b.a(KsSplashScreenFragment.this.j, jSONObject, KsSplashScreenFragment.this.f36591f.getTouchCoords(), (String) null);
+                        com.kwad.sdk.core.report.b.a(KsSplashScreenFragment.this.j, jSONObject, KsSplashScreenFragment.this.f36592f.getTouchCoords(), (String) null);
                     }
-                }, KsSplashScreenFragment.this.f36593h);
+                }, KsSplashScreenFragment.this.f36594h);
             }
         });
     }
@@ -121,17 +121,17 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     @Override // com.kwad.sdk.contentalliance.b
     public void a() {
         super.a();
-        T t = this.f31884b;
-        if (((c) t).f36661e != null) {
-            ((c) t).f36661e.f();
+        T t = this.f31885b;
+        if (((c) t).f36662e != null) {
+            ((c) t).f36662e.f();
         }
     }
 
     public void a(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        this.f36589d = splashScreenAdInteractionListener;
-        T t = this.f31884b;
+        this.f36590d = splashScreenAdInteractionListener;
+        T t = this.f31885b;
         if (t != 0) {
-            ((c) t).f36657a = splashScreenAdInteractionListener;
+            ((c) t).f36658a = splashScreenAdInteractionListener;
         }
     }
 
@@ -161,24 +161,24 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     @Override // com.kwad.sdk.contentalliance.b
     /* renamed from: e */
     public c c() {
-        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f31885c, 70);
+        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f31886c, 70);
         this.i = aVar;
         aVar.a();
-        if (this.f36590e == null) {
-            this.f36590e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
+        if (this.f36591e == null) {
+            this.f36591e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
         }
         c cVar = new c();
-        cVar.f36657a = this.f36589d;
-        cVar.f36660d = this.f36591f;
-        cVar.f36659c = this.j;
-        cVar.f36663g = this.k;
-        cVar.f36658b = this.f36590e;
-        cVar.f36664h = this.i;
-        cVar.f36662f = this.f36593h;
+        cVar.f36658a = this.f36590d;
+        cVar.f36661d = this.f36592f;
+        cVar.f36660c = this.j;
+        cVar.f36664g = this.k;
+        cVar.f36659b = this.f36591e;
+        cVar.f36665h = this.i;
+        cVar.f36663f = this.f36594h;
         if (com.kwad.sdk.core.response.b.a.J(this.l)) {
-            com.kwad.sdk.splashscreen.b.a aVar2 = new com.kwad.sdk.splashscreen.b.a(this.j, this.f36592g, this.f36590e);
-            cVar.f36661e = aVar2;
-            cVar.f36664h.a(aVar2);
+            com.kwad.sdk.splashscreen.b.a aVar2 = new com.kwad.sdk.splashscreen.b.a(this.j, this.f36593g, this.f36591e);
+            cVar.f36662e = aVar2;
+            cVar.f36665h.a(aVar2);
         }
         return cVar;
     }
@@ -186,9 +186,9 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        T t = this.f31884b;
-        if (((c) t).f36661e != null) {
-            ((c) t).f36661e.g();
+        T t = this.f31885b;
+        if (((c) t).f36662e != null) {
+            ((c) t).f36662e.g();
         }
     }
 

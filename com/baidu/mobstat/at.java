@@ -31,19 +31,19 @@ public class at {
     public static final at u = new at();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8967a;
+    public Context f8968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f8968b;
+    public WeakReference<Activity> f8969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f8969c;
+    public Handler f8970c;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8973g;
+    public long f8974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8974h;
+    public long f8975h;
     public long i;
     public String j;
     public String k;
@@ -56,13 +56,13 @@ public class at {
     public a v;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8970d = true;
+    public boolean f8971d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<WeakReference<View>> f8971e = new ArrayList<>();
+    public ArrayList<WeakReference<View>> f8972e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile MtjConfig.FeedTrackStrategy f8972f = MtjConfig.FeedTrackStrategy.TRACK_ALL;
+    public volatile MtjConfig.FeedTrackStrategy f8973f = MtjConfig.FeedTrackStrategy.TRACK_ALL;
     public List<WeakReference<View>> r = new ArrayList();
     public HashMap<WeakReference<View>, ArrayList<ap>> s = new HashMap<>();
     public HashMap<WeakReference<View>, HashMap<String, ArrayList<aq>>> t = new HashMap<>();
@@ -70,7 +70,7 @@ public class at {
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             at atVar = at.this;
-            atVar.a(atVar.f8968b);
+            atVar.a(atVar.f8969b);
         }
     };
     public Runnable x = null;
@@ -90,7 +90,7 @@ public class at {
     public at() {
         HandlerThread handlerThread = new HandlerThread("feedViewCrawlerThread");
         handlerThread.start();
-        this.f8969c = new Handler(handlerThread.getLooper());
+        this.f8970c = new Handler(handlerThread.getLooper());
     }
 
     private boolean a(long j, long j2) {
@@ -125,7 +125,7 @@ public class at {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(aq aqVar, aq aqVar2) {
-                long i = aqVar.i() - aqVar2.i();
+                int i = ((aqVar.i() - aqVar2.i()) > 0L ? 1 : ((aqVar.i() - aqVar2.i()) == 0L ? 0 : -1));
                 if (i > 0) {
                     return 1;
                 }
@@ -136,7 +136,7 @@ public class at {
         if (aVar != null) {
             aVar.b(arrayList);
         }
-        aw.a().b(this.f8967a, arrayList);
+        aw.a().b(this.f8968a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {
@@ -163,18 +163,18 @@ public class at {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(ap apVar, ap apVar2) {
-                long b2 = apVar.b() - apVar2.b();
-                if (b2 > 0) {
+                int i = ((apVar.b() - apVar2.b()) > 0L ? 1 : ((apVar.b() - apVar2.b()) == 0L ? 0 : -1));
+                if (i > 0) {
                     return 1;
                 }
-                return b2 < 0 ? -1 : 0;
+                return i < 0 ? -1 : 0;
             }
         });
         a aVar = this.v;
         if (aVar != null) {
             aVar.a(arrayList);
         }
-        aw.a().a(this.f8967a, arrayList);
+        aw.a().a(this.f8968a, arrayList);
     }
 
     public void c(Activity activity) {
@@ -183,7 +183,7 @@ public class at {
         }
         final WeakReference weakReference = new WeakReference(activity);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.7
+        this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.7
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity2 = (Activity) weakReference.get();
@@ -196,7 +196,7 @@ public class at {
     }
 
     public boolean b() {
-        return this.f8972f == MtjConfig.FeedTrackStrategy.TRACK_NONE;
+        return this.f8973f == MtjConfig.FeedTrackStrategy.TRACK_NONE;
     }
 
     public void b(Activity activity) {
@@ -205,10 +205,10 @@ public class at {
         }
         final WeakReference weakReference = new WeakReference(activity);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.6
+        this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.6
             @Override // java.lang.Runnable
             public void run() {
-                at.this.f8970d = false;
+                at.this.f8971d = false;
                 Activity activity2 = (Activity) weakReference.get();
                 if (activity2 == null) {
                     return;
@@ -233,26 +233,26 @@ public class at {
     }
 
     public void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
-        this.f8972f = feedTrackStrategy;
+        this.f8973f = feedTrackStrategy;
     }
 
     private boolean a(View view) {
-        if (this.f8972f == MtjConfig.FeedTrackStrategy.TRACK_ALL) {
+        if (this.f8973f == MtjConfig.FeedTrackStrategy.TRACK_ALL) {
             return false;
         }
-        return (this.f8972f == MtjConfig.FeedTrackStrategy.TRACK_SINGLE && bj.v(view)) ? false : true;
+        return (this.f8973f == MtjConfig.FeedTrackStrategy.TRACK_SINGLE && bj.v(view)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Activity activity, long j) {
-        this.f8974h = j;
+        this.f8975h = j;
         String e2 = bj.e(activity);
         this.j = e2;
         if (!TextUtils.isEmpty(this.k) && !this.k.equals(e2)) {
             this.i = 0L;
         }
         if (this.p) {
-            a(activity, this.f8973g, j, this.r);
+            a(activity, this.f8974g, j, this.r);
             this.r.clear();
             this.q = false;
         }
@@ -261,7 +261,7 @@ public class at {
         c(this.s);
         e(this.t);
         f(this.t);
-        a(this.f8971e, this.w);
+        a(this.f8972e, this.w);
     }
 
     public void a(Activity activity) {
@@ -270,10 +270,10 @@ public class at {
         }
         final WeakReference weakReference = new WeakReference(activity);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.1
+        this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.1
             @Override // java.lang.Runnable
             public void run() {
-                at.this.f8970d = true;
+                at.this.f8971d = true;
                 Activity activity2 = (Activity) weakReference.get();
                 if (activity2 == null) {
                     return;
@@ -290,7 +290,7 @@ public class at {
         ArrayList<View> arrayList2 = new ArrayList<>();
         View a2 = bj.a(activity);
         a(activity, a2, hashMap, arrayList, arrayList2);
-        if (this.p && !this.q && a(this.f8973g, j)) {
+        if (this.p && !this.q && a(this.f8974g, j)) {
             ArrayList<WeakReference<View>> a3 = a(hashMap);
             a3.add(new WeakReference<>(a2));
             this.r = a3;
@@ -298,12 +298,12 @@ public class at {
         }
         Iterator<View> it = arrayList2.iterator();
         while (it.hasNext()) {
-            a(it.next(), this.w, this.f8971e);
+            a(it.next(), this.w, this.f8972e);
         }
-        a(this.f8971e);
-        if (this.f8970d) {
-            a(this.f8968b, j);
-            this.f8970d = false;
+        a(this.f8972e);
+        if (this.f8971d) {
+            a(this.f8969b, j);
+            this.f8971d = false;
         }
         a(this.s, j);
         Iterator<View> it2 = arrayList.iterator();
@@ -314,13 +314,13 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.f8967a = activity.getApplicationContext();
-        this.f8968b = new WeakReference<>(activity);
-        this.f8973g = j;
+        this.f8968a = activity.getApplicationContext();
+        this.f8969b = new WeakReference<>(activity);
+        this.f8974g = j;
         String e2 = bj.e(activity);
         if (bj.a(e2, this.j)) {
             this.p = false;
-            if (a(e2, this.k, this.j, this.i, this.f8973g, activity)) {
+            if (a(e2, this.k, this.j, this.i, this.f8974g, activity)) {
                 this.p = true;
             }
         }
@@ -330,7 +330,7 @@ public class at {
     public void d(Activity activity, long j) {
         View view;
         b(this.t, j);
-        Iterator<WeakReference<View>> it = this.f8971e.iterator();
+        Iterator<WeakReference<View>> it = this.f8972e.iterator();
         while (it.hasNext()) {
             WeakReference<View> next = it.next();
             if (next != null && (view = next.get()) != null && bj.d(view) && !a(view) && (view instanceof ViewGroup)) {
@@ -352,7 +352,7 @@ public class at {
         final WeakReference weakReference = new WeakReference(activity);
         final WeakReference weakReference2 = new WeakReference(view);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.8
+        this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.8
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity2 = (Activity) weakReference.get();
@@ -372,11 +372,11 @@ public class at {
 
     public void a(KeyEvent keyEvent) {
         if (keyEvent != null && keyEvent.getKeyCode() == 4 && keyEvent.getAction() == 1) {
-            this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.9
+            this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.9
                 @Override // java.lang.Runnable
                 public void run() {
                     Activity activity;
-                    if (at.this.f8968b == null || (activity = (Activity) at.this.f8968b.get()) == null) {
+                    if (at.this.f8969b == null || (activity = (Activity) at.this.f8969b.get()) == null) {
                         return;
                     }
                     String e2 = bj.e(activity);
@@ -473,7 +473,7 @@ public class at {
     }
 
     public void a(final String str) {
-        this.f8969c.post(new Runnable() { // from class: com.baidu.mobstat.at.10
+        this.f8970c.post(new Runnable() { // from class: com.baidu.mobstat.at.10
             @Override // java.lang.Runnable
             public void run() {
                 as.a().a(str);
@@ -498,10 +498,10 @@ public class at {
         };
         Runnable runnable2 = this.x;
         if (runnable2 != null) {
-            this.f8969c.removeCallbacks(runnable2);
+            this.f8970c.removeCallbacks(runnable2);
         }
         this.x = runnable;
-        this.f8969c.postDelayed(runnable, 350L);
+        this.f8970c.postDelayed(runnable, 350L);
     }
 
     private aq b(ArrayList<aq> arrayList) {
@@ -514,7 +514,7 @@ public class at {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(aq aqVar2, aq aqVar3) {
-                long i = aqVar2.i() - aqVar3.i();
+                int i = ((aqVar2.i() - aqVar3.i()) > 0L ? 1 : ((aqVar2.i() - aqVar3.i()) == 0L ? 0 : -1));
                 if (i > 0) {
                     return 1;
                 }
@@ -706,11 +706,11 @@ public class at {
         String e2 = bj.e(activity);
         String f2 = bj.f(activity);
         ArrayList<Integer> a2 = a(activity, view2);
-        int a3 = ah.a(this.f8967a, a2.get(0).intValue());
-        int a4 = ah.a(this.f8967a, a2.get(1).intValue());
+        int a3 = ah.a(this.f8968a, a2.get(0).intValue());
+        int a4 = ah.a(this.f8968a, a2.get(1).intValue());
         ArrayList<Integer> b2 = bj.b(activity, view2);
-        int a5 = ah.a(this.f8967a, b2.get(0).intValue());
-        int a6 = ah.a(this.f8967a, b2.get(1).intValue());
+        int a5 = ah.a(this.f8968a, b2.get(0).intValue());
+        int a6 = ah.a(this.f8968a, b2.get(1).intValue());
         if (a5 > a3) {
             a3 = a5;
         }
@@ -720,7 +720,7 @@ public class at {
         if (a3 == 0 || a4 == 0) {
             return;
         }
-        a(this.f8967a, new ao(e2, f2, this.l, j2 - j, j, a5, a6, a3, a4, str, this.n, this.o));
+        a(this.f8968a, new ao(e2, f2, this.l, j2 - j, j, a5, a6, a3, a4, str, this.n, this.o));
     }
 
     private void a(Context context, ao aoVar) {

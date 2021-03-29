@@ -16,40 +16,40 @@ import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import d.b.b.a.f;
 import d.b.b.a.j;
 import d.b.h0.r.f0.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements d.b.i0.k3.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f53019a;
+    public Context f53020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f53020b;
+    public BdUniqueId f53021b;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.h0.r.f0.a f53022d;
+    public d.b.h0.r.f0.a f53023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f53023e;
+    public c f53024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f53024f = new b(CmdConfigHttp.CMD_UEG_REPORT);
+    public HttpMessageListener f53025f = new b(CmdConfigHttp.CMD_UEG_REPORT);
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.c2.k.f.b f53021c = new d.b.i0.c2.k.f.b();
+    public d.b.i0.c2.k.f.b f53022c = new d.b.i0.c2.k.f.b();
 
     /* renamed from: d.b.i0.c2.k.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class DialogInterface$OnCancelListenerC1164a implements DialogInterface.OnCancelListener {
-        public DialogInterface$OnCancelListenerC1164a() {
+    /* loaded from: classes5.dex */
+    public class DialogInterface$OnCancelListenerC1165a implements DialogInterface.OnCancelListener {
+        public DialogInterface$OnCancelListenerC1165a() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            MessageManager.getInstance().removeMessage(a.this.f53020b);
+            MessageManager.getInstance().removeMessage(a.this.f53021b);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -59,8 +59,8 @@ public class a implements d.b.i0.k3.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof UEGReportResponsedMessage) {
-                if (a.this.f53022d != null) {
-                    a.this.f53022d.h(false);
+                if (a.this.f53023d != null) {
+                    a.this.f53023d.h(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
@@ -70,55 +70,55 @@ public class a implements d.b.i0.k3.a {
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = a.this.f53019a.getString(R.string.neterror);
+                    errorString = a.this.f53020a.getString(R.string.neterror);
                 }
-                a.this.f53023e.b(errorString);
+                a.this.f53024e.b(errorString);
             }
         }
     }
 
     public a(Context context) {
-        this.f53019a = context;
+        this.f53020a = context;
         c cVar = new c();
-        this.f53023e = cVar;
-        cVar.f50483a = 1000L;
+        this.f53024e = cVar;
+        cVar.f50484a = 1000L;
     }
 
     @Override // d.b.i0.k3.a
     public void a(BdUniqueId bdUniqueId) {
-        this.f53020b = bdUniqueId;
-        this.f53021c.c(bdUniqueId);
-        this.f53024f.setTag(bdUniqueId);
-        this.f53024f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f53024f);
+        this.f53021b = bdUniqueId;
+        this.f53022c.c(bdUniqueId);
+        this.f53025f.setTag(bdUniqueId);
+        this.f53025f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f53025f);
     }
 
     @Override // d.b.i0.k3.a
     public void b(String str) {
         j();
-        this.f53021c.b(str);
+        this.f53022c.b(str);
     }
 
     public final void h(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53019a, this.f53019a.getString(R.string.pb_web_view_report_title), str, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53020a, this.f53020a.getString(R.string.pb_web_view_report_title), str, true)));
     }
 
     public void i(String str) {
         j();
-        this.f53021c.a(str);
+        this.f53022c.a(str);
     }
 
     public final void j() {
-        if (this.f53022d == null) {
-            f<?> a2 = j.a(this.f53019a);
+        if (this.f53023d == null) {
+            f<?> a2 = j.a(this.f53020a);
             TbPageContext tbPageContext = a2 instanceof TbPageContext ? (TbPageContext) a2 : null;
             if (tbPageContext == null) {
                 return;
             }
             d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(tbPageContext);
-            this.f53022d = aVar;
-            aVar.e(new DialogInterface$OnCancelListenerC1164a());
+            this.f53023d = aVar;
+            aVar.e(new DialogInterface$OnCancelListenerC1165a());
         }
-        this.f53022d.h(true);
+        this.f53023d.h(true);
     }
 }

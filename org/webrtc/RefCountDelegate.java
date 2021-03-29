@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class RefCountDelegate implements RefCounted {
     public final AtomicInteger refCount = new AtomicInteger(1);
     @Nullable

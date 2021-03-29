@@ -1,11 +1,11 @@
 package com.baidu.apollon.eventbus;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class EventBus {
     public static final String DEFAULT_METHOD_NAME = "onModuleEvent";
     public static EventBus mEventBusInstance;
     public static b mEventController;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Event {
         public String mEventKey;
         public Object mEventObj;
@@ -16,7 +16,7 @@ public final class EventBus {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ThreadMode {
         PostThread,
         MainThread,

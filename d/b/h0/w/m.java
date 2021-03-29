@@ -5,28 +5,28 @@ import android.content.Context;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51529a;
+    public Context f51530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51530b;
+    public String f51531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51531c;
+    public int f51532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51532d;
+    public int f51533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51533e;
+    public int f51534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51534f;
+    public int f51535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51535g;
+    public boolean f51536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51536h;
+    public boolean f51537h;
     public int j;
     public n k;
     public int l;
@@ -37,8 +37,8 @@ public class m {
     public boolean p = true;
 
     public m(String str, int i, int i2) {
-        this.f51530b = str;
-        this.f51531c = i;
+        this.f51531b = str;
+        this.f51532c = i;
         this.j = i2;
     }
 
@@ -47,7 +47,7 @@ public class m {
     }
 
     public Context b() {
-        return this.f51529a;
+        return this.f51530a;
     }
 
     public boolean c() {
@@ -66,15 +66,15 @@ public class m {
     }
 
     public m(Context context, String str, int i) {
-        this.f51530b = str;
-        this.f51531c = i;
-        this.f51529a = context;
+        this.f51531b = str;
+        this.f51532c = i;
+        this.f51530a = context;
     }
 
     public m(Context context, String str, int i, int i2) {
-        this.f51530b = str;
-        this.f51531c = i;
-        this.f51529a = context;
+        this.f51531b = str;
+        this.f51532c = i;
+        this.f51530a = context;
         this.j = i2;
     }
 }

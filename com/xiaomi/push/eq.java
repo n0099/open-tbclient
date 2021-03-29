@@ -7,24 +7,24 @@ import java.util.concurrent.ConcurrentHashMap;
 public class eq {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Vector<Pair<String, Long>> f40454a = new Vector<>();
+    public static Vector<Pair<String, Long>> f40455a = new Vector<>();
 
     /* renamed from: a  reason: collision with other field name */
     public static ConcurrentHashMap<String, Long> f329a = new ConcurrentHashMap<>();
 
     public static String a() {
         StringBuilder sb = new StringBuilder();
-        synchronized (f40454a) {
-            for (int i = 0; i < f40454a.size(); i++) {
-                Pair<String, Long> elementAt = f40454a.elementAt(i);
+        synchronized (f40455a) {
+            for (int i = 0; i < f40455a.size(); i++) {
+                Pair<String, Long> elementAt = f40455a.elementAt(i);
                 sb.append((String) elementAt.first);
                 sb.append(":");
                 sb.append(elementAt.second);
-                if (i < f40454a.size() - 1) {
+                if (i < f40455a.size() - 1) {
                     sb.append(";");
                 }
             }
-            f40454a.clear();
+            f40455a.clear();
         }
         return sb.toString();
     }

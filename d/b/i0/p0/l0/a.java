@@ -9,10 +9,10 @@ import tbclient.GetHorseRaceLampList.LiveList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<LiveHorseRaceData> f57775a = new ArrayList();
+    public List<LiveHorseRaceData> f57776a = new ArrayList();
 
     public List<LiveHorseRaceData> a() {
-        return this.f57775a;
+        return this.f57776a;
     }
 
     public void b(DataRes dataRes) {
@@ -25,7 +25,7 @@ public class a {
             for (int i = 0; i < list.size(); i++) {
                 LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
                 liveHorseRaceData.parserProtobuf(list.get(i));
-                this.f57775a.add(liveHorseRaceData);
+                this.f57776a.add(liveHorseRaceData);
             }
         }
     }

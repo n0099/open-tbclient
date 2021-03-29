@@ -21,16 +21,16 @@ import java.util.List;
 public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f58306e;
+    public e f58307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.c.l.a f58307f;
+    public d.b.c.l.a f58308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.j.e.a f58308g;
+    public d.b.b.j.e.a f58309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f58309h;
+    public TbPageContext f58310h;
     public BdTypeRecyclerView i;
     public String l;
     public boolean m;
@@ -70,7 +70,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
 
     public f(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, c cVar, boolean z, String str, String str2, BdUniqueId bdUniqueId) {
         this.m = false;
-        this.f58309h = tbPageContext;
+        this.f58310h = tbPageContext;
         this.u = bdUniqueId;
         this.i = bdTypeRecyclerView;
         this.m = z;
@@ -81,8 +81,8 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void A() {
-        this.f58306e.z0();
-        this.f58307f.s0();
+        this.f58307e.z0();
+        this.f58308f.s0();
     }
 
     public void B(d.b.i0.p0.i1.g gVar) {
@@ -222,17 +222,17 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public final void i() {
-        this.f58306e = new e(this.f58309h, this, this.r, this.m, this.l, this.q, this, this.u, this, this);
-        this.f58307f = new d.b.c.l.a(this.f58309h, d.b.c.b.f42482b, this, this.r, this);
-        this.f58308g = new d.b.c.l.b(this.f58309h, d.b.c.b.f42481a);
-        this.k.add(this.f58306e);
-        this.k.add(this.f58308g);
-        this.k.add(this.f58307f);
+        this.f58307e = new e(this.f58310h, this, this.r, this.m, this.l, this.q, this, this.u, this, this);
+        this.f58308f = new d.b.c.l.a(this.f58310h, d.b.c.b.f42483b, this, this.r, this);
+        this.f58309g = new d.b.c.l.b(this.f58310h, d.b.c.b.f42482a);
+        this.k.add(this.f58307e);
+        this.k.add(this.f58309g);
+        this.k.add(this.f58308f);
         this.i.a(this.k);
     }
 
     public boolean j() {
-        return this.f58306e.p0() || this.f58307f.l0();
+        return this.f58307e.p0() || this.f58308f.l0();
     }
 
     public final boolean k(n nVar) {
@@ -243,7 +243,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
         if (nVar instanceof d.b.i0.p0.i1.g) {
             return true;
         }
-        return (!(nVar instanceof d.b.c.d) || (j = ((d.b.c.d) nVar).j()) == null || j.f42491a) ? false : true;
+        return (!(nVar instanceof d.b.c.d) || (j = ((d.b.c.d) nVar).j()) == null || j.f42492a) ? false : true;
     }
 
     public boolean l(int i) {
@@ -254,7 +254,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public boolean m() {
-        return this.f58306e.q0();
+        return this.f58307e.q0();
     }
 
     public void n(String str, boolean z) {
@@ -264,8 +264,8 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
             return;
         }
         for (n nVar : this.j) {
-            if (nVar != null && (nVar instanceof d.b.i0.p0.i1.g) && (bVar = (gVar = (d.b.i0.p0.i1.g) nVar).y) != null && str.equals(bVar.f57628a)) {
-                gVar.y.f57632e = z;
+            if (nVar != null && (nVar instanceof d.b.i0.p0.i1.g) && (bVar = (gVar = (d.b.i0.p0.i1.g) nVar).y) != null && str.equals(bVar.f57629a)) {
+                gVar.y.f57633e = z;
             }
         }
     }
@@ -279,7 +279,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void p(Configuration configuration) {
-        this.f58306e.r0(configuration);
+        this.f58307e.r0(configuration);
     }
 
     @Override // d.b.i0.i1.o.l.f
@@ -293,17 +293,17 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void r() {
-        this.f58306e.onDestroy();
-        this.f58307f.p0();
+        this.f58307e.onDestroy();
+        this.f58308f.p0();
     }
 
     public boolean s(int i) {
-        return this.f58306e.u0(i);
+        return this.f58307e.u0(i);
     }
 
     public void t() {
-        this.f58306e.v0();
-        this.f58307f.r0();
+        this.f58307e.v0();
+        this.f58308f.r0();
     }
 
     public final void u() {
@@ -314,7 +314,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void v() {
-        this.f58306e.w0();
+        this.f58307e.w0();
     }
 
     public void w(List<BaseCardInfo> list, boolean z) {
@@ -359,7 +359,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void x(boolean z) {
-        this.f58306e.x0(z);
+        this.f58307e.x0(z);
     }
 
     public void y(int i) {
@@ -388,7 +388,7 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
                     iVar2.setWaitConfirm(false);
                 }
                 if (this.v == null) {
-                    this.v = new a(this, this.f58309h.getContext());
+                    this.v = new a(this, this.f58310h.getContext());
                 }
                 this.v.setTargetPosition(i + this.i.getHeaderViewsCount() + h2);
                 this.i.getLayoutManager().startSmoothScroll(this.v);
@@ -407,6 +407,6 @@ public class f implements d.b.i0.p0.i1.a, d.b.i0.i1.o.l.f, b, d.b.i0.i1.o.l.g {
     }
 
     public void z() {
-        this.f58306e.y0();
+        this.f58307e.y0();
     }
 }

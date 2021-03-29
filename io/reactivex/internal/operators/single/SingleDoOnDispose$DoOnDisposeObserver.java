@@ -11,7 +11,7 @@ public final class SingleDoOnDispose$DoOnDisposeObserver<T> extends AtomicRefere
     public final r<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68080d;
+    public b f68085d;
 
     public SingleDoOnDispose$DoOnDisposeObserver(r<? super T> rVar, a aVar) {
         this.actual = rVar;
@@ -28,13 +28,13 @@ public final class SingleDoOnDispose$DoOnDisposeObserver<T> extends AtomicRefere
                 f.a.u.a.a(th);
                 f.a.a0.a.f(th);
             }
-            this.f68080d.dispose();
+            this.f68085d.dispose();
         }
     }
 
     @Override // f.a.t.b
     public boolean isDisposed() {
-        return this.f68080d.isDisposed();
+        return this.f68085d.isDisposed();
     }
 
     @Override // f.a.r
@@ -44,8 +44,8 @@ public final class SingleDoOnDispose$DoOnDisposeObserver<T> extends AtomicRefere
 
     @Override // f.a.r
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68080d, bVar)) {
-            this.f68080d = bVar;
+        if (DisposableHelper.validate(this.f68085d, bVar)) {
+            this.f68085d = bVar;
             this.actual.onSubscribe(this);
         }
     }

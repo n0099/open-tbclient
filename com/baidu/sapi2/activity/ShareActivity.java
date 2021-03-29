@@ -43,7 +43,7 @@ public class ShareActivity extends BaseActivity {
     private void i() {
         Map<String, String> c2 = c();
         c2.put("error_code", "" + this.q.getResultCode());
-        StatService.onEventAutoStat(c.f11375h, c2);
+        StatService.onEventAutoStat(c.f11376h, c2);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -62,7 +62,7 @@ public class ShareActivity extends BaseActivity {
                 setupViews();
                 Map<String, String> c2 = c();
                 c2.put(ImageViewerConfig.IS_LOGIN, this.p.equals("1") ? "0" : "1");
-                StatService.onEventAutoStat(c.f11373f, c2);
+                StatService.onEventAutoStat(c.f11374f, c2);
             }
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -107,10 +107,10 @@ public class ShareActivity extends BaseActivity {
                 jSONObject.put("displayName", currentAccount.displayname);
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
-            jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, getIntent().getStringExtra(a.f11343b));
-            jSONObject.put("trace_id", getIntent().getStringExtra(a.f11342a));
-            this.u = getIntent().getStringExtra(a.f11344c);
-            this.v = getIntent().getStringExtra(a.f11345d);
+            jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, getIntent().getStringExtra(a.f11344b));
+            jSONObject.put("trace_id", getIntent().getStringExtra(a.f11343a));
+            this.u = getIntent().getStringExtra(a.f11345c);
+            this.v = getIntent().getStringExtra(a.f11346d);
             Log.d(w, "调用来源=" + this.v + ", 调起方=" + this.t + ", 被调起方=" + this.s + ", shareVer=" + this.u);
         } catch (Exception e2) {
             Log.e(e2);
@@ -175,13 +175,13 @@ public class ShareActivity extends BaseActivity {
         currentAccount.app = SapiUtils.getAppName(this);
         Map<String, String> c2 = c();
         c2.put(ImageViewerConfig.IS_LOGIN, this.p.equals("1") ? "0" : "1");
-        StatService.onEventAutoStat(c.f11374g, c2);
+        StatService.onEventAutoStat(c.f11375g, c2);
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putParcelable("share_account", currentAccount);
         bundle.putInt("SDK_VERSION", 250);
         bundle.putString("PKG", getPackageName());
-        bundle.putString(a.f11344c, this.u);
+        bundle.putString(a.f11345c, this.u);
         if (SapiContext.getInstance().shareLivingunameEnable()) {
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
         }
@@ -215,7 +215,7 @@ public class ShareActivity extends BaseActivity {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z2;
                 ShareActivity.this.q.setResultCode(b.q);
-                ShareActivity.this.q.setResultMsg(String.format(b.f11367h, ShareActivity.this.s));
+                ShareActivity.this.q.setResultMsg(String.format(b.f11368h, ShareActivity.this.s));
                 ShareActivity.this.d();
             }
 
@@ -243,7 +243,7 @@ public class ShareActivity extends BaseActivity {
             return;
         }
         this.q.setResultCode(b.j);
-        this.q.setResultMsg(String.format(b.f11360a, this.s));
+        this.q.setResultMsg(String.format(b.f11361a, this.s));
         d();
     }
 
@@ -252,7 +252,7 @@ public class ShareActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putString("share_fail_code", "" + this.q.getResultCode());
         bundle.putString("share_fail_reason", this.q.getResultMsg());
-        bundle.putString(a.f11344c, this.u);
+        bundle.putString(a.f11345c, this.u);
         intent.putExtras(bundle);
         setResult(-100, intent);
         finish();

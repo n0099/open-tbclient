@@ -24,7 +24,7 @@ import d.b.g0.a.z0.f;
 import d.b.g0.g.q.a;
 /* loaded from: classes3.dex */
 public class b extends d.b.g0.a.o0.c {
-    public static final boolean w = k.f45050a;
+    public static final boolean w = k.f45051a;
     public long v;
 
     /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class b extends d.b.g0.a.o0.c {
         @Override // d.b.g0.a.u0.b
         public void a(int i, d.b.g0.a.u0.a aVar) {
             a.c cVar = (a.c) aVar;
-            if (cVar == null || TextUtils.isEmpty(cVar.f48544a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f48545a)) {
                 return;
             }
             d.b.g0.g.m.a.m().I(b.this.M());
@@ -48,8 +48,8 @@ public class b extends d.b.g0.a.o0.c {
 
     /* renamed from: d.b.g0.g.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0983b implements a.c {
-        public C0983b() {
+    public class C0984b implements a.c {
+        public C0984b() {
         }
 
         @Override // d.b.g0.a.n1.c.e.a.c
@@ -64,8 +64,8 @@ public class b extends d.b.g0.a.o0.c {
             } else if (i == 102) {
                 boolean a2 = d.b.g0.a.w0.a.z().a();
                 d.b.g0.a.w0.a.z().d(a2);
-                if (b.this.f45410f != null) {
-                    b.this.f45410f.onNightModeCoverChanged(a2, false);
+                if (b.this.f45411f != null) {
+                    b.this.f45411f.onNightModeCoverChanged(a2, false);
                 }
                 return true;
             } else if (i == 103) {
@@ -116,7 +116,7 @@ public class b extends d.b.g0.a.o0.c {
             }
             b.this.v = System.currentTimeMillis();
             d.b.g0.g.c0.d.f(b.this.M());
-            b.this.f45410f.finishLoadingAnimator();
+            b.this.f45411f.finishLoadingAnimator();
             i.g("preload", "startup");
             int j = d.b.g0.g.m.a.m().j();
             HybridUbcFlow o = i.o("startup");
@@ -141,7 +141,7 @@ public class b extends d.b.g0.a.o0.c {
     @Override // d.b.g0.a.o0.c
     @NonNull
     public a.c O() {
-        return new C0983b();
+        return new C0984b();
     }
 
     public final void S0() {
@@ -149,7 +149,7 @@ public class b extends d.b.g0.a.o0.c {
         if (d.e().x()) {
             f.V().u(M(), new a());
             if (d.b.g0.g.m.a.m().v() && d.b.g0.g.m.a.m().q()) {
-                d.b.g0.g.m.a.m().F(this.f45410f);
+                d.b.g0.g.m.a.m().F(this.f45411f);
             }
         }
     }
@@ -177,11 +177,11 @@ public class b extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void X() {
-        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45411g.k());
+        d.b.g0.a.c0.c.g("SwanApp", "onBackPressed back stack count:" + this.f45412g.k());
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47253d = j.j;
+        fVar.f47254d = j.j;
         D(fVar);
-        d.b.g0.a.e0.l.c m = this.f45411g.m();
+        d.b.g0.a.e0.l.c m = this.f45412g.m();
         if (m == null || !m.v()) {
             if (R()) {
                 e y = e.y();
@@ -191,8 +191,8 @@ public class b extends d.b.g0.a.o0.c {
                 d.b.g0.g.c0.d.e(j.j, M());
                 return;
             }
-            f.b i = this.f45411g.i("navigateBack");
-            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44013h);
+            f.b i = this.f45412g.i("navigateBack");
+            i.n(d.b.g0.a.e0.l.f.i, d.b.g0.a.e0.l.f.f44014h);
             i.g();
             i.a();
         }
@@ -226,7 +226,7 @@ public class b extends d.b.g0.a.o0.c {
         d.b.g0.g.b.d.w();
         d.b.g0.g.l.i.i();
         d.b.g0.g.c0.d.e("exit", M());
-        d.b.g0.a.z0.f.V().w(this.f45410f);
+        d.b.g0.a.z0.f.V().w(this.f45411f);
         d.b.g0.a.z0.f.d0();
         d.b.g0.g.h0.a.a().b();
         SwanInspectorEndpoint.v().q();
@@ -279,7 +279,7 @@ public class b extends d.b.g0.a.o0.c {
     @Override // d.b.g0.a.o0.c
     public void e0() {
         super.e0();
-        d.b.g0.g.m.a.m().h(this.f45410f);
+        d.b.g0.g.m.a.m().h(this.f45411f);
     }
 
     @Override // d.b.g0.a.o0.c
@@ -293,7 +293,7 @@ public class b extends d.b.g0.a.o0.c {
 
     @Override // d.b.g0.a.o0.c
     public void i0() {
-        d.b.g0.a.z0.f.V().q(this.f45410f);
+        d.b.g0.a.z0.f.V().q(this.f45411f);
     }
 
     @Override // d.b.g0.a.o0.c

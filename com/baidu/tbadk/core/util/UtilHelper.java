@@ -148,7 +148,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class UtilHelper {
     public static final int BIG_GOD_ICON_TYPE_PB = 4;
     public static final int BJH_AUTH_ICON_TYPE_CARD = 0;
@@ -1587,7 +1587,7 @@ public class UtilHelper {
         if (str == null || !str.toLowerCase().contains("arm")) {
             try {
                 bArr = new byte[1024];
-                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7663a);
+                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7664a);
                 try {
                     try {
                     } catch (Exception e3) {

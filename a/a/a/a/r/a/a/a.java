@@ -201,7 +201,7 @@ public class a extends a.a.a.a.b<IBasicCPUData> {
                 thumbUrl2 = iBasicCPUData2.getThumbUrl();
                 if (TextUtils.isEmpty(thumbUrl2)) {
                     Context context3 = baiduNativeCpuAdSmallImgView.getContext();
-                    ImageView imageView = baiduNativeCpuAdSmallImgView.f30751b;
+                    ImageView imageView = baiduNativeCpuAdSmallImgView.f30752b;
                     if (context3 == null) {
                         d.b("GlideHelper: context is null when load: " + thumbUrl2, new Object[0]);
                     } else if (context3 instanceof Activity) {
@@ -214,20 +214,20 @@ public class a extends a.a.a.a.b<IBasicCPUData> {
                     } else {
                         Glide.with(context3).load(thumbUrl2).into(imageView);
                     }
-                    baiduNativeCpuAdSmallImgView.f30751b.setVisibility(0);
+                    baiduNativeCpuAdSmallImgView.f30752b.setVisibility(0);
                 } else {
-                    baiduNativeCpuAdSmallImgView.f30751b.setImageDrawable(null);
-                    baiduNativeCpuAdSmallImgView.f30751b.setVisibility(8);
+                    baiduNativeCpuAdSmallImgView.f30752b.setImageDrawable(null);
+                    baiduNativeCpuAdSmallImgView.f30752b.setVisibility(8);
                 }
-                baiduNativeCpuAdSmallImgView.f30750a.setText(iBasicCPUData2.getDesc());
+                baiduNativeCpuAdSmallImgView.f30751a.setText(iBasicCPUData2.getDesc());
                 if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
-                    baiduNativeCpuAdSmallImgView.f30752c.setText(iBasicCPUData2.getBrandName());
+                    baiduNativeCpuAdSmallImgView.f30753c.setText(iBasicCPUData2.getBrandName());
                 } else {
-                    baiduNativeCpuAdSmallImgView.f30752c.setText(R.string.ad_title_favourite);
+                    baiduNativeCpuAdSmallImgView.f30753c.setText(R.string.ad_title_favourite);
                 }
                 context2 = baiduNativeCpuAdSmallImgView.getContext();
                 String adLogoUrl = iBasicCPUData2.getAdLogoUrl();
-                ImageView imageView2 = baiduNativeCpuAdSmallImgView.f30753d;
+                ImageView imageView2 = baiduNativeCpuAdSmallImgView.f30754d;
                 if (context2 != null) {
                     d.b("GlideHelper: context is null when load: " + adLogoUrl, new Object[0]);
                 } else if (context2 instanceof Activity) {
@@ -241,10 +241,10 @@ public class a extends a.a.a.a.b<IBasicCPUData> {
                     Glide.with(context2).load(adLogoUrl).into(imageView2);
                 }
                 if (iBasicCPUData2.isDownloadApp()) {
-                    button2 = baiduNativeCpuAdSmallImgView.f30754e;
+                    button2 = baiduNativeCpuAdSmallImgView.f30755e;
                     i2 = R.string.ad_interaction_type_browser;
                 } else {
-                    button2 = baiduNativeCpuAdSmallImgView.f30754e;
+                    button2 = baiduNativeCpuAdSmallImgView.f30755e;
                     i2 = R.string.ad_interaction_type_download;
                 }
                 button2.setText(i2);
@@ -255,12 +255,12 @@ public class a extends a.a.a.a.b<IBasicCPUData> {
             thumbUrl2 = str3;
             if (TextUtils.isEmpty(thumbUrl2)) {
             }
-            baiduNativeCpuAdSmallImgView.f30750a.setText(iBasicCPUData2.getDesc());
+            baiduNativeCpuAdSmallImgView.f30751a.setText(iBasicCPUData2.getDesc());
             if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
             }
             context2 = baiduNativeCpuAdSmallImgView.getContext();
             String adLogoUrl2 = iBasicCPUData2.getAdLogoUrl();
-            ImageView imageView22 = baiduNativeCpuAdSmallImgView.f30753d;
+            ImageView imageView22 = baiduNativeCpuAdSmallImgView.f30754d;
             if (context2 != null) {
             }
             if (iBasicCPUData2.isDownloadApp()) {
@@ -271,104 +271,105 @@ public class a extends a.a.a.a.b<IBasicCPUData> {
             BaiduNativeCpuAdLargeImgView baiduNativeCpuAdLargeImgView = (BaiduNativeCpuAdLargeImgView) from.inflate(R.layout.baidu_ad_native_cpu_large_img_view, viewGroup, false);
             viewGroup.removeAllViews();
             viewGroup.addView(baiduNativeCpuAdLargeImgView);
-            if (baiduNativeCpuAdLargeImgView == null) {
-                throw null;
-            }
-            if (TextUtils.isEmpty(iBasicCPUData2.getIconUrl())) {
-                baiduNativeCpuAdLargeImgView.f30745c.setImageDrawable(null);
-                baiduNativeCpuAdLargeImgView.f30745c.setVisibility(8);
-            } else {
-                Context context4 = baiduNativeCpuAdLargeImgView.getContext();
-                String iconUrl = iBasicCPUData2.getIconUrl();
-                ImageView imageView3 = baiduNativeCpuAdLargeImgView.f30745c;
-                if (context4 == null) {
-                    d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
-                } else if (context4 instanceof Activity) {
-                    Activity activity4 = (Activity) context4;
-                    if (activity4.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity4.isDestroyed())) {
-                        d.b("GlideHelper: activity is destroyed when load: " + iconUrl, new Object[0]);
-                    } else {
-                        Glide.with(activity4).load(iconUrl).into(imageView3);
-                    }
+            if (baiduNativeCpuAdLargeImgView != null) {
+                if (TextUtils.isEmpty(iBasicCPUData2.getIconUrl())) {
+                    baiduNativeCpuAdLargeImgView.f30746c.setImageDrawable(null);
+                    baiduNativeCpuAdLargeImgView.f30746c.setVisibility(8);
                 } else {
-                    Glide.with(context4).load(iconUrl).into(imageView3);
-                }
-                baiduNativeCpuAdLargeImgView.f30745c.setVisibility(0);
-            }
-            List<String> imageUrls2 = iBasicCPUData2.getImageUrls();
-            List<String> smallImageUrls2 = iBasicCPUData2.getSmallImageUrls();
-            if (smallImageUrls2 != null && !smallImageUrls2.isEmpty()) {
-                str2 = smallImageUrls2.get(0);
-            } else if (imageUrls2 == null || imageUrls2.isEmpty()) {
-                thumbUrl = iBasicCPUData2.getThumbUrl();
-                if (TextUtils.isEmpty(thumbUrl)) {
-                    Context context5 = baiduNativeCpuAdLargeImgView.getContext();
-                    ImageView imageView4 = baiduNativeCpuAdLargeImgView.f30744b;
-                    if (context5 == null) {
-                        d.b("GlideHelper: context is null when load: " + thumbUrl, new Object[0]);
-                    } else if (context5 instanceof Activity) {
-                        Activity activity5 = (Activity) context5;
-                        if (activity5.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity5.isDestroyed())) {
-                            d.b("GlideHelper: activity is destroyed when load: " + thumbUrl, new Object[0]);
+                    Context context4 = baiduNativeCpuAdLargeImgView.getContext();
+                    String iconUrl = iBasicCPUData2.getIconUrl();
+                    ImageView imageView3 = baiduNativeCpuAdLargeImgView.f30746c;
+                    if (context4 == null) {
+                        d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
+                    } else if (context4 instanceof Activity) {
+                        Activity activity4 = (Activity) context4;
+                        if (activity4.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity4.isDestroyed())) {
+                            d.b("GlideHelper: activity is destroyed when load: " + iconUrl, new Object[0]);
                         } else {
-                            Glide.with(activity5).load(thumbUrl).into(imageView4);
+                            Glide.with(activity4).load(iconUrl).into(imageView3);
                         }
                     } else {
-                        Glide.with(context5).load(thumbUrl).into(imageView4);
+                        Glide.with(context4).load(iconUrl).into(imageView3);
                     }
-                    baiduNativeCpuAdLargeImgView.f30744b.setVisibility(0);
-                } else {
-                    baiduNativeCpuAdLargeImgView.f30744b.setImageDrawable(null);
-                    baiduNativeCpuAdLargeImgView.f30744b.setVisibility(8);
+                    baiduNativeCpuAdLargeImgView.f30746c.setVisibility(0);
                 }
-                baiduNativeCpuAdLargeImgView.f30743a.setText(iBasicCPUData2.getDesc());
-                if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
-                    baiduNativeCpuAdLargeImgView.f30746d.setText(iBasicCPUData2.getBrandName());
+                List<String> imageUrls2 = iBasicCPUData2.getImageUrls();
+                List<String> smallImageUrls2 = iBasicCPUData2.getSmallImageUrls();
+                if (smallImageUrls2 != null && !smallImageUrls2.isEmpty()) {
+                    str2 = smallImageUrls2.get(0);
+                } else if (imageUrls2 == null || imageUrls2.isEmpty()) {
+                    thumbUrl = iBasicCPUData2.getThumbUrl();
+                    if (TextUtils.isEmpty(thumbUrl)) {
+                        Context context5 = baiduNativeCpuAdLargeImgView.getContext();
+                        ImageView imageView4 = baiduNativeCpuAdLargeImgView.f30745b;
+                        if (context5 == null) {
+                            d.b("GlideHelper: context is null when load: " + thumbUrl, new Object[0]);
+                        } else if (context5 instanceof Activity) {
+                            Activity activity5 = (Activity) context5;
+                            if (activity5.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity5.isDestroyed())) {
+                                d.b("GlideHelper: activity is destroyed when load: " + thumbUrl, new Object[0]);
+                            } else {
+                                Glide.with(activity5).load(thumbUrl).into(imageView4);
+                            }
+                        } else {
+                            Glide.with(context5).load(thumbUrl).into(imageView4);
+                        }
+                        baiduNativeCpuAdLargeImgView.f30745b.setVisibility(0);
+                    } else {
+                        baiduNativeCpuAdLargeImgView.f30745b.setImageDrawable(null);
+                        baiduNativeCpuAdLargeImgView.f30745b.setVisibility(8);
+                    }
+                    baiduNativeCpuAdLargeImgView.f30744a.setText(iBasicCPUData2.getDesc());
+                    if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
+                        baiduNativeCpuAdLargeImgView.f30747d.setText(iBasicCPUData2.getBrandName());
+                    } else {
+                        baiduNativeCpuAdLargeImgView.f30747d.setText(R.string.ad_title_favourite);
+                    }
+                    context = baiduNativeCpuAdLargeImgView.getContext();
+                    String adLogoUrl3 = iBasicCPUData2.getAdLogoUrl();
+                    ImageView imageView5 = baiduNativeCpuAdLargeImgView.f30748e;
+                    if (context != null) {
+                        d.b("GlideHelper: context is null when load: " + adLogoUrl3, new Object[0]);
+                    } else if (context instanceof Activity) {
+                        Activity activity6 = (Activity) context;
+                        if (activity6.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity6.isDestroyed())) {
+                            d.b("GlideHelper: activity is destroyed when load: " + adLogoUrl3, new Object[0]);
+                        } else {
+                            Glide.with(activity6).load(adLogoUrl3).into(imageView5);
+                        }
+                    } else {
+                        Glide.with(context).load(adLogoUrl3).into(imageView5);
+                    }
+                    if (iBasicCPUData2.isDownloadApp()) {
+                        button = baiduNativeCpuAdLargeImgView.f30749f;
+                        i = R.string.ad_interaction_type_browser;
+                    } else {
+                        button = baiduNativeCpuAdLargeImgView.f30749f;
+                        i = R.string.ad_interaction_type_download;
+                    }
+                    button.setText(i);
+                    baiduNativeCpuAdLargeImgView.setOnClickListener(new a.a.a.a.r.b.a.a(baiduNativeCpuAdLargeImgView, iBasicCPUData2));
                 } else {
-                    baiduNativeCpuAdLargeImgView.f30746d.setText(R.string.ad_title_favourite);
+                    str2 = imageUrls2.get(0);
+                }
+                thumbUrl = str2;
+                if (TextUtils.isEmpty(thumbUrl)) {
+                }
+                baiduNativeCpuAdLargeImgView.f30744a.setText(iBasicCPUData2.getDesc());
+                if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
                 }
                 context = baiduNativeCpuAdLargeImgView.getContext();
-                String adLogoUrl3 = iBasicCPUData2.getAdLogoUrl();
-                ImageView imageView5 = baiduNativeCpuAdLargeImgView.f30747e;
+                String adLogoUrl32 = iBasicCPUData2.getAdLogoUrl();
+                ImageView imageView52 = baiduNativeCpuAdLargeImgView.f30748e;
                 if (context != null) {
-                    d.b("GlideHelper: context is null when load: " + adLogoUrl3, new Object[0]);
-                } else if (context instanceof Activity) {
-                    Activity activity6 = (Activity) context;
-                    if (activity6.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity6.isDestroyed())) {
-                        d.b("GlideHelper: activity is destroyed when load: " + adLogoUrl3, new Object[0]);
-                    } else {
-                        Glide.with(activity6).load(adLogoUrl3).into(imageView5);
-                    }
-                } else {
-                    Glide.with(context).load(adLogoUrl3).into(imageView5);
                 }
                 if (iBasicCPUData2.isDownloadApp()) {
-                    button = baiduNativeCpuAdLargeImgView.f30748f;
-                    i = R.string.ad_interaction_type_browser;
-                } else {
-                    button = baiduNativeCpuAdLargeImgView.f30748f;
-                    i = R.string.ad_interaction_type_download;
                 }
                 button.setText(i);
                 baiduNativeCpuAdLargeImgView.setOnClickListener(new a.a.a.a.r.b.a.a(baiduNativeCpuAdLargeImgView, iBasicCPUData2));
             } else {
-                str2 = imageUrls2.get(0);
+                throw null;
             }
-            thumbUrl = str2;
-            if (TextUtils.isEmpty(thumbUrl)) {
-            }
-            baiduNativeCpuAdLargeImgView.f30743a.setText(iBasicCPUData2.getDesc());
-            if (TextUtils.isEmpty(iBasicCPUData2.getBrandName())) {
-            }
-            context = baiduNativeCpuAdLargeImgView.getContext();
-            String adLogoUrl32 = iBasicCPUData2.getAdLogoUrl();
-            ImageView imageView52 = baiduNativeCpuAdLargeImgView.f30747e;
-            if (context != null) {
-            }
-            if (iBasicCPUData2.isDownloadApp()) {
-            }
-            button.setText(i);
-            baiduNativeCpuAdLargeImgView.setOnClickListener(new a.a.a.a.r.b.a.a(baiduNativeCpuAdLargeImgView, iBasicCPUData2));
         }
         a((a) iBasicCPUData2, str);
         iBasicCPUData2.onImpression(viewGroup);

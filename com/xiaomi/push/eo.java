@@ -18,28 +18,28 @@ import java.util.Map;
 public class eo extends ep {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40449a;
+    public int f40450a;
 
     /* renamed from: a  reason: collision with other field name */
     public PendingIntent f319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40450b;
+    public int f40451b;
 
     /* renamed from: b  reason: collision with other field name */
     public Bitmap f320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40451c;
+    public int f40452c;
 
     /* renamed from: c  reason: collision with other field name */
     public CharSequence f321c;
 
     public eo(Context context, int i, String str) {
         super(context, i, str);
-        this.f40449a = 16777216;
-        this.f40450b = 16777216;
-        this.f40451c = 16777216;
+        this.f40450a = 16777216;
+        this.f40451b = 16777216;
+        this.f40452c = 16777216;
     }
 
     private Drawable a(int i, int i2, int i3, float f2) {
@@ -85,7 +85,7 @@ public class eo extends ep {
     public eo a(String str) {
         if (m276b() && !TextUtils.isEmpty(str)) {
             try {
-                this.f40450b = Color.parseColor(str);
+                this.f40451b = Color.parseColor(str);
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification button bg color error");
             }
@@ -122,7 +122,7 @@ public class eo extends ep {
         int a7 = a(resources, "title", "id", packageName);
         int a8 = a(resources, "content", "id", packageName);
         a().setTextViewText(a7, ((ep) this).f324a);
-        a().setTextViewText(a8, ((ep) this).f40453b);
+        a().setTextViewText(a8, ((ep) this).f40454b);
         if (!TextUtils.isEmpty(this.f321c)) {
             int a9 = a(resources, "buttonContainer", "id", packageName);
             int a10 = a(resources, "button", "id", packageName);
@@ -130,26 +130,26 @@ public class eo extends ep {
             a().setViewVisibility(a9, 0);
             a().setTextViewText(a10, this.f321c);
             a().setOnClickPendingIntent(a9, this.f319a);
-            if (this.f40450b != 16777216) {
+            if (this.f40451b != 16777216) {
                 int a12 = a(70.0f);
                 int a13 = a(29.0f);
-                a().setImageViewBitmap(a11, com.xiaomi.push.service.ac.a(a(this.f40450b, a12, a13, a13 / 2.0f)));
-                a().setTextColor(a10, m274a(this.f40450b) ? -1 : -16777216);
+                a().setImageViewBitmap(a11, com.xiaomi.push.service.ac.a(a(this.f40451b, a12, a13, a13 / 2.0f)));
+                a().setTextColor(a10, m274a(this.f40451b) ? -1 : -16777216);
             }
         }
         int a14 = a(resources, "bg", "id", packageName);
         int a15 = a(resources, "container", "id", packageName);
-        if (this.f40449a != 16777216) {
+        if (this.f40450a != 16777216) {
             if (l.a(a()) >= 10) {
                 a4 = a();
-                a5 = a(this.f40449a, 984, 192, 30.0f);
+                a5 = a(this.f40450a, 984, 192, 30.0f);
             } else {
                 a4 = a();
-                a5 = a(this.f40449a, 984, 192, 0.0f);
+                a5 = a(this.f40450a, 984, 192, 0.0f);
             }
             a4.setImageViewBitmap(a14, com.xiaomi.push.service.ac.a(a5));
             a3 = a();
-            z = m274a(this.f40449a);
+            z = m274a(this.f40450a);
         } else if (this.f320b == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 a().setViewVisibility(a6, 8);
@@ -174,10 +174,10 @@ public class eo extends ep {
             }
             a2.setImageViewBitmap(a14, bitmap);
             Map<String, String> map = ((ep) this).f326a;
-            if (map != null && this.f40451c == 16777216) {
+            if (map != null && this.f40452c == 16777216) {
                 c(map.get("notification_image_text_color"));
             }
-            int i = this.f40451c;
+            int i = this.f40452c;
             z = i == 16777216 || !m274a(i);
             a3 = a();
         }
@@ -201,7 +201,7 @@ public class eo extends ep {
     public eo b(String str) {
         if (m276b() && !TextUtils.isEmpty(str)) {
             try {
-                this.f40449a = Color.parseColor(str);
+                this.f40450a = Color.parseColor(str);
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification bg color error");
             }
@@ -217,7 +217,7 @@ public class eo extends ep {
     public eo c(String str) {
         if (m276b() && !TextUtils.isEmpty(str)) {
             try {
-                this.f40451c = Color.parseColor(str);
+                this.f40452c = Color.parseColor(str);
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification image text color error");
             }

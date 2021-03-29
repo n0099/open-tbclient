@@ -24,28 +24,28 @@ import java.util.TreeMap;
 public class a<T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38525d = "com.sdk.base.framework.d.a";
+    public static final String f38526d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f38526e = f.f38519b;
+    public static final boolean f38527e = f.f38520b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38527a;
+    public Context f38528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38528b;
+    public String f38529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38529c;
+    public String f38530c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f38530f;
+    public PInfo f38531f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f38531g;
+    public AInfo f38532g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f38532h;
+    public SInfo f38533h;
     public ArrayList<KInfo> i;
     public com.sdk.base.framework.b.a<T> j;
     public e k;
@@ -54,7 +54,7 @@ public class a<T> {
     }
 
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
-        this.f38527a = context;
+        this.f38528a = context;
         this.j = aVar;
         this.k = eVar;
     }
@@ -72,10 +72,10 @@ public class a<T> {
             dataInfo2 = dataInfo;
         }
         TreeMap<String, Object> treeMap = new TreeMap<>();
-        String a2 = com.sdk.base.framework.f.i.a.a(this.f38527a);
+        String a2 = com.sdk.base.framework.f.i.a.a(this.f38528a);
         String a3 = com.sdk.base.framework.f.i.a.a(16);
-        String a4 = com.sdk.base.framework.f.a.a.a(this.f38527a, BaseConfig.apk);
-        String a5 = com.sdk.base.framework.f.b.a.a(this.f38527a, com.alipay.sdk.packet.e.m);
+        String a4 = com.sdk.base.framework.f.a.a.a(this.f38528a, BaseConfig.apk);
+        String a5 = com.sdk.base.framework.f.b.a.a(this.f38528a, com.alipay.sdk.packet.e.m);
         if ("/st/api/v1.0/ses".equals(str2)) {
             a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
         }
@@ -106,11 +106,11 @@ public class a<T> {
             kVar.a((ArrayList<File>) null);
             kVar.a(hashMap);
             if ("/dro/netm/v1.0/qc".equals(str2)) {
-                g gVar = g.f38553a;
+                g gVar = g.f38554a;
             } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                g gVar2 = g.f38554b;
+                g gVar2 = g.f38555b;
             }
-            h hVar = new h(this.f38527a, kVar);
+            h hVar = new h(this.f38528a, kVar);
             com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
             try {
                 fVar2.c(hVar);
@@ -120,13 +120,13 @@ public class a<T> {
                 fVar = fVar2;
                 com.sdk.base.framework.f.f.a.b(e.toString());
                 a(1, 302002, "网络访问异常");
-                c.b(f38525d, e.toString(), Boolean.valueOf(f38526e));
+                c.b(f38526d, e.toString(), Boolean.valueOf(f38527e));
                 return fVar;
             }
         } catch (Exception e4) {
             a(1, 101006, "公钥出错");
-            String str3 = f38525d;
-            c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f38526e));
+            String str3 = f38526d;
+            c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f38527e));
             return null;
         }
     }
@@ -134,11 +134,11 @@ public class a<T> {
     private String a(DataInfo dataInfo, String str) {
         String str2;
         try {
-            if (this.f38531g == null) {
-                this.f38531g = com.sdk.base.framework.c.a.a(this.f38527a);
+            if (this.f38532g == null) {
+                this.f38532g = com.sdk.base.framework.c.a.a(this.f38528a);
             }
-            if (this.f38532h == null) {
-                this.f38532h = com.sdk.base.framework.c.a.b();
+            if (this.f38533h == null) {
+                this.f38533h = com.sdk.base.framework.c.a.b();
             }
             if (this.i == null) {
                 this.i = com.sdk.base.framework.c.a.a();
@@ -154,15 +154,15 @@ public class a<T> {
                 mobileKInfo.setIdfd(next.isIdfd());
                 arrayList.add(mobileKInfo);
             }
-            if (this.f38530f == null) {
-                this.f38530f = com.sdk.base.framework.c.a.c();
+            if (this.f38531f == null) {
+                this.f38531f = com.sdk.base.framework.c.a.c();
             }
             StringBuilder sb = new StringBuilder("{app:");
-            sb.append(this.f38531g);
+            sb.append(this.f38532g);
             sb.append(",sdk:");
-            sb.append(this.f38532h);
+            sb.append(this.f38533h);
             sb.append(",device:");
-            sb.append(this.f38530f);
+            sb.append(this.f38531f);
             sb.append(",sim:");
             sb.append(arrayList);
             sb.append(",data:");
@@ -170,10 +170,10 @@ public class a<T> {
             sb.append("}");
             str2 = sb.toString();
         } catch (Exception e2) {
-            c.b(f38525d, e2.toString(), Boolean.valueOf(f38526e));
+            c.b(f38526d, e2.toString(), Boolean.valueOf(f38527e));
             str2 = null;
         }
-        return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f38527a, f.f38518a), str);
+        return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f38528a, f.f38519a), str);
     }
 
     public final com.sdk.base.framework.a.f<T> a(String str, String str2, DataInfo dataInfo, com.sdk.base.framework.b.b<T> bVar, int i, j jVar) {

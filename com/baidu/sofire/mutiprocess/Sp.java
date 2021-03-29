@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Sp {
     public static int isMainProcess(Context context) {
         return b.a(context);

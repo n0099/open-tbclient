@@ -3,7 +3,7 @@ package d.b.g0.a.r1;
 import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends d {
     public final e o = new e(this, "");
 

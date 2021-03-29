@@ -23,16 +23,16 @@ import d.b.i0.i3.h.e;
 public class MemberRecommendView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21567e;
+    public Context f21568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21568f;
+    public View f21569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21569g;
+    public TbImageView f21570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21570h;
+    public TextView f21571h;
     public TextView i;
     public e j;
     public int k;
@@ -95,7 +95,7 @@ public class MemberRecommendView extends FrameLayout {
                     str = "";
                     break;
             }
-            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21567e)) == null) {
+            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21568e)) == null) {
                 return;
             }
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
@@ -106,13 +106,13 @@ public class MemberRecommendView extends FrameLayout {
 
     public MemberRecommendView(Context context) {
         super(context);
-        this.f21567e = context;
+        this.f21568e = context;
         f();
     }
 
     public void d() {
-        SkinManager.setBackgroundColor(this.f21568f, R.color.CAM_X0207);
-        SkinManager.setViewTextColor(this.f21570h, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f21569f, R.color.CAM_X0207);
+        SkinManager.setViewTextColor(this.f21571h, R.color.CAM_X0108);
     }
 
     public void e(e eVar) {
@@ -120,8 +120,8 @@ public class MemberRecommendView extends FrameLayout {
             return;
         }
         this.j = eVar;
-        this.f21569g.W(eVar.b(), 10, false);
-        this.f21570h.setText(this.j.c());
+        this.f21570g.W(eVar.b(), 10, false);
+        this.f21571h.setText(this.j.c());
         if (StringUtils.isNull(this.j.a())) {
             this.i.setVisibility(8);
             return;
@@ -131,15 +131,15 @@ public class MemberRecommendView extends FrameLayout {
     }
 
     public final void f() {
-        View inflate = LayoutInflater.from(this.f21567e).inflate(R.layout.member_extend_view, this);
-        this.f21568f = inflate;
+        View inflate = LayoutInflater.from(this.f21568e).inflate(R.layout.member_extend_view, this);
+        this.f21569f = inflate;
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-        this.f21569g = tbImageView;
+        this.f21570g = tbImageView;
         tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-        this.f21569g.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f21569g.setAutoChangeStyle(true);
-        this.f21570h = (TextView) this.f21568f.findViewById(R.id.title_view);
-        TextView textView = (TextView) this.f21568f.findViewById(R.id.jump_button);
+        this.f21570g.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f21570g.setAutoChangeStyle(true);
+        this.f21571h = (TextView) this.f21569f.findViewById(R.id.title_view);
+        TextView textView = (TextView) this.f21569f.findViewById(R.id.jump_button);
         this.i = textView;
         textView.setOnClickListener(new a());
     }
@@ -158,13 +158,13 @@ public class MemberRecommendView extends FrameLayout {
 
     public MemberRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21567e = context;
+        this.f21568e = context;
         f();
     }
 
     public MemberRecommendView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.f21567e = context;
+        this.f21568e = context;
         f();
     }
 }

@@ -16,28 +16,28 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class PhoneContactsMananger {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24896a = "PhoneContactsMananger";
+    public static final String f24897a = "PhoneContactsMananger";
 
     /* renamed from: b  reason: collision with root package name */
-    public static PhoneContactsMananger f24897b;
+    public static PhoneContactsMananger f24898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24898c;
+    public Context f24899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f24899d;
+    public c f24900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f24900e;
+    public d f24901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f24901f = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, ContractInfo> f24902f = new ConcurrentHashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f24902g = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, ContractInfo> f24903g = new ConcurrentHashMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ContractInfo> f24903h = new ArrayList<>();
+    public ArrayList<ContractInfo> f24904h = new ArrayList<>();
     public AtomicBoolean i = new AtomicBoolean(false);
     public ContactStatus j = ContactStatus.unload;
     public List<ContactSelectModel.AllContact> k = null;
@@ -65,22 +65,22 @@ public class PhoneContactsMananger {
     }
 
     private boolean b(Context context) {
-        if (this.f24898c == null && context != null) {
-            this.f24898c = context.getApplicationContext();
+        if (this.f24899c == null && context != null) {
+            this.f24899c = context.getApplicationContext();
         }
-        return this.f24898c != null;
+        return this.f24899c != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        for (String str : this.f24901f.keySet()) {
-            if (!this.f24903h.contains(this.f24901f.get(str))) {
-                this.f24903h.add(this.f24901f.get(str));
+        for (String str : this.f24902f.keySet()) {
+            if (!this.f24904h.contains(this.f24902f.get(str))) {
+                this.f24904h.add(this.f24902f.get(str));
             }
         }
-        for (String str2 : this.f24902g.keySet()) {
-            if (!this.f24903h.contains(this.f24902g.get(str2))) {
-                this.f24903h.add(this.f24902g.get(str2));
+        for (String str2 : this.f24903g.keySet()) {
+            if (!this.f24904h.contains(this.f24903g.get(str2))) {
+                this.f24904h.add(this.f24903g.get(str2));
             }
         }
     }
@@ -97,7 +97,7 @@ public class PhoneContactsMananger {
             PhoneContactsMananger.this.j = ContactStatus.loading;
             int intValue = (numArr == null || 1 > numArr.length) ? 350 : numArr[0].intValue();
             try {
-                PhoneContactsMananger.this.k = PhoneContactsMananger.this.a(com.baidu.wallet.lightapp.base.contacts.a.c(PhoneContactsMananger.this.f24898c), intValue > 0 ? 1000 < intValue ? 1000 : intValue : 350);
+                PhoneContactsMananger.this.k = PhoneContactsMananger.this.a(com.baidu.wallet.lightapp.base.contacts.a.c(PhoneContactsMananger.this.f24899c), intValue > 0 ? 1000 < intValue ? 1000 : intValue : 350);
             } catch (Throwable unused) {
                 PhoneContactsMananger.this.k = null;
             }
@@ -109,20 +109,20 @@ public class PhoneContactsMananger {
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public void onPostExecute(List<ContactSelectModel.AllContact> list) {
-            if (PhoneContactsMananger.this.f24900e == null) {
+            if (PhoneContactsMananger.this.f24901e == null) {
                 return;
             }
-            PhoneContactsMananger.this.f24900e.a(PhoneContactsMananger.this.k, PhoneContactsMananger.this.k == null ? 0 : PhoneContactsMananger.this.k.size());
+            PhoneContactsMananger.this.f24901e.a(PhoneContactsMananger.this.k, PhoneContactsMananger.this.k == null ? 0 : PhoneContactsMananger.this.k.size());
         }
     }
 
     public static synchronized PhoneContactsMananger a(Context context) {
         PhoneContactsMananger phoneContactsMananger;
         synchronized (PhoneContactsMananger.class) {
-            if (f24897b == null) {
-                f24897b = new PhoneContactsMananger(context);
+            if (f24898b == null) {
+                f24898b = new PhoneContactsMananger(context);
             }
-            phoneContactsMananger = f24897b;
+            phoneContactsMananger = f24898b;
         }
         return phoneContactsMananger;
     }
@@ -130,14 +130,14 @@ public class PhoneContactsMananger {
     public void a(int i, boolean z) {
         List<ContactSelectModel.AllContact> list;
         if (this.i.getAndSet(true) && z) {
-            if (this.f24900e == null || (list = this.k) == null || ContactStatus.complited != this.j) {
+            if (this.f24901e == null || (list = this.k) == null || ContactStatus.complited != this.j) {
                 return;
             }
             if (list.size() > i) {
-                this.f24900e.a(this.k.subList(0, i), i);
+                this.f24901e.a(this.k.subList(0, i), i);
                 return;
             } else {
-                this.f24900e.a(this.k, i);
+                this.f24901e.a(this.k, i);
                 return;
             }
         }
@@ -149,34 +149,34 @@ public class PhoneContactsMananger {
     public class b extends AsyncTask<String, String, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PhoneContactsMananger f24905a;
+        public final /* synthetic */ PhoneContactsMananger f24906a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ContactStatus f24906b;
+        public ContactStatus f24907b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(String... strArr) {
-            this.f24906b = ContactStatus.loading;
-            if (this.f24905a.f24901f.size() == 0) {
-                PhoneContactsMananger phoneContactsMananger = this.f24905a;
-                phoneContactsMananger.f24901f = com.baidu.wallet.lightapp.base.contacts.a.a(phoneContactsMananger.f24898c);
+            this.f24907b = ContactStatus.loading;
+            if (this.f24906a.f24902f.size() == 0) {
+                PhoneContactsMananger phoneContactsMananger = this.f24906a;
+                phoneContactsMananger.f24902f = com.baidu.wallet.lightapp.base.contacts.a.a(phoneContactsMananger.f24899c);
             }
-            String str = PhoneContactsMananger.f24896a;
-            LogUtil.d(str, "手机里面的通讯：" + this.f24905a.f24901f.toString());
-            if (this.f24905a.f24902g.size() == 0) {
-                PhoneContactsMananger phoneContactsMananger2 = this.f24905a;
-                phoneContactsMananger2.f24902g = com.baidu.wallet.lightapp.base.contacts.a.b(phoneContactsMananger2.f24898c);
+            String str = PhoneContactsMananger.f24897a;
+            LogUtil.d(str, "手机里面的通讯：" + this.f24906a.f24902f.toString());
+            if (this.f24906a.f24903g.size() == 0) {
+                PhoneContactsMananger phoneContactsMananger2 = this.f24906a;
+                phoneContactsMananger2.f24903g = com.baidu.wallet.lightapp.base.contacts.a.b(phoneContactsMananger2.f24899c);
             }
-            String str2 = PhoneContactsMananger.f24896a;
-            LogUtil.d(str2, "Sim里面的通讯：" + this.f24905a.f24902g.toString());
-            if (this.f24905a.f24903h == null || this.f24905a.f24903h.size() == 0) {
-                this.f24905a.b();
+            String str2 = PhoneContactsMananger.f24897a;
+            LogUtil.d(str2, "Sim里面的通讯：" + this.f24906a.f24903g.toString());
+            if (this.f24906a.f24904h == null || this.f24906a.f24904h.size() == 0) {
+                this.f24906a.b();
             }
-            String str3 = PhoneContactsMananger.f24896a;
-            LogUtil.d(str3, "本地所有的通讯录信息：" + this.f24905a.f24903h.toString());
-            this.f24906b = ContactStatus.complited;
+            String str3 = PhoneContactsMananger.f24897a;
+            LogUtil.d(str3, "本地所有的通讯录信息：" + this.f24906a.f24904h.toString());
+            this.f24907b = ContactStatus.complited;
             return null;
         }
 
@@ -184,15 +184,15 @@ public class PhoneContactsMananger {
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public void onPostExecute(String str) {
-            if (this.f24905a.f24899d != null) {
-                this.f24905a.f24899d.a(this.f24905a.f24903h);
+            if (this.f24906a.f24900d != null) {
+                this.f24906a.f24900d.a(this.f24906a.f24904h);
             }
             super.onPostExecute(str);
         }
     }
 
     public void a(d dVar) {
-        this.f24900e = dVar;
+        this.f24901e = dVar;
     }
 
     private ContactSelectModel.AllContact a(String str, String str2) {

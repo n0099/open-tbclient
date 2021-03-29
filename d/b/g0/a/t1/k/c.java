@@ -7,22 +7,22 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import d.b.g0.a.i2.k0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f46288e;
+        public final /* synthetic */ SwanAppActivity f46289e;
 
         public a(c cVar, SwanAppActivity swanAppActivity) {
-            this.f46288e = swanAppActivity;
+            this.f46289e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.i0.a.a(this.f46288e);
+            d.b.g0.g.i0.a.a(this.f46289e);
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class Constants {
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";

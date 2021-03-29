@@ -11,7 +11,7 @@ import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcTrackDatabase {
     public static final String DB_NAME = "bimrtc_track.db";
     public static final int DB_VERSION = 1;
@@ -23,7 +23,7 @@ public class BIMRtcTrackDatabase {
     public static final Object myLock = new Object();
     public Context context;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static final String SQL_TABLE_CREATE_REQUEST = "CREATE TABLE request (" + RequestEnum.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RequestEnum.method.name() + " TEXT, " + RequestEnum.requestId.name() + " TEXT, " + RequestEnum.timestamp.name() + " LONG, " + RequestEnum.responseTime.name() + " LONG, " + RequestEnum.errorCode.name() + " LONG, " + RequestEnum.ext.name() + " TEXT, " + RequestEnum.aliasId.name() + " LONG NOT NULL);";
         public Context context;
@@ -63,7 +63,7 @@ public class BIMRtcTrackDatabase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum RequestEnum {
         id,
         method,

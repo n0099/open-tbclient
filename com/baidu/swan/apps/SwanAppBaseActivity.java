@@ -12,9 +12,9 @@ import d.b.g0.a.k;
 import d.b.g0.a.k1.c;
 import d.b.g0.a.n1.c.a;
 import d.b.g0.a.x1.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String TAG = "SwanAppBaseActivity";
     public c mPermissionHandler;
     public b mSkinDecorator = null;

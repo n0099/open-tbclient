@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionBagVerticalLayout extends FrameLayout {
     public static final int COLOR_EMOTION_BAG = -460552;
     public static final float DEL_BTN_ALPHA_DISABLED = 0.4f;
@@ -82,7 +82,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     public RectF mValidLongPressedRect;
     public ViewPager mViewPager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseViewHolder<DATA> extends RecyclerView.ViewHolder {
         public Context mCtx;
         public int mItemType;
@@ -118,7 +118,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public abstract void onBindViewHolder(int i, DATA data);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionGridViewAdapter extends BaseAdapter {
         public Context mContext;
         public LayoutInflater mInflater;
@@ -131,12 +131,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public StatisticData mStatisticData;
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public interface LongClickCallback {
             void onLongClick(View view);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class StatisticData {
             public int rowIndex;
             public int sectionType;
@@ -270,7 +270,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public Context mCtx;
         public List<ListMetaData> mDataList = new ArrayList();
@@ -329,7 +329,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public List<View> mList;
 
@@ -359,7 +359,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionTemplateData {
         public List<String> iconList;
         public int rowCount;
@@ -370,7 +370,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionViewHolder extends BaseViewHolder<EmotionTemplateData> {
         public int mActivePointerId;
         public int[] mAnchorLocationBase;
@@ -516,7 +516,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ListMetaData<DATA> {
         public DATA data;
         public int itemType;
@@ -527,7 +527,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class OffsetLinearLayoutManager extends LinearLayoutManager {
         public RecyclerView.Recycler mRecycler;
 
@@ -563,13 +563,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PaddingTemplateData {
         public PaddingTemplateData() {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PaddingViewHolder extends BaseViewHolder<PaddingTemplateData> {
         public PaddingViewHolder(View view, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
             super(view, context, 2, bDEmotionBagVerticalLayout);
@@ -581,7 +581,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TitleTemplateData {
         public String sectionTitle;
         public int sectionType;
@@ -590,7 +590,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TitleViewHolder extends BaseViewHolder<TitleTemplateData> {
         public int mAllPaddingTop;
         public int mCommonPaddingTop;

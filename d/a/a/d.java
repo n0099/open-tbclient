@@ -15,28 +15,28 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f41126a = new m();
+    public final m f41127a = new m();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashSet<String> f41127b = new HashSet<>();
+    public final HashSet<String> f41128b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<Layer>> f41128c;
+    public Map<String, List<Layer>> f41129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, g> f41129d;
+    public Map<String, g> f41130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, d.a.a.s.c> f41130e;
+    public Map<String, d.a.a.s.c> f41131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArrayCompat<d.a.a.s.d> f41131f;
+    public SparseArrayCompat<d.a.a.s.d> f41132f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<Layer> f41132g;
+    public LongSparseArray<Layer> f41133g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Layer> f41133h;
+    public List<Layer> f41134h;
     public Rect i;
     public float j;
     public float k;
@@ -45,7 +45,7 @@ public class d {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
         Log.w("LOTTIE", str);
-        this.f41127b.add(str);
+        this.f41128b.add(str);
     }
 
     public Rect b() {
@@ -53,7 +53,7 @@ public class d {
     }
 
     public SparseArrayCompat<d.a.a.s.d> c() {
-        return this.f41131f;
+        return this.f41132f;
     }
 
     public float d() {
@@ -70,7 +70,7 @@ public class d {
     }
 
     public Map<String, d.a.a.s.c> g() {
-        return this.f41130e;
+        return this.f41131e;
     }
 
     public float h() {
@@ -78,21 +78,21 @@ public class d {
     }
 
     public Map<String, g> i() {
-        return this.f41129d;
+        return this.f41130d;
     }
 
     public List<Layer> j() {
-        return this.f41133h;
+        return this.f41134h;
     }
 
     public m k() {
-        return this.f41126a;
+        return this.f41127a;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> l(String str) {
-        return this.f41128c.get(str);
+        return this.f41129c.get(str);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -105,26 +105,26 @@ public class d {
         this.j = f2;
         this.k = f3;
         this.l = f4;
-        this.f41133h = list;
-        this.f41132g = longSparseArray;
-        this.f41128c = map;
-        this.f41129d = map2;
-        this.f41131f = sparseArrayCompat;
-        this.f41130e = map3;
+        this.f41134h = list;
+        this.f41133g = longSparseArray;
+        this.f41129c = map;
+        this.f41130d = map2;
+        this.f41132f = sparseArrayCompat;
+        this.f41131e = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer o(long j) {
-        return this.f41132g.get(j);
+        return this.f41133g.get(j);
     }
 
     public void p(boolean z) {
-        this.f41126a.b(z);
+        this.f41127a.b(z);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.f41133h) {
+        for (Layer layer : this.f41134h) {
             sb.append(layer.v(TrackUI.SEPERATOR));
         }
         return sb.toString();

@@ -42,7 +42,7 @@ public class a {
         if (fVar == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
             return;
         }
-        for (int i : d.b.i0.c3.h0.f.f53380f) {
+        for (int i : d.b.i0.c3.h0.f.f53381f) {
             d.b.b.j.e.n nVar = (d.b.b.j.e.n) ListUtils.getItem(list, i);
             if (nVar != null && (indexOf = list2.indexOf(nVar)) >= 0) {
                 fVar.a(i, indexOf);

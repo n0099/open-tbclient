@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.b.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MessageCardBottomView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18358e;
+    public TextView f18359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f18359f;
+    public ViewGroup f18360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f18360g;
+    public ImageView f18361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18361h;
+    public TextView f18362h;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -35,20 +35,20 @@ public class MessageCardBottomView extends LinearLayout {
 
     public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-        this.f18358e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-        this.f18359f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-        this.f18360g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-        this.f18361h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+        this.f18359e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+        this.f18360f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+        this.f18361g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+        this.f18362h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f18358e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f18361h, R.drawable.selector_comment_and_prise_item_text_color);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18360g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+        SkinManager.setViewTextColor(this.f18359e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f18362h, R.drawable.selector_comment_and_prise_item_text_color);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18361g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
     }
 
     public View getReplyContainer() {
-        return this.f18359f;
+        return this.f18360f;
     }
 
     public void setData(String str, boolean z) {
@@ -57,13 +57,13 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.f18359f.setVisibility(z ? 0 : 8);
+        this.f18360f.setVisibility(z ? 0 : 8);
         if (k.isEmpty(str)) {
-            this.f18358e.setVisibility(8);
+            this.f18359e.setVisibility(8);
             return;
         }
-        this.f18358e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-        this.f18358e.setVisibility(0);
+        this.f18359e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+        this.f18359e.setVisibility(0);
     }
 
     public MessageCardBottomView(Context context, AttributeSet attributeSet) {

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.ubc.Flow;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static a a(String str) {
         return new a(d.b.g0.n.e.c(str));

@@ -7,26 +7,26 @@ import androidx.annotation.NonNull;
 import d.b.g0.a.i2.l0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends d.b.g0.a.t.b.d {
     public c(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
     }
 
     public d.b.g0.a.t.e.b q() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
             CharSequence a2 = l0.b(h()).a();
             jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);
             }
             return new d.b.g0.a.t.e.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 e2.printStackTrace();
             }
             return new d.b.g0.a.t.e.b(1001, "JSONException");
@@ -34,13 +34,13 @@ public class c extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-ClipboardApi", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-ClipboardApi", "parse fail");
             }
             return bVar;

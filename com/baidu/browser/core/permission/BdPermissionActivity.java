@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import d.b.h.a.j.a;
 import d.b.h.a.j.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public String[] mPermissions;
     public int mReqCode;

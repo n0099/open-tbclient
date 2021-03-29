@@ -1,7 +1,9 @@
 package d.b.h0.z0;
+
+import android.view.View;
 /* loaded from: classes3.dex */
 public class b0 {
-    public a0 a() {
-        throw null;
-    }
+    public abstract a0 a();
+
+    public abstract View.OnTouchListener b();
 }

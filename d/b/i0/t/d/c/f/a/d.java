@@ -39,7 +39,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificatio
     }
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.a.f60356e);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.a.f60357e);
         this.n = false;
         this.o = new a();
         this.m = tbPageContext;
@@ -59,7 +59,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificatio
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.a aVar, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         d.b.i0.t.d.c.f.d.e eVar;
-        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f14797a) == null) {
+        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f14798a) == null) {
             return null;
         }
         this.n = false;

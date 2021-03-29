@@ -55,16 +55,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public VideoControllerView.d S;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20623e;
+    public int f20624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20624f;
+    public int f20625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20625g;
+    public int f20626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20626h;
+    public int f20627h;
     public TbPageContext<?> i;
     public TbCyberVideoView j;
     public d.b.i0.i2.m k;
@@ -116,7 +116,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 if (PushDialogVideoView.this.S != null) {
                     PushDialogVideoView.this.S.a(currentPosition);
                 }
-                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20623e - (currentPosition % PushDialogVideoView.this.f20623e));
+                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20624e - (currentPosition % PushDialogVideoView.this.f20624e));
             }
         }
     }
@@ -287,8 +287,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context) {
         super(context);
-        this.f20623e = 50;
-        this.f20624f = 3;
+        this.f20624e = 50;
+        this.f20625f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -312,10 +312,10 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void A() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f20624f) {
+        if (skinType == this.f20625f) {
             return;
         }
-        this.f20624f = skinType;
+        this.f20625f = skinType;
     }
 
     public void B() {
@@ -404,15 +404,15 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
         this.l.setVisibility(0);
         int duration = ((this.j.getDuration() / 200) / 50) * 50;
-        this.f20623e = duration;
+        this.f20624e = duration;
         if (duration < 50) {
-            this.f20623e = 50;
+            this.f20624e = 50;
         } else if (duration > 500) {
-            this.f20623e = 500;
+            this.f20624e = 500;
         }
         this.R.removeMessages(1);
         Handler handler = this.R;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20623e - (this.j.getCurrentPosition() % this.f20623e));
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20624e - (this.j.getCurrentPosition() % this.f20624e));
     }
 
     public void Q(String str, String str2) {
@@ -525,7 +525,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        setMeasuredDimension(this.f20625g, this.f20626h);
+        setMeasuredDimension(this.f20626g, this.f20627h);
     }
 
     public void setNetworkChange() {
@@ -582,8 +582,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public final void y(Context context) {
         LayoutInflater.from(context).inflate(R.layout.cell_push_dialog_video_layout, (ViewGroup) this, true);
         int k2 = d.b.b.e.p.l.k(context) - d.b.b.e.p.l.g(context, R.dimen.tbds132);
-        this.f20625g = k2;
-        this.f20626h = (int) (k2 * 0.5625f);
+        this.f20626g = k2;
+        this.f20627h = (int) (k2 * 0.5625f);
         TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) findViewById(R.id.videoView);
         this.j = tbCyberVideoView;
         tbCyberVideoView.setPlayMode("2");
@@ -593,7 +593,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         mVar.f(this.I);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.pgrBottomProgress);
         this.l = progressBar;
-        progressBar.setMax(this.f20625g);
+        progressBar.setMax(this.f20626g);
         this.l.setProgress(0);
         this.m = findViewById(R.id.black_mask);
         this.n = findViewById(R.id.layout_error);
@@ -629,8 +629,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20623e = 50;
-        this.f20624f = 3;
+        this.f20624e = 50;
+        this.f20625f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -654,8 +654,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20623e = 50;
-        this.f20624f = 3;
+        this.f20624e = 50;
+        this.f20625f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;

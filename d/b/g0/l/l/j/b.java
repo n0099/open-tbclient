@@ -8,17 +8,17 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f48983a;
+    public f f48984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<g> f48984b;
+    public List<g> f48985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.l.k.d f48985c;
+    public d.b.g0.l.k.d f48986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PMSAppInfo f48986d;
+    public PMSAppInfo f48987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.l.k.b f48987e;
+    public d.b.g0.l.k.b f48988e;
 }

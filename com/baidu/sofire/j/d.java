@@ -4,23 +4,23 @@ import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.sofire.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f11826a;
+    public b f11827a;
 
     public d(b bVar) {
-        this.f11826a = bVar;
+        this.f11827a = bVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f11826a.f11818a = a.AbstractBinderC0157a.a(iBinder);
+        this.f11827a.f11819a = a.AbstractBinderC0158a.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f11826a.f11818a = null;
+        this.f11827a.f11819a = null;
     }
 }

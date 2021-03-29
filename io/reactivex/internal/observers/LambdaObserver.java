@@ -29,7 +29,7 @@ public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>,
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f68022b;
+        return this.onError != Functions.f68027b;
     }
 
     @Override // f.a.t.b

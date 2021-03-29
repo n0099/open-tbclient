@@ -7,10 +7,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivityView> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> {
         public a(MsgActivityViewItemAdapter msgActivityViewItemAdapter, View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);

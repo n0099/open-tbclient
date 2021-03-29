@@ -42,21 +42,21 @@ public class a extends d.b.h0.w.y.a {
 
     /* renamed from: d.b.i0.q1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1478a implements a.InterfaceC1111a {
+    public class C1479a implements a.InterfaceC1112a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f59281a;
+        public final /* synthetic */ Context f59282a;
 
-        public C1478a(Context context) {
-            this.f59281a = context;
+        public C1479a(Context context) {
+            this.f59282a = context;
         }
 
-        @Override // d.b.h0.w.y.a.InterfaceC1111a
+        @Override // d.b.h0.w.y.a.InterfaceC1112a
         public View getView(int i, View view, ViewGroup viewGroup) {
             BubbleView bubbleView;
             BubbleView bubbleView2;
             if (view == null) {
-                bubbleView2 = new BubbleView(this.f59281a);
+                bubbleView2 = new BubbleView(this.f59282a);
                 bubbleView = bubbleView2;
             } else {
                 bubbleView = view;
@@ -374,14 +374,14 @@ public class a extends d.b.h0.w.y.a {
     public void q(Context context) {
         this.s = context;
         a.b bVar = new a.b();
-        bVar.f51613a = R.drawable.icon_bubble;
-        bVar.f51614b = 0;
+        bVar.f51614a = R.drawable.icon_bubble;
+        bVar.f51615b = 0;
         z(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26));
         t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30));
         u(bVar);
         r(2);
         y(2);
-        A(new C1478a(context));
+        A(new C1479a(context));
         this.u = TbadkCoreApplication.getInst().getDefaultBubble();
         if (this.q == null) {
             Context context2 = this.s;

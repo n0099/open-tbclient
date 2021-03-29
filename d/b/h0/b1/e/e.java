@@ -10,50 +10,50 @@ import d.b.h0.b1.e.a;
 public class e implements a.j {
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f49863e;
+    public Bitmap f49864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f49864f;
+    public ImageView f49865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49865g = -16777216;
+    public int f49866g = -16777216;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListView f49866h;
+    public ListView f49867h;
 
     public e(ListView listView) {
-        this.f49866h = listView;
+        this.f49867h = listView;
     }
 
     @Override // d.b.h0.b1.e.a.j
     public void a(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.f49863e.recycle();
-        this.f49863e = null;
+        this.f49864e.recycle();
+        this.f49864e = null;
     }
 
     @Override // d.b.h0.b1.e.a.j
     public View b(int i) {
-        ListView listView = this.f49866h;
-        View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.f49866h.getFirstVisiblePosition());
+        ListView listView = this.f49867h;
+        View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.f49867h.getFirstVisiblePosition());
         if (childAt == null) {
             return null;
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.f49863e = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.f49864e = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.f49864f == null) {
-            this.f49864f = new ImageView(this.f49866h.getContext());
+        if (this.f49865f == null) {
+            this.f49865f = new ImageView(this.f49867h.getContext());
         }
-        this.f49864f.setBackgroundColor(this.f49865g);
-        this.f49864f.setPadding(0, 0, 0, 0);
-        this.f49864f.setImageBitmap(this.f49863e);
-        this.f49864f.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.f49864f;
+        this.f49865f.setBackgroundColor(this.f49866g);
+        this.f49865f.setPadding(0, 0, 0, 0);
+        this.f49865f.setImageBitmap(this.f49864e);
+        this.f49865f.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.f49865f;
     }
 
     public void d(int i) {
-        this.f49865g = i;
+        this.f49866g = i;
     }
 }

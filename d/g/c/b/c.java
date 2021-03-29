@@ -3,7 +3,7 @@ package d.g.c.b;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f66100a = a();
+    public static final int f66101a = a();
 
     public static int a() {
         return d(System.getProperty("java.version"));
@@ -26,7 +26,7 @@ public final class c {
     }
 
     public static int c() {
-        return f66100a;
+        return f66101a;
     }
 
     public static int d(String str) {
@@ -41,7 +41,7 @@ public final class c {
     }
 
     public static boolean e() {
-        return f66100a >= 9;
+        return f66101a >= 9;
     }
 
     public static int f(String str) {

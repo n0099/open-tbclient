@@ -31,16 +31,16 @@ import tbclient.PbContent;
 public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumRulesShowActivity f16293e;
+    public ForumRulesShowActivity f16294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16294f;
+    public String f16295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16295g;
+    public String f16296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16296h;
+    public int f16297h;
     public String i;
     public String j;
     public b k;
@@ -92,7 +92,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         this.k = null;
         this.l = null;
         this.n = new a(CmdConfigHttp.CMD_FORUM_RULES_SHOW, 309690);
-        this.f16293e = forumRulesShowActivity;
+        this.f16294e = forumRulesShowActivity;
         C();
         initListener();
     }
@@ -126,7 +126,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     public void D() {
-        super.sendMessage(w(this.f16294f));
+        super.sendMessage(w(this.f16295f));
     }
 
     public void E(d.b.i0.p0.q1.b.a aVar) {
@@ -167,7 +167,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     public void destory() {
-        this.f16293e = null;
+        this.f16294e = null;
         MessageManager.getInstance().unRegisterListener(this.n);
     }
 
@@ -180,12 +180,12 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.f16294f = intent.getStringExtra("forum_id");
+            this.f16295f = intent.getStringExtra("forum_id");
             this.j = intent.getStringExtra("from");
-            this.f16295g = intent.getStringExtra("forum_name");
+            this.f16296g = intent.getStringExtra("forum_name");
             this.i = intent.getStringExtra("url");
-            this.f16296h = intent.getIntExtra(IntentConfig.USER_LEVEL, 1);
-            this.f16293e.setFrom(this.j);
+            this.f16297h = intent.getIntExtra(IntentConfig.USER_LEVEL, 1);
+            this.f16294e.setFrom(this.j);
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.j)) {
                 this.l = (ForumRuleBaseData) intent.getSerializableExtra(IntentConfig.DATAS);
                 x();
@@ -212,17 +212,17 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.name_show = TbadkCoreApplication.getCurrentAccountNameShow();
-            builder.user_level = Integer.valueOf(this.f16296h);
+            builder.user_level = Integer.valueOf(this.f16297h);
             bVar.s(builder.build(true));
             ForumInfo.Builder builder2 = new ForumInfo.Builder();
-            builder2.forum_name = this.f16295g;
+            builder2.forum_name = this.f16296g;
             bVar.t(builder2.build(true));
             bVar.u(false);
             bVar.v(this.l.getPreface());
             this.m.c(bVar);
             F();
             d.b.i0.p0.q1.c.a aVar = new d.b.i0.p0.q1.c.a();
-            aVar.n(this.f16295g);
+            aVar.n(this.f16296g);
             aVar.l(this.i);
             aVar.o(TbadkCoreApplication.getCurrentAccountNameShow());
             aVar.p(TbadkCoreApplication.getCurrentPortrait());
@@ -234,7 +234,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public void y(Bundle bundle) {
         ForumRulesShowActivity forumRulesShowActivity;
         setUniqueId(getUniqueId());
-        if (bundle == null && (forumRulesShowActivity = this.f16293e) != null) {
+        if (bundle == null && (forumRulesShowActivity = this.f16294e) != null) {
             initWithIntent(forumRulesShowActivity.getIntent());
         } else {
             initWithBundle(bundle);

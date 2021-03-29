@@ -9,42 +9,42 @@ import java.util.concurrent.atomic.AtomicLong;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67066a;
+    public final String f67071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67067b;
+    public final String f67072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67068c;
+    public final String f67073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f67069d;
+    public final boolean f67074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f67070e;
+    public final List<l> f67075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67071f;
+    public int f67076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67072g;
+    public boolean f67077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67073h;
+    public int f67078h;
     public String i;
     public final AtomicLong j;
 
     public o(String str, boolean z) {
-        this.f67070e = new ArrayList();
+        this.f67075e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67066a = str;
-        this.f67069d = z;
-        this.f67067b = null;
-        this.f67068c = null;
+        this.f67071a = str;
+        this.f67074d = z;
+        this.f67072b = null;
+        this.f67073c = null;
     }
 
     public synchronized int a() {
-        return this.f67070e.size();
+        return this.f67075e.size();
     }
 
     public final String b(String str) {
@@ -68,12 +68,12 @@ public class o {
     }
 
     public synchronized void d(l lVar) {
-        this.f67070e.add(lVar);
+        this.f67075e.add(lVar);
     }
 
     public synchronized void e() {
-        this.f67071f++;
-        this.f67072g = true;
+        this.f67076f++;
+        this.f67077g = true;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -88,53 +88,53 @@ public class o {
 
     public synchronized void f(l lVar) {
         try {
-            this.f67070e.remove(lVar);
+            this.f67075e.remove(lVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void g() {
-        this.f67072g = false;
+        this.f67077g = false;
     }
 
     public synchronized boolean h() {
-        return this.f67072g;
+        return this.f67077g;
     }
 
     public int hashCode() {
-        if (this.f67073h == 0) {
-            this.f67073h = i().hashCode();
+        if (this.f67078h == 0) {
+            this.f67078h = i().hashCode();
         }
-        return this.f67073h;
+        return this.f67078h;
     }
 
     public final String i() {
         if (this.i == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f67066a);
+            sb.append(this.f67071a);
             sb.append("_");
-            String str = this.f67067b;
+            String str = this.f67072b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f67069d);
+            sb.append(this.f67074d);
             this.i = sb.toString();
         }
         return this.i;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.f67066a + "', ip='" + this.f67067b + "', ipFamily='" + this.f67068c + "', isMainUrl=" + this.f67069d + ", failedTimes=" + this.f67071f + ", isCurrentFailed=" + this.f67072g + '}';
+        return "UrlRecord{url='" + this.f67071a + "', ip='" + this.f67072b + "', ipFamily='" + this.f67073c + "', isMainUrl=" + this.f67074d + ", failedTimes=" + this.f67076f + ", isCurrentFailed=" + this.f67077g + '}';
     }
 
     public o(String str, String str2) {
-        this.f67070e = new ArrayList();
+        this.f67075e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67066a = str;
-        this.f67069d = false;
-        this.f67067b = str2;
-        this.f67068c = b(str2);
+        this.f67071a = str;
+        this.f67074d = false;
+        this.f67072b = str2;
+        this.f67073c = b(str2);
     }
 }

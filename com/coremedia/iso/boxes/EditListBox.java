@@ -13,9 +13,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class EditListBox extends AbstractFullBox {
     public static final String TYPE = "elst";
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {

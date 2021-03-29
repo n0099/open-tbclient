@@ -18,7 +18,7 @@ import com.baidu.sofire.g.d;
 import com.baidu.sofire.g.s;
 import com.baidu.sofire.jni.Asc;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class F implements FI {
     public static F instance;
     public static Asc sAsc;
@@ -166,7 +166,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public Map<Integer, String> gpd() {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11622d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11623d;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -202,7 +202,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = f.a().f11703a.get(str);
+            ApkInfo apkInfo = f.a().f11704a.get(str);
             if (apkInfo == null) {
                 return null;
             }
@@ -330,12 +330,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void s(int i, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11622d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11623d;
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("s", Integer.valueOf(i2));
-                SQLiteDatabase sQLiteDatabase = aVar.f11625c;
+                SQLiteDatabase sQLiteDatabase = aVar.f11626c;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i + " and n=1", null);
             }
         } catch (Throwable unused) {
@@ -346,12 +346,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11622d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f11623d;
             if (aVar != null) {
                 int i = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("s", Integer.valueOf(i));
-                aVar.f11625c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                aVar.f11626c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable unused) {
             d.a();

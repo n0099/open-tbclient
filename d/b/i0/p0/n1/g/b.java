@@ -44,8 +44,8 @@ public class b extends d.b.i0.p0.n1.g.a {
 
     /* renamed from: d.b.i0.p0.n1.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1408b implements View.OnClickListener {
-        public View$OnClickListenerC1408b() {
+    public class View$OnClickListenerC1409b implements View.OnClickListener {
+        public View$OnClickListenerC1409b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -61,7 +61,7 @@ public class b extends d.b.i0.p0.n1.g.a {
         super(tbPageContext, bdUniqueId);
         this.x0 = 3;
         this.z0 = new a();
-        this.A0 = new View$OnClickListenerC1408b();
+        this.A0 = new View$OnClickListenerC1409b();
         this.t0 = tbPageContext;
         TextView textView = new TextView(tbPageContext.getPageActivity());
         this.u0 = textView;

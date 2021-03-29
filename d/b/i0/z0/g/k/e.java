@@ -11,14 +11,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
 import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
 import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f63213a = null;
+    public BdUniqueId f63214a = null;
 
     public void a(BdUniqueId bdUniqueId) {
-        this.f63213a = bdUniqueId;
+        this.f63214a = bdUniqueId;
         b();
         c();
     }
@@ -42,7 +42,7 @@ public class e {
             return;
         }
         if (netMessage.getTag() == null) {
-            netMessage.setTag(this.f63213a);
+            netMessage.setTag(this.f63214a);
         }
         MessageManager.getInstance().sendMessage(netMessage);
     }

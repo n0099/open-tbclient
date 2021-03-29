@@ -25,16 +25,16 @@ import java.io.IOException;
 public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callback, g, Camera.PreviewCallback {
 
     /* renamed from: e  reason: collision with root package name */
-    public h f21894e;
+    public h f21895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceHolder f21895f;
+    public SurfaceHolder f21896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaRecorder f21896g;
+    public MediaRecorder f21897g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21897h;
+    public boolean f21898h;
     public boolean i;
     public boolean j;
     public g.a k;
@@ -67,18 +67,18 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     public class b extends BdAsyncTask<Void, Void, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ byte[] f21899a;
+        public final /* synthetic */ byte[] f21900a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f21900b;
+        public final /* synthetic */ int f21901b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f21901c;
+        public final /* synthetic */ int f21902c;
 
         public b(byte[] bArr, int i, int i2) {
-            this.f21899a = bArr;
-            this.f21900b = i;
-            this.f21901c = i2;
+            this.f21900a = bArr;
+            this.f21901b = i;
+            this.f21902c = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,15 +87,15 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         public String doInBackground(Void... voidArr) {
             Bitmap bitmap = null;
             try {
-                bitmap = c.b(this.f21899a, this.f21900b, this.f21901c);
-                if (this.f21900b > this.f21901c) {
+                bitmap = c.b(this.f21900a, this.f21901b, this.f21902c);
+                if (this.f21901b > this.f21902c) {
                     Bitmap h2 = c.h(bitmap, 90.0f);
                     if (bitmap != null && !bitmap.isRecycled() && h2 != null) {
                         bitmap.recycle();
                         bitmap = h2;
                     }
                 }
-                return FileHelper.saveFileAsPic(d.b.i0.p3.c.f58892f, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                return FileHelper.saveFileAsPic(d.b.i0.p3.c.f58893f, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
             } finally {
                 if (bitmap != null && !bitmap.isRecycled()) {
                     bitmap.recycle();
@@ -119,18 +119,18 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         if (kVar != null) {
             this.l = kVar.get();
         }
-        this.f21894e = hVar;
+        this.f21895e = hVar;
         getHolder().addCallback(this);
     }
 
     @Override // d.b.i0.p3.m.g
     public void a(Camera camera) {
-        if (this.f21897h || camera == null) {
+        if (this.f21898h || camera == null) {
             return;
         }
-        this.f21897h = true;
+        this.f21898h = true;
         try {
-            camera.setPreviewDisplay(this.f21895f);
+            camera.setPreviewDisplay(this.f21896f);
             camera.setPreviewCallback(this);
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -148,42 +148,42 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             return;
         }
         MediaRecorder mediaRecorder = new MediaRecorder();
-        this.f21896g = mediaRecorder;
+        this.f21897g = mediaRecorder;
         mediaRecorder.reset();
         try {
             camera.unlock();
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.f21896g.setCamera(camera);
-        this.f21896g.setOnErrorListener(new a());
-        SurfaceHolder surfaceHolder = this.f21895f;
+        this.f21897g.setCamera(camera);
+        this.f21897g.setOnErrorListener(new a());
+        SurfaceHolder surfaceHolder = this.f21896f;
         if (surfaceHolder != null) {
-            this.f21896g.setPreviewDisplay(surfaceHolder.getSurface());
+            this.f21897g.setPreviewDisplay(surfaceHolder.getSurface());
         }
-        this.f21896g.setVideoSource(1);
-        this.f21896g.setAudioSource(1);
-        this.f21896g.setOutputFormat(2);
-        this.f21896g.setVideoEncoder(2);
-        this.f21896g.setAudioEncoder(3);
-        this.f21896g.setAudioSamplingRate(48000);
-        this.f21896g.setAudioChannels(1);
-        this.f21896g.setVideoEncodingBitRate(2097152);
-        this.f21896g.setVideoFrameRate(20);
-        if (this.f21894e.k) {
-            this.f21896g.setOrientationHint(270);
+        this.f21897g.setVideoSource(1);
+        this.f21897g.setAudioSource(1);
+        this.f21897g.setOutputFormat(2);
+        this.f21897g.setVideoEncoder(2);
+        this.f21897g.setAudioEncoder(3);
+        this.f21897g.setAudioSamplingRate(48000);
+        this.f21897g.setAudioChannels(1);
+        this.f21897g.setVideoEncodingBitRate(2097152);
+        this.f21897g.setVideoFrameRate(20);
+        if (this.f21895e.k) {
+            this.f21897g.setOrientationHint(270);
         } else {
-            this.f21896g.setOrientationHint(90);
+            this.f21897g.setOrientationHint(90);
         }
-        this.f21896g.setVideoSize(1280, PeerConnectionClient.HD_VIDEO_HEIGHT);
-        File file = new File(d.b.i0.p3.c.f58889c);
+        this.f21897g.setVideoSize(1280, PeerConnectionClient.HD_VIDEO_HEIGHT);
+        File file = new File(d.b.i0.p3.c.f58890c);
         if (!FileHelper.CheckTempDir(file.getAbsolutePath())) {
             file.mkdirs();
         }
-        this.f21896g.setOutputFile(this.f21894e.o());
+        this.f21897g.setOutputFile(this.f21895e.o());
         try {
-            this.f21896g.prepare();
-            this.f21896g.start();
+            this.f21897g.prepare();
+            this.f21897g.start();
         } catch (Throwable th2) {
             th2.printStackTrace();
             d.b.i0.s1.g gVar = this.l;
@@ -195,18 +195,18 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override // d.b.i0.p3.m.g
     public void c(Camera camera) {
-        if (this.f21897h) {
-            this.f21897h = false;
+        if (this.f21898h) {
+            this.f21898h = false;
         }
     }
 
     @Override // d.b.i0.p3.m.g
     public void d(Camera camera) {
-        MediaRecorder mediaRecorder = this.f21896g;
+        MediaRecorder mediaRecorder = this.f21897g;
         if (mediaRecorder != null) {
             try {
                 mediaRecorder.stop();
-                this.f21896g.release();
+                this.f21897g.release();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 d.b.i0.s1.g gVar = this.l;
@@ -234,7 +234,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     public final void j() {
-        Handler n = this.f21894e.n();
+        Handler n = this.f21895e.n();
         n.sendMessage(n.obtainMessage(1));
     }
 
@@ -251,11 +251,11 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.f21894e.r(motionEvent, getParent());
+        return this.f21895e.r(motionEvent, getParent());
     }
 
     @Override // d.b.i0.p3.m.g
-    public void setOnEncoderStatusUpdateListener(d.InterfaceC1804d interfaceC1804d) {
+    public void setOnEncoderStatusUpdateListener(d.InterfaceC1805d interfaceC1805d) {
     }
 
     @Override // d.b.i0.p3.m.g
@@ -268,7 +268,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.f21895f = surfaceHolder;
+        this.f21896f = surfaceHolder;
         j();
         this.i = true;
     }

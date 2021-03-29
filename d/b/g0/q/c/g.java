@@ -7,11 +7,11 @@ import android.text.TextUtils;
 public class g implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49347a;
+    public Context f49348a;
 
     public g(Context context) {
         if (context != null) {
-            this.f49347a = context.getApplicationContext();
+            this.f49348a = context.getApplicationContext();
             return;
         }
         throw new RuntimeException("context can not be null");
@@ -30,9 +30,9 @@ public class g implements b<String> {
     }
 
     public final String c() {
-        if (d.b.g0.q.d.c.a(this.f49347a, "android.permission.WRITE_SETTINGS")) {
+        if (d.b.g0.q.d.c.a(this.f49348a, "android.permission.WRITE_SETTINGS")) {
             try {
-                return Settings.System.getString(this.f49347a.getContentResolver(), "com.baidu.uuid");
+                return Settings.System.getString(this.f49348a.getContentResolver(), "com.baidu.uuid");
             } catch (Exception unused) {
                 return null;
             }
@@ -48,9 +48,9 @@ public class g implements b<String> {
     }
 
     public final void e(String str) {
-        if (d.b.g0.q.d.c.a(this.f49347a, "android.permission.WRITE_SETTINGS")) {
+        if (d.b.g0.q.d.c.a(this.f49348a, "android.permission.WRITE_SETTINGS")) {
             try {
-                Settings.System.putString(this.f49347a.getContentResolver(), "com.baidu.uuid", str);
+                Settings.System.putString(this.f49348a.getContentResolver(), "com.baidu.uuid", str);
             } catch (Exception unused) {
             }
         }

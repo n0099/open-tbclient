@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBBase {
     public static final String TAG = "DBBase";
     public static Object mSyncLock = new Object();
     public Context mContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;

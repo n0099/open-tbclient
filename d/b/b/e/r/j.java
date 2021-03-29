@@ -2,9 +2,7 @@ package d.b.b.e.r;
 /* loaded from: classes.dex */
 public class j implements g {
     @Override // d.b.b.e.r.g
-    public void a(int i, String str) {
-        throw null;
-    }
+    public abstract void a(int i, String str);
 
     @Override // d.b.b.e.r.g
     public void d(byte[] bArr) {

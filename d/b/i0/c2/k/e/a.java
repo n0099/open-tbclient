@@ -13,10 +13,10 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f52562a;
+    public TbPageContext f52563a;
 
     public a(TbPageContext tbPageContext) {
-        this.f52562a = tbPageContext;
+        this.f52563a = tbPageContext;
     }
 
     public final void a(PbModel pbModel, int i) {
@@ -43,11 +43,11 @@ public class a {
         String str;
         String str2;
         int i = 0;
-        if (this.f52562a.getPageActivity() != null && pbModel != null && (eVar = pbModel.I) != null) {
+        if (this.f52563a.getPageActivity() != null && pbModel != null && (eVar = pbModel.I) != null) {
             if ("3".equals(eVar.e0)) {
-                MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f52562a.getPageActivity()).createNormalCfg(2);
-                createNormalCfg.setSubTabName(this.f52562a.getString(R.string.tab_name_topic_rank));
-                this.f52562a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f52563a.getPageActivity()).createNormalCfg(2);
+                createNormalCfg.setSubTabName(this.f52563a.getString(R.string.tab_name_topic_rank));
+                this.f52563a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                 return true;
             }
             String o = d.b.h0.r.d0.b.i().o("key_pb_back_sid1", "");
@@ -64,15 +64,15 @@ public class a {
                 return false;
             }
             if (str.equals("1")) {
-                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f52562a.getPageActivity()).createNormalCfg(2);
+                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f52563a.getPageActivity()).createNormalCfg(2);
                 createNormalCfg2.setSubTab(1, null);
-                this.f52562a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                this.f52563a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
                 a(pbModel, 1);
                 return true;
             } else if (str.equals("2")) {
-                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f52562a.getPageActivity()).createNormalCfg(1);
+                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f52563a.getPageActivity()).createNormalCfg(1);
                 createNormalCfg3.setSubTab(0, pbModel.I.e0);
-                this.f52562a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                this.f52563a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
                 if ("游戏".equals(pbModel.I.e0)) {
                     i = 2;
                 } else if ("数码".equals(pbModel.I.e0)) {

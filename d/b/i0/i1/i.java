@@ -7,13 +7,13 @@ import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import d.b.i0.x.m;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final StatisticItem f55882a;
+    public final StatisticItem f55883a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements e {
         public b() {
         }
@@ -53,7 +53,7 @@ public class i implements e {
     @Override // d.b.i0.i1.e
     public e a(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.f55882a.param(str, str2);
+            this.f55883a.param(str, str2);
         }
         return this;
     }
@@ -61,13 +61,13 @@ public class i implements e {
     @Override // d.b.i0.i1.e
     public void b(ICardInfo iCardInfo) {
         g(iCardInfo);
-        TiebaStatic.log(this.f55882a);
+        TiebaStatic.log(this.f55883a);
     }
 
     @Override // d.b.i0.i1.e
     public e c(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.f55882a.param(str, i);
+            this.f55883a.param(str, i);
         }
         return this;
     }
@@ -75,7 +75,7 @@ public class i implements e {
     @Override // d.b.i0.i1.e
     public e d(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            this.f55882a.param(str, String.valueOf(j));
+            this.f55883a.param(str, String.valueOf(j));
         }
         return this;
     }
@@ -85,7 +85,7 @@ public class i implements e {
         if (TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) || TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
             return;
         }
-        List<Object> params = this.f55882a.getParams();
+        List<Object> params = this.f55883a.getParams();
         for (String str : baseLegoCardInfo.getsExtras().split("&")) {
             String[] split = str.split("=");
             if (split.length == 2) {
@@ -102,7 +102,7 @@ public class i implements e {
                     }
                 }
                 if (!z) {
-                    this.f55882a.param(str2, str3);
+                    this.f55883a.param(str2, str3);
                 }
             }
         }
@@ -111,12 +111,12 @@ public class i implements e {
 
     public i(String str, int i, int i2, String str2) {
         StatisticItem statisticItem = new StatisticItem(str);
-        this.f55882a = statisticItem;
+        this.f55883a = statisticItem;
         statisticItem.param("obj_source", i);
-        this.f55882a.param("obj_type", i2);
+        this.f55883a.param("obj_type", i2);
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f55882a.param("obj_card", str2);
+        this.f55883a.param("obj_card", str2);
     }
 }

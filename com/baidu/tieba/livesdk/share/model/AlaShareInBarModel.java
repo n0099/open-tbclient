@@ -14,10 +14,10 @@ import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
 public class AlaShareInBarModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18766e;
+    public b f18767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f18767f = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+    public final HttpMessageListener f18768f = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -32,8 +32,8 @@ public class AlaShareInBarModel extends BdBaseModel {
                 return;
             }
             AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
-            if (AlaShareInBarModel.this.f18766e != null) {
-                AlaShareInBarModel.this.f18766e.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
+            if (AlaShareInBarModel.this.f18767e != null) {
+                AlaShareInBarModel.this.f18767e.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
             }
         }
     }
@@ -45,7 +45,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     public AlaShareInBarModel() {
         t();
-        MessageManager.getInstance().registerListener(this.f18767f);
+        MessageManager.getInstance().registerListener(this.f18768f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,7 +61,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        MessageManager.getInstance().unRegisterListener(this.f18767f);
+        MessageManager.getInstance().unRegisterListener(this.f18768f);
     }
 
     public final void t() {
@@ -80,6 +80,6 @@ public class AlaShareInBarModel extends BdBaseModel {
     }
 
     public void v(b bVar) {
-        this.f18766e = bVar;
+        this.f18767e = bVar;
     }
 }

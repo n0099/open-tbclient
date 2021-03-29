@@ -6,19 +6,19 @@ import java.util.Map;
 public class g<K, T> extends LinkedHashMap<K, T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38915a;
+    public int f38916a;
 
     public g() {
         this(4, 4);
     }
 
     public void a(int i) {
-        this.f38915a = i;
+        this.f38916a = i;
     }
 
     @Override // java.util.LinkedHashMap
     public boolean removeEldestEntry(Map.Entry<K, T> entry) {
-        return size() > this.f38915a;
+        return size() > this.f38916a;
     }
 
     public g(int i, int i2) {

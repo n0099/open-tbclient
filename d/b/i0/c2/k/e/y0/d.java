@@ -21,19 +21,19 @@ import java.util.Set;
 public class d extends BaseAdapter {
 
     /* renamed from: f  reason: collision with root package name */
-    public List<EmotionImageData> f52951f;
+    public List<EmotionImageData> f52952f;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.c2.k.e.y0.a f52953h;
-    public int i;
+    public d.b.i0.c2.k.e.y0.a f52954h;
     public List<String> k;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52950e = BdBaseApplication.getInst().getApp();
+    public Context f52951e = BdBaseApplication.getInst().getApp();
 
     /* renamed from: g  reason: collision with root package name */
-    public Set<String> f52952g = new HashSet();
-    public int j = l.g(this.f52950e, R.dimen.ds116);
+    public Set<String> f52953g = new HashSet();
+    public int j = l.g(this.f52951e, R.dimen.ds116);
+    public int i = (int) (((l.k(this.f52951e) - l.g(this.f52951e, R.dimen.ds88)) - (this.j * 4)) * 0.333d);
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -46,8 +46,8 @@ public class d extends BaseAdapter {
             if (tag == null || !(tag instanceof EmotionImageData)) {
                 return;
             }
-            if (d.this.f52953h != null && (view instanceof EmotionView)) {
-                d.this.f52953h.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+            if (d.this.f52954h != null && (view instanceof EmotionView)) {
+                d.this.f52954h.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
             }
             TiebaStatic.log("c12180");
         }
@@ -61,8 +61,8 @@ public class d extends BaseAdapter {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            if (d.this.f52952g != null) {
-                for (String str : d.this.f52952g) {
+            if (d.this.f52953g != null) {
+                for (String str : d.this.f52953g) {
                     if (!TextUtils.isEmpty(str)) {
                         d.b.h0.a0.c.j().g(str);
                     }
@@ -77,33 +77,30 @@ public class d extends BaseAdapter {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionView f52956a;
+        public EmotionView f52957a;
 
         /* renamed from: b  reason: collision with root package name */
-        public EmotionView f52957b;
+        public EmotionView f52958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EmotionView f52958c;
+        public EmotionView f52959c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EmotionView f52959d;
+        public EmotionView f52960d;
 
         public c() {
         }
 
         public void a() {
-            d.this.e(this.f52956a);
-            d.this.e(this.f52957b);
-            d.this.e(this.f52958c);
-            d.this.e(this.f52959d);
+            d.this.e(this.f52957a);
+            d.this.e(this.f52958b);
+            d.this.e(this.f52959c);
+            d.this.e(this.f52960d);
         }
     }
 
     public d(List<EmotionImageData> list) {
-        this.f52951f = list;
-        double k = (l.k(this.f52950e) - l.g(this.f52950e, R.dimen.ds88)) - (this.j * 4);
-        Double.isNaN(k);
-        this.i = (int) (k * 0.333d);
+        this.f52952f = list;
     }
 
     public final void d(EmotionView emotionView, EmotionImageData emotionImageData) {
@@ -113,11 +110,11 @@ public class d extends BaseAdapter {
         emotionView.setTag(emotionView.getId(), emotionImageData);
         emotionView.A0();
         emotionView.C0(emotionImageData);
-        if (this.f52952g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+        if (this.f52953g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
             return;
         }
         if (ListUtils.isEmpty(this.k) || !this.k.contains(emotionImageData.getThumbUrl())) {
-            Set<String> set = this.f52952g;
+            Set<String> set = this.f52953g;
             set.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
         }
     }
@@ -134,20 +131,20 @@ public class d extends BaseAdapter {
     }
 
     public void g() {
-        this.f52953h = null;
+        this.f52954h = null;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f52951f.size() % 4 == 0) {
-            return this.f52951f.size() / 4;
+        if (this.f52952f.size() % 4 == 0) {
+            return this.f52952f.size() / 4;
         }
-        return (this.f52951f.size() / 4) + 1;
+        return (this.f52952f.size() / 4) + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f52951f.get(i);
+        return this.f52952f.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -161,14 +158,14 @@ public class d extends BaseAdapter {
         if (view == null) {
             c cVar2 = new c();
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_search_emotion_item, (ViewGroup) null);
-            cVar2.f52956a = (EmotionView) inflate.findViewById(R.id.emotion_view1);
-            cVar2.f52957b = (EmotionView) inflate.findViewById(R.id.emotion_view2);
-            cVar2.f52958c = (EmotionView) inflate.findViewById(R.id.emotion_view3);
-            cVar2.f52959d = (EmotionView) inflate.findViewById(R.id.emotion_view4);
+            cVar2.f52957a = (EmotionView) inflate.findViewById(R.id.emotion_view1);
+            cVar2.f52958b = (EmotionView) inflate.findViewById(R.id.emotion_view2);
+            cVar2.f52959c = (EmotionView) inflate.findViewById(R.id.emotion_view3);
+            cVar2.f52960d = (EmotionView) inflate.findViewById(R.id.emotion_view4);
             cVar2.a();
-            i(cVar2.f52957b, this.i);
-            i(cVar2.f52958c, this.i);
-            i(cVar2.f52959d, this.i);
+            i(cVar2.f52958b, this.i);
+            i(cVar2.f52959c, this.i);
+            i(cVar2.f52960d, this.i);
             inflate.setTag(cVar2);
             cVar = cVar2;
             view = inflate;
@@ -177,19 +174,19 @@ public class d extends BaseAdapter {
         }
         int i2 = i * 4;
         int i3 = i2 + 4;
-        int min = Math.min(i3, this.f52951f.size() - 1);
+        int min = Math.min(i3, this.f52952f.size() - 1);
         for (int i4 = i2; i4 < i3; i4++) {
             if (i4 <= min) {
-                EmotionImageData emotionImageData = this.f52951f.get(i4);
+                EmotionImageData emotionImageData = this.f52952f.get(i4);
                 int i5 = i4 - i2;
                 if (i5 == 0) {
-                    d(cVar.f52956a, emotionImageData);
+                    d(cVar.f52957a, emotionImageData);
                 } else if (i5 == 1) {
-                    d(cVar.f52957b, emotionImageData);
+                    d(cVar.f52958b, emotionImageData);
                 } else if (i5 == 2) {
-                    d(cVar.f52958c, emotionImageData);
+                    d(cVar.f52959c, emotionImageData);
                 } else if (i5 == 3) {
-                    d(cVar.f52959d, emotionImageData);
+                    d(cVar.f52960d, emotionImageData);
                 }
             }
         }
@@ -210,6 +207,6 @@ public class d extends BaseAdapter {
     }
 
     public void j(d.b.i0.c2.k.e.y0.a aVar) {
-        this.f52953h = aVar;
+        this.f52954h = aVar;
     }
 }

@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String CONTENT_KEY_EXT = "ext";
     public static final String CONTENT_KEY_FROM = "from";

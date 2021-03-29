@@ -284,14 +284,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f13312c = fragment;
-        bVar.f13310a = i;
+        bVar.f13313c = fragment;
+        bVar.f13311a = i;
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f13311b = fragmentTabIndicator;
+        bVar.f13312b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -342,7 +342,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         this.mHasInit = true;
-        boolean z = fVar.f59403a.f59429c.f59425a == 2 || this.mWantedMemberType == 2;
+        boolean z = fVar.f59404a.f59430c.f59426a == 2 || this.mWantedMemberType == 2;
         ArrayList arrayList = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putString("member_refer_page", this.mReferPage);
@@ -350,9 +350,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putBoolean("member_is_pay_dialog", this.mIsPayDialog.booleanValue());
         bundle.putInt("member_from_type", this.mFrom);
         if (!z) {
-            f.b bVar = fVar.f59404b;
-            if (bVar.f59410a != null) {
-                if (bVar.f59411b == null) {
+            f.b bVar = fVar.f59405b;
+            if (bVar.f59411a != null) {
+                if (bVar.f59412b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
                     bundle.putInt("member_type", 1);
                     this.mCurrentShowType = 1;
@@ -497,7 +497,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.f50239a = true;
         }
         return pageStayDurationItem;
     }

@@ -15,14 +15,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0244: ARRAY_LENGTH  (r2v1 int A[REMOVE]) = (r12v4 byte[]))] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0285: ARRAY_LENGTH  (r0v10 int A[REMOVE]) = (r11v7 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0246: ARRAY_LENGTH  (r2v1 int A[REMOVE]) = (r12v4 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0287: ARRAY_LENGTH  (r0v10 int A[REMOVE]) = (r11v7 byte[]))] */
     public static String b(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         byte[] bytes;
         String sb;
@@ -93,7 +93,7 @@ public final class g {
             try {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = eVar.f11728a.getLong("pu_cl_fd", 0L);
+                long j = eVar.f11729a.getLong("pu_cl_fd", 0L);
                 if (j == 0) {
                     j = System.currentTimeMillis();
                     eVar.g();
@@ -107,10 +107,10 @@ public final class g {
                         hashMap.put("0", Integer.valueOf(eVar.i()));
                         hashMap.put("1", Integer.valueOf(eVar.j() + 1));
                     }
-                    eVar.f11730c.putInt("mo_fa_pu_cl", 0);
-                    eVar.f11730c.commit();
-                    eVar.f11730c.putInt("wi_fa_pu_cl", 0);
-                    eVar.f11730c.commit();
+                    eVar.f11731c.putInt("mo_fa_pu_cl", 0);
+                    eVar.f11731c.commit();
+                    eVar.f11731c.putInt("wi_fa_pu_cl", 0);
+                    eVar.f11731c.commit();
                     eVar.g();
                     d.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (d.f(context)) {

@@ -9,33 +9,33 @@ import tbclient.BawuThrones;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public w f57357a;
+    public w f57358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BawuThrones f57358b;
+    public BawuThrones f57359b;
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f57359a = new c();
+        public static c f57360a = new c();
     }
 
     public static c c() {
-        return b.f57359a;
+        return b.f57360a;
     }
 
     public void a() {
-        this.f57358b = null;
-        w wVar = this.f57357a;
+        this.f57359b = null;
+        w wVar = this.f57358a;
         if (wVar != null) {
             wVar.g();
         }
-        this.f57357a = null;
+        this.f57358a = null;
     }
 
     public BawuThrones b() {
-        return this.f57358b;
+        return this.f57359b;
     }
 
     public void d(String str, String str2) {
@@ -46,14 +46,14 @@ public class c {
     }
 
     public void e(BawuThrones bawuThrones) {
-        this.f57358b = bawuThrones;
+        this.f57359b = bawuThrones;
     }
 
     public void f(TbPageContext tbPageContext, String str, String str2) {
-        if (this.f57357a == null) {
-            this.f57357a = new w();
+        if (this.f57358a == null) {
+            this.f57358a = new w();
         }
-        this.f57357a.i(tbPageContext, str, str2);
+        this.f57358a.i(tbPageContext, str, str2);
     }
 
     public c() {

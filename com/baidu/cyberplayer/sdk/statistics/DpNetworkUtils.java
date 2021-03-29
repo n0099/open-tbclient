@@ -11,7 +11,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;

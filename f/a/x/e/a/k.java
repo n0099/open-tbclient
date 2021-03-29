@@ -5,30 +5,30 @@ import io.reactivex.internal.operators.flowable.FlowableSamplePublisher$SamplePu
 public final class k<T> implements f.a.g<Object> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final FlowableSamplePublisher$SamplePublisherSubscriber<T> f67482e;
+    public final FlowableSamplePublisher$SamplePublisherSubscriber<T> f67487e;
 
     public k(FlowableSamplePublisher$SamplePublisherSubscriber<T> flowableSamplePublisher$SamplePublisherSubscriber) {
-        this.f67482e = flowableSamplePublisher$SamplePublisherSubscriber;
+        this.f67487e = flowableSamplePublisher$SamplePublisherSubscriber;
     }
 
     @Override // g.d.c
     public void onComplete() {
-        this.f67482e.complete();
+        this.f67487e.complete();
     }
 
     @Override // g.d.c
     public void onError(Throwable th) {
-        this.f67482e.error(th);
+        this.f67487e.error(th);
     }
 
     @Override // g.d.c
     public void onNext(Object obj) {
-        this.f67482e.run();
+        this.f67487e.run();
     }
 
     @Override // f.a.g, g.d.c
     public void onSubscribe(g.d.d dVar) {
-        if (this.f67482e.setOther(dVar)) {
+        if (this.f67487e.setOther(dVar)) {
             dVar.request(Long.MAX_VALUE);
         }
     }

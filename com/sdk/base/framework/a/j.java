@@ -10,28 +10,28 @@ import org.apache.http.client.methods.HttpTrace;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f38480a = new j("GET", 0, "GET");
+    public static final j f38481a = new j("GET", 0, "GET");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f38481b = new j("POST", 1, "POST");
+    public static final j f38482b = new j("POST", 1, "POST");
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f38482c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+    public static j f38483c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f38483d = new j("HEAD", 3, "HEAD");
+    public static j f38484d = new j("HEAD", 3, "HEAD");
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f38484e = new j("MOVE", 4, "MOVE");
+    public static j f38485e = new j("MOVE", 4, "MOVE");
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f38485f = new j("COPY", 5, "COPY");
+    public static j f38486f = new j("COPY", 5, "COPY");
 
     /* renamed from: g  reason: collision with root package name */
-    public static j f38486g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+    public static j f38487g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
 
     /* renamed from: h  reason: collision with root package name */
-    public static j f38487h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+    public static j f38488h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
     public static j i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
     public static j j = new j("CONNECT", 9, "CONNECT");
     public final String k;

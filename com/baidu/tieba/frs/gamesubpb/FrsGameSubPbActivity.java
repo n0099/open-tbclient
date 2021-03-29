@@ -31,7 +31,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public class a implements c.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f16417a = false;
+        public boolean f16418a = false;
 
         public a() {
         }
@@ -39,7 +39,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         @Override // d.b.i0.p0.w1.c.e
         public void a() {
             FrsGameSubPbActivity.this.mSubPbView.P(false);
-            this.f16417a = true;
+            this.f16418a = true;
         }
 
         @Override // d.b.i0.p0.w1.c.e
@@ -48,10 +48,10 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
 
         @Override // d.b.i0.p0.w1.c.e
         public boolean c() {
-            if (!this.f16417a) {
+            if (!this.f16418a) {
                 return FrsGameSubPbActivity.this.mSubPbView.y() != null && FrsGameSubPbActivity.this.mSubPbView.y().getTop() == 0;
             }
-            this.f16417a = false;
+            this.f16418a = false;
             return false;
         }
     }
@@ -88,7 +88,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 }
                 n nVar = list.get(list.size() - 1);
                 if (nVar instanceof d.b.i0.p0.w1.d.d) {
-                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.b.i0.p0.w1.d.d) nVar).f58688e);
+                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.b.i0.p0.w1.d.d) nVar).f58689e);
                 }
             } else if (z3) {
             } else {

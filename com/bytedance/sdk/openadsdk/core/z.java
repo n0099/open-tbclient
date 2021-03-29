@@ -27,7 +27,7 @@ import java.util.Map;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29054a = false;
+    public static boolean f29055a = false;
 
     public static void b(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final Intent intent, final String str) {
         String str2;
@@ -75,7 +75,7 @@ public class z {
     }
 
     public static void a(boolean z) {
-        f29054a = z;
+        f29055a = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x018f  */
@@ -231,7 +231,7 @@ public class z {
                 }
             } else {
                 com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, ac, lVar, i, tTNativeAd, tTNativeExpressAd, str, z, map, z2, false), null);
-                f29054a = false;
+                f29055a = false;
             }
             return z4;
         }
@@ -258,8 +258,8 @@ public class z {
         if (lVar == null || intent == null || context == null || !lVar.aD() || (c2 = i.d().c()) == null) {
             return;
         }
-        c2.a(new a.InterfaceC0335a() { // from class: com.bytedance.sdk.openadsdk.core.z.2
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+        c2.a(new a.InterfaceC0336a() { // from class: com.bytedance.sdk.openadsdk.core.z.2
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void a() {
                 long currentTimeMillis = System.currentTimeMillis();
                 com.bytedance.sdk.openadsdk.utils.u.b("WebHelper", "间隔时间 onActivityResumed intervalTime " + (currentTimeMillis - j));
@@ -272,32 +272,32 @@ public class z {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void b() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void c() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void d() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void e() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0336a
             public void f() {
             }
         });
     }
 
     public static boolean a(TTNativeAd tTNativeAd) {
-        if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC0328a)) {
+        if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC0329a)) {
             try {
-                return ((a.InterfaceC0328a) tTNativeAd).g();
+                return ((a.InterfaceC0329a) tTNativeAd).g();
             } catch (Throwable unused) {
                 return false;
             }
@@ -320,7 +320,7 @@ public class z {
                 }
             }
         } else {
-            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.d.l.c(lVar) || f29054a || a(tTNativeAd) || !ak.c(lVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
+            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.d.l.c(lVar) || f29055a || a(tTNativeAd) || !ak.c(lVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
         }
         intent.putExtra("url", str);
         intent.putExtra("gecko_id", lVar.ae());
@@ -343,7 +343,7 @@ public class z {
         }
         if (com.bytedance.sdk.openadsdk.core.d.l.c(lVar)) {
             if (tTNativeAd != null) {
-                r8 = tTNativeAd instanceof a.InterfaceC0328a ? ((a.InterfaceC0328a) tTNativeAd).e() : null;
+                r8 = tTNativeAd instanceof a.InterfaceC0329a ? ((a.InterfaceC0329a) tTNativeAd).e() : null;
                 if (r8 != null) {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r8.a().toString());
                 }
@@ -352,18 +352,18 @@ public class z {
                 intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r8.a().toString());
             }
             if (r8 != null) {
-                intent.putExtra("video_is_auto_play", r8.f29881d);
+                intent.putExtra("video_is_auto_play", r8.f29882d);
                 com.bytedance.sdk.openadsdk.utils.u.c("videoDataModel", "videoDataModel=" + r8.a().toString());
             }
             if (TTVideoWebPageActivity.a(intent) && (r8 != null || z2)) {
                 try {
                     if (r8 != null) {
-                        i2 = (int) ((((float) r8.f29884g) / ((float) r8.f29882e)) * 100.0f);
+                        i2 = (int) ((((float) r8.f29885g) / ((float) r8.f29883e)) * 100.0f);
                     } else {
                         com.bytedance.sdk.openadsdk.multipro.b.a aVar = new com.bytedance.sdk.openadsdk.multipro.b.a();
-                        aVar.f29884g = 100L;
-                        aVar.f29878a = true;
-                        aVar.f29881d = ak.j(lVar);
+                        aVar.f29885g = 100L;
+                        aVar.f29879a = true;
+                        aVar.f29882d = ak.j(lVar);
                         intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
                         i2 = 100;
                     }

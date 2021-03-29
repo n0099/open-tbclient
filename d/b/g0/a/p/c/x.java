@@ -4,7 +4,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import d.b.g0.a.q0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface x {
     boolean a(@Nullable Activity activity);
 

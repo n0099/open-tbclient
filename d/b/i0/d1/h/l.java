@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f53807d = null;
+    public static a f53808d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f53808e = "tb_oficial_msg_";
+    public static String f53809e = "tb_oficial_msg_";
 
     public l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
@@ -23,10 +23,10 @@ public class l extends a {
     public static synchronized l t() {
         l lVar;
         synchronized (l.class) {
-            if (f53807d == null) {
-                f53807d = new l();
+            if (f53808d == null) {
+                f53808d = new l();
             }
-            lVar = (l) f53807d;
+            lVar = (l) f53808d;
         }
         return lVar;
     }
@@ -128,7 +128,7 @@ public class l extends a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i));
             h e2 = h.e();
-            int j3 = e2.j(f53808e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+            int j3 = e2.j(f53809e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
             BdLog.d("updateReadCount result = " + j3);
         } catch (Exception e3) {
             e3.printStackTrace();

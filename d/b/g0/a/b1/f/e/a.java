@@ -18,31 +18,31 @@ import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.schedulers.Schedulers;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static final boolean q = k.f45050a;
+    public static final boolean q = k.f45051a;
     public static volatile a r;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f43492a;
+    public AudioRecord f43493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43493b;
+    public String f43494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43494c;
+    public int f43495c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43496e;
+    public Context f43497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43497f;
+    public String f43498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Timer f43498g;
+    public Timer f43499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.a.b1.f.d.b f43499h;
+    public d.b.g0.a.b1.f.d.b f43500h;
     public long i;
     public long j;
     public d.b.g0.a.b1.f.b l;
@@ -51,14 +51,14 @@ public class a {
     public d.b.g0.a.b1.f.d.a o;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43495d = -1;
+    public int f43496d = -1;
     public d.b.g0.a.b1.f.a k = new d.b.g0.a.b1.f.a();
     public boolean p = false;
 
     /* renamed from: d.b.g0.a.b1.f.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0609a implements d.b.g0.a.b1.f.d.b {
-        public C0609a() {
+    /* loaded from: classes2.dex */
+    public class C0610a implements d.b.g0.a.b1.f.d.b {
+        public C0610a() {
         }
 
         @Override // d.b.g0.a.b1.f.d.b
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements h.n.b<Boolean> {
         public b() {
         }
@@ -90,7 +90,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements f<String, Boolean> {
         public c() {
         }
@@ -103,19 +103,19 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.f.d.b f43503e;
+        public final /* synthetic */ d.b.g0.a.b1.f.d.b f43504e;
 
         public d(d.b.g0.a.b1.f.d.b bVar) {
-            this.f43503e = bVar;
+            this.f43504e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            d.b.g0.a.b1.f.d.b bVar = this.f43503e;
+            d.b.g0.a.b1.f.d.b bVar = this.f43504e;
             if (bVar != null) {
                 bVar.a();
             }
@@ -123,15 +123,15 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e extends TimerTask {
         public e() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            if (a.this.f43499h != null) {
-                a.this.f43499h.a();
+            if (a.this.f43500h != null) {
+                a.this.f43500h.a();
             }
             a.this.G();
         }
@@ -182,38 +182,38 @@ public class a {
             Log.d("AudioRecorderManager", "resume timer");
         }
         d.b.g0.a.c0.c.g("recorder", "resume timer");
-        d.b.g0.a.b1.f.d.b bVar = this.f43499h;
+        d.b.g0.a.b1.f.d.b bVar = this.f43500h;
         if (bVar != null) {
             if (this.j <= 0) {
                 bVar.a();
                 return;
             }
             Timer timer = new Timer();
-            this.f43498g = timer;
+            this.f43499g = timer;
             timer.schedule(new e(), this.j);
             this.i = System.currentTimeMillis();
         }
     }
 
     public boolean C() {
-        byte[] bArr = new byte[this.f43494c];
+        byte[] bArr = new byte[this.f43495c];
         d.b.g0.a.b1.f.a aVar = this.k;
-        d.b.g0.a.b1.f.f.a aVar2 = new d.b.g0.a.b1.f.f.a(aVar.f43465b, aVar.f43466c, aVar.f43467d, aVar.f43468e);
-        if (this.f43492a == null) {
+        d.b.g0.a.b1.f.f.a aVar2 = new d.b.g0.a.b1.f.f.a(aVar.f43466b, aVar.f43467c, aVar.f43468d, aVar.f43469e);
+        if (this.f43493a == null) {
             return false;
         }
         return v(bArr, aVar2);
     }
 
     public void D(boolean z) {
-        if (this.f43496e == null) {
+        if (this.f43497e == null) {
             f();
             d.b.g0.a.c0.c.b("recorder", "start error, context is null");
             z();
-        } else if (this.f43495d != -1 && !TextUtils.isEmpty(this.f43493b)) {
+        } else if (this.f43496d != -1 && !TextUtils.isEmpty(this.f43494b)) {
             if (z) {
                 String str = null;
-                int i = this.f43495d;
+                int i = this.f43496d;
                 if (i == 1) {
                     str = "start fail: recorder is recording";
                 } else if (i != 0 && i != 3) {
@@ -229,18 +229,18 @@ public class a {
                 Log.d("AudioRecorderManager", "start record");
             }
             try {
-                this.f43492a.startRecording();
-                if (this.f43492a.getRecordingState() != 3) {
+                this.f43493a.startRecording();
+                if (this.f43493a.getRecordingState() != 3) {
                     f();
                     d.b.g0.a.c0.c.b("recorder", "start error, no real permission");
                     z();
                     return;
                 }
                 if (z) {
-                    E(new C0609a());
-                    e(d.b.g0.a.b1.f.b.f43472d, "recorderStart");
+                    E(new C0610a());
+                    e(d.b.g0.a.b1.f.b.f43473d, "recorderStart");
                 } else {
-                    e(d.b.g0.a.b1.f.b.f43474f, "recorderResume");
+                    e(d.b.g0.a.b1.f.b.f43475f, "recorderResume");
                 }
                 h.d.j("").F(Schedulers.io()).l(new c()).p(h.l.b.a.b()).D(new b());
             } catch (IllegalStateException e2) {
@@ -257,13 +257,13 @@ public class a {
 
     public void E(d.b.g0.a.b1.f.d.b bVar) {
         if (q) {
-            Log.d("AudioRecorderManager", "start timer:" + this.k.f43464a);
+            Log.d("AudioRecorderManager", "start timer:" + this.k.f43465a);
         }
-        d.b.g0.a.c0.c.g("recorder", "start timer, totalTime:" + this.k.f43464a);
-        this.f43499h = bVar;
+        d.b.g0.a.c0.c.g("recorder", "start timer, totalTime:" + this.k.f43465a);
+        this.f43500h = bVar;
         Timer timer = new Timer();
-        this.f43498g = timer;
-        timer.schedule(new d(bVar), this.k.f43464a);
+        this.f43499g = timer;
+        timer.schedule(new d(bVar), this.k.f43465a);
         this.i = System.currentTimeMillis();
     }
 
@@ -271,7 +271,7 @@ public class a {
         if (q) {
             Log.d("AudioRecorderManager", "stop record");
         }
-        AudioRecord audioRecord = this.f43492a;
+        AudioRecord audioRecord = this.f43493a;
         if (audioRecord == null) {
             f();
             d.b.g0.a.c0.c.b("recorder", "none audioRecord");
@@ -281,7 +281,7 @@ public class a {
         try {
             audioRecord.stop();
             G();
-            this.f43495d = 3;
+            this.f43496d = 3;
             h();
             H();
         } catch (IllegalStateException e2) {
@@ -296,11 +296,11 @@ public class a {
             Log.d("AudioRecorderManager", "stop timer");
         }
         d.b.g0.a.c0.c.g("recorder", "stop timer");
-        this.f43499h = null;
-        Timer timer = this.f43498g;
+        this.f43500h = null;
+        Timer timer = this.f43499g;
         if (timer != null) {
             timer.cancel();
-            this.f43498g = null;
+            this.f43499g = null;
         }
     }
 
@@ -331,7 +331,7 @@ public class a {
     }
 
     public final void g(int i, String str) {
-        if (this.l != null && !TextUtils.isEmpty(d.b.g0.a.b1.f.b.f43476h)) {
+        if (this.l != null && !TextUtils.isEmpty(d.b.g0.a.b1.f.b.f43477h)) {
             this.l.d(i, str);
             return;
         }
@@ -350,13 +350,13 @@ public class a {
 
     public final void h() {
         long j;
-        String r2 = d.b.g0.a.a2.b.r(this.f43493b, this.f43497f);
+        String r2 = d.b.g0.a.a2.b.r(this.f43494b, this.f43498f);
         long j2 = -1;
-        if (TextUtils.isEmpty(this.f43493b)) {
+        if (TextUtils.isEmpty(this.f43494b)) {
             j = -1;
         } else {
-            j2 = d.b.g0.p.d.m(this.f43493b);
-            j = new File(this.f43493b).length();
+            j2 = d.b.g0.p.d.m(this.f43494b);
+            j = new File(this.f43494b).length();
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -369,8 +369,8 @@ public class a {
             if (j >= 0) {
                 jSONObject.put("fileSize", j);
             }
-            if (this.l != null && !TextUtils.isEmpty(d.b.g0.a.b1.f.b.f43475g)) {
-                this.l.c(d.b.g0.a.b1.f.b.f43475g, jSONObject);
+            if (this.l != null && !TextUtils.isEmpty(d.b.g0.a.b1.f.b.f43476g)) {
+                this.l.c(d.b.g0.a.b1.f.b.f43476g, jSONObject);
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -392,7 +392,7 @@ public class a {
     }
 
     public void l(String str, d.b.g0.a.b1.f.a aVar, Context context, d.b.g0.a.b1.f.b bVar, String str2) {
-        int i = this.f43495d;
+        int i = this.f43496d;
         if (i != -1 && i != 3) {
             d.b.g0.a.c0.c.b("recorder", "wrong state, can't init");
             return;
@@ -400,33 +400,33 @@ public class a {
         this.k = aVar;
         m(str);
         this.l = bVar;
-        int minBufferSize = AudioRecord.getMinBufferSize(aVar.f43467d, aVar.f43466c, 2);
-        this.f43494c = minBufferSize;
+        int minBufferSize = AudioRecord.getMinBufferSize(aVar.f43468d, aVar.f43467c, 2);
+        this.f43495c = minBufferSize;
         if (minBufferSize <= 0) {
             f();
             d.b.g0.a.c0.c.b("recorder", "wrong buffer size");
             z();
             return;
         }
-        this.f43492a = new AudioRecord(aVar.f43469f, aVar.f43467d, aVar.f43466c == 1 ? 16 : 12, 2, this.f43494c);
-        this.f43495d = 0;
-        this.f43496e = context;
-        this.f43497f = str2;
+        this.f43493a = new AudioRecord(aVar.f43470f, aVar.f43468d, aVar.f43467c == 1 ? 16 : 12, 2, this.f43495c);
+        this.f43496d = 0;
+        this.f43497e = context;
+        this.f43498f = str2;
         w();
     }
 
     public final void m(String str) {
         String str2;
-        if (TextUtils.equals(this.k.f43465b, "mp3")) {
+        if (TextUtils.equals(this.k.f43466b, "mp3")) {
             str2 = EmotionResourceProvider.EMOTION_SOUND_SUFFIX;
         } else {
-            str2 = TextUtils.equals(this.k.f43465b, "pcm") ? ".pcm" : ".aac";
+            str2 = TextUtils.equals(this.k.f43466b, "pcm") ? ".pcm" : ".aac";
         }
-        this.f43493b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        this.f43494b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
     }
 
     public void n() {
-        int i = this.f43495d;
+        int i = this.f43496d;
         if (i == 0 || i == 1) {
             if (!this.p) {
                 this.p = true;
@@ -447,17 +447,17 @@ public class a {
         int i;
         String str2;
         if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
-            if (this.f43495d != 1) {
+            if (this.f43496d != 1) {
                 str2 = "pause fail: recorder is not recording";
             }
             str2 = null;
         } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
-            if (this.f43495d != 2) {
+            if (this.f43496d != 2) {
                 str2 = "resume fail: recorder is not paused";
             }
             str2 = null;
         } else {
-            if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i = this.f43495d) != 2 && i != 1) {
+            if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i = this.f43496d) != 2 && i != 1) {
                 str2 = "stop fail: recorder is not started";
             }
             str2 = null;
@@ -478,7 +478,7 @@ public class a {
     }
 
     public void s(boolean z) {
-        if (z && this.f43495d == 1) {
+        if (z && this.f43496d == 1) {
             t();
         }
         this.m = z;
@@ -488,7 +488,7 @@ public class a {
         if (q) {
             Log.d("AudioRecorderManager", "pause record");
         }
-        AudioRecord audioRecord = this.f43492a;
+        AudioRecord audioRecord = this.f43493a;
         if (audioRecord == null) {
             f();
             d.b.g0.a.c0.c.b("recorder", "none audio record");
@@ -497,9 +497,9 @@ public class a {
         }
         try {
             audioRecord.stop();
-            this.f43495d = 2;
+            this.f43496d = 2;
             u();
-            e(d.b.g0.a.b1.f.b.f43473e, "recorderPause");
+            e(d.b.g0.a.b1.f.b.f43474e, "recorderPause");
         } catch (IllegalStateException e2) {
             f();
             d.b.g0.a.c0.c.c("recorder", "pause error", e2);
@@ -512,12 +512,12 @@ public class a {
             Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.j);
         }
         d.b.g0.a.c0.c.g("recorder", "pause timer, lastTime:" + this.j);
-        Timer timer = this.f43498g;
+        Timer timer = this.f43499g;
         if (timer != null) {
             timer.cancel();
-            this.f43498g = null;
+            this.f43499g = null;
         }
-        this.j = this.k.f43464a - (System.currentTimeMillis() - this.i);
+        this.j = this.k.f43465a - (System.currentTimeMillis() - this.i);
     }
 
     public final boolean v(byte[] bArr, d.b.g0.a.b1.f.f.a aVar) {
@@ -525,8 +525,8 @@ public class a {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                File file = new File(this.f43493b);
-                if (this.f43495d == 0) {
+                File file = new File(this.f43494b);
+                if (this.f43496d == 0) {
                     if (file.exists()) {
                         file.delete();
                     }
@@ -540,10 +540,10 @@ public class a {
             e = e2;
         }
         try {
-            this.f43495d = 1;
-            while (this.f43495d == 1) {
-                if (this.f43492a.read(bArr, 0, this.f43494c) >= 0) {
-                    byte[] f2 = TextUtils.equals(this.k.f43465b, "pcm") ? bArr : aVar.f(bArr);
+            this.f43496d = 1;
+            while (this.f43496d == 1) {
+                if (this.f43493a.read(bArr, 0, this.f43495c) >= 0) {
+                    byte[] f2 = TextUtils.equals(this.k.f43466b, "pcm") ? bArr : aVar.f(bArr);
                     if (f2 != null && f2.length > 0) {
                         fileOutputStream.write(f2);
                     }
@@ -555,8 +555,8 @@ public class a {
             e = e3;
             fileOutputStream2 = fileOutputStream;
             d.b.g0.a.c0.c.c("recorder", "save record error", e);
-            if (this.f43495d == 1) {
-                this.f43495d = 3;
+            if (this.f43496d == 1) {
+                this.f43496d = 3;
             }
             d.b.g0.p.d.a(fileOutputStream2);
             return false;
@@ -569,7 +569,7 @@ public class a {
     }
 
     public final void w() {
-        Context context = this.f43496e;
+        Context context = this.f43497e;
         if (context == null) {
             return;
         }
@@ -581,12 +581,12 @@ public class a {
 
     public final void z() {
         G();
-        this.f43496e = null;
-        this.f43495d = -1;
-        AudioRecord audioRecord = this.f43492a;
+        this.f43497e = null;
+        this.f43496d = -1;
+        AudioRecord audioRecord = this.f43493a;
         if (audioRecord != null) {
             audioRecord.release();
-            this.f43492a = null;
+            this.f43493a = null;
         }
     }
 }

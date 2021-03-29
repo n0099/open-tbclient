@@ -8,13 +8,13 @@ import com.baidu.tieba.R;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public GridView f59517a;
+    public GridView f59518a;
 
     public e(ViewGroup viewGroup) {
-        this.f59517a = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
+        this.f59518a = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
     }
 
     public void a(a aVar) {
-        this.f59517a.setAdapter((ListAdapter) aVar);
+        this.f59518a.setAdapter((ListAdapter) aVar);
     }
 }

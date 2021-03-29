@@ -7,17 +7,17 @@ import tbclient.YulePostActivity;
 public class m2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50846a;
+    public String f50847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50847b;
+    public String f50848b;
 
     public String a() {
-        return this.f50846a;
+        return this.f50847a;
     }
 
     public String b() {
-        return this.f50847b;
+        return this.f50848b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -27,10 +27,10 @@ public class m2 {
         try {
             jSONObject.optLong("start_time");
             jSONObject.optLong("end_time");
-            this.f50846a = jSONObject.optString("activity_banner");
+            this.f50847a = jSONObject.optString("activity_banner");
             jSONObject.optString("activity_url");
             jSONObject.optString("activity_desc");
-            this.f50847b = jSONObject.optString("activity_button");
+            this.f50848b = jSONObject.optString("activity_button");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -48,9 +48,9 @@ public class m2 {
         if (l2 != null) {
             l2.longValue();
         }
-        this.f50846a = yulePostActivity.activity_banner;
+        this.f50847a = yulePostActivity.activity_banner;
         String str = yulePostActivity.activity_url;
         String str2 = yulePostActivity.activity_desc;
-        this.f50847b = yulePostActivity.activity_button;
+        this.f50848b = yulePostActivity.activity_button;
     }
 }

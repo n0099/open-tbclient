@@ -3,7 +3,7 @@ package d.b.i0.d1.v.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {

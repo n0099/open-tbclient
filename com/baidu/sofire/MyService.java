@@ -9,18 +9,18 @@ import android.text.TextUtils;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.g.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f11610b;
+    public static long f11611b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f11611a = 0;
+    public volatile int f11612a = 0;
 
     public static /* synthetic */ int a(MyService myService) {
-        int i = myService.f11611a;
-        myService.f11611a = i + 1;
+        int i = myService.f11612a;
+        myService.f11612a = i + 1;
         return i;
     }
 
@@ -52,15 +52,15 @@ public class MyService extends Service {
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f11610b;
+            long j = f11611b;
             if ("teac".equals(intent.getAction())) {
-                f11610b = System.currentTimeMillis();
+                f11611b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < 3000) {
                     return super.onStartCommand(intent, i, i2);
                 }
-                if (com.baidu.sofire.g.d.j != 0 && f11610b - com.baidu.sofire.g.d.j > 5000) {
+                if (com.baidu.sofire.g.d.j != 0 && f11611b - com.baidu.sofire.g.d.j > 5000) {
                     StringBuilder sb = new StringBuilder("persist process alive now:");
-                    sb.append(f11610b);
+                    sb.append(f11611b);
                     sb.append("init:");
                     sb.append(com.baidu.sofire.g.d.j);
                     b.b();
@@ -123,9 +123,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f11611a--;
-            if (this.f11611a <= 0) {
-                this.f11611a = 0;
+            this.f11612a--;
+            if (this.f11612a <= 0) {
+                this.f11612a = 0;
                 b.a();
                 stopSelf();
             }

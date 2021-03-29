@@ -8,12 +8,12 @@ import com.baidu.searchbox.pms.utils.DebugUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MergeCallback {
     public static final String TAG = "MergeCallback";
     public final List<MergeBean> list = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class MergeBean {
         public InnerCallback callback;
         public PackageInfo info;

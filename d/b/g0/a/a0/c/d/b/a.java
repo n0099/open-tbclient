@@ -3,7 +3,7 @@ package d.b.g0.a.a0.c.d.b;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import d.b.g0.a.c0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     @Nullable
     public static CanvasView a(d.b.g0.a.y.b.a aVar) {

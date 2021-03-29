@@ -1,5 +1,5 @@
 package d.b.g0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static final int abc_action_bar_title_item = 2131492864;
     public static final int abc_action_bar_up_container = 2131492865;

@@ -9,24 +9,24 @@ import java.io.IOException;
 public class g implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42584e;
+    public Context f42585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f42585f;
+    public Handler f42586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42586g;
+    public String f42587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f42587h;
+    public ImageView f42588h;
     public int i;
     public int j;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
-        this.f42584e = context.getApplicationContext();
-        this.f42585f = handler;
-        this.f42586g = str;
-        this.f42587h = imageView;
+        this.f42585e = context.getApplicationContext();
+        this.f42586f = handler;
+        this.f42587g = str;
+        this.f42588h = imageView;
         this.i = i;
         this.j = i2;
     }
@@ -40,7 +40,7 @@ public class g implements Runnable {
         Bitmap bitmap;
         Bitmap bitmap2;
         try {
-            bitmap = a.c(this.f42584e).a(str, i, i2);
+            bitmap = a.c(this.f42585e).a(str, i, i2);
         } catch (IOException e2) {
             e = e2;
             bitmap = null;
@@ -57,16 +57,16 @@ public class g implements Runnable {
             a.b().a(str, bitmap);
             return bitmap;
         }
-        a.c(this.f42584e).c(str);
-        bitmap2 = a.c(this.f42584e).a(str, i, i2);
+        a.c(this.f42585e).c(str);
+        bitmap2 = a.c(this.f42585e).a(str, i, i2);
         return bitmap2 != null ? d.b(str) : bitmap2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap a2 = a(this.f42586g, this.i, this.j);
-        if (this.f42585f != null) {
-            this.f42585f.obtainMessage(1, new f(this.f42587h, this.f42586g, a2)).sendToTarget();
+        Bitmap a2 = a(this.f42587g, this.i, this.j);
+        if (this.f42586f != null) {
+            this.f42586f.obtainMessage(1, new f(this.f42588h, this.f42587g, a2)).sendToTarget();
         }
     }
 }

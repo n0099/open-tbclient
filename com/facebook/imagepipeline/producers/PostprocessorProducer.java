@@ -24,7 +24,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
     public final Executor mExecutor;
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class PostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         @GuardedBy("PostprocessorConsumer.this")
         public boolean mIsClosed;
@@ -228,7 +228,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class RepeatedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> implements RepeatedPostprocessorRunner {
         @GuardedBy("RepeatedPostprocessorConsumer.this")
         public boolean mIsClosed;

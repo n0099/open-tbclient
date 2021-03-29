@@ -6,7 +6,7 @@ import d.o.a.d.j;
 import d.o.a.e.b.g.q;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o implements q {
     @Override // d.o.a.e.b.g.q
     public void a(DownloadInfo downloadInfo, int i, int i2) {

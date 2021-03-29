@@ -18,36 +18,36 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43220e = k.f45050a;
+    public static final boolean f43221e = k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43221f = d.b.g0.a.w0.a.N().i();
+    public static final boolean f43222f = d.b.g0.a.w0.a.N().i();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f43222g = d.b.g0.a.w0.a.N().H();
+    public static final boolean f43223g = d.b.g0.a.w0.a.N().H();
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f43223h = 1024;
+    public static int f43224h = 1024;
     public static int i = -1;
     public static int j = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f43224a;
+    public g f43225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f43225b;
+    public final String f43226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f43226c;
+    public final String f43227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a<Long> f43227d;
+    public final c.a<Long> f43228d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements c.a<Long> {
         public a() {
         }
@@ -62,10 +62,10 @@ public class c extends f {
 
     public c(e eVar) {
         super(eVar);
-        this.f43227d = new a();
-        this.f43225b = b.d(eVar);
-        this.f43226c = "aiapp_" + this.f43225b;
-        d.b.g0.a.f2.d.f44466h.e(this.f43227d);
+        this.f43228d = new a();
+        this.f43226b = b.d(eVar);
+        this.f43227c = "aiapp_" + this.f43226b;
+        d.b.g0.a.f2.d.f44467h.e(this.f43228d);
     }
 
     public static boolean b(@NonNull String str) {
@@ -92,13 +92,13 @@ public class c extends f {
         }
         d.b.g0.p.d.g(b.h(e.T()));
         d.b.g0.p.d.g(b.f(e.T()));
-        d.b.g0.a.f2.d.f44466h.b();
+        d.b.g0.a.f2.d.f44467h.b();
     }
 
     public long e() {
-        if (f43220e) {
+        if (f43221e) {
             File d2 = g().d();
-            Log.i("SwanAppStorage", this.f43225b + " exists = " + d2.exists() + " isFile = " + d2.isFile() + " path = " + d2.getPath() + " size = " + d2.length());
+            Log.i("SwanAppStorage", this.f43226b + " exists = " + d2.exists() + " isFile = " + d2.isFile() + " path = " + d2.getPath() + " size = " + d2.length());
         }
         return g().b();
     }
@@ -115,10 +115,10 @@ public class c extends f {
     }
 
     public g g() {
-        if (this.f43224a == null) {
-            this.f43224a = new g(this.f43226c, false);
+        if (this.f43225a == null) {
+            this.f43225a = new g(this.f43227c, false);
         }
-        return this.f43224a;
+        return this.f43225a;
     }
 
     public d.b.g0.a.a2.a h(@NonNull String str) {
@@ -144,7 +144,7 @@ public class c extends f {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (f43220e) {
+        if (f43221e) {
             Log.d("SwanAppStorage", "——> getSavedFileList: " + file.getAbsolutePath());
         }
         d.b.g0.a.a2.a aVar = new d.b.g0.a.a2.a();
@@ -170,7 +170,7 @@ public class c extends f {
     }
 
     public List<d.b.g0.a.a2.a> k(@NonNull String str) {
-        if (f43220e) {
+        if (f43221e) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
         File file = new File(str);
@@ -200,7 +200,7 @@ public class c extends f {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0046 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0048 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x0073 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0012 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x0012 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r7v1 */
@@ -235,7 +235,7 @@ public class c extends f {
                 try {
                     str = new FileOutputStream(l);
                     try {
-                        byte[] bArr = new byte[f43223h];
+                        byte[] bArr = new byte[f43224h];
                         while (true) {
                             int read = fileInputStream2.read(bArr);
                             if (read == -1) {
@@ -252,7 +252,7 @@ public class c extends f {
                         fileInputStream = fileInputStream2;
                         obj2 = str;
                         str = obj2;
-                        if (f43220e) {
+                        if (f43221e) {
                             e.printStackTrace();
                             str = obj2;
                         }
@@ -265,7 +265,7 @@ public class c extends f {
                         fileInputStream = fileInputStream2;
                         obj = str;
                         str = obj;
-                        if (f43220e) {
+                        if (f43221e) {
                             e.printStackTrace();
                             str = obj;
                         }

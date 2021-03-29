@@ -12,10 +12,10 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 public class e implements ArCoreApk.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f66048a;
+    public final /* synthetic */ f f66049a;
 
     public e(f fVar) {
-        this.f66048a = fVar;
+        this.f66049a = fVar;
     }
 
     public static Uri b(String str) {
@@ -69,9 +69,9 @@ public class e implements ArCoreApk.a {
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.f66048a) {
-            f.c(this.f66048a, availability);
-            f.f(this.f66048a, false);
+        synchronized (this.f66049a) {
+            f.c(this.f66049a, availability);
+            f.f(this.f66049a, false);
         }
     }
 }

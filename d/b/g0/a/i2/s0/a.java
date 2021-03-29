@@ -23,41 +23,41 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class a {
-    public static final boolean i = k.f45050a;
+    public static final boolean i = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f44767b;
+    public ExecutorService f44768b;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.i2.u0.b<String> f44771f;
+    public d.b.g0.a.i2.u0.b<String> f44772f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<d.b.g0.a.i2.u0.b<Pipe.SourceChannel>> f44766a = new HashSet();
+    public final Set<d.b.g0.a.i2.u0.b<Pipe.SourceChannel>> f44767a = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44768c = 8192;
+    public int f44769c = 8192;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f44769d = -1;
+    public long f44770d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public TimeUnit f44770e = TimeUnit.NANOSECONDS;
+    public TimeUnit f44771e = TimeUnit.NANOSECONDS;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a f44772g = new c.a();
+    public final c.a f44773g = new c.a();
 
     /* renamed from: h  reason: collision with root package name */
-    public float f44773h = 0.0f;
+    public float f44774h = 0.0f;
 
     /* renamed from: d.b.g0.a.i2.s0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0701a implements d.b.g0.a.i2.u0.b<d.b.g0.a.i2.u0.b<Pipe.SourceChannel>> {
+    public class C0702a implements d.b.g0.a.i2.u0.b<d.b.g0.a.i2.u0.b<Pipe.SourceChannel>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f44774e;
+        public final /* synthetic */ List f44775e;
 
-        public C0701a(List list) {
-            this.f44774e = list;
+        public C0702a(List list) {
+            this.f44775e = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class a {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.i2.u0.b<Pipe.SourceChannel> bVar) {
             try {
-                this.f44774e.add(new e(a.this, bVar));
+                this.f44775e.add(new e(a.this, bVar));
             } catch (IOException e2) {
                 if (a.i) {
                     e2.printStackTrace();
@@ -78,22 +78,22 @@ public class a {
     public class b implements d.b.g0.a.i2.u0.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f44776e;
+        public final /* synthetic */ CountDownLatch f44777e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ExecutorService f44777f;
+        public final /* synthetic */ ExecutorService f44778f;
 
         public b(a aVar, CountDownLatch countDownLatch, ExecutorService executorService) {
-            this.f44776e = countDownLatch;
-            this.f44777f = executorService;
+            this.f44777e = countDownLatch;
+            this.f44778f = executorService;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            eVar.f(this.f44776e);
-            this.f44777f.submit(eVar);
+            eVar.f(this.f44777e);
+            this.f44778f.submit(eVar);
         }
     }
 
@@ -101,10 +101,10 @@ public class a {
     public class c implements d.b.g0.a.i2.u0.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f44778e;
+        public final /* synthetic */ ByteBuffer f44779e;
 
         public c(a aVar, ByteBuffer byteBuffer) {
-            this.f44778e = byteBuffer;
+            this.f44779e = byteBuffer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,9 +112,9 @@ public class a {
         /* renamed from: a */
         public void onCallback(e eVar) {
             try {
-                if (eVar.f44782h.isOpen() && eVar.f44781g.isOpen()) {
-                    this.f44778e.rewind();
-                    eVar.f44782h.write(this.f44778e);
+                if (eVar.f44783h.isOpen() && eVar.f44782g.isOpen()) {
+                    this.f44779e.rewind();
+                    eVar.f44783h.write(this.f44779e);
                 }
             } catch (IOException e2) {
                 if (a.i) {
@@ -134,7 +134,7 @@ public class a {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            Pipe.SinkChannel sinkChannel = eVar.f44782h;
+            Pipe.SinkChannel sinkChannel = eVar.f44783h;
             a.f(sinkChannel, eVar.toString() + " by[PumpingFinish]");
         }
     }
@@ -143,31 +143,31 @@ public class a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.b.g0.a.i2.u0.b<Pipe.SourceChannel> f44779e;
+        public final d.b.g0.a.i2.u0.b<Pipe.SourceChannel> f44780e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Pipe f44780f;
+        public final Pipe f44781f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Pipe.SourceChannel f44781g;
+        public final Pipe.SourceChannel f44782g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Pipe.SinkChannel f44782h;
+        public final Pipe.SinkChannel f44783h;
         public CountDownLatch i;
         public String j;
 
         public e(a aVar, d.b.g0.a.i2.u0.b<Pipe.SourceChannel> bVar) throws IOException {
-            this.f44779e = bVar;
+            this.f44780e = bVar;
             Pipe open = Pipe.open();
-            this.f44780f = open;
-            this.f44782h = open.sink();
-            this.f44781g = this.f44780f.source();
+            this.f44781f = open;
+            this.f44783h = open.sink();
+            this.f44782g = this.f44781f.source();
         }
 
         public final void d() {
-            Pipe.SinkChannel sinkChannel = this.f44782h;
+            Pipe.SinkChannel sinkChannel = this.f44783h;
             a.f(sinkChannel, "sink for " + toString());
-            Pipe.SourceChannel sourceChannel = this.f44781g;
+            Pipe.SourceChannel sourceChannel = this.f44782g;
             a.f(sourceChannel, "source for " + toString());
         }
 
@@ -190,7 +190,7 @@ public class a {
             }
             try {
                 try {
-                    this.f44779e.onCallback(this.f44781g);
+                    this.f44780e.onCallback(this.f44782g);
                 } catch (Exception e2) {
                     if (a.i) {
                         e2.printStackTrace();
@@ -207,7 +207,7 @@ public class a {
         }
 
         public String toString() {
-            return "PipeLine: " + this.j + " consumer=" + this.f44779e.toString();
+            return "PipeLine: " + this.j + " consumer=" + this.f44780e.toString();
         }
     }
 
@@ -226,19 +226,19 @@ public class a {
 
     @NonNull
     public a d(@NonNull d.b.g0.a.i2.u0.b<Pipe.SourceChannel>... bVarArr) {
-        this.f44766a.addAll(Arrays.asList(bVarArr));
+        this.f44767a.addAll(Arrays.asList(bVarArr));
         return this;
     }
 
     public final void e(String str) {
-        d.b.g0.a.i2.u0.b<String> bVar = this.f44771f;
+        d.b.g0.a.i2.u0.b<String> bVar = this.f44772f;
         if (bVar != null) {
             bVar.onCallback(str);
         }
     }
 
     public a g(Bundle bundle) {
-        this.f44772g.C(bundle);
+        this.f44773g.C(bundle);
         return this;
     }
 
@@ -255,13 +255,13 @@ public class a {
         }
         try {
             if (i) {
-                m("main await for timeout: " + this.f44770e.toMillis(this.f44769d));
+                m("main await for timeout: " + this.f44771e.toMillis(this.f44770d));
             }
             boolean z = false;
-            if (this.f44769d < 0) {
+            if (this.f44770d < 0) {
                 countDownLatch.await();
             } else {
-                z = !countDownLatch.await(this.f44769d, this.f44770e);
+                z = !countDownLatch.await(this.f44770d, this.f44771e);
             }
             if (i) {
                 StringBuilder sb = new StringBuilder();
@@ -287,16 +287,16 @@ public class a {
 
     public final List<e> i() {
         ArrayList arrayList = new ArrayList();
-        d.b.g0.a.i2.u0.a.c(new C0701a(arrayList), this.f44766a);
+        d.b.g0.a.i2.u0.a.c(new C0702a(arrayList), this.f44767a);
         return arrayList;
     }
 
     public float j() {
-        return this.f44773h;
+        return this.f44774h;
     }
 
     public final float k() {
-        float g2 = this.f44772g.g("progress_granularity", 0.01f);
+        float g2 = this.f44773g.g("progress_granularity", 0.01f);
         if (g2 < 0.0f) {
             g2 = 0.0f;
         }
@@ -308,11 +308,11 @@ public class a {
 
     @NonNull
     public final ExecutorService l(@NonNull List<e> list, @NonNull CountDownLatch countDownLatch) {
-        ExecutorService executorService = this.f44767b;
-        if (executorService == null || executorService.isShutdown() || this.f44767b.isTerminated()) {
-            this.f44767b = null;
+        ExecutorService executorService = this.f44768b;
+        if (executorService == null || executorService.isShutdown() || this.f44768b.isTerminated()) {
+            this.f44768b = null;
         }
-        ExecutorService executorService2 = this.f44767b;
+        ExecutorService executorService2 = this.f44768b;
         if (executorService2 == null) {
             executorService2 = Executors.newCachedThreadPool();
         }
@@ -329,8 +329,8 @@ public class a {
         float f2 = 0.0f;
         s(0.0f);
         float k = k();
-        long j2 = this.f44772g.j("length");
-        ByteBuffer allocate = ByteBuffer.allocate(this.f44768c);
+        long j2 = this.f44773g.j("length");
+        ByteBuffer allocate = ByteBuffer.allocate(this.f44769c);
         long j3 = 0;
         int i3 = 0;
         while (true) {
@@ -353,7 +353,7 @@ public class a {
                             if (f3 > 1.0f) {
                                 f3 = 1.0f;
                             }
-                            float f4 = f3 - this.f44773h;
+                            float f4 = f3 - this.f44774h;
                             int round = Math.round(100.0f * f3);
                             i2 = i4;
                             StringBuilder sb = new StringBuilder();
@@ -427,12 +427,12 @@ public class a {
         if (i2 < 1) {
             i2 = 8192;
         }
-        this.f44768c = i2;
+        this.f44769c = i2;
         return this;
     }
 
     public a p(d.b.g0.a.i2.u0.b<String> bVar) {
-        this.f44771f = bVar;
+        this.f44772f = bVar;
         return this;
     }
 
@@ -441,23 +441,23 @@ public class a {
         if (j < 0) {
             j = -1;
         }
-        this.f44769d = j;
-        this.f44770e = timeUnit;
+        this.f44770d = j;
+        this.f44771e = timeUnit;
         return this;
     }
 
     public final void r(@NonNull ExecutorService executorService) {
-        if (executorService != this.f44767b && !executorService.isShutdown()) {
+        if (executorService != this.f44768b && !executorService.isShutdown()) {
             executorService.shutdown();
         }
-        this.f44767b = null;
+        this.f44768b = null;
     }
 
     public final void s(float f2) {
         if (i) {
             m("updateProgress: progress=" + f2);
         }
-        this.f44773h = f2;
+        this.f44774h = f2;
         e("on_progress");
     }
 }

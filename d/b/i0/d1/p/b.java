@@ -15,22 +15,22 @@ import com.baidu.tieba.im.message.RequestGetGroupInfoMessage;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
 import d.b.b.c.g.c;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f53965d;
+    public static b f53966d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53966a;
+    public String f53967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f53967b;
+    public c f53968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f53968c;
+    public CustomMessageListener f53969c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends c {
         public a(int i) {
             super(i);
@@ -46,9 +46,9 @@ public class b {
     }
 
     /* renamed from: d.b.i0.d1.p.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1207b extends CustomMessageListener {
-        public C1207b(b bVar, int i) {
+    /* loaded from: classes3.dex */
+    public class C1208b extends CustomMessageListener {
+        public C1208b(b bVar, int i) {
             super(i);
         }
 
@@ -68,23 +68,23 @@ public class b {
 
     public b() {
         new ArrayList();
-        this.f53967b = new a(202006);
-        this.f53968c = new C1207b(this, 0);
+        this.f53968b = new a(202006);
+        this.f53969c = new C1208b(this, 0);
     }
 
     public static synchronized b b() {
         b bVar;
         synchronized (b.class) {
-            if (f53965d == null) {
-                f53965d = new b();
+            if (f53966d == null) {
+                f53966d = new b();
             }
-            bVar = f53965d;
+            bVar = f53966d;
         }
         return bVar;
     }
 
     public String c() {
-        return this.f53966a;
+        return this.f53967a;
     }
 
     public void d() {
@@ -121,12 +121,12 @@ public class b {
     }
 
     public final void f() {
-        MessageManager.getInstance().registerListener(this.f53967b);
-        MessageManager.getInstance().registerListener(2016014, this.f53968c);
+        MessageManager.getInstance().registerListener(this.f53968b);
+        MessageManager.getInstance().registerListener(2016014, this.f53969c);
     }
 
     public void g(String str) {
-        this.f53966a = str;
+        this.f53967a = str;
     }
 
     public final void h(long j, long j2, int i) {

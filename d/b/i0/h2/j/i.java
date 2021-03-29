@@ -21,10 +21,10 @@ public class i extends d.b.i0.x.b<d.b.i0.h2.e.k> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e == i) {
+        if (this.f62180e == i) {
             return;
         }
-        this.f62179e = i;
+        this.f62180e = i;
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
     }
@@ -40,7 +40,7 @@ public class i extends d.b.i0.x.b<d.b.i0.h2.e.k> {
         if (kVar == null) {
             return;
         }
-        this.m.setPadding(kVar.f55299f, kVar.f55300g, 0, kVar.f55301h);
-        this.m.setText(this.f62181g.getString(kVar.f55298e));
+        this.m.setPadding(kVar.f55300f, kVar.f55301g, 0, kVar.f55302h);
+        this.m.setText(this.f62182g.getString(kVar.f55299e));
     }
 }

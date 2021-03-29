@@ -12,34 +12,34 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f48032d = new e();
+    public static volatile e f48033d = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    public g f48033a = new g();
+    public g f48034a = new g();
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f48035c = false;
+    public volatile boolean f48036c = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentLinkedQueue<d.b.g0.g.d.g.c> f48034b = new ConcurrentLinkedQueue<>();
+    public ConcurrentLinkedQueue<d.b.g0.g.d.g.c> f48035b = new ConcurrentLinkedQueue<>();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48036e;
+        public final /* synthetic */ String f48037e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.d.i.b f48037f;
+        public final /* synthetic */ d.b.g0.g.d.i.b f48038f;
 
         public a(String str, d.b.g0.g.d.i.b bVar) {
-            this.f48036e = str;
-            this.f48037f = bVar;
+            this.f48037e = str;
+            this.f48038f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.j(this.f48036e, this.f48037f);
+            e.this.j(this.f48037e, this.f48038f);
         }
     }
 
@@ -55,37 +55,37 @@ public class e {
             str = "";
             try {
                 try {
-                    if (d.b.g0.g.d.a.f48027a) {
+                    if (d.b.g0.g.d.a.f48028a) {
                         Log.d("BDTLS", "doHandShake response");
                     }
                     if (z && bArr != null && (a2 = d.b.g0.g.d.h.b.a(bArr)) != null) {
                         byte h2 = a2.h();
                         byte[] e2 = a2.e();
                         if (e2 != null) {
-                            if (d.b.g0.g.d.a.f48027a) {
+                            if (d.b.g0.g.d.a.f48028a) {
                                 Log.d("BDTLS", "doHandShake response schemeType =" + ((int) h2));
                             }
                             if (h2 == 21) {
-                                if (d.b.g0.g.d.a.f48027a) {
+                                if (d.b.g0.g.d.a.f48028a) {
                                     Log.d("BDTLS", "doHandShake alert");
                                 }
                                 Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(e2);
                                 if (parseFrom != null) {
-                                    if (d.b.g0.g.d.a.f48027a) {
+                                    if (d.b.g0.g.d.a.f48028a) {
                                         Log.d("BDTLS", "bdtls ubc handshake alert");
                                     }
                                     str = parseFrom.getDescription() != null ? new String(parseFrom.getDescription().toByteArray()) : "";
-                                    f.b(e.this.f48033a, parseFrom);
+                                    f.b(e.this.f48034a, parseFrom);
                                 }
                             } else if (h2 == 22) {
-                                if (d.b.g0.g.d.h.a.a(e.this.f48033a, e2) != null) {
-                                    if (d.b.g0.g.d.a.f48027a) {
+                                if (d.b.g0.g.d.h.a.a(e.this.f48034a, e2) != null) {
+                                    if (d.b.g0.g.d.a.f48028a) {
                                         Log.d("BDTLS", "doHandShake serverHello");
                                     }
-                                    e.this.f48033a.s(1);
+                                    e.this.f48034a.s(1);
                                     f.a("serverHello");
                                     while (true) {
-                                        d.b.g0.g.d.g.c cVar = (d.b.g0.g.d.g.c) e.this.f48034b.poll();
+                                        d.b.g0.g.d.g.c cVar = (d.b.g0.g.d.g.c) e.this.f48035b.poll();
                                         if (cVar == null) {
                                             return;
                                         }
@@ -98,32 +98,32 @@ public class e {
                         }
                     }
                 } catch (Exception e3) {
-                    if (d.b.g0.g.d.a.f48027a) {
+                    if (d.b.g0.g.d.a.f48028a) {
                         e3.printStackTrace();
                         Log.d("BDTLS", "exception=" + e3.getMessage());
                     }
                 }
                 e.this.m(str);
             } finally {
-                e.this.f48035c = false;
+                e.this.f48036c = false;
             }
         }
     }
 
     public static e l() {
-        return f48032d;
+        return f48033d;
     }
 
     public final void g(String str, d.b.g0.g.d.i.b bVar) {
         byte[] b2;
         if (str != null && bVar != null) {
             if (TextUtils.equals(bVar.b(), "GET")) {
-                b2 = d.f().b(this.f48033a, null);
+                b2 = d.f().b(this.f48034a, null);
             } else {
-                b2 = d.f().b(this.f48033a, str);
+                b2 = d.f().b(this.f48034a, str);
             }
             if (b2 != null) {
-                if (d.b.g0.g.d.a.f48027a) {
+                if (d.b.g0.g.d.a.f48028a) {
                     Log.d("BDTLS", "doBdtlsApplicationDataRequest");
                 }
                 bVar.h(true);
@@ -137,29 +137,29 @@ public class e {
     }
 
     public void h() {
-        if (d.b.g0.g.d.a.f48027a) {
+        if (d.b.g0.g.d.a.f48028a) {
             Log.d("BDTLS", "doHandShake");
         }
-        if (this.f48035c) {
-            if (d.b.g0.g.d.a.f48027a) {
+        if (this.f48036c) {
+            if (d.b.g0.g.d.a.f48028a) {
                 Log.d("BDTLS", "doHandShake isHandshakeRunning");
                 return;
             }
             return;
         }
-        this.f48035c = true;
-        byte[] e2 = d.f().e(this.f48033a);
+        this.f48036c = true;
+        byte[] e2 = d.f().e(this.f48034a);
         if (e2 != null && e2.length > 0) {
             new d.b.g0.g.d.i.d().a(e2, new b());
             return;
         }
-        this.f48035c = false;
+        this.f48036c = false;
         m("record data error");
     }
 
     public final void i(String str, d.b.g0.g.d.i.b bVar) {
         if (bVar != null && str != null) {
-            if (d.b.g0.g.d.a.f48027a) {
+            if (d.b.g0.g.d.a.f48028a) {
                 Log.d("BDTLS", "doNormalApplicationDataRequest");
             }
             bVar.h(false);
@@ -170,12 +170,12 @@ public class e {
     }
 
     public final void j(String str, d.b.g0.g.d.i.b bVar) {
-        if (this.f48033a.h() != 2) {
-            if (!this.f48033a.j()) {
-                if (this.f48034b == null) {
-                    this.f48034b = new ConcurrentLinkedQueue<>();
+        if (this.f48034a.h() != 2) {
+            if (!this.f48034a.j()) {
+                if (this.f48035b == null) {
+                    this.f48035b = new ConcurrentLinkedQueue<>();
                 }
-                this.f48034b.offer(new d.b.g0.g.d.g.c(str, bVar));
+                this.f48035b.offer(new d.b.g0.g.d.g.c(str, bVar));
                 h();
                 return;
             }
@@ -186,20 +186,20 @@ public class e {
     }
 
     public g k() {
-        if (this.f48033a == null) {
-            this.f48033a = new g();
+        if (this.f48034a == null) {
+            this.f48034a = new g();
         }
-        return this.f48033a;
+        return this.f48034a;
     }
 
     public final void m(String str) {
-        if (d.b.g0.g.d.a.f48027a) {
+        if (d.b.g0.g.d.a.f48028a) {
             Log.d("BDTLS", "onHandshakeError");
         }
         int i = TextUtils.equals(str, "down grade") ? 2 : -1;
-        this.f48033a.s(i);
+        this.f48034a.s(i);
         while (true) {
-            d.b.g0.g.d.g.c poll = this.f48034b.poll();
+            d.b.g0.g.d.g.c poll = this.f48035b.poll();
             if (poll == null) {
                 return;
             }

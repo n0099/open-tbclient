@@ -1,7 +1,7 @@
 package com.baidu.apollon.utils;
 
 import com.baidu.searchbox.track.ui.TrackUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ExceptionUtils {
     public static String createStackTrackMessage(Exception exc) {
         StackTraceElement[] stackTrace;

@@ -15,16 +15,16 @@ public class CircleView extends View {
     public static final int k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
 
     /* renamed from: e  reason: collision with root package name */
-    public float f14225e;
+    public float f14226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f14226f;
+    public float f14227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f14227g;
+    public float f14228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f14228h;
+    public Paint f14229h;
 
     public CircleView(Context context) {
         super(context);
@@ -35,22 +35,22 @@ public class CircleView extends View {
         i = l.g(context, R.dimen.tbds94);
         j = l.g(context, R.dimen.tbds94);
         Paint paint = new Paint();
-        this.f14228h = paint;
+        this.f14229h = paint;
         paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-        this.f14228h.setAntiAlias(true);
-        this.f14228h.setStyle(Paint.Style.STROKE);
-        this.f14228h.setStrokeWidth(k);
+        this.f14229h.setAntiAlias(true);
+        this.f14229h.setStyle(Paint.Style.STROKE);
+        this.f14229h.setStrokeWidth(k);
     }
 
     public void b() {
-        this.f14228h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
+        this.f14229h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(this.f14225e, this.f14226f, this.f14227g, this.f14228h);
+        canvas.drawCircle(this.f14226e, this.f14227f, this.f14228g, this.f14229h);
     }
 
     @Override // android.view.View
@@ -72,9 +72,9 @@ public class CircleView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f14225e = i2 / 2.0f;
-        this.f14226f = i3 / 2.0f;
-        this.f14227g = (Math.min(i2, i3) / 2.0f) - k;
+        this.f14226e = i2 / 2.0f;
+        this.f14227f = i3 / 2.0f;
+        this.f14228g = (Math.min(i2, i3) / 2.0f) - k;
     }
 
     public CircleView(Context context, AttributeSet attributeSet) {

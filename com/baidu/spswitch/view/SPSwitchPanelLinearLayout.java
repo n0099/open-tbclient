@@ -10,7 +10,7 @@ import com.baidu.spswitch.IPanelConflictLayout;
 import com.baidu.spswitch.IPanelHeightTarget;
 import com.baidu.spswitch.handler.SPSwitchPanelLayoutHandler;
 import com.baidu.spswitch.utils.SPConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelConflictLayout, IPanelHeightTarget {
     public SPSwitchPanelLayoutHandler mPanelLayoutHandler;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();

@@ -3,27 +3,27 @@ package d.b.h0.r.q;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50761a = 0;
+    public int f50762a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50762b = 0;
+    public int f50763b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50763c = 1;
+    public int f50764c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50764d = 1;
+    public int f50765d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50765e = 0;
+    public int f50766e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50766f = 0;
+    public int f50767f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50767g = 1;
+    public int f50768g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50768h = 0;
+    public int f50769h = 0;
     public int i = 0;
 }

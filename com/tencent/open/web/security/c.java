@@ -7,24 +7,24 @@ import com.tencent.open.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class c extends a.C0515a {
+public class c extends a.C0516a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39343d;
+    public String f39344d;
 
     public c(WebView webView, long j, String str, String str2) {
         super(webView, j, str);
-        this.f39343d = str2;
+        this.f39344d = str2;
     }
 
     private void b(String str) {
-        WebView webView = this.f39188a.get();
+        WebView webView = this.f39189a.get();
         if (webView != null) {
             StringBuffer stringBuffer = new StringBuffer("javascript:");
             stringBuffer.append("if(!!");
-            stringBuffer.append(this.f39343d);
+            stringBuffer.append(this.f39344d);
             stringBuffer.append("){");
-            stringBuffer.append(this.f39343d);
+            stringBuffer.append(this.f39344d);
             stringBuffer.append("(");
             stringBuffer.append(str);
             stringBuffer.append(")}");
@@ -34,23 +34,23 @@ public class c extends a.C0515a {
         }
     }
 
-    @Override // com.tencent.open.a.C0515a
+    @Override // com.tencent.open.a.C0516a
     public void a(Object obj) {
         f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C0515a
+    @Override // com.tencent.open.a.C0516a
     public void a() {
         f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C0515a
+    @Override // com.tencent.open.a.C0516a
     public void a(String str) {
         f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("result", !com.tencent.open.c.c.f39273a ? -4 : 0);
-            jSONObject.put(IXAdRequestInfo.SN, this.f39189b);
+            jSONObject.put("result", !com.tencent.open.c.c.f39274a ? -4 : 0);
+            jSONObject.put(IXAdRequestInfo.SN, this.f39190b);
             jSONObject.put("data", str);
         } catch (JSONException e2) {
             e2.printStackTrace();

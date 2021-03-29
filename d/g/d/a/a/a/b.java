@@ -5,35 +5,29 @@ import java.util.concurrent.TimeUnit;
 public class b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final double f66136f;
+    public static final double f66137f = 1.0d / TimeUnit.NANOSECONDS.convert(1, TimeUnit.SECONDS);
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f66137a;
+    public final double f66138a;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f66139c;
+    public long f66140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66140d;
+    public int f66141d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f66138b = new g();
+    public final g f66139b = new g();
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f66141e = new g();
-
-    static {
-        double convert = TimeUnit.NANOSECONDS.convert(1L, TimeUnit.SECONDS);
-        Double.isNaN(convert);
-        f66136f = 1.0d / convert;
-    }
+    public final g f66142e = new g();
 
     public b(double d2) {
-        this.f66137a = 1.0d / (d2 * 6.283185307179586d);
+        this.f66138a = 1.0d / (d2 * 6.283185307179586d);
     }
 
     public int a() {
-        return this.f66140d;
+        return this.f66141d;
     }
 
     public void b(g gVar, long j) {
@@ -41,26 +35,24 @@ public class b {
     }
 
     public void c(g gVar, long j, double d2) {
-        int i = this.f66140d + 1;
-        this.f66140d = i;
+        int i = this.f66141d + 1;
+        this.f66141d = i;
         if (i == 1) {
-            this.f66138b.f(gVar);
+            this.f66139b.f(gVar);
         } else {
-            double d3 = j - this.f66139c;
-            Double.isNaN(d3);
-            double d4 = d2 * d3 * f66136f;
-            double d5 = d4 / (this.f66137a + d4);
-            this.f66138b.c(1.0d - d5);
-            this.f66141e.f(gVar);
-            this.f66141e.c(d5);
-            g gVar2 = this.f66141e;
-            g gVar3 = this.f66138b;
+            double d3 = d2 * (j - this.f66140c) * f66137f;
+            double d4 = d3 / (this.f66138a + d3);
+            this.f66139b.c(1.0d - d4);
+            this.f66142e.f(gVar);
+            this.f66142e.c(d4);
+            g gVar2 = this.f66142e;
+            g gVar3 = this.f66139b;
             g.g(gVar2, gVar3, gVar3);
         }
-        this.f66139c = j;
+        this.f66140c = j;
     }
 
     public g d() {
-        return this.f66138b;
+        return this.f66139b;
     }
 }

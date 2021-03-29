@@ -16,7 +16,7 @@ import d.b.i.m0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -24,7 +24,7 @@ public class d extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
     public s p;
     public b0<a2> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -38,7 +38,7 @@ public class d extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -62,7 +62,7 @@ public class d extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
             d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) nVar;
             eVar.k = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), 2, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
         }
     }
 
@@ -79,8 +79,8 @@ public class d extends d.b.b.j.e.a<a2, ThreadCardViewHolder<a2>> {
         bVar.h(new d.b.i.k(this.o.getPageActivity()));
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.A(3);

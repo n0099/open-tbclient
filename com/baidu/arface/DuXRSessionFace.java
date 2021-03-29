@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DuXRSessionFace {
     public static final boolean DEBUG = false;
     public static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -49,7 +49,7 @@ public class DuXRSessionFace {
     public Camera.PreviewCallback mPreviewCallback = new c();
     public FaceListener mFaceListener = new d(this);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements PermissionListener {
         public a() {
         }
@@ -68,7 +68,7 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements SurfaceTexture.OnFrameAvailableListener {
         public b() {
         }
@@ -80,7 +80,7 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements Camera.PreviewCallback {
         public c() {
         }
@@ -96,13 +96,13 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements FaceListener {
         public d(DuXRSessionFace duXRSessionFace) {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e extends Handler {
         public e(Looper looper) {
             super(looper);
@@ -234,20 +234,12 @@ public class DuXRSessionFace {
         if (list == null) {
             return;
         }
-        double d2 = i;
-        double d3 = i2;
-        Double.isNaN(d2);
-        Double.isNaN(d3);
-        double d4 = d2 / d3;
+        double d2 = i / i2;
         Camera.Size size = null;
-        double d5 = Double.MAX_VALUE;
+        double d3 = Double.MAX_VALUE;
         for (Camera.Size size2 : list) {
-            double d6 = size2.width;
-            double d7 = size2.height;
-            Double.isNaN(d6);
-            Double.isNaN(d7);
-            if (Math.abs((d6 / d7) - d4) <= 0.1d && Math.abs(size2.height - i2) < d5) {
-                d5 = Math.abs(size2.height - i2);
+            if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i2) < d3) {
+                d3 = Math.abs(size2.height - i2);
                 size = size2;
             }
         }

@@ -3,16 +3,16 @@ package d.b.i0.i2;
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56083e;
+    public boolean f56084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56084f;
+    public int f56085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56085g;
+    public int f56086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56086h = false;
+    public boolean f56087h = false;
     public i i;
 
     public b(i iVar) {
@@ -20,19 +20,19 @@ public class b implements Runnable {
     }
 
     public void a(int i) {
-        this.f56084f = i;
+        this.f56085f = i;
     }
 
     public void b(boolean z) {
-        this.f56083e = z;
+        this.f56084e = z;
     }
 
     public void c(int i) {
-        this.f56085g = i;
+        this.f56086g = i;
     }
 
     public void d(boolean z) {
-        this.f56086h = z;
+        this.f56087h = z;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public class b implements Runnable {
         if (iVar == null) {
             return;
         }
-        if (!this.f56086h) {
-            iVar.m(this.f56084f, this.f56085g, this.f56083e, 2);
+        if (!this.f56087h) {
+            iVar.m(this.f56085f, this.f56086g, this.f56084e, 2);
         } else {
-            iVar.m(this.f56084f, this.f56085g, this.f56083e, 1);
+            iVar.m(this.f56085f, this.f56086g, this.f56084e, 1);
         }
     }
 }

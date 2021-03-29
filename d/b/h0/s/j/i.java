@@ -3,7 +3,7 @@ package d.b.h0.s.j;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import d.b.b.c.f.j;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class i extends j {
     public i() {
         super(0);

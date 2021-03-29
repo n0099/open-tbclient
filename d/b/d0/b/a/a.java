@@ -11,14 +11,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f42714a;
+    public static volatile String f42715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f42715b;
+    public static volatile int f42716b;
 
     public static int a() {
         Context a2 = e.a();
@@ -36,17 +36,17 @@ public class a {
     }
 
     public static String b() {
-        String str = f42714a;
+        String str = f42715a;
         if (str == null) {
             synchronized (a.class) {
-                str = f42714a;
+                str = f42715a;
                 if (str == null) {
                     Context a2 = e.a();
                     String d2 = d();
                     if (d2 == null && (d2 = c(a2)) == null) {
                         d2 = a2.getPackageName();
                     }
-                    f42714a = d2;
+                    f42715a = d2;
                     str = d2;
                 }
             }
@@ -134,12 +134,12 @@ public class a {
     }
 
     public static int e() {
-        int i = f42715b;
+        int i = f42716b;
         if (i == 0) {
             String b2 = b();
             String packageName = e.a().getPackageName();
             i = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i | 1 | 2 : i | 4;
-            f42715b = i;
+            f42716b = i;
         }
         return i;
     }

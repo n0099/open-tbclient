@@ -81,7 +81,7 @@ public class MemeLoaderProc2 implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f41847a = diskCancelWorker;
+                    bVar.f41848a = diskCancelWorker;
                 }
             }
         }
@@ -119,7 +119,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (d.g().a(cVar)) {
             int i3 = j.H() ? 300 : 2000;
@@ -174,11 +174,11 @@ public class MemeLoaderProc2 implements e<a> {
         String str4 = str3;
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f41847a = webClient;
+            bVar.f41848a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
         boolean needCache = webClient.needCache();
-        if (downloadImageBytes != null || webClient.getResponse().f41796a) {
+        if (downloadImageBytes != null || webClient.getResponse().f41797a) {
             d.b.h0.a0.c.j().h(TbConfig.getPbImageSize() + downloadImageBytes.length);
             return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.A(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }

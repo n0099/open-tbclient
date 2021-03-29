@@ -8,25 +8,25 @@ import android.widget.LinearLayout;
 public class HalfScreenContainerLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f26390a;
+    public boolean f26391a;
 
     public HalfScreenContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26390a = false;
+        this.f26391a = false;
     }
 
     @Override // android.view.View
     public boolean isClickable() {
-        return !this.f26390a;
+        return !this.f26391a;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.f26390a;
+        return this.f26391a;
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
-        this.f26390a = !z;
+        this.f26391a = !z;
     }
 }

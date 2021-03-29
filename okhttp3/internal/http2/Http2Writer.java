@@ -165,10 +165,11 @@ public final class Http2Writer implements Closeable {
             long size = this.hpackBuffer.size();
             int min = (int) Math.min(this.maxFrameSize - 4, size);
             long j = min;
-            frameHeader(i, min + 4, (byte) 5, size == j ? (byte) 4 : (byte) 0);
+            int i3 = (size > j ? 1 : (size == j ? 0 : -1));
+            frameHeader(i, min + 4, (byte) 5, i3 == 0 ? (byte) 4 : (byte) 0);
             this.sink.writeInt(i2 & Integer.MAX_VALUE);
             this.sink.write(this.hpackBuffer, j);
-            if (size > j) {
+            if (i3 > 0) {
                 writeContinuationFrames(i, size - j);
             }
         } else {
@@ -242,13 +243,14 @@ public final class Http2Writer implements Closeable {
             long size = this.hpackBuffer.size();
             int min = (int) Math.min(this.maxFrameSize, size);
             long j = min;
-            byte b2 = size == j ? (byte) 4 : (byte) 0;
+            int i2 = (size > j ? 1 : (size == j ? 0 : -1));
+            byte b2 = i2 == 0 ? (byte) 4 : (byte) 0;
             if (z) {
                 b2 = (byte) (b2 | 1);
             }
             frameHeader(i, min, (byte) 1, b2);
             this.sink.write(this.hpackBuffer, j);
-            if (size > j) {
+            if (i2 > 0) {
                 writeContinuationFrames(i, size - j);
                 return;
             }

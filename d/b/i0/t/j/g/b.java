@@ -15,19 +15,19 @@ import d.b.b.e.p.l;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60880a;
+    public TbPageContext f60881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaRefreshScoreModel f60881b;
+    public AlaRefreshScoreModel f60882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f60882c;
+    public c f60883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f60883d = new a(2001227);
+    public CustomMessageListener f60884d = new a(2001227);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f60884e = new C1569b(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
+    public CustomMessageListener f60885e = new C1570b(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -44,16 +44,16 @@ public class b {
 
     /* renamed from: d.b.i0.t.j.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1569b extends CustomMessageListener {
-        public C1569b(int i) {
+    public class C1570b extends CustomMessageListener {
+        public C1570b(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.f60882c != null) {
-                b.this.f60882c.a(true);
+            if (b.this.f60883c != null) {
+                b.this.f60883c.a(true);
             }
         }
     }
@@ -64,9 +64,9 @@ public class b {
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f60880a = tbPageContext;
-        tbPageContext.registerListener(this.f60883d);
-        this.f60880a.registerListener(this.f60884e);
+        this.f60881a = tbPageContext;
+        tbPageContext.registerListener(this.f60884d);
+        this.f60881a.registerListener(this.f60885e);
     }
 
     public void c(long j) {
@@ -75,13 +75,13 @@ public class b {
             return;
         }
         if (j2 > 200000000) {
-            l.L(TbadkCoreApplication.getInst(), this.f60880a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
+            l.L(TbadkCoreApplication.getInst(), this.f60881a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
             return;
         }
         if (j2 % 1000 != 0) {
             j2 = ((j2 / 1000) + 1) * 1000;
         }
-        BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.f60880a.getPageActivity(), 0L);
+        BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.f60881a.getPageActivity(), 0L);
         buyTBeanActivityConfig.setFromDecreaseGiftStepStrategy(2);
         buyTBeanActivityConfig.setTBeanLeftToBuyGift(j2);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
@@ -89,18 +89,18 @@ public class b {
 
     public final boolean d() {
         if (TbadkCoreApplication.isLogin()) {
-            if (this.f60881b == null) {
+            if (this.f60882b == null) {
                 AlaRefreshScoreModel alaRefreshScoreModel = new AlaRefreshScoreModel();
-                this.f60881b = alaRefreshScoreModel;
+                this.f60882b = alaRefreshScoreModel;
                 alaRefreshScoreModel.initListener();
             }
-            this.f60881b.refreshCurUserScores();
+            this.f60882b.refreshCurUserScores();
             return true;
         }
         return false;
     }
 
     public void e(c cVar) {
-        this.f60882c = cVar;
+        this.f60883c = cVar;
     }
 }

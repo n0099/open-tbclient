@@ -26,7 +26,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> {
     @Nullable
     public ImmutableList<DrawableFactory> mCustomDrawableFactories;

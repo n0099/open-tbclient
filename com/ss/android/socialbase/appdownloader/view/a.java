@@ -62,7 +62,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(c.f66950c)) {
+            if (lowerCase.contains(c.f66955c)) {
                 Intent intent = new Intent();
                 intent.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

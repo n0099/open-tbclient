@@ -1,8 +1,8 @@
 package com.baidu.searchbox.perfframe;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class attr {
         public static final int alpha = 0x7f040070;
         public static final int font = 0x7f0401a5;
@@ -18,7 +18,7 @@ public final class R {
         public static final int ttcIndex = 0x7f040507;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class color {
         public static final int notification_action_color_filter = 0x7f060687;
         public static final int notification_icon_bg_color = 0x7f060688;
@@ -26,7 +26,7 @@ public final class R {
         public static final int secondary_text_default_material_light = 0x7f0608ac;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class dimen {
         public static final int compat_button_inset_horizontal_material = 0x7f07018a;
         public static final int compat_button_inset_vertical_material = 0x7f07018b;
@@ -52,7 +52,7 @@ public final class R {
         public static final int notification_top_pad_large_text = 0x7f070409;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static final int notification_action_background = 0x7f08140d;
         public static final int notification_bg = 0x7f08140e;
@@ -68,7 +68,7 @@ public final class R {
         public static final int notify_panel_notification_icon_bg = 0x7f081419;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class id {
         public static final int action_container = 0x7f090037;
         public static final int action_divider = 0x7f090039;
@@ -100,12 +100,12 @@ public final class R {
         public static final int title = 0x7f092152;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class integer {
         public static final int status_bar_notification_info_maxnum = 0x7f0a0019;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class layout {
         public static final int notification_action = 0x7f0c057b;
         public static final int notification_action_tombstone = 0x7f0c057c;
@@ -115,19 +115,19 @@ public final class R {
         public static final int notification_template_part_time = 0x7f0c058a;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class raw {
         public static final int tnconfig = 0x7f0e0082;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int activity_not_found = 0x7f0f008f;
         public static final int app_name = 0x7f0f02af;
         public static final int status_bar_notification_info_overflow = 0x7f0f11f4;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f100180;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f100181;
@@ -138,7 +138,7 @@ public final class R {
         public static final int Widget_Compat_NotificationActionText = 0x7f100249;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class styleable {
         public static final int ColorStateListItem_alpha = 0x00000002;
         public static final int ColorStateListItem_android_alpha = 0x00000001;

@@ -9,10 +9,10 @@ import d.b.h0.w.m;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 16, i);
-        this.f51532d = R.drawable.icon_pure_post_vip24;
-        this.f51534f = R.drawable.icon_pure_post_more_tail64;
-        this.f51535g = false;
-        this.f51536h = true;
+        this.f51533d = R.drawable.icon_pure_post_vip24;
+        this.f51535f = R.drawable.icon_pure_post_more_tail64;
+        this.f51536g = false;
+        this.f51537h = true;
         this.k = new TailToolController(context);
         this.m = true;
         this.l = 6;

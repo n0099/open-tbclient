@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.apollon.statusbar.ImmersiveStatusBarManager;
 import com.baidu.apollon.statusbar.StatusBarUtils;
 import com.baidu.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TitleBar extends LinearLayout {
     public LinearLayout leftBtn;
     public View mStatusBarTop;

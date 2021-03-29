@@ -74,8 +74,8 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
 
     /* renamed from: d.b.i0.r2.z.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1515b implements DragImageView.h {
-        public C1515b() {
+    public class C1516b implements DragImageView.h {
+        public C1516b() {
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.h
@@ -109,10 +109,10 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
             b.this.p.setVisibility(0);
             b.this.t.setVisibility(0);
             b bVar = b.this;
-            AdvertAppInfo advertAppInfo = bVar.f59989f;
+            AdvertAppInfo advertAppInfo = bVar.f59990f;
             if (advertAppInfo != null) {
                 bVar.v.setVisibility(advertAppInfo.E4() ? 0 : 8);
-                if (b.this.f59989f.C4()) {
+                if (b.this.f59990f.C4()) {
                     b.this.m.setVisibility(0);
                 } else {
                     b.this.w.setVisibility(0);
@@ -125,19 +125,19 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
     public class c implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public float f59994e = 0.0f;
+        public float f59995e = 0.0f;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f59995f = 0.0f;
+        public float f59996f = 0.0f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f59996g = 0.0f;
+        public float f59997g = 0.0f;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f59997h;
+        public final /* synthetic */ View.OnClickListener f59998h;
 
         public c(View.OnClickListener onClickListener) {
-            this.f59997h = onClickListener;
+            this.f59998h = onClickListener;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -145,26 +145,23 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action == 1) {
-                    b.this.q = 10.0f < this.f59996g;
+                    b.this.q = 10.0f < this.f59997g;
                     b bVar = b.this;
                     if (!bVar.q) {
-                        this.f59997h.onClick(bVar.l);
+                        this.f59998h.onClick(bVar.l);
                     }
                 } else if (action == 2) {
-                    float x = motionEvent.getX() - this.f59994e;
-                    float y = motionEvent.getY() - this.f59995f;
-                    double d2 = this.f59996g;
-                    double sqrt = Math.sqrt((x * x) + (y * y));
-                    Double.isNaN(d2);
-                    this.f59996g = (float) (d2 + sqrt);
-                    this.f59994e = motionEvent.getX();
-                    this.f59995f = motionEvent.getY();
+                    float x = motionEvent.getX() - this.f59995e;
+                    float y = motionEvent.getY() - this.f59996f;
+                    this.f59997g = (float) (this.f59997g + Math.sqrt((x * x) + (y * y)));
+                    this.f59995e = motionEvent.getX();
+                    this.f59996f = motionEvent.getY();
                 }
             } else {
                 b.this.q = false;
-                this.f59994e = motionEvent.getX();
-                this.f59995f = motionEvent.getY();
-                this.f59996g = 0.0f;
+                this.f59995e = motionEvent.getX();
+                this.f59996f = motionEvent.getY();
+                this.f59997g = 0.0f;
             }
             return false;
         }
@@ -180,7 +177,7 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
             int x;
             String str;
             b bVar = b.this;
-            if (bVar.f59989f == null || bVar.f59988e == null) {
+            if (bVar.f59990f == null || bVar.f59989e == null) {
                 return;
             }
             if (bVar.q && view.getId() == R.id.big_image_ad_image) {
@@ -195,7 +192,7 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
                 str = "title";
             } else {
                 x = b.this.x();
-                str = b.this.f59989f.B4() ? "image" : "video";
+                str = b.this.f59990f.B4() ? "image" : "video";
             }
             hashMap.put("da_area", str);
             b.this.j.a(x, hashMap);
@@ -209,19 +206,19 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
 
         @Override // d.b.i0.o.c.e.b.a
         public boolean b(View view) {
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(b.this.f59989f));
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(b.this.f59990f));
             b bVar = b.this;
-            if (bVar.f59991h != null && t.o(bVar.f59988e.getScheme()) && t.q(b.this.f59989f.J3)) {
+            if (bVar.f59992h != null && t.o(bVar.f59989e.getScheme()) && t.q(b.this.f59990f.J3)) {
                 b bVar2 = b.this;
-                Context context = bVar2.f59991h;
-                String scheme = bVar2.f59988e.getScheme();
-                AdvertAppInfo advertAppInfo = b.this.f59989f;
+                Context context = bVar2.f59992h;
+                String scheme = bVar2.f59989e.getScheme();
+                AdvertAppInfo advertAppInfo = b.this.f59990f;
                 t.d(context, scheme, advertAppInfo.J3, advertAppInfo.T3);
                 return true;
-            } else if (b.this.f59991h == null || d.b.i0.a.e().f() || z.a((Activity) b.this.f59991h)) {
+            } else if (b.this.f59992h == null || d.b.i0.a.e().f() || z.a((Activity) b.this.f59992h)) {
                 return false;
             } else {
-                l.K((Activity) b.this.f59991h, R.string.write_external_storage_permission_denied_fun_disable);
+                l.K((Activity) b.this.f59992h, R.string.write_external_storage_permission_denied_fun_disable);
                 return false;
             }
         }
@@ -254,23 +251,23 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
     }
 
     public final int B() {
-        String scheme = this.f59988e.getScheme() != null ? this.f59988e.getScheme() : this.f59989f.H3;
-        return t.d(this.f59991h, scheme, this.f59988e.getAdvertAppInfo() != null ? u(this.f59988e.getAdvertAppInfo()) : scheme, this.f59988e.getAdvertAppInfo() != null ? this.f59988e.getAdvertAppInfo().T3 : "");
+        String scheme = this.f59989e.getScheme() != null ? this.f59989e.getScheme() : this.f59990f.H3;
+        return t.d(this.f59992h, scheme, this.f59989e.getAdvertAppInfo() != null ? u(this.f59989e.getAdvertAppInfo()) : scheme, this.f59989e.getAdvertAppInfo() != null ? this.f59989e.getAdvertAppInfo().T3 : "");
     }
 
     public final void C() {
         String str;
         VideoInfo videoInfo;
         this.l.setEvent(new a());
-        if (this.f59989f.E4() && (videoInfo = this.x) != null) {
+        if (this.f59990f.E4() && (videoInfo = this.x) != null) {
             str = videoInfo.thumbnail_url;
         } else {
-            str = this.f59989f.U3.f13207f;
+            str = this.f59990f.U3.f13208f;
         }
-        this.l.T(str, this.f59990g ? 30 : 31, PeerConnectionClient.HD_VIDEO_HEIGHT, PeerConnectionClient.HD_VIDEO_HEIGHT, false);
+        this.l.T(str, this.f59991g ? 30 : 31, PeerConnectionClient.HD_VIDEO_HEIGHT, PeerConnectionClient.HD_VIDEO_HEIGHT, false);
         UrlDragImageView urlDragImageView = this.r;
         if (urlDragImageView != null) {
-            urlDragImageView.setIsCdn(this.f59990g);
+            urlDragImageView.setIsCdn(this.f59991g);
             this.r.setUrl(str, true);
         }
     }
@@ -329,26 +326,18 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
     }
 
     public void I() {
-        WindowManager windowManager = (WindowManager) this.f59991h.getSystemService("window");
+        WindowManager windowManager = (WindowManager) this.f59992h.getSystemService("window");
         if (windowManager == null) {
             return;
         }
         int width = windowManager.getDefaultDisplay().getWidth();
         ViewGroup.LayoutParams layoutParams = this.l.getLayoutParams();
-        double loadedHeight = this.l.getLoadedHeight();
-        double loadedWidth = this.l.getLoadedWidth();
-        Double.isNaN(loadedHeight);
-        Double.isNaN(loadedWidth);
-        double d2 = loadedHeight / loadedWidth;
-        if (d2 > 1.0d) {
+        double loadedHeight = this.l.getLoadedHeight() / this.l.getLoadedWidth();
+        if (loadedHeight > 1.0d) {
             layoutParams.height = width;
-            double d3 = width;
-            Double.isNaN(d3);
-            layoutParams.width = (int) (d3 / d2);
+            layoutParams.width = (int) (width / loadedHeight);
         } else {
-            double d4 = width;
-            Double.isNaN(d4);
-            layoutParams.height = (int) (d4 * d2);
+            layoutParams.height = (int) (width * loadedHeight);
             layoutParams.width = width;
         }
         this.l.setLayoutParams(layoutParams);
@@ -369,7 +358,7 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
         if (this.i == null) {
             return;
         }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f59991h).inflate(R.layout.ad_pic_page_layout, (ViewGroup) null);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f59992h).inflate(R.layout.ad_pic_page_layout, (ViewGroup) null);
         this.k = relativeLayout;
         this.l = (TbImageView) relativeLayout.findViewById(R.id.big_image_ad_image);
         this.m = (TBSpecificationBtn) this.k.findViewById(R.id.image_ad_button);
@@ -401,25 +390,25 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
     @Override // d.b.i0.r2.z.c.a.a
     public void g(AdCard adCard) {
         super.g(adCard);
-        AdvertAppInfo advertAppInfo = this.f59989f;
+        AdvertAppInfo advertAppInfo = this.f59990f;
         if (advertAppInfo == null || advertAppInfo.U3 == null) {
             return;
         }
-        this.x = this.f59988e.videoInfo;
+        this.x = this.f59989e.videoInfo;
         C();
-        z(this.f59989f, this.f59988e);
-        if (!TextUtils.isEmpty(this.f59989f.U3.f13203b)) {
-            this.o.setText(this.f59989f.U3.f13203b);
-            if (!TextUtils.isEmpty(this.f59989f.U3.n)) {
-                this.p.setText(this.f59989f.U3.n);
+        z(this.f59990f, this.f59989e);
+        if (!TextUtils.isEmpty(this.f59990f.U3.f13204b)) {
+            this.o.setText(this.f59990f.U3.f13204b);
+            if (!TextUtils.isEmpty(this.f59990f.U3.n)) {
+                this.p.setText(this.f59990f.U3.n);
             } else {
-                this.p.setText(this.f59991h.getString(R.string.advert_label));
+                this.p.setText(this.f59992h.getString(R.string.advert_label));
             }
         }
-        if (!TextUtils.isEmpty(this.f59989f.U3.f13205d)) {
-            this.n.setText(this.f59989f.U3.f13205d);
+        if (!TextUtils.isEmpty(this.f59990f.U3.f13206d)) {
+            this.n.setText(this.f59990f.U3.f13206d);
         }
-        this.v.setVisibility(this.f59989f.E4() ? 0 : 8);
+        this.v.setVisibility(this.f59990f.E4() ? 0 : 8);
         F(this.A);
     }
 
@@ -430,12 +419,12 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
 
     public void s() {
         this.l.setVisibility(4);
-        UrlDragImageView urlDragImageView = new UrlDragImageView(this.f59991h);
+        UrlDragImageView urlDragImageView = new UrlDragImageView(this.f59992h);
         this.r = urlDragImageView;
         urlDragImageView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.r.setIsCanDrag(true);
         this.r.setCanScale(false);
-        this.r.setDragToExitListener(new C1515b());
+        this.r.setDragToExitListener(new C1516b());
         this.k.addView(this.r, 0);
     }
 
@@ -447,12 +436,12 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
         H();
         this.z = null;
         AdDownloadData b2 = d.b.i0.o.c.d.c().b(downloadCacheKey);
-        AdCard adCard = this.f59988e;
+        AdCard adCard = this.f59989e;
         if (adCard != null && adCard.getAdvertAppInfo() != null) {
-            String str = this.f59988e.getAdvertAppInfo().c4;
-            b2.setExtInfo(this.f59988e.getAdvertAppInfo().T3);
-            b2.setDownloadKey(this.f59988e.getDownloadKey());
-            b2.setAppJson(App.toJson(this.f59988e.getAdvertAppInfo().d4).toString());
+            String str = this.f59989e.getAdvertAppInfo().c4;
+            b2.setExtInfo(this.f59989e.getAdvertAppInfo().T3);
+            b2.setDownloadKey(this.f59989e.getDownloadKey());
+            b2.setAppJson(App.toJson(this.f59989e.getAdvertAppInfo().d4).toString());
             b2.setPage(str);
         }
         d.b.i0.o.b.b.d.a aVar = new d.b.i0.o.b.b.d.a(this.w, b2);
@@ -477,7 +466,7 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
     }
 
     public final int x() {
-        if (this.f59989f.B4()) {
+        if (this.f59990f.B4()) {
             return B();
         }
         return y();
@@ -485,22 +474,22 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
 
     public final int y() {
         AdCard adCard;
-        if (this.f59989f == null || (adCard = this.f59988e) == null || this.x == null) {
+        if (this.f59990f == null || (adCard = this.f59989e) == null || this.x == null) {
             return 0;
         }
-        return t.g(this.f59991h, adCard.getScheme(), this.f59989f);
+        return t.g(this.f59992h, adCard.getScheme(), this.f59990f);
     }
 
     public void z(AdvertAppInfo advertAppInfo, AdCard adCard) {
         if (advertAppInfo == null || adCard == null) {
             return;
         }
-        this.f59989f = advertAppInfo;
-        this.f59988e = adCard;
+        this.f59990f = advertAppInfo;
+        this.f59989e = adCard;
         if (advertAppInfo.C4()) {
-            String str = this.f59989f.U3.i;
+            String str = this.f59990f.U3.i;
             if (TextUtils.isEmpty(str)) {
-                str = this.f59991h.getString(R.string.check_immediately);
+                str = this.f59992h.getString(R.string.check_immediately);
             }
             this.m.setText(str);
             this.w.setVisibility(8);
@@ -509,7 +498,7 @@ public class b extends d.b.i0.r2.z.c.a.a implements j {
         }
         this.w.setClickable(true);
         this.w.setOnClickInterceptListener(new e());
-        DownloadData G = G(this.f59989f, d.b.b.e.m.b.d(this.f59989f.K3, -1));
+        DownloadData G = G(this.f59990f, d.b.b.e.m.b.d(this.f59990f.K3, -1));
         E(G);
         this.w.setData(G);
         this.w.setVisibility(0);

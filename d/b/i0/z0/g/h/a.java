@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.b.j.e.a<d.b.i0.z0.g.j.b, CardViewHolder<d.b.i0.x.i>> {
     public TbPageContext<?> m;
     public d.b.i0.x.i n;

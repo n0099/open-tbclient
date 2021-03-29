@@ -54,25 +54,20 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     private float angleOfCorner(int i, int i2, int i3) {
-        float f2;
         getCoordinatesOfCorner(((i - 1) + 4) % 4, i2, i3, this.pointF);
         PointF pointF = this.pointF;
-        float f3 = pointF.x;
-        float f4 = pointF.y;
+        float f2 = pointF.x;
+        float f3 = pointF.y;
         getCoordinatesOfCorner((i + 1) % 4, i2, i3, pointF);
         PointF pointF2 = this.pointF;
-        float f5 = pointF2.x;
-        float f6 = pointF2.y;
+        float f4 = pointF2.x;
+        float f5 = pointF2.y;
         getCoordinatesOfCorner(i, i2, i3, pointF2);
         PointF pointF3 = this.pointF;
-        float f7 = pointF3.x;
-        float atan2 = ((float) Math.atan2(f4 - f2, f3 - f7)) - ((float) Math.atan2(f6 - pointF3.y, f5 - f7));
-        if (atan2 < 0.0f) {
-            double d2 = atan2;
-            Double.isNaN(d2);
-            return (float) (d2 + 6.283185307179586d);
-        }
-        return atan2;
+        float f6 = pointF3.x;
+        float f7 = pointF3.y;
+        float atan2 = ((float) Math.atan2(f3 - f7, f2 - f6)) - ((float) Math.atan2(f5 - f7, f4 - f6));
+        return atan2 < 0.0f ? (float) (atan2 + 6.283185307179586d) : atan2;
     }
 
     private float angleOfEdge(int i, int i2, int i3) {

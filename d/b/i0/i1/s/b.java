@@ -1,7 +1,7 @@
 package d.b.i0.i1.s;
 
 import com.squareup.wire.Message;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void a(long j, String str, String str2, int i);
 

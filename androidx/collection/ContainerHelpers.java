@@ -19,7 +19,7 @@ public class ContainerHelpers {
                 i3 = i5 - 1;
             }
         }
-        return i4 ^ (-1);
+        return ~i4;
     }
 
     public static boolean equal(Object obj, Object obj2) {
@@ -49,15 +49,15 @@ public class ContainerHelpers {
         int i3 = 0;
         while (i3 <= i2) {
             int i4 = (i3 + i2) >>> 1;
-            long j2 = jArr[i4];
-            if (j2 < j) {
+            int i5 = (jArr[i4] > j ? 1 : (jArr[i4] == j ? 0 : -1));
+            if (i5 < 0) {
                 i3 = i4 + 1;
-            } else if (j2 <= j) {
+            } else if (i5 <= 0) {
                 return i4;
             } else {
                 i2 = i4 - 1;
             }
         }
-        return i3 ^ (-1);
+        return ~i3;
     }
 }

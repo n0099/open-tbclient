@@ -26,22 +26,22 @@ import java.util.List;
 public class s extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56601a;
+    public Context f56602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ListView f56602b;
+    public ListView f56603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f56603c;
+    public ViewGroup f56604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public x f56604d;
+    public x f56605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56605e;
+    public int f56606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f56606f;
+    public d f56607f;
 
     /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -50,9 +50,9 @@ public class s extends PopupWindow {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d.b.h0.e.a item = s.this.f56604d.getItem(i);
-            if ((item instanceof d.b.h0.e.a) && s.this.f56606f != null) {
-                s.this.f56606f.onItemClick(i, item);
+            d.b.h0.e.a item = s.this.f56605d.getItem(i);
+            if ((item instanceof d.b.h0.e.a) && s.this.f56607f != null) {
+                s.this.f56607f.onItemClick(i, item);
             }
             s.this.h();
         }
@@ -95,10 +95,10 @@ public class s extends PopupWindow {
 
     public s(Context context) {
         super(context);
-        this.f56601a = context;
+        this.f56602a = context;
         setWidth(-1);
         setHeight(-1);
-        setContentView(e(new ArrayList(), d.b.h0.e.a.f50119f));
+        setContentView(e(new ArrayList(), d.b.h0.e.a.f50120f));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -126,21 +126,21 @@ public class s extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     public final View e(List<d.b.h0.e.a> list, String str) {
-        BdListView bdListView = new BdListView(this.f56601a);
-        this.f56602b = bdListView;
-        bdListView.setCacheColorHint(this.f56601a.getResources().getColor(17170445));
+        BdListView bdListView = new BdListView(this.f56602a);
+        this.f56603b = bdListView;
+        bdListView.setCacheColorHint(this.f56602a.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        x xVar = new x(this.f56601a);
-        this.f56604d = xVar;
+        x xVar = new x(this.f56602a);
+        this.f56605d = xVar;
         xVar.b(list, str);
-        bdListView.setAdapter((ListAdapter) this.f56604d);
+        bdListView.setAdapter((ListAdapter) this.f56605d);
         bdListView.setOnItemClickListener(new a());
-        FrameLayout frameLayout = new FrameLayout(this.f56601a);
-        FrameLayout frameLayout2 = new FrameLayout(this.f56601a);
-        this.f56603c = frameLayout2;
-        frameLayout2.setBackgroundColor(this.f56601a.getResources().getColor(R.color.common_color_10175));
+        FrameLayout frameLayout = new FrameLayout(this.f56602a);
+        FrameLayout frameLayout2 = new FrameLayout(this.f56602a);
+        this.f56604c = frameLayout2;
+        frameLayout2.setBackgroundColor(this.f56602a.getResources().getColor(R.color.common_color_10175));
         frameLayout2.setOnClickListener(new b());
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
@@ -160,8 +160,8 @@ public class s extends PopupWindow {
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         alphaAnimation.setAnimationListener(new c());
-        this.f56602b.startAnimation(translateAnimation);
-        this.f56603c.startAnimation(alphaAnimation);
+        this.f56603b.startAnimation(translateAnimation);
+        this.f56604c.startAnimation(alphaAnimation);
     }
 
     public void h() {
@@ -172,21 +172,21 @@ public class s extends PopupWindow {
         if (list == null) {
             return;
         }
-        this.f56605e = d(list, str);
-        int dimensionPixelSize = list.size() > 5 ? this.f56601a.getResources().getDimensionPixelSize(R.dimen.ds618) : -2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f56602b.getLayoutParams();
+        this.f56606e = d(list, str);
+        int dimensionPixelSize = list.size() > 5 ? this.f56602a.getResources().getDimensionPixelSize(R.dimen.ds618) : -2;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f56603b.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         } else {
             layoutParams.height = dimensionPixelSize;
         }
-        this.f56602b.setLayoutParams(layoutParams);
-        this.f56604d.b(list, str);
-        this.f56604d.notifyDataSetChanged();
+        this.f56603b.setLayoutParams(layoutParams);
+        this.f56605d.b(list, str);
+        this.f56605d.notifyDataSetChanged();
     }
 
     public void j(d dVar) {
-        this.f56606f = dVar;
+        this.f56607f = dVar;
     }
 
     public final void k() {
@@ -196,12 +196,12 @@ public class s extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.f56602b.startAnimation(translateAnimation);
-        this.f56603c.startAnimation(alphaAnimation);
+        this.f56603b.startAnimation(translateAnimation);
+        this.f56604c.startAnimation(alphaAnimation);
     }
 
     public void l(View view) {
-        this.f56602b.setSelection(this.f56605e);
+        this.f56603b.setSelection(this.f56606e);
         if (Build.VERSION.SDK_INT < 24) {
             if (d.b.b.e.m.g.k(this, view)) {
                 k();

@@ -14,13 +14,13 @@ public class ArticleInfo {
     public class ValidSexValue {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7987a = 0;
+        public int f7988a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f7988b = 1;
+        public int f7989b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f7989c = 2;
+        public int f7990c = 2;
 
         public ValidSexValue() {
         }

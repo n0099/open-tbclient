@@ -19,13 +19,13 @@ import java.util.List;
 public class ReplyLinearLayout extends LinearLayout {
 
     /* renamed from: g  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f20593g;
+    public static ViewGroup.LayoutParams f20594g;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f20594e;
+    public List<TextView> f20595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f20595f;
+    public View.OnClickListener f20596f;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -80,19 +80,19 @@ public class ReplyLinearLayout extends LinearLayout {
         CharSequence[] charSequenceArr;
         int i2;
         int i3;
-        if (f20593g == null) {
-            f20593g = new LinearLayout.LayoutParams(-1, -2);
+        if (f20594g == null) {
+            f20594g = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.f20594e.size();
+        int size2 = size - this.f20595e.size();
         for (int i4 = 0; i4 < size2; i4++) {
             TextView textView = new TextView(getContext());
-            this.f20594e.add(textView);
+            this.f20595e.add(textView);
             addView(textView);
         }
-        for (int i5 = 0; i5 < this.f20594e.size(); i5++) {
-            TextView textView2 = this.f20594e.get(i5);
+        for (int i5 = 0; i5 < this.f20595e.size(); i5++) {
+            TextView textView2 = this.f20595e.get(i5);
             if (i5 < size) {
                 if (i5 != 0 && i5 != 1) {
                     int i6 = i5 % 3;
@@ -108,12 +108,12 @@ public class ReplyLinearLayout extends LinearLayout {
                         textView2.setText(charSequenceArr[4]);
                     }
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f20595f);
+                    textView2.setOnClickListener(this.f20596f);
                     a(textView2, i5);
                     if (i5 != 0) {
                         textView2.setTextSize(17.0f);
                         textView2.setMaxLines(3);
-                        textView2.setLayoutParams(f20593g);
+                        textView2.setLayoutParams(f20594g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                     } else if (i5 == 1 || (i2 = i5 % 3) == 1) {
                         textView2.setLayoutParams(layoutParams);
@@ -121,11 +121,11 @@ public class ReplyLinearLayout extends LinearLayout {
                     } else if (i2 == 2) {
                         textView2.setTextSize(15.0f);
                         textView2.setMaxLines(2);
-                        textView2.setLayoutParams(f20593g);
+                        textView2.setLayoutParams(f20594g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                     } else if (i2 == 0) {
                         textView2.setTextSize(10.0f);
-                        textView2.setLayoutParams(f20593g);
+                        textView2.setLayoutParams(f20594g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                     }
                     textView2.setVisibility(0);
@@ -136,7 +136,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setText(charSequenceArr[0]);
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.f20595f);
+                textView2.setOnClickListener(this.f20596f);
                 a(textView2, i5);
                 if (i5 != 0) {
                 }
@@ -149,7 +149,7 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20595f = new a();
-        this.f20594e = new ArrayList();
+        this.f20596f = new a();
+        this.f20595e = new ArrayList();
     }
 }

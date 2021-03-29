@@ -21,30 +21,30 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import d.b.b.e.p.l;
 import d.b.h0.m.f;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public HomePageTabFeedCollegeSecondListAdapter adapter;
     public BdRecyclerView bdRecyclerView;
     public NavigationBar mNavigationBar;
     public f<SpecialColumnItemData> mOnItemClickListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends GridLayoutManager.SpanSizeLookup {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f17313a;
+        public final /* synthetic */ List f17314a;
 
         public a(List list) {
-            this.f17313a = list;
+            this.f17314a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i) {
-            return i == this.f17313a.size() ? 2 : 1;
+            return i == this.f17314a.size() ? 2 : 1;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements f<SpecialColumnItemData> {
         public b() {
         }

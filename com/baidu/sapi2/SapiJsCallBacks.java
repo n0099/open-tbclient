@@ -58,28 +58,28 @@ public class SapiJsCallBacks {
         public ShareV2LoginParams Z;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f10654a;
+        public Handler f10655a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f10655b;
+        public Handler f10656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SapiWebView.WebViewTitleCallback f10656c;
+        public SapiWebView.WebViewTitleCallback f10657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public SapiWebView.BioScanFaceCallback f10657d;
+        public SapiWebView.BioScanFaceCallback f10658d;
 
         /* renamed from: e  reason: collision with root package name */
-        public SapiWebView.BiometricsIdentifyCallback f10658e;
+        public SapiWebView.BiometricsIdentifyCallback f10659e;
 
         /* renamed from: f  reason: collision with root package name */
-        public SapiWebView.UniteVerifyCallback f10659f;
+        public SapiWebView.UniteVerifyCallback f10660f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SapiWebView.QuickLoginHandler f10660g;
+        public SapiWebView.QuickLoginHandler f10661g;
 
         /* renamed from: h  reason: collision with root package name */
-        public SapiWebView.BindWidgetCallback f10661h;
+        public SapiWebView.BindWidgetCallback f10662h;
         public SapiWebView.LoadExternalWebViewCallback i;
         public SapiWebView.PickPhotoCallback j;
         public SapiWebView.BdussChangeCallback k;

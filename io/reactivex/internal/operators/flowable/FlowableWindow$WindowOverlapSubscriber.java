@@ -76,6 +76,30 @@ public final class FlowableWindow$WindowOverlapSubscriber<T> extends AtomicInteg
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (r10 != 0) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0046, code lost:
+        if (checkTerminated(r14.done, r1.isEmpty(), r0, r1) == false) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0048, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004b, code lost:
+        if (r8 == 0) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
+        if (r4 == Long.MAX_VALUE) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        r14.requested.addAndGet(-r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x005c, code lost:
+        r3 = r14.wip.addAndGet(-r3);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
         if (this.wip.getAndIncrement() != 0) {
             return;
@@ -86,7 +110,11 @@ public final class FlowableWindow$WindowOverlapSubscriber<T> extends AtomicInteg
         do {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
+            while (true) {
+                int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i2 == 0) {
+                    break;
+                }
                 boolean z = this.done;
                 UnicastProcessor<T> poll = aVar.poll();
                 boolean z2 = poll == null;
@@ -99,13 +127,6 @@ public final class FlowableWindow$WindowOverlapSubscriber<T> extends AtomicInteg
                 cVar.onNext(poll);
                 j2++;
             }
-            if (j2 == j && checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
-                return;
-            }
-            if (j2 != 0 && j != Long.MAX_VALUE) {
-                this.requested.addAndGet(-j2);
-            }
-            i = this.wip.addAndGet(-i);
         } while (i != 0);
     }
 

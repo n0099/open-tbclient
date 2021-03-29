@@ -5,8 +5,8 @@ import d.b.h0.r.q.a2;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public a2 f60261a;
+    public a2 f60262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60262b;
+    public int f60263b;
 }

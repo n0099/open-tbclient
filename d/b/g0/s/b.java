@@ -7,28 +7,28 @@ import java.lang.ref.WeakReference;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49349a;
+    public int f49350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49350b;
+    public int f49351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49351c;
+    public int f49352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49352d;
+    public int f49353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49353e;
+    public int f49354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49354f;
+    public int f49355f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49355g;
+    public int f49356g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49356h = 0;
+    public int f49357h = 0;
 
     public b(View view) {
         new WeakReference(view);
@@ -56,15 +56,15 @@ public final class b {
         int i3;
         float f2;
         int i4;
-        int i5 = this.f49353e;
+        int i5 = this.f49354e;
         if (i5 == 90 || i5 == 270) {
             i2 = i;
             i = i2;
         }
-        int defaultSize = View.getDefaultSize(this.f49349a, i);
-        int defaultSize2 = View.getDefaultSize(this.f49350b, i2);
-        if (this.f49356h != 3) {
-            if (this.f49349a > 0 && this.f49350b > 0) {
+        int defaultSize = View.getDefaultSize(this.f49350a, i);
+        int defaultSize2 = View.getDefaultSize(this.f49351b, i2);
+        if (this.f49357h != 3) {
+            if (this.f49350a > 0 && this.f49351b > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 i = View.MeasureSpec.getSize(i);
                 int mode2 = View.MeasureSpec.getMode(i2);
@@ -73,64 +73,64 @@ public final class b {
                     float f3 = i;
                     float f4 = i2;
                     float f5 = f3 / f4;
-                    int i6 = this.f49356h;
+                    int i6 = this.f49357h;
                     if (i6 == 4) {
-                        int i7 = this.f49353e;
+                        int i7 = this.f49354e;
                         f2 = (i7 == 90 || i7 == 270) ? 0.5625f : 1.7777778f;
                     } else if (i6 != 5) {
-                        f2 = this.f49349a / this.f49350b;
-                        int i8 = this.f49351c;
-                        if (i8 > 0 && (i4 = this.f49352d) > 0) {
+                        f2 = this.f49350a / this.f49351b;
+                        int i8 = this.f49352c;
+                        if (i8 > 0 && (i4 = this.f49353d) > 0) {
                             f2 = (f2 * i8) / i4;
                         }
                     } else {
-                        int i9 = this.f49353e;
+                        int i9 = this.f49354e;
                         f2 = (i9 == 90 || i9 == 270) ? 0.75f : 1.3333334f;
                     }
                     boolean z = f2 > f5;
-                    int i10 = this.f49356h;
+                    int i10 = this.f49357h;
                     if (i10 != 0) {
                         if (i10 != 1) {
                             if (i10 != 4 && i10 != 5) {
                                 if (z) {
-                                    i = Math.min(this.f49349a, i);
+                                    i = Math.min(this.f49350a, i);
                                     i2 = (int) (i / f2);
                                 } else {
-                                    i2 = Math.min(this.f49350b, i2);
+                                    i2 = Math.min(this.f49351b, i2);
                                     i = (int) (i2 * f2);
                                 }
                             }
                         }
                     }
                 } else if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i11 = this.f49349a;
+                    int i11 = this.f49350a;
                     int i12 = i11 * i2;
-                    int i13 = this.f49350b;
+                    int i13 = this.f49351b;
                     if (i12 < i * i13) {
                         i = (i11 * i2) / i13;
                     } else if (i11 * i2 > i * i13) {
                         i2 = (i13 * i) / i11;
                     }
                 } else if (mode == 1073741824) {
-                    int i14 = (this.f49350b * i) / this.f49349a;
+                    int i14 = (this.f49351b * i) / this.f49350a;
                     if (mode2 != Integer.MIN_VALUE || i14 <= i2) {
                         i2 = i14;
                     }
                 } else if (mode2 == 1073741824) {
-                    i3 = (this.f49349a * i2) / this.f49350b;
+                    i3 = (this.f49350a * i2) / this.f49351b;
                     if (mode == Integer.MIN_VALUE) {
                     }
                     i = i3;
                 } else {
-                    i3 = this.f49349a;
-                    int i15 = this.f49350b;
+                    i3 = this.f49350a;
+                    int i15 = this.f49351b;
                     if (mode2 != Integer.MIN_VALUE || i15 <= i2) {
                         i2 = i15;
                     } else {
                         i3 = (i3 * i2) / i15;
                     }
                     if (mode == Integer.MIN_VALUE && i3 > i) {
-                        i2 = (this.f49350b * i) / this.f49349a;
+                        i2 = (this.f49351b * i) / this.f49350a;
                     }
                     i = i3;
                 }
@@ -140,33 +140,33 @@ public final class b {
                 i2 = defaultSize2;
             }
         }
-        this.f49354f = i;
-        this.f49355g = i2;
+        this.f49355f = i;
+        this.f49356g = i2;
     }
 
     public int b() {
-        return this.f49355g;
+        return this.f49356g;
     }
 
     public int c() {
-        return this.f49354f;
+        return this.f49355f;
     }
 
     public void d(int i) {
-        this.f49356h = i;
+        this.f49357h = i;
     }
 
     public void e(int i) {
-        this.f49353e = i;
+        this.f49354e = i;
     }
 
     public void f(int i, int i2) {
-        this.f49351c = i;
-        this.f49352d = i2;
+        this.f49352c = i;
+        this.f49353d = i2;
     }
 
     public void g(int i, int i2) {
-        this.f49349a = i;
-        this.f49350b = i2;
+        this.f49350a = i;
+        this.f49351b = i2;
     }
 }

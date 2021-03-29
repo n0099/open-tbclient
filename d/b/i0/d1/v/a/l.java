@@ -6,7 +6,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

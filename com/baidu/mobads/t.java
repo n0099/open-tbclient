@@ -7,16 +7,16 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class t implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SplashAd f8513a;
+    public final /* synthetic */ SplashAd f8514a;
 
     public t(SplashAd splashAd) {
-        this.f8513a = splashAd;
+        this.f8514a = splashAd;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         SplashAdListener splashAdListener;
-        splashAdListener = this.f8513a.k;
+        splashAdListener = this.f8514a.k;
         if (splashAdListener != null) {
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new u(this, iOAdEvent));
         }

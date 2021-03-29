@@ -9,10 +9,10 @@ import tbclient.LinkInfo;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f53371a = new ArrayList<>();
+    public ArrayList<a> f53372a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f53372b = new ArrayList<>();
+    public ArrayList<b> f53373b = new ArrayList<>();
 
     public void a(ActPost actPost) {
         if (actPost == null) {
@@ -23,7 +23,7 @@ public class c {
             if (actHot != null) {
                 a aVar = new a();
                 aVar.g(actHot);
-                this.f53371a.add(aVar);
+                this.f53372a.add(aVar);
             }
         }
         List<LinkInfo> list = actPost.link_info;
@@ -31,7 +31,7 @@ public class c {
             if (list != null) {
                 b bVar = new b();
                 bVar.a(linkInfo);
-                this.f53372b.add(bVar);
+                this.f53373b.add(bVar);
             }
         }
     }

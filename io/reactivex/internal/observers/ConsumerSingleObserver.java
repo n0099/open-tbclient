@@ -25,7 +25,7 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<b> implemen
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f68022b;
+        return this.onError != Functions.f68027b;
     }
 
     @Override // f.a.t.b

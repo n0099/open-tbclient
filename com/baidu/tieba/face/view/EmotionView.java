@@ -104,15 +104,15 @@ public class EmotionView extends TbImageView {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f15563e;
+        public long f15564e;
 
         public d(long j) {
-            this.f15563e = j;
+            this.f15564e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.C0 && this.f15563e == EmotionView.this.B0 && EmotionView.this.B0()) {
+            if (EmotionView.this.C0 && this.f15564e == EmotionView.this.B0 && EmotionView.this.B0()) {
                 EmotionView.this.E0();
             }
         }

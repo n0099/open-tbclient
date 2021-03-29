@@ -6,14 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43012a = 60000;
+    public static long f43013a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f43013b = f43012a * 60;
+    public static long f43014b = f43013a * 60;
 
     public static void a(Context context, long j) {
         if (j <= 0) {

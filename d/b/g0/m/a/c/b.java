@@ -3,10 +3,10 @@ package d.b.g0.m.a.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f49145a = new int[0];
+    public static final int[] f49146a = new int[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object[] f49146b = new Object[0];
+    public static final Object[] f49147b = new Object[0];
 
     public static int a(int[] iArr, int i, int i2) {
         int i3 = i - 1;
@@ -22,7 +22,7 @@ public class b {
                 i3 = i5 - 1;
             }
         }
-        return i4 ^ (-1);
+        return ~i4;
     }
 
     public static boolean b(Object obj, Object obj2) {

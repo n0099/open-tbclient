@@ -630,7 +630,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
         this.L.k(oVar);
         if (oVar != null) {
-            this.N = oVar.f56163a;
+            this.N = oVar.f56164a;
         }
     }
 

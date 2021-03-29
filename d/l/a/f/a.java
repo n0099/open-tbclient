@@ -12,61 +12,61 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f66229a = new e();
+    public final e f66230a = new e();
 
     /* renamed from: b  reason: collision with root package name */
-    public final SVGAVideoEntity f66230b;
+    public final SVGAVideoEntity f66231b;
 
     /* renamed from: d.l.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C1814a {
+    public final class C1815a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f66231a;
+        public final String f66232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final g f66232b;
+        public final g f66233b;
 
-        public C1814a(a aVar, String str, g gVar) {
-            this.f66231a = str;
-            this.f66232b = gVar;
+        public C1815a(a aVar, String str, g gVar) {
+            this.f66232a = str;
+            this.f66233b = gVar;
         }
 
         public final g a() {
-            return this.f66232b;
+            return this.f66233b;
         }
 
         public final String b() {
-            return this.f66231a;
+            return this.f66232a;
         }
     }
 
     public a(SVGAVideoEntity sVGAVideoEntity) {
-        this.f66230b = sVGAVideoEntity;
+        this.f66231b = sVGAVideoEntity;
     }
 
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        this.f66229a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f66230b.h().b(), (float) this.f66230b.h().a(), scaleType);
+        this.f66230a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f66231b.h().b(), (float) this.f66231b.h().a(), scaleType);
     }
 
     public final e b() {
-        return this.f66229a;
+        return this.f66230a;
     }
 
     public final SVGAVideoEntity c() {
-        return this.f66230b;
+        return this.f66231b;
     }
 
-    public final List<C1814a> d(int i) {
-        List<f> g2 = this.f66230b.g();
+    public final List<C1815a> d(int i) {
+        List<f> g2 = this.f66231b.g();
         ArrayList arrayList = new ArrayList();
         for (f fVar : g2) {
-            C1814a c1814a = null;
+            C1815a c1815a = null;
             if (i >= 0 && i < fVar.a().size() && fVar.a().get(i).a() > 0.0d) {
-                c1814a = new C1814a(this, fVar.b(), fVar.a().get(i));
+                c1815a = new C1815a(this, fVar.b(), fVar.a().get(i));
             }
-            if (c1814a != null) {
-                arrayList.add(c1814a);
+            if (c1815a != null) {
+                arrayList.add(c1815a);
             }
         }
         return arrayList;

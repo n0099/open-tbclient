@@ -22,11 +22,11 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f54072a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    public static Pattern f54073a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -187,8 +187,8 @@ public class c {
             return null;
         }
         d dVar = new d();
-        dVar.f53770a = split[0];
-        dVar.f53771b = split[1];
+        dVar.f53771a = split[0];
+        dVar.f53772b = split[1];
         return dVar;
     }
 
@@ -378,7 +378,7 @@ public class c {
             if (str == null) {
                 return null;
             }
-            Matcher matcher = f54072a.matcher(str);
+            Matcher matcher = f54073a.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
                 str = str.replace(group, group.replace(SmallTailInfo.EMOTION_PREFIX, "[").replace(SmallTailInfo.EMOTION_SUFFIX, "]"));

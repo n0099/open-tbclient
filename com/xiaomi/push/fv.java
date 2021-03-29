@@ -3,13 +3,13 @@ package com.xiaomi.push;
 public class fv implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fs f40533a;
+    public final /* synthetic */ fs f40534a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f412a;
 
     public fv(fs fsVar, String str) {
-        this.f40533a = fsVar;
+        this.f40534a = fsVar;
         this.f412a = str;
     }
 

@@ -9,15 +9,15 @@ public class b extends d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f36066a;
+        public long f36067a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36067b;
+        public String f36068b;
     }
 
     public b(a aVar) {
-        a(URLPackage.KEY_AUTHOR_ID, aVar.f36066a);
-        b("liveStreamId", aVar.f36067b);
+        a(URLPackage.KEY_AUTHOR_ID, aVar.f36067a);
+        b("liveStreamId", aVar.f36068b);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g

@@ -8,7 +8,7 @@ public class VideoFrame implements RefCounted {
     public final int rotation;
     public final long timestampNs;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public interface Buffer extends RefCounted {
         @CalledByNative("Buffer")
         Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6);
@@ -31,7 +31,7 @@ public class VideoFrame implements RefCounted {
         I420Buffer toI420();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public interface I420Buffer extends Buffer {
         @CalledByNative("I420Buffer")
         ByteBuffer getDataU();
@@ -52,7 +52,7 @@ public class VideoFrame implements RefCounted {
         int getStrideY();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public interface TextureBuffer extends Buffer {
 
         /* loaded from: classes7.dex */

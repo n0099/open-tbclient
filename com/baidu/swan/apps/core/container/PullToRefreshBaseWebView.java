@@ -8,13 +8,13 @@ import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import d.b.g0.a.k;
 import d.b.g0.m.a.d.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean B = k.f45050a;
+    public static final boolean B = k.f45051a;
     public boolean A;
     public a z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(int i, int i2, int i3, int i4);
     }

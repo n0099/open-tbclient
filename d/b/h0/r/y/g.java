@@ -12,34 +12,34 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f51083a = null;
+    public b f51084a = null;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<?> f51084a;
+        public final Class<?> f51085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Object f51085b;
+        public final Object f51086b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f51086c;
+        public final Class<?> f51087c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Method f51087d;
+        public final Method f51088d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f51088e;
+        public final Object f51089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Method f51089f;
+        public final Method f51090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c f51090g;
+        public final c f51091g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f51091h;
+        public final int f51092h;
         public final j i;
         public int j;
 
@@ -51,7 +51,7 @@ public class g {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.i.a(b.this.f());
-                b.this.f51090g.c();
+                b.this.f51091g.c();
                 b.this.g();
             }
         }
@@ -70,20 +70,20 @@ public class g {
         }
 
         public final void g() {
-            this.f51090g.c();
+            this.f51091g.c();
         }
 
         public final List<Long> h() {
-            return this.f51090g.f51093e;
+            return this.f51091g.f51094e;
         }
 
         public final void i() throws InvocationTargetException, IllegalAccessException {
-            this.f51089f.invoke(this.f51088e, this.f51085b);
+            this.f51090f.invoke(this.f51089e, this.f51086b);
         }
 
         public final void j() {
             int i = this.j;
-            if (i >= this.f51091h) {
+            if (i >= this.f51092h) {
                 d.b.b.e.m.e.a().post(new a());
                 return;
             }
@@ -97,15 +97,15 @@ public class g {
 
         public b(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.j = 0;
-            this.f51086c = Class.forName("android.view.Choreographer");
-            this.f51084a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.f51090g = new c(this);
-            this.f51085b = Proxy.newProxyInstance(this.f51084a.getClassLoader(), new Class[]{this.f51084a}, this.f51090g);
-            Method method = this.f51086c.getMethod("getInstance", new Class[0]);
-            this.f51087d = method;
-            this.f51088e = method.invoke(null, new Object[0]);
-            this.f51089f = this.f51086c.getMethod("postFrameCallback", this.f51084a);
-            this.f51091h = i <= 0 ? 16 : i;
+            this.f51087c = Class.forName("android.view.Choreographer");
+            this.f51085a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.f51091g = new c(this);
+            this.f51086b = Proxy.newProxyInstance(this.f51085a.getClassLoader(), new Class[]{this.f51085a}, this.f51091g);
+            Method method = this.f51087c.getMethod("getInstance", new Class[0]);
+            this.f51088d = method;
+            this.f51089e = method.invoke(null, new Object[0]);
+            this.f51090f = this.f51087c.getMethod("postFrameCallback", this.f51085a);
+            this.f51092h = i <= 0 ? 16 : i;
             this.i = jVar;
         }
     }
@@ -114,27 +114,27 @@ public class g {
     public static class c implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<Long> f51093e = new ArrayList(240);
+        public final List<Long> f51094e = new ArrayList(240);
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<Integer> f51094f = new ArrayList(15);
+        public final List<Integer> f51095f = new ArrayList(15);
 
         /* renamed from: g  reason: collision with root package name */
-        public b f51095g;
+        public b f51096g;
 
         public c(b bVar) {
-            this.f51095g = bVar;
+            this.f51096g = bVar;
         }
 
         public final void c() {
-            this.f51095g = null;
-            this.f51093e.clear();
-            this.f51094f.clear();
+            this.f51096g = null;
+            this.f51094e.clear();
+            this.f51095f.clear();
         }
 
         public final void d(long j) {
-            this.f51093e.add(Long.valueOf(j));
-            this.f51095g.j();
+            this.f51094e.add(Long.valueOf(j));
+            this.f51096g.j();
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -153,11 +153,11 @@ public class g {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f51096a = new g();
+        public static final g f51097a = new g();
     }
 
     public static g a() {
-        return d.f51096a;
+        return d.f51097a;
     }
 
     public void b(int i, j jVar) {
@@ -166,7 +166,7 @@ public class g {
         }
         try {
             b bVar = new b(i, jVar);
-            this.f51083a = bVar;
+            this.f51084a = bVar;
             bVar.j();
         } catch (Throwable th) {
             BdLog.e(th);

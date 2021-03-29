@@ -22,15 +22,15 @@ public class AdCardLoopPicView extends AdCardBaseView {
     public class a implements LoopADView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20765a;
+        public final /* synthetic */ AdCard f20766a;
 
         public a(AdCard adCard) {
-            this.f20765a = adCard;
+            this.f20766a = adCard;
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
         public void a(TbImageView tbImageView, AdCard.b bVar) {
-            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f20765a));
+            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f20766a));
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a

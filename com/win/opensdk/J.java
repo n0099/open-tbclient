@@ -12,26 +12,26 @@ import java.text.DecimalFormat;
 public class J {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f39687a;
+    public Handler f39688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39688b = 0;
+    public int f39689b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39689c = 0;
+    public int f39690c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ L f39690d;
+    public final /* synthetic */ L f39691d;
 
     public J(L l) {
-        this.f39690d = l;
+        this.f39691d = l;
         if (Looper.myLooper() != null) {
-            this.f39687a = new I(this, l);
+            this.f39688a = new I(this, l);
         }
     }
 
     public Message a(int i, Object obj) {
-        Handler handler = this.f39687a;
+        Handler handler = this.f39688a;
         if (handler != null) {
             return handler.obtainMessage(i, obj);
         }
@@ -45,19 +45,19 @@ public class J {
         int i = message.what;
         if (i == 1) {
             K k = (K) ((Object[]) message.obj)[0];
-            this.f39690d.f39710d.a();
+            this.f39691d.f39711d.a();
         } else if (i == 3) {
-            this.f39690d.f39710d.b();
+            this.f39691d.f39711d.b();
         } else if (i == 5) {
-            this.f39690d.f39710d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
+            this.f39691d.f39711d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
         } else if (i != 7) {
         } else {
-            this.f39690d.f39710d.c();
+            this.f39691d.f39711d.c();
         }
     }
 
     public void b(Message message) {
-        Handler handler = this.f39687a;
+        Handler handler = this.f39688a;
         if (handler != null) {
             handler.sendMessage(message);
         } else {
@@ -67,12 +67,12 @@ public class J {
 
     public void a(InputStream inputStream) {
         boolean z;
-        this.f39688b = 0;
+        this.f39689b = 0;
         try {
             try {
                 try {
                     byte[] bArr = new byte[4096];
-                    FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f39690d.f39709c));
+                    FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f39691d.f39710c));
                     int i = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
@@ -80,15 +80,15 @@ public class J {
                         if (read == -1) {
                             z = false;
                             break;
-                        } else if (this.f39690d.f39712f) {
+                        } else if (this.f39691d.f39713f) {
                             fileOutputStream.write(bArr, 0, read);
-                            int i2 = this.f39688b + read;
-                            this.f39688b = i2;
-                            if (this.f39690d.f39707a + i2 < this.f39690d.f39713g + this.f39690d.f39707a) {
-                                int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f39690d.f39707a + i2) / ((float) (this.f39690d.f39713g + this.f39690d.f39707a)))) * 100.0f);
-                                this.f39689c = parseFloat;
+                            int i2 = this.f39689b + read;
+                            this.f39689b = i2;
+                            if (this.f39691d.f39708a + i2 < this.f39691d.f39714g + this.f39691d.f39708a) {
+                                int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f39691d.f39708a + i2) / ((float) (this.f39691d.f39714g + this.f39691d.f39708a)))) * 100.0f);
+                                this.f39690c = parseFloat;
                                 if (i % 30 == 0 || parseFloat == 100) {
-                                    b(a(5, new Object[]{Integer.valueOf(this.f39689c)}));
+                                    b(a(5, new Object[]{Integer.valueOf(this.f39690c)}));
                                 }
                             }
                             i++;
@@ -99,21 +99,21 @@ public class J {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    this.f39690d.f39712f = false;
+                    this.f39691d.f39713f = false;
                     if (!z) {
                         b(a(3, null));
                     }
                     inputStream.close();
                 } catch (Exception e2) {
                     b(a(7, null));
-                    this.f39690d.f39712f = false;
+                    this.f39691d.f39713f = false;
                     e2.printStackTrace();
                     if (inputStream != null) {
                         inputStream.close();
                     }
                 }
             } catch (IOException e3) {
-                this.f39690d.f39712f = false;
+                this.f39691d.f39713f = false;
                 e3.printStackTrace();
             }
         } catch (Throwable th) {
@@ -121,7 +121,7 @@ public class J {
                 try {
                     inputStream.close();
                 } catch (IOException e4) {
-                    this.f39690d.f39712f = false;
+                    this.f39691d.f39713f = false;
                     e4.printStackTrace();
                 }
             }

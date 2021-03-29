@@ -12,7 +12,7 @@ public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30311common;
+    public Common f30312common;
     @c(a = "custom")
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -125,7 +125,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f30311common = common2;
+        this.f30312common = common2;
     }
 
     public void setCustom(Map<String, Map<String, Object>> map) {

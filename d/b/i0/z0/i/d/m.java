@@ -16,14 +16,14 @@ import d.b.i.g0;
 import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public s o;
     public b0<d.b.i0.x.e0.k> p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.k> {
         public a(m mVar) {
         }
@@ -38,11 +38,11 @@ public class m extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                 return;
             }
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar.n(), view.getContext(), 2, false);
-            threadCardViewHolder.b().o(new a.C1117a(1));
+            threadCardViewHolder.b().o(new a.C1118a(1));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }

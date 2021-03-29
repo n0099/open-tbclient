@@ -15,16 +15,16 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29520a;
+    public Context f29521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<e> f29521b;
+    public WeakReference<e> f29522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, a> f29522c = new HashMap();
+    public Map<String, a> f29523c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f29523d = new SensorEventListener() { // from class: com.bytedance.sdk.openadsdk.j.c.1
+    public SensorEventListener f29524d = new SensorEventListener() { // from class: com.bytedance.sdk.openadsdk.j.c.1
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i) {
         }
@@ -51,7 +51,7 @@ public class c {
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public SensorEventListener f29524e = new SensorEventListener() { // from class: com.bytedance.sdk.openadsdk.j.c.10
+    public SensorEventListener f29525e = new SensorEventListener() { // from class: com.bytedance.sdk.openadsdk.j.c.10
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i) {
         }
@@ -82,13 +82,13 @@ public class c {
     }
 
     public c(e eVar) {
-        this.f29520a = eVar.a();
-        this.f29521b = new WeakReference<>(eVar);
+        this.f29521a = eVar.a();
+        this.f29522b = new WeakReference<>(eVar);
         c();
     }
 
     private void c() {
-        this.f29522c.put("adInfo", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.11
+        this.f29523c.put("adInfo", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.11
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) {
                 e d2 = c.this.d();
@@ -98,7 +98,7 @@ public class c {
                 return null;
             }
         });
-        this.f29522c.put(DI.APP_INFO_NAME, new a() { // from class: com.bytedance.sdk.openadsdk.j.c.12
+        this.f29523c.put(DI.APP_INFO_NAME, new a() { // from class: com.bytedance.sdk.openadsdk.j.c.12
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
@@ -124,7 +124,7 @@ public class c {
                 return jSONObject2;
             }
         });
-        this.f29522c.put("subscribe_app_ad", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.13
+        this.f29523c.put("subscribe_app_ad", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.13
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) {
                 com.bytedance.sdk.openadsdk.j.a e2 = c.this.e();
@@ -135,7 +135,7 @@ public class c {
                 return null;
             }
         });
-        this.f29522c.put("download_app_ad", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.14
+        this.f29523c.put("download_app_ad", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.14
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) {
                 com.bytedance.sdk.openadsdk.j.a e2 = c.this.e();
@@ -146,7 +146,7 @@ public class c {
                 return null;
             }
         });
-        this.f29522c.put("isViewable", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.15
+        this.f29523c.put("isViewable", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.15
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 e d2 = c.this.d();
@@ -158,7 +158,7 @@ public class c {
                 return jSONObject2;
             }
         });
-        this.f29522c.put("getVolume", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.16
+        this.f29523c.put("getVolume", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.16
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 e d2 = c.this.d();
@@ -170,7 +170,7 @@ public class c {
                 return jSONObject2;
             }
         });
-        this.f29522c.put("getScreenSize", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.17
+        this.f29523c.put("getScreenSize", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.17
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 e d2 = c.this.d();
@@ -180,7 +180,7 @@ public class c {
                 return d2.m();
             }
         });
-        this.f29522c.put("start_accelerometer_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.2
+        this.f29523c.put("start_accelerometer_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.2
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
@@ -195,17 +195,17 @@ public class c {
                         return jSONObject2;
                     }
                 }
-                g.a(c.this.f29520a, c.this.f29523d, i);
+                g.a(c.this.f29521a, c.this.f29524d, i);
                 jSONObject2.put("code", 0);
                 return jSONObject2;
             }
         });
-        this.f29522c.put("close_accelerometer_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.3
+        this.f29523c.put("close_accelerometer_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.3
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    g.a(c.this.f29520a, c.this.f29523d);
+                    g.a(c.this.f29521a, c.this.f29524d);
                     jSONObject2.put("code", 0);
                     return jSONObject2;
                 } catch (Throwable th) {
@@ -216,7 +216,7 @@ public class c {
                 }
             }
         });
-        this.f29522c.put("start_gyro_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.4
+        this.f29523c.put("start_gyro_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.4
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
@@ -231,17 +231,17 @@ public class c {
                         return jSONObject2;
                     }
                 }
-                g.b(c.this.f29520a, c.this.f29524e, i);
+                g.b(c.this.f29521a, c.this.f29525e, i);
                 jSONObject2.put("code", 0);
                 return jSONObject2;
             }
         });
-        this.f29522c.put("close_gyro_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.5
+        this.f29523c.put("close_gyro_observer", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.5
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    g.a(c.this.f29520a, c.this.f29524e);
+                    g.a(c.this.f29521a, c.this.f29525e);
                     jSONObject2.put("code", 0);
                     return jSONObject2;
                 } catch (Throwable th) {
@@ -252,12 +252,12 @@ public class c {
                 }
             }
         });
-        this.f29522c.put("device_shake", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.6
+        this.f29523c.put("device_shake", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.6
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    g.a(c.this.f29520a);
+                    g.a(c.this.f29521a);
                     jSONObject2.put("code", 0);
                     return jSONObject2;
                 } catch (Throwable th) {
@@ -268,7 +268,7 @@ public class c {
                 }
             }
         });
-        this.f29522c.put("playable_style", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.7
+        this.f29523c.put("playable_style", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.7
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 e d2 = c.this.d();
@@ -278,7 +278,7 @@ public class c {
                 return null;
             }
         });
-        this.f29522c.put("sendReward", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.8
+        this.f29523c.put("sendReward", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.8
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 e d2 = c.this.d();
@@ -289,7 +289,7 @@ public class c {
                 return null;
             }
         });
-        this.f29522c.put("webview_time_track", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.9
+        this.f29523c.put("webview_time_track", new a() { // from class: com.bytedance.sdk.openadsdk.j.c.9
             @Override // com.bytedance.sdk.openadsdk.j.c.a
             public JSONObject a(JSONObject jSONObject) throws Throwable {
                 com.bytedance.sdk.openadsdk.j.a e2 = c.this.e();
@@ -304,7 +304,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public e d() {
-        WeakReference<e> weakReference = this.f29521b;
+        WeakReference<e> weakReference = this.f29522b;
         if (weakReference == null) {
             return null;
         }
@@ -321,17 +321,17 @@ public class c {
     }
 
     public Set<String> a() {
-        return this.f29522c.keySet();
+        return this.f29523c.keySet();
     }
 
     public void b() {
-        g.a(this.f29520a, this.f29523d);
-        g.a(this.f29520a, this.f29524e);
+        g.a(this.f29521a, this.f29524d);
+        g.a(this.f29521a, this.f29525e);
     }
 
     public JSONObject a(String str, JSONObject jSONObject) {
         try {
-            a aVar = this.f29522c.get(str);
+            a aVar = this.f29523c.get(str);
             if (aVar == null) {
                 return null;
             }

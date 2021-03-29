@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static boolean a(String str, int i) {
         d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();

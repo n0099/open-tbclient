@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.apollon.utils.ResUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelDescLayout extends LinearLayout {
     public List<TextView> descListViews;
     public int mwidth;
@@ -30,9 +30,7 @@ public class ChannelDescLayout extends LinearLayout {
                     View childAt = ChannelDescLayout.this.getChildAt(i2);
                     if (childAt instanceof TextView) {
                         TextView textView = (TextView) childAt;
-                        double measureText = textView.getPaint().measureText(textView.getText().toString());
-                        Double.isNaN(measureText);
-                        i = ((int) (measureText + 0.5d)) + childAt.getPaddingLeft() + childAt.getPaddingRight();
+                        i = ((int) (textView.getPaint().measureText(textView.getText().toString()) + 0.5d)) + childAt.getPaddingLeft() + childAt.getPaddingRight();
                     } else {
                         i = 10;
                     }

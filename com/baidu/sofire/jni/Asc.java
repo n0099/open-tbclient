@@ -1,7 +1,7 @@
 package com.baidu.sofire.jni;
 
 import com.baidu.sofire.g.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Asc {
     static {
         try {

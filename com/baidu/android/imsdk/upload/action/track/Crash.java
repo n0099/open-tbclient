@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload.action.track;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Crash {
     public long aliasId;
     public String exception;

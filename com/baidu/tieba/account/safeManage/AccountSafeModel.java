@@ -9,21 +9,21 @@ import tbclient.SimpleUser;
 public class AccountSafeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14486e;
+    public boolean f14487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f14487f;
+    public a f14488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14488g;
+    public String f14489g;
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.f14486e = false;
+        this.f14487e = false;
     }
 
     public void A(boolean z) {
-        this.f14486e = z;
+        this.f14487e = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -33,7 +33,7 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.f14486e = false;
+        this.f14487e = false;
         return false;
     }
 
@@ -42,23 +42,23 @@ public class AccountSafeModel extends BdBaseModel {
     }
 
     public a t() {
-        return this.f14487f;
+        return this.f14488f;
     }
 
     public String u() {
-        return this.f14488g;
+        return this.f14489g;
     }
 
     public final SimpleUser v() {
-        a aVar = this.f14487f;
+        a aVar = this.f14488f;
         if (aVar == null || aVar.f() == null) {
             return null;
         }
-        return this.f14487f.f();
+        return this.f14488f.f();
     }
 
     public boolean w() {
-        return this.f14486e;
+        return this.f14487e;
     }
 
     public final void x() {
@@ -66,21 +66,21 @@ public class AccountSafeModel extends BdBaseModel {
         if (v != null) {
             String str = v.secureemail;
             String str2 = v.securemobil;
-            this.f14488g = v.ahead_url;
+            this.f14489g = v.ahead_url;
         }
     }
 
     public boolean y() {
-        if (this.f14486e) {
+        if (this.f14487e) {
             return false;
         }
-        this.f14486e = true;
+        this.f14487e = true;
         sendMessage(s());
         return true;
     }
 
     public void z(a aVar) {
-        this.f14487f = aVar;
+        this.f14488f = aVar;
         x();
     }
 }

@@ -20,15 +20,15 @@ import org.json.JSONObject;
 public class a extends n {
 
     /* renamed from: c  reason: collision with root package name */
-    public l f58750c;
+    public l f58751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58751d;
+    public String f58752d;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.f58750c = lVar;
-        this.f58751d = str;
+        this.f58751c = lVar;
+        this.f58752d = str;
     }
 
     @o(isAsync = false, value = "downloadGame")
@@ -51,7 +51,7 @@ public class a extends n {
         } else {
             d.b.i0.r2.x.e.n().E(optString, optString2, optString, 0, d.b.i0.r2.x.e.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
-        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.f58751d) ? "" : this.f58751d));
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.f58752d) ? "" : this.f58752d));
     }
 
     @Override // d.b.h0.r.y.n
@@ -62,10 +62,10 @@ public class a extends n {
     public final void h(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.f58750c.f() instanceof Activity)) {
+            if (!(this.f58751c.f() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.f58750c.f().startActivity(intent);
+            this.f58751c.f().startActivity(intent);
         } catch (ActivityNotFoundException e2) {
             BdLog.e(e2.getMessage());
         }

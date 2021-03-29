@@ -6,14 +6,14 @@ import java.util.List;
 public class j implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41401a;
+    public final String f41402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f41402b;
+    public final List<b> f41403b;
 
     public j(String str, List<b> list) {
-        this.f41401a = str;
-        this.f41402b = list;
+        this.f41402a = str;
+        this.f41403b = list;
     }
 
     @Override // d.a.a.s.j.b
@@ -22,14 +22,14 @@ public class j implements b {
     }
 
     public List<b> b() {
-        return this.f41402b;
+        return this.f41403b;
     }
 
     public String c() {
-        return this.f41401a;
+        return this.f41402a;
     }
 
     public String toString() {
-        return "ShapeGroup{name='" + this.f41401a + "' Shapes: " + Arrays.toString(this.f41402b.toArray()) + '}';
+        return "ShapeGroup{name='" + this.f41402a + "' Shapes: " + Arrays.toString(this.f41403b.toArray()) + '}';
     }
 }

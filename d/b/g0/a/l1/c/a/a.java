@@ -7,13 +7,13 @@ import d.b.g0.a.l1.c.d.e;
 import d.b.g0.a.t.b.d;
 import d.b.g0.l.k.h;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
 
     /* renamed from: d.b.g0.a.l1.c.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0728a implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
-        public C0728a() {
+    /* loaded from: classes2.dex */
+    public class C0729a implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
+        public C0729a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class a extends d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
         public b() {
         }
@@ -37,7 +37,7 @@ public class a extends d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> {
         public c() {
         }
@@ -69,7 +69,7 @@ public class a extends d {
             d.b.g0.a.l1.d.a.a(u.toString());
             return u.i;
         }
-        return new e().k(u, new C0728a());
+        return new e().k(u, new C0729a());
     }
 
     public d.b.g0.a.t.e.b t(String str) {
@@ -117,14 +117,14 @@ public class a extends d {
                 String str3 = TextUtils.isEmpty(optString5) ? "release" : optString5;
                 JSONObject optJSONObject = jSONObject.optJSONObject("args");
                 String optString6 = jSONObject.optString("cb");
-                bVar.f45186a = str2;
-                bVar.f45187b = optString;
-                bVar.f45188c = optString2;
-                bVar.f45189d = str3;
-                bVar.f45190e = optString3;
-                bVar.f45191f = optString4;
-                bVar.f45192g = optJSONObject;
-                bVar.f45193h = optString6;
+                bVar.f45187a = str2;
+                bVar.f45188b = optString;
+                bVar.f45189c = optString2;
+                bVar.f45190d = str3;
+                bVar.f45191e = optString3;
+                bVar.f45192f = optString4;
+                bVar.f45193g = optJSONObject;
+                bVar.f45194h = optString6;
                 return bVar;
             }
         }

@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.FileHelper;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f58887a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
+    public static final String f58888a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f58888b;
+    public static final String f58889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f58889c;
+    public static final String f58890c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f58890d;
+    public static final String f58891d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f58891e;
+    public static final String f58892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f58892f;
+    public static final String f58893f;
 
     static {
         StringBuilder sb = new StringBuilder();
@@ -28,14 +28,14 @@ public class c {
         sb.append("/");
         sb.append("tieba");
         sb.append("/videoCover.jpg");
-        f58888b = sb.toString();
-        f58889c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        f58889b = sb.toString();
+        f58890c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
         StringBuilder sb2 = new StringBuilder();
         sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
         sb2.append("/");
         sb2.append("DCIM/tieba/");
-        f58890d = sb2.toString();
-        f58891e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        f58892f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        f58891d = sb2.toString();
+        f58892e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        f58893f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

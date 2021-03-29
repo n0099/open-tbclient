@@ -17,16 +17,16 @@ import d.b.b.e.p.l;
 public class NewVoteCountDownView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22146e;
+    public Context f22147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22147f;
+    public TextView f22148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f22148g;
+    public View f22149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f22149h;
+    public View f22150h;
     public View i;
     public TextView j;
     public TextView k;
@@ -72,9 +72,9 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public final void c() {
-        this.f22147f = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.f22148g = findViewById(R.id.day_num_container);
-        this.f22149h = findViewById(R.id.hour_num_container);
+        this.f22148f = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.f22149g = findViewById(R.id.day_num_container);
+        this.f22150h = findViewById(R.id.hour_num_container);
         this.i = findViewById(R.id.minute_num_container);
         this.j = (TextView) findViewById(R.id.day_num_count_down_view);
         this.k = (TextView) findViewById(R.id.hour_num_count_down_view);
@@ -82,7 +82,7 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public final void d() {
-        this.f22146e = getContext();
+        this.f22147e = getContext();
         setOrientation(0);
         setClipToPadding(false);
         setClipChildren(false);
@@ -103,10 +103,10 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public void f(int i) {
-        SkinManager.setViewTextColor(this.f22147f, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f22148f, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i);
-        SkinManager.setBackgroundResource(this.f22148g, R.drawable.bg_gradient_round, i);
-        SkinManager.setBackgroundResource(this.f22149h, R.drawable.bg_gradient_round, i);
+        SkinManager.setBackgroundResource(this.f22149g, R.drawable.bg_gradient_round, i);
+        SkinManager.setBackgroundResource(this.f22150h, R.drawable.bg_gradient_round, i);
         SkinManager.setBackgroundResource(this.i, R.drawable.bg_gradient_round, i);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1, i);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i);

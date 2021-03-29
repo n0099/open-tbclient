@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: d.b.i0.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1678a {
+    public static class C1679a {
         public void a(int i, int i2) {
             if (i != 1 && i != 2 && i != 3 && BdLog.e()) {
                 throw new IllegalArgumentException("invalid source code");
@@ -20,7 +20,7 @@ public interface a {
         }
     }
 
-    void a(int i, C1678a c1678a);
+    void a(int i, C1679a c1679a);
 
-    void b(int i, String str, C1678a c1678a);
+    void b(int i, String str, C1679a c1679a);
 }

@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f52563a;
+    public int f52564a;
 
     public a0(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
@@ -80,7 +80,7 @@ public class a0 {
         }
         Map<String, String> paramPair = UrlManager.getParamPair(str);
         if (paramPair != null) {
-            this.f52563a = 5;
+            this.f52564a = 5;
             StatisticItem statisticItem = new StatisticItem("c10320");
             statisticItem.param("obj_locate", paramPair.get("obj_locate"));
             statisticItem.param("obj_type", 1);

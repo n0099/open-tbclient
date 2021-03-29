@@ -26,12 +26,12 @@ public class g extends d.b.i0.x.b<d.b.i0.h2.e.i> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
             SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_07);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0108, 1);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -58,14 +58,14 @@ public class g extends d.b.i0.x.b<d.b.i0.h2.e.i> {
         }
         if (StringUtils.isNull(this.p)) {
             TextView textView = this.o;
-            String string2 = this.f62181g.getString(R.string.person_polymeric_null_data);
+            String string2 = this.f62182g.getString(R.string.person_polymeric_null_data);
             Object[] objArr = new Object[1];
-            if (iVar.f55294e) {
-                string = this.f62181g.getString(R.string.you);
-            } else if (iVar.f55295f == 2) {
-                string = this.f62181g.getString(R.string.she);
+            if (iVar.f55295e) {
+                string = this.f62182g.getString(R.string.you);
+            } else if (iVar.f55296f == 2) {
+                string = this.f62182g.getString(R.string.she);
             } else {
-                string = this.f62181g.getString(R.string.he);
+                string = this.f62182g.getString(R.string.he);
             }
             objArr[0] = string;
             textView.setText(String.format(string2, objArr));

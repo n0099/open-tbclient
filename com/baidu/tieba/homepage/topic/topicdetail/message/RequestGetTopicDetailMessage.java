@@ -6,12 +6,12 @@ import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.NewHottopic.DataReq;
 import tbclient.NewHottopic.NewHottopicReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestGetTopicDetailMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17374common;
+    public CommonReq f17375common;
     public long topicId;
 
     public RequestGetTopicDetailMessage() {
@@ -21,7 +21,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f68548common = this.f17374common;
+        builder.f68553common = this.f17375common;
         builder.topic_id = Long.valueOf(this.topicId);
         builder.call_from = this.callFrom;
         if (z) {
@@ -37,7 +37,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17374common = commonReq;
+        this.f17375common = commonReq;
     }
 
     public void setTopicId(long j) {

@@ -9,18 +9,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42621a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static String f42622a = "https://etrade.baidu.com/sgw/common/pingd/trace";
 
     static {
         if (d.b.c0.k.b.a.d() != 1) {
-            f42621a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+            f42622a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
     public void a(d.b.c0.k.a.c cVar, d.b.c0.k.a.b bVar, d.b.c0.k.a.a aVar) {
         DataOutputStream dataOutputStream;
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(f42621a).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(f42622a).openConnection();
             for (Map.Entry<String, String> entry : cVar.d().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }

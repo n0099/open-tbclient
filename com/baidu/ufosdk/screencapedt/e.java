@@ -6,23 +6,23 @@ import android.view.View;
 public final class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f22982a;
+    public final /* synthetic */ ScreenCapEditActivity f22983a;
 
     public e(ScreenCapEditActivity screenCapEditActivity) {
-        this.f22982a = screenCapEditActivity;
+        this.f22983a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         boolean z;
         boolean z2;
-        z = this.f22982a.I;
+        z = this.f22983a.I;
         if (z) {
-            z2 = this.f22982a.K;
+            z2 = this.f22983a.K;
             if (z2) {
-                this.f22982a.setResult(-77, new Intent());
+                this.f22983a.setResult(-77, new Intent());
             }
         }
-        this.f22982a.finish();
+        this.f22983a.finish();
     }
 }

@@ -3,26 +3,26 @@ package com.tencent.open.utils;
 public final class k implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39337a;
+    public long f39338a;
 
     public k(long j) {
-        this.f39337a = j;
+        this.f39338a = j;
     }
 
     public byte[] a() {
-        long j = this.f39337a;
+        long j = this.f39338a;
         return new byte[]{(byte) (255 & j), (byte) ((65280 & j) >> 8), (byte) ((16711680 & j) >> 16), (byte) ((j & 4278190080L) >> 24)};
     }
 
     public long b() {
-        return this.f39337a;
+        return this.f39338a;
     }
 
     public boolean equals(Object obj) {
-        return obj != null && (obj instanceof k) && this.f39337a == ((k) obj).b();
+        return obj != null && (obj instanceof k) && this.f39338a == ((k) obj).b();
     }
 
     public int hashCode() {
-        return (int) this.f39337a;
+        return (int) this.f39338a;
     }
 }

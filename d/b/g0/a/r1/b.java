@@ -7,26 +7,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b implements d.b.g0.a.i2.u0.b<i.a> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f45721g = d.b.g0.a.k.f45050a;
+    public static final boolean f45722g = d.b.g0.a.k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, d.b.g0.a.i2.u0.b<i.a>> f45722e = new HashMap();
+    public final Map<String, d.b.g0.a.i2.u0.b<i.a>> f45723e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<d.b.g0.a.i2.u0.c<i.a, Boolean>> f45723f = new ArrayList();
+    public final List<d.b.g0.a.i2.u0.c<i.a, Boolean>> f45724f = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f45724e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f45725e;
 
         public a(d.b.g0.a.i2.u0.b bVar) {
-            this.f45724e = bVar;
+            this.f45725e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,27 +36,27 @@ public final class b implements d.b.g0.a.i2.u0.b<i.a> {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            b.this.f45722e.put(str, this.f45724e);
+            b.this.f45723e.put(str, this.f45725e);
         }
     }
 
     /* renamed from: d.b.g0.a.r1.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0776b implements d.b.g0.a.i2.u0.b<String> {
-        public C0776b() {
+    /* loaded from: classes2.dex */
+    public class C0777b implements d.b.g0.a.i2.u0.b<String> {
+        public C0777b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(String str) {
-            b.this.f45722e.remove(str);
+            b.this.f45723e.remove(str);
         }
     }
 
     public b b(d.b.g0.a.i2.u0.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.f45723f.add(cVar);
+            this.f45724f.add(cVar);
         }
         return this;
     }
@@ -65,7 +65,7 @@ public final class b implements d.b.g0.a.i2.u0.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (d.b.g0.a.i2.u0.c<i.a, Boolean> cVar : this.f45723f) {
+        for (d.b.g0.a.i2.u0.c<i.a, Boolean> cVar : this.f45724f) {
             if (cVar != null && !cVar.a(aVar).booleanValue()) {
                 return false;
             }
@@ -78,10 +78,10 @@ public final class b implements d.b.g0.a.i2.u0.b<i.a> {
     /* renamed from: d */
     public void onCallback(i.a aVar) {
         d.b.g0.a.i2.u0.b<i.a> bVar;
-        if (f45721g) {
+        if (f45722g) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (!c(aVar) || (bVar = this.f45722e.get(aVar.f45744g)) == null) {
+        if (!c(aVar) || (bVar = this.f45723e.get(aVar.f45745g)) == null) {
             return;
         }
         bVar.onCallback(aVar);
@@ -96,7 +96,7 @@ public final class b implements d.b.g0.a.i2.u0.b<i.a> {
 
     public b f(String... strArr) {
         if (strArr != null && strArr.length > 0) {
-            d.b.g0.a.i2.u0.a.d(new C0776b(), strArr);
+            d.b.g0.a.i2.u0.a.d(new C0777b(), strArr);
         }
         return this;
     }

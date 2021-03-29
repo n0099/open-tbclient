@@ -20,7 +20,7 @@ import tbclient.FrsTabInfo;
 import tbclient.HotThreadList.DataRes;
 import tbclient.HotThreadList.HotThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static List<n> a(List<a2> list) {
         if (list == null) {
@@ -44,13 +44,13 @@ public class c {
                 if (a2Var.P1()) {
                     z1Var2.j = true;
                 } else if (a2Var.V2() == 1) {
-                    z1Var2.f50956h = true;
+                    z1Var2.f50957h = true;
                     z1Var2.x = p0[0];
                     z1Var2.y = p0[1];
                 } else if (a2Var.V2() >= 2) {
                     z1Var2.i = true;
                 } else {
-                    z1Var2.f50954f = true;
+                    z1Var2.f50955f = true;
                 }
                 z1Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                 arrayList.add(z1Var2);

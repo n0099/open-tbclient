@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     public boolean isSupportNight = true;
     public NavigationBar mNavigationBar;
@@ -19,7 +19,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     public FragmentTabHost mTabHost;
     public FragmentTabHost.a onTabSelectionListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CustomOnPageChangeListener {
         public void onPageScrollStateChanged(int i) {
         }
@@ -37,14 +37,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f13312c = fragment;
-        bVar.f13310a = i;
+        bVar.f13313c = fragment;
+        bVar.f13311a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f13311b = fragmentTabIndicator;
+        bVar.f13312b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

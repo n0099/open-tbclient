@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
 import d.b.h0.m.f;
 import d.b.h0.r.q.s1;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i.a<s1> {
     public ConcernRecommendLayout j;
     public int k;

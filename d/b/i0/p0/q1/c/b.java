@@ -12,16 +12,16 @@ public class b implements n {
     public static BdUniqueId q = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumInfo f58352e;
+    public ForumInfo f58353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58353f;
+    public String f58354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58354g;
+    public String f58355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ForumRule> f58355h;
+    public List<ForumRule> f58356h;
     public int i;
     public String j;
     public boolean k;
@@ -53,7 +53,7 @@ public class b implements n {
     }
 
     public ForumInfo j() {
-        return this.f58352e;
+        return this.f58353e;
     }
 
     public boolean k() {
@@ -61,7 +61,7 @@ public class b implements n {
     }
 
     public String l() {
-        return this.f58354g;
+        return this.f58355g;
     }
 
     public String n() {
@@ -69,11 +69,11 @@ public class b implements n {
     }
 
     public List<ForumRule> o() {
-        return this.f58355h;
+        return this.f58356h;
     }
 
     public String p() {
-        return this.f58353f;
+        return this.f58354f;
     }
 
     public a q() {
@@ -82,10 +82,10 @@ public class b implements n {
 
     public void r(DataRes dataRes) {
         if (dataRes != null) {
-            this.f58352e = dataRes.forum;
-            this.f58353f = dataRes.title;
-            this.f58354g = dataRes.preface;
-            this.f58355h = dataRes.rules;
+            this.f58353e = dataRes.forum;
+            this.f58354f = dataRes.title;
+            this.f58355g = dataRes.preface;
+            this.f58356h = dataRes.rules;
             this.i = dataRes.audit_status.intValue();
             this.j = dataRes.audit_opinion;
             this.k = dataRes.is_manager.intValue() == 1;
@@ -107,7 +107,7 @@ public class b implements n {
     }
 
     public void t(ForumInfo forumInfo) {
-        this.f58352e = forumInfo;
+        this.f58353e = forumInfo;
     }
 
     public void u(boolean z) {
@@ -115,6 +115,6 @@ public class b implements n {
     }
 
     public void v(String str) {
-        this.f58354g = str;
+        this.f58355g = str;
     }
 }

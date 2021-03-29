@@ -6,13 +6,13 @@ public enum BannerRollAnimation {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38045a;
+    public final int f38046a;
 
     BannerRollAnimation(int i) {
-        this.f38045a = i;
+        this.f38046a = i;
     }
 
     public final int value() {
-        return this.f38045a;
+        return this.f38046a;
     }
 }

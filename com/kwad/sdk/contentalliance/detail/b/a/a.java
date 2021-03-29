@@ -10,24 +10,24 @@ import com.kwad.sdk.widget.TouchHandleFrameLayout;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public TouchHandleFrameLayout f32134b;
+    public TouchHandleFrameLayout f32135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GestureDetector.OnGestureListener f32135c;
+    public GestureDetector.OnGestureListener f32136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f32136d;
+    public AdTemplate f32137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32137e;
+    public int f32138e;
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32134b = (TouchHandleFrameLayout) l();
-        c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
-        this.f32137e = cVar.i;
-        this.f32136d = cVar.j;
+        this.f32135b = (TouchHandleFrameLayout) l();
+        c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
+        this.f32138e = cVar.i;
+        this.f32137d = cVar.j;
         GestureDetector.OnGestureListener onGestureListener = new GestureDetector.OnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.b.a.a.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
@@ -54,17 +54,17 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                e.h(a.this.f32136d);
+                e.h(a.this.f32137d);
                 return false;
             }
         };
-        this.f32135c = onGestureListener;
-        this.f32134b.setOnGestureListener(onGestureListener);
+        this.f32136c = onGestureListener;
+        this.f32135b.setOnGestureListener(onGestureListener);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32134b.setOnGestureListener(null);
+        this.f32135b.setOnGestureListener(null);
     }
 }

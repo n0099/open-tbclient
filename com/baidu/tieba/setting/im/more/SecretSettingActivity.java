@@ -213,10 +213,10 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     public class e implements AdapterView.OnItemClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20969e;
+        public final /* synthetic */ String f20970e;
 
         public e(String str) {
-            this.f20969e = str;
+            this.f20970e = str;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -225,35 +225,35 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             String b2 = ((n) SecretSettingActivity.this.mMyBar.get(i)).b();
             int i2 = 7;
             if (SecretSettingActivity.POSITION_SHOW_ALL_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 1);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 1);
                 i2 = 1;
             } else if (SecretSettingActivity.POSITION_FRIEND_ONLY_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 2);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 2);
                 i2 = 2;
             } else if (SecretSettingActivity.POSITION_HIDE_ALL_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 3);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 3);
                 i2 = 3;
             } else if (SecretSettingActivity.POSITION_REPLY_FANS_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 5);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 5);
                 i2 = 5;
             } else if (SecretSettingActivity.POSITION_REPLY_ATTENTIONS_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 6);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 6);
                 i2 = 6;
             } else if (SecretSettingActivity.POSITION_MYSELF_ONLY_TAG.equals(b2)) {
-                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20969e, 7);
+                SecretSettingActivity.this.sendSetPrivacyMessage(this.f20970e, 7);
             } else {
                 i2 = 0;
             }
             SecretSettingActivity.this.mDialog.h(i);
-            if ("group".equals(this.f20969e)) {
+            if ("group".equals(this.f20970e)) {
                 SecretSettingActivity.this.optionGroupSelected = i2;
-            } else if ("post".equals(this.f20969e)) {
+            } else if ("post".equals(this.f20970e)) {
                 SecretSettingActivity.this.optionForumSelected = i2;
-            } else if ("like".equals(this.f20969e)) {
+            } else if ("like".equals(this.f20970e)) {
                 SecretSettingActivity.this.optionBarSelected = i2;
-            } else if ("live".equals(this.f20969e)) {
+            } else if ("live".equals(this.f20970e)) {
                 SecretSettingActivity.this.optionLiveSelected = i2;
-            } else if ("reply".equals(this.f20969e)) {
+            } else if ("reply".equals(this.f20970e)) {
                 SecretSettingActivity.this.optionThreadReplySelected = i2;
             }
         }

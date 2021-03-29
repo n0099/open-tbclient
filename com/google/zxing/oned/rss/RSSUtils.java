@@ -64,7 +64,7 @@ public final class RSSUtils {
                 }
                 i5 += combins;
                 i9++;
-                i6 &= i8 ^ (-1);
+                i6 &= ~i8;
                 iArr2 = iArr;
             }
             i2 -= i9;

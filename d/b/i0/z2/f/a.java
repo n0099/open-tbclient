@@ -7,21 +7,21 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63472a;
+    public String f63473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63473b;
+    public int f63474b;
 
     public int a() {
-        return this.f63473b;
+        return this.f63474b;
     }
 
     public String b() {
-        return this.f63472a;
+        return this.f63473a;
     }
 
     public boolean c() {
-        return this.f63472a != null;
+        return this.f63473a != null;
     }
 
     public abstract void d(JSONObject jSONObject) throws Exception;
@@ -38,7 +38,7 @@ public abstract class a {
     public void f(JSONObject jSONObject) {
         try {
             int optInt = jSONObject.optInt("error_code", 0);
-            this.f63473b = optInt;
+            this.f63474b = optInt;
             if (optInt != 0) {
                 g(jSONObject.optString("error_msg", "网络不给力呀"));
                 return;
@@ -46,7 +46,7 @@ public abstract class a {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
                 int optInt2 = optJSONObject.optInt("errno", 0);
-                this.f63473b = optInt2;
+                this.f63474b = optInt2;
                 if (optInt2 != 0) {
                     g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
                     return;
@@ -64,6 +64,6 @@ public abstract class a {
     }
 
     public void g(String str) {
-        this.f63472a = str;
+        this.f63473a = str;
     }
 }

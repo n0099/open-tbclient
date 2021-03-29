@@ -13,28 +13,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f58595a;
+    public boolean f58596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58596b;
+    public int f58597b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScoreCardInfo f58598d;
+    public ScoreCardInfo f58599d;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f58597c = new ArrayList();
+    public List<a2> f58598c = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FeatureCardHot> f58599e = new ArrayList();
+    public List<FeatureCardHot> f58600e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<FeatureCardTopic> f58600f = new ArrayList();
+    public List<FeatureCardTopic> f58601f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b> f58601g = new ArrayList();
+    public List<b> f58602g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FeatureCardCompetition> f58602h = new ArrayList();
+    public List<FeatureCardCompetition> f58603h = new ArrayList();
     public List<FeatureCardGod> i = new ArrayList();
     public List<FeatureCardGame> j = new ArrayList();
 }

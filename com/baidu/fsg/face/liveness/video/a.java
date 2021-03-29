@@ -11,19 +11,19 @@ import java.util.concurrent.TimeUnit;
 public class a extends h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f5992b = false;
+    public static volatile boolean f5993b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f5993c = false;
+    public static volatile boolean f5994c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f5994a;
+    public g f5995a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5995d;
+    public int f5996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f5996e;
+    public CountDownLatch f5997e;
     public String t;
 
     public a(String str, b bVar) {
@@ -37,15 +37,15 @@ public class a extends h {
         int a2 = this.j.a();
         int b2 = this.j.b();
         LogUtil.i("previewSize:" + a2 + "," + b2);
-        f5992b = false;
-        f5993c = false;
+        f5993b = false;
+        f5994c = false;
         int c2 = this.j.c();
         try {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
-            this.f5996e = new CountDownLatch(1);
-            g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f5996e);
-            this.f5994a = gVar;
+            this.f5997e = new CountDownLatch(1);
+            g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f5997e);
+            this.f5995a = gVar;
             gVar.a(this);
             this.o.d(c2);
             this.o.a(this.t);
@@ -63,8 +63,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f5994a.c();
-            this.f5995d += this.f5994a.e();
+            this.f5995a.c();
+            this.f5996d += this.f5995a.e();
         }
     }
 
@@ -73,8 +73,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f5994a.c();
-            this.f5995d += this.f5994a.e();
+            this.f5995a.c();
+            this.f5996d += this.f5995a.e();
         }
     }
 
@@ -86,7 +86,7 @@ public class a extends h {
                 a.this.e();
                 a.this.n = System.currentTimeMillis();
                 VideoInfo.a(a.this.o.a(), a.this.o);
-                a.this.f5995d = 0;
+                a.this.f5996d = 0;
             }
         });
     }
@@ -99,7 +99,7 @@ public class a extends h {
         while (true) {
             boolean z = false;
             try {
-                z = !this.f5996e.await(j2, TimeUnit.MILLISECONDS);
+                z = !this.f5997e.await(j2, TimeUnit.MILLISECONDS);
             } catch (InterruptedException unused) {
             }
             j2 = 5000;
@@ -108,15 +108,15 @@ public class a extends h {
                     return;
                 }
                 return;
-            } else if (!this.f5994a.isAlive()) {
-                if (this.p || this.f5994a.b()) {
+            } else if (!this.f5995a.isAlive()) {
+                if (this.p || this.f5995a.b()) {
                     return;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
                 a(new RuntimeException("wait record stop" + (currentTimeMillis2 - currentTimeMillis) + "ms,timeout"));
                 return;
-            } else if (i != this.f5994a.f()) {
-                i = this.f5994a.f();
+            } else if (i != this.f5995a.f()) {
+                i = this.f5995a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -132,7 +132,7 @@ public class a extends h {
         this.p = false;
         h();
         if (a()) {
-            this.f5994a.start();
+            this.f5995a.start();
             this.m = System.currentTimeMillis();
             this.i = true;
         }
@@ -143,7 +143,7 @@ public class a extends h {
         if (!this.i || bArr == null || this.k) {
             return;
         }
-        this.f5994a.a(bArr, j);
+        this.f5995a.a(bArr, j);
     }
 
     @Override // com.baidu.fsg.face.liveness.video.d

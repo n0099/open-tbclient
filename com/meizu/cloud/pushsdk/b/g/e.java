@@ -14,23 +14,23 @@ import java.util.Arrays;
 public class e implements Serializable, Comparable<e> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f37585a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f37586a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f37586b = a(new byte[0]);
+    public static final e f37587b = a(new byte[0]);
     public static final long serialVersionUID = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f37587c;
+    public final byte[] f37588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f37588d;
+    public transient int f37589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f37589e;
+    public transient String f37590e;
 
     public e(byte[] bArr) {
-        this.f37587c = bArr;
+        this.f37588c = bArr;
     }
 
     public static e a(InputStream inputStream, int i) throws IOException {
@@ -54,8 +54,8 @@ public class e implements Serializable, Comparable<e> {
 
     public static e a(String str) {
         if (str != null) {
-            e eVar = new e(str.getBytes(o.f37615a));
-            eVar.f37589e = str;
+            e eVar = new e(str.getBytes(o.f37616a));
+            eVar.f37590e = str;
             return eVar;
         }
         throw new IllegalArgumentException("s == null");
@@ -70,7 +70,7 @@ public class e implements Serializable, Comparable<e> {
 
     private e b(String str) {
         try {
-            return a(MessageDigest.getInstance(str).digest(this.f37587c));
+            return a(MessageDigest.getInstance(str).digest(this.f37588c));
         } catch (NoSuchAlgorithmException e2) {
             throw new AssertionError(e2);
         }
@@ -81,7 +81,7 @@ public class e implements Serializable, Comparable<e> {
         try {
             Field declaredField = e.class.getDeclaredField("c");
             declaredField.setAccessible(true);
-            declaredField.set(this, a2.f37587c);
+            declaredField.set(this, a2.f37588c);
         } catch (IllegalAccessException unused) {
             throw new AssertionError();
         } catch (NoSuchFieldException unused2) {
@@ -90,12 +90,12 @@ public class e implements Serializable, Comparable<e> {
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        objectOutputStream.writeInt(this.f37587c.length);
-        objectOutputStream.write(this.f37587c);
+        objectOutputStream.writeInt(this.f37588c.length);
+        objectOutputStream.write(this.f37588c);
     }
 
     public byte a(int i) {
-        return this.f37587c[i];
+        return this.f37588c[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,22 +119,22 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public String a() {
-        String str = this.f37589e;
+        String str = this.f37590e;
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.f37587c, o.f37615a);
-        this.f37589e = str2;
+        String str2 = new String(this.f37588c, o.f37616a);
+        this.f37590e = str2;
         return str2;
     }
 
     public void a(b bVar) {
-        byte[] bArr = this.f37587c;
+        byte[] bArr = this.f37588c;
         bVar.c(bArr, 0, bArr.length);
     }
 
     public boolean a(int i, byte[] bArr, int i2, int i3) {
-        byte[] bArr2 = this.f37587c;
+        byte[] bArr2 = this.f37588c;
         return i <= bArr2.length - i3 && i2 <= bArr.length - i3 && o.a(bArr2, i, bArr, i2, i3);
     }
 
@@ -143,12 +143,12 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public String c() {
-        byte[] bArr = this.f37587c;
+        byte[] bArr = this.f37588c;
         char[] cArr = new char[bArr.length * 2];
         int i = 0;
         for (byte b2 : bArr) {
             int i2 = i + 1;
-            char[] cArr2 = f37585a;
+            char[] cArr2 = f37586a;
             cArr[i] = cArr2[(b2 >> 4) & 15];
             i = i2 + 1;
             cArr[i2] = cArr2[b2 & 15];
@@ -157,7 +157,7 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public int d() {
-        return this.f37587c.length;
+        return this.f37588c.length;
     }
 
     public boolean equals(Object obj) {
@@ -167,7 +167,7 @@ public class e implements Serializable, Comparable<e> {
         if (obj instanceof e) {
             e eVar = (e) obj;
             int d2 = eVar.d();
-            byte[] bArr = this.f37587c;
+            byte[] bArr = this.f37588c;
             if (d2 == bArr.length && eVar.a(0, bArr, 0, bArr.length)) {
                 return true;
             }
@@ -176,17 +176,17 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public int hashCode() {
-        int i = this.f37588d;
+        int i = this.f37589d;
         if (i != 0) {
             return i;
         }
-        int hashCode = Arrays.hashCode(this.f37587c);
-        this.f37588d = hashCode;
+        int hashCode = Arrays.hashCode(this.f37588c);
+        this.f37589d = hashCode;
         return hashCode;
     }
 
     public String toString() {
-        byte[] bArr = this.f37587c;
+        byte[] bArr = this.f37588c;
         return bArr.length == 0 ? "ByteString[size=0]" : bArr.length <= 16 ? String.format("ByteString[size=%s data=%s]", Integer.valueOf(bArr.length), c()) : String.format("ByteString[size=%s md5=%s]", Integer.valueOf(bArr.length), b().c());
     }
 }

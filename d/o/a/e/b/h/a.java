@@ -11,22 +11,22 @@ import java.util.concurrent.Future;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f67006a;
+    public final InputStream f67011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f67007b;
+    public final int f67012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f67008c;
+    public final int f67013c;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.e.b.i.a f67011f;
+    public d.o.a.e.b.i.a f67016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.e.b.i.a f67012g;
+    public d.o.a.e.b.i.a f67017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.i.a f67013h;
+    public d.o.a.e.b.i.a f67018h;
     public d.o.a.e.b.i.a i;
     public d.o.a.e.b.i.a j;
     public d.o.a.e.b.i.a k;
@@ -37,16 +37,16 @@ public class a implements b {
     public int p;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f67009d = new Object();
+    public final Object f67014d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f67010e = new Object();
-    public final Runnable q = new RunnableC1846a();
+    public final Object f67015e = new Object();
+    public final Runnable q = new RunnableC1847a();
 
     /* renamed from: d.o.a.e.b.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1846a implements Runnable {
-        public RunnableC1846a() {
+    public class RunnableC1847a implements Runnable {
+        public RunnableC1847a() {
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -58,45 +58,45 @@ public class a implements b {
             do {
                 try {
                     k = a.this.k();
-                    k.f67019c = a.this.f67006a.read(k.f67017a);
+                    k.f67024c = a.this.f67011a.read(k.f67022a);
                     a.this.j(k);
                 } catch (Throwable th) {
                     try {
                         a.this.n = th;
                         th.printStackTrace();
-                        synchronized (a.this.f67010e) {
+                        synchronized (a.this.f67015e) {
                             a.this.m = true;
-                            a.this.f67010e.notify();
-                            e.C(a.this.f67006a);
+                            a.this.f67015e.notify();
+                            e.C(a.this.f67011a);
                             return;
                         }
                     } catch (Throwable th2) {
-                        synchronized (a.this.f67010e) {
+                        synchronized (a.this.f67015e) {
                             a.this.m = true;
-                            a.this.f67010e.notify();
-                            e.C(a.this.f67006a);
+                            a.this.f67015e.notify();
+                            e.C(a.this.f67011a);
                             throw th2;
                         }
                     }
                 }
-            } while (k.f67019c != -1);
-            synchronized (a.this.f67010e) {
+            } while (k.f67024c != -1);
+            synchronized (a.this.f67015e) {
                 a.this.m = true;
-                a.this.f67010e.notify();
+                a.this.f67015e.notify();
             }
-            e.C(a.this.f67006a);
+            e.C(a.this.f67011a);
         }
     }
 
     public a(InputStream inputStream, int i, int i2) throws Throwable {
-        this.f67006a = inputStream;
-        this.f67007b = i;
+        this.f67011a = inputStream;
+        this.f67012b = i;
         if (i2 < 1) {
             i2 = 1;
         } else if (i2 > 64) {
             i2 = 64;
         }
-        this.f67008c = i2;
+        this.f67013c = i2;
         i();
     }
 
@@ -106,15 +106,15 @@ public class a implements b {
     }
 
     public final void g(d.o.a.e.b.i.a aVar) {
-        synchronized (this.f67009d) {
-            d.o.a.e.b.i.a aVar2 = this.f67012g;
+        synchronized (this.f67014d) {
+            d.o.a.e.b.i.a aVar2 = this.f67017g;
             if (aVar2 == null) {
-                this.f67012g = aVar;
-                this.f67011f = aVar;
-                this.f67009d.notify();
+                this.f67017g = aVar;
+                this.f67016f = aVar;
+                this.f67014d.notify();
             } else {
-                aVar2.f67020d = aVar;
-                this.f67012g = aVar;
+                aVar2.f67025d = aVar;
+                this.f67017g = aVar;
             }
         }
     }
@@ -124,48 +124,48 @@ public class a implements b {
     }
 
     public final void j(d.o.a.e.b.i.a aVar) {
-        synchronized (this.f67010e) {
+        synchronized (this.f67015e) {
             d.o.a.e.b.i.a aVar2 = this.j;
             if (aVar2 == null) {
                 this.j = aVar;
                 this.i = aVar;
-                this.f67010e.notify();
+                this.f67015e.notify();
             } else {
-                aVar2.f67020d = aVar;
+                aVar2.f67025d = aVar;
                 this.j = aVar;
             }
         }
     }
 
     public final d.o.a.e.b.i.a k() throws p, InterruptedException {
-        d.o.a.e.b.i.a aVar = this.f67013h;
+        d.o.a.e.b.i.a aVar = this.f67018h;
         if (aVar != null) {
             if (!this.l) {
-                this.f67013h = aVar.f67020d;
-                aVar.f67020d = null;
+                this.f67018h = aVar.f67025d;
+                aVar.f67025d = null;
                 return aVar;
             }
             throw new p("");
         }
-        synchronized (this.f67009d) {
+        synchronized (this.f67014d) {
             if (!this.l) {
-                d.o.a.e.b.i.a aVar2 = this.f67011f;
-                if (aVar2 == null && this.p < this.f67008c) {
+                d.o.a.e.b.i.a aVar2 = this.f67016f;
+                if (aVar2 == null && this.p < this.f67013c) {
                     this.p++;
-                    return new d.o.a.e.b.i.a(this.f67007b);
+                    return new d.o.a.e.b.i.a(this.f67012b);
                 }
                 while (aVar2 == null) {
-                    this.f67009d.wait();
+                    this.f67014d.wait();
                     if (!this.l) {
-                        aVar2 = this.f67011f;
+                        aVar2 = this.f67016f;
                     } else {
                         throw new p("");
                     }
                 }
-                this.f67013h = aVar2.f67020d;
-                this.f67012g = null;
-                this.f67011f = null;
-                aVar2.f67020d = null;
+                this.f67018h = aVar2.f67025d;
+                this.f67017g = null;
+                this.f67016f = null;
+                aVar2.f67025d = null;
                 return aVar2;
             }
             throw new p("");
@@ -176,15 +176,15 @@ public class a implements b {
         d.o.a.e.b.i.a aVar;
         d.o.a.e.b.i.a aVar2 = this.k;
         if (aVar2 != null) {
-            this.k = aVar2.f67020d;
-            aVar2.f67020d = null;
+            this.k = aVar2.f67025d;
+            aVar2.f67025d = null;
             return aVar2;
         }
-        synchronized (this.f67010e) {
+        synchronized (this.f67015e) {
             aVar = this.i;
             if (aVar == null) {
                 while (!this.m) {
-                    this.f67010e.wait();
+                    this.f67015e.wait();
                     aVar = this.i;
                     if (aVar != null) {
                     }
@@ -192,10 +192,10 @@ public class a implements b {
                 m();
                 throw null;
             }
-            this.k = aVar.f67020d;
+            this.k = aVar.f67025d;
             this.j = null;
             this.i = null;
-            aVar.f67020d = null;
+            aVar.f67025d = null;
         }
         return aVar;
     }
@@ -219,9 +219,9 @@ public class a implements b {
 
     @Override // d.o.a.e.b.h.b
     public void b() {
-        synchronized (this.f67009d) {
+        synchronized (this.f67014d) {
             this.l = true;
-            this.f67009d.notify();
+            this.f67014d.notify();
         }
         Future future = this.o;
         if (future != null) {

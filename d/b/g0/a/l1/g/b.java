@@ -19,11 +19,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45226a = k.f45050a;
+    public static final boolean f45227a = k.f45051a;
 
     public static void a(Map<String, String> map, String str) {
         if (map == null) {
@@ -32,7 +32,7 @@ public class b {
         String b2 = b(map, "dynamicLibPath", 3);
         String b3 = b(map, "dynamicLibConfig", 3);
         String b4 = b(map, "pluginPath", 4);
-        if (TextUtils.isEmpty(str) || !f45226a) {
+        if (TextUtils.isEmpty(str) || !f45227a) {
             return;
         }
         d.b.g0.a.l1.d.a.a(str + ", dynamicLibPath = " + b2 + "; dynamicLibConfig = " + b3 + "; pluginPath = " + b4);
@@ -84,12 +84,12 @@ public class b {
             d.b.g0.a.l1.d.a.a("getDownloadKey, app.json is null");
             return null;
         }
-        SwanAppConfigData.i iVar = c2.f12614c;
+        SwanAppConfigData.i iVar = c2.f12615c;
         if (iVar == null) {
             d.b.g0.a.l1.d.a.a("getDownloadKey, sub pkg obj is null");
             return null;
         }
-        HashMap<String, String> hashMap = iVar.f12636a;
+        HashMap<String, String> hashMap = iVar.f12637a;
         if (hashMap == null) {
             d.b.g0.a.l1.d.a.a("getDownloadKey, sub pkg map is null");
             return null;
@@ -128,7 +128,7 @@ public class b {
         e y = e.y();
         if (y != null && (D = y.D()) != null && (list = D.k) != null) {
             for (h hVar : list) {
-                if (TextUtils.equals(str, hVar.f48922g)) {
+                if (TextUtils.equals(str, hVar.f48923g)) {
                     return hVar;
                 }
             }
@@ -168,12 +168,12 @@ public class b {
                     String optString = optJSONObject.optString("plugin_id");
                     if (!TextUtils.isEmpty(optString)) {
                         h hVar = new h();
-                        hVar.f48922g = optString;
+                        hVar.f48923g = optString;
                         hVar.i = optJSONObject.optInt("version_code");
                         hVar.j = optJSONObject.optString("version_name", "0.0.0");
                         hVar.p = optJSONObject.optString("token");
                         hVar.q = optJSONObject.optString("domains");
-                        hVar.f48923h = 4;
+                        hVar.f48924h = 4;
                         hVar.r = optJSONObject.optString(com.alipay.sdk.cons.b.f1858h);
                         hVar.s = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
                         hVar.l = "";

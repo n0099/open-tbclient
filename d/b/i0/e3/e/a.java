@@ -9,16 +9,16 @@ import tbclient.GetIconList.Setting;
 public class a extends BaseCardInfo implements n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f54590g = BdUniqueId.gen();
+    public static final BdUniqueId f54591g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public Custom f54591e;
+    public Custom f54592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Setting f54592f;
+    public Setting f54593f;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f54590g;
+        return f54591g;
     }
 }

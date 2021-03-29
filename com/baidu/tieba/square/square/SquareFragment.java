@@ -22,16 +22,16 @@ public class SquareFragment extends BaseFragment {
     public View k;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f21267e = null;
+    public h f21268e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public SquareModel f21268f = null;
+    public SquareModel f21269f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21269g = false;
+    public boolean f21270g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21270h = false;
+    public boolean f21271h = false;
     public long i = -1;
     public final SquareModel.a l = new a();
     public final NoNetworkView.b m = new b();
@@ -45,47 +45,47 @@ public class SquareFragment extends BaseFragment {
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, d.b.i0.z2.j.f fVar) {
-            SquareFragment.this.f21267e.g(true, "");
+            SquareFragment.this.f21268e.g(true, "");
             SquareFragment squareFragment = SquareFragment.this;
-            squareFragment.hideLoadingView(squareFragment.f21267e.h());
+            squareFragment.hideLoadingView(squareFragment.f21268e.h());
             if (z && fVar != null && !fVar.g()) {
-                SquareFragment.this.f21267e.l(SquareFragment.this.f21268f.B());
-                SquareFragment.this.f21269g = true;
-                SquareFragment.this.f21267e.i();
+                SquareFragment.this.f21268e.l(SquareFragment.this.f21269f.B());
+                SquareFragment.this.f21270g = true;
+                SquareFragment.this.f21268e.i();
                 SquareFragment.this.V0();
             }
-            if (SquareFragment.this.f21270h) {
-                SquareFragment.this.f21270h = false;
+            if (SquareFragment.this.f21271h) {
+                SquareFragment.this.f21271h = false;
                 SquareFragment.this.W0(true);
-                if (!SquareFragment.this.f21269g) {
-                    SquareFragment.this.f21267e.i();
+                if (!SquareFragment.this.f21270g) {
+                    SquareFragment.this.f21268e.i();
                     SquareFragment squareFragment2 = SquareFragment.this;
-                    squareFragment2.showLoadingView(squareFragment2.f21267e.h());
+                    squareFragment2.showLoadingView(squareFragment2.f21268e.h());
                 }
             } else {
                 if (SquareFragment.this.i > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareFragment.this.i, SquareFragment.this.f21268f.D() - SquareFragment.this.i, SquareFragment.this.f21268f.F(), SquareFragment.this.f21268f.E(), currentTimeMillis - SquareFragment.this.f21268f.C());
+                    TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareFragment.this.i, SquareFragment.this.f21269f.D() - SquareFragment.this.i, SquareFragment.this.f21269f.F(), SquareFragment.this.f21269f.E(), currentTimeMillis - SquareFragment.this.f21269f.C());
                     SquareFragment.this.i = -1L;
                 }
-                if (!SquareFragment.this.f21269g) {
+                if (!SquareFragment.this.f21270g) {
                     if (j.z()) {
-                        SquareFragment.this.f21267e.o(R.string.no_data_text);
+                        SquareFragment.this.f21268e.o(R.string.no_data_text);
                     } else {
-                        SquareFragment.this.f21267e.o(R.string.game_index_no_network_text);
+                        SquareFragment.this.f21268e.o(R.string.game_index_no_network_text);
                     }
                 }
             }
             if (!j.z()) {
-                SquareFragment.this.f21267e.f();
-                if (SquareFragment.this.f21269g) {
+                SquareFragment.this.f21268e.f();
+                if (SquareFragment.this.f21270g) {
                     return;
                 }
                 SquareFragment.this.S0();
                 return;
             }
             SquareFragment.this.j.showToast(str);
-            SquareFragment.this.f21267e.k();
+            SquareFragment.this.f21268e.k();
         }
     }
 
@@ -140,37 +140,37 @@ public class SquareFragment extends BaseFragment {
     }
 
     public final void S0() {
-        this.f21267e.d(this.m);
+        this.f21268e.d(this.m);
     }
 
     public final void T0() {
-        this.f21268f.cancelLoadData();
+        this.f21269f.cancelLoadData();
     }
 
     public final void U0() {
         h hVar = new h(this.j, getUniqueId(), this.k, this.n);
-        this.f21267e = hVar;
+        this.f21268e = hVar;
         hVar.n(this.o);
     }
 
     public final void V0() {
-        this.f21267e.m(this.m);
+        this.f21268e.m(this.m);
     }
 
     public final void W0(boolean z) {
-        SquareModel squareModel = this.f21268f;
+        SquareModel squareModel = this.f21269f;
         if (squareModel == null) {
             return;
         }
         boolean z2 = false;
-        boolean z3 = squareModel.B() == null || this.f21268f.B().g();
+        boolean z3 = squareModel.B() == null || this.f21269f.B().g();
         boolean z4 = z;
         if (!j.z()) {
-            this.f21270h = false;
+            this.f21271h = false;
             z4 = false;
             z3 = true;
         }
-        if (this.f21270h) {
+        if (this.f21271h) {
             z3 = true;
         } else {
             z2 = z4;
@@ -178,18 +178,18 @@ public class SquareFragment extends BaseFragment {
         if (z3 || z2) {
             T0();
             if (z2) {
-                this.f21268f.I();
+                this.f21269f.I();
             } else {
-                this.f21268f.H();
+                this.f21269f.H();
             }
         }
     }
 
     public final void initData() {
         SquareModel squareModel = new SquareModel(this.j);
-        this.f21268f = squareModel;
+        this.f21269f = squareModel;
         squareModel.J(this.l);
-        this.f21270h = true;
+        this.f21271h = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -204,7 +204,7 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        h hVar = this.f21267e;
+        h hVar = this.f21268e;
         if (hVar != null) {
             hVar.onChangeSkinType(i);
         }
@@ -226,7 +226,7 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        W0(this.f21270h);
+        W0(this.f21271h);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

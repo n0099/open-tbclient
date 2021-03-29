@@ -8,17 +8,17 @@ import tbclient.CartoonThread;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f50885a;
+    public long f50886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50886b;
+    public int f50887b;
 
     public long a() {
-        return this.f50885a;
+        return this.f50886a;
     }
 
     public int b() {
-        return this.f50886b;
+        return this.f50887b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -26,8 +26,8 @@ public class t {
             return;
         }
         try {
-            this.f50885a = jSONObject.optLong("cartoon_id");
-            this.f50886b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            this.f50886a = jSONObject.optLong("cartoon_id");
+            this.f50887b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -37,7 +37,7 @@ public class t {
         if (cartoonThread == null) {
             return;
         }
-        this.f50885a = cartoonThread.cartoon_id.longValue();
-        this.f50886b = cartoonThread.chapter_id.intValue();
+        this.f50886a = cartoonThread.cartoon_id.longValue();
+        this.f50887b = cartoonThread.chapter_id.intValue();
     }
 }

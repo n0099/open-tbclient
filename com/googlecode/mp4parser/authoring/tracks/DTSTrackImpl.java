@@ -65,16 +65,16 @@ public class DTSTrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31043b;
+        public final /* synthetic */ int f31044b;
 
         public a(int i) {
-            this.f31043b = i;
+            this.f31044b = i;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return DTSTrackImpl.this.dataSource.map(this.f31043b, DTSTrackImpl.this.frameSize);
+                return DTSTrackImpl.this.dataSource.map(this.f31044b, DTSTrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -87,7 +87,7 @@ public class DTSTrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            DTSTrackImpl.this.dataSource.transferTo(this.f31043b, DTSTrackImpl.this.frameSize, writableByteChannel);
+            DTSTrackImpl.this.dataSource.transferTo(this.f31044b, DTSTrackImpl.this.frameSize, writableByteChannel);
         }
     }
 

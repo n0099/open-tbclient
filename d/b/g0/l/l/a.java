@@ -15,19 +15,19 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.g0.k.e.a f48924a = d.b.g0.k.e.a.f();
+    public static d.b.g0.k.e.a f48925a = d.b.g0.k.e.a.f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static CookieManager f48925b = d.b.g0.l.f.b().a();
+    public static CookieManager f48926b = d.b.g0.l.f.b().a();
 
     @Deprecated
     public static void a(String str, Map<String, String> map, Map<String, String> map2, StatResponseCallback<String> statResponseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            GetRequest.GetRequestBuilder url = f48924a.getRequest().url(e.i(str, map));
+            GetRequest.GetRequestBuilder url = f48925a.getRequest().url(e.i(str, map));
             if (map2 != null) {
                 url.addHeaders(map2);
             }
-            url.cookieManager(f48925b).enableStat(true).build().executeStat(statResponseCallback);
+            url.cookieManager(f48926b).enableStat(true).build().executeStat(statResponseCallback);
             return;
         }
         throw new InvalidParameterException("PMS request URL is empty");
@@ -36,11 +36,11 @@ public class a {
     @Deprecated
     public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, StatResponseCallback<String> statResponseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            PostStringRequest.PostStringRequestBuilder mediaType = f48924a.postStringRequest().url(e.i(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
+            PostStringRequest.PostStringRequestBuilder mediaType = f48925a.postStringRequest().url(e.i(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
             if (map2 != null) {
                 mediaType.addHeaders(map2);
             }
-            mediaType.cookieManager(f48925b).enableStat(true).build().executeStat(statResponseCallback);
+            mediaType.cookieManager(f48926b).enableStat(true).build().executeStat(statResponseCallback);
             return;
         }
         throw new InvalidParameterException("PMS request URL is empty");

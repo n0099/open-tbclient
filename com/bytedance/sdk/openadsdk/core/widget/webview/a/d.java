@@ -22,20 +22,20 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f28990a;
+    public static volatile d f28991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f28991b = new AtomicBoolean(false);
+    public AtomicBoolean f28992b = new AtomicBoolean(false);
 
     private JSONObject c(String str) {
         i c2 = i.c();
         new j(0, str, c2).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.c().e());
         try {
             o oVar = c2.get();
-            if (oVar == null || !oVar.f() || oVar.f65738a == 0) {
+            if (oVar == null || !oVar.f() || oVar.f65739a == 0) {
                 return null;
             }
-            return new JSONObject((String) oVar.f65738a);
+            return new JSONObject((String) oVar.f65739a);
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -50,14 +50,14 @@ public class d {
     }
 
     public static d a() {
-        if (f28990a == null) {
+        if (f28991a == null) {
             synchronized (d.class) {
-                if (f28990a == null) {
-                    f28990a = new d();
+                if (f28991a == null) {
+                    f28991a = new d();
                 }
             }
         }
-        return f28990a;
+        return f28991a;
     }
 
     private void b() {
@@ -88,7 +88,7 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f28991b.set(false);
+            this.f28992b.set(false);
             return;
         }
         u.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + E + ", 目前存储的模版的个数 " + b2.size());
@@ -135,11 +135,11 @@ public class d {
             u.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
             return;
         }
-        final String str2 = iVar.f28430a;
-        final String str3 = iVar.f28432c;
-        final String str4 = iVar.f28431b;
-        final String str5 = iVar.f28433d;
-        final String str6 = iVar.f28434e;
+        final String str2 = iVar.f28431a;
+        final String str3 = iVar.f28433c;
+        final String str4 = iVar.f28432b;
+        final String str5 = iVar.f28434d;
+        final String str6 = iVar.f28435e;
         if (TextUtils.isEmpty(str)) {
             str = com.bytedance.sdk.openadsdk.core.i.d().g();
         }

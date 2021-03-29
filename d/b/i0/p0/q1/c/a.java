@@ -10,24 +10,24 @@ public class a implements n {
     public static BdUniqueId j = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58348e;
+    public String f58349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58349f;
+    public String f58350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58350g;
+    public String f58351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58351h;
+    public String f58352h;
     public String i;
 
     public String a() {
-        return this.f58349f;
+        return this.f58350f;
     }
 
     public String e() {
-        return this.f58351h;
+        return this.f58352h;
     }
 
     public String f() {
@@ -35,7 +35,7 @@ public class a implements n {
     }
 
     public String g() {
-        return this.f58348e;
+        return this.f58349e;
     }
 
     @Override // d.b.b.j.e.n
@@ -44,29 +44,29 @@ public class a implements n {
     }
 
     public String j() {
-        return this.f58350g;
+        return this.f58351g;
     }
 
     public void k(DataRes dataRes) {
-        this.f58350g = dataRes.publish_time;
+        this.f58351g = dataRes.publish_time;
         BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
         if (bawuRoleInfoPub != null) {
-            this.f58348e = bawuRoleInfoPub.portrait;
+            this.f58349e = bawuRoleInfoPub.portrait;
             this.i = bawuRoleInfoPub.name_show;
         }
         ForumInfo forumInfo = dataRes.forum;
         if (forumInfo != null) {
-            this.f58349f = forumInfo.avatar;
-            this.f58351h = forumInfo.forum_name;
+            this.f58350f = forumInfo.avatar;
+            this.f58352h = forumInfo.forum_name;
         }
     }
 
     public void l(String str) {
-        this.f58349f = str;
+        this.f58350f = str;
     }
 
     public void n(String str) {
-        this.f58351h = str;
+        this.f58352h = str;
     }
 
     public void o(String str) {
@@ -74,6 +74,6 @@ public class a implements n {
     }
 
     public void p(String str) {
-        this.f58348e = str;
+        this.f58349e = str;
     }
 }

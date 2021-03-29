@@ -9,27 +9,27 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63541a;
+    public String f63542a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63542b;
+    public String f63543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63543c;
+    public String f63544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63544d;
+    public String f63545d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d> f63545e;
+    public ArrayList<d> f63546e;
 
     public void a(JSONObject jSONObject) throws JSONException {
-        this.f63541a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-        this.f63542b = jSONObject.optString("menu_name");
-        this.f63543c = jSONObject.optString("menu_id");
+        this.f63542a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+        this.f63543b = jSONObject.optString("menu_name");
+        this.f63544c = jSONObject.optString("menu_id");
         String optString = jSONObject.optString("default_logo_url", null);
-        this.f63544d = optString;
-        this.f63544d = optString != null ? this.f63544d + "?v=2" : null;
+        this.f63545d = optString;
+        this.f63545d = optString != null ? this.f63545d + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
             ArrayList<d> arrayList = new ArrayList<>();
             JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
@@ -38,7 +38,7 @@ public class d {
                 dVar.a(optJSONArray.getJSONObject(i));
                 arrayList.add(dVar);
             }
-            this.f63545e = arrayList;
+            this.f63546e = arrayList;
         }
     }
 }

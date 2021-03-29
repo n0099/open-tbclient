@@ -14,14 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class GlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f3948a = null;
+    public static LayoutInflater f3949a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f3949b = null;
+    public static WeakReference<Toast> f3950b = null;
     public static String showStr = "";
 
     public static String getProperties(String str, String str2) {
@@ -82,14 +82,14 @@ public final class GlobalUtils {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        WeakReference<Toast> weakReference = f3949b;
+        WeakReference<Toast> weakReference = f3950b;
         if (weakReference != null && weakReference.get() != null) {
-            f3949b.get().cancel();
+            f3950b.get().cancel();
         }
-        if (f3948a == null) {
-            f3948a = LayoutInflater.from(applicationContext);
+        if (f3949a == null) {
+            f3949a = LayoutInflater.from(applicationContext);
         }
-        View inflate = f3948a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+        View inflate = f3949a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
         if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
             return;
         }
@@ -103,7 +103,7 @@ public final class GlobalUtils {
         toast.setDuration(i2);
         toast.setGravity(17, 0, 0);
         toast.setView(inflate);
-        f3949b = new WeakReference<>(toast);
+        f3950b = new WeakReference<>(toast);
         toast.show();
     }
 }

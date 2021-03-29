@@ -20,25 +20,25 @@ import tbclient.GetClientConfig.DataRes;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f54865g;
+    public static b f54866g;
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientConfigModel f54866a;
+    public ClientConfigModel f54867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f54867b;
+    public d f54868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54868c = false;
+    public boolean f54869c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.h0.p.a f54869d = new a();
+    public final d.b.h0.p.a f54870d = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f54870e = new C1254b(2000994);
+    public CustomMessageListener f54871e = new C1255b(2000994);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f54871f = new c(2005016);
+    public CustomMessageListener f54872f = new c(2005016);
 
     /* loaded from: classes5.dex */
     public class a implements d.b.h0.p.a {
@@ -47,7 +47,7 @@ public class b {
 
         @Override // d.b.h0.p.a
         public void a(Object obj) {
-            b.this.f54868c = false;
+            b.this.f54869c = false;
             if (obj == null || !(obj instanceof DataRes)) {
                 return;
             }
@@ -67,14 +67,14 @@ public class b {
 
         @Override // d.b.h0.p.a
         public void onError(String str) {
-            b.this.f54868c = false;
+            b.this.f54869c = false;
         }
     }
 
     /* renamed from: d.b.i0.f3.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1254b extends CustomMessageListener {
-        public C1254b(int i) {
+    public class C1255b extends CustomMessageListener {
+        public C1255b(int i) {
             super(i);
         }
 
@@ -125,23 +125,23 @@ public class b {
     }
 
     public static b i() {
-        if (f54865g == null) {
+        if (f54866g == null) {
             synchronized (b.class) {
-                if (f54865g == null) {
-                    f54865g = new b();
+                if (f54866g == null) {
+                    f54866g = new b();
                 }
             }
         }
-        return f54865g;
+        return f54866g;
     }
 
     public void e(BaseFragmentActivity baseFragmentActivity) {
         d dVar = new d();
-        this.f54867b = dVar;
+        this.f54868b = dVar;
         baseFragmentActivity.registerListener(dVar);
-        baseFragmentActivity.registerListener(this.f54870e);
-        baseFragmentActivity.registerListener(this.f54871f);
-        this.f54866a = new ClientConfigModel(baseFragmentActivity, this.f54869d);
+        baseFragmentActivity.registerListener(this.f54871e);
+        baseFragmentActivity.registerListener(this.f54872f);
+        this.f54867a = new ClientConfigModel(baseFragmentActivity, this.f54870d);
         d.b.h0.r.d0.b.i().v("tieba_last_active_time", System.currentTimeMillis());
         if (f()) {
             k(true);
@@ -176,11 +176,11 @@ public class b {
     }
 
     public final void j() {
-        ClientConfigModel clientConfigModel = this.f54866a;
-        if (clientConfigModel == null || this.f54868c) {
+        ClientConfigModel clientConfigModel = this.f54867a;
+        if (clientConfigModel == null || this.f54869c) {
             return;
         }
-        this.f54868c = true;
+        this.f54869c = true;
         clientConfigModel.x("local_dialog");
     }
 
@@ -188,7 +188,7 @@ public class b {
         AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
         if (z) {
-            alarmManager.setRepeating(0, 86400000 + d.b.i0.f3.f.a.b(), 86400000L, broadcast);
+            alarmManager.setRepeating(0, d.b.i0.f3.f.a.b() + 86400000, 86400000L, broadcast);
         } else {
             alarmManager.cancel(broadcast);
         }

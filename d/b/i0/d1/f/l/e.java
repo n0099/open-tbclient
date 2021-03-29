@@ -8,10 +8,10 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.i0.d1.f.l.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements a.c {
         @Override // d.b.i0.d1.f.l.a.c
         public boolean a(String str) {
@@ -19,9 +19,9 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements a.InterfaceC1195a {
-        @Override // d.b.i0.d1.f.l.a.InterfaceC1195a
+    /* loaded from: classes3.dex */
+    public static class b implements a.InterfaceC1196a {
+        @Override // d.b.i0.d1.f.l.a.InterfaceC1196a
         public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
             if (chatMessage == null || chatMessage.getMsgType() != 22) {
                 return false;

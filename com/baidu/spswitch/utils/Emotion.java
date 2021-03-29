@@ -15,7 +15,7 @@ import com.baidu.spswitch.utils.SPSwitchConflictUtil;
 import com.baidu.spswitch.utils.SoftInputUtil;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Emotion {
     public static void init(boolean z) {
         SPConfig.init(z);

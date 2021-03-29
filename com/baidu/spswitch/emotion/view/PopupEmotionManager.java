@@ -13,7 +13,7 @@ import com.baidu.spswitch.R;
 import com.baidu.spswitch.utils.SoftInputUtil;
 import com.baidu.spswitch.utils.UIUtils;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PopupEmotionManager {
     public static final int ANCHOR_Y_OFFSET_DP = 2;
     public Context mCtx;
@@ -30,7 +30,7 @@ public class PopupEmotionManager {
     public LinkedList<DelayedTask> mDelayedTaskQueue = new LinkedList<>();
     public ViewGroup mContainerView = SoftInputUtil.getContentView();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class DelayedTask {
         public static final int TASK_TYPE_DISMISS = 2;
         public static final int TASK_TYPE_DISMISS_WITHOUT_ANIM = 3;
@@ -45,12 +45,12 @@ public class PopupEmotionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IShowListener {
         void show(int i, String str, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ShowParam {
         public int anchorWidth;
         public int anchorXpos;

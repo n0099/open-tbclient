@@ -1,43 +1,43 @@
 package com.baidu.crabsdk.c;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4707a = "CRAB";
+    public static String f4708a = "CRAB";
 
     public static int a(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(f4707a, f(str), th);
+            return Log.e(f4708a, f(str), th);
         }
         return -1;
     }
 
     public static int b(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(f4707a, f(str));
+            return Log.i(f4708a, f(str));
         }
         return -1;
     }
 
     public static int c(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(f4707a, f(str));
+            return Log.d(f4708a, f(str));
         }
         return -1;
     }
 
     public static int d(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(f4707a, f(str));
+            return Log.e(f4708a, f(str));
         }
         return -1;
     }
 
     public static int e(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(f4707a, f(str));
+            return Log.w(f4708a, f(str));
         }
         return -1;
     }

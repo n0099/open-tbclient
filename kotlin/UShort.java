@@ -140,7 +140,7 @@ public final class UShort implements Comparable<UShort> {
     @InlineOnly
     /* renamed from: inv-impl  reason: not valid java name */
     public static final short m889invimpl(short s) {
-        return m879constructorimpl((short) (s ^ (-1)));
+        return m879constructorimpl((short) (~s));
     }
 
     @InlineOnly

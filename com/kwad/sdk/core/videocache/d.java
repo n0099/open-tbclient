@@ -10,30 +10,30 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f34168d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern f34169d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f34169e = Pattern.compile("GET /(.*) HTTP");
+    public static final Pattern f34170e = Pattern.compile("GET /(.*) HTTP");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34170a;
+    public final String f34171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f34171b;
+    public final long f34172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f34172c;
+    public final boolean f34173c;
 
     public d(String str) {
         j.a(str);
         long a2 = a(str);
-        this.f34171b = Math.max(0L, a2);
-        this.f34172c = a2 >= 0;
-        this.f34170a = b(str);
+        this.f34172b = Math.max(0L, a2);
+        this.f34173c = a2 >= 0;
+        this.f34171a = b(str);
     }
 
     private long a(String str) {
-        Matcher matcher = f34168d.matcher(str);
+        Matcher matcher = f34169d.matcher(str);
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
@@ -54,7 +54,7 @@ public class d {
     }
 
     private String b(String str) {
-        Matcher matcher = f34169e.matcher(str);
+        Matcher matcher = f34170e.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -62,6 +62,6 @@ public class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f34171b + ", partial=" + this.f34172c + ", uri='" + this.f34170a + "'}";
+        return "GetRequest{rangeOffset=" + this.f34172b + ", partial=" + this.f34173c + ", uri='" + this.f34171a + "'}";
     }
 }

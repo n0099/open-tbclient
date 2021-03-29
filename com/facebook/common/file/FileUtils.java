@@ -34,7 +34,7 @@ public class FileUtils {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class RenameException extends IOException {
         public RenameException(String str) {
             super(str);

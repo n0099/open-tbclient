@@ -7,7 +7,7 @@ import java.net.URLDecoder;
 import java.util.Locale;
 import org.apache.commons.codec.binary4util.Base64;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DataUri {
     public static final boolean DEBUG = false;
     public static final String TAG = "DataUri";

@@ -5,26 +5,26 @@ import android.util.Log;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30446a = false;
+    public static boolean f30447a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30447b = 4;
+    public static int f30448b = 4;
 
     public static void a(int i) {
-        f30447b = i;
+        f30448b = i;
     }
 
     public static void b() {
-        f30446a = true;
+        f30447a = true;
         a(3);
     }
 
     public static boolean c() {
-        return f30446a;
+        return f30447a;
     }
 
     public static void d(String str, String str2) {
-        if (f30446a && str2 != null && f30447b <= 5) {
+        if (f30447a && str2 != null && f30448b <= 5) {
             Log.w(str, str2);
         }
     }
@@ -40,83 +40,83 @@ public class u {
     }
 
     public static void f(String str, String str2) {
-        if (f30446a && str2 != null && f30447b <= 6) {
+        if (f30447a && str2 != null && f30448b <= 6) {
             Log.e(str, str2);
         }
     }
 
     public static boolean a() {
-        return f30447b <= 3;
+        return f30448b <= 3;
     }
 
     public static void c(String str, String str2) {
-        if (f30446a && str2 != null && f30447b <= 4) {
+        if (f30447a && str2 != null && f30448b <= 4) {
             Log.i(str, str2);
         }
     }
 
     public static void a(String str, String str2) {
-        if (f30446a && str2 != null && f30447b <= 2) {
+        if (f30447a && str2 != null && f30448b <= 2) {
             Log.v(str, str2);
         }
     }
 
     public static void b(String str, String str2) {
-        if (f30446a && str2 != null && f30447b <= 3) {
+        if (f30447a && str2 != null && f30448b <= 3) {
             Log.d(str, str2);
         }
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (f30446a) {
-            if (!(str2 == null && th == null) && f30447b <= 6) {
+        if (f30447a) {
+            if (!(str2 == null && th == null) && f30448b <= 6) {
                 Log.e(str, str2, th);
             }
         }
     }
 
     public static void a(String str) {
-        if (f30446a) {
+        if (f30447a) {
             b("Logger", str);
         }
     }
 
     public static void b(String str, Object... objArr) {
-        if (f30446a && objArr != null && f30447b <= 4) {
+        if (f30447a && objArr != null && f30448b <= 4) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f30446a) {
-            if (!(str2 == null && th == null) && f30447b <= 3) {
+        if (f30447a) {
+            if (!(str2 == null && th == null) && f30448b <= 3) {
                 Log.d(str, str2, th);
             }
         }
     }
 
     public static void c(String str, Object... objArr) {
-        if (f30446a && objArr != null && f30447b <= 6) {
+        if (f30447a && objArr != null && f30448b <= 6) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (f30446a) {
-            if (!(str2 == null && th == null) && f30447b <= 5) {
+        if (f30447a) {
+            if (!(str2 == null && th == null) && f30448b <= 5) {
                 Log.w(str, str2, th);
             }
         }
     }
 
     public static void a(String str, Object... objArr) {
-        if (f30446a && objArr != null && f30447b <= 3) {
+        if (f30447a && objArr != null && f30448b <= 3) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void b(String str) {
-        if (f30446a) {
+        if (f30447a) {
             f("Logger", str);
         }
     }

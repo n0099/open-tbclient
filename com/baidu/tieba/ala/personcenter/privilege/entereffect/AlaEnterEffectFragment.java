@@ -41,16 +41,16 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public static final String x = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_enter_effect_fragment_title);
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15073e;
+    public View f15074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f15074f;
+    public HeadImageView f15075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15075g;
+    public TextView f15076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15076h;
+    public TextView f15077h;
     public TbImageView i;
     public BdTypeListView j;
     public d.b.i0.t.j.g.d.c.a k;
@@ -125,8 +125,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
             AlaEnterEffectFragment.this.M0();
             if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
                 AlaEnterEffectFragment.this.Q0(TbadkCoreApplication.getCurrentPortrait());
-                AlaEnterEffectFragment.this.f15076h.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
-                AlaEnterEffectFragment.this.f15075g.setText(TbadkCoreApplication.getCurrentAccountNameShow());
+                AlaEnterEffectFragment.this.f15077h.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
+                AlaEnterEffectFragment.this.f15076g.setText(TbadkCoreApplication.getCurrentAccountNameShow());
                 if (j.z()) {
                     AlaEnterEffectFragment.this.P0(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                     return;
@@ -136,8 +136,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
                 }
             }
             AlaEnterEffectFragment.this.Q0(alaGetEnterEffectResponsedMessage.getPortrait());
-            AlaEnterEffectFragment.this.f15075g.setText(alaGetEnterEffectResponsedMessage.getUserName());
-            AlaEnterEffectFragment.this.f15076h.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
+            AlaEnterEffectFragment.this.f15076g.setText(alaGetEnterEffectResponsedMessage.getUserName());
+            AlaEnterEffectFragment.this.f15077h.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
             List<n> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
             AlaEnterEffectFragment.this.k.c(effectList);
             if (ListUtils.isEmpty(effectList) || !j.H()) {
@@ -188,23 +188,23 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     public final void N0() {
-        View view = this.f15073e;
+        View view = this.f15074e;
         if (view == null) {
             return;
         }
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.ala_enter_effect_header);
-        this.f15074f = headImageView;
+        this.f15075f = headImageView;
         headImageView.setIsRound(true);
-        this.i = (TbImageView) this.f15073e.findViewById(R.id.ala_enter_effect_header_container_bg);
-        this.f15075g = (TextView) this.f15073e.findViewById(R.id.ala_enter_effect_name);
-        this.f15076h = (TextView) this.f15073e.findViewById(R.id.ala_enter_effect_count);
-        this.o = (TextView) this.f15073e.findViewById(R.id.ala_enter_effect_description_txt);
-        this.q = this.f15073e.findViewById(R.id.ala_enter_effect_mask);
-        this.r = (ImageView) this.f15073e.findViewById(R.id.empty_image);
-        this.s = (TextView) this.f15073e.findViewById(R.id.empty_text);
-        this.t = (RelativeLayout) this.f15073e.findViewById(R.id.ala_enter_effect_list_layout);
-        this.j = (BdTypeListView) this.f15073e.findViewById(R.id.ala_enter_effect_list_view);
-        View findViewById = this.f15073e.findViewById(R.id.emptyview);
+        this.i = (TbImageView) this.f15074e.findViewById(R.id.ala_enter_effect_header_container_bg);
+        this.f15076g = (TextView) this.f15074e.findViewById(R.id.ala_enter_effect_name);
+        this.f15077h = (TextView) this.f15074e.findViewById(R.id.ala_enter_effect_count);
+        this.o = (TextView) this.f15074e.findViewById(R.id.ala_enter_effect_description_txt);
+        this.q = this.f15074e.findViewById(R.id.ala_enter_effect_mask);
+        this.r = (ImageView) this.f15074e.findViewById(R.id.empty_image);
+        this.s = (TextView) this.f15074e.findViewById(R.id.empty_text);
+        this.t = (RelativeLayout) this.f15074e.findViewById(R.id.ala_enter_effect_list_layout);
+        this.j = (BdTypeListView) this.f15074e.findViewById(R.id.ala_enter_effect_list_view);
+        View findViewById = this.f15074e.findViewById(R.id.emptyview);
         this.p = findViewById;
         this.j.setEmptyView(findViewById);
         this.k = new d.b.i0.t.j.g.d.c.a(getPageContext(), this.j);
@@ -215,7 +215,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (this.m == null) {
             this.m = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
-        this.m.attachView(this.f15073e, false);
+        this.m.attachView(this.f15074e, false);
     }
 
     public void P0(int i, int i2, boolean z, View.OnClickListener onClickListener) {
@@ -234,11 +234,11 @@ public class AlaEnterEffectFragment extends AbsFragment {
 
     public final void Q0(String str) {
         if (!StringUtils.isNull(str)) {
-            this.f15074f.W(str, 25, false);
+            this.f15075f.W(str, 25, false);
             d.b.b.e.l.d.h().m(str, 25, new b(), null);
             return;
         }
-        this.f15074f.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+        this.f15075f.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
         this.i.W(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
     }
 
@@ -255,7 +255,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public final void n() {
         g gVar = this.m;
         if (gVar != null) {
-            gVar.dettachView(this.f15073e);
+            gVar.dettachView(this.f15074e);
         }
     }
 
@@ -278,9 +278,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (alaNetRefreshView != null) {
             alaNetRefreshView.onChangeSkinType();
         }
-        SkinManager.setBackgroundColor(this.f15073e, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f15075g, R.color.common_color_10310, 1, i);
-        SkinManager.setViewTextColor(this.f15076h, R.color.white_alpha70, 1, i);
+        SkinManager.setBackgroundColor(this.f15074e, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f15076g, R.color.common_color_10310, 1, i);
+        SkinManager.setViewTextColor(this.f15077h, R.color.white_alpha70, 1, i);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1, i);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0106, 1, i);
         if (i == 1) {
@@ -315,12 +315,12 @@ public class AlaEnterEffectFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.f15073e = LayoutInflater.from(getContext()).inflate(R.layout.ala_enter_effect_fragment_layout, (ViewGroup) null);
+        this.f15074e = LayoutInflater.from(getContext()).inflate(R.layout.ala_enter_effect_fragment_layout, (ViewGroup) null);
         N0();
         this.l = new d.b.i0.t.j.g.d.a(getPageContext(), this.v);
         O0();
         this.l.d();
-        return this.f15073e;
+        return this.f15074e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

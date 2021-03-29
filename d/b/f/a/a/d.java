@@ -1,5 +1,5 @@
 package d.b.f.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public static float a(int i) {
         if (i != 1) {

@@ -6,19 +6,19 @@ import android.os.SystemClock;
 public class e implements GpsStatus.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f10254a;
+    public final /* synthetic */ d f10255a;
 
     public e(d dVar) {
-        this.f10254a = dVar;
+        this.f10255a = dVar;
     }
 
     @Override // android.location.GpsStatus.Listener
     public void onGpsStatusChanged(int i) {
         int i2;
-        this.f10254a.n = i;
-        i2 = this.f10254a.n;
+        this.f10255a.n = i;
+        i2 = this.f10255a.n;
         if (i2 == 4) {
-            this.f10254a.m = SystemClock.elapsedRealtime();
+            this.f10255a.m = SystemClock.elapsedRealtime();
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpExecutor.ResponseHandler {
     public Context mContext;
     public String mRtcRoomId = "";

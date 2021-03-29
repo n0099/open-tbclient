@@ -24,10 +24,7 @@ public class QueueManager implements Recordable {
         if (getQueue(0).isEmpty()) {
             double d2 = 0.0d;
             for (int i = 0; i < 4; i++) {
-                double currentWaitingTime = this.mEnabledQueues[i].getCurrentWaitingTime();
-                double d3 = ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
-                Double.isNaN(currentWaitingTime);
-                d2 += currentWaitingTime * d3;
+                d2 += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
             }
             return d2 / 1000.0d;
         }

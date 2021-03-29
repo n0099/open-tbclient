@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static long a(String str) {
         try {
@@ -30,7 +30,7 @@ public class c {
         long j4;
         long j5;
         long currentTimeMillis = System.currentTimeMillis();
-        Map<String, String> map = kVar.f65724c;
+        Map<String, String> map = kVar.f65725c;
         String str = map.get("Date");
         long a2 = str != null ? a(str) : 0L;
         String str2 = map.get("Cache-Control");
@@ -88,15 +88,15 @@ public class c {
             }
         }
         b.a aVar = new b.a();
-        aVar.f65762a = kVar.f65722a;
-        aVar.f65763b = kVar.f65723b;
-        aVar.f65764c = str5;
-        aVar.f65768g = j4;
-        aVar.f65767f = j3;
-        aVar.f65765d = a2;
-        aVar.f65766e = a4;
-        aVar.f65769h = map;
-        aVar.i = kVar.f65725d;
+        aVar.f65763a = kVar.f65723a;
+        aVar.f65764b = kVar.f65724b;
+        aVar.f65765c = str5;
+        aVar.f65769g = j4;
+        aVar.f65768f = j3;
+        aVar.f65766d = a2;
+        aVar.f65767e = a4;
+        aVar.f65770h = map;
+        aVar.i = kVar.f65726d;
         return aVar;
     }
 

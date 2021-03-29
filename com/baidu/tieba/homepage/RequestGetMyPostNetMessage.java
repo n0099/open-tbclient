@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     public String bFrom;
     public int callFrom;

@@ -9,10 +9,10 @@ import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCardView> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgReplyCardView> {
         public a(MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter, View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);

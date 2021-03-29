@@ -67,13 +67,13 @@ public class f extends d.b.i0.x.b<d.b.i0.t.d.c.f.b.b> {
     public void n(d.b.i0.t.d.c.f.b.b bVar) {
         if (bVar != null) {
             this.r = bVar;
-            String str = bVar.f60359g;
+            String str = bVar.f60360g;
             if (StringUtils.isNull(str)) {
-                str = StringUtils.isNull(bVar.f60358f) ? "" : bVar.f60358f;
+                str = StringUtils.isNull(bVar.f60359f) ? "" : bVar.f60359f;
             }
             this.m.setText(str);
             this.n.setText(StringUtils.isNull(bVar.i) ? "" : bVar.i);
-            this.o.W(bVar.f60360h, 10, false);
+            this.o.W(bVar.f60361h, 10, false);
             this.p.setText(StringUtils.isNull(bVar.j) ? "" : bVar.j);
         }
     }

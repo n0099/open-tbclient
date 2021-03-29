@@ -6,7 +6,7 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import java.util.Map;
 import okhttp3.HttpUrl;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f extends d.b.g0.a.w0.c.a {
     @Override // d.b.g0.a.p.c.r
     public String A() {
@@ -64,17 +64,17 @@ public class f extends d.b.g0.a.w0.c.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43274d.entrySet()) {
+        for (Map.Entry<String, String> entry : d.b.g0.a.b0.b.b().f43275d.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a();
-        aVar.f48879b = "POST";
-        aVar.f48878a = d.b.g0.a.b0.c.u(build.toString());
-        aVar.f48881d = d.b.g0.a.v1.c.c.b(map);
-        aVar.f48883f = true;
-        aVar.f48884g = true;
-        aVar.f48885h = false;
+        aVar.f48880b = "POST";
+        aVar.f48879a = d.b.g0.a.b0.c.u(build.toString());
+        aVar.f48882d = d.b.g0.a.v1.c.c.b(map);
+        aVar.f48884f = true;
+        aVar.f48885g = true;
+        aVar.f48886h = false;
         HttpRequestBuilder a2 = d.b.g0.k.e.b.a(aVar);
         d.b.g0.k.e.a.f().s(a2, aVar);
         return a2.build();

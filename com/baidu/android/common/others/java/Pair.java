@@ -1,6 +1,6 @@
 package com.baidu.android.common.others.java;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Pair<F, S> {
     public final F mFirst;
     public final S mSecond;

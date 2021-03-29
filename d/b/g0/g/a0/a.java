@@ -22,18 +22,18 @@ public class a extends f {
 
     /* renamed from: d.b.g0.g.a0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0946a implements d.b.g0.g.a0.h.c {
+    public class C0947a implements d.b.g0.g.a0.h.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.e.d.c f47853a;
+        public final /* synthetic */ d.b.g0.g.e.d.c f47854a;
 
-        public C0946a(d.b.g0.g.e.d.c cVar) {
-            this.f47853a = cVar;
+        public C0947a(d.b.g0.g.e.d.c cVar) {
+            this.f47854a = cVar;
         }
 
         @Override // d.b.g0.g.a0.h.c
         public void a(d.b.g0.g.a0.h.d dVar, String str) {
-            a.this.E(this.f47853a, str);
+            a.this.E(this.f47854a, str);
         }
     }
 
@@ -46,7 +46,7 @@ public class a extends f {
     }
 
     public final void E(d.b.g0.g.e.d.c cVar, String str) {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "callFailureCallback: errMsg=" + str);
         }
         d.b.g0.g.i0.b.a(cVar, false, new b(str));
@@ -57,7 +57,7 @@ public class a extends f {
         if (list.size() >= i) {
             String remove = list.remove(0);
             d.b.g0.p.d.g(n.K(remove));
-            if (f.f47855h) {
+            if (f.f47856h) {
                 Log.d("GameRecorderApi", "deleteFile: " + remove);
             }
         }
@@ -67,7 +67,7 @@ public class a extends f {
     }
 
     public final void G() {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "doStartRecorder:" + this.i + "," + this.j);
         }
         this.l.clear();
@@ -86,7 +86,7 @@ public class a extends f {
 
     public final boolean I(GameRecorderController.RecorderState... recorderStateArr) {
         GameRecorderController.RecorderState l = g.a().b().l();
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "RecorderState:" + l);
         }
         if (recorderStateArr == null) {
@@ -116,7 +116,7 @@ public class a extends f {
     public void clipVideo(JsObject jsObject) {
         d.b.g0.g.e.d.c J = J(jsObject);
         String B = J.B("path");
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "clipPath:" + B + "，hasExecutedClip：" + this.k);
         }
         if (this.k) {
@@ -127,18 +127,18 @@ public class a extends f {
         } else if (this.l.isEmpty()) {
             E(J, "range is illegal");
         } else {
-            new d.b.g0.g.a0.h.e(this.l, n.y(B), n.K(F("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.n, 3))).c(new C0946a(J));
+            new d.b.g0.g.a0.h.e(this.l, n.y(B), n.K(F("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.n, 3))).c(new C0947a(J));
             this.l.clear();
             this.k = true;
             d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-            eVar.f47251b = "clipVideo";
+            eVar.f47252b = "clipVideo";
             h.j(eVar);
         }
     }
 
     @JavascriptInterface
     public void pause() {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "pause");
         }
         if (I(GameRecorderController.RecorderState.RECORDING)) {
@@ -159,18 +159,18 @@ public class a extends f {
             p = new double[]{3.0d, 3.0d};
         }
         d.b.g0.g.a0.h.b b2 = d.b.g0.g.a0.h.b.b(g.a().b().k(), p[0], p[1]);
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "recordClip:" + b2.toString());
         }
         this.l.add(b2);
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47251b = "recordClip";
+        eVar.f47252b = "recordClip";
         h.j(eVar);
     }
 
     @JavascriptInterface
     public void resume() {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", "resume");
         }
         if (I(GameRecorderController.RecorderState.PAUSE) || g.a().c()) {
@@ -186,7 +186,7 @@ public class a extends f {
 
     @JavascriptInterface
     public void stop() {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", IntentConfig.STOP);
         }
         if (I(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
@@ -197,7 +197,7 @@ public class a extends f {
 
     @JavascriptInterface
     public void start(JsObject jsObject) {
-        if (f.f47855h) {
+        if (f.f47856h) {
             Log.d("GameRecorderApi", IntentConfig.START);
         }
         if (I(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) || g.a().c()) {
@@ -220,7 +220,7 @@ public class a extends f {
         String K = n.K(F);
         this.j = K;
         if (K == null) {
-            if (f.f47855h) {
+            if (f.f47856h) {
                 Log.e("GameRecorderApi", "recordPath == null.");
                 return;
             }

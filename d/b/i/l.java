@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 import com.baidu.card.view.ForumGoodsEnterLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l extends h {
     public d.b.h0.r.q.a l;
     public ForumGoodsEnterLayout m;
     public int n;
     public final View.OnClickListener o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -49,7 +49,7 @@ public class l extends h {
     }
 
     public void t() {
-        int g2 = d.b.b.e.p.l.g(this.f51762f, R.dimen.M_H_X003);
+        int g2 = d.b.b.e.p.l.g(this.f51763f, R.dimen.M_H_X003);
         r(g2);
         q(0);
         w(this.m, g2, 0);
@@ -60,7 +60,7 @@ public class l extends h {
     /* renamed from: u */
     public void a(d.b.h0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f51761e.i());
+        this.m.setSourceForPb(this.f51762e.i());
         this.m.setFrstype(this.n);
         this.m.setData(aVar);
     }

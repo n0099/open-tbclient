@@ -10,16 +10,16 @@ public class k implements d.b.b.j.e.n {
     public static final String l = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53466e;
+    public String f53467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53467f;
+    public int f53468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53468g;
+    public String f53469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53469h;
+    public String f53470h;
     public String i;
     public int j;
     public int k;
@@ -29,7 +29,7 @@ public class k implements d.b.b.j.e.n {
     }
 
     public String e() {
-        return this.f53469h;
+        return this.f53470h;
     }
 
     public int f() {
@@ -37,7 +37,7 @@ public class k implements d.b.b.j.e.n {
     }
 
     public String g() {
-        return this.f53466e;
+        return this.f53467e;
     }
 
     @Override // d.b.b.j.e.n
@@ -50,11 +50,11 @@ public class k implements d.b.b.j.e.n {
     }
 
     public String k() {
-        return this.f53468g;
+        return this.f53469g;
     }
 
     public int l() {
-        return this.f53467f;
+        return this.f53468f;
     }
 
     public void n(StarEnter starEnter) {
@@ -66,10 +66,10 @@ public class k implements d.b.b.j.e.n {
         u(starEnter.weight.intValue());
         q(starEnter.rank_num.intValue());
         o(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.f53466e) && this.k == 1) {
-            this.f53466e = l;
+        if (StringUtils.isNull(this.f53467e) && this.k == 1) {
+            this.f53467e = l;
         }
-        this.f53469h = starEnter.obj_id;
+        this.f53470h = starEnter.obj_id;
         this.i = starEnter.text;
     }
 
@@ -88,17 +88,17 @@ public class k implements d.b.b.j.e.n {
     }
 
     public void s(String str) {
-        this.f53466e = str;
+        this.f53467e = str;
     }
 
     public void t(String str) {
-        this.f53468g = str;
+        this.f53469g = str;
     }
 
     public void u(int i) {
     }
 
     public void v(int i) {
-        this.f53467f = i;
+        this.f53468f = i;
     }
 }

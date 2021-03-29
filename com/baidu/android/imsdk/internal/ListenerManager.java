@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ListenerManager {
     public static ListenerManager sInstance;
     public Map<String, IMListener> mMap = new HashMap();

@@ -15,15 +15,15 @@ import java.util.Iterator;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f42251b;
+    public static volatile a f42252b;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ArrayList<Message<?>>> f42252a = null;
+    public HashMap<String, ArrayList<Message<?>>> f42253a = null;
 
     /* renamed from: d.b.b.h.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0545a extends CustomMessageListener {
-        public C0545a(int i) {
+    public class C0546a extends CustomMessageListener {
+        public C0546a(int i) {
             super(i);
         }
 
@@ -36,13 +36,13 @@ public class a {
                 return;
             }
             PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-            if (aVar.f2198b == 0 && a.this.f42252a.size() > 0 && (arrayList = (ArrayList) a.this.f42252a.get(aVar.f2197a)) != null && arrayList.size() > 0) {
+            if (aVar.f2199b == 0 && a.this.f42253a.size() > 0 && (arrayList = (ArrayList) a.this.f42253a.get(aVar.f2198a)) != null && arrayList.size() > 0) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     MessageManager.getInstance().sendMessage((Message) it.next());
                 }
             }
-            a.this.f42252a.remove(aVar.f2197a);
+            a.this.f42253a.remove(aVar.f2198a);
         }
     }
 
@@ -62,7 +62,7 @@ public class a {
             }
             if (!PluginCenter.getInstance().hasInstance(g2)) {
                 a.this.c(g2, message);
-                return PluginCenter.getInstance().launch(g2).f2185a;
+                return PluginCenter.getInstance().launch(g2).f2186a;
             } else if (PluginCenter.getInstance().isLoaded(g2)) {
                 return false;
             } else {
@@ -73,30 +73,30 @@ public class a {
     }
 
     public static a d() {
-        if (f42251b == null) {
+        if (f42252b == null) {
             synchronized (a.class) {
-                if (f42251b == null) {
-                    f42251b = new a();
+                if (f42252b == null) {
+                    f42252b = new a();
                 }
             }
         }
-        return f42251b;
+        return f42252b;
     }
 
     public final void c(String str, Message<?> message) {
         if (TextUtils.isEmpty(str) || message == null) {
             return;
         }
-        ArrayList<Message<?>> arrayList = this.f42252a.get(str);
+        ArrayList<Message<?>> arrayList = this.f42253a.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f42252a.put(str, arrayList);
+            this.f42253a.put(str, arrayList);
         }
         arrayList.add(message);
     }
 
     public void e() {
-        this.f42252a = new HashMap<>();
+        this.f42253a = new HashMap<>();
         f();
         g();
     }
@@ -106,6 +106,6 @@ public class a {
     }
 
     public final void g() {
-        MessageManager.getInstance().registerListener(2000997, new C0545a(0));
+        MessageManager.getInstance().registerListener(2000997, new C0546a(0));
     }
 }

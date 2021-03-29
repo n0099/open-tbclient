@@ -3,7 +3,7 @@ package com.baidu.swan.apps.media.chooser.model;
 import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoModel extends MediaModel {
     public static final Parcelable.Creator<MediaModel> CREATOR = new a();
     public long duration;
@@ -13,7 +13,7 @@ public class VideoModel extends MediaModel {
     public String uri;
     public int width;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<MediaModel> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

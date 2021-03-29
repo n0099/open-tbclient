@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMUserManager {
     public static final String TAG = "IMUserManager";
     public static IMUserManager mInstance;

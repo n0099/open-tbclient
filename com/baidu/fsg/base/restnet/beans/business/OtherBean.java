@@ -12,7 +12,7 @@ import com.baidu.fsg.base.utils.Md5Utils;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class OtherBean extends NetworkBean {
     public static final String TAG = "OtherBaseBean";
 

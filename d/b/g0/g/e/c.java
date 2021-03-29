@@ -20,23 +20,23 @@ import d.b.g0.g.x.d;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 /* loaded from: classes3.dex */
 public final class c extends EventTargetImpl {
-    public static final boolean w = k.f45050a;
+    public static final boolean w = k.f45051a;
     @V8JavascriptField
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.i.b f48091e;
+    public d.b.g0.g.i.b f48092e;
     @V8JavascriptField
     public d.b.g0.g.l.a env;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f48092f;
+    public e f48093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f48093g;
+    public d f48094g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.x.b f48094h;
+    public d.b.g0.g.x.b f48095h;
     public JsObject i;
     public d.b.g0.g.x.e j;
     public d.b.g0.g.s.a k;
@@ -68,7 +68,7 @@ public final class c extends EventTargetImpl {
         this.t = null;
         this.u = null;
         this.v = null;
-        this.f48091e = bVar;
+        this.f48092e = bVar;
         this.env = new d.b.g0.g.l.a();
         B();
     }
@@ -76,13 +76,13 @@ public final class c extends EventTargetImpl {
     @NonNull
     public final d.b.g0.g.d0.a A() {
         if (this.m == null) {
-            this.m = new d.b.g0.g.d0.a(this.f48091e);
+            this.m = new d.b.g0.g.d0.a(this.f48092e);
         }
         return this.m;
     }
 
     public final void B() {
-        this.l = new d.b.g0.g.s.b(this.f48091e);
+        this.l = new d.b.g0.g.s.b(this.f48092e);
     }
 
     public void C(JsObject jsObject) {
@@ -96,10 +96,10 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        if (this.f48094h == null) {
-            this.f48094h = new d.b.g0.g.x.b(this.f48091e);
+        if (this.f48095h == null) {
+            this.f48095h = new d.b.g0.g.x.b(this.f48092e);
         }
-        this.f48094h.checkIsUserAdvisedToRest(jsObject);
+        this.f48095h.checkIsUserAdvisedToRest(jsObject);
     }
 
     @JavascriptInterface
@@ -109,36 +109,36 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void clearStorageSync() {
-        d.b.g0.g.d0.d.d.a(this.f48091e, "clearStorageSync", "", A().a());
+        d.b.g0.g.d0.d.d.a(this.f48092e, "clearStorageSync", "", A().a());
     }
 
     @JavascriptInterface
     public d.b.g0.g.w.i.c connectSocket(JsObject jsObject) {
         if (this.p == null) {
-            this.p = new d.b.g0.g.w.i.a(this.f48091e);
+            this.p = new d.b.g0.g.w.i.a(this.f48092e);
         }
         return this.p.a(jsObject);
     }
 
     @JavascriptInterface
     public d.b.g0.g.a.b createBannerAd(JsObject jsObject) {
-        return d.b.g0.a.w0.a.b().a(this.f48091e, jsObject);
+        return d.b.g0.a.w0.a.b().a(this.f48092e, jsObject);
     }
 
     @JavascriptInterface
     public d.b.g0.g.c.g createInnerAudioContext() {
-        return new d.b.g0.g.c.g(this.f48091e);
+        return new d.b.g0.g.c.g(this.f48092e);
     }
 
     @JavascriptInterface
     public RecommendButtonApiProxy createRecommendationButton(JsObject jsObject) {
-        return new RecommendButtonApiProxy(this.f48091e, jsObject);
+        return new RecommendButtonApiProxy(this.f48092e, jsObject);
     }
 
     @JavascriptInterface
     public d.b.g0.g.a.c createRewardedVideoAd(JsObject jsObject) {
         if (this.o == null) {
-            d.b.g0.g.a.c c2 = d.b.g0.a.w0.a.b().c(this.f48091e, jsObject);
+            d.b.g0.g.a.c c2 = d.b.g0.a.w0.a.b().c(this.f48092e, jsObject);
             this.o = c2;
             if (c2 == null) {
                 this.o = new d.b.g0.g.a.a();
@@ -149,19 +149,19 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public d.b.g0.g.k0.f.b.b createUserInfoButton(JsObject jsObject) {
-        return new d.b.g0.g.k0.f.b.b(jsObject, this.f48091e);
+        return new d.b.g0.g.k0.f.b.b(jsObject, this.f48092e);
     }
 
     @JavascriptInterface
     public d.b.g0.g.w.e.b downloadFile(JsObject jsObject) {
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        d.b.g0.g.w.a d2 = d.b.g0.g.w.f.b.b().d(this.f48091e, F, 2);
+        d.b.g0.g.w.a d2 = d.b.g0.g.w.f.b.b().d(this.f48092e, F, 2);
         if (d2 instanceof d.b.g0.g.w.e.b) {
             d.b.g0.g.w.e.b bVar = (d.b.g0.g.w.e.b) d2;
             bVar.K(F);
             return bVar;
         }
-        d.b.g0.g.w.e.b bVar2 = new d.b.g0.g.w.e.b(this.f48091e, F);
+        d.b.g0.g.w.e.b bVar2 = new d.b.g0.g.w.e.b(this.f48092e, F);
         bVar2.start();
         return bVar2;
     }
@@ -169,7 +169,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void exit(JsObject jsObject) {
         if (w) {
-            this.f48091e.a0().b("exit from java side.");
+            this.f48092e.a0().b("exit from java side.");
         }
         if (jsObject == null) {
             return;
@@ -202,36 +202,36 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public d.b.g0.g.b.b getAntiAddiction() {
         if (this.v == null) {
-            this.v = new d.b.g0.g.b.b(this.f48091e);
+            this.v = new d.b.g0.g.b.b(this.f48092e);
         }
         return this.v;
     }
 
     @JavascriptInterface
     public String getEnvVariables() {
-        return d.b.g0.a.x0.b.b.a(this.f48091e);
+        return d.b.g0.a.x0.b.b.a(this.f48092e);
     }
 
     @JavascriptInterface
     public e getFileSystemManager() {
-        if (this.f48092f == null) {
-            this.f48092f = new e((d.b.g0.g.i.a) this.f48091e);
+        if (this.f48093f == null) {
+            this.f48093f = new e((d.b.g0.g.i.a) this.f48092e);
         }
-        return this.f48092f;
+        return this.f48093f;
     }
 
     @JavascriptInterface
     public d getOpenData() {
-        if (this.f48093g == null) {
-            this.f48093g = new d((d.b.g0.g.i.a) this.f48091e);
+        if (this.f48094g == null) {
+            this.f48094g = new d((d.b.g0.g.i.a) this.f48092e);
         }
-        return this.f48093g;
+        return this.f48094g;
     }
 
     @JavascriptInterface
     public d.b.g0.g.x.e getOpenDataContext() {
         if (this.j == null) {
-            d.b.g0.g.x.e eVar = new d.b.g0.g.x.e(this.f48091e);
+            d.b.g0.g.x.e eVar = new d.b.g0.g.x.e(this.f48092e);
             this.j = eVar;
             eVar.canvas = this.i;
             this.i = null;
@@ -256,7 +256,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public Object getStorageSync(String str) {
-        return d.b.g0.g.d0.d.d.a(this.f48091e, "getStorageSync", str, A().c(str));
+        return d.b.g0.g.d0.d.d.a(this.f48092e, "getStorageSync", str, A().c(str));
     }
 
     @JavascriptInterface
@@ -275,7 +275,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public d.b.g0.g.a0.a getVideoRecorderManager() {
         if (this.r == null) {
-            this.r = new d.b.g0.g.a0.a(this.f48091e);
+            this.r = new d.b.g0.g.a0.a(this.f48092e);
         }
         return this.r;
     }
@@ -283,7 +283,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public d.b.g0.g.k0.j.a getWebViewManager() {
         if (this.u == null) {
-            this.u = new d.b.g0.g.k0.j.a(this.f48091e);
+            this.u = new d.b.g0.g.k0.j.a(this.f48092e);
         }
         return this.u;
     }
@@ -298,7 +298,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public d.b.g0.g.f0.c loadSubpackage(JsObject jsObject) {
-        d.b.g0.g.f0.c cVar = new d.b.g0.g.f0.c(this.f48091e);
+        d.b.g0.g.f0.c cVar = new d.b.g0.g.f0.c(this.f48092e);
         cVar.H(jsObject);
         return cVar;
     }
@@ -313,7 +313,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void openCustomerServiceConversation(JsObject jsObject) {
-        d.b.g0.g.g.a.a((c) this.f48091e.t(), jsObject);
+        d.b.g0.g.g.a.a((c) this.f48092e.t(), jsObject);
     }
 
     @JavascriptInterface
@@ -331,19 +331,19 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void removeStorageSync(String str) {
-        d.b.g0.g.d0.d.d.a(this.f48091e, "removeStorageSync", str, A().e(str));
+        d.b.g0.g.d0.d.d.a(this.f48092e, "removeStorageSync", str, A().e(str));
     }
 
     @JavascriptInterface
     public d.b.g0.g.w.g.c request(JsObject jsObject) {
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        d.b.g0.g.w.a d2 = d.b.g0.g.w.f.b.b().d(this.f48091e, F, 1);
+        d.b.g0.g.w.a d2 = d.b.g0.g.w.f.b.b().d(this.f48092e, F, 1);
         if (d2 instanceof d.b.g0.g.w.g.c) {
             d.b.g0.g.w.g.c cVar = (d.b.g0.g.w.g.c) d2;
             cVar.K(F);
             return cVar;
         }
-        d.b.g0.g.w.g.c cVar2 = new d.b.g0.g.w.g.c(this.f48091e, F);
+        d.b.g0.g.w.g.c cVar2 = new d.b.g0.g.w.g.c(this.f48092e, F);
         cVar2.start();
         return cVar2;
     }
@@ -351,7 +351,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void setEnableDebug(JsObject jsObject) {
         if (this.q == null) {
-            this.q = new g(this.f48091e);
+            this.q = new g(this.f48092e);
         }
         this.q.i(jsObject);
     }
@@ -366,7 +366,7 @@ public final class c extends EventTargetImpl {
         if (s < 1 || s > 60) {
             return;
         }
-        this.f48091e.setPreferredFramesPerSecond(s);
+        this.f48092e.setPreferredFramesPerSecond(s);
     }
 
     @JavascriptInterface
@@ -376,7 +376,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
-        d.b.g0.g.d0.d.d.a(this.f48091e, "setStorageSync", str, A().f(str, jsSerializeValue));
+        d.b.g0.g.d0.d.d.a(this.f48092e, "setStorageSync", str, A().f(str, jsSerializeValue));
     }
 
     @JavascriptInterface
@@ -387,7 +387,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void showAddToDesktopGuide(JsObject jsObject) {
         if (this.s == null) {
-            this.s = new DesktopGuideApi(this.f48091e);
+            this.s = new DesktopGuideApi(this.f48092e);
         }
         this.s.v(jsObject);
     }
@@ -395,7 +395,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void showKeyboard(JsObject jsObject) {
         if (this.k == null) {
-            this.k = new d.b.g0.g.s.a(this.f48091e, this.l);
+            this.k = new d.b.g0.g.s.a(this.f48092e, this.l);
         }
         this.k.l(jsObject);
     }
@@ -410,7 +410,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public d.b.g0.g.w.h.b uploadFile(JsObject jsObject) {
-        d.b.g0.g.w.h.b bVar = new d.b.g0.g.w.h.b(this.f48091e, d.b.g0.g.e.d.c.F(jsObject));
+        d.b.g0.g.w.h.b bVar = new d.b.g0.g.w.h.b(this.f48092e, d.b.g0.g.e.d.c.F(jsObject));
         bVar.start();
         return bVar;
     }
@@ -430,7 +430,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void setStorageSync(String str) {
-        d.b.g0.g.d0.d.d.a(this.f48091e, "setStorageSync", str, A().f(str, null));
+        d.b.g0.g.d0.d.d.a(this.f48092e, "setStorageSync", str, A().f(str, null));
     }
 
     @JavascriptInterface
@@ -454,7 +454,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void showKeyboard() {
         if (this.k == null) {
-            this.k = new d.b.g0.g.s.a(this.f48091e, this.l);
+            this.k = new d.b.g0.g.s.a(this.f48092e, this.l);
         }
         this.k.l(null);
     }

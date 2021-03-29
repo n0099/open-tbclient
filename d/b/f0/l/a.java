@@ -3,7 +3,7 @@ package d.b.f0.l;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {

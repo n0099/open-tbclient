@@ -6,38 +6,38 @@ import com.kwad.sdk.core.response.model.VideoPlayerStatus;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32540a;
+    public String f32541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPlayerStatus f32541b;
+    public VideoPlayerStatus f32542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f32542c;
+    public c f32543c;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32543a;
+        public String f32544a;
 
         /* renamed from: b  reason: collision with root package name */
-        public VideoPlayerStatus f32544b;
+        public VideoPlayerStatus f32545b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f32545c;
+        public c f32546c;
 
         public a a(@NonNull c cVar) {
-            this.f32545c = cVar;
+            this.f32546c = cVar;
             return this;
         }
 
         public a a(VideoPlayerStatus videoPlayerStatus) {
-            this.f32544b = videoPlayerStatus;
+            this.f32545b = videoPlayerStatus;
             return this;
         }
 
         public a a(String str) {
-            this.f32543a = str;
+            this.f32544a = str;
             return this;
         }
 
@@ -47,12 +47,12 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f32542c = new c();
-        this.f32540a = aVar.f32543a;
-        this.f32541b = aVar.f32544b;
-        if (aVar.f32545c != null) {
-            this.f32542c.f32538a = aVar.f32545c.f32538a;
-            this.f32542c.f32539b = aVar.f32545c.f32539b;
+        this.f32543c = new c();
+        this.f32541a = aVar.f32544a;
+        this.f32542b = aVar.f32545b;
+        if (aVar.f32546c != null) {
+            this.f32543c.f32539a = aVar.f32546c.f32539a;
+            this.f32543c.f32540b = aVar.f32546c.f32540b;
         }
     }
 }

@@ -21,16 +21,16 @@ import java.util.Iterator;
 public class MaxSignItemView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f14231e;
+    public LinearLayout f14232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LineView f14232f;
+    public LineView f14233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f14233g;
+    public ArrayList<c> f14234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f14234h;
+    public b f14235h;
     public int i;
     public int j;
     public int k;
@@ -40,24 +40,24 @@ public class MaxSignItemView extends FrameLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f14235e;
+        public final /* synthetic */ c f14236e;
 
         public a(c cVar) {
-            this.f14235e = cVar;
+            this.f14236e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f14235e.j) {
+            if (this.f14236e.j) {
                 return;
             }
-            Iterator it = MaxSignItemView.this.f14233g.iterator();
+            Iterator it = MaxSignItemView.this.f14234g.iterator();
             while (it.hasNext()) {
                 ((c) it.next()).d(false);
             }
-            this.f14235e.d(true);
-            if (MaxSignItemView.this.f14234h != null) {
-                MaxSignItemView.this.f14234h.a(this.f14235e.k);
+            this.f14236e.d(true);
+            if (MaxSignItemView.this.f14235h != null) {
+                MaxSignItemView.this.f14235h.a(this.f14236e.k);
             }
         }
     }
@@ -71,65 +71,65 @@ public class MaxSignItemView extends FrameLayout {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14237a = R.drawable.ic_pic_mask_task_complete_svg;
+        public int f14238a = R.drawable.ic_pic_mask_task_complete_svg;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f14238b = R.drawable.ic_pic_mask_task_select_svg;
+        public int f14239b = R.drawable.ic_pic_mask_task_select_svg;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f14239c;
+        public int f14240c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f14240d;
+        public int f14241d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14241e;
+        public int f14242e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f14242f;
+        public View f14243f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f14243g;
+        public ImageView f14244g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f14244h;
+        public TextView f14245h;
         public CircleView i;
         public boolean j;
         public ActiveCenterData.ActiveCenterStatusData k;
 
         public c(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
             int i = R.drawable.ic_pic_mask_task_comingsoon_svg;
-            this.f14239c = i;
-            this.f14240d = R.drawable.ic_pic_mask_task_uncomplete_svg;
-            this.f14241e = i;
+            this.f14240c = i;
+            this.f14241d = R.drawable.ic_pic_mask_task_uncomplete_svg;
+            this.f14242e = i;
             this.j = false;
             this.k = activeCenterStatusData;
-            this.f14242f = view;
-            this.f14243g = (ImageView) view.findViewById(R.id.item_icon);
-            this.f14244h = (TextView) this.f14242f.findViewById(R.id.item_text);
-            CircleView circleView = (CircleView) this.f14242f.findViewById(R.id.select_circle);
+            this.f14243f = view;
+            this.f14244g = (ImageView) view.findViewById(R.id.item_icon);
+            this.f14245h = (TextView) this.f14243f.findViewById(R.id.item_text);
+            CircleView circleView = (CircleView) this.f14243f.findViewById(R.id.select_circle);
             this.i = circleView;
             circleView.setVisibility(4);
             int i2 = activeCenterStatusData.is_today_mission;
             if (i2 == 0) {
                 if (activeCenterStatusData.is_completed) {
-                    this.f14241e = this.f14237a;
+                    this.f14242e = this.f14238a;
                 } else {
-                    this.f14241e = this.f14240d;
+                    this.f14242e = this.f14241d;
                 }
             } else if (i2 == 1) {
                 this.i.setVisibility(0);
                 if (activeCenterStatusData.is_completed) {
-                    this.f14241e = this.f14237a;
+                    this.f14242e = this.f14238a;
                 } else {
-                    this.f14241e = this.f14238b;
+                    this.f14242e = this.f14239b;
                 }
             } else {
-                this.f14241e = this.f14239c;
+                this.f14242e = this.f14240c;
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f14243g, this.f14241e, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.f14244h, R.color.CAM_X0109);
-            TextView textView = this.f14244h;
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f14244g, this.f14242e, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f14245h, R.color.CAM_X0109);
+            TextView textView = this.f14245h;
             textView.setText(activeCenterStatusData.day + "天");
         }
 
@@ -146,7 +146,7 @@ public class MaxSignItemView extends FrameLayout {
 
     public MaxSignItemView(Context context) {
         super(context);
-        this.f14233g = new ArrayList<>();
+        this.f14234g = new ArrayList<>();
         this.k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
         this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
@@ -156,16 +156,16 @@ public class MaxSignItemView extends FrameLayout {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.max_sing_dialog_item_view, (ViewGroup) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
         layoutParams.weight = 1.0f;
-        this.f14231e.addView(inflate, layoutParams);
+        this.f14232e.addView(inflate, layoutParams);
         c cVar = new c(inflate, activeCenterStatusData);
-        cVar.f14243g.setOnClickListener(new a(cVar));
+        cVar.f14244g.setOnClickListener(new a(cVar));
         return cVar;
     }
 
     public final void d() {
         LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
-        this.f14231e = (LinearLayout) findViewById(R.id.sign_item_container);
-        this.f14232f = (LineView) findViewById(R.id.line_view);
+        this.f14232e = (LinearLayout) findViewById(R.id.sign_item_container);
+        this.f14233f = (LineView) findViewById(R.id.line_view);
         this.i = l.g(getContext(), R.dimen.tbds3);
         this.j = l.g(getContext(), R.dimen.tbds0);
     }
@@ -202,8 +202,8 @@ public class MaxSignItemView extends FrameLayout {
                 }
             }
         }
-        if (this.f14232f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f14232f.getLayoutParams();
+        if (this.f14233f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f14233f.getLayoutParams();
             if (size <= 3) {
                 int i7 = marginLayoutParams2.leftMargin;
                 int i8 = this.k;
@@ -211,7 +211,7 @@ public class MaxSignItemView extends FrameLayout {
                     int i9 = this.k;
                     marginLayoutParams2.leftMargin = i9;
                     marginLayoutParams2.rightMargin = i9;
-                    this.f14232f.setLayoutParams(marginLayoutParams2);
+                    this.f14233f.setLayoutParams(marginLayoutParams2);
                 }
             } else {
                 int i10 = marginLayoutParams2.leftMargin;
@@ -220,24 +220,24 @@ public class MaxSignItemView extends FrameLayout {
                     int i12 = this.l;
                     marginLayoutParams2.leftMargin = i12;
                     marginLayoutParams2.rightMargin = i12;
-                    this.f14232f.setLayoutParams(marginLayoutParams2);
+                    this.f14233f.setLayoutParams(marginLayoutParams2);
                 }
             }
         }
-        this.f14231e.removeAllViews();
-        this.f14233g.clear();
+        this.f14232e.removeAllViews();
+        this.f14234g.clear();
         for (int i13 = 0; i13 < size; i13++) {
-            this.f14233g.add(c(arrayList.get(i13)));
+            this.f14234g.add(c(arrayList.get(i13)));
         }
     }
 
     public void setItemClickListener(b bVar) {
-        this.f14234h = bVar;
+        this.f14235h = bVar;
     }
 
     public MaxSignItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14233g = new ArrayList<>();
+        this.f14234g = new ArrayList<>();
         this.k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
         this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
@@ -245,7 +245,7 @@ public class MaxSignItemView extends FrameLayout {
 
     public MaxSignItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14233g = new ArrayList<>();
+        this.f14234g = new ArrayList<>();
         this.k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
         this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();

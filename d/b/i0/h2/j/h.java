@@ -27,14 +27,14 @@ public class h extends d.b.i0.x.b<d.b.i0.h2.e.j> implements View.OnClickListener
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
             SkinManager.setImageResource(this.r, R.drawable.pic_pop_key);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0304, 1);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -68,7 +68,7 @@ public class h extends d.b.i0.x.b<d.b.i0.h2.e.j> implements View.OnClickListener
         }
         View view = this.o;
         if (view != null) {
-            if (jVar.f55297e) {
+            if (jVar.f55298e) {
                 view.setVisibility(8);
             } else {
                 view.setVisibility(0);

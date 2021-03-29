@@ -12,7 +12,7 @@ import kotlin.text.Typography;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TimeZone f66111a = TimeZone.getTimeZone("UTC");
+    public static final TimeZone f66112a = TimeZone.getTimeZone("UTC");
 
     public static boolean a(String str, int i, char c2) {
         return i < str.length() && str.charAt(i) == c2;
@@ -105,7 +105,7 @@ public class a {
                     if (str.length() <= i7) {
                         char charAt2 = str.charAt(i7);
                         if (charAt2 == 'Z') {
-                            timeZone = f66111a;
+                            timeZone = f66112a;
                             length = i7 + 1;
                         } else {
                             if (charAt2 != '+' && charAt2 != '-') {
@@ -125,7 +125,7 @@ public class a {
                                 }
                                 timeZone = timeZone2;
                             }
-                            timeZone = f66111a;
+                            timeZone = f66112a;
                         }
                         GregorianCalendar gregorianCalendar2 = new GregorianCalendar(timeZone);
                         gregorianCalendar2.setLenient(false);

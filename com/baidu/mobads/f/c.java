@@ -8,55 +8,55 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f8225c;
+    public static volatile c f8226c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f8226a;
+    public d f8227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledThreadPoolExecutor f8227b;
+    public ScheduledThreadPoolExecutor f8228b;
 
     public c() {
         b();
     }
 
     public static c a() {
-        if (f8225c == null) {
+        if (f8226c == null) {
             synchronized (c.class) {
-                if (f8225c == null) {
-                    f8225c = new c();
+                if (f8226c == null) {
+                    f8226c = new c();
                 }
             }
         }
-        return f8225c;
+        return f8226c;
     }
 
     private void b() {
-        this.f8226a = e.a(1, 5);
-        this.f8227b = e.a(2);
+        this.f8227a = e.a(1, 5);
+        this.f8228b = e.a(2);
     }
 
     public void a(Runnable runnable) {
         d dVar;
-        if (runnable == null || (dVar = this.f8226a) == null || dVar.isShutdown()) {
+        if (runnable == null || (dVar = this.f8227a) == null || dVar.isShutdown()) {
             return;
         }
         try {
-            this.f8226a.submit(runnable);
+            this.f8227a.submit(runnable);
         } catch (Throwable unused) {
         }
     }
 
     public void a(a aVar) {
         d dVar;
-        if (aVar == null || (dVar = this.f8226a) == null || dVar.isShutdown()) {
+        if (aVar == null || (dVar = this.f8227a) == null || dVar.isShutdown()) {
             return;
         }
         try {
             aVar.a(System.currentTimeMillis());
             FutureTask futureTask = null;
-            if (this.f8226a != null && !this.f8226a.isShutdown()) {
-                futureTask = (FutureTask) this.f8226a.submit(aVar);
+            if (this.f8227a != null && !this.f8227a.isShutdown()) {
+                futureTask = (FutureTask) this.f8227a.submit(aVar);
             }
             aVar.a((Future) futureTask);
         } catch (Throwable unused) {
@@ -65,12 +65,12 @@ public class c {
 
     public void a(a aVar, long j, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-        if (aVar == null || (scheduledThreadPoolExecutor = this.f8227b) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (aVar == null || (scheduledThreadPoolExecutor = this.f8228b) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             aVar.a(System.currentTimeMillis());
-            aVar.a((Future) this.f8227b.schedule(aVar, j, timeUnit));
+            aVar.a((Future) this.f8228b.schedule(aVar, j, timeUnit));
         } catch (Throwable unused) {
         }
     }

@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<d.b.i0.l1.j.a> f56715a = new ArrayList();
+    public static final List<d.b.i0.l1.j.a> f56716a = new ArrayList();
 
     public static void a(Context context) {
         d.b.i0.p1.a.h().y(context, "");
@@ -47,8 +47,8 @@ public class a {
         d.b.i0.p1.a.h().y(context, "");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:56:0x017f  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0191  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x017a  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x018c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -159,15 +159,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         if (aVar != null) {
             try {
-                if (!TextUtils.isEmpty(aVar.f56735a)) {
-                    jSONObject.put("callback", aVar.f56735a);
+                if (!TextUtils.isEmpty(aVar.f56736a)) {
+                    jSONObject.put("callback", aVar.f56736a);
                     if (aVar2 != null) {
-                        f56715a.add(aVar2);
+                        f56716a.add(aVar2);
                     }
                 }
-                jSONObject.put("isTranslucent", aVar.f56736b);
-                if (!TextUtils.isEmpty(aVar.f56737c)) {
-                    jSONObject.put("from", aVar.f56737c);
+                jSONObject.put("isTranslucent", aVar.f56737b);
+                if (!TextUtils.isEmpty(aVar.f56738c)) {
+                    jSONObject.put("from", aVar.f56738c);
                 }
             } catch (JSONException unused) {
             }
@@ -236,10 +236,10 @@ public class a {
     }
 
     public static void n(JSONObject jSONObject) {
-        for (int i = 0; i < f56715a.size(); i++) {
-            f56715a.get(i).onCallback(jSONObject);
+        for (int i = 0; i < f56716a.size(); i++) {
+            f56716a.get(i).onCallback(jSONObject);
         }
-        f56715a.clear();
+        f56716a.clear();
     }
 
     public static void o(String str, boolean z) {

@@ -9,7 +9,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.f.c.e, LiveTabConcernEmptyViewHold
     public TbPageContext m;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.e.f60537f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.e.f60538f);
         this.m = tbPageContext;
     }
 
@@ -25,7 +25,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.f.c.e, LiveTabConcernEmptyViewHold
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.f.c.e eVar, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
         d.b.i0.t.d.c.f.d.b bVar;
-        if (liveTabConcernEmptyViewHolder == null || (bVar = liveTabConcernEmptyViewHolder.f14795a) == null) {
+        if (liveTabConcernEmptyViewHolder == null || (bVar = liveTabConcernEmptyViewHolder.f14796a) == null) {
             return null;
         }
         bVar.n(eVar);

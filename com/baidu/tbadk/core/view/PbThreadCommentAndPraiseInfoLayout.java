@@ -167,10 +167,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         e eVar = new e();
-        eVar.f50762b = 4;
-        eVar.f50764d = 2;
-        this.f13492h.setStatisticData(eVar);
-        this.f13492h.s();
+        eVar.f50763b = 4;
+        eVar.f50765d = 2;
+        this.f13493h.setStatisticData(eVar);
+        this.f13493h.s();
     }
 
     public void T() {
@@ -232,13 +232,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f13492h.setDisagreeShow(a2Var.x2());
+            this.f13493h.setDisagreeShow(a2Var.x2());
         }
         if (a2Var != null && a2Var.z2()) {
-            this.f13492h.setDisagreeShow(true);
+            this.f13493h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13492h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13493h.getLayoutParams();
             if (a2Var.z2()) {
                 layoutParams.weight = 0.2f;
             } else if (a2Var.x2()) {
@@ -246,7 +246,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f13492h.setLayoutParams(layoutParams);
+            this.f13493h.setLayoutParams(layoutParams);
         }
     }
 

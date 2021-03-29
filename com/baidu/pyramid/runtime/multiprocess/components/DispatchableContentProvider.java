@@ -35,18 +35,18 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public static class a extends UriMatcher {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f10507a;
+        public int f10508a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10508b;
+        public int f10509b;
 
         public a(int i) {
             super(i);
         }
 
         public final void a(int i) {
-            if (i < this.f10508b || i > this.f10507a) {
-                throw new IllegalArgumentException("The minCode is : " + this.f10508b + "The maxCode is : " + this.f10507a + "The error code is : " + i);
+            if (i < this.f10509b || i > this.f10508a) {
+                throw new IllegalArgumentException("The minCode is : " + this.f10509b + "The maxCode is : " + this.f10508a + "The error code is : " + i);
             }
         }
 
@@ -93,8 +93,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
                 if (contentProviderDelegates != null) {
                     for (d.b.d0.b.a.i.a aVar : contentProviderDelegates) {
                         insertContentProviderDelegate(aVar);
-                        this.mUriMatcher.f10508b = aVar.l();
-                        this.mUriMatcher.f10507a = aVar.k();
+                        this.mUriMatcher.f10509b = aVar.l();
+                        this.mUriMatcher.f10508a = aVar.k();
                         aVar.h(this.mUriMatcher, this.mAuthority);
                     }
                 }

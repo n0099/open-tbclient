@@ -11,13 +11,13 @@ import com.baidu.tieba.personExtra.SmartAppBrowseHistorySocketResponsedMessage;
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    public b f54981b;
+    public b f54982b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54980a = false;
+    public boolean f54981a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.b.c.g.a f54982c = new a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
+    public d.b.b.c.g.a f54983c = new a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
 
     /* loaded from: classes5.dex */
     public class a extends d.b.b.c.g.a {
@@ -27,7 +27,7 @@ public class h {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            h.this.f54980a = false;
+            h.this.f54981a = false;
             if (responsedMessage == null || responsedMessage.getError() != 0) {
                 h.this.c(false, null);
             } else if (responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage) {
@@ -49,14 +49,14 @@ public class h {
     }
 
     public final void c(boolean z, d.b.i0.g2.a aVar) {
-        b bVar = this.f54981b;
+        b bVar = this.f54982b;
         if (bVar != null) {
             bVar.a(z, aVar);
         }
     }
 
     public final void d() {
-        MessageManager.getInstance().registerListener(this.f54982c);
+        MessageManager.getInstance().registerListener(this.f54983c);
     }
 
     public final void e() {
@@ -65,14 +65,14 @@ public class h {
     }
 
     public void f() {
-        if (this.f54980a) {
+        if (this.f54981a) {
             return;
         }
-        this.f54980a = true;
+        this.f54981a = true;
         MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
     }
 
     public void g(b bVar) {
-        this.f54981b = bVar;
+        this.f54982b = bVar;
     }
 }

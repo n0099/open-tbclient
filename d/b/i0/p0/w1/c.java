@@ -16,28 +16,28 @@ import d.b.i0.f0.a;
 public class c {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f58659g = l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
+    public static final int f58660g = l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f58660h = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
+    public static final int f58661h = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f58661a;
+    public BaseActivity f58662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlankView f58662b;
+    public BlankView f58663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.f0.b f58663c;
+    public d.b.i0.f0.b f58664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f58664d;
+    public NavigationBar f58665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f58665e;
+    public e f58666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58666f = false;
+    public boolean f58667f = false;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
@@ -46,7 +46,7 @@ public class c {
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.f58663c.c(motionEvent);
+            c.this.f58664c.c(motionEvent);
             return false;
         }
     }
@@ -67,13 +67,13 @@ public class c {
 
         @Override // d.b.i0.f0.a.b
         public void c(int i, int i2) {
-            if (c.this.f58665e == null || !c.this.f58665e.c() || Math.abs(i2) <= c.f58660h) {
+            if (c.this.f58666e == null || !c.this.f58666e.c() || Math.abs(i2) <= c.f58661h) {
                 return;
             }
-            if (c.this.f58662b != null) {
-                c.this.f58662b.setBackgroundResource(R.color.transparent);
+            if (c.this.f58663b != null) {
+                c.this.f58663b.setBackgroundResource(R.color.transparent);
             }
-            c.this.f58661a.finish();
+            c.this.f58662a.finish();
         }
 
         @Override // d.b.i0.f0.a.b
@@ -83,13 +83,13 @@ public class c {
 
     /* renamed from: d.b.i0.p0.w1.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1444c implements View.OnClickListener {
-        public View$OnClickListenerC1444c() {
+    public class View$OnClickListenerC1445c implements View.OnClickListener {
+        public View$OnClickListenerC1445c() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f58661a.finish();
+            c.this.f58662a.finish();
         }
     }
 
@@ -100,12 +100,12 @@ public class c {
 
         @Override // com.baidu.tieba.frs.gamesubpb.view.BlankView.a
         public void a() {
-            if (c.this.f58662b != null) {
-                c.this.f58662b.setVisibility(8);
+            if (c.this.f58663b != null) {
+                c.this.f58663b.setVisibility(8);
             }
-            c.this.f58666f = false;
-            if (c.this.f58665e != null) {
-                c.this.f58665e.b();
+            c.this.f58667f = false;
+            if (c.this.f58666e != null) {
+                c.this.f58666e.b();
             }
         }
     }
@@ -120,53 +120,53 @@ public class c {
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.f58661a = baseActivity;
-        this.f58663c = new d.b.i0.f0.b(baseActivity.getPageContext().getPageActivity());
-        this.f58664d = navigationBar;
+        this.f58662a = baseActivity;
+        this.f58664c = new d.b.i0.f0.b(baseActivity.getPageContext().getPageActivity());
+        this.f58665d = navigationBar;
         navigationBar.setStatusBarVisibility(8);
         view.setOnTouchListener(new a());
-        this.f58663c.d(new b());
+        this.f58664c.d(new b());
     }
 
     public void g() {
         ViewGroup viewGroup;
-        if (this.f58666f || (viewGroup = (ViewGroup) this.f58661a.findViewById(16908290)) == null || !(viewGroup.getParent() instanceof LinearLayout)) {
+        if (this.f58667f || (viewGroup = (ViewGroup) this.f58662a.findViewById(16908290)) == null || !(viewGroup.getParent() instanceof LinearLayout)) {
             return;
         }
-        BlankView blankView = new BlankView(this.f58661a.getPageContext().getPageActivity());
-        this.f58662b = blankView;
+        BlankView blankView = new BlankView(this.f58662a.getPageContext().getPageActivity());
+        this.f58663b = blankView;
         blankView.setBackgroundResource(R.color.transparent);
-        ((LinearLayout) viewGroup.getParent()).addView(this.f58662b, 0, new LinearLayout.LayoutParams(-1, f58659g));
-        this.f58662b.setVisibility(0);
-        this.f58662b.setOnClickListener(new View$OnClickListenerC1444c());
-        this.f58662b.setScrollCallBack(new d());
-        this.f58661a.setExcludeHeight(f58659g);
-        this.f58666f = true;
+        ((LinearLayout) viewGroup.getParent()).addView(this.f58663b, 0, new LinearLayout.LayoutParams(-1, f58660g));
+        this.f58663b.setVisibility(0);
+        this.f58663b.setOnClickListener(new View$OnClickListenerC1445c());
+        this.f58663b.setScrollCallBack(new d());
+        this.f58662a.setExcludeHeight(f58660g);
+        this.f58667f = true;
     }
 
     public boolean h() {
-        return this.f58666f;
+        return this.f58667f;
     }
 
     public void i() {
         BlankView blankView;
-        if (this.f58666f && this.f58664d != null && (blankView = this.f58662b) != null && blankView.getVisibility() == 0) {
-            this.f58664d.setStatusBarVisibility(0);
-            this.f58661a.setExcludeHeight(0);
-            e eVar = this.f58665e;
+        if (this.f58667f && this.f58665d != null && (blankView = this.f58663b) != null && blankView.getVisibility() == 0) {
+            this.f58665d.setStatusBarVisibility(0);
+            this.f58662a.setExcludeHeight(0);
+            e eVar = this.f58666e;
             if (eVar != null) {
                 eVar.a();
             }
-            this.f58662b.a();
+            this.f58663b.a();
         }
     }
 
     public void j(e eVar) {
-        this.f58665e = eVar;
+        this.f58666e = eVar;
     }
 
     public void k(int i) {
-        BlankView blankView = this.f58662b;
+        BlankView blankView = this.f58663b;
         if (blankView != null) {
             SkinManager.setBackgroundResource(blankView, i);
         }

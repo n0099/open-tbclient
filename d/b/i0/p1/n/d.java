@@ -9,11 +9,11 @@ import com.baidu.searchbox.player.layer.BaseKernelLayer;
 public class d extends UniversalPlayer {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58811e;
+    public Context f58812e;
 
     public d(@Nullable Context context, @NonNull String str) {
         super(context, new BaseKernelLayer("NormalVideoKernel"), str);
-        this.f58811e = context;
+        this.f58812e = context;
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer

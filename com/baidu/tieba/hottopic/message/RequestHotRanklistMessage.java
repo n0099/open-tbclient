@@ -6,12 +6,12 @@ import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17618common;
+    public CommonReq f17619common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -24,7 +24,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f68638common = getCommon();
+            builder.f68643common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();
@@ -45,7 +45,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f17618common;
+        return this.f17619common;
     }
 
     public String getListType() {
@@ -61,7 +61,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17618common = commonReq;
+        this.f17619common = commonReq;
     }
 
     public void setFid(long j) {

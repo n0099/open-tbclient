@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class Message {
     public Context context;
     public long mAppid;

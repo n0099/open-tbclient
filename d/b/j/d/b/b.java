@@ -7,17 +7,17 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f63716b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    public static final int[] f63717b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f63717a;
+    public final int f63718a;
 
     public b(int i) {
-        this.f63717a = i;
+        this.f63718a = i;
     }
 
     public static int b(int i, int i2) {
@@ -49,9 +49,9 @@ public class b {
     }
 
     public static void h(int[] iArr, int[] iArr2) {
-        int[] iArr3 = f63716b;
+        int[] iArr3 = f63717b;
         System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-        System.arraycopy(iArr2, 0, iArr, f63716b.length, 8);
+        System.arraycopy(iArr2, 0, iArr, f63717b.length, 8);
     }
 
     public static int[] n(byte[] bArr) {
@@ -93,7 +93,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer c2 = c(bArr, bArr2, this.f63717a + i2);
+            ByteBuffer c2 = c(bArr, bArr2, this.f63718a + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
             } else {

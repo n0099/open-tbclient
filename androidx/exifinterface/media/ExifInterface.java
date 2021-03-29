@@ -568,11 +568,7 @@ public class ExifInterface {
         }
 
         public double calculate() {
-            double d2 = this.numerator;
-            double d3 = this.denominator;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            return d2 / d3;
+            return this.numerator / this.denominator;
         }
 
         public String toString() {
@@ -687,13 +683,10 @@ public class ExifInterface {
 
     private String convertDecimalDegree(double d2) {
         long j = (long) d2;
-        double d3 = j;
-        Double.isNaN(d3);
-        double d4 = d2 - d3;
-        long j2 = (long) (d4 * 60.0d);
-        double d5 = j2;
-        Double.isNaN(d5);
-        return j + "/1," + j2 + "/1," + Math.round((d4 - (d5 / 60.0d)) * 3600.0d * 1.0E7d) + "/10000000";
+        double d3 = d2 - j;
+        long j2 = (long) (d3 * 60.0d);
+        long round = Math.round((d3 - (j2 / 60.0d)) * 3600.0d * 1.0E7d);
+        return j + "/1," + j2 + "/1," + round + "/10000000";
     }
 
     public static double convertRationalLatLonToDouble(String str, String str2) {
@@ -1893,9 +1886,7 @@ public class ExifInterface {
         if (attributeDouble < 0.0d || attributeInt < 0) {
             return d2;
         }
-        double d3 = attributeInt != 1 ? 1 : -1;
-        Double.isNaN(d3);
-        return attributeDouble * d3;
+        return attributeDouble * (attributeInt != 1 ? 1 : -1);
     }
 
     @Nullable
@@ -2887,7 +2878,7 @@ public class ExifInterface {
         }
 
         /* JADX WARN: Not initialized variable reg: 3, insn: 0x01a8: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:152:0x01a8 */
-        /* JADX WARN: Removed duplicated region for block: B:167:0x01ab A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:165:0x01ab A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

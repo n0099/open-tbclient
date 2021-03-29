@@ -21,10 +21,7 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
     public final String[] invoke() {
         Resources resources;
         Resources resources2;
-        double random = Math.random();
-        double d2 = 2;
-        Double.isNaN(d2);
-        if (((int) (random * d2)) != 0) {
+        if (((int) (Math.random() * 2)) != 0) {
             Application c2 = a.c();
             if (c2 == null || (resources2 = c2.getResources()) == null) {
                 return null;

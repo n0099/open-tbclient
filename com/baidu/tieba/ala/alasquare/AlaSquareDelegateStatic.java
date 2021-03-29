@@ -151,20 +151,20 @@ public class AlaSquareDelegateStatic {
     public static class h extends d.b.h0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.g f14704a;
+        public final /* synthetic */ d.b.i0.p0.g f14705a;
 
         public h(d.b.i0.p0.g gVar) {
-            this.f14704a = gVar;
+            this.f14705a = gVar;
         }
 
         @Override // d.b.h0.e0.b
         public d.b.h0.e0.c createFragmentTabStructure() {
             LiveTabGameSubFragment S0 = LiveTabGameSubFragment.S0(true);
-            S0.I0(this.f14704a.b(), this.f14704a.c());
+            S0.I0(this.f14705a.b(), this.f14705a.c());
             d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-            cVar.f50154a = S0;
-            cVar.f50158e = 1121;
-            cVar.f50161h = d.b.h0.e0.c.j;
+            cVar.f50155a = S0;
+            cVar.f50159e = 1121;
+            cVar.f50162h = d.b.h0.e0.c.j;
             return cVar;
         }
 
@@ -183,20 +183,20 @@ public class AlaSquareDelegateStatic {
     public static class i extends d.b.h0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.g f14705a;
+        public final /* synthetic */ d.b.i0.p0.g f14706a;
 
         public i(d.b.i0.p0.g gVar) {
-            this.f14705a = gVar;
+            this.f14706a = gVar;
         }
 
         @Override // d.b.h0.e0.b
         public d.b.h0.e0.c createFragmentTabStructure() {
             LiveTabYanzhiSubFragment S0 = LiveTabYanzhiSubFragment.S0(true);
-            S0.I0(this.f14705a.b(), this.f14705a.c());
+            S0.I0(this.f14706a.b(), this.f14706a.c());
             d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-            cVar.f50154a = S0;
-            cVar.f50158e = 1120;
-            cVar.f50161h = d.b.h0.e0.c.j;
+            cVar.f50155a = S0;
+            cVar.f50159e = 1120;
+            cVar.f50162h = d.b.h0.e0.c.j;
             return cVar;
         }
 
@@ -222,11 +222,11 @@ public class AlaSquareDelegateStatic {
             @Override // d.b.h0.e0.b
             public d.b.h0.e0.c createFragmentTabStructure() {
                 d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-                cVar.f50154a = new MainBottomLiveTabFragment();
-                cVar.f50158e = 20;
-                cVar.f50155b = R.string.ala_live;
-                cVar.f50159f = R.raw.lottie_tab_live;
-                cVar.f50161h = d.b.h0.e0.c.k;
+                cVar.f50155a = new MainBottomLiveTabFragment();
+                cVar.f50159e = 20;
+                cVar.f50156b = R.string.ala_live;
+                cVar.f50160f = R.raw.lottie_tab_live;
+                cVar.f50162h = d.b.h0.e0.c.k;
                 return cVar;
             }
 

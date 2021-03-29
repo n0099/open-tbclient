@@ -12,38 +12,38 @@ import java.util.Map;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Map<String, c> f8386c = new HashMap();
+    public static volatile Map<String, c> f8387c = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<?> f8387a;
+    public Class<?> f8388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method[] f8388b;
+    public Method[] f8389b;
 
     public c(Context context, String str) {
-        this.f8388b = null;
+        this.f8389b = null;
         try {
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
             if (d2 == null) {
-                this.f8387a = b(context, str);
+                this.f8388a = b(context, str);
             } else {
-                this.f8387a = Class.forName(str, true, d2);
+                this.f8388a = Class.forName(str, true, d2);
             }
-            this.f8388b = this.f8387a.getMethods();
+            this.f8389b = this.f8388a.getMethods();
         } catch (Throwable th) {
             q.a().d(th);
         }
     }
 
     public static c a(Context context, String str) {
-        if (!f8386c.containsKey(str) || f8386c.get(str).f8387a == null) {
+        if (!f8387c.containsKey(str) || f8387c.get(str).f8388a == null) {
             synchronized (c.class) {
-                if (!f8386c.containsKey(str) || f8386c.get(str).f8387a == null) {
-                    f8386c.put(str, new c(context, str));
+                if (!f8387c.containsKey(str) || f8387c.get(str).f8388a == null) {
+                    f8387c.put(str, new c(context, str));
                 }
             }
         }
-        return f8386c.get(str);
+        return f8387c.get(str);
     }
 
     public Class<?> b(Context context, String str) {
@@ -91,7 +91,7 @@ public class c {
         if (objArr != null) {
             try {
                 if (objArr.length != 0) {
-                    constructor = this.f8387a.getConstructor(clsArr);
+                    constructor = this.f8388a.getConstructor(clsArr);
                     return constructor.newInstance(objArr);
                 }
             } catch (Throwable th) {
@@ -99,7 +99,7 @@ public class c {
                 return null;
             }
         }
-        constructor = this.f8387a.getConstructor(new Class[0]);
+        constructor = this.f8388a.getConstructor(new Class[0]);
         return constructor.newInstance(objArr);
     }
 
@@ -134,7 +134,7 @@ public class c {
     }
 
     private Method a(String str) {
-        Method[] methodArr = this.f8388b;
+        Method[] methodArr = this.f8389b;
         if (methodArr == null) {
             return null;
         }

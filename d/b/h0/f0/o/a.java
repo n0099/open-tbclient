@@ -15,12 +15,12 @@ import d.b.h0.f0.g;
 public class a implements b<LocationEvent> {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f50195a = new C1063a(this, 303017, true);
+    public c f50196a = new C1064a(this, 303017, true);
 
     /* renamed from: d.b.h0.f0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1063a extends c {
-        public C1063a(a aVar, int i, boolean z) {
+    public class C1064a extends c {
+        public C1064a(a aVar, int i, boolean z) {
             super(i, z);
         }
 
@@ -56,8 +56,8 @@ public class a implements b<LocationEvent> {
             return false;
         }
         if (locationEvent.getType() == 3) {
-            MessageManager.getInstance().unRegisterListener(this.f50195a);
-            MessageManager.getInstance().registerListener(this.f50195a);
+            MessageManager.getInstance().unRegisterListener(this.f50196a);
+            MessageManager.getInstance().registerListener(this.f50196a);
             LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
             locationSocketRequestMessage.setLat(locationEvent.lat);
             locationSocketRequestMessage.setLng(locationEvent.lng);

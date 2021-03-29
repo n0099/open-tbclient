@@ -58,17 +58,13 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
         if (d2 > Constants.upper_taylor_2_bound) {
             return Math.log(d2) + Constants.LN2;
         }
-        Double.isNaN(d3);
         double d4 = d2 - d3;
         if (d4 >= Constants.taylor_n_bound) {
-            Double.isNaN(d3);
             return Math.log(d2 + Math.sqrt((d2 * d2) - d3));
         }
         double sqrt = Math.sqrt(d4);
         if (sqrt >= Constants.taylor_2_bound) {
-            double d5 = 12;
-            Double.isNaN(d5);
-            sqrt -= ((sqrt * sqrt) * sqrt) / d5;
+            sqrt -= ((sqrt * sqrt) * sqrt) / 12;
         }
         return sqrt * Math.sqrt(2.0d);
     }
@@ -86,26 +82,15 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
             if (d2 <= (-d3)) {
                 return -asinh(-d2);
             }
-            if (Math.abs(d2) >= Constants.taylor_2_bound) {
-                double d4 = 6;
-                Double.isNaN(d4);
-                return d2 - (((d2 * d2) * d2) / d4);
-            }
-            return d2;
+            return Math.abs(d2) >= Constants.taylor_2_bound ? d2 - (((d2 * d2) * d2) / 6) : d2;
         } else if (d2 > Constants.upper_taylor_n_bound) {
             if (d2 > Constants.upper_taylor_2_bound) {
                 return Math.log(d2) + Constants.LN2;
             }
-            double d5 = 2;
-            Double.isNaN(d5);
-            double d6 = d2 * d5;
-            double d7 = 1;
-            Double.isNaN(d7);
-            return Math.log(d6 + (d7 / d6));
+            double d4 = d2 * 2;
+            return Math.log(d4 + (1 / d4));
         } else {
-            double d8 = 1;
-            Double.isNaN(d8);
-            return Math.log(d2 + Math.sqrt((d2 * d2) + d8));
+            return Math.log(d2 + Math.sqrt((d2 * d2) + 1));
         }
     }
 
@@ -124,20 +109,10 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     public static final double atanh(double d2) {
         if (Math.abs(d2) < Constants.taylor_n_bound) {
-            if (Math.abs(d2) > Constants.taylor_2_bound) {
-                double d3 = 3;
-                Double.isNaN(d3);
-                return d2 + (((d2 * d2) * d2) / d3);
-            }
-            return d2;
+            return Math.abs(d2) > Constants.taylor_2_bound ? d2 + (((d2 * d2) * d2) / 3) : d2;
         }
-        double d4 = 1;
-        Double.isNaN(d4);
-        Double.isNaN(d4);
-        double log = Math.log((d4 + d2) / (d4 - d2));
-        double d5 = 2;
-        Double.isNaN(d5);
-        return log / d5;
+        double d3 = 1;
+        return Math.log((d3 + d2) / (d3 - d2)) / 2;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
@@ -192,10 +167,11 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
     }
 
     public static final int getSign(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             return -1;
         }
-        return j > 0 ? 1 : 0;
+        return i > 0 ? 1 : 0;
     }
 
     public static final double getUlp(double d2) {
@@ -634,6 +610,12 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
         return Math.abs(j);
     }
 
+    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @InlineOnly
+    public static final float atanh(float f2) {
+        return (float) atanh(f2);
+    }
+
     public static final long getAbsoluteValue(long j) {
         return Math.abs(j);
     }
@@ -682,12 +664,6 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
     @InlineOnly
     public static final float withSign(float f2, int i) {
         return Math.copySign(f2, i);
-    }
-
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
-    @InlineOnly
-    public static final float atanh(float f2) {
-        return (float) atanh(f2);
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)

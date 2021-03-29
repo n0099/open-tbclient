@@ -10,24 +10,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34284a;
+    public int f34285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f34285b;
+    public AdTemplate f34286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f34286c;
+    public AdBaseFrameLayout f34287c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f34287d;
+    public JSONObject f34288d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f34288e;
+    public ViewGroup f34289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f34289f;
+    public WebView f34290f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34290g = true;
+    public boolean f34291g = true;
 }

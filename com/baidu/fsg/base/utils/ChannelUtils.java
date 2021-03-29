@@ -3,51 +3,51 @@ package com.baidu.fsg.base.utils;
 public final class ChannelUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5335a = false;
+    public static boolean f5336a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5336b = null;
+    public static String f5337b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5337c = "";
+    public static String f5338c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f5338d;
+    public static String f5339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f5339e;
+    public static String f5340e;
 
     public static String getHostAppId() {
-        return f5339e;
+        return f5340e;
     }
 
     public static String getHostPackageName() {
-        return f5337c;
+        return f5338c;
     }
 
     public static String getHostUA() {
-        return f5338d;
+        return f5339d;
     }
 
     public static String getSDKVersion() {
-        return f5336b;
+        return f5337b;
     }
 
     public static void initBussinessParams(String str, boolean z, String str2) {
-        f5336b = str;
-        f5335a = z;
-        f5339e = str2;
+        f5337b = str;
+        f5336a = z;
+        f5340e = str2;
     }
 
     public static void initHostParams(String str) {
-        f5338d = str;
+        f5339d = str;
     }
 
     public static boolean isSpecailPackage() {
-        return f5335a;
+        return f5336a;
     }
 
     public static void setHostPackageName(String str) {
-        f5337c = str;
+        f5338c = str;
     }
 }

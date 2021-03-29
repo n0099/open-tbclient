@@ -84,7 +84,7 @@ public class NetUtil {
         r8 = r2;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x010f A[EDGE_INSN: B:138:0x010f->B:93:0x010f ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x010f A[EDGE_INSN: B:136:0x010f->B:93:0x010f ?: BREAK  , SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:89:0x0106  */
     /* JADX WARN: Type inference failed for: r11v0, types: [com.baidu.idl.util.NetUtil$RequestAdapter<T>, com.baidu.idl.util.NetUtil$RequestAdapter] */
     /* JADX WARN: Type inference failed for: r2v10, types: [java.io.IOException] */

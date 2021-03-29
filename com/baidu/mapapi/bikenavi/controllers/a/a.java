@@ -17,16 +17,16 @@ import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static IBTTSPlayer f6742b;
+    public static IBTTSPlayer f6743b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static com.baidu.platform.comapi.wnplatform.m.c f6743d = new d();
+    public static com.baidu.platform.comapi.wnplatform.m.c f6744d = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f6744a;
+    public FrameLayout f6745a;
 
     /* renamed from: c  reason: collision with root package name */
-    public MapView f6745c = null;
+    public MapView f6746c = null;
 
     public static void e() {
         if (BNavigatorWrapper.getWNavigator().x()) {
@@ -36,10 +36,10 @@ public class a {
 
     public void a(Activity activity, IBEngineInitListener iBEngineInitListener) {
         if (iBEngineInitListener != null) {
-            if (this.f6745c == null) {
-                this.f6745c = new MapView(activity);
+            if (this.f6746c == null) {
+                this.f6746c = new MapView(activity);
             }
-            com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f6745c);
+            com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f6746c);
             long id = WNaviBaiduMap.getId();
             com.baidu.platform.comapi.wnplatform.d.a.b("mapHandle", "mapHandle " + id);
             com.baidu.platform.comapi.walknavi.b.a().a(activity, id, new b(this, iBEngineInitListener));
@@ -49,38 +49,38 @@ public class a {
     }
 
     public void b() {
-        MapView mapView = this.f6745c;
+        MapView mapView = this.f6746c;
         if (mapView != null) {
             mapView.onPause();
         }
     }
 
     public void c() {
-        MapView mapView = this.f6745c;
+        MapView mapView = this.f6746c;
         if (mapView != null) {
             mapView.onResume();
         }
     }
 
     public void d() {
-        if (f6742b != null) {
-            f6742b = null;
+        if (f6743b != null) {
+            f6743b = null;
         }
-        MapView mapView = this.f6745c;
+        MapView mapView = this.f6746c;
         if (mapView != null) {
             mapView.getMap().clear();
-            this.f6745c.onDestroy();
+            this.f6746c.onDestroy();
         }
-        this.f6745c = null;
-        FrameLayout frameLayout = this.f6744a;
+        this.f6746c = null;
+        FrameLayout frameLayout = this.f6745a;
         if (frameLayout != null && frameLayout.getParent() != null) {
-            ((ViewGroup) this.f6744a.getParent()).removeAllViews();
+            ((ViewGroup) this.f6745a.getParent()).removeAllViews();
         }
-        this.f6744a = null;
+        this.f6745a = null;
     }
 
     public MapView f() {
-        return this.f6745c;
+        return this.f6746c;
     }
 
     private void b(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {
@@ -122,7 +122,7 @@ public class a {
             iArr4[i8] = i8;
         }
         if (BNavigatorWrapper.getWNavigator().C().a(iArr, iArr2, iArr3, iArr4)) {
-            BNavigatorWrapper.getWNavigator().a(f6743d);
+            BNavigatorWrapper.getWNavigator().a(f6744d);
             BNavigatorWrapper.getWNavigator().a(new c(this, iBRoutePlanListener));
             e();
             BNavigatorWrapper.getWNavigator().C().a(14, aVar.a("route_data_mode", 0), aVar.a("vehicle", 0), aVar.a("route_buff"));
@@ -142,7 +142,7 @@ public class a {
     }
 
     public void a(IBTTSPlayer iBTTSPlayer) {
-        f6742b = iBTTSPlayer;
+        f6743b = iBTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -152,12 +152,12 @@ public class a {
     public View a(Activity activity) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         FrameLayout frameLayout = new FrameLayout(activity);
-        this.f6744a = frameLayout;
+        this.f6745a = frameLayout;
         frameLayout.setLayoutParams(layoutParams);
         View b2 = BNavigatorWrapper.getWNavigator().b(activity);
-        this.f6744a.addView(this.f6745c);
-        this.f6744a.addView(b2);
-        return this.f6744a;
+        this.f6745a.addView(this.f6746c);
+        this.f6745a.addView(b2);
+        return this.f6745a;
     }
 
     public void a(String str) {

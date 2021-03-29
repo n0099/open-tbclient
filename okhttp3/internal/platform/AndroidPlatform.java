@@ -23,7 +23,7 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class AndroidPlatform extends Platform {
     public static final int MAX_LOG_LENGTH = 4000;
     public final CloseGuard closeGuard = CloseGuard.get();

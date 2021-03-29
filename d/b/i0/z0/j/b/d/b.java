@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import d.b.i0.z0.j.b.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.i0.x.b<c> {
     public View m;
     public c n;
@@ -38,9 +38,9 @@ public class b extends d.b.i0.x.b<c> {
             return;
         }
         this.n = cVar;
-        SkinManager.setBackgroundColor(this.m, cVar.f63367f);
+        SkinManager.setBackgroundColor(this.m, cVar.f63368f);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
-        layoutParams.height = l.g(this.f62181g, cVar.f63366e);
+        layoutParams.height = l.g(this.f62182g, cVar.f63367e);
         this.m.setLayoutParams(layoutParams);
     }
 }

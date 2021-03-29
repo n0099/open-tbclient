@@ -43,7 +43,7 @@ public class AcCallBackInfo {
     public int transferConsumeMs;
     public String xKsCache;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface DownloadStopReason {
     }
 

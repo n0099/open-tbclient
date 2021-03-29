@@ -18,41 +18,41 @@ import d.b.h0.r.f0.f;
 public class h extends d.b.b.a.d<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<Object> f63602a;
+    public TbPageContext<Object> f63603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f63603b;
+    public View f63604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f63604c;
+    public BdListView f63605c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f63605d;
+    public NoNetworkView f63606d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.r.f0.g f63606e;
+    public d.b.h0.r.f0.g f63607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f63607f;
+    public e f63608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f63608g;
+    public NoDataView f63609g;
 
     public h(TbPageContext<Object> tbPageContext, BdUniqueId bdUniqueId, View view, View.OnKeyListener onKeyListener) {
         this(tbPageContext, view, onKeyListener);
-        this.f63606e.Z(bdUniqueId);
+        this.f63607e.Z(bdUniqueId);
     }
 
     public void d(NoNetworkView.b bVar) {
-        this.f63605d.a(bVar);
+        this.f63606d.a(bVar);
     }
 
     public void e() {
-        this.f63604c.A(0L);
+        this.f63605c.A(0L);
     }
 
     public void f() {
-        this.f63605d.setVisibility(0);
+        this.f63606d.setVisibility(0);
     }
 
     public void g(boolean z, String str) {
@@ -60,23 +60,23 @@ public class h extends d.b.b.a.d<Object> {
         if (z || str == null) {
             return;
         }
-        this.f63602a.showToast(str, true);
+        this.f63603a.showToast(str, true);
     }
 
     public View h() {
-        return this.f63603b;
+        return this.f63604b;
     }
 
     public void i() {
-        NoDataView noDataView = this.f63608g;
+        NoDataView noDataView = this.f63609g;
         if (noDataView != null) {
             noDataView.setVisibility(8);
-            this.f63604c.removeHeaderView(this.f63608g);
+            this.f63605c.removeHeaderView(this.f63609g);
         }
     }
 
     public void k() {
-        this.f63605d.setVisibility(8);
+        this.f63606d.setVisibility(8);
     }
 
     public void l(f fVar) {
@@ -85,8 +85,8 @@ public class h extends d.b.b.a.d<Object> {
                 if (fVar.g()) {
                     return;
                 }
-                this.f63607f.i(fVar);
-                this.f63607f.notifyDataSetChanged();
+                this.f63608f.i(fVar);
+                this.f63608f.notifyDataSetChanged();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -94,52 +94,52 @@ public class h extends d.b.b.a.d<Object> {
     }
 
     public void m(NoNetworkView.b bVar) {
-        this.f63605d.d(bVar);
+        this.f63606d.d(bVar);
     }
 
     public void n(f.g gVar) {
-        this.f63606e.b(gVar);
+        this.f63607e.b(gVar);
     }
 
     public void o(int i) {
-        if (this.f63608g == null) {
-            this.f63608g = NoDataViewFactory.a(this.f63602a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.e.a(i), null);
+        if (this.f63609g == null) {
+            this.f63609g = NoDataViewFactory.a(this.f63603a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.e.a(i), null);
         }
-        this.f63608g.setTextOption(NoDataViewFactory.e.a(i));
-        this.f63608g.f(this.f63602a, TbadkCoreApplication.getInst().getSkinType());
-        this.f63608g.setVisibility(0);
-        this.f63604c.removeHeaderView(this.f63608g);
-        this.f63604c.addHeaderView(this.f63608g);
+        this.f63609g.setTextOption(NoDataViewFactory.e.a(i));
+        this.f63609g.f(this.f63603a, TbadkCoreApplication.getInst().getSkinType());
+        this.f63609g.setVisibility(0);
+        this.f63605c.removeHeaderView(this.f63609g);
+        this.f63605c.addHeaderView(this.f63609g);
     }
 
     public void onChangeSkinType(int i) {
-        this.f63602a.getLayoutMode().k(i == 1);
-        this.f63602a.getLayoutMode().j(this.f63603b);
-        this.f63607f.h(i);
-        this.f63606e.I(i);
-        this.f63605d.c(this.mContext, i);
+        this.f63603a.getLayoutMode().k(i == 1);
+        this.f63603a.getLayoutMode().j(this.f63604b);
+        this.f63608f.h(i);
+        this.f63607e.I(i);
+        this.f63606d.c(this.mContext, i);
     }
 
     public h(TbPageContext<Object> tbPageContext, View view, View.OnKeyListener onKeyListener) {
         super(tbPageContext);
-        this.f63602a = null;
-        this.f63604c = null;
-        this.f63606e = null;
-        this.f63607f = null;
-        this.f63602a = tbPageContext;
-        this.f63603b = view;
+        this.f63603a = null;
+        this.f63605c = null;
+        this.f63607e = null;
+        this.f63608f = null;
+        this.f63603a = tbPageContext;
+        this.f63604b = view;
         BdListView bdListView = (BdListView) view.findViewById(R.id.square_list);
-        this.f63604c = bdListView;
+        this.f63605c = bdListView;
         bdListView.setOnKeyListener(onKeyListener);
-        if (this.f63602a.getOrignalPage() instanceof SquareActivity) {
-            this.f63604c.setOnItemClickListener((SquareActivity) this.f63602a.getOrignalPage());
+        if (this.f63603a.getOrignalPage() instanceof SquareActivity) {
+            this.f63605c.setOnItemClickListener((SquareActivity) this.f63603a.getOrignalPage());
         }
         e eVar = new e(tbPageContext);
-        this.f63607f = eVar;
-        this.f63604c.setAdapter((ListAdapter) eVar);
+        this.f63608f = eVar;
+        this.f63605c.setAdapter((ListAdapter) eVar);
         d.b.h0.r.f0.g gVar = new d.b.h0.r.f0.g(tbPageContext);
-        this.f63606e = gVar;
-        this.f63604c.setPullRefresh(gVar);
-        this.f63605d = (NoNetworkView) this.f63603b.findViewById(R.id.view_no_network);
+        this.f63607e = gVar;
+        this.f63605c.setPullRefresh(gVar);
+        this.f63606d = (NoNetworkView) this.f63604b.findViewById(R.id.view_no_network);
     }
 }

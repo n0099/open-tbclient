@@ -10,7 +10,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class WebRtcAudioRecord {
     public static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
     public static final int BITS_PER_SAMPLE = 16;

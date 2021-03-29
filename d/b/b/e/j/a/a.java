@@ -3,15 +3,15 @@ package d.b.b.e.j.a;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f41759a;
+    public static a f41760a;
 
     public static final a b() {
-        return f41759a;
+        return f41760a;
     }
 
     public static final void d(a aVar) {
         synchronized (a.class) {
-            f41759a = aVar;
+            f41760a = aVar;
         }
     }
 

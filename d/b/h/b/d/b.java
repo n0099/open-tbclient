@@ -8,16 +8,16 @@ import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import com.baidu.webkit.sdk.Log;
 import d.b.h.b.f.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdSailorPlatform f49471a;
+    public final /* synthetic */ BdSailorPlatform f49472a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BdSailorPlatform bdSailorPlatform, Looper looper) {
         super(looper);
-        this.f49471a = bdSailorPlatform;
+        this.f49472a = bdSailorPlatform;
     }
 
     @Override // android.os.Handler
@@ -29,9 +29,9 @@ public final class b extends Handler {
         if (message.what != 1) {
             return;
         }
-        context = this.f49471a.mContext;
+        context = this.f49472a.mContext;
         if (context != null) {
-            BdSailorPlatform bdSailorPlatform = this.f49471a;
+            BdSailorPlatform bdSailorPlatform = this.f49472a;
             context2 = bdSailorPlatform.mContext;
             isAppOnForeground = bdSailorPlatform.isAppOnForeground(context2);
             if (isAppOnForeground) {
@@ -39,8 +39,8 @@ public final class b extends Handler {
             }
             try {
                 Log.d(BdSailorPlatform.TAG, "do pause");
-                this.f49471a.mWebkitTimerPaused = a.a().c();
-                context3 = this.f49471a.mContext;
+                this.f49472a.mWebkitTimerPaused = a.a().c();
+                context3 = this.f49472a.mContext;
                 CookieSyncManager createInstance = CookieSyncManager.createInstance(context3);
                 if (createInstance != null) {
                     createInstance.stopSync();

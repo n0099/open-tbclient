@@ -34,28 +34,28 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
     public static class FrsUserRecommendViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f16208a;
+        public LinearLayout f16209a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f16209b;
+        public FlexibleHorizontalScrollView f16210b;
 
         /* renamed from: c  reason: collision with root package name */
-        public UserRecommendLayout f16210c;
+        public UserRecommendLayout f16211c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f16211d;
+        public TextView f16212d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f16212e;
+        public boolean f16213e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f16213f;
+        public final String f16214f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f16214g;
+        public View.OnClickListener f16215g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View.OnClickListener f16215h;
+        public View.OnClickListener f16216h;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -67,16 +67,16 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
                 UserRecommendLayout userRecommendLayout;
                 d.b.h0.r.f0.q.a j;
                 FrsUserRecommendViewHolder frsUserRecommendViewHolder = FrsUserRecommendViewHolder.this;
-                FlexibleHorizontalScrollView flexibleHorizontalScrollView = frsUserRecommendViewHolder.f16209b;
-                if (flexibleHorizontalScrollView == null || (userRecommendLayout = frsUserRecommendViewHolder.f16210c) == null) {
+                FlexibleHorizontalScrollView flexibleHorizontalScrollView = frsUserRecommendViewHolder.f16210b;
+                if (flexibleHorizontalScrollView == null || (userRecommendLayout = frsUserRecommendViewHolder.f16211c) == null) {
                     return;
                 }
                 flexibleHorizontalScrollView.smoothScrollBy(userRecommendLayout.getChildItemWidth(), 0);
                 if ((view.getTag() instanceof c) && (j = ((c) view.getTag()).j()) != null) {
                     FrsUserRecommendViewHolder.this.e(j.getUserId(), 2);
                 }
-                if (FrsUserRecommendViewHolder.this.f16212e) {
-                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", FrsUserRecommendViewHolder.this.f16213f));
+                if (FrsUserRecommendViewHolder.this.f16213e) {
+                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", FrsUserRecommendViewHolder.this.f16214f));
                 }
             }
         }
@@ -91,27 +91,27 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
                 if (view instanceof ClickableHeaderImageView) {
                     FrsUserRecommendViewHolder.this.e(((ClickableHeaderImageView) view).getUserId(), 1);
                 }
-                if (FrsUserRecommendViewHolder.this.f16212e) {
-                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", FrsUserRecommendViewHolder.this.f16213f));
+                if (FrsUserRecommendViewHolder.this.f16213e) {
+                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", FrsUserRecommendViewHolder.this.f16214f));
                 }
             }
         }
 
         public FrsUserRecommendViewHolder(View view, boolean z, String str) {
             super(view);
-            this.f16212e = false;
-            this.f16214g = new a();
-            this.f16215h = new b();
-            this.f16212e = z;
-            this.f16213f = str;
-            this.f16209b = (FlexibleHorizontalScrollView) view.findViewById(R.id.user_recommend_scroll_container);
+            this.f16213e = false;
+            this.f16215g = new a();
+            this.f16216h = new b();
+            this.f16213e = z;
+            this.f16214f = str;
+            this.f16210b = (FlexibleHorizontalScrollView) view.findViewById(R.id.user_recommend_scroll_container);
             UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view.findViewById(R.id.user_recommend_container);
-            this.f16210c = userRecommendLayout;
+            this.f16211c = userRecommendLayout;
             userRecommendLayout.setItemSpace(l.g(view.getContext(), R.dimen.ds16));
-            this.f16210c.setAfterLikeBtnClickListener(this.f16214g);
-            this.f16210c.setAfterHeaderLickListener(this.f16215h);
-            this.f16211d = (TextView) view.findViewById(R.id.user_recommend_document);
-            this.f16208a = (LinearLayout) view.findViewById(R.id.user_recommend_root);
+            this.f16211c.setAfterLikeBtnClickListener(this.f16215g);
+            this.f16211c.setAfterHeaderLickListener(this.f16216h);
+            this.f16212d = (TextView) view.findViewById(R.id.user_recommend_document);
+            this.f16209a = (LinearLayout) view.findViewById(R.id.user_recommend_root);
         }
 
         public final void e(String str, int i) {
@@ -159,7 +159,7 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public UserRecommendItemView d() {
-            return new UserRecommendItemView(FrsUserRecommendAdapter.this.f42357e);
+            return new UserRecommendItemView(FrsUserRecommendAdapter.this.f42358e);
         }
 
         public UserRecommendItemView h(UserRecommendItemView userRecommendItemView) {
@@ -177,8 +177,8 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: u0 */
     public FrsUserRecommendViewHolder R(ViewGroup viewGroup) {
-        FrsUserRecommendViewHolder frsUserRecommendViewHolder = new FrsUserRecommendViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.card_user_recommend_layout, viewGroup, false), this.w, this.x);
-        frsUserRecommendViewHolder.f16210c.setViewPool(this.y);
+        FrsUserRecommendViewHolder frsUserRecommendViewHolder = new FrsUserRecommendViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.card_user_recommend_layout, viewGroup, false), this.w, this.x);
+        frsUserRecommendViewHolder.f16211c.setViewPool(this.y);
         return frsUserRecommendViewHolder;
     }
 
@@ -188,12 +188,12 @@ public class FrsUserRecommendAdapter extends k<x, FrsUserRecommendViewHolder> {
     public View X(int i, View view, ViewGroup viewGroup, x xVar, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         if (xVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            frsUserRecommendViewHolder.f16211d.setText(xVar.e());
-            frsUserRecommendViewHolder.f16210c.setPageContext(this.o);
-            frsUserRecommendViewHolder.f16210c.setData(xVar.f());
-            frsUserRecommendViewHolder.f16209b.setMaxOverScrollDistance(frsUserRecommendViewHolder.f16210c.getChildItemWidth());
-            frsUserRecommendViewHolder.f16211d.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0106));
-            frsUserRecommendViewHolder.f16208a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0205));
+            frsUserRecommendViewHolder.f16212d.setText(xVar.e());
+            frsUserRecommendViewHolder.f16211c.setPageContext(this.o);
+            frsUserRecommendViewHolder.f16211c.setData(xVar.f());
+            frsUserRecommendViewHolder.f16210b.setMaxOverScrollDistance(frsUserRecommendViewHolder.f16211c.getChildItemWidth());
+            frsUserRecommendViewHolder.f16212d.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0106));
+            frsUserRecommendViewHolder.f16209a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0205));
             if (!xVar.g()) {
                 for (MetaData metaData : xVar.f()) {
                     if (metaData != null && !d.b.b.e.p.k.isEmpty(metaData.getUserId())) {

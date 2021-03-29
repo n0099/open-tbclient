@@ -15,13 +15,6 @@ public class DurationUnitKt__DurationUnitJvmKt {
     @ExperimentalTime
     public static final double convertDurationUnit(double d2, TimeUnit timeUnit, TimeUnit timeUnit2) {
         long convert = timeUnit2.convert(1L, timeUnit);
-        if (convert > 0) {
-            double d3 = convert;
-            Double.isNaN(d3);
-            return d2 * d3;
-        }
-        double convert2 = timeUnit.convert(1L, timeUnit2);
-        Double.isNaN(convert2);
-        return d2 / convert2;
+        return convert > 0 ? d2 * convert : d2 / timeUnit.convert(1L, timeUnit2);
     }
 }

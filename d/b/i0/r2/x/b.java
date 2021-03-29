@@ -17,20 +17,20 @@ import java.util.Map;
 public class b implements d.b.i0.o.c.g.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, DownloadCacheKey> f59894b = new HashMap();
+    public final Map<String, DownloadCacheKey> f59895b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.i0.o.c.f.c f59895c = new C1513b();
+    public final d.b.i0.o.c.f.c f59896c = new C1514b();
 
     /* renamed from: d.b.i0.r2.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1513b implements d.b.i0.o.c.f.c {
-        public C1513b() {
+    public class C1514b implements d.b.i0.o.c.f.c {
+        public C1514b() {
         }
 
         @Override // d.b.i0.o.c.f.c
         public void a(String str, int i) {
-            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59894b.get(str));
+            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59895b.get(str));
             if (a2 == null) {
                 return;
             }
@@ -39,7 +39,7 @@ public class b implements d.b.i0.o.c.g.a {
 
         @Override // d.b.i0.o.c.f.c
         public void b(String str) {
-            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59894b.get(str));
+            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59895b.get(str));
             if (a2 == null) {
                 return;
             }
@@ -49,7 +49,7 @@ public class b implements d.b.i0.o.c.g.a {
 
         @Override // d.b.i0.o.c.f.c
         public void c(String str, int i) {
-            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59894b.get(str));
+            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59895b.get(str));
             if (a2 == null) {
                 return;
             }
@@ -58,7 +58,7 @@ public class b implements d.b.i0.o.c.g.a {
 
         @Override // d.b.i0.o.c.f.c
         public void d(String str, StopStatus stopStatus) {
-            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59894b.get(str));
+            d.b.i0.o.c.f.a a2 = d.b.i0.o.c.d.c().a((DownloadCacheKey) b.this.f59895b.get(str));
             if (a2 == null) {
                 return;
             }
@@ -67,11 +67,11 @@ public class b implements d.b.i0.o.c.g.a {
 
         @Override // d.b.i0.o.c.f.c
         public void onSuccess(String str, String str2) {
-            DownloadCacheKey downloadCacheKey = (DownloadCacheKey) b.this.f59894b.get(str);
+            DownloadCacheKey downloadCacheKey = (DownloadCacheKey) b.this.f59895b.get(str);
             String a2 = d.b.i0.o.c.a.a(TbadkCoreApplication.getInst(), str2);
             if (downloadCacheKey == null) {
                 downloadCacheKey = DownloadCacheKey.create(str, "");
-                b.this.f59894b.put(str, downloadCacheKey);
+                b.this.f59895b.put(str, downloadCacheKey);
             }
             if (!TextUtils.isEmpty(a2)) {
                 downloadCacheKey.mPackageName = a2;
@@ -94,12 +94,12 @@ public class b implements d.b.i0.o.c.g.a {
 
     @Override // d.b.i0.o.c.g.a
     public d.b.i0.o.c.f.c a() {
-        return this.f59895c;
+        return this.f59896c;
     }
 
     @Override // d.b.i0.o.c.g.a
     public void b(String str) {
-        DownloadCacheKey downloadCacheKey = this.f59894b.get(str);
+        DownloadCacheKey downloadCacheKey = this.f59895b.get(str);
         if (downloadCacheKey == null) {
             return;
         }
@@ -108,7 +108,7 @@ public class b implements d.b.i0.o.c.g.a {
 
     @Override // d.b.i0.o.c.g.a
     public void c(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData) {
-        this.f59894b.put(downloadCacheKey.mAdId, downloadCacheKey);
+        this.f59895b.put(downloadCacheKey.mAdId, downloadCacheKey);
         DownloadData downloadData = new DownloadData();
         downloadData.setId(downloadCacheKey.mAdId);
         downloadData.setUrl(downloadCacheKey.mDownloadUrl);
@@ -123,11 +123,11 @@ public class b implements d.b.i0.o.c.g.a {
 
     @Override // d.b.i0.o.c.g.a
     public void d(String str) {
-        DownloadCacheKey downloadCacheKey = this.f59894b.get(str);
+        DownloadCacheKey downloadCacheKey = this.f59895b.get(str);
         if (downloadCacheKey == null) {
             return;
         }
-        this.f59894b.put(downloadCacheKey.mAdId, downloadCacheKey);
+        this.f59895b.put(downloadCacheKey.mAdId, downloadCacheKey);
         DownloadData downloadData = new DownloadData();
         downloadData.setId(downloadCacheKey.mAdId);
         downloadData.setUrl(downloadCacheKey.mDownloadUrl);

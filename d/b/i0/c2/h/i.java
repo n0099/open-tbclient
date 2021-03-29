@@ -5,17 +5,17 @@ import tbclient.PbPage.ForumHeadlineImgInfo;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52434a = "";
+    public String f52435a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52435b = "";
+    public String f52436b = "";
 
     public String a() {
-        return this.f52434a;
+        return this.f52435a;
     }
 
     public String b() {
-        return this.f52435b;
+        return this.f52436b;
     }
 
     public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -24,9 +24,9 @@ public class i {
         }
         forumHeadlineImgInfo.img_user_id.longValue();
         String str = forumHeadlineImgInfo.img_user_name;
-        this.f52434a = forumHeadlineImgInfo.img_url;
+        this.f52435a = forumHeadlineImgInfo.img_url;
         forumHeadlineImgInfo.rank_num.intValue();
         String str2 = forumHeadlineImgInfo.rank_up_info;
-        this.f52435b = forumHeadlineImgInfo.rank_url;
+        this.f52436b = forumHeadlineImgInfo.rank_url;
     }
 }

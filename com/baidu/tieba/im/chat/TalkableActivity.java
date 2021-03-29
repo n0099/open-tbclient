@@ -76,7 +76,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class TalkableActivity<T> extends BaseActivity<T> implements VoiceManager.j, d.b.h0.b1.m.h, View.OnTouchListener, BdListView.s, BdListView.p, d.b.b.e.h.b, d.b.b.e.h.a, l.e, ActivityCompat.OnRequestPermissionsResultCallback {
     public static final int RECORD_MOVE_OUTSIDE_RANGE = 5;
     public boolean isForeground;
@@ -99,7 +99,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public CustomMessageListener richTextIntentClickListener = new e(2001332);
     public d.b.b.a.e mMsgCallback = new g();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.a.e {
         public a() {
         }
@@ -119,7 +119,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.b<ChatMessage> {
         public b() {
         }
@@ -132,7 +132,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends f0<Object> {
         public c() {
         }
@@ -151,23 +151,23 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements n<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17772a;
+        public final /* synthetic */ String f17773a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17773b;
+        public final /* synthetic */ String f17774b;
 
         public d(String str, String str2) {
-            this.f17772a = str;
-            this.f17773b = str2;
+            this.f17773a = str;
+            this.f17774b = str2;
         }
 
         @Override // d.b.h0.z0.n
         public void onReturnDataInUI(Object obj) {
-            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f17772a, this.f17773b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f17773a, this.f17774b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
             TalkableActivity talkableActivity = TalkableActivity.this;
             talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
             TalkableActivity.this.mLocalPicModel.getData();
@@ -176,7 +176,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -189,27 +189,27 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            d.b.h0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f49978a, aVar.f49979b, aVar.f49980c);
+            d.b.h0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f49979a, aVar.f49980b, aVar.f49981c);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17776e;
+        public final /* synthetic */ String f17777e;
 
         public f(String str) {
-            this.f17776e = str;
+            this.f17777e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            TalkableActivity.this.mListModel.sendTextMessage(this.f17776e);
+            TalkableActivity.this.mListModel.sendTextMessage(this.f17777e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g extends d.b.b.a.e {
         public g() {
         }
@@ -302,41 +302,41 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17779e;
+        public final /* synthetic */ int f17780e;
 
         public h(int i) {
-            this.f17779e = i;
+            this.f17780e = i;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.reSendMsg(this.f17779e);
+            TalkableActivity.this.reSendMsg(this.f17780e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17781e;
+        public final /* synthetic */ int f17782e;
 
         public i(int i) {
-            this.f17781e = i;
+            this.f17782e = i;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.deleteMsg(this.f17781e);
+            TalkableActivity.this.deleteMsg(this.f17782e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface j {
     }
 

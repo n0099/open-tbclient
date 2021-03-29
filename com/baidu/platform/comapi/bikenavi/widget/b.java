@@ -5,10 +5,10 @@ import android.app.Activity;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9871a;
+    public final /* synthetic */ a f9872a;
 
     public b(a aVar) {
-        this.f9871a = aVar;
+        this.f9872a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,21 +23,21 @@ public class b implements Runnable {
         int i4;
         int i5;
         CustomScrollView customScrollView2;
-        a aVar = this.f9871a;
-        activity = aVar.f9859a;
+        a aVar = this.f9872a;
+        activity = aVar.f9860a;
         int e2 = com.baidu.platform.comapi.wnplatform.o.g.e(activity);
-        activity2 = this.f9871a.f9859a;
+        activity2 = this.f9872a.f9860a;
         i = a.F;
         aVar.E = e2 - com.baidu.platform.comapi.wnplatform.o.g.a(activity2, i);
-        customScrollView = this.f9871a.n;
-        i2 = this.f9871a.E;
+        customScrollView = this.f9872a.n;
+        i2 = this.f9872a.E;
         customScrollView.setBlankHeight(i2);
-        i3 = this.f9871a.E;
-        activity3 = this.f9871a.f9859a;
+        i3 = this.f9872a.E;
+        activity3 = this.f9872a.f9860a;
         i4 = a.F;
         i5 = a.G;
         int a2 = i3 + com.baidu.platform.comapi.wnplatform.o.g.a(activity3, i4 - i5);
-        customScrollView2 = this.f9871a.n;
+        customScrollView2 = this.f9872a.n;
         customScrollView2.setStatusHeight(a2, 0);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import d.b.i0.d1.d;
 import d.b.i0.d1.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.b.c.f.a {
     public a() {
         super(2016004);

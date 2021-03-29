@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String a() {
         return "G/+OcJyTftFli2wqcD/suPV1zFgkQcIfIqUzGhkKDOM3Lskevp1nJYavBVoe8ZQOMn9/qzM/GLGCvIjSQ5cNjEn3sMv4Ic6GIOO/DM7/PIGF/OCo7BHThVw+un/dBwDiqx2QEiOyPljpJf8dFyW6Kxmc6Yq8mtS/fuHjdR3qhR+zJ32YaJxQxMGxU/0WX/lTeIEfe8tcm78vvusWRKQD2O+9XVHx6fiIt3gqK6/Abm38Km0hnydqvoPsHG1vf7H1UMjtB1KKlqwnY2IWmQP8bczdlA+emLg6dQxglyBxXPU0/lx+QY6RklgpQhNGWLjJlzQfGqltBd3T+Dwt0GH3jlJS3iLjY4zNfTHMsg+GgpGPU3jUKW4iD2e/ipeqCK5EsSzDs5x53PyXY4/l6js6gKyHTRmTmJxJPel/dlHdI2/tsBADE3em/yHDpIlSpLt4+J2iyucuUaz0trSdxAGxw02Ys1c27Z8b9W2BO0sW8skWnn0sXn18M7+xDGJW/nf1mTiGg64tbGdPApLXV5Hhod2Y33p58AyhPs6ufXK/CaXKdIuRXn+Ayl7hEc1BdjTESisrtArpYg2vGs6gKHgLE7BVdyz6tEB0FlCXQmOFzo09TRs8g5hqE95G5Sr4gsdcsigFBfxI0KDMCwDpbIPBWhkfks8Ev6l9V8Tby9i/VTFq3NRsSPsD+3toi3pwjKjPxtj9rZQDgsqcBEkARa/gxvKu/be7xhnJrzTmff6wnzxn2IZ3U3w34l0S8EMeZ4bwa8Macv7CgihzfzzFPIwE0VoAOoUSNggPEIQwSZ1iWSmRG87X92fkVoV5nx1IHyoDyK2LWZkgBPilF2L+dnfvd6JEkh4bJe1cpp7dHdQ+N8kBwYeFzEpDa1ir7lqdhriMXSWWL6QOnv2TPh2/nyEh7vNeS+4zhclSoeE+zcCD5IiMOKAsBUZrS9Xs0Xs+3yHeXhBWCk/1PpVdzam732JZxJNHC0Vu5WZpVq6JsMpZSrn+3qi54gXM0hRi8qOcsAQgykA6SdhN4/KCXZbRZ8IzadZGBqI5qnLSZih1tN8WE0wtGT4iB2d8cq2BYHmZmjmhDYe+gJvaW4vLaJGBmGJgErwPlQmsZLp1XcFx5eeKn7xfUFhRu77lPq9aSQQMHUWzLjVUefF5smXexXutQP7jXzbwV/IA8ycHPS3VQeuTydMEjrwVE4dm3dpWlao/70w+gUi2jcAQI0i07ZAT99CtkclKLtC9xeqdVbcI4PL+oCXJZHVcZss4hR4G2ZA2Xk1cEHN2MYbsFI4mZ+vkuSHLTOUaDwFhVAs1rGWtkJMkN7Kz+4T6Y8psHY++//FIHQTswc7x9tFUYNe+ZakAgGI682aojgiqJub9vrm8J2pQ5HlfGGwn/39uE5R3uwCLEMmaG+dzkMLSfV2IKCvv4ssx4DGz9MVv9OM+2/2KTs6RpRu60MyQFghiWbnw8nJYObZkRZlLFjlFAYz3XX/MBeTn+VBDyMJIt1oI7cdZ0R5sv4Y=";
@@ -35,13 +35,13 @@ public class a {
                                 break;
                             }
                             sb.append(readLine);
-                        } catch (IOException e2) {
-                            new b.c(context).a(Log.getStackTraceString(e2)).a();
+                        } catch (Throwable th) {
                             com.baidu.android.pushservice.e.c.a(context, bufferedReader);
+                            throw th;
                         }
-                    } catch (Throwable th) {
+                    } catch (IOException e2) {
+                        new b.c(context).a(Log.getStackTraceString(e2)).a();
                         com.baidu.android.pushservice.e.c.a(context, bufferedReader);
-                        throw th;
                     }
                 }
                 com.baidu.android.pushservice.e.c.a(context, bufferedReader);

@@ -4,43 +4,43 @@ import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.g0.a.m.a f45693a;
+    public static d.b.g0.a.m.a f45694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.a.m.c f45694b;
+    public static d.b.g0.a.m.c f45695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f45695c;
+    public static boolean f45696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final f f45696d;
+    public static final f f45697d;
 
     static {
         f fVar = new f();
-        f45696d = fVar;
+        f45697d = fVar;
         Intrinsics.checkExpressionValueIsNotNull(fVar.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
     }
 
     public final void a() {
-        d.f45691a.a();
-        h.f45698a.b();
+        d.f45692a.a();
+        h.f45699a.b();
         f(false);
     }
 
     public final boolean b() {
-        return f45695c;
+        return f45696c;
     }
 
     public final d.b.g0.a.m.a c() {
-        return f45693a;
+        return f45694a;
     }
 
     public final d.b.g0.a.m.c d() {
-        return f45694b;
+        return f45695b;
     }
 
     public final boolean e() {
@@ -72,6 +72,6 @@ public final class f {
     }
 
     public final void h(boolean z) {
-        f45695c = z;
+        f45696c = z;
     }
 }

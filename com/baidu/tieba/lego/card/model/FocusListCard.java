@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FocusListCard extends BaseCardInfo {
     public static final int MIN_FOCUS_ITEMS = 3;
     public final int bgColor;
@@ -15,29 +15,29 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18597a;
+        public String f18598a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18598b;
+        public String f18599b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18599c;
+        public String f18600c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18600d;
+        public int f18601d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18601e;
+        public int f18602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18602f;
+        public String f18603f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f18603g;
+        public long f18604g;
     }
 
     public FocusListCard(JSONObject jSONObject) throws CardParseException {
@@ -56,18 +56,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f18597a = optJSONArray.getString(0);
+                        aVar.f18598a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f18598b = optJSONArray.getString(1);
+                        aVar.f18599b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f18599c = optJSONArray.getString(2);
+                        aVar.f18600c = optJSONArray.getString(2);
                     }
-                    aVar.f18600d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f18601e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f18602f = optJSONObject.optString("scheme");
-                    aVar.f18603g = optJSONObject.optLong("resourceId");
+                    aVar.f18601d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f18602e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f18603f = optJSONObject.optString("scheme");
+                    aVar.f18604g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

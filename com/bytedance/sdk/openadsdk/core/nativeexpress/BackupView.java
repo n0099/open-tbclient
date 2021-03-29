@@ -17,84 +17,84 @@ import com.bytedance.sdk.openadsdk.utils.x;
 public abstract class BackupView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28477a;
+    public Context f28478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28478b;
+    public com.bytedance.sdk.openadsdk.core.d.l f28479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f28479c;
+    public com.bytedance.sdk.openadsdk.dislike.b f28480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTDislikeDialogAbstract f28480d;
+    public TTDislikeDialogAbstract f28481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28481e;
+    public String f28482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28482f;
+    public int f28483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28483g;
+    public int f28484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28484h;
+    public int f28485h;
     public boolean i;
     public boolean j;
 
     public BackupView(@NonNull Context context) {
         super(context);
-        this.f28481e = "embeded_ad";
+        this.f28482e = "embeded_ad";
         this.i = true;
         this.j = true;
         setTag("tt_express_backup_fl_tag_26");
     }
 
     private boolean b() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28478b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28479b;
         return lVar != null && com.bytedance.sdk.openadsdk.core.d.l.c(lVar);
     }
 
     public void a() {
-        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28480d;
+        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28481d;
         if (tTDislikeDialogAbstract != null) {
             tTDislikeDialogAbstract.show();
             return;
         }
-        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28479c;
+        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28480c;
         if (bVar != null) {
             bVar.showDislikeDialog();
         } else {
-            TTDelegateActivity.a(getContext(), this.f28478b);
+            TTDelegateActivity.a(getContext(), this.f28479b);
         }
     }
 
     public abstract void a(int i, com.bytedance.sdk.openadsdk.core.d.j jVar);
 
     public String getDescription() {
-        if (TextUtils.isEmpty(this.f28478b.aj())) {
-            return !TextUtils.isEmpty(this.f28478b.ak()) ? this.f28478b.ak() : "";
+        if (TextUtils.isEmpty(this.f28479b.aj())) {
+            return !TextUtils.isEmpty(this.f28479b.ak()) ? this.f28479b.ak() : "";
         }
-        return this.f28478b.aj();
+        return this.f28479b.aj();
     }
 
     public String getNameOrSource() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28478b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28479b;
         if (lVar == null) {
             return "";
         }
-        if (lVar.an() == null || TextUtils.isEmpty(this.f28478b.an().c())) {
-            return !TextUtils.isEmpty(this.f28478b.Y()) ? this.f28478b.Y() : "";
+        if (lVar.an() == null || TextUtils.isEmpty(this.f28479b.an().c())) {
+            return !TextUtils.isEmpty(this.f28479b.Y()) ? this.f28479b.Y() : "";
         }
-        return this.f28478b.an().c();
+        return this.f28479b.an().c();
     }
 
     public float getRealHeight() {
-        return al.b(this.f28477a, this.f28483g);
+        return al.b(this.f28478a, this.f28484g);
     }
 
     public float getRealWidth() {
-        return al.b(this.f28477a, this.f28482f);
+        return al.b(this.f28478a, this.f28483f);
     }
 
     @Override // android.view.View
@@ -103,21 +103,21 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public String getTitle() {
-        if (this.f28478b.an() != null && !TextUtils.isEmpty(this.f28478b.an().c())) {
-            return this.f28478b.an().c();
+        if (this.f28479b.an() != null && !TextUtils.isEmpty(this.f28479b.an().c())) {
+            return this.f28479b.an().c();
         }
-        if (TextUtils.isEmpty(this.f28478b.Y())) {
-            return !TextUtils.isEmpty(this.f28478b.aj()) ? this.f28478b.aj() : "";
+        if (TextUtils.isEmpty(this.f28479b.Y())) {
+            return !TextUtils.isEmpty(this.f28479b.aj()) ? this.f28479b.aj() : "";
         }
-        return this.f28478b.Y();
+        return this.f28479b.Y();
     }
 
     public View getVideoView() {
         NativeVideoTsView nativeVideoTsView;
-        if (this.f28478b != null && this.f28477a != null) {
+        if (this.f28479b != null && this.f28478a != null) {
             if (b()) {
                 try {
-                    nativeVideoTsView = new NativeVideoTsView(this.f28477a, this.f28478b, this.f28481e, true, false);
+                    nativeVideoTsView = new NativeVideoTsView(this.f28478a, this.f28479b, this.f28482e, true, false);
                     nativeVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView.2
                         @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                         public void a(boolean z, long j, long j2, long j3, boolean z2) {
@@ -140,16 +140,16 @@ public abstract class BackupView extends FrameLayout {
 
     public void setDislikeInner(TTAdDislike tTAdDislike) {
         if (tTAdDislike instanceof com.bytedance.sdk.openadsdk.dislike.b) {
-            this.f28479c = (com.bytedance.sdk.openadsdk.dislike.b) tTAdDislike;
+            this.f28480c = (com.bytedance.sdk.openadsdk.dislike.b) tTAdDislike;
         }
     }
 
     public void setDislikeOuter(TTDislikeDialogAbstract tTDislikeDialogAbstract) {
         com.bytedance.sdk.openadsdk.core.d.l lVar;
-        if (tTDislikeDialogAbstract != null && (lVar = this.f28478b) != null) {
+        if (tTDislikeDialogAbstract != null && (lVar = this.f28479b) != null) {
             tTDislikeDialogAbstract.setMaterialMeta(lVar);
         }
-        this.f28480d = tTDislikeDialogAbstract;
+        this.f28481d = tTDislikeDialogAbstract;
     }
 
     @Override // android.view.View
@@ -163,14 +163,14 @@ public abstract class BackupView extends FrameLayout {
             return;
         }
         if (z) {
-            Context context = this.f28477a;
-            com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28478b;
-            String str = this.f28481e;
+            Context context = this.f28478a;
+            com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28479b;
+            String str = this.f28482e;
             bVar = new com.bytedance.sdk.openadsdk.core.a.a(context, lVar, str, ak.a(str));
         } else {
-            Context context2 = this.f28477a;
-            com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28478b;
-            String str2 = this.f28481e;
+            Context context2 = this.f28478a;
+            com.bytedance.sdk.openadsdk.core.d.l lVar2 = this.f28479b;
+            String str2 = this.f28482e;
             bVar = new com.bytedance.sdk.openadsdk.core.a.b(context2, lVar2, str2, ak.a(str2));
         }
         view.setOnTouchListener(bVar);
@@ -184,25 +184,25 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public void a(int i) {
-        this.j = p.h().a(this.f28484h);
+        this.j = p.h().a(this.f28485h);
         int c2 = p.h().c(i);
         if (3 == c2) {
             this.i = false;
-        } else if (1 == c2 && x.d(this.f28477a)) {
+        } else if (1 == c2 && x.d(this.f28478a)) {
             this.i = true;
         } else if (2 == c2) {
-            if (x.e(this.f28477a) || x.d(this.f28477a)) {
+            if (x.e(this.f28478a) || x.d(this.f28478a)) {
                 this.i = true;
             }
         }
     }
 
     public void a(View view) {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28478b;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28479b;
         if (lVar == null || lVar.X() == null || view == null) {
             return;
         }
-        if (this.f28478b.k() == 1 && this.i) {
+        if (this.f28479b.k() == 1 && this.i) {
             a(view, true);
         } else {
             a(view, false);

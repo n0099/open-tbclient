@@ -15,7 +15,7 @@ import java.util.TimerTask;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public float f9487c;
+    public float f9488c;
     public float i;
     public float j;
     public Timer k;
@@ -26,25 +26,25 @@ public class e {
     public Context p;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.pano.platform.c.a f9485a = new com.baidu.pano.platform.c.a();
+    public com.baidu.pano.platform.c.a f9486a = new com.baidu.pano.platform.c.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9486b = 0;
+    public int f9487b = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f9488d = 16;
+    public final long f9489d = 16;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f9489e = 1001;
+    public final int f9490e = 1001;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f9490f = 1002;
+    public final int f9491f = 1002;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9491g = 0;
+    public int f9492g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f9492h = 0.0d;
+    public double f9493h = 0.0d;
     public Object q = new Object();
 
     public e(Context context) {
@@ -108,17 +108,15 @@ public class e {
     public boolean c(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
         if (action == 0) {
-            this.f9486b = 1;
+            this.f9487b = 1;
         } else if (action == 1) {
-            this.f9486b = 0;
+            this.f9487b = 0;
         } else if (action == 2) {
-            if (this.f9486b == 2) {
+            if (this.f9487b == 2) {
                 double d2 = d(motionEvent);
-                double d3 = this.f9492h;
-                Double.isNaN(d2);
-                float f2 = (float) (d2 / d3);
+                float f2 = (float) (d2 / this.f9493h);
                 if (Math.abs(1.0f - f2) > 0.01f) {
-                    this.f9492h = d2;
+                    this.f9493h = d2;
                     float c2 = c() / f2;
                     if (c2 > 60.0f) {
                         c2 = 60.0f;
@@ -133,11 +131,11 @@ public class e {
             }
             return true;
         } else if (action == 5) {
-            this.f9486b = 2;
-            this.f9487c = c();
-            this.f9492h = d(motionEvent);
+            this.f9487b = 2;
+            this.f9488c = c();
+            this.f9493h = d(motionEvent);
         } else if (action == 6) {
-            this.f9486b = 0;
+            this.f9487b = 0;
         }
         return false;
     }
@@ -163,7 +161,7 @@ public class e {
     }
 
     public boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        if (this.f9486b == 1) {
+        if (this.f9487b == 1) {
             if (Math.abs(f2) < 1.0f) {
                 f2 = 0.0f;
             } else if (Math.abs(f3) < 1.0f) {
@@ -187,20 +185,26 @@ public class e {
             c2 = 60.0f;
         }
         if (c2 == 60.0f) {
-            this.f9485a.a(60.0f, 40.0f);
+            this.f9486a.a(60.0f, 40.0f);
             c(1);
-        } else if (c2 == 40.0f) {
-            this.f9485a.a(40.0f, 20.0f);
-            c(2);
-        } else if (c2 == 20.0f) {
-            this.f9485a.a(20.0f, 60.0f);
-            c(3);
-        } else if (c2 > 20.0f && c2 < 40.0f) {
-            this.f9485a.a(c2, 20.0f);
-            c(4);
-        } else if (c2 > 40.0f && c2 < 60.0f) {
-            this.f9485a.a(c2, 40.0f);
-            c(5);
+        } else {
+            int i = (c2 > 40.0f ? 1 : (c2 == 40.0f ? 0 : -1));
+            if (i == 0) {
+                this.f9486a.a(40.0f, 20.0f);
+                c(2);
+            } else {
+                int i2 = (c2 > 20.0f ? 1 : (c2 == 20.0f ? 0 : -1));
+                if (i2 == 0) {
+                    this.f9486a.a(20.0f, 60.0f);
+                    c(3);
+                } else if (i2 > 0 && c2 < 40.0f) {
+                    this.f9486a.a(c2, 20.0f);
+                    c(4);
+                } else if (i > 0 && c2 < 60.0f) {
+                    this.f9486a.a(c2, 40.0f);
+                    c(5);
+                }
+            }
         }
         return true;
     }

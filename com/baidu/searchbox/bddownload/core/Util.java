@@ -152,7 +152,7 @@ public class Util {
             downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
         } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
         }
-        d(com.baidu.android.common.util.Util.f2526b, "Get final download store is " + downloadStore);
+        d(com.baidu.android.common.util.Util.f2527b, "Get final download store is " + downloadStore);
         return downloadStore;
     }
 
@@ -233,11 +233,7 @@ public class Util {
         StringBuilder sb = new StringBuilder();
         sb.append((z ? "kMGTPE" : "KMGTPE").charAt(log - 1));
         sb.append(z ? "" : "i");
-        String sb2 = sb.toString();
-        Locale locale = Locale.ENGLISH;
-        double pow = Math.pow(d3, log);
-        Double.isNaN(d2);
-        return String.format(locale, "%.1f %sB", Double.valueOf(d2 / pow), sb2);
+        return String.format(Locale.ENGLISH, "%.1f %sB", Double.valueOf(d2 / Math.pow(d3, log)), sb.toString());
     }
 
     public static void i(String str, String str2) {
@@ -265,7 +261,7 @@ public class Util {
 
     public static boolean isNetworkAvailable(ConnectivityManager connectivityManager) {
         if (connectivityManager == null) {
-            w(com.baidu.android.common.util.Util.f2526b, "failed to get connectivity manager!");
+            w(com.baidu.android.common.util.Util.f2527b, "failed to get connectivity manager!");
             return true;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -274,7 +270,7 @@ public class Util {
 
     public static boolean isNetworkNotOnWifiType(ConnectivityManager connectivityManager) {
         if (connectivityManager == null) {
-            w(com.baidu.android.common.util.Util.f2526b, "failed to get connectivity manager!");
+            w(com.baidu.android.common.util.Util.f2527b, "failed to get connectivity manager!");
             return true;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -318,7 +314,7 @@ public class Util {
         try {
             return Long.parseLong(str);
         } catch (NumberFormatException unused) {
-            d(com.baidu.android.common.util.Util.f2526b, "parseContentLength failed parse for '" + str + "'");
+            d(com.baidu.android.common.util.Util.f2527b, "parseContentLength failed parse for '" + str + "'");
             return -1L;
         }
     }
@@ -331,7 +327,7 @@ public class Util {
                     return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                 }
             } catch (Exception e2) {
-                w(com.baidu.android.common.util.Util.f2526b, "parse content-length from content-range failed " + e2);
+                w(com.baidu.android.common.util.Util.f2527b, "parse content-length from content-range failed " + e2);
             }
         }
         return -1L;

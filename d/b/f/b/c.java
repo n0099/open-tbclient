@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.h0.w.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends m {
     public c(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.f51532d = R.drawable.icon_pure_post_voice_n_svg;
-        this.f51533e = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.f51535g = true;
+        this.f51533d = R.drawable.icon_pure_post_voice_n_svg;
+        this.f51534e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.f51536g = true;
         this.l = 6;
         this.m = true;
         this.k = VoiceRecordButton.A(context);

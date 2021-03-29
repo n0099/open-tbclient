@@ -40,7 +40,7 @@ import org.json.JSONObject;
 public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClickListener, g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final s.a f34724a = new s.a();
+    public static final s.a f34725a = new s.a();
     public RelativeLayout A;
     public g B;
     public Runnable C;
@@ -48,25 +48,25 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     public View.OnClickListener E;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimatedImageView f34725b;
+    public AnimatedImageView f34726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RoundAngleImageView f34726c;
+    public RoundAngleImageView f34727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f34727d;
+    public TextView f34728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f34728e;
+    public TextView f34729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f34729f;
+    public ImageView f34730f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.response.model.a f34730g;
+    public com.kwad.sdk.core.response.model.a f34731g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f34731h;
+    public AdTemplate f34732h;
     public PhotoInfo i;
     public AdInfo j;
     public boolean k;
@@ -113,7 +113,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         layoutParams.height = ao.a(getContext(), i2);
         this.v.setClickable(true);
         this.v.setOnClickListener(this);
-        com.kwad.sdk.glide.c.b(getContext()).a(com.kwad.sdk.core.response.b.c.q(this.f34731h)).a(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).b(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).c(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).a((e) new com.kwad.sdk.c(com.kwad.sdk.core.response.b.a.o(this.j), this.f34731h)).a((ImageView) this.v);
+        com.kwad.sdk.glide.c.b(getContext()).a(com.kwad.sdk.core.response.b.c.q(this.f34732h)).a(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).b(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).c(getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).a((e) new com.kwad.sdk.c(com.kwad.sdk.core.response.b.a.o(this.j), this.f34732h)).a((ImageView) this.v);
     }
 
     private void a(int i, int i2, int i3) {
@@ -122,7 +122,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         layoutParams.height = ao.a(getContext(), i);
         this.x.setClickable(true);
         this.x.setOnClickListener(this);
-        setSelectedAdButton(this.f34731h.mHasEntryAdClick);
+        setSelectedAdButton(this.f34732h.mHasEntryAdClick);
         this.x.setTextSize(i2);
         this.x.setMaxWidth(ao.a(getContext(), i3));
         this.x.setText(com.kwad.sdk.core.response.b.a.w(this.j));
@@ -134,7 +134,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
                 if (EntryPhotoView.this.x == null) {
                     return;
                 }
-                if (EntryPhotoView.this.f34731h.mHasEntryAdClick) {
+                if (EntryPhotoView.this.f34732h.mHasEntryAdClick) {
                     EntryPhotoView.this.setSelectedAdButton(true);
                 } else if (!z) {
                     EntryPhotoView.this.setSelectedAdButton(false);
@@ -162,7 +162,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        com.kwad.sdk.core.report.b.a(this.f34731h, i, getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f34732h, i, getTouchCoords());
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
@@ -186,7 +186,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFinished() {
-                    EntryPhotoView.this.x.setText(com.kwad.sdk.core.response.b.a.a(EntryPhotoView.this.f34731h));
+                    EntryPhotoView.this.x.setText(com.kwad.sdk.core.response.b.a.a(EntryPhotoView.this.f34732h));
                     ViewGroup.LayoutParams layoutParams = EntryPhotoView.this.x.getLayoutParams();
                     layoutParams.width = -2;
                     EntryPhotoView.this.x.setLayoutParams(layoutParams);
@@ -222,46 +222,46 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     }
 
     private void m() {
-        this.f34727d.setVisibility(8);
-        this.f34728e.setText(com.kwad.sdk.core.response.b.a.n(this.j));
+        this.f34728d.setVisibility(8);
+        this.f34729e.setText(com.kwad.sdk.core.response.b.a.n(this.j));
         n();
         p();
         s();
         if (com.kwad.sdk.core.response.b.a.y(this.j) && this.r == null) {
-            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.f34731h);
+            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.f34732h);
             this.r = bVar;
             bVar.a(getAppDownloadListener());
         }
     }
 
     private void n() {
-        this.f34728e.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.2
+        this.f34729e.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34731h)) {
-                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34731h, 24);
+                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34732h)) {
+                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34732h, 24);
                 }
                 if (EntryPhotoView.this.E != null) {
                     EntryPhotoView.this.E.onClick(EntryPhotoView.this);
                 }
             }
         });
-        this.f34725b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.3
+        this.f34726b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34731h)) {
-                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34731h, 83);
+                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34732h)) {
+                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34732h, 83);
                 }
                 if (EntryPhotoView.this.E != null) {
                     EntryPhotoView.this.E.onClick(EntryPhotoView.this);
                 }
             }
         });
-        this.f34726c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.4
+        this.f34727c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34731h)) {
-                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34731h, 83);
+                if (com.kwad.sdk.core.response.b.c.c(EntryPhotoView.this.f34732h)) {
+                    com.kwad.sdk.core.report.b.d(EntryPhotoView.this.f34732h, 83);
                 }
                 if (EntryPhotoView.this.E != null) {
                     EntryPhotoView.this.E.onClick(EntryPhotoView.this);
@@ -276,41 +276,41 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         }
         p();
         long m = d.m(this.i);
-        this.f34727d.setVisibility(0);
-        this.f34727d.setText(ag.a(m, "0"));
-        com.kwad.sdk.core.d.a.a("EntryPhotoView", "videoDescPos=" + this.f34730g.i + " videoDesc=" + this.i.baseInfo.videoDesc);
-        if (this.f34730g.i != 1 || TextUtils.isEmpty(this.i.baseInfo.videoDesc)) {
-            this.f34728e.setVisibility(8);
+        this.f34728d.setVisibility(0);
+        this.f34728d.setText(ag.a(m, "0"));
+        com.kwad.sdk.core.d.a.a("EntryPhotoView", "videoDescPos=" + this.f34731g.i + " videoDesc=" + this.i.baseInfo.videoDesc);
+        if (this.f34731g.i != 1 || TextUtils.isEmpty(this.i.baseInfo.videoDesc)) {
+            this.f34729e.setVisibility(8);
             return;
         }
-        this.f34728e.setVisibility(0);
-        this.f34728e.setText(this.i.baseInfo.videoDesc);
+        this.f34729e.setVisibility(0);
+        this.f34729e.setText(this.i.baseInfo.videoDesc);
     }
 
     private void p() {
-        String D = com.kwad.sdk.core.response.b.c.D(this.f34731h);
-        setBackgroundImageView(com.kwad.sdk.core.response.b.c.p(this.f34731h));
+        String D = com.kwad.sdk.core.response.b.c.D(this.f34732h);
+        setBackgroundImageView(com.kwad.sdk.core.response.b.c.p(this.f34732h));
         c();
         if (this.k) {
             com.kwad.sdk.core.d.a.a("EntryPhotoView", "coverUrl=" + D);
             if (!TextUtils.isEmpty(D) && FrameSequence.isEnable()) {
                 h<Bitmap> oVar = q() ? new o() : new com.kwad.sdk.glide.load.resource.bitmap.g();
-                com.kwad.sdk.glide.c.b(getContext()).a(D).a(getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getResources().getDrawable(R.drawable.ksad_loading_entry)).b(oVar).a(k.class, new n(oVar)).a((com.kwad.sdk.glide.load.d<com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy>>) com.kwad.sdk.glide.webp.decoder.o.f35868a, (com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy>) WebpFrameCacheStrategy.f35819b).a(com.kwad.sdk.glide.load.engine.h.f35538d).a((e) new com.kwad.sdk.c(D, this.f34731h)).a((ImageView) this.f34725b);
+                com.kwad.sdk.glide.c.b(getContext()).a(D).a(getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getResources().getDrawable(R.drawable.ksad_loading_entry)).b(oVar).a(k.class, new n(oVar)).a((com.kwad.sdk.glide.load.d<com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy>>) com.kwad.sdk.glide.webp.decoder.o.f35869a, (com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy>) WebpFrameCacheStrategy.f35820b).a(com.kwad.sdk.glide.load.engine.h.f35539d).a((e) new com.kwad.sdk.c(D, this.f34732h)).a((ImageView) this.f34726b);
                 return;
             }
         }
-        setCoverImageView(com.kwad.sdk.core.response.b.c.o(this.f34731h).a());
+        setCoverImageView(com.kwad.sdk.core.response.b.c.o(this.f34732h).a());
     }
 
     private boolean q() {
-        com.kwad.sdk.core.response.model.c n = com.kwad.sdk.core.response.b.c.n(this.f34731h);
+        com.kwad.sdk.core.response.model.c n = com.kwad.sdk.core.response.b.c.n(this.f34732h);
         return com.kwad.sdk.core.config.c.V() && n.b() * 3 < n.c() * 4;
     }
 
     private void r() {
         this.m.setVisibility(8);
-        this.f34727d.setVisibility(0);
-        this.f34729f.setVisibility(0);
+        this.f34728d.setVisibility(0);
+        this.f34730f.setVisibility(0);
         this.u.setVisibility(8);
     }
 
@@ -342,8 +342,8 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
 
     private void setAdTextView(int i) {
         this.y.setTextSize(i);
-        String v = com.kwad.sdk.core.response.b.c.v(this.f34731h);
-        if (ag.a(v) && com.kwad.sdk.core.response.b.c.c(this.f34731h)) {
+        String v = com.kwad.sdk.core.response.b.c.v(this.f34732h);
+        if (ag.a(v) && com.kwad.sdk.core.response.b.c.c(this.f34732h)) {
             v = getContext().getString(R.string.ksad_ad_default_username_normal);
         }
         this.y.setText(v);
@@ -353,17 +353,17 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
 
     private void setBackgroundImageView(String str) {
         if (!q()) {
-            this.f34726c.setVisibility(8);
+            this.f34727c.setVisibility(8);
             return;
         }
-        this.f34726c.setVisibility(0);
+        this.f34727c.setVisibility(0);
         com.kwad.sdk.core.d.a.a("EntryPhotoView", "blurBackgroundUrl=" + str);
-        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).b(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).c(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).a((e) new com.kwad.sdk.c(str, this.f34731h)).a((ImageView) this.f34726c);
+        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).b(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).c(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).a((e) new com.kwad.sdk.c(str, this.f34732h)).a((ImageView) this.f34727c);
     }
 
     private void setCoverImageView(String str) {
         com.kwad.sdk.core.d.a.a("EntryPhotoView", "coverUrl=" + str);
-        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).b(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((e) new com.kwad.sdk.c(str, this.f34731h)).a((ImageView) this.f34725b);
+        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).b(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((e) new com.kwad.sdk.c(str, this.f34732h)).a((ImageView) this.f34726b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -392,10 +392,10 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     @Override // com.kwad.sdk.widget.a
     public void a() {
         super.a();
-        if (com.kwad.sdk.core.response.b.c.c(this.f34731h) && this.z) {
-            com.kwad.sdk.core.report.b.a(this.f34731h, (JSONObject) null);
+        if (com.kwad.sdk.core.response.b.c.c(this.f34732h) && this.z) {
+            com.kwad.sdk.core.report.b.a(this.f34732h, (JSONObject) null);
         }
-        com.kwad.sdk.core.report.e.b(this.f34731h, this.o);
+        com.kwad.sdk.core.report.e.b(this.f34732h, this.o);
     }
 
     public void a(int i, String str) {
@@ -404,15 +404,15 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     }
 
     public void a(@NonNull AdTemplate adTemplate, com.kwad.sdk.core.response.model.a aVar) {
-        this.f34730g = aVar;
-        this.f34731h = adTemplate;
+        this.f34731g = aVar;
+        this.f34732h = adTemplate;
         r();
-        if (com.kwad.sdk.core.response.b.c.c(this.f34731h)) {
-            this.j = com.kwad.sdk.core.response.b.c.j(this.f34731h);
+        if (com.kwad.sdk.core.response.b.c.c(this.f34732h)) {
+            this.j = com.kwad.sdk.core.response.b.c.j(this.f34732h);
             m();
             return;
         }
-        this.i = com.kwad.sdk.core.response.b.c.k(this.f34731h);
+        this.i = com.kwad.sdk.core.response.b.c.k(this.f34732h);
         o();
     }
 
@@ -432,15 +432,15 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
 
     public void b() {
         AnimatedImageView animatedImageView = (AnimatedImageView) findViewById(R.id.ksad_entryitem_photocover);
-        this.f34725b = animatedImageView;
+        this.f34726b = animatedImageView;
         animatedImageView.setRadius(ao.a(getContext(), 4.0f));
         RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.ksad_entryitem_background);
-        this.f34726c = roundAngleImageView;
+        this.f34727c = roundAngleImageView;
         roundAngleImageView.setRadius(ao.a(getContext(), 4.0f));
-        this.f34727d = (TextView) findViewById(R.id.ksad_entryitem_lickcount);
+        this.f34728d = (TextView) findViewById(R.id.ksad_entryitem_lickcount);
         this.m = findViewById(R.id.ksad_entryitem_lookmore);
-        this.f34728e = (TextView) findViewById(R.id.ksad_entryitem_title);
-        this.f34729f = (ImageView) findViewById(R.id.ksad_entryitem_playbtn);
+        this.f34729e = (TextView) findViewById(R.id.ksad_entryitem_title);
+        this.f34730f = (ImageView) findViewById(R.id.ksad_entryitem_playbtn);
         ViewStub viewStub = (ViewStub) findViewById(R.id.ksad_entryitem_ad_bottom_viewstub);
         this.u = viewStub;
         viewStub.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.1
@@ -456,13 +456,13 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         Context context;
         float f2;
         if (q()) {
-            this.f34725b.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            animatedImageView = this.f34725b;
+            this.f34726b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            animatedImageView = this.f34726b;
             context = getContext();
             f2 = 0.0f;
         } else {
-            this.f34725b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            animatedImageView = this.f34725b;
+            this.f34726b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            animatedImageView = this.f34726b;
             context = getContext();
             f2 = 4.0f;
         }
@@ -470,7 +470,7 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     }
 
     public void d() {
-        AnimatedImageView animatedImageView = this.f34725b;
+        AnimatedImageView animatedImageView = this.f34726b;
         if (animatedImageView == null || this.t) {
             return;
         }
@@ -482,16 +482,16 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            f34724a.a(getWidth(), getHeight());
-            f34724a.a(motionEvent.getX(), motionEvent.getY());
+            f34725a.a(getWidth(), getHeight());
+            f34725a.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f34724a.b(motionEvent.getX(), motionEvent.getY());
+            f34725a.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void e() {
-        AnimatedImageView animatedImageView = this.f34725b;
+        AnimatedImageView animatedImageView = this.f34726b;
         if (animatedImageView == null || !this.t) {
             return;
         }
@@ -516,12 +516,12 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     }
 
     public AdTemplate getTemplateData() {
-        return this.f34731h;
+        return this.f34732h;
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return f34724a;
+        return f34725a;
     }
 
     public void h() {
@@ -548,10 +548,10 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     public void onClick(View view) {
         final int i = view == this.v ? 55 : view == this.y ? 82 : view == this.x ? 83 : view == this.A ? 35 : 0;
         com.kwad.sdk.core.download.b.b.a(this.r, true);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f34731h, new a.InterfaceC0378a() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.7
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f34732h, new a.InterfaceC0379a() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.7
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
             public void a() {
-                EntryPhotoView.this.f34731h.mHasEntryAdClick = true;
+                EntryPhotoView.this.f34732h.mHasEntryAdClick = true;
                 EntryPhotoView.this.b(i);
             }
         }, this.r);
@@ -581,18 +581,18 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         FrameLayout.LayoutParams layoutParams;
         int i2;
         if (i == 0) {
-            this.f34727d.setVisibility(8);
+            this.f34728d.setVisibility(8);
             return;
         }
         if (i == 1) {
-            this.f34727d.setVisibility(0);
-            layoutParams = (FrameLayout.LayoutParams) this.f34727d.getLayoutParams();
+            this.f34728d.setVisibility(0);
+            layoutParams = (FrameLayout.LayoutParams) this.f34728d.getLayoutParams();
             i2 = 83;
         } else if (i != 2) {
             return;
         } else {
-            this.f34727d.setVisibility(0);
-            layoutParams = (FrameLayout.LayoutParams) this.f34727d.getLayoutParams();
+            this.f34728d.setVisibility(0);
+            layoutParams = (FrameLayout.LayoutParams) this.f34728d.getLayoutParams();
             i2 = 85;
         }
         layoutParams.gravity = i2;
@@ -602,19 +602,19 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
         TextView textView;
         if (z) {
             this.m.setVisibility(0);
-            this.f34727d.setVisibility(8);
-            this.f34729f.setVisibility(8);
-            textView = this.f34728e;
+            this.f34728d.setVisibility(8);
+            this.f34730f.setVisibility(8);
+            textView = this.f34729e;
         } else {
             this.m.setVisibility(8);
-            this.f34727d.setVisibility(0);
-            this.f34729f.setVisibility(0);
-            this.f34728e.setVisibility(0);
-            if (!com.kwad.sdk.core.response.b.c.c(this.f34731h)) {
-                this.f34727d.setVisibility(0);
+            this.f34728d.setVisibility(0);
+            this.f34730f.setVisibility(0);
+            this.f34729e.setVisibility(0);
+            if (!com.kwad.sdk.core.response.b.c.c(this.f34732h)) {
+                this.f34728d.setVisibility(0);
                 return;
             }
-            textView = this.f34727d;
+            textView = this.f34728d;
         }
         textView.setVisibility(8);
     }
@@ -626,6 +626,6 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
     }
 
     public void setPlayBtnRes(int i) {
-        this.f34729f.setImageResource(i);
+        this.f34730f.setImageResource(i);
     }
 }

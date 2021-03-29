@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class NativeMethodInjectHelper {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile NativeMethodInjectHelper f39900c;
+    public static volatile NativeMethodInjectHelper f39901c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayMap f39901a = new ArrayMap();
+    public ArrayMap f39902a = new ArrayMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public List f39902b = new ArrayList();
+    public List f39903b = new ArrayList();
 
     public static NativeMethodInjectHelper getInstance() {
-        NativeMethodInjectHelper nativeMethodInjectHelper = f39900c;
+        NativeMethodInjectHelper nativeMethodInjectHelper = f39901c;
         if (nativeMethodInjectHelper == null) {
             synchronized (NativeMethodInjectHelper.class) {
-                nativeMethodInjectHelper = f39900c;
+                nativeMethodInjectHelper = f39901c;
                 if (nativeMethodInjectHelper == null) {
                     nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                    f39900c = nativeMethodInjectHelper;
+                    f39901c = nativeMethodInjectHelper;
                 }
             }
         }
@@ -35,7 +35,7 @@ public class NativeMethodInjectHelper {
 
     public NativeMethodInjectHelper clazz(Class cls) {
         if (cls != null) {
-            this.f39902b.add(cls);
+            this.f39903b.add(cls);
             return this;
         }
         throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
@@ -43,7 +43,7 @@ public class NativeMethodInjectHelper {
 
     public Method findMethod(String str, String str2) {
         ArrayMap arrayMap;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.f39901a.containsKey(str) || (arrayMap = (ArrayMap) this.f39901a.get(str)) == null || !arrayMap.containsKey(str2)) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.f39902a.containsKey(str) || (arrayMap = (ArrayMap) this.f39902a.get(str)) == null || !arrayMap.containsKey(str2)) {
             return null;
         }
         return (Method) arrayMap.get(str2);
@@ -52,11 +52,11 @@ public class NativeMethodInjectHelper {
     public void inject() {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
-        int size = this.f39902b.size();
+        int size = this.f39903b.size();
         if (size != 0) {
-            this.f39901a.clear();
+            this.f39902a.clear();
             for (int i = 0; i < size; i++) {
-                Class cls = (Class) this.f39902b.get(i);
+                Class cls = (Class) this.f39903b.get(i);
                 if (cls != null) {
                     ArrayMap arrayMap = new ArrayMap();
                     for (Method method : cls.getDeclaredMethods()) {
@@ -65,10 +65,10 @@ public class NativeMethodInjectHelper {
                             arrayMap.put(method.getName(), method);
                         }
                     }
-                    this.f39901a.put(cls.getSimpleName(), arrayMap);
+                    this.f39902a.put(cls.getSimpleName(), arrayMap);
                 }
             }
-            this.f39902b.clear();
+            this.f39903b.clear();
         }
     }
 }

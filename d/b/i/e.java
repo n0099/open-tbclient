@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     public static Rect a(d.b.b.j.e.s sVar, View view, int i) {
         BdTypeRecyclerView bdTypeRecyclerView;

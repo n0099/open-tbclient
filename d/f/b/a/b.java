@@ -32,9 +32,7 @@ public class b implements d {
         return true;
     }
 
-    public boolean displayNotification() {
-        throw null;
-    }
+    public abstract boolean displayNotification();
 
     public boolean filterNonConcernStack() {
         return false;

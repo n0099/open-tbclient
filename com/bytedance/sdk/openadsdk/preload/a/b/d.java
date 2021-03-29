@@ -10,28 +10,28 @@ import java.util.List;
 public final class d implements w, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f30031a = new d();
+    public static final d f30032a = new d();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30035e;
+    public boolean f30036e;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f30032b = -1.0d;
+    public double f30033b = -1.0d;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30033c = 136;
+    public int f30034c = 136;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30034d = true;
+    public boolean f30035d = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.preload.a.b> f30036f = Collections.emptyList();
+    public List<com.bytedance.sdk.openadsdk.preload.a.b> f30037f = Collections.emptyList();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.preload.a.b> f30037g = Collections.emptyList();
+    public List<com.bytedance.sdk.openadsdk.preload.a.b> f30038g = Collections.emptyList();
 
     private boolean b(Class<?> cls, boolean z) {
-        for (com.bytedance.sdk.openadsdk.preload.a.b bVar : z ? this.f30036f : this.f30037g) {
+        for (com.bytedance.sdk.openadsdk.preload.a.b bVar : z ? this.f30037f : this.f30038g) {
             if (bVar.a(cls)) {
                 return true;
             }
@@ -67,7 +67,7 @@ public final class d implements w, Cloneable {
             return new v<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.d.1
 
                 /* renamed from: f  reason: collision with root package name */
-                public v<T> f30043f;
+                public v<T> f30044f;
 
                 @Override // com.bytedance.sdk.openadsdk.preload.a.v
                 public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
@@ -89,12 +89,12 @@ public final class d implements w, Cloneable {
                 }
 
                 private v<T> b() {
-                    v<T> vVar = this.f30043f;
+                    v<T> vVar = this.f30044f;
                     if (vVar != 0) {
                         return vVar;
                     }
                     v<T> a4 = fVar.a(d.this, aVar);
-                    this.f30043f = a4;
+                    this.f30044f = a4;
                     return a4;
                 }
             };
@@ -108,13 +108,13 @@ public final class d implements w, Cloneable {
 
     public boolean a(Field field, boolean z) {
         com.bytedance.sdk.openadsdk.preload.a.a.a aVar;
-        if ((this.f30033c & field.getModifiers()) != 0) {
+        if ((this.f30034c & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.f30032b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) && !field.isSynthetic()) {
-            if (!this.f30035e || ((aVar = (com.bytedance.sdk.openadsdk.preload.a.a.a) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.a.class)) != null && (!z ? !aVar.b() : !aVar.a()))) {
-                if ((this.f30034d || !c(field.getType())) && !b(field.getType())) {
-                    List<com.bytedance.sdk.openadsdk.preload.a.b> list = z ? this.f30036f : this.f30037g;
+        if ((this.f30033b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) && !field.isSynthetic()) {
+            if (!this.f30036e || ((aVar = (com.bytedance.sdk.openadsdk.preload.a.a.a) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.a.class)) != null && (!z ? !aVar.b() : !aVar.a()))) {
+                if ((this.f30035d || !c(field.getType())) && !b(field.getType())) {
+                    List<com.bytedance.sdk.openadsdk.preload.a.b> list = z ? this.f30037f : this.f30038g;
                     if (list.isEmpty()) {
                         return false;
                     }
@@ -134,8 +134,8 @@ public final class d implements w, Cloneable {
     }
 
     private boolean a(Class<?> cls) {
-        if (this.f30032b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) {
-            return (!this.f30034d && c(cls)) || b(cls);
+        if (this.f30033b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) {
+            return (!this.f30035d && c(cls)) || b(cls);
         }
         return true;
     }
@@ -149,10 +149,10 @@ public final class d implements w, Cloneable {
     }
 
     private boolean a(com.bytedance.sdk.openadsdk.preload.a.a.d dVar) {
-        return dVar == null || dVar.a() <= this.f30032b;
+        return dVar == null || dVar.a() <= this.f30033b;
     }
 
     private boolean a(com.bytedance.sdk.openadsdk.preload.a.a.e eVar) {
-        return eVar == null || eVar.a() > this.f30032b;
+        return eVar == null || eVar.a() > this.f30033b;
     }
 }

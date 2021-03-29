@@ -8,19 +8,19 @@ import com.xiaomi.mipush.sdk.Constants;
 import d.b.f0.e.i;
 import d.b.f0.k.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f42827b = null;
+    public static volatile c f42828b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f42828c = false;
+    public static boolean f42829c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42829a;
+    public Context f42830a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends d.b.f0.k.c {
         public a() {
         }
@@ -28,13 +28,13 @@ public class c {
         @Override // d.b.f0.k.c
         public void b() {
             try {
-                String b2 = new d.b.f0.f.d(c.this.f42829a, null).b();
+                String b2 = new d.b.f0.f.d(c.this.f42830a, null).b();
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(b2);
                 if (jSONObject.optInt("0") == 0) {
-                    c.f42828c = jSONObject.optInt("1") == 2;
+                    c.f42829c = jSONObject.optInt("1") == 2;
                 }
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
@@ -43,25 +43,25 @@ public class c {
     }
 
     public c(Context context) {
-        this.f42829a = context;
+        this.f42830a = context;
     }
 
     public static c b(Context context) {
-        if (f42827b == null) {
+        if (f42828b == null) {
             synchronized (c.class) {
-                if (f42827b == null) {
-                    f42827b = new c(context);
+                if (f42828b == null) {
+                    f42828b = new c(context);
                 }
             }
         }
-        return f42827b;
+        return f42828b;
     }
 
     public String c(JSONObject jSONObject, long j) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.length() != 0) {
-                    String d2 = new d.b.f0.f.d(this.f42829a, null).d(jSONObject, j);
+                    String d2 = new d.b.f0.f.d(this.f42830a, null).d(jSONObject, j);
                     if (!TextUtils.isEmpty(d2)) {
                         return d2;
                     }
@@ -81,7 +81,7 @@ public class c {
         if (jSONObject != null) {
             try {
                 if (jSONObject.length() != 0) {
-                    String i = new d.b.f0.f.d(this.f42829a, null).i(jSONObject, j);
+                    String i = new d.b.f0.f.d(this.f42830a, null).i(jSONObject, j);
                     if (!TextUtils.isEmpty(i)) {
                         return i;
                     }
@@ -98,7 +98,7 @@ public class c {
             if (g()) {
                 return true;
             }
-            d.b.f0.f.d dVar = new d.b.f0.f.d(this.f42829a, null);
+            d.b.f0.f.d dVar = new d.b.f0.f.d(this.f42830a, null);
             String h2 = dVar.h();
             if (TextUtils.isEmpty(h2)) {
                 for (int i = 0; i < 3; i++) {
@@ -114,9 +114,9 @@ public class c {
             JSONObject jSONObject = new JSONObject(h2);
             int optInt = jSONObject.optInt("0", -1);
             if (optInt == 2) {
-                d.b.f0.b.a.g(this.f42829a).L(false);
+                d.b.f0.b.a.g(this.f42830a).L(false);
             } else {
-                d.b.f0.b.a.g(this.f42829a).L(true);
+                d.b.f0.b.a.g(this.f42830a).L(true);
             }
             if (optInt == 1 || optInt == 3) {
                 return true;
@@ -134,11 +134,11 @@ public class c {
                 }
                 int optInt2 = optJSONObject2.optInt("status", -1);
                 if (optInt2 == 1) {
-                    d.b.f0.b.a.g(this.f42829a).m(true);
+                    d.b.f0.b.a.g(this.f42830a).m(true);
                 } else if (optInt2 == 2) {
-                    d.b.f0.b.a.g(this.f42829a).m(false);
+                    d.b.f0.b.a.g(this.f42830a).m(false);
                 }
-                d.b.f0.b.a.g(this.f42829a).W(optJSONObject2.toString());
+                d.b.f0.b.a.g(this.f42830a).W(optJSONObject2.toString());
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
             if (optJSONObject3 != null) {
@@ -149,11 +149,11 @@ public class c {
                 }
                 int optInt3 = optJSONObject3.optInt("status", -1);
                 if (optInt3 == 1) {
-                    d.b.f0.b.a.g(this.f42829a).w(true);
+                    d.b.f0.b.a.g(this.f42830a).w(true);
                 } else if (optInt3 == 2) {
-                    d.b.f0.b.a.g(this.f42829a).w(false);
+                    d.b.f0.b.a.g(this.f42830a).w(false);
                 }
-                d.b.f0.b.a.g(this.f42829a).z(optJSONObject3.toString());
+                d.b.f0.b.a.g(this.f42830a).z(optJSONObject3.toString());
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
             if (optJSONObject4 != null) {
@@ -164,33 +164,33 @@ public class c {
                 }
                 int optInt4 = optJSONObject4.optInt("status", -1);
                 if (optInt4 == 1) {
-                    d.b.f0.b.a.g(this.f42829a).B(true);
+                    d.b.f0.b.a.g(this.f42830a).B(true);
                 } else if (optInt4 == 2) {
-                    d.b.f0.b.a.g(this.f42829a).B(false);
+                    d.b.f0.b.a.g(this.f42830a).B(false);
                 }
-                d.b.f0.b.a.g(this.f42829a).O(optJSONObject4.toString());
+                d.b.f0.b.a.g(this.f42830a).O(optJSONObject4.toString());
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
             if (optJSONObject5 != null) {
                 String optString7 = optJSONObject5.optString(com.alipay.sdk.cons.b.f1858h, "");
                 String optString8 = optJSONObject5.optString("secret_key", "");
                 if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                    d.b.f0.a.f42808b = optString7;
-                    d.b.f0.a.f42809c = optString8;
-                    d.b.f0.b.a.g(this.f42829a).A(optString7, optString8);
+                    d.b.f0.a.f42809b = optString7;
+                    d.b.f0.a.f42810c = optString8;
+                    d.b.f0.b.a.g(this.f42830a).A(optString7, optString8);
                 }
             }
-            d.b.f0.b.a.g(this.f42829a).S(optJSONObject.optString("encrypt_key", ""));
+            d.b.f0.b.a.g(this.f42830a).S(optJSONObject.optString("encrypt_key", ""));
             JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
             if (optJSONObject6 != null) {
                 if ("1".equals(optJSONObject6.optString("1", "1"))) {
-                    d.b.f0.b.a.g(this.f42829a).G(true);
+                    d.b.f0.b.a.g(this.f42830a).G(true);
                 } else {
-                    d.b.f0.b.a.g(this.f42829a).G(false);
+                    d.b.f0.b.a.g(this.f42830a).G(false);
                 }
             }
-            d.b.f0.b.a.g(this.f42829a).k(jSONObject.optLong("3", 300L) * 1000);
-            d.b.f0.b.a.g(this.f42829a).N(System.currentTimeMillis());
+            d.b.f0.b.a.g(this.f42830a).k(jSONObject.optLong("3", 300L) * 1000);
+            d.b.f0.b.a.g(this.f42830a).N(System.currentTimeMillis());
             return true;
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
@@ -200,12 +200,12 @@ public class c {
 
     public final boolean g() {
         try {
-            if (System.currentTimeMillis() - d.b.f0.b.a.g(this.f42829a).f0() > d.b.f0.b.a.g(this.f42829a).C()) {
+            if (System.currentTimeMillis() - d.b.f0.b.a.g(this.f42830a).f0() > d.b.f0.b.a.g(this.f42830a).C()) {
                 return false;
             }
-            String l0 = d.b.f0.b.a.g(this.f42829a).l0();
-            String Q = d.b.f0.b.a.g(this.f42829a).Q();
-            String d0 = d.b.f0.b.a.g(this.f42829a).d0();
+            String l0 = d.b.f0.b.a.g(this.f42830a).l0();
+            String Q = d.b.f0.b.a.g(this.f42830a).Q();
+            String d0 = d.b.f0.b.a.g(this.f42830a).d0();
             if (TextUtils.isEmpty(l0) && TextUtils.isEmpty(Q) && TextUtils.isEmpty(d0)) {
                 return false;
             }

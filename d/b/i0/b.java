@@ -7,13 +7,13 @@ public class b {
         if (fVar == null) {
             return;
         }
-        if (fVar.f51161b != 0) {
-            d.b.h0.r.d0.b.i().w("app_entrance_nologin", fVar.f51161b + "");
+        if (fVar.f51162b != 0) {
+            d.b.h0.r.d0.b.i().w("app_entrance_nologin", fVar.f51162b + "");
         }
-        if (fVar.f51160a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (fVar.f51161a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        d.b.h0.r.d0.b.i().w("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), fVar.f51160a + "");
+        d.b.h0.r.d0.b.i().w("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), fVar.f51161a + "");
     }
 
     public int a() {

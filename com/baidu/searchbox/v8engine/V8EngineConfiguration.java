@@ -7,7 +7,7 @@ import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8EngineConfiguration {
     public String mBasePath;
     public Context mContext;
@@ -22,7 +22,7 @@ public class V8EngineConfiguration {
     public List<V8Engine.V8StatusListener> mV8StatusListeners = new ArrayList();
     public V8ThreadDelegatePolicy mV8ThreadDelegatePolicy;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CacheInfo {
         public boolean cached;
         public String jsPath;
@@ -33,7 +33,7 @@ public class V8EngineConfiguration {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CodeCacheSetting {
         public String id;
         public int maxCount;
@@ -41,7 +41,7 @@ public class V8EngineConfiguration {
         public int sizeLimit;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface JSCacheCallback {
         void onCacheResult(CacheInfo cacheInfo);
     }

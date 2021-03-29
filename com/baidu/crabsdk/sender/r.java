@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class r {
     public static String a(String str, byte[] bArr, String str2) {
         if (bArr == null) {
@@ -20,16 +20,16 @@ public final class r {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x01bc */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0097: ARRAY_LENGTH  (r4v2 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x01a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x00c8 A[Catch: all -> 0x018c, Exception -> 0x018f, TryCatch #14 {Exception -> 0x018f, all -> 0x018c, blocks: (B:4:0x0027, B:7:0x0069, B:8:0x0078, B:24:0x00f4, B:9:0x007d, B:11:0x0085, B:12:0x00a7, B:19:0x00c0, B:21:0x00c8, B:23:0x00e8, B:22:0x00e5, B:15:0x00b1, B:18:0x00bc), top: B:110:0x0027 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00e5 A[Catch: all -> 0x018c, Exception -> 0x018f, TryCatch #14 {Exception -> 0x018f, all -> 0x018c, blocks: (B:4:0x0027, B:7:0x0069, B:8:0x0078, B:24:0x00f4, B:9:0x007d, B:11:0x0085, B:12:0x00a7, B:19:0x00c0, B:21:0x00c8, B:23:0x00e8, B:22:0x00e5, B:15:0x00b1, B:18:0x00bc), top: B:110:0x0027 }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x01aa A[Catch: Exception -> 0x01a6, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:104:0x01a2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01af A[Catch: Exception -> 0x01a6, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:104:0x01a2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01b4 A[Catch: Exception -> 0x01a6, TRY_LEAVE, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:104:0x01a2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x01c7 A[Catch: Exception -> 0x01c3, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:108:0x01bf }] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01cc A[Catch: Exception -> 0x01c3, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:108:0x01bf }] */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x01d1 A[Catch: Exception -> 0x01c3, TRY_LEAVE, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:108:0x01bf }] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x01a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x01bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00c8 A[Catch: all -> 0x018c, Exception -> 0x018f, TryCatch #14 {Exception -> 0x018f, all -> 0x018c, blocks: (B:4:0x0027, B:7:0x0069, B:8:0x0078, B:24:0x00f4, B:9:0x007d, B:11:0x0085, B:12:0x00a7, B:19:0x00c0, B:21:0x00c8, B:23:0x00e8, B:22:0x00e5, B:15:0x00b1, B:18:0x00bc), top: B:108:0x0027 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00e5 A[Catch: all -> 0x018c, Exception -> 0x018f, TryCatch #14 {Exception -> 0x018f, all -> 0x018c, blocks: (B:4:0x0027, B:7:0x0069, B:8:0x0078, B:24:0x00f4, B:9:0x007d, B:11:0x0085, B:12:0x00a7, B:19:0x00c0, B:21:0x00c8, B:23:0x00e8, B:22:0x00e5, B:15:0x00b1, B:18:0x00bc), top: B:108:0x0027 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x01aa A[Catch: Exception -> 0x01a6, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:102:0x01a2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01af A[Catch: Exception -> 0x01a6, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:102:0x01a2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01b4 A[Catch: Exception -> 0x01a6, TRY_LEAVE, TryCatch #10 {Exception -> 0x01a6, blocks: (B:74:0x01a2, B:78:0x01aa, B:80:0x01af, B:82:0x01b4), top: B:102:0x01a2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x01c7 A[Catch: Exception -> 0x01c3, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:106:0x01bf }] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01cc A[Catch: Exception -> 0x01c3, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:106:0x01bf }] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x01d1 A[Catch: Exception -> 0x01c3, TRY_LEAVE, TryCatch #13 {Exception -> 0x01c3, blocks: (B:88:0x01bf, B:92:0x01c7, B:94:0x01cc, B:96:0x01d1), top: B:106:0x01bf }] */
     /* JADX WARN: Type inference failed for: r2v0 */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.io.BufferedReader] */
@@ -309,7 +309,7 @@ public final class r {
             httpURLConnection.setRequestProperty("Encrypt-Data", str);
             httpURLConnection.setRequestProperty("Content-Type", "application/octet-stream");
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(j));
-            httpURLConnection.setRequestProperty("User-Agent", com.baidu.crabsdk.a.f4637d);
+            httpURLConnection.setRequestProperty("User-Agent", com.baidu.crabsdk.a.f4638d);
             httpURLConnection.setRequestProperty("Encrypt-Type", "2");
             httpURLConnection.setRequestProperty("ver", "v5");
             return httpURLConnection;

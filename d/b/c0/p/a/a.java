@@ -8,54 +8,54 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42683a;
+    public boolean f42684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<C0572a> f42684b;
+    public List<C0573a> f42685b;
 
     /* renamed from: d.b.c0.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0572a {
+    public static class C0573a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42685a;
+        public int f42686a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42686b;
+        public String f42687b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42687c;
+        public String f42688c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f42688d;
+        public String f42689d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f42689e;
+        public String f42690e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Long f42690f;
+        public Long f42691f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f42691g;
+        public int f42692g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f42692h;
+        public String f42693h;
 
-        public C0572a() {
+        public C0573a() {
         }
 
-        public C0572a(JSONObject jSONObject) {
+        public C0573a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f42686b = jSONObject.optString("display_name");
-            this.f42687c = jSONObject.optString("pay_text");
-            this.f42689e = jSONObject.optString("icon");
-            this.f42688d = jSONObject.optString("valid_info");
-            this.f42692h = jSONObject.optString("host_marketing_detail");
-            this.f42690f = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.f42691g = jSONObject.optInt("is_selected");
-            this.f42685a = jSONObject.optInt("type");
+            this.f42687b = jSONObject.optString("display_name");
+            this.f42688c = jSONObject.optString("pay_text");
+            this.f42690e = jSONObject.optString("icon");
+            this.f42689d = jSONObject.optString("valid_info");
+            this.f42693h = jSONObject.optString("host_marketing_detail");
+            this.f42691f = Long.valueOf(jSONObject.optLong("available_par_money"));
+            this.f42692g = jSONObject.optInt("is_selected");
+            this.f42686a = jSONObject.optInt("type");
         }
     }
 
@@ -63,14 +63,14 @@ public class a {
         if (jSONArray == null) {
             return;
         }
-        this.f42684b = new ArrayList();
+        this.f42685b = new ArrayList();
         int length = jSONArray.length();
         for (int i = 0; i < length; i++) {
             JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
             if (jSONObject != null) {
-                this.f42684b.add(new C0572a(jSONObject));
+                this.f42685b.add(new C0573a(jSONObject));
             }
         }
-        this.f42683a = this.f42684b.size() > 1;
+        this.f42684a = this.f42685b.size() > 1;
     }
 }

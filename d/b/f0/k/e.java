@@ -6,22 +6,22 @@ import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f43008b = null;
+    public static e f43009b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f43009c = Integer.MAX_VALUE;
+    public static int f43010c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f43010d = 120;
+    public static long f43011d = 120;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f43011a;
+    public ThreadPoolExecutor f43012a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements FileFilter {
         public a(e eVar) {
         }
@@ -34,18 +34,18 @@ public class e {
 
     public e() {
         int a2 = (a() / 2) + 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f43009c, f43010d, TimeUnit.SECONDS, new PriorityBlockingQueue());
-        this.f43011a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f43010c, f43011d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.f43012a = threadPoolExecutor;
         threadPoolExecutor.setThreadFactory(new d());
     }
 
     public static e c() {
         synchronized (e.class) {
-            if (f43008b == null) {
-                f43008b = new e();
+            if (f43009b == null) {
+                f43009b = new e();
             }
         }
-        return f43008b;
+        return f43009b;
     }
 
     public int a() {
@@ -58,7 +58,7 @@ public class e {
 
     public void b(d.b.f0.k.a aVar) {
         try {
-            this.f43011a.execute(aVar);
+            this.f43012a.execute(aVar);
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }

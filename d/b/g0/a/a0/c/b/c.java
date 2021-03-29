@@ -3,7 +3,7 @@ package d.b.g0.a.a0.c.b;
 import d.b.g0.a.i2.h0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c extends d.b.g0.a.a0.a.c.b {
     public c() {
         super("button", "buttonId");

@@ -5,10 +5,10 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47289a;
+    public int f47290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f47290b;
+    public Map<String, String> f47291b;
 
     /* loaded from: classes3.dex */
     public interface a {

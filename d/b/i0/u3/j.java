@@ -28,23 +28,23 @@ public class j {
     public static class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f61549a;
+        public final /* synthetic */ TbPageContext f61550a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f61550b;
+        public final /* synthetic */ String f61551b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ForumWriteData f61551c;
+        public final /* synthetic */ ForumWriteData f61552c;
 
         public a(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
-            this.f61549a = tbPageContext;
-            this.f61550b = str;
-            this.f61551c = forumWriteData;
+            this.f61550a = tbPageContext;
+            this.f61551b = str;
+            this.f61552c = forumWriteData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
-            j.c(this.f61549a, this.f61550b, this.f61551c);
+            j.c(this.f61550a, this.f61551b, this.f61552c);
         }
     }
 
@@ -52,28 +52,28 @@ public class j {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f61552e;
+        public final /* synthetic */ TbPageContext f61553e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumWriteData f61553f;
+        public final /* synthetic */ ForumWriteData f61554f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PluginNetConfigInfos.PluginConfig f61554g;
+        public final /* synthetic */ PluginNetConfigInfos.PluginConfig f61555g;
 
         public b(TbPageContext tbPageContext, ForumWriteData forumWriteData, PluginNetConfigInfos.PluginConfig pluginConfig) {
-            this.f61552e = tbPageContext;
-            this.f61553f = forumWriteData;
-            this.f61554g = pluginConfig;
+            this.f61553e = tbPageContext;
+            this.f61554f = forumWriteData;
+            this.f61555g = pluginConfig;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            e eVar = new e(this.f61552e, this.f61553f, j.f(this.f61552e));
+            e eVar = new e(this.f61553e, this.f61554f, j.f(this.f61553e));
             if (PluginPackageManager.O().Z(XiaoyingUtil.PKG_NAME_VIDEO)) {
                 PluginPackageManager.O().u0(eVar);
             } else {
-                PluginPackageManager.O().x0(this.f61554g, eVar);
+                PluginPackageManager.O().x0(this.f61555g, eVar);
             }
         }
     }
@@ -98,32 +98,32 @@ public class j {
     public static class e implements d.b.b.h.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbPageContext f61555a;
+        public TbPageContext f61556a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ForumWriteData f61556b;
+        public ForumWriteData f61557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.h0.r.s.d f61557c;
+        public d.b.h0.r.s.d f61558c;
 
         public e(TbPageContext tbPageContext, ForumWriteData forumWriteData, d.b.h0.r.s.d dVar) {
-            this.f61555a = null;
-            this.f61555a = tbPageContext;
-            this.f61556b = forumWriteData;
-            this.f61557c = dVar;
+            this.f61556a = null;
+            this.f61556a = tbPageContext;
+            this.f61557b = forumWriteData;
+            this.f61558c = dVar;
         }
 
         @Override // d.b.b.h.j.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            d.b.h0.r.s.d dVar = this.f61557c;
+            d.b.h0.r.s.d dVar = this.f61558c;
             if (dVar != null) {
-                d.b.b.e.m.g.b(dVar, this.f61555a);
+                d.b.b.e.m.g.b(dVar, this.f61556a);
             }
             if (i == 0) {
-                j.d(this.f61555a, "", this.f61556b);
+                j.d(this.f61556a, "", this.f61557b);
             } else {
-                TbPageContext tbPageContext = this.f61555a;
-                tbPageContext.showToast(this.f61555a.getString(R.string.install_failed) + str);
+                TbPageContext tbPageContext = this.f61556a;
+                tbPageContext.showToast(this.f61556a.getString(R.string.install_failed) + str);
             }
             PluginPackageManager.O().u0(null);
         }
@@ -131,7 +131,7 @@ public class j {
         @Override // d.b.b.h.j.d
         public void b(BdFileDownloadData bdFileDownloadData) {
             d.b.h0.r.s.d dVar;
-            if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) || (dVar = this.f61557c) == null) {
+            if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) || (dVar = this.f61558c) == null) {
                 return;
             }
             dVar.b((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
@@ -139,21 +139,21 @@ public class j {
 
         @Override // d.b.b.h.j.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            d.b.h0.r.s.d dVar = this.f61557c;
+            d.b.h0.r.s.d dVar = this.f61558c;
             if (dVar != null) {
-                d.b.b.e.m.g.b(dVar, this.f61555a);
+                d.b.b.e.m.g.b(dVar, this.f61556a);
             }
-            this.f61555a.showToast(R.string.plugin_video_installing);
+            this.f61556a.showToast(R.string.plugin_video_installing);
         }
 
         @Override // d.b.b.h.j.d
         public void d(BdFileDownloadData bdFileDownloadData) {
             TbPageContext tbPageContext;
-            d.b.h0.r.s.d dVar = this.f61557c;
+            d.b.h0.r.s.d dVar = this.f61558c;
             if (dVar != null) {
-                d.b.b.e.m.g.b(dVar, this.f61555a);
+                d.b.b.e.m.g.b(dVar, this.f61556a);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && (tbPageContext = this.f61555a) != null) {
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && (tbPageContext = this.f61556a) != null) {
                 tbPageContext.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.O().u0(null);

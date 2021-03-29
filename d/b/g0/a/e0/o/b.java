@@ -1,7 +1,7 @@
 package d.b.g0.a.e0.o;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public a a(Context context, int i) {
         if (i != 0) {

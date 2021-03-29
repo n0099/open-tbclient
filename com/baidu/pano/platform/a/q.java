@@ -5,16 +5,16 @@ import com.baidu.pano.platform.a.b;
 public class q<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f9407a;
+    public final T f9408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.a f9408b;
+    public final b.a f9409b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v f9409c;
+    public final v f9410c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9410d;
+    public boolean f9411d;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -27,10 +27,10 @@ public class q<T> {
     }
 
     public q(T t, b.a aVar) {
-        this.f9410d = false;
-        this.f9407a = t;
-        this.f9408b = aVar;
-        this.f9409c = null;
+        this.f9411d = false;
+        this.f9408a = t;
+        this.f9409b = aVar;
+        this.f9410c = null;
     }
 
     public static <T> q<T> a(T t, b.a aVar) {
@@ -42,13 +42,13 @@ public class q<T> {
     }
 
     public boolean a() {
-        return this.f9409c == null;
+        return this.f9410c == null;
     }
 
     public q(v vVar) {
-        this.f9410d = false;
-        this.f9407a = null;
-        this.f9408b = null;
-        this.f9409c = vVar;
+        this.f9411d = false;
+        this.f9408a = null;
+        this.f9409b = null;
+        this.f9410c = vVar;
     }
 }

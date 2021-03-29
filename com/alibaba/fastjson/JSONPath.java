@@ -716,10 +716,7 @@ public class JSONPath implements JSONAware {
                 }
                 next();
             }
-            double parseDouble = Double.parseDouble(this.path.substring(i, this.pos - 1));
-            double d2 = j;
-            Double.isNaN(d2);
-            return parseDouble + d2;
+            return Double.parseDouble(this.path.substring(i, this.pos - 1)) + j;
         }
 
         public long readLongValue() {

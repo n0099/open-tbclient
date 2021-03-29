@@ -7,18 +7,18 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import d.b.g0.p.d;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f45709a = new c();
+        public static final c f45710a = new c();
     }
 
     public static c c() {
-        return b.f45709a;
+        return b.f45710a;
     }
 
     public final boolean a(File file, File file2) {
@@ -96,7 +96,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return a(new File(file, d.b.g0.a.r0.a.d.a.f45717h), d.b.g0.a.r0.a.d.a.f45710a);
+        return a(new File(file, d.b.g0.a.r0.a.d.a.f45718h), d.b.g0.a.r0.a.d.a.f45711a);
     }
 
     public boolean f(String str, File file) {
@@ -139,7 +139,7 @@ public class c {
             }
             File a3 = d.b.g0.a.r0.a.b.a(d.t(file), a2);
             if (a3 != null && a3.exists()) {
-                File file2 = new File(d.b.g0.a.r0.a.d.a.f45713d);
+                File file2 = new File(d.b.g0.a.r0.a.d.a.f45714d);
                 if (file2.exists()) {
                     d.w(file2);
                 }
@@ -147,13 +147,13 @@ public class c {
                     d.b.g0.a.r0.a.a.n().p("installSwanApp root cache dir create fail");
                     return false;
                 }
-                boolean z = d.H(a3.getAbsolutePath(), d.b.g0.a.r0.a.d.a.f45713d) == null;
+                boolean z = d.H(a3.getAbsolutePath(), d.b.g0.a.r0.a.d.a.f45714d) == null;
                 if (z) {
                     d.f(file);
                     d.f(a3);
                 }
                 d.b.g0.a.r0.a.a.n().p("unzip file status = " + z);
-                File file3 = new File(d.b.g0.a.r0.a.d.a.f45713d);
+                File file3 = new File(d.b.g0.a.r0.a.d.a.f45714d);
                 String[] list = file3.list();
                 if (list != null && list.length != 0) {
                     int length = list.length;
@@ -165,15 +165,15 @@ public class c {
                             break;
                         }
                         String str4 = list[i];
-                        if (!TextUtils.isEmpty(str4) && str4.startsWith(d.b.g0.a.r0.a.d.a.f45714e)) {
-                            str2 = str4.substring(d.b.g0.a.r0.a.d.a.f45714e.length());
+                        if (!TextUtils.isEmpty(str4) && str4.startsWith(d.b.g0.a.r0.a.d.a.f45715e)) {
+                            str2 = str4.substring(d.b.g0.a.r0.a.d.a.f45715e.length());
                             str3 = str4;
                             break;
                         }
                         i++;
                     }
                     if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                        File file4 = new File(d.b.g0.a.r0.a.d.a.f45713d, str3);
+                        File file4 = new File(d.b.g0.a.r0.a.d.a.f45714d, str3);
                         boolean j = j(str, file4);
                         boolean e2 = e(str, file4);
                         boolean h2 = h(str, file4);
@@ -198,7 +198,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return a(new File(file, d.b.g0.a.r0.a.d.a.f45716g), d.b.g0.a.r0.a.d.a.f45710a);
+        return a(new File(file, d.b.g0.a.r0.a.d.a.f45717g), d.b.g0.a.r0.a.d.a.f45711a);
     }
 
     public c() {

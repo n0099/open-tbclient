@@ -11,7 +11,7 @@ import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     public ConfigVersion configVersion;
     public List<GroupUpdateMessage> groupInfos;

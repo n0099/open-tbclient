@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import d.b.b.e.k.a;
 import d.b.b.e.m.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PvCacheModel {
     public static PvCacheModel mCacheModel;
     public a<String, String> mCache;

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WeiboAppManager {
     public static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
     public static final String TAG = "com.sina.weibo.sdk.WeiboAppManager";
@@ -46,7 +46,7 @@ public class WeiboAppManager {
     /* JADX WARN: Code restructure failed: missing block: B:30:0x007c, code lost:
         r8.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

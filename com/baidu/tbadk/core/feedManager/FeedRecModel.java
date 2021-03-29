@@ -16,13 +16,13 @@ import tbclient.Personalized.DataRes;
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f13258e;
+    public b f13259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13259f = 1;
+    public int f13260f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f13260g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+    public d.b.b.c.g.a f13261g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
 
     /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
@@ -38,7 +38,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            if (responsedMessage == null || FeedRecModel.this.f13258e == null) {
+            if (responsedMessage == null || FeedRecModel.this.f13259e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -49,7 +49,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     z = feedRecRequest.getNeedForumlist() == 1;
                     r1 = z2;
                     if (responsedMessage.getError() == 0) {
-                        FeedRecModel.this.f13258e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                        FeedRecModel.this.f13259e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -59,7 +59,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                     }
                     BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    FeedRecModel.this.f13258e.b(dataRes, r1, z);
+                    FeedRecModel.this.f13259e.b(dataRes, r1, z);
                     return;
                 }
             }
@@ -80,14 +80,14 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         setUniqueId(BdUniqueId.gen());
         t();
         u();
-        registerListener(this.f13260g);
+        registerListener(this.f13261g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i = this.f13259f;
-        this.f13259f = i + 1;
+        int i = this.f13260f;
+        this.f13260f = i + 1;
         feedRecRequest.setRequestTime(i);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -118,6 +118,6 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void v(b bVar) {
-        this.f13258e = bVar;
+        this.f13259e = bVar;
     }
 }

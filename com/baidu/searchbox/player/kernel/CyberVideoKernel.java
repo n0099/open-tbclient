@@ -15,7 +15,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CyberVideoKernel extends AbsVideoKernel {
     public static final String TAG = "CyberVideoKernel";
     public CyberVideoView mVideoView = new CyberVideoView(BDPlayerConfig.getAppContext(), 1);

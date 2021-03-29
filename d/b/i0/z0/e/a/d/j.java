@@ -7,33 +7,33 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends d.b.i0.z0.e.a.d.a<d.b.i0.z0.e.a.e.e, a> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicTabThreadItem f62957a;
+        public HotTopicTabThreadItem f62958a;
 
         public a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.f62957a = hotTopicTabThreadItem;
+            this.f62958a = hotTopicTabThreadItem;
         }
 
         public void b(d.b.i0.z0.e.a.e.e eVar) {
             if (eVar != null) {
-                this.f62957a.c(eVar);
+                this.f62958a.c(eVar);
             }
         }
 
         public void c(int i) {
-            this.f62957a.f(i);
+            this.f62958a.f(i);
         }
     }
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.z0.e.a.e.a.f62964b);
+        super(tbPageContext.getPageActivity(), d.b.i0.z0.e.a.e.a.f62965b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

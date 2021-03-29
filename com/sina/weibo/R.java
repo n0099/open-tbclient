@@ -1,8 +1,8 @@
 package com.sina.weibo;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class R {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class drawable {
         public static final int retry_btn_default = 0x7f081617;
         public static final int retry_btn_press = 0x7f081618;

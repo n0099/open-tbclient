@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import d.b.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LoginManager {
     public static Context mContext;
     public static LoginManager mInstance;
@@ -28,7 +28,7 @@ public class LoginManager {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,
@@ -60,10 +60,10 @@ public class LoginManager {
         String str = this.TAG;
         LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
         if (z) {
-            Handler handler = a.f64549c;
+            Handler handler = a.f64550c;
             if (handler != null) {
                 handler.removeCallbacks(this.imLoginRunable);
-                a.f64549c.postDelayed(this.imLoginRunable, 3000L);
+                a.f64550c.postDelayed(this.imLoginRunable, 3000L);
             }
         } else if (loginType == 1) {
             BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -160,11 +160,11 @@ public class LoginManager {
             this.mLoginState = LoginState.NOT_LOGIN;
             return;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f64551e);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f64552e);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.f64551e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.f64552e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i);
-            } else if (!a.f64551e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.f64552e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

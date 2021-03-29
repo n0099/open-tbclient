@@ -12,10 +12,10 @@ import d.b.i0.i1.m.c;
 import d.b.i0.i1.m.e;
 import d.b.i0.i1.o.d;
 import d.b.i0.i1.r.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoListActivityStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<LegoListActivityConfig> customMessage) {
@@ -27,7 +27,7 @@ public class LegoListActivityStatic {
     }
 
     static {
-        b.f56058a.set(new l());
+        b.f56059a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
         d.b.i0.i1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
@@ -38,8 +38,8 @@ public class LegoListActivityStatic {
         d.b.i0.i1.m.b.a().b(new e());
         d.b.i0.i1.m.a.a().b(new c());
         d.b.i0.i1.m.a.a().b(new d.b.i0.i1.m.d());
-        d.b.h0.c.c.f50057a.set(d.b.i0.i1.m.b.a());
-        d.b.h0.c.b.f50055a.set(d.b.i0.i1.m.a.a());
+        d.b.h0.c.c.f50058a.set(d.b.i0.i1.m.b.a());
+        d.b.h0.c.b.f50056a.set(d.b.i0.i1.m.a.a());
         a2.v3.set(true);
     }
 }

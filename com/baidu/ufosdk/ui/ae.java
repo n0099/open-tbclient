@@ -12,16 +12,16 @@ import java.util.List;
 public final class ae implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23050a;
+    public final /* synthetic */ FeedbackEditActivity f23051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23051b;
+    public int f23052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f23052c = 0;
+    public long f23053c = 0;
 
     public ae(FeedbackEditActivity feedbackEditActivity) {
-        this.f23050a = feedbackEditActivity;
+        this.f23051a = feedbackEditActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -57,67 +57,67 @@ public final class ae implements TextWatcher {
         Button button8;
         TextView textView5;
         TextView textView6;
-        z = this.f23050a.x;
+        z = this.f23051a.x;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23050a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23051a);
             dVar.b(dVar.b() + 1);
-            this.f23050a.x = true;
+            this.f23051a.x = true;
         }
-        editText = this.f23050a.m;
+        editText = this.f23051a.m;
         int length = editText.getText().toString().length();
         int i = com.baidu.ufosdk.b.aa;
         int i2 = 0;
         if (length < i - 10) {
-            textView5 = this.f23050a.o;
+            textView5 = this.f23051a.o;
             textView5.setTextColor(-5131855);
-            textView6 = this.f23050a.o;
+            textView6 = this.f23051a.o;
             textView6.setText("4-" + com.baidu.ufosdk.b.aa + com.baidu.ufosdk.f.s.a("27"));
         } else if (length < i - 10 || length > i) {
-            editText2 = this.f23050a.m;
+            editText2 = this.f23051a.m;
             String substring = editText2.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
-            textView = this.f23050a.o;
+            textView = this.f23051a.o;
             textView.setTextColor(-1551537);
-            editText3 = this.f23050a.m;
+            editText3 = this.f23051a.m;
             editText3.setText(substring);
-            editText4 = this.f23050a.m;
+            editText4 = this.f23051a.m;
             FeedbackEditActivity.b(editText4, substring.length());
-            textView2 = this.f23050a.o;
+            textView2 = this.f23051a.o;
             textView2.setText("0" + com.baidu.ufosdk.f.s.a("27"));
-            if (System.currentTimeMillis() - this.f23052c > 3000) {
-                Toast.makeText(this.f23050a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
-                this.f23052c = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.f23053c > 3000) {
+                Toast.makeText(this.f23051a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
+                this.f23053c = System.currentTimeMillis();
             }
         } else {
-            textView3 = this.f23050a.o;
+            textView3 = this.f23051a.o;
             textView3.setTextColor(-5131855);
-            textView4 = this.f23050a.o;
+            textView4 = this.f23051a.o;
             textView4.setText(String.valueOf(com.baidu.ufosdk.b.aa - editable.length()) + com.baidu.ufosdk.f.s.a("27"));
         }
-        int i3 = this.f23051b;
+        int i3 = this.f23052b;
         if (i3 == 0) {
-            editText5 = this.f23050a.m;
+            editText5 = this.f23051a.m;
             if (editText5.getText().toString().length() < 4) {
-                button = this.f23050a.V;
+                button = this.f23051a.V;
                 button.setTextColor(com.baidu.ufosdk.b.y);
                 return;
             }
             while (true) {
-                list = this.f23050a.z;
+                list = this.f23051a.z;
                 if (i2 >= list.size()) {
                     break;
                 }
-                list3 = this.f23050a.z;
+                list3 = this.f23051a.z;
                 if (list3.get(i2) != null) {
-                    list5 = this.f23050a.z;
+                    list5 = this.f23051a.z;
                     if (((TextView) list5.get(i2)).getText().toString().length() == 0) {
-                        button4 = this.f23050a.V;
+                        button4 = this.f23051a.V;
                         button4.setTextColor(com.baidu.ufosdk.b.y);
                         break;
                     }
                 }
-                list4 = this.f23050a.z;
+                list4 = this.f23051a.z;
                 if (i2 == list4.size() - 1) {
-                    button3 = this.f23050a.V;
+                    button3 = this.f23051a.V;
                     int i4 = com.baidu.ufosdk.b.v;
                     int i5 = com.baidu.ufosdk.b.y;
                     int i6 = com.baidu.ufosdk.b.v;
@@ -125,9 +125,9 @@ public final class ae implements TextWatcher {
                 }
                 i2++;
             }
-            list2 = this.f23050a.z;
+            list2 = this.f23051a.z;
             if (list2.size() == 0) {
-                button2 = this.f23050a.V;
+                button2 = this.f23051a.V;
                 int i7 = com.baidu.ufosdk.b.v;
                 int i8 = com.baidu.ufosdk.b.y;
                 int i9 = com.baidu.ufosdk.b.v;
@@ -137,25 +137,25 @@ public final class ae implements TextWatcher {
             return;
         }
         if (i3 == 1) {
-            editText6 = this.f23050a.m;
+            editText6 = this.f23051a.m;
             if (editText6.getText().toString().length() >= 4) {
                 while (true) {
-                    list6 = this.f23050a.z;
+                    list6 = this.f23051a.z;
                     if (i2 >= list6.size()) {
                         break;
                     }
-                    list8 = this.f23050a.z;
+                    list8 = this.f23051a.z;
                     if (list8.get(i2) != null) {
-                        list10 = this.f23050a.z;
+                        list10 = this.f23051a.z;
                         if (((TextView) list10.get(i2)).getText().toString().length() == 0) {
-                            button8 = this.f23050a.V;
+                            button8 = this.f23051a.V;
                             button8.setTextColor(com.baidu.ufosdk.b.y);
                             break;
                         }
                     }
-                    list9 = this.f23050a.z;
+                    list9 = this.f23051a.z;
                     if (i2 == list9.size() - 1) {
-                        button7 = this.f23050a.V;
+                        button7 = this.f23051a.V;
                         int i10 = com.baidu.ufosdk.b.v;
                         int i11 = com.baidu.ufosdk.b.y;
                         int i12 = com.baidu.ufosdk.b.v;
@@ -163,9 +163,9 @@ public final class ae implements TextWatcher {
                     }
                     i2++;
                 }
-                list7 = this.f23050a.z;
+                list7 = this.f23051a.z;
                 if (list7.size() == 0) {
-                    button6 = this.f23050a.V;
+                    button6 = this.f23051a.V;
                     int i13 = com.baidu.ufosdk.b.v;
                     int i14 = com.baidu.ufosdk.b.y;
                     int i15 = com.baidu.ufosdk.b.v;
@@ -175,15 +175,15 @@ public final class ae implements TextWatcher {
                 return;
             }
         }
-        button5 = this.f23050a.V;
+        button5 = this.f23051a.V;
         button5.setTextColor(com.baidu.ufosdk.b.y);
     }
 
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
-        editText = this.f23050a.m;
-        this.f23051b = editText.getText().toString().length() < 4 ? 0 : 1;
+        editText = this.f23051a.m;
+        this.f23052b = editText.getText().toString().length() < 4 ? 0 : 1;
     }
 
     @Override // android.text.TextWatcher

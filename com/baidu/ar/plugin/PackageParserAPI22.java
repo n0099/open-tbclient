@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PackageParserAPI22 extends PackageParser {
     public static final String TAG = "PackageParserAPI22";
     public Object mDefaultPackageUserState;

@@ -2,11 +2,11 @@ package com.baidu.searchbox.v8engine;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BindingBenchmark {
     public final V8Engine mEngine;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class JavaObject {
         @V8JavascriptField
         public int mInt;

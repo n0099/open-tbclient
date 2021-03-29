@@ -29,32 +29,32 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5973a = "#startLiveness";
+    public static final String f5974a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5974b = "@queryVideo";
+    public static final String f5975b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5975c = "enterLiveness";
+    public static final String f5976c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5976d = "userSwitchSound";
+    public static final String f5977d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5977e = "@getPortrait";
+    public static final String f5978e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5978f = "passLiveness";
+    public static final String f5979f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5979g = "faceDetected";
+    public static final String f5980g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5980h = "showBlink";
+    public static final String f5981h = "showBlink";
     public static final String i = "detectBlink";
     public static final String j = "showMouth";
     public static final String k = "detectMouth";

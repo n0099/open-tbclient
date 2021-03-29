@@ -32,16 +32,16 @@ import java.util.List;
 public class c extends d<ForumRulesShowActivity> implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumRulesShowActivity f58403e;
+    public ForumRulesShowActivity f58404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58404f;
+    public int f58405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58405g;
+    public String f58406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f58406h;
+    public ViewGroup f58407h;
     public NavigationBar i;
     public View j;
     public ImageView k;
@@ -62,27 +62,27 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f58407e;
+        public final /* synthetic */ ShareItem f58408e;
 
         public a(ShareItem shareItem) {
-            this.f58407e = shareItem;
+            this.f58408e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f58407e.t);
-            l.L(c.this.f58403e, c.this.f58403e.getResources().getString(R.string.copy_pb_url_success));
+            d.b.b.e.p.a.a(this.f58408e.t);
+            l.L(c.this.f58404e, c.this.f58404e.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
     public c(ForumRulesShowActivity forumRulesShowActivity, String str) {
         super(forumRulesShowActivity.getPageContext());
-        this.f58404f = 3;
+        this.f58405f = 3;
         this.r = new ArrayList();
         this.u = 0;
         this.v = 0;
-        this.f58403e = forumRulesShowActivity;
-        this.f58405g = str;
+        this.f58404e = forumRulesShowActivity;
+        this.f58406g = str;
         forumRulesShowActivity.setContentView(R.layout.activity_forum_rules_show);
         this.o = new d.b.i0.p0.q1.d.b(forumRulesShowActivity);
         this.p = new d.b.i0.p0.q1.d.a(forumRulesShowActivity);
@@ -125,7 +125,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public void i() {
-        this.f58403e = null;
+        this.f58404e = null;
     }
 
     public View k() {
@@ -133,7 +133,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public ViewGroup l() {
-        return this.f58406h;
+        return this.f58407h;
     }
 
     public void m() {
@@ -158,8 +158,8 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public void onChangeSkinType(int i) {
-        this.i.onChangeSkinType(this.f58403e.getPageContext(), i);
-        if (this.f58404f == i) {
+        this.i.onChangeSkinType(this.f58404e.getPageContext(), i);
+        if (this.f58405f == i) {
             this.i.getCenterText().setTextSize(R.dimen.L_X06);
             TextView centerText = this.i.getCenterText();
             int i2 = R.color.CAM_X0611;
@@ -169,14 +169,14 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
             this.o.c(i);
             this.p.c(i);
             this.n.b(i);
-            this.f58404f = i;
+            this.f58405f = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        if (this.f58403e != null) {
+        if (this.f58404e != null) {
             if (view.getId() == R.id.root_pb_more) {
                 int i = -1;
                 d.b.i0.p0.q1.c.b bVar = this.w;
@@ -191,7 +191,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 String str2 = "http://tieba.baidu.com/mo/q/wise-bawu-core/forumRuleShare?fid=" + i;
                 ShareItem shareItem = new ShareItem();
                 shareItem.r = p;
-                shareItem.s = String.format(this.f58403e.getResources().getString(R.string.forum_rules_share_text), str);
+                shareItem.s = String.format(this.f58404e.getResources().getString(R.string.forum_rules_share_text), str);
                 shareItem.t = str2;
                 shareItem.Z = false;
                 d.b.i0.p0.q1.c.b bVar3 = this.w;
@@ -201,15 +201,15 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 }
                 shareItem.O = p;
                 shareItem.P = str2;
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f58403e, shareItem, true);
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f58404e, shareItem, true);
                 shareDialogConfig.setIsCopyLink(true);
                 shareDialogConfig.setCopyLinkListener(new a(shareItem));
-                this.f58403e.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+                this.f58404e.sendMessage(new CustomMessage(2001276, shareDialogConfig));
             } else if (view.getId() == R.id.navigationBarGoBack) {
-                this.f58403e.finish();
+                this.f58404e.finish();
             } else if (this.t == null || view.getId() != this.t.c().getId()) {
             } else {
-                this.f58403e.requestNet();
+                this.f58404e.requestNet();
             }
         }
     }
@@ -225,7 +225,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         View addSystemImageButton = this.i.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
         this.j = addSystemImageButton;
         this.k = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-        this.i.setCenterTextTitle(this.f58403e.getResources().getString(R.string.forum_rules_local));
+        this.i.setCenterTextTitle(this.f58404e.getResources().getString(R.string.forum_rules_local));
         View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this);
         this.l = addCustomView;
         this.m = (ImageView) addCustomView.findViewById(R.id.navigationBarBtnMore);
@@ -238,7 +238,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public final void s(ForumRulesShowActivity forumRulesShowActivity) {
-        this.f58406h = (ViewGroup) forumRulesShowActivity.findViewById(R.id.forum_rule_rootview);
+        this.f58407h = (ViewGroup) forumRulesShowActivity.findViewById(R.id.forum_rule_rootview);
         NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.navigationbar);
         this.i = navigationBar;
         r(navigationBar);
@@ -251,7 +251,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public void setFrom(String str) {
-        this.f58405g = str;
+        this.f58406g = str;
         d.b.i0.p0.q1.a.a aVar = this.n;
         if (aVar != null) {
             aVar.d(str);
@@ -277,7 +277,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
 
     public final void x() {
         HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
-        if (((baseSwitchs == null || !baseSwitchs.containsKey("is_disable_forumrule_share")) ? -1 : baseSwitchs.get("is_disable_forumrule_share").intValue()) == 0 && !ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f58405g)) {
+        if (((baseSwitchs == null || !baseSwitchs.containsKey("is_disable_forumrule_share")) ? -1 : baseSwitchs.get("is_disable_forumrule_share").intValue()) == 0 && !ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f58406g)) {
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);

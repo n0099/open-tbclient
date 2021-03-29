@@ -54,10 +54,10 @@ public class b extends d {
         }
 
         public void c(int i) {
-            this.f21109f = new ImageView(this.n);
+            this.f21110f = new ImageView(this.n);
             setTag(Integer.valueOf(i));
-            this.f21109f.setScaleType(ImageView.ScaleType.FIT_XY);
-            WebPManager.setMaskDrawable(this.f21109f, i, null);
+            this.f21110f.setScaleType(ImageView.ScaleType.FIT_XY);
+            WebPManager.setMaskDrawable(this.f21110f, i, null);
             b();
         }
 
@@ -86,8 +86,8 @@ public class b extends d {
         this.N = dVar4;
         this.O = dVar5;
         this.P = onClickListener;
-        this.D = (LinearLayout) this.f62076f.findViewById(R.id.first_line);
-        this.E = (LinearLayout) this.f62076f.findViewById(R.id.second_line);
+        this.D = (LinearLayout) this.f62077f.findViewById(R.id.first_line);
+        this.E = (LinearLayout) this.f62077f.findViewById(R.id.second_line);
         f0();
     }
 

@@ -16,7 +16,7 @@ import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public TbPageContext m;
     public BdUniqueId n;
@@ -24,7 +24,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public int p;
     public b0<k> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<k> {
         public a() {
         }
@@ -44,7 +44,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b {
         public b(f fVar) {
         }
@@ -54,7 +54,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -69,7 +69,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     f.this.q.a(threadCardViewHolder.a(), kVar);
                 }
                 d.b.i0.z0.d.e.a.b(kVar, view.getContext(), 18, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -102,7 +102,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

@@ -22,14 +22,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class StorageUtils {
     public static boolean DEBUG = false;
     public static final int DIVIDER = 1024;
     public static final int ERROR = -1;
     public static final String TAG = "StorageUtils";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class StorageInfo {
         public final int mDisplayNumber;
         public final boolean mInternal;
@@ -68,7 +68,6 @@ public final class StorageUtils {
         double d3 = j;
         String str = "KB";
         if (d3 >= 1024.0d) {
-            Double.isNaN(d3);
             d2 = d3 / 1024.0d;
             if (d2 >= 1024.0d) {
                 d2 /= 1024.0d;
@@ -149,10 +148,10 @@ public final class StorageUtils {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:106:0x01c5 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:117:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:106:0x01c3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x0043 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x01c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x01c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v14 */
     /* JADX WARN: Type inference failed for: r9v15 */
@@ -160,7 +159,7 @@ public final class StorageUtils {
     /* JADX WARN: Type inference failed for: r9v17 */
     /* JADX WARN: Type inference failed for: r9v5 */
     /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:104:0x01c0 -> B:105:0x01c4). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:104:0x01be -> B:105:0x01c2). Please submit an issue!!! */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.

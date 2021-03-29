@@ -32,7 +32,7 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 public class WelcomeActivity extends PayBaseBeanActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public k f26293a;
+    public k f26294a;
 
     private void a() {
         setContentView(ResUtils.layout(getActivity(), "wallet_base_layout_loading"));
@@ -57,7 +57,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity
     public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-        k kVar = this.f26293a;
+        k kVar = this.f26294a;
         if (kVar != null) {
             kVar.a(i, i2, str, obj);
         }
@@ -74,27 +74,27 @@ public class WelcomeActivity extends PayBaseBeanActivity {
             BindCardEntry.innerRun();
         } else {
             k a2 = g.a(intExtra, this);
-            this.f26293a = a2;
+            this.f26294a = a2;
             if (a2 != null) {
                 a2.a();
-                if (!this.f26293a.a(bundle)) {
+                if (!this.f26294a.a(bundle)) {
                     return;
                 }
             }
         }
         a();
         PassUtil.onCreate();
-        if (this.f26293a != null) {
+        if (this.f26294a != null) {
             if (intExtra == 3) {
-                this.f26293a.a(intent.getStringExtra("orderExtraInfo"));
+                this.f26294a.a(intent.getStringExtra("orderExtraInfo"));
             }
             PrecashierCreateOrderResponse precashierCreateOrderResponse = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
             if (precashierCreateOrderResponse != null) {
-                this.f26293a.a(precashierCreateOrderResponse);
+                this.f26294a.a(precashierCreateOrderResponse);
             } else {
-                this.f26293a.b();
+                this.f26294a.b();
             }
-            this.f26293a.g();
+            this.f26294a.g();
         }
         if (PayDataCache.getInstance().isRemotePay()) {
             StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_WELCOME_ACTIVITY, MissionEvent.MESSAGE_CREATE);
@@ -109,10 +109,10 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        k kVar = this.f26293a;
+        k kVar = this.f26294a;
         if (kVar != null) {
             kVar.d();
-            this.f26293a = null;
+            this.f26294a = null;
         }
     }
 
@@ -131,7 +131,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        k kVar = this.f26293a;
+        k kVar = this.f26294a;
         if (kVar != null) {
             kVar.b();
         }
@@ -150,7 +150,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i, Dialog dialog) {
-        k kVar = this.f26293a;
+        k kVar = this.f26294a;
         if (kVar != null) {
             kVar.a(i, dialog);
         } else {

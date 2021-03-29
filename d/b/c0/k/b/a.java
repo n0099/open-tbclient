@@ -9,37 +9,37 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42557a = 1;
+    public static int f42558a = 1;
 
     /* renamed from: d.b.c0.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0560a extends d.b.c0.k.a.a<String> {
+    public static final class C0561a extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.l.a f42558a;
+        public final /* synthetic */ d.b.c0.l.a f42559a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f42559b;
+        public final /* synthetic */ JSONObject f42560b;
 
-        public C0560a(d.b.c0.l.a aVar, JSONObject jSONObject) {
-            this.f42558a = aVar;
-            this.f42559b = jSONObject;
+        public C0561a(d.b.c0.l.a aVar, JSONObject jSONObject) {
+            this.f42559a = aVar;
+            this.f42560b = jSONObject;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            d.b.c0.l.a aVar = this.f42558a;
+            d.b.c0.l.a aVar = this.f42559a;
             if (aVar != null) {
                 aVar.a(1, str);
             }
-            d.b.c0.k.c.a.e(this.f42559b);
+            d.b.c0.k.c.a.e(this.f42560b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.c0.k.a.a
         /* renamed from: c */
         public void a(String str) {
-            d.b.c0.l.a aVar = this.f42558a;
+            d.b.c0.l.a aVar = this.f42559a;
             if (aVar != null) {
                 aVar.a(0, "");
             }
@@ -50,15 +50,15 @@ public final class a {
     public static final class b extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.l.a f42560a;
+        public final /* synthetic */ d.b.c0.l.a f42561a;
 
         public b(d.b.c0.l.a aVar) {
-            this.f42560a = aVar;
+            this.f42561a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            d.b.c0.l.a aVar = this.f42560a;
+            d.b.c0.l.a aVar = this.f42561a;
             if (aVar != null) {
                 aVar.a(1, str);
             }
@@ -68,7 +68,7 @@ public final class a {
         @Override // d.b.c0.k.a.a
         /* renamed from: c */
         public void a(String str) {
-            d.b.c0.l.a aVar = this.f42560a;
+            d.b.c0.l.a aVar = this.f42561a;
             if (aVar != null) {
                 aVar.a(0, "");
             }
@@ -98,14 +98,14 @@ public final class a {
         d.b.c0.k.a.b c2 = c.c(jSONObject);
         c.b(cVar, c2.b("bduss"));
         HttpSigner.b(c2);
-        new f(false).a(d.e(), cVar, c2, new C0560a(aVar, jSONObject));
+        new f(false).a(d.e(), cVar, c2, new C0561a(aVar, jSONObject));
     }
 
     public static final void c(int i) {
-        f42557a = i;
+        f42558a = i;
     }
 
     public static final int d() {
-        return f42557a;
+        return f42558a;
     }
 }

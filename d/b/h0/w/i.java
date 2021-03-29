@@ -15,11 +15,11 @@ public class i extends d.b.h0.w.y.a {
     public LinkedList<h> q;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC1111a {
+    public class a implements a.InterfaceC1112a {
         public a() {
         }
 
-        @Override // d.b.h0.w.y.a.InterfaceC1111a
+        @Override // d.b.h0.w.y.a.InterfaceC1112a
         public View getView(int i, View view, ViewGroup viewGroup) {
             DLauncher F = i.this.F(i);
             if (F.getLayoutParams() == null) {

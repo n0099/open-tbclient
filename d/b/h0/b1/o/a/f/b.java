@@ -24,7 +24,7 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
         @Override // d.b.h0.b1.o.a.d.b
         public void a() {
             try {
-                b.this.i.f49994b.a(c.y.parse(b.this.u.o()));
+                b.this.i.f49995b.a(c.y.parse(b.this.u.o()));
             } catch (ParseException e2) {
                 e2.printStackTrace();
             }
@@ -41,9 +41,9 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
         s();
         o();
         n();
-        d.b.h0.b1.o.a.d.a aVar = this.i.f49995c;
+        d.b.h0.b1.o.a.d.a aVar = this.i.f49996c;
         if (aVar == null) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.f50010f);
+            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.f50011f);
             TextView textView = (TextView) j(R.id.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) j(R.id.rv_topbar);
             Button button = (Button) j(R.id.btnSubmit);
@@ -63,7 +63,7 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
             button2.setTextSize(this.i.J);
             textView.setTextSize(this.i.K);
         } else {
-            aVar.a(LayoutInflater.from(context).inflate(this.i.x, this.f50010f));
+            aVar.a(LayoutInflater.from(context).inflate(this.i.x, this.f50011f));
         }
         LinearLayout linearLayout = (LinearLayout) j(R.id.timepicker);
         linearLayout.setBackgroundColor(this.i.H);
@@ -73,28 +73,28 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
     public final void B(LinearLayout linearLayout) {
         int i;
         d.b.h0.b1.o.a.c.a aVar = this.i;
-        c cVar = new c(linearLayout, aVar.f49996d, aVar.z, aVar.L);
+        c cVar = new c(linearLayout, aVar.f49997d, aVar.z, aVar.L);
         this.u = cVar;
-        if (this.i.f49994b != null) {
+        if (this.i.f49995b != null) {
             cVar.G(new a());
         }
         this.u.C(this.i.k);
         d.b.h0.b1.o.a.c.a aVar2 = this.i;
-        int i2 = aVar2.f50000h;
+        int i2 = aVar2.f50001h;
         if (i2 != 0 && (i = aVar2.i) != 0 && i2 <= i) {
             G();
         }
         d.b.h0.b1.o.a.c.a aVar3 = this.i;
-        Calendar calendar = aVar3.f49998f;
-        if (calendar != null && aVar3.f49999g != null) {
-            if (calendar.getTimeInMillis() <= this.i.f49999g.getTimeInMillis()) {
+        Calendar calendar = aVar3.f49999f;
+        if (calendar != null && aVar3.f50000g != null) {
+            if (calendar.getTimeInMillis() <= this.i.f50000g.getTimeInMillis()) {
                 F();
             } else {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
         } else {
             d.b.h0.b1.o.a.c.a aVar4 = this.i;
-            Calendar calendar2 = aVar4.f49998f;
+            Calendar calendar2 = aVar4.f49999f;
             if (calendar2 != null) {
                 if (calendar2.get(1) >= 1900) {
                     F();
@@ -102,7 +102,7 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
                     throw new IllegalArgumentException("The startDate can not as early as 1900");
                 }
             } else {
-                Calendar calendar3 = aVar4.f49999g;
+                Calendar calendar3 = aVar4.f50000g;
                 if (calendar3 != null) {
                     if (calendar3.get(1) <= 2100) {
                         F();
@@ -132,9 +132,9 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
     }
 
     public void E() {
-        if (this.i.f49993a != null) {
+        if (this.i.f49994a != null) {
             try {
-                this.i.f49993a.a(c.y.parse(this.u.o()), this.q);
+                this.i.f49994a.a(c.y.parse(this.u.o()), this.q);
             } catch (ParseException e2) {
                 e2.printStackTrace();
             }
@@ -144,12 +144,12 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
     public final void F() {
         c cVar = this.u;
         d.b.h0.b1.o.a.c.a aVar = this.i;
-        cVar.E(aVar.f49998f, aVar.f49999g);
+        cVar.E(aVar.f49999f, aVar.f50000g);
         z();
     }
 
     public final void G() {
-        this.u.I(this.i.f50000h);
+        this.u.I(this.i.f50001h);
         this.u.x(this.i.i);
     }
 
@@ -161,7 +161,7 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        Calendar calendar2 = this.i.f49997e;
+        Calendar calendar2 = this.i.f49998e;
         if (calendar2 == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
@@ -172,11 +172,11 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
             i6 = calendar.get(13);
         } else {
             i = calendar2.get(1);
-            i2 = this.i.f49997e.get(2);
-            i3 = this.i.f49997e.get(5);
-            i4 = this.i.f49997e.get(11);
-            i5 = this.i.f49997e.get(12);
-            i6 = this.i.f49997e.get(13);
+            i2 = this.i.f49998e.get(2);
+            i3 = this.i.f49998e.get(5);
+            i4 = this.i.f49998e.get(11);
+            i5 = this.i.f49998e.get(12);
+            i6 = this.i.f49998e.get(13);
         }
         int i7 = i4;
         int i8 = i3;
@@ -200,24 +200,24 @@ public class b extends d.b.h0.b1.o.a.f.a implements View.OnClickListener {
 
     public final void z() {
         d.b.h0.b1.o.a.c.a aVar = this.i;
-        if (aVar.f49998f != null && aVar.f49999g != null) {
-            Calendar calendar = aVar.f49997e;
-            if (calendar == null || calendar.getTimeInMillis() < this.i.f49998f.getTimeInMillis() || this.i.f49997e.getTimeInMillis() > this.i.f49999g.getTimeInMillis()) {
+        if (aVar.f49999f != null && aVar.f50000g != null) {
+            Calendar calendar = aVar.f49998e;
+            if (calendar == null || calendar.getTimeInMillis() < this.i.f49999f.getTimeInMillis() || this.i.f49998e.getTimeInMillis() > this.i.f50000g.getTimeInMillis()) {
                 d.b.h0.b1.o.a.c.a aVar2 = this.i;
-                aVar2.f49997e = aVar2.f49998f;
+                aVar2.f49998e = aVar2.f49999f;
                 return;
             }
             return;
         }
         d.b.h0.b1.o.a.c.a aVar3 = this.i;
-        Calendar calendar2 = aVar3.f49998f;
+        Calendar calendar2 = aVar3.f49999f;
         if (calendar2 != null) {
-            aVar3.f49997e = calendar2;
+            aVar3.f49998e = calendar2;
             return;
         }
-        Calendar calendar3 = aVar3.f49999g;
+        Calendar calendar3 = aVar3.f50000g;
         if (calendar3 != null) {
-            aVar3.f49997e = calendar3;
+            aVar3.f49998e = calendar3;
         }
     }
 }

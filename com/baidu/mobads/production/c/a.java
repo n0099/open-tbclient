@@ -75,7 +75,7 @@ public class a extends com.baidu.mobads.production.a implements IXNonLinearAdSlo
     @Override // com.baidu.mobads.production.a
     public void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         try {
-            IXHybridAdRenderer iXHybridAdRenderer = (IXHybridAdRenderer) this.f8440h;
+            IXHybridAdRenderer iXHybridAdRenderer = (IXHybridAdRenderer) this.f8441h;
             this.A = iXHybridAdRenderer;
             iXHybridAdRenderer.setCustomerWebView(this.B);
         } catch (Exception unused) {

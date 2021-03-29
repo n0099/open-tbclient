@@ -3,38 +3,38 @@ package com.sdk.base.framework.c;
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38510c;
+    public int f38511c;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38508a = System.currentTimeMillis();
+    public long f38509a = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    public c f38509b = new c();
+    public c f38510b = new c();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38511d = "";
+    public String f38512d = "";
 
     public final String a() {
-        return this.f38511d;
+        return this.f38512d;
     }
 
     public final void a(int i) {
-        this.f38510c = i;
+        this.f38511c = i;
     }
 
     public final void a(String str) {
-        this.f38511d = str;
+        this.f38512d = str;
     }
 
     public final int b() {
-        return this.f38510c;
+        return this.f38511c;
     }
 
     public final c c() {
-        return this.f38509b;
+        return this.f38510b;
     }
 
     public final String toString() {
-        return "MobileLog{time=" + this.f38508a + ", status=" + this.f38509b + '}';
+        return "MobileLog{time=" + this.f38509a + ", status=" + this.f38510b + '}';
     }
 }

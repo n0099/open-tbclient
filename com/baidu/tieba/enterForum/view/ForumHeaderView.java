@@ -24,16 +24,16 @@ import d.b.i0.i0.d.c;
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15548e;
+    public LinearLayout f15549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15549f;
+    public TextView f15550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15550g;
+    public ImageView f15551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f15551h;
+    public c f15552h;
     public int i;
 
     public ForumHeaderView(Context context) {
@@ -45,30 +45,30 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void a() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.f15548e = (LinearLayout) findViewById(R.id.search_container);
-        this.f15549f = (TextView) findViewById(R.id.search_text);
-        this.f15550g = (ImageView) findViewById(R.id.search_icon);
+        this.f15549e = (LinearLayout) findViewById(R.id.search_container);
+        this.f15550f = (TextView) findViewById(R.id.search_text);
+        this.f15551g = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.f15548e.setOnClickListener(this);
+        this.f15549e.setOnClickListener(this);
     }
 
     public void b() {
-        c cVar = this.f15551h;
-        if (cVar != null && cVar.f55476a) {
-            if (cVar.f55478c > 0) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f15549f, R.color.white_alpha50);
-                SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_ad_bg);
+        c cVar = this.f15552h;
+        if (cVar != null && cVar.f55477a) {
+            if (cVar.f55479c > 0) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f15550f, R.color.white_alpha50);
+                SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_ad_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f15549f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f15550f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_bg);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f15549f, R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_bg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f15550f, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_bg);
     }
 
     @Override // android.view.View.OnClickListener
@@ -90,7 +90,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setAdState(c cVar) {
-        this.f15551h = cVar;
+        this.f15552h = cVar;
         b();
     }
 
@@ -99,7 +99,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.f15549f.setText(str);
+        this.f15550f.setText(str);
     }
 
     public ForumHeaderView(Context context, AttributeSet attributeSet) {

@@ -34,18 +34,18 @@ import com.baidu.tieba.lego.card.view.RankScoreCardView;
 import com.baidu.tieba.lego.card.view.SingleLineCardView;
 import com.baidu.tieba.lego.card.view.WebViewCardView;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f55916a = new d();
+        public static final d f55917a = new d();
     }
 
     public static d f() {
-        return b.f55916a;
+        return b.f55917a;
     }
 
     @Override // d.b.i0.i1.o.e
@@ -93,45 +93,45 @@ public class d extends e {
 
     @Override // d.b.i0.i1.o.e
     public void c() {
-        SparseIntArray sparseIntArray = e.f55917a;
+        SparseIntArray sparseIntArray = e.f55918a;
         sparseIntArray.put(1, sparseIntArray.size() + 1);
-        SparseIntArray sparseIntArray2 = e.f55917a;
+        SparseIntArray sparseIntArray2 = e.f55918a;
         sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-        SparseIntArray sparseIntArray3 = e.f55917a;
+        SparseIntArray sparseIntArray3 = e.f55918a;
         sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-        SparseIntArray sparseIntArray4 = e.f55917a;
+        SparseIntArray sparseIntArray4 = e.f55918a;
         sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-        SparseIntArray sparseIntArray5 = e.f55917a;
+        SparseIntArray sparseIntArray5 = e.f55918a;
         sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-        SparseIntArray sparseIntArray6 = e.f55917a;
+        SparseIntArray sparseIntArray6 = e.f55918a;
         sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-        SparseIntArray sparseIntArray7 = e.f55917a;
+        SparseIntArray sparseIntArray7 = e.f55918a;
         sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-        SparseIntArray sparseIntArray8 = e.f55917a;
+        SparseIntArray sparseIntArray8 = e.f55918a;
         sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-        SparseIntArray sparseIntArray9 = e.f55917a;
+        SparseIntArray sparseIntArray9 = e.f55918a;
         sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-        SparseIntArray sparseIntArray10 = e.f55917a;
+        SparseIntArray sparseIntArray10 = e.f55918a;
         sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-        SparseIntArray sparseIntArray11 = e.f55917a;
+        SparseIntArray sparseIntArray11 = e.f55918a;
         sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-        SparseIntArray sparseIntArray12 = e.f55917a;
+        SparseIntArray sparseIntArray12 = e.f55918a;
         sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-        SparseIntArray sparseIntArray13 = e.f55917a;
+        SparseIntArray sparseIntArray13 = e.f55918a;
         sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-        e.f55918b.put(1, BdUniqueId.gen());
-        e.f55918b.put(2, BdUniqueId.gen());
-        e.f55918b.put(3, BdUniqueId.gen());
-        e.f55918b.put(5, BdUniqueId.gen());
-        e.f55918b.put(6, BdUniqueId.gen());
-        e.f55918b.put(7, BdUniqueId.gen());
-        e.f55918b.put(8, BdUniqueId.gen());
-        e.f55918b.put(18, BdUniqueId.gen());
-        e.f55918b.put(19, BdUniqueId.gen());
-        e.f55918b.put(21, BdUniqueId.gen());
-        e.f55918b.put(22, BdUniqueId.gen());
-        e.f55918b.put(23, BdUniqueId.gen());
-        e.f55918b.put(28, BdUniqueId.gen());
+        e.f55919b.put(1, BdUniqueId.gen());
+        e.f55919b.put(2, BdUniqueId.gen());
+        e.f55919b.put(3, BdUniqueId.gen());
+        e.f55919b.put(5, BdUniqueId.gen());
+        e.f55919b.put(6, BdUniqueId.gen());
+        e.f55919b.put(7, BdUniqueId.gen());
+        e.f55919b.put(8, BdUniqueId.gen());
+        e.f55919b.put(18, BdUniqueId.gen());
+        e.f55919b.put(19, BdUniqueId.gen());
+        e.f55919b.put(21, BdUniqueId.gen());
+        e.f55919b.put(22, BdUniqueId.gen());
+        e.f55919b.put(23, BdUniqueId.gen());
+        e.f55919b.put(28, BdUniqueId.gen());
     }
 
     @Override // d.b.i0.i1.o.e

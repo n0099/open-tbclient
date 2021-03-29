@@ -13,10 +13,10 @@ import com.kwad.sdk.R;
 public class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f32360a;
+    public ImageView f32361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f32361b;
+    public View.OnClickListener f32362b;
 
     public e(Context context) {
         this(context, null);
@@ -24,19 +24,19 @@ public class e extends LinearLayout {
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f32360a = null;
+        this.f32361a = null;
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_photo_more_button_2, (ViewGroup) this, true);
         ImageView imageView = (ImageView) findViewById(R.id.ksad_photo_more_button);
-        this.f32360a = imageView;
+        this.f32361a = imageView;
         b.a(imageView, new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f32361b != null) {
-                    e.this.f32361b.onClick(e.this);
+                if (e.this.f32362b != null) {
+                    e.this.f32362b.onClick(e.this);
                 }
             }
         });
@@ -45,6 +45,6 @@ public class e extends LinearLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.f32361b = onClickListener;
+        this.f32362b = onClickListener;
     }
 }

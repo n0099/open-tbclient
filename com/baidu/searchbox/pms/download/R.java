@@ -1,8 +1,8 @@
 package com.baidu.searchbox.pms.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int DATA_WRITE_DB = 0x7f0f0010;
         public static final int DOWNLOAD_CANCELED = 0x7f0f0011;

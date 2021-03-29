@@ -18,28 +18,28 @@ import tbclient.BawuRoleInfoPub;
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15928a;
+    public TextView f15929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f15929b;
+    public LinearLayout f15930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f15930c;
+    public LinearLayout f15931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f15931d;
+    public LinearLayout f15932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15932e;
+    public LinearLayout f15933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f15933f;
+    public HeadImageView f15934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f15934g;
+    public HeadImageView f15935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f15935h;
+    public HeadImageView f15936h;
     public HeadImageView i;
     public TextView j;
     public TextView k;
@@ -52,30 +52,30 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         int g2 = l.g(BdBaseApplication.getInst().getApp(), R.dimen.ds1);
         int color = SkinManager.getColor(R.color.black_alpha10);
         TextView textView = (TextView) view.findViewById(R.id.title_text_view);
-        this.f15928a = textView;
+        this.f15929a = textView;
         textView.setOnClickListener(onClickListener);
-        this.f15929b = (LinearLayout) view.findViewById(R.id.member1);
-        this.f15933f = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.f15930b = (LinearLayout) view.findViewById(R.id.member1);
+        this.f15934f = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
         this.j = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.f15933f.setIsRound(true);
-        this.f15933f.setBorderColor(color);
-        this.f15933f.setBorderWidth(g2);
-        this.f15933f.setOnClickListener(onClickListener);
-        this.f15930c = (LinearLayout) view.findViewById(R.id.member2);
-        this.f15934g = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.f15934f.setIsRound(true);
+        this.f15934f.setBorderColor(color);
+        this.f15934f.setBorderWidth(g2);
+        this.f15934f.setOnClickListener(onClickListener);
+        this.f15931c = (LinearLayout) view.findViewById(R.id.member2);
+        this.f15935g = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
         this.k = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.f15934g.setIsRound(true);
-        this.f15934g.setBorderColor(color);
-        this.f15934g.setBorderWidth(g2);
-        this.f15934g.setOnClickListener(onClickListener);
-        this.f15931d = (LinearLayout) view.findViewById(R.id.member3);
-        this.f15935h = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.f15935g.setIsRound(true);
+        this.f15935g.setBorderColor(color);
+        this.f15935g.setBorderWidth(g2);
+        this.f15935g.setOnClickListener(onClickListener);
+        this.f15932d = (LinearLayout) view.findViewById(R.id.member3);
+        this.f15936h = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
         this.l = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.f15935h.setIsRound(true);
-        this.f15935h.setBorderColor(color);
-        this.f15935h.setBorderWidth(g2);
-        this.f15935h.setOnClickListener(onClickListener);
-        this.f15932e = (LinearLayout) view.findViewById(R.id.member4);
+        this.f15936h.setIsRound(true);
+        this.f15936h.setBorderColor(color);
+        this.f15936h.setBorderWidth(g2);
+        this.f15936h.setOnClickListener(onClickListener);
+        this.f15933e = (LinearLayout) view.findViewById(R.id.member4);
         this.i = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
         this.m = (TextView) view.findViewById(R.id.textview_user_name4);
         this.i.setIsRound(true);
@@ -97,45 +97,45 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
             str = bawuRoleInfoPub.portrait;
         }
         if (i == 0) {
-            this.f15933f.W(str, 12, false);
-            this.f15933f.setTag(bawuRoleInfoPub);
-            this.f15933f.setContentDescription(bawuRoleInfoPub.user_name);
+            this.f15934f.W(str, 12, false);
+            this.f15934f.setTag(bawuRoleInfoPub);
+            this.f15934f.setContentDescription(bawuRoleInfoPub.user_name);
             this.j.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15929b.setVisibility(0);
+            this.f15930b.setVisibility(0);
         } else if (i == 1) {
-            this.f15934g.W(str, 12, false);
-            this.f15934g.setTag(bawuRoleInfoPub);
-            this.f15934g.setContentDescription(bawuRoleInfoPub.user_name);
+            this.f15935g.W(str, 12, false);
+            this.f15935g.setTag(bawuRoleInfoPub);
+            this.f15935g.setContentDescription(bawuRoleInfoPub.user_name);
             this.k.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15930c.setVisibility(0);
+            this.f15931c.setVisibility(0);
         } else if (i == 2) {
-            this.f15935h.W(str, 12, false);
-            this.f15935h.setTag(bawuRoleInfoPub);
-            this.f15935h.setContentDescription(bawuRoleInfoPub.user_name);
+            this.f15936h.W(str, 12, false);
+            this.f15936h.setTag(bawuRoleInfoPub);
+            this.f15936h.setContentDescription(bawuRoleInfoPub.user_name);
             this.l.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15931d.setVisibility(0);
+            this.f15932d.setVisibility(0);
         } else if (i != 3) {
         } else {
             this.i.W(str, 12, false);
             this.i.setTag(bawuRoleInfoPub);
             this.i.setContentDescription(bawuRoleInfoPub.user_name);
             this.m.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15932e.setVisibility(0);
+            this.f15933e.setVisibility(0);
         }
     }
 
     public void c(boolean z) {
-        if (this.f15933f.getVisibility() == 0) {
-            this.f15933f.setIsNight(z);
-            this.f15933f.refresh();
+        if (this.f15934f.getVisibility() == 0) {
+            this.f15934f.setIsNight(z);
+            this.f15934f.refresh();
         }
-        if (this.f15934g.getVisibility() == 0) {
-            this.f15934g.setIsNight(z);
-            this.f15934g.refresh();
+        if (this.f15935g.getVisibility() == 0) {
+            this.f15935g.setIsNight(z);
+            this.f15935g.refresh();
         }
-        if (this.f15935h.getVisibility() == 0) {
-            this.f15935h.setIsNight(z);
-            this.f15935h.refresh();
+        if (this.f15936h.getVisibility() == 0) {
+            this.f15936h.setIsNight(z);
+            this.f15936h.refresh();
         }
         if (this.i.getVisibility() == 0) {
             this.i.setIsNight(z);

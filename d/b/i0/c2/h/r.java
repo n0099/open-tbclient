@@ -13,10 +13,10 @@ import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f52469a;
+    public TbPageContext f52470a;
 
     public r(TbPageContext tbPageContext) {
-        this.f52469a = tbPageContext;
+        this.f52470a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
@@ -29,7 +29,7 @@ public class r {
         ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
         threadPublishReqMessage.tid = j;
         threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.f52469a.getUniqueId());
+        threadPublishReqMessage.setTag(this.f52470a.getUniqueId());
         MessageManager.getInstance().sendMessage(threadPublishReqMessage);
     }
 }

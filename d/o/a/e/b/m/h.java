@@ -14,7 +14,7 @@ public class h extends d.o.a.e.b.g.c {
             d.o.a.e.b.c.a.g(m, "onStartCommand");
         }
         if (!d.o.a.e.b.l.a.a(262144)) {
-            this.f66969g = true;
+            this.f66974g = true;
         }
         g();
     }
@@ -22,7 +22,7 @@ public class h extends d.o.a.e.b.g.c {
     @Override // d.o.a.e.b.g.c, d.o.a.e.b.g.o
     public void c() {
         if (d.o.a.e.b.l.a.a(262144)) {
-            this.f66969g = true;
+            this.f66974g = true;
             this.i = false;
             if (d.o.a.e.b.c.a.e()) {
                 d.o.a.e.b.c.a.g(m, "onStartCommandOnMainThread");

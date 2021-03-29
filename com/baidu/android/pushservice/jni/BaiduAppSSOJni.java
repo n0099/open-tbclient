@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaiduAppSSOJni {
     static {
         try {

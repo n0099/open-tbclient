@@ -30,7 +30,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f50251a;
+    public static String f50252a;
 
     public static void a(WebSettings webSettings) {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
@@ -174,7 +174,7 @@ public class a {
     }
 
     public static void i(String str) {
-        f50251a = str;
+        f50252a = str;
     }
 
     public static void j(Context context, String str) {

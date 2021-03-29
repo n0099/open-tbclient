@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.RomUtils;
 public class bc {
 
     /* renamed from: a  reason: collision with root package name */
-    public static bc f40989a;
+    public static bc f40990a;
 
     /* renamed from: a  reason: collision with other field name */
     public int f920a = 0;
@@ -23,10 +23,10 @@ public class bc {
     }
 
     public static bc a(Context context) {
-        if (f40989a == null) {
-            f40989a = new bc(context);
+        if (f40990a == null) {
+            f40990a = new bc(context);
         }
-        return f40989a;
+        return f40990a;
     }
 
     @SuppressLint({"NewApi"})

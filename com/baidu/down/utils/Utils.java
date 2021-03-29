@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Utils {
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
     public static final int NET = 2;
@@ -108,8 +108,8 @@ public class Utils {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00af  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00e0  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00dd  */
     /* JADX WARN: Removed duplicated region for block: B:50:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -353,7 +353,7 @@ public class Utils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f3873b;
+                            return g.f3874b;
                         case 4:
                         case 11:
                         default:

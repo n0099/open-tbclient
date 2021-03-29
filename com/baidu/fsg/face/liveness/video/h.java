@@ -6,13 +6,13 @@ import java.util.concurrent.Executors;
 public abstract class h implements c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f6016f = 24;
+    public static final int f6017f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6017g = 1;
+    public static final int f6018g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f6018h = 1048576;
+    public static final int f6019h = 1048576;
     public volatile boolean i;
     public b j;
     public long m;

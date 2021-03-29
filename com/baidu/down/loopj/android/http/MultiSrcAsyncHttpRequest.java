@@ -5,7 +5,7 @@ import com.baidu.down.loopj.android.request.handler.ICommonRequestHandler;
 import com.baidu.down.request.task.MultiSrcBinaryReqTask;
 import com.baidu.down.request.taskmanager.MultiSrcTaskMsg;
 import com.baidu.down.request.taskmanager.TaskFacade;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
     public static final boolean DEBUG = false;
     public static final int NOTIFY_TIME_INTERVAL = 100;

@@ -17,13 +17,13 @@ import java.util.Iterator;
 public class t {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f49638b;
+    public long f49639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f49639c = new a(2001371);
+    public CustomMessageListener f49640c = new a(2001371);
 
     /* renamed from: a  reason: collision with root package name */
-    public u f49637a = new u();
+    public u f49638a = new u();
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -42,9 +42,9 @@ public class t {
     }
 
     public t() {
-        MessageManager.getInstance().registerListener(this.f49639c);
+        MessageManager.getInstance().registerListener(this.f49640c);
         g();
-        this.f49638b = d.b.h0.r.d0.b.i().k("key_redpacket_pop_last_time", 0L);
+        this.f49639b = d.b.h0.r.d0.b.i().k("key_redpacket_pop_last_time", 0L);
     }
 
     public void b() {
@@ -54,20 +54,20 @@ public class t {
     }
 
     public final boolean c(x xVar) {
-        return xVar != null && this.f49638b >= xVar.b() && this.f49638b <= xVar.a();
+        return xVar != null && this.f49639b >= xVar.b() && this.f49639b <= xVar.a();
     }
 
     public final boolean d() {
         Date date = new Date();
-        return date.getTime() >= this.f49637a.b() && date.getTime() <= this.f49637a.a();
+        return date.getTime() >= this.f49638a.b() && date.getTime() <= this.f49638a.a();
     }
 
     public final boolean e() {
-        if (ListUtils.isEmpty(this.f49637a.c())) {
+        if (ListUtils.isEmpty(this.f49638a.c())) {
             return false;
         }
         Date date = new Date();
-        Iterator<x> it = this.f49637a.c().iterator();
+        Iterator<x> it = this.f49638a.c().iterator();
         while (it.hasNext()) {
             x next = it.next();
             if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
@@ -78,13 +78,13 @@ public class t {
     }
 
     public final void f() {
-        if (d.b.b.e.p.k.isEmpty(this.f49637a.d())) {
+        if (d.b.b.e.p.k.isEmpty(this.f49638a.d())) {
             return;
         }
-        this.f49638b = System.currentTimeMillis();
-        d.b.h0.r.d0.b.i().v("key_redpacket_pop_last_time", this.f49638b);
+        this.f49639b = System.currentTimeMillis();
+        d.b.h0.r.d0.b.i().v("key_redpacket_pop_last_time", this.f49639b);
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
-        String str = this.f49637a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+        String str = this.f49638a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
@@ -92,6 +92,6 @@ public class t {
     }
 
     public final void g() {
-        this.f49637a.e(d.b.h0.r.d0.b.i().o("key_redpacket_pop", ""));
+        this.f49638a.e(d.b.h0.r.d0.b.i().o("key_redpacket_pop", ""));
     }
 }

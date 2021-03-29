@@ -14,25 +14,25 @@ import d.b.g0.a.g;
 public class SwanAppBottomTabIconView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12655e;
+    public ImageView f12656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12656f;
+    public TextView f12657f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f12657g;
+    public ImageView f12658g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12658h;
+    public TextView f12659h;
     public boolean i;
 
     public SwanAppBottomTabIconView(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(g.aiapps_bottom_tab_icon, (ViewGroup) this, true);
-        this.f12655e = (ImageView) findViewById(f.bottom_tab_icon);
-        this.f12656f = (TextView) findViewById(f.bottom_tab_text);
-        this.f12657g = (ImageView) findViewById(f.bottom_tab_red_dot);
-        this.f12658h = (TextView) findViewById(f.bottom_tab_badge);
+        this.f12656e = (ImageView) findViewById(f.bottom_tab_icon);
+        this.f12657f = (TextView) findViewById(f.bottom_tab_text);
+        this.f12658g = (ImageView) findViewById(f.bottom_tab_red_dot);
+        this.f12659h = (TextView) findViewById(f.bottom_tab_badge);
     }
 
     public boolean a() {
@@ -40,35 +40,35 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setBadgeText(String str) {
-        this.f12658h.setText(str);
+        this.f12659h.setText(str);
     }
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.f12658h.setVisibility(0);
+            this.f12659h.setVisibility(0);
         } else {
-            this.f12658h.setVisibility(8);
+            this.f12659h.setVisibility(8);
         }
     }
 
     public void setIconView(int i) {
-        this.f12655e.setImageDrawable(getResources().getDrawable(i));
+        this.f12656e.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRedDotVisibleState(boolean z) {
         if (z) {
-            this.f12657g.setVisibility(0);
+            this.f12658g.setVisibility(0);
         } else {
-            this.f12657g.setVisibility(8);
+            this.f12658g.setVisibility(8);
         }
     }
 
     public void setTextColor(int i) {
-        this.f12656f.setTextColor(i);
+        this.f12657f.setTextColor(i);
     }
 
     public void setTextView(String str) {
-        this.f12656f.setText(str);
+        this.f12657f.setText(str);
     }
 
     public void setmIsSelect(boolean z) {
@@ -76,10 +76,10 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setIconView(Bitmap bitmap) {
-        this.f12655e.setImageBitmap(bitmap);
+        this.f12656e.setImageBitmap(bitmap);
     }
 
     public void setIconView(Drawable drawable) {
-        this.f12655e.setImageDrawable(drawable);
+        this.f12656e.setImageDrawable(drawable);
     }
 }

@@ -528,25 +528,25 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             try {
                 this.pairs.add(retrieveNextPair(bitArray, this.pairs, i));
             } catch (NotFoundException e2) {
-                if (this.pairs.isEmpty()) {
-                    throw e2;
-                }
-                if (checkChecksum()) {
-                    return this.pairs;
-                }
-                boolean z = !this.rows.isEmpty();
-                storeRow(i, false);
-                if (z) {
-                    List<ExpandedPair> checkRows = checkRows(false);
-                    if (checkRows != null) {
-                        return checkRows;
+                if (!this.pairs.isEmpty()) {
+                    if (checkChecksum()) {
+                        return this.pairs;
                     }
-                    List<ExpandedPair> checkRows2 = checkRows(true);
-                    if (checkRows2 != null) {
-                        return checkRows2;
+                    boolean z = !this.rows.isEmpty();
+                    storeRow(i, false);
+                    if (z) {
+                        List<ExpandedPair> checkRows = checkRows(false);
+                        if (checkRows != null) {
+                            return checkRows;
+                        }
+                        List<ExpandedPair> checkRows2 = checkRows(true);
+                        if (checkRows2 != null) {
+                            return checkRows2;
+                        }
                     }
+                    throw NotFoundException.getNotFoundInstance();
                 }
-                throw NotFoundException.getNotFoundInstance();
+                throw e2;
             }
         }
     }

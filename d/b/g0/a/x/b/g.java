@@ -11,68 +11,68 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.v1.c.h;
 import d.b.g0.a.v1.c.i.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends d.b.g0.a.x.b.a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46939e;
+        public final /* synthetic */ UnitedSchemeEntity f46940e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46940f;
+        public final /* synthetic */ CallbackHandler f46941f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46941g;
+        public final /* synthetic */ Context f46942g;
 
         public a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
-            this.f46939e = unitedSchemeEntity;
-            this.f46940f = callbackHandler;
-            this.f46941g = context;
+            this.f46940e = unitedSchemeEntity;
+            this.f46941f = callbackHandler;
+            this.f46942g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
-            d.b.g0.a.x.e.a aVar = (d.b.g0.a.x.e.a) g.this.q(this.f46939e);
+            d.b.g0.a.x.e.a aVar = (d.b.g0.a.x.e.a) g.this.q(this.f46940e);
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                g.this.p(this.f46941g, this.f46939e, this.f46940f, aVar);
+                g.this.p(this.f46942g, this.f46940e, this.f46941f, aVar);
                 return;
             }
-            d.b.g0.a.v1.c.c.n(hVar, this.f46940f, this.f46939e);
+            d.b.g0.a.v1.c.c.n(hVar, this.f46941f, this.f46940e);
             d.b.g0.a.c0.c.b("SwanAppCameraManager", "camera authorize failure");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.x.e.a f46943a;
+        public final /* synthetic */ d.b.g0.a.x.e.a f46944a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46944b;
+        public final /* synthetic */ UnitedSchemeEntity f46945b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46945c;
+        public final /* synthetic */ CallbackHandler f46946c;
 
         public b(d.b.g0.a.x.e.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f46943a = aVar;
-            this.f46944b = unitedSchemeEntity;
-            this.f46945c = callbackHandler;
+            this.f46944a = aVar;
+            this.f46945b = unitedSchemeEntity;
+            this.f46946c = callbackHandler;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            g.this.k(this.f46944b, this.f46945c, g.this.o(this.f46943a));
+            g.this.k(this.f46945b, this.f46946c, g.this.o(this.f46944a));
             d.b.g0.a.c0.c.b("SwanAppCameraManager", str + "");
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            UnitedSchemeUtility.callCallback(this.f46945c, this.f46944b, 10005);
+            UnitedSchemeUtility.callCallback(this.f46946c, this.f46945b, 10005);
             d.b.g0.a.c0.c.b("SwanAppCameraManager", str + "");
         }
     }
@@ -109,7 +109,7 @@ public class g extends d.b.g0.a.x.b.a {
             d.b.g0.a.a0.b.c G = aVar3.G(aVar);
             boolean a2 = G.a();
             if (!a2) {
-                d.b.g0.a.c0.c.b("SwanAppCameraManager", "update camera fail: " + G.f43116b);
+                d.b.g0.a.c0.c.b("SwanAppCameraManager", "update camera fail: " + G.f43117b);
             }
             return a2;
         }

@@ -31,7 +31,7 @@ public class h extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof d.b.i0.x.e0.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) ((d.b.i0.x.e0.k) nVar), view.getContext(), 2, false);
-                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             }
         }
     }

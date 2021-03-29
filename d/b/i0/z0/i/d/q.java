@@ -21,7 +21,7 @@ import d.b.i.s0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -30,7 +30,7 @@ public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
     public s0 q;
     public b0<a2> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -44,32 +44,32 @@ public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1115a {
+    /* loaded from: classes3.dex */
+    public class b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f63264a;
+        public final /* synthetic */ s0 f63265a;
 
         public b(s0 s0Var) {
-            this.f63264a = s0Var;
+            this.f63265a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f63264a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f63265a.getVideoContainer());
             if (!(aVar instanceof a2)) {
-                ThreadCardUtils.jumpToPB(aVar, q.this.f42357e, 2, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, q.this.f42358e, 2, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, q.this.f42357e, 2, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, q.this.f42358e, 2, false, computeViewArea);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -84,7 +84,7 @@ public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
                     q.this.r.a(autoVideoCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false, d.b.i.e.a((s) viewGroup, view, i));
-                autoVideoCardViewHolder.b().o(new a.C1117a(1));
+                autoVideoCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -100,21 +100,21 @@ public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
     public final d.b.i0.i2.o m0(a2 a2Var) {
         if (a2Var != null) {
             d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-            oVar.f56163a = "20";
-            oVar.f56165c = a2Var.A;
-            oVar.f56168f = a2Var.R0;
-            oVar.f56169g = a2Var.T0;
-            oVar.f56170h = a2Var.S0;
+            oVar.f56164a = "20";
+            oVar.f56166c = a2Var.A;
+            oVar.f56169f = a2Var.R0;
+            oVar.f56170g = a2Var.T0;
+            oVar.f56171h = a2Var.S0;
             oVar.i = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
             oVar.s = this.n;
             oVar.q = String.valueOf(a2Var.M1);
             if (a2Var.t1() != null) {
-                oVar.k = String.valueOf(a2Var.t1().f50807a);
+                oVar.k = String.valueOf(a2Var.t1().f50808a);
             }
             a2Var.n();
             if (a2Var != null) {
                 a2Var.n();
-                oVar.f56166d = String.valueOf(a2Var.c0());
+                oVar.f56167d = String.valueOf(a2Var.c0());
                 a2Var.n();
                 oVar.v = a2Var.L0();
                 a2Var.n();
@@ -125,7 +125,7 @@ public class q extends d.b.b.j.e.a<z1, AutoVideoCardViewHolder<a2>> {
                     oVar.p = String.valueOf(a2Var.u1().is_vertical);
                 }
             }
-            oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
             a2Var.n();
             if (a2Var != null) {
                 a2Var.n();

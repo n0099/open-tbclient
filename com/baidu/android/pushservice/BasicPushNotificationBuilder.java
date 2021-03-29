@@ -11,7 +11,7 @@ import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         this.mStatusbarIcon = objectInputStream.readInt();

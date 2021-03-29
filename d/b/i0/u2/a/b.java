@@ -3,11 +3,11 @@ package d.b.i0.u2.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61289a;
+    public String f61290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61290b;
+    public String f61291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61291c;
+    public String f61292c;
 }

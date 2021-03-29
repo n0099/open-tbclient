@@ -57,7 +57,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     public int G;
     public d.b.i0.c2.i.c H;
     public d.b.i0.x.b0<d.b.h0.r.q.a> I;
-    public a.InterfaceC1115a J;
+    public a.InterfaceC1116a J;
     public int s;
     public boolean t;
     public boolean u;
@@ -109,9 +109,9 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             }
             OriginalThreadInfo originalThreadInfo = aVar.n().r1;
             String N = q.this.v.N();
-            String str = originalThreadInfo.f13215f;
+            String str = originalThreadInfo.f13216f;
             int i = 1;
-            int i2 = originalThreadInfo.f13210a;
+            int i2 = originalThreadInfo.f13211a;
             if (i2 == 3) {
                 i = 2;
             } else if (i2 == 4) {
@@ -125,19 +125,19 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1115a {
+    public class c implements a.InterfaceC1116a {
         public c() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
             OriginalThreadInfo originalThreadInfo = aVar.n().r1;
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(q.this.f42357e);
-            pbActivityConfig.createNormalCfg(originalThreadInfo.f13215f, originalThreadInfo.n, null);
-            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f13214e));
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(q.this.f42358e);
+            pbActivityConfig.createNormalCfg(originalThreadInfo.f13216f, originalThreadInfo.n, null);
+            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f13215e));
             pbActivityConfig.setStartFrom(q.this.G);
             pbActivityConfig.setBjhData(originalThreadInfo.p);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
@@ -148,34 +148,34 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     public class d implements TbRichTextView.t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorViewHolder f52755a;
+        public final /* synthetic */ PbFirstFloorViewHolder f52756a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PostData f52756b;
+        public final /* synthetic */ PostData f52757b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f52757c;
+        public final /* synthetic */ View f52758c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f52758d;
+        public final /* synthetic */ int f52759d;
 
         public d(PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData, View view, int i) {
-            this.f52755a = pbFirstFloorViewHolder;
-            this.f52756b = postData;
-            this.f52757c = view;
-            this.f52758d = i;
+            this.f52756a = pbFirstFloorViewHolder;
+            this.f52757b = postData;
+            this.f52758c = view;
+            this.f52759d = i;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.t
         public void a() {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52755a.f19542e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52756a.f19543e.getLayoutParams();
             layoutParams.topMargin = q.this.h0(R.dimen.ds16);
             int h0 = q.this.h0(R.dimen.ds34);
             layoutParams.bottomMargin = h0;
             layoutParams.leftMargin = h0;
             layoutParams.rightMargin = h0;
-            this.f52755a.f19542e.setLayoutParams(layoutParams);
-            q.this.q0(this.f52755a, this.f52756b, this.f52757c, this.f52758d);
+            this.f52756a.f19543e.setLayoutParams(layoutParams);
+            q.this.q0(this.f52756a, this.f52757b, this.f52758c, this.f52759d);
         }
     }
 
@@ -229,7 +229,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             d.b.i0.c2.m.a.d(this.n.getUniqueId(), this.v, postData2, postData2.d0, 1);
             r0(pbFirstFloorViewHolder, postData2, view, i);
         }
-        if (!this.D && this.E && pbFirstFloorViewHolder != null && pbFirstFloorViewHolder.f19542e.C() && (listView = this.n.getListView()) != null) {
+        if (!this.D && this.E && pbFirstFloorViewHolder != null && pbFirstFloorViewHolder.f19543e.C() && (listView = this.n.getListView()) != null) {
             this.D = true;
             CompatibleUtile.getInstance().closeViewGpu(listView);
         }
@@ -259,16 +259,16 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     }
 
     public final void E0(PbFirstFloorViewHolder pbFirstFloorViewHolder) {
-        pbFirstFloorViewHolder.f19539b.setOnTouchListener(this.A);
-        pbFirstFloorViewHolder.f19539b.setOnLongClickListener(this.B);
+        pbFirstFloorViewHolder.f19540b.setOnTouchListener(this.A);
+        pbFirstFloorViewHolder.f19540b.setOnLongClickListener(this.B);
         d.b.i0.c2.k.e.z0.a aVar = this.m.P().mEvent;
-        pbFirstFloorViewHolder.f19542e.setOnLongClickListener(this.B);
-        pbFirstFloorViewHolder.f19542e.setOnTouchListener(this.H);
-        pbFirstFloorViewHolder.f19542e.setCommonTextViewOnClickListener(this.y);
-        pbFirstFloorViewHolder.f19542e.setOnImageClickListener(this.z);
-        pbFirstFloorViewHolder.f19542e.setOnImageTouchListener(this.H);
-        pbFirstFloorViewHolder.f19542e.setmGridEmptyClickListener(new e(this));
-        pbFirstFloorViewHolder.f19542e.setOnEmotionClickListener(aVar.f52997e);
+        pbFirstFloorViewHolder.f19543e.setOnLongClickListener(this.B);
+        pbFirstFloorViewHolder.f19543e.setOnTouchListener(this.H);
+        pbFirstFloorViewHolder.f19543e.setCommonTextViewOnClickListener(this.y);
+        pbFirstFloorViewHolder.f19543e.setOnImageClickListener(this.z);
+        pbFirstFloorViewHolder.f19543e.setOnImageTouchListener(this.H);
+        pbFirstFloorViewHolder.f19543e.setmGridEmptyClickListener(new e(this));
+        pbFirstFloorViewHolder.f19543e.setOnEmotionClickListener(aVar.f52998e);
         pbFirstFloorViewHolder.j.setOnClickListener(this.y);
         pbFirstFloorViewHolder.r.setAfterItemClickListener(this.y);
         pbFirstFloorViewHolder.s.setAfterItemClickListener(this.y);
@@ -291,9 +291,9 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (pbFirstFloorViewHolder.f19538a != skinType) {
-            SkinManager.setBackgroundColor(pbFirstFloorViewHolder.f19543f, R.color.CAM_X0204);
-            pbFirstFloorViewHolder.f19542e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        if (pbFirstFloorViewHolder.f19539a != skinType) {
+            SkinManager.setBackgroundColor(pbFirstFloorViewHolder.f19544f, R.color.CAM_X0204);
+            pbFirstFloorViewHolder.f19543e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             pbFirstFloorViewHolder.m.c();
             ThreadForumEnterButtonContainer threadForumEnterButtonContainer = pbFirstFloorViewHolder.r;
             if (threadForumEnterButtonContainer != null) {
@@ -310,7 +310,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
                 voteView.C(skinType);
             }
         }
-        pbFirstFloorViewHolder.f19538a = TbadkCoreApplication.getInst().getSkinType();
+        pbFirstFloorViewHolder.f19539a = TbadkCoreApplication.getInst().getSkinType();
     }
 
     public void J0() {
@@ -353,8 +353,8 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     }
 
     public final void o0(PbFirstFloorViewHolder pbFirstFloorViewHolder) {
-        pbFirstFloorViewHolder.f19542e.setTextViewOnTouchListener(this.H);
-        pbFirstFloorViewHolder.f19542e.setTextViewCheckSelection(false);
+        pbFirstFloorViewHolder.f19543e.setTextViewOnTouchListener(this.H);
+        pbFirstFloorViewHolder.f19543e.setTextViewCheckSelection(false);
     }
 
     public final void p0(TbRichTextView tbRichTextView, View view, boolean z) {
@@ -393,19 +393,19 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         TbRichText tbRichText = null;
         if (postData.z() != 1) {
             if (TextUtils.isEmpty(postData.t())) {
-                pbFirstFloorViewHolder.f19542e.setOnClickListener(this.y);
-                pbFirstFloorViewHolder.f19542e.setTextViewOnClickListener(this.y);
+                pbFirstFloorViewHolder.f19543e.setOnClickListener(this.y);
+                pbFirstFloorViewHolder.f19543e.setTextViewOnClickListener(this.y);
             } else {
-                pbFirstFloorViewHolder.f19542e.setOnClickListener(null);
-                pbFirstFloorViewHolder.f19542e.setTextViewOnClickListener(null);
+                pbFirstFloorViewHolder.f19543e.setOnClickListener(null);
+                pbFirstFloorViewHolder.f19543e.setTextViewOnClickListener(null);
             }
-            pbFirstFloorViewHolder.f19539b.setOnClickListener(this.y);
+            pbFirstFloorViewHolder.f19540b.setOnClickListener(this.y);
         } else {
-            pbFirstFloorViewHolder.f19539b.setOnClickListener(null);
+            pbFirstFloorViewHolder.f19540b.setOnClickListener(null);
         }
         if (postData.z() == 1) {
             pbFirstFloorViewHolder.c(this.v, this.n.isSimpleForum(), postData.Q);
-            p0(pbFirstFloorViewHolder.f19542e, view, this.F);
+            p0(pbFirstFloorViewHolder.f19543e, view, this.F);
             if (postData.s() != null) {
                 long userIdLong = postData.s().getUserIdLong();
                 str = postData.s().getUserName();
@@ -421,7 +421,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
                 pbFirstFloorViewHolder.o.b(postData.C(), str, str2, j, d.b.b.e.m.b.f(this.v.L().o0(), 0L), d.b.b.e.m.b.f(postData.D(), 0L));
             }
             if (this.n.G4().o1()) {
-                pbFirstFloorViewHolder.f19542e.setVisibility(8);
+                pbFirstFloorViewHolder.f19543e.setVisibility(8);
             }
             d.b.i0.c2.h.e eVar2 = this.v;
             if (eVar2 != null && eVar2.L() != null && this.v.L().I1() != null) {
@@ -431,11 +431,11 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
                 if (!StringUtils.isNull(a2)) {
-                    pbFirstFloorViewHolder.f19545h.setVisibility(0);
-                    pbFirstFloorViewHolder.f19545h.W(a2, 10, true);
+                    pbFirstFloorViewHolder.f19546h.setVisibility(0);
+                    pbFirstFloorViewHolder.f19546h.W(a2, 10, true);
                 }
             } else {
-                pbFirstFloorViewHolder.f19545h.setVisibility(8);
+                pbFirstFloorViewHolder.f19546h.setVisibility(8);
             }
             ThreadSkinView threadSkinView = pbFirstFloorViewHolder.i;
             if (threadSkinView != null) {
@@ -446,7 +446,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
                 threadForumEnterButtonContainer.setPadding(threadForumEnterButtonContainer.getPaddingLeft(), d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds29), pbFirstFloorViewHolder.r.getPaddingRight(), pbFirstFloorViewHolder.r.getPaddingBottom());
             }
         }
-        pbFirstFloorViewHolder.f19542e.getLayoutStrategy().x(R.drawable.pic_video);
+        pbFirstFloorViewHolder.f19543e.getLayoutStrategy().x(R.drawable.pic_video);
         SparseArray sparseArray = new SparseArray();
         sparseArray.put(R.id.tag_clip_board, postData);
         sparseArray.put(R.id.tag_load_sub_data, postData);
@@ -456,7 +456,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         boolean V = postData.V();
         if (V) {
             if (this.w == null) {
-                d.b.i0.c2.k.g.b bVar = new d.b.i0.c2.k.g.b(this.f42357e);
+                d.b.i0.c2.k.g.b bVar = new d.b.i0.c2.k.g.b(this.f42358e);
                 this.w = bVar;
                 bVar.f(this.q);
                 this.w.h(this.x);
@@ -468,13 +468,13 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             }
             this.w.g(postData.D());
         }
-        pbFirstFloorViewHolder.f19542e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        pbFirstFloorViewHolder.f19543e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         if (this.t) {
-            pbFirstFloorViewHolder.f19542e.getLayoutStrategy().g(R.drawable.transparent_bg);
+            pbFirstFloorViewHolder.f19543e.getLayoutStrategy().g(R.drawable.transparent_bg);
         } else {
-            pbFirstFloorViewHolder.f19542e.getLayoutStrategy().g(R.drawable.icon_click);
+            pbFirstFloorViewHolder.f19543e.getLayoutStrategy().g(R.drawable.icon_click);
         }
-        pbFirstFloorViewHolder.f19542e.setIsFromCDN(this.q);
+        pbFirstFloorViewHolder.f19543e.setIsFromCDN(this.q);
         d.b.i0.c2.h.e eVar5 = this.v;
         if (eVar5 != null && eVar5.L() != null && this.v.L().e2()) {
             s0(pbFirstFloorViewHolder, this.v.L().H0());
@@ -482,13 +482,13 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         d.b.i0.c2.h.e eVar6 = this.v;
         if ((eVar6 == null || eVar6.L() == null || !this.v.L().s1 || postData.I() == null) ? false : true) {
             if (postData.I().z != null) {
-                pbFirstFloorViewHolder.f19542e.getLayoutStrategy().m(v0(R.dimen.tbds24));
+                pbFirstFloorViewHolder.f19543e.getLayoutStrategy().m(v0(R.dimen.tbds24));
             } else {
-                pbFirstFloorViewHolder.f19542e.getLayoutStrategy().m(v0(R.dimen.tbds14));
+                pbFirstFloorViewHolder.f19543e.getLayoutStrategy().m(v0(R.dimen.tbds14));
             }
             t0(pbFirstFloorViewHolder, postData);
         } else {
-            pbFirstFloorViewHolder.f19542e.getLayoutStrategy().m(v0(R.dimen.tbds24));
+            pbFirstFloorViewHolder.f19543e.getLayoutStrategy().m(v0(R.dimen.tbds24));
         }
         TbRichText J = postData.J();
         d.b.i0.c2.h.e eVar7 = this.v;
@@ -496,20 +496,20 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             tbRichText = J;
         }
         if (this.v.L() != null) {
-            pbFirstFloorViewHolder.f19542e.setIsUseGridImage(this.v.L().P1());
-            pbFirstFloorViewHolder.f19542e.setmIsGridImageSupportLongPress(true);
+            pbFirstFloorViewHolder.f19543e.setIsUseGridImage(this.v.L().P1());
+            pbFirstFloorViewHolder.f19543e.setmIsGridImageSupportLongPress(true);
         }
         d.b.i0.c2.h.e eVar8 = this.v;
         if (eVar8 != null && 3 == eVar8.g()) {
             if (!this.D && this.E) {
-                pbFirstFloorViewHolder.f19542e.setText(tbRichText, true, this.C, true, false);
+                pbFirstFloorViewHolder.f19543e.setText(tbRichText, true, this.C, true, false);
             } else {
-                pbFirstFloorViewHolder.f19542e.setText(tbRichText, false, this.C, true, false);
+                pbFirstFloorViewHolder.f19543e.setText(tbRichText, false, this.C, true, false);
             }
         } else if (!this.D && this.E) {
-            pbFirstFloorViewHolder.f19542e.setText(tbRichText, true, this.C, false, true);
+            pbFirstFloorViewHolder.f19543e.setText(tbRichText, true, this.C, false, true);
         } else {
-            pbFirstFloorViewHolder.f19542e.setText(tbRichText, false, this.C, false, true);
+            pbFirstFloorViewHolder.f19543e.setText(tbRichText, false, this.C, false, true);
         }
         u0(pbFirstFloorViewHolder, postData, tbRichText);
         boolean z5 = !StringUtils.isNull(postData.s().getVirtualUserUrl());
@@ -646,27 +646,27 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        pbFirstFloorViewHolder.f19542e.setTag(sparseArray);
-        pbFirstFloorViewHolder.f19539b.setTag(R.id.tag_from, sparseArray);
+        pbFirstFloorViewHolder.f19543e.setTag(sparseArray);
+        pbFirstFloorViewHolder.f19540b.setTag(R.id.tag_from, sparseArray);
         sparseArray.put(R.id.tag_clip_board, postData);
         sparseArray.put(R.id.tag_is_subpb, Boolean.FALSE);
-        pbFirstFloorViewHolder.f19542e.setIsHost(true);
+        pbFirstFloorViewHolder.f19543e.setIsHost(true);
         if (this.u) {
-            pbFirstFloorViewHolder.f19543f.setVisibility(0);
+            pbFirstFloorViewHolder.f19544f.setVisibility(0);
         } else {
-            pbFirstFloorViewHolder.f19543f.setVisibility(8);
+            pbFirstFloorViewHolder.f19544f.setVisibility(8);
         }
         if (!TextUtils.isEmpty(postData.t()) && this.t) {
             this.F = true;
-            pbFirstFloorViewHolder.f19542e.b0(postData.t(), new d(pbFirstFloorViewHolder, postData, view, i));
+            pbFirstFloorViewHolder.f19543e.b0(postData.t(), new d(pbFirstFloorViewHolder, postData, view, i));
         } else {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbFirstFloorViewHolder.f19542e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbFirstFloorViewHolder.f19543e.getLayoutParams();
             layoutParams.bottomMargin = 0;
             layoutParams.topMargin = 0;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            pbFirstFloorViewHolder.f19542e.setLayoutParams(layoutParams);
-            pbFirstFloorViewHolder.f19542e.a0(null);
+            pbFirstFloorViewHolder.f19543e.setLayoutParams(layoutParams);
+            pbFirstFloorViewHolder.f19543e.a0(null);
             this.F = false;
             q0(pbFirstFloorViewHolder, postData, view, i);
         }
@@ -693,9 +693,9 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         if (eVar2 != null && y0(eVar2.L())) {
             pbFirstFloorViewHolder.u.setDataForPb(this.v.L().O0(), this.v.L().w1(), this.v.m());
             if (postData.J() != null && !ListUtils.isEmpty(postData.J().u())) {
-                pbFirstFloorViewHolder.u.setMarginTop(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds26));
+                pbFirstFloorViewHolder.u.setMarginTop(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds26));
             } else {
-                pbFirstFloorViewHolder.u.setMarginTop(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds0));
+                pbFirstFloorViewHolder.u.setMarginTop(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds0));
             }
             pbFirstFloorViewHolder.u.setVisibility(0);
         } else {
@@ -719,23 +719,23 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         }
         J0();
         d.b.i0.c2.h.e eVar6 = this.v;
-        if (eVar6 != null && (kVar = eVar6.f52426h) != null) {
+        if (eVar6 != null && (kVar = eVar6.f52427h) != null) {
             if (pbFirstFloorViewHolder.l != null) {
                 if (TextUtils.isEmpty(kVar.e())) {
                     pbFirstFloorViewHolder.l.setVisibility(8);
                 } else {
                     pbFirstFloorViewHolder.l.setVisibility(0);
-                    pbFirstFloorViewHolder.l.setText(this.v.f52426h.e());
+                    pbFirstFloorViewHolder.l.setText(this.v.f52427h.e());
                 }
             }
             if (pbFirstFloorViewHolder.k != null && pbFirstFloorViewHolder.t.h() == null) {
                 pbFirstFloorViewHolder.k.addView(pbFirstFloorViewHolder.t.a(this.v));
                 String fromPageKey = UtilHelper.getFromPageKey(this.n.getPageContext());
-                Context context = this.f42357e;
+                Context context = this.f42358e;
                 if (!(context instanceof PbActivity) || ((PbActivity) context).getIntent() == null) {
                     z = false;
                 } else {
-                    z = ((PbActivity) this.f42357e).getIntent().getBooleanExtra(PbActivityConfig.KEY_IS_FROM_BAR_VOTE, false);
+                    z = ((PbActivity) this.f42358e).getIntent().getBooleanExtra(PbActivityConfig.KEY_IS_FROM_BAR_VOTE, false);
                     if (z) {
                         new StatisticItem(TbadkCoreStatisticKey.KEY_PB_VOTE_SOURCE).param("obj_source", 1).eventStat();
                     }
@@ -758,7 +758,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
         d.b.i0.c2.h.e eVar7 = this.v;
         if (eVar7 != null && eVar7.L() != null && !y0(this.v.L()) && (!ListUtils.isEmpty(this.v.L().G0()) || !ListUtils.isEmpty(this.v.L().l0()))) {
             d.b.h0.z0.j0 j0Var = new d.b.h0.z0.j0();
-            PbLinkGoodsRootView pbLinkGoodsRootView = new PbLinkGoodsRootView(this.f42357e);
+            PbLinkGoodsRootView pbLinkGoodsRootView = new PbLinkGoodsRootView(this.f42358e);
             d.b.i0.c2.h.e eVar8 = this.v;
             pbLinkGoodsRootView.i(eVar8, j0Var.a(eVar8.L().G0(), this.v.L().l0()), this.v.n(), this.n, j0Var.b());
             pbFirstFloorViewHolder.n.addView(pbLinkGoodsRootView);
@@ -773,11 +773,11 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     }
 
     public final void s0(PbFirstFloorViewHolder pbFirstFloorViewHolder, d.b.h0.r.q.p0 p0Var) {
-        if (p0Var == null || d.b.b.e.p.k.isEmpty(p0Var.e()) || p0Var.c() != d.b.h0.r.q.p0.f50854g) {
+        if (p0Var == null || d.b.b.e.p.k.isEmpty(p0Var.e()) || p0Var.c() != d.b.h0.r.q.p0.f50855g) {
             return;
         }
         if (!p0Var.f()) {
-            pbFirstFloorViewHolder.f19542e.getLayoutStrategy().m(d.b.b.e.p.l.g(this.f42357e, R.dimen.ds48));
+            pbFirstFloorViewHolder.f19543e.getLayoutStrategy().m(d.b.b.e.p.l.g(this.f42358e, R.dimen.ds48));
         }
         pbFirstFloorViewHolder.o.c(p0Var);
     }
@@ -825,8 +825,8 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
             if (postData.I().m) {
                 aVar = new d.b.i0.c2.k.e.a1.d(this.n.getPageContext(), this.G);
             } else if (item != null && item.item_id.longValue() != 0) {
-                if (postData.I().f13210a != 0 && postData.I().f13210a != 1) {
-                    if (postData.I().f13210a == 3) {
+                if (postData.I().f13211a != 0 && postData.I().f13211a != 1) {
+                    if (postData.I().f13211a == 3) {
                         aVar = new d.b.i0.c2.k.e.a1.g(this.n.getPageContext());
                     } else {
                         aVar = new d.b.i0.c2.k.e.a1.e(this.n.getPageContext());
@@ -847,8 +847,8 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
                 } else {
                     aVar = new d.b.i0.c2.k.e.a1.i(this.n.getPageContext(), this.G);
                 }
-            } else if (postData.I().f13210a != 0 && postData.I().f13210a != 1) {
-                if (postData.I().f13210a == 3) {
+            } else if (postData.I().f13211a != 0 && postData.I().f13211a != 1) {
+                if (postData.I().f13211a == 3) {
                     aVar = new d.b.i0.c2.k.e.a1.i(this.n.getPageContext(), this.G);
                 }
             } else {
@@ -873,7 +873,7 @@ public class q extends m<PostData, PbFirstFloorViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: z0 */
     public PbFirstFloorViewHolder R(ViewGroup viewGroup) {
-        PbFirstFloorViewHolder pbFirstFloorViewHolder = new PbFirstFloorViewHolder(this.n.getPageContext(), LayoutInflater.from(this.f42357e).inflate(R.layout.new_pb_list_first_floor_item, viewGroup, false), this.t, this.s);
+        PbFirstFloorViewHolder pbFirstFloorViewHolder = new PbFirstFloorViewHolder(this.n.getPageContext(), LayoutInflater.from(this.f42358e).inflate(R.layout.new_pb_list_first_floor_item, viewGroup, false), this.t, this.s);
         I0(pbFirstFloorViewHolder);
         pbFirstFloorViewHolder.o.f(this.G);
         return pbFirstFloorViewHolder;

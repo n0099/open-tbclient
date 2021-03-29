@@ -106,8 +106,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
         /* renamed from: com.baidu.tieba.pb.chosen.PbChosenActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0213a extends d.b.b.a.e {
-            public C0213a() {
+        public class C0214a extends d.b.b.a.e {
+            public C0214a() {
             }
 
             @Override // d.b.b.a.e
@@ -149,7 +149,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     pbChosenActivity.attentionModel = new LikeModel(pbChosenActivity.getPageContext());
                 }
                 PbChosenActivity.this.attentionModel.setFrom("from_frs");
-                PbChosenActivity.this.attentionModel.setLoadDataCallBack(new C0213a());
+                PbChosenActivity.this.attentionModel.setLoadDataCallBack(new C0214a());
                 PbChosenActivity.this.attentionModel.H(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_name, String.valueOf(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id));
                 if (PbChosenActivity.this.chosenData == null || PbChosenActivity.this.chosenData.getThreadInfo() == null) {
                     return;
@@ -202,9 +202,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PbChosenActivity.this.postInfoView.n();
-            PbChosenActivity.this.postInfoView.f52395h = !PbChosenActivity.this.postInfoView.f52395h;
-            PbChosenActivity.this.postInfoView.m(PbChosenActivity.this.postInfoView.f52395h);
-            if (PbChosenActivity.this.postInfoView.f52395h) {
+            PbChosenActivity.this.postInfoView.f52396h = !PbChosenActivity.this.postInfoView.f52396h;
+            PbChosenActivity.this.postInfoView.m(PbChosenActivity.this.postInfoView.f52396h);
+            if (PbChosenActivity.this.postInfoView.f52396h) {
                 PbChosenActivity.this.praiseData = 1;
             } else {
                 PbChosenActivity.this.praiseData = 0;

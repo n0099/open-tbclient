@@ -3,18 +3,18 @@ package com.baidu.webkit.logsdk.a;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.baidu.webkit.logsdk.c.a f26982a;
+    public final /* synthetic */ com.baidu.webkit.logsdk.c.a f26983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f26983b;
+    public final /* synthetic */ b f26984b;
 
     public e(b bVar, com.baidu.webkit.logsdk.c.a aVar) {
-        this.f26983b = bVar;
-        this.f26982a = aVar;
+        this.f26984b = bVar;
+        this.f26983a = aVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f26983b.h().c().a(this.f26982a);
+        this.f26984b.h().c().a(this.f26983a);
     }
 }

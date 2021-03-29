@@ -24,26 +24,26 @@ import d.b.i0.e1.b.p.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<m>, NetModel.k<l, m> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMessageFragment f18337e;
+    public ReplyMessageFragment f18338e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f18338f;
+    public l f18339f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ReplyMeNetModel f18339g;
+    public ReplyMeNetModel f18340g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ReplyMeCacheModel f18340h;
+    public ReplyMeCacheModel f18341h;
     public g i;
     public FeedData j;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.f18337e = replyMessageFragment;
+        this.f18338e = replyMessageFragment;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -78,7 +78,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.f18337e.onServerError(errorData);
+                this.f18338e.onServerError(errorData);
             }
         }
     }
@@ -105,7 +105,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.f18337e.onServerError(errorData);
+                this.f18338e.onServerError(errorData);
             }
         }
     }
@@ -113,12 +113,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
     public void onCacheDataGet(ReadCacheRespMsg<List<m>> readCacheRespMsg, ReadCacheMessage<m> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            x(this.f18338f, readCacheRespMsg.getData().get(0), true);
+            x(this.f18339f, readCacheRespMsg.getData().get(0), true);
         }
         this.j = null;
-        this.f18338f.c();
-        this.f18339g.setNeedCache(true);
-        this.f18339g.N();
+        this.f18339f.c();
+        this.f18340g.setNeedCache(true);
+        this.f18340g.N();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
@@ -126,11 +126,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     public void onDestroy() {
-        ReplyMeNetModel replyMeNetModel = this.f18339g;
+        ReplyMeNetModel replyMeNetModel = this.f18340g;
         if (replyMeNetModel != null) {
             replyMeNetModel.V(null);
         }
-        ReplyMeCacheModel replyMeCacheModel = this.f18340h;
+        ReplyMeCacheModel replyMeCacheModel = this.f18341h;
         if (replyMeCacheModel != null) {
             replyMeCacheModel.K(null);
         }
@@ -142,11 +142,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             return true;
         }
         g gVar = this.i;
-        if (gVar != null && (arrayList = gVar.f54430e) != null) {
+        if (gVar != null && (arrayList = gVar.f54431e) != null) {
             arrayList.clear();
         }
-        this.f18337e.P0();
-        this.f18337e.V0(false, null);
+        this.f18338e.P0();
+        this.f18338e.V0(false, null);
         return false;
     }
 
@@ -160,32 +160,32 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
 
     public boolean u() {
         if (s()) {
-            this.f18340h.I(this.f18338f);
+            this.f18341h.I(this.f18339f);
             return true;
         }
         return true;
     }
 
     public void v(Bundle bundle) {
-        this.f18338f = new l();
-        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f18337e.getPageContext(), this.f18338f);
-        this.f18339g = replyMeNetModel;
+        this.f18339f = new l();
+        ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f18338e.getPageContext(), this.f18339f);
+        this.f18340g = replyMeNetModel;
         replyMeNetModel.V(this);
-        this.f18339g.setUniqueId(this.f18337e.getUniqueId());
-        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f18337e.getPageContext());
-        this.f18340h = replyMeCacheModel;
+        this.f18340g.setUniqueId(this.f18338e.getUniqueId());
+        ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f18338e.getPageContext());
+        this.f18341h = replyMeCacheModel;
         replyMeCacheModel.K(this);
-        this.f18340h.setUniqueId(this.f18337e.getUniqueId());
+        this.f18341h.setUniqueId(this.f18338e.getUniqueId());
         this.i = new g();
     }
 
     public boolean w() {
-        if (this.f18339g.M() || !s()) {
+        if (this.f18340g.M() || !s()) {
             return false;
         }
-        this.f18338f.d(this.j);
-        this.f18339g.setNeedCache(false);
-        this.f18339g.N();
+        this.f18339f.d(this.j);
+        this.f18340g.setNeedCache(false);
+        this.f18340g.N();
         return true;
     }
 
@@ -212,7 +212,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         }
         b.g0().p();
         ArrayList<n> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.i.f54430e.iterator();
+        Iterator<FeedData> it = this.i.f54431e.iterator();
         while (it.hasNext()) {
             a aVar = new a();
             aVar.F(it.next());
@@ -221,18 +221,18 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             }
             arrayList.add(aVar);
         }
-        this.f18337e.V0(z2, arrayList);
+        this.f18338e.V0(z2, arrayList);
         return z3;
     }
 
     public boolean y() {
-        if (this.f18339g.M() || !s()) {
+        if (this.f18340g.M() || !s()) {
             return false;
         }
         this.j = null;
-        this.f18338f.c();
-        this.f18339g.setNeedCache(true);
-        this.f18339g.N();
+        this.f18339f.c();
+        this.f18340g.setNeedCache(true);
+        this.f18340g.N();
         return true;
     }
 }

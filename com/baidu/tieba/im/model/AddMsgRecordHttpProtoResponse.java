@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AddMsgRecordHttpProtoResponse extends HttpResponsedMessage {
     public DataRes mData;
 

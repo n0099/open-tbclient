@@ -19,20 +19,20 @@ import d.b.h0.r.u.c;
 import d.b.i.p;
 import d.b.i0.x.b0;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4534e;
+    public Context f4535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4535f;
+    public int f4536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4536g;
+    public TbImageView f4537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4537h;
+    public View f4538h;
     public ImageView i;
     public ImageView j;
     public TextView k;
@@ -46,7 +46,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
     public View.OnClickListener s;
     public d.b.i.v0.a t;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -56,15 +56,15 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
             if (VideoImageNoPlayerLayout.this.q != null) {
                 b0 b0Var = VideoImageNoPlayerLayout.this.q;
                 VideoImageNoPlayerLayout videoImageNoPlayerLayout = VideoImageNoPlayerLayout.this;
-                b0Var.a(videoImageNoPlayerLayout.f4536g, videoImageNoPlayerLayout.r);
+                b0Var.a(videoImageNoPlayerLayout.f4537g, videoImageNoPlayerLayout.r);
             }
             if (VideoImageNoPlayerLayout.this.s != null) {
-                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4536g);
+                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4537g);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -77,9 +77,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
 
     public VideoImageNoPlayerLayout(Context context) {
         super(context);
-        this.f4535f = 3;
+        this.f4536f = 3;
         this.p = false;
-        this.f4534e = context;
+        this.f4535e = context;
         f();
     }
 
@@ -89,17 +89,17 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         this.n = (RelativeLayout) findViewById(R.id.operable_video_container);
         this.o = (RelativeLayout) findViewById(R.id.video_container);
         new WeakReference(TbadkCoreApplication.getInst());
-        this.f4536g = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.f4537h = findViewById(R.id.video_thumbnail_mask);
+        this.f4537g = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.f4538h = findViewById(R.id.video_thumbnail_mask);
         this.i = (ImageView) findViewById(R.id.video_play);
         this.j = (ImageView) findViewById(R.id.video_pause);
         this.k = (TextView) findViewById(R.id.video_play_count);
         this.l = (TextView) findViewById(R.id.video_play_flag);
         this.m = (TextView) findViewById(R.id.video_duration);
-        this.f4536g.setConrers(15);
-        this.f4536g.setRadiusById(R.string.J_X05);
-        this.f4536g.setDrawCorner(true);
-        this.f4536g.setPlaceHolder(3);
+        this.f4537g.setConrers(15);
+        this.f4537g.setRadiusById(R.string.J_X05);
+        this.f4537g.setDrawCorner(true);
+        this.f4537g.setPlaceHolder(3);
         setOnClickListener(new a());
         SkinManager.setBackgroundResource(this, R.color.CAM_X0206);
     }
@@ -113,14 +113,14 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         }
         OriginalThreadInfo originalThreadInfo = aVar.n().r1;
         originalThreadInfo.r.is_vertical.intValue();
-        String str = originalThreadInfo.f13215f;
+        String str = originalThreadInfo.f13216f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
-        long j = originalThreadInfo.f13214e;
+        long j = originalThreadInfo.f13215e;
         this.m.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.k.setText(String.format(this.f4534e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.k.setText(String.format(this.f4535e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.l.setVisibility(8);
-        this.f4536g.W(originalThreadInfo.r.thumbnail_url, 10, false);
+        this.f4537g.W(originalThreadInfo.r.thumbnail_url, 10, false);
     }
 
     @Override // android.view.View
@@ -129,16 +129,16 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
     }
 
     public void h(TbPageContext tbPageContext, int i) {
-        if (this.f4535f != i) {
-            c.a(this.f4537h).l(R.array.Mask_X001);
-            c.a(this.f4537h).h(R.string.J_X05);
+        if (this.f4536f != i) {
+            c.a(this.f4538h).l(R.array.Mask_X001);
+            c.a(this.f4538h).h(R.string.J_X05);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
             this.i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             this.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
         }
-        this.f4535f = i;
+        this.f4536f = i;
     }
 
     public final void i() {

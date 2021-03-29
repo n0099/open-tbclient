@@ -9,35 +9,35 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43615e = k.f45050a;
+    public static final boolean f43616e = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43616a;
+    public String f43617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f43617b;
+    public JSONArray f43618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43618c;
+    public String f43619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43619d;
+    public String f43620d;
 
     public static c b(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.f43617b = jSONObject.getJSONArray("host");
-            cVar.f43616a = jSONObject.getString("appKey");
+            cVar.f43618b = jSONObject.getJSONArray("host");
+            cVar.f43617a = jSONObject.getString("appKey");
             jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            cVar.f43618c = jSONObject.getString(ClientCookie.PORT_ATTR);
-            cVar.f43619d = Uri.decode(jSONObject.optString("url"));
+            cVar.f43619c = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.f43620d = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException unused) {
-            if (f43615e) {
+            if (f43616e) {
                 Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
                 return null;
             }
@@ -46,7 +46,7 @@ public class c {
     }
 
     public String a(int i) {
-        JSONArray jSONArray = this.f43617b;
+        JSONArray jSONArray = this.f43618b;
         if (jSONArray == null) {
             return "";
         }
@@ -54,6 +54,6 @@ public class c {
         if (TextUtils.isEmpty(optString)) {
             return "";
         }
-        return "http://" + optString + ":" + this.f43618c;
+        return "http://" + optString + ":" + this.f43619c;
     }
 }

@@ -2,7 +2,7 @@ package protobuf.CheckMaskUser;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_UID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)

@@ -67,7 +67,7 @@ import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public static final String JAVASCTIPT_URL = "javascript:";
     public static final String SHOW_IMAGE_PREFIX = "imagedisplay:";
@@ -109,7 +109,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
     public static boolean sInitFirstWebView = true;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class BdSailorWebViewExt implements ISailorWebViewExt {
         public ISailorWebSettingsExt mSettingsExt;
         public BdSailorWebChromeClientExt mWebChromeClientExt;
@@ -657,14 +657,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends WebBackForwardListClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4312a;
+        public WebView f4313a;
 
         public a(WebView webView) {
-            this.f4312a = webView;
+            this.f4313a = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -680,7 +680,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements WebView.PictureListener {
         public b() {
         }
@@ -698,14 +698,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements DownloadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4315a;
+        public WebView f4316a;
 
         public c(WebView webView) {
-            this.f4315a = webView;
+            this.f4316a = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -717,11 +717,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4317a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+        public String[] f4318a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
 
         public d() {
         }
@@ -888,7 +888,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (!TextUtils.isEmpty(str)) {
                 String host = Uri.parse(str).getHost();
                 if (!TextUtils.isEmpty(host)) {
-                    for (String str3 : this.f4317a) {
+                    for (String str3 : this.f4318a) {
                         if (host.contains(str3)) {
                             jsResult.confirm();
                             return true;
@@ -1144,14 +1144,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4319a;
+        public String[] f4320a;
 
         public e() {
-            this.f4319a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+            this.f4320a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
         public /* synthetic */ e(BdSailorWebView bdSailorWebView, byte b2) {
@@ -1805,7 +1805,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
             }
             if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
-                String[] strArr = this.f4319a;
+                String[] strArr = this.f4320a;
                 int length = strArr.length;
                 while (true) {
                     if (i >= length) {
@@ -1833,7 +1833,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class f extends FrameLayout {
         public f(Context context) {
             super(context);
@@ -1846,7 +1846,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class g extends WebViewDelegate {
         public g(WebView webView) {
             super(webView);

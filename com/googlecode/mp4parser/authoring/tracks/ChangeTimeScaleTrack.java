@@ -23,23 +23,16 @@ public class ChangeTimeScaleTrack implements Track {
     public ChangeTimeScaleTrack(Track track, long j, long[] jArr) {
         this.source = track;
         this.timeScale = j;
-        double d2 = j;
-        double timescale = track.getTrackMetaData().getTimescale();
-        Double.isNaN(d2);
-        Double.isNaN(timescale);
-        double d3 = d2 / timescale;
-        this.ctts = adjustCtts(track.getCompositionTimeEntries(), d3);
-        this.decodingTimes = adjustTts(track.getSampleDurations(), d3, jArr, getTimes(track, jArr, j));
+        double timescale = j / track.getTrackMetaData().getTimescale();
+        this.ctts = adjustCtts(track.getCompositionTimeEntries(), timescale);
+        this.decodingTimes = adjustTts(track.getSampleDurations(), timescale, jArr, getTimes(track, jArr, j));
     }
 
     public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, double d2) {
         if (list != null) {
             ArrayList arrayList = new ArrayList(list.size());
             for (CompositionTimeToSample.Entry entry : list) {
-                int count = entry.getCount();
-                double offset = entry.getOffset();
-                Double.isNaN(offset);
-                arrayList.add(new CompositionTimeToSample.Entry(count, (int) Math.round(offset * d2)));
+                arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), (int) Math.round(entry.getOffset() * d2)));
             }
             return arrayList;
         }
@@ -52,9 +45,7 @@ public class ChangeTimeScaleTrack implements Track {
         int i = 1;
         while (i <= jArr.length) {
             int i2 = i - 1;
-            double d3 = jArr[i2];
-            Double.isNaN(d3);
-            long round = Math.round(d3 * d2);
+            long round = Math.round(jArr[i2] * d2);
             int i3 = i + 1;
             int binarySearch = Arrays.binarySearch(jArr2, i3);
             if (binarySearch >= 0 && jArr3[binarySearch] != j) {

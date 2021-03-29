@@ -13,16 +13,16 @@ public class y implements d.b.b.j.e.n {
     public static final BdUniqueId s = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52933e;
+    public String f52934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52934f;
+    public int f52935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52935g;
+    public int f52936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52936h;
+    public String f52937h;
     public String i;
     public long j;
     public MetaData k;
@@ -38,10 +38,10 @@ public class y implements d.b.b.j.e.n {
         HashMap<String, MetaData> hashMap;
         MetaData metaData;
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-            this.f52933e = alaLiveInfo.user_info.user_name;
-            this.f52934f = alaLiveInfo.live_status.intValue();
-            this.f52935g = alaLiveInfo.audience_count.intValue();
-            this.f52936h = alaLiveInfo.description;
+            this.f52934e = alaLiveInfo.user_info.user_name;
+            this.f52935f = alaLiveInfo.live_status.intValue();
+            this.f52936g = alaLiveInfo.audience_count.intValue();
+            this.f52937h = alaLiveInfo.description;
             this.i = alaLiveInfo.cover;
             this.j = alaLiveInfo.live_id.longValue();
             this.m = alaLiveInfo.live_from.intValue() == 1;
@@ -65,7 +65,7 @@ public class y implements d.b.b.j.e.n {
                 d.b.h0.r.q.v0 v0Var = new d.b.h0.r.q.v0();
                 this.r = v0Var;
                 v0Var.j(sparseArray);
-                this.r.f50906g = sparseArray2;
+                this.r.f50907g = sparseArray2;
             } else {
                 this.r = null;
             }

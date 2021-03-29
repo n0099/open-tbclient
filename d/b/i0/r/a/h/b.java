@@ -13,13 +13,13 @@ import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f59680c = new b();
+    public static b f59681c = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1498b f59681a;
+    public InterfaceC1499b f59682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f59682b = new a(CmdConfigHttp.CMD_GET_SPLASH_INFO);
+    public final HttpMessageListener f59683b = new a(CmdConfigHttp.CMD_GET_SPLASH_INFO);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -33,15 +33,15 @@ public class b {
             if (httpResponsedMessage instanceof SplashHttpResponse) {
                 SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                 if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                    if (b.this.f59681a != null) {
-                        b.this.f59681a.b(splashHttpResponse.getResultMsg());
+                    if (b.this.f59682a != null) {
+                        b.this.f59682a.b(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
                 }
                 BdLog.e("Response of splash has error");
-                if (b.this.f59681a != null) {
-                    b.this.f59681a.a(splashHttpResponse.getResultMsg());
+                if (b.this.f59682a != null) {
+                    b.this.f59682a.a(splashHttpResponse.getResultMsg());
                     return;
                 }
                 return;
@@ -52,7 +52,7 @@ public class b {
 
     /* renamed from: d.b.i0.r.a.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1498b {
+    public interface InterfaceC1499b {
         void a(String str);
 
         void b(String str);
@@ -67,13 +67,13 @@ public class b {
     }
 
     public static b d() {
-        return f59680c;
+        return f59681c;
     }
 
-    public void e(TbPageContext<?> tbPageContext, InterfaceC1498b interfaceC1498b, AdInfo adInfo) {
-        this.f59681a = interfaceC1498b;
-        this.f59682b.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f59682b);
+    public void e(TbPageContext<?> tbPageContext, InterfaceC1499b interfaceC1499b, AdInfo adInfo) {
+        this.f59682a = interfaceC1499b;
+        this.f59683b.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.f59683b);
         SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
     }
 }

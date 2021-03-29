@@ -30,16 +30,16 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     public static BdUniqueId[][] R;
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f62196e;
+    public a2 f62197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62197f;
+    public String f62198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62198g;
+    public String f62199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62199h;
+    public int f62200h;
     public String i;
     public String j;
     public String l;
@@ -96,11 +96,11 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public int E() {
-        return this.f62199h;
+        return this.f62200h;
     }
 
     public String F() {
-        return this.f62198g;
+        return this.f62199g;
     }
 
     public StatisticItem G(String str) {
@@ -180,7 +180,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public String O() {
-        return this.f62197f;
+        return this.f62198f;
     }
 
     public boolean P() {
@@ -204,11 +204,11 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public void U(int i) {
-        this.f62199h = i;
+        this.f62200h = i;
     }
 
     public void V(String str) {
-        this.f62198g = str;
+        this.f62199g = str;
     }
 
     public void W(int i) {
@@ -220,7 +220,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public void Y(String str) {
-        this.f62197f = str;
+        this.f62198f = str;
     }
 
     @Override // d.b.h0.r.q.a
@@ -234,8 +234,8 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
         v0Var.k(n().c0());
         v0Var.m(n().L0());
         v0Var.j(this.feedBackReasonMap);
-        v0Var.j = this.f62197f;
-        v0Var.k = this.f62198g;
+        v0Var.j = this.f62198f;
+        v0Var.k = this.f62199g;
         v0Var.l = this.m;
         v0Var.m = n().Z;
         return v0Var;
@@ -256,7 +256,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
 
     @Override // d.b.h0.r.q.a
     public String j() {
-        return this.f62198g + "#" + this.f62199h + "#" + this.i;
+        return this.f62199g + "#" + this.f62200h + "#" + this.i;
     }
 
     @Override // d.b.h0.r.q.a

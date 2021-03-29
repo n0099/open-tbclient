@@ -15,7 +15,7 @@ import d.b.i0.d1.f.e;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgActivityView extends e {
     public HeadImageView t;
     public TextView u;
@@ -25,7 +25,7 @@ public class MsgActivityView extends e {
     public d.b.b.e.h.a y;
     public d.b.b.e.h.b z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -38,7 +38,7 @@ public class MsgActivityView extends e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnLongClickListener {
         public b() {
         }
@@ -53,29 +53,29 @@ public class MsgActivityView extends e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17758e;
+        public final /* synthetic */ String f17759e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17759f;
+        public final /* synthetic */ String f17760f;
 
         public c(String str, String str2) {
-            this.f17758e = str;
-            this.f17759f = str2;
+            this.f17759e = str;
+            this.f17760f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17758e, this.f17759f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17759e, this.f17760f)));
         }
     }
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
-        this.f53654h = (TextView) d(R.id.tex_msgitem_time);
+        this.f53655h = (TextView) d(R.id.tex_msgitem_time);
         this.u = (TextView) d(R.id.msg_msgactivity_title);
         this.v = (TextView) d(R.id.msg_msgactivity_time);
         this.w = (TextView) d(R.id.msg_msgactivity_address);

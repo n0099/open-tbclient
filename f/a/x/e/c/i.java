@@ -6,29 +6,29 @@ import io.reactivex.internal.operators.observable.ObservableSampleWithObservable
 public final class i<T> implements o<Object> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ObservableSampleWithObservable$SampleMainObserver<T> f67498e;
+    public final ObservableSampleWithObservable$SampleMainObserver<T> f67503e;
 
     public i(ObservableSampleWithObservable$SampleMainObserver<T> observableSampleWithObservable$SampleMainObserver) {
-        this.f67498e = observableSampleWithObservable$SampleMainObserver;
+        this.f67503e = observableSampleWithObservable$SampleMainObserver;
     }
 
     @Override // f.a.o
     public void onComplete() {
-        this.f67498e.complete();
+        this.f67503e.complete();
     }
 
     @Override // f.a.o
     public void onError(Throwable th) {
-        this.f67498e.error(th);
+        this.f67503e.error(th);
     }
 
     @Override // f.a.o
     public void onNext(Object obj) {
-        this.f67498e.run();
+        this.f67503e.run();
     }
 
     @Override // f.a.o
     public void onSubscribe(f.a.t.b bVar) {
-        this.f67498e.setOther(bVar);
+        this.f67503e.setOther(bVar);
     }
 }

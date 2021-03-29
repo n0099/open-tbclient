@@ -12,12 +12,12 @@ public abstract class a {
     public int mDefaultType = 0;
     public int mOffType = 1;
     public int mMaxCrashTimes = 10;
-    public b.a mSwitchListener = new C0534a();
+    public b.a mSwitchListener = new C0535a();
 
     /* renamed from: d.b.b.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0534a implements b.a {
-        public C0534a() {
+    public class C0535a implements b.a {
+        public C0535a() {
         }
 
         @Override // d.b.b.e.f.b.a

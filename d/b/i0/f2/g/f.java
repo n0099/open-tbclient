@@ -35,15 +35,15 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g.a f54820e;
+        public final /* synthetic */ g.a f54821e;
 
         public a(g.a aVar) {
-            this.f54820e = aVar;
+            this.f54821e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            f.this.w(this.f54820e);
+            f.this.w(this.f54821e);
         }
     }
 
@@ -70,7 +70,7 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
         for (int i2 = 0; i2 < this.p.getChildCount(); i2++) {
             SkinManager.setViewTextColor((TextView) this.p.getChildAt(i2).findViewById(R.id.create_center_item_text), R.color.CAM_X0105);
         }
-        TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(this.f62181g, R.dimen.tbds21)).setBgColor(R.color.CAM_X0201).setShadowColor(R.color.CAM_X0806).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f62181g, R.dimen.tbds16)).setOffsetX(0).setOffsetY(l.g(this.f62181g, R.dimen.tbds5)).into(this.m);
+        TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(this.f62182g, R.dimen.tbds21)).setBgColor(R.color.CAM_X0201).setShadowColor(R.color.CAM_X0806).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f62182g, R.dimen.tbds16)).setOffsetX(0).setOffsetY(l.g(this.f62182g, R.dimen.tbds5)).into(this.m);
     }
 
     @Override // android.view.View.OnClickListener
@@ -91,14 +91,14 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setId(R.id.create_center_item_img);
-        tbImageView.setImageResource(aVar.f54780b);
+        tbImageView.setImageResource(aVar.f54781b);
         int g2 = l.g(context, R.dimen.tbds126);
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(g2, g2));
         TextView textView = new TextView(context);
         textView.setId(R.id.create_center_item_text);
-        textView.setText(aVar.f54781c);
+        textView.setText(aVar.f54782c);
         textView.setIncludeFontPadding(false);
-        textView.setTextSize(0, l.g(this.f62181g, R.dimen.tbfontsize32));
+        textView.setTextSize(0, l.g(this.f62182g, R.dimen.tbfontsize32));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = l.g(context, R.dimen.tbds32);
         linearLayout.addView(textView, layoutParams);
@@ -108,13 +108,13 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
 
     public final void w(g.a aVar) {
         d.b.i0.f2.e.g gVar;
-        if (aVar == null || (gVar = this.q) == null || gVar.f54778f == null) {
+        if (aVar == null || (gVar = this.q) == null || gVar.f54779f == null) {
             return;
         }
-        int i = aVar.f54779a;
+        int i = aVar.f54780a;
         if (i == 1) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f62180f.getPageActivity(), this.q.f54778f.getUserId(), this.q.f54778f.getSex(), this.q.f54778f.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f62181f.getPageActivity(), this.q.f54779f.getUserId(), this.q.f54779f.getSex(), this.q.f54779f.getPortrait())));
             TiebaStatic.log("c13843");
         } else if (i == 2) {
             y(R.string.god_authentication, TbConfig.URL_GOD_AUTH);
@@ -135,15 +135,15 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
     @Override // d.b.i0.x.b
     /* renamed from: x */
     public void n(d.b.i0.f2.e.g gVar) {
-        if (gVar == null || ListUtils.isEmpty(gVar.f54777e)) {
+        if (gVar == null || ListUtils.isEmpty(gVar.f54778e)) {
             return;
         }
         if (gVar != this.q) {
             this.p.removeAllViews();
-            int k = (l.k(this.f62181g) - (l.g(this.f62181g, R.dimen.tbds44) * 2)) / gVar.f54777e.size();
-            for (g.a aVar : gVar.f54777e) {
+            int k = (l.k(this.f62182g) - (l.g(this.f62182g, R.dimen.tbds44) * 2)) / gVar.f54778e.size();
+            for (g.a aVar : gVar.f54778e) {
                 if (aVar != null) {
-                    this.p.addView(v(this.f62181g, aVar), new LinearLayout.LayoutParams(k, -2));
+                    this.p.addView(v(this.f62182g, aVar), new LinearLayout.LayoutParams(k, -2));
                 }
             }
             this.q = gVar;
@@ -152,6 +152,6 @@ public class f extends d.b.i0.x.b<d.b.i0.f2.e.g> {
     }
 
     public final void y(int i, String str) {
-        this.f62180f.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f62180f.getPageActivity(), this.f62180f.getString(i), str, true)));
+        this.f62181f.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f62181f.getPageActivity(), this.f62181f.getString(i), str, true)));
     }
 }

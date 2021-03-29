@@ -81,9 +81,7 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     }
 
     public int calculateTimeForDeceleration(int i) {
-        double calculateTimeForScrolling = calculateTimeForScrolling(i);
-        Double.isNaN(calculateTimeForScrolling);
-        return (int) Math.ceil(calculateTimeForScrolling / 0.3356d);
+        return (int) Math.ceil(calculateTimeForScrolling(i) / 0.3356d);
     }
 
     public int calculateTimeForScrolling(int i) {

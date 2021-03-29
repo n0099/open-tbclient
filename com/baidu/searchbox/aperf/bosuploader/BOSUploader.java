@@ -53,7 +53,7 @@ public class BOSUploader {
         return sSingleton;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0130 A[Catch: Exception -> 0x0159, JSONException -> 0x015b, BceClientException -> 0x015d, BceServiceException -> 0x015f, TryCatch #7 {BceServiceException -> 0x015f, BceClientException -> 0x015d, JSONException -> 0x015b, Exception -> 0x0159, blocks: (B:19:0x0046, B:21:0x0052, B:23:0x0060, B:25:0x0078, B:26:0x007a, B:65:0x0155, B:66:0x0158, B:59:0x011c, B:60:0x011f, B:62:0x0130, B:63:0x014a, B:51:0x010e), top: B:104:0x0046 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x012f A[Catch: Exception -> 0x0158, JSONException -> 0x015a, BceClientException -> 0x015c, BceServiceException -> 0x015e, TryCatch #6 {BceServiceException -> 0x015e, BceClientException -> 0x015c, JSONException -> 0x015a, Exception -> 0x0158, blocks: (B:19:0x0045, B:21:0x0051, B:23:0x005f, B:25:0x0077, B:26:0x0079, B:65:0x0154, B:66:0x0157, B:59:0x011b, B:60:0x011e, B:62:0x012f, B:63:0x0149, B:51:0x010d), top: B:105:0x0045 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

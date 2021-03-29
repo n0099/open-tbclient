@@ -16,10 +16,10 @@ import java.util.Map;
 public final class ReflectUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f5390a;
+    public final Object f5391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f5391b = true;
+    public final boolean f5392b = true;
 
     /* loaded from: classes2.dex */
     public class NULL {
@@ -28,7 +28,7 @@ public final class ReflectUtils {
     }
 
     public ReflectUtils(Class<?> cls) {
-        this.f5390a = cls;
+        this.f5391a = cls;
     }
 
     public static <T extends AccessibleObject> T accessible(T t) {
@@ -125,16 +125,16 @@ public final class ReflectUtils {
     }
 
     public <P> P as(Class<P> cls) {
-        final boolean z = this.f5390a instanceof Map;
+        final boolean z = this.f5391a instanceof Map;
         return (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
             @Override // java.lang.reflect.InvocationHandler
             public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
                 String name = method.getName();
                 try {
-                    return ReflectUtils.on(ReflectUtils.this.f5390a).call(name, objArr).get();
+                    return ReflectUtils.on(ReflectUtils.this.f5391a).call(name, objArr).get();
                 } catch (RuntimeException e2) {
                     if (z) {
-                        Map map = (Map) ReflectUtils.this.f5390a;
+                        Map map = (Map) ReflectUtils.this.f5391a;
                         int length = objArr == null ? 0 : objArr.length;
                         if (length == 0 && name.startsWith("get")) {
                             return map.get(ReflectUtils.b(name.substring(3)));
@@ -163,14 +163,14 @@ public final class ReflectUtils {
 
     public boolean equals(Object obj) {
         if (obj instanceof ReflectUtils) {
-            return this.f5390a.equals(((ReflectUtils) obj).get());
+            return this.f5391a.equals(((ReflectUtils) obj).get());
         }
         return false;
     }
 
     public ReflectUtils field(String str) throws RuntimeException {
         try {
-            return on(d(str).get(this.f5390a));
+            return on(d(str).get(this.f5391a));
         } catch (Exception e2) {
             throw new RuntimeException(e2);
         }
@@ -182,7 +182,7 @@ public final class ReflectUtils {
         Class<?> type = type();
         do {
             for (Field field : type.getDeclaredFields()) {
-                if ((!this.f5391b) ^ Modifier.isStatic(field.getModifiers())) {
+                if ((!this.f5392b) ^ Modifier.isStatic(field.getModifiers())) {
                     String name = field.getName();
                     if (!linkedHashMap.containsKey(name)) {
                         linkedHashMap.put(name, field(name));
@@ -195,18 +195,18 @@ public final class ReflectUtils {
     }
 
     public <T> T get() {
-        return (T) this.f5390a;
+        return (T) this.f5391a;
     }
 
     public int hashCode() {
-        return this.f5390a.hashCode();
+        return this.f5391a.hashCode();
     }
 
     public ReflectUtils set(String str, Object obj) throws RuntimeException {
         try {
             Field d2 = d(str);
             d2.setAccessible(true);
-            d2.set(this.f5390a, a(obj));
+            d2.set(this.f5391a, a(obj));
             return this;
         } catch (Exception e2) {
             throw new RuntimeException(e2);
@@ -214,14 +214,14 @@ public final class ReflectUtils {
     }
 
     public String toString() {
-        return this.f5390a.toString();
+        return this.f5391a.toString();
     }
 
     public Class<?> type() {
-        if (this.f5391b) {
-            return (Class) this.f5390a;
+        if (this.f5392b) {
+            return (Class) this.f5391a;
         }
-        return this.f5390a.getClass();
+        return this.f5391a.getClass();
     }
 
     public static ReflectUtils on(String str, ClassLoader classLoader) throws RuntimeException {
@@ -232,12 +232,12 @@ public final class ReflectUtils {
         Class<?>[] a2 = a(objArr);
         try {
             try {
-                return a(a(str, a2), this.f5390a, objArr);
+                return a(a(str, a2), this.f5391a, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
             }
         } catch (NoSuchMethodException unused) {
-            return a(b(str, a2), this.f5390a, objArr);
+            return a(b(str, a2), this.f5391a, objArr);
         }
     }
 
@@ -273,7 +273,7 @@ public final class ReflectUtils {
     }
 
     public ReflectUtils(Object obj) {
-        this.f5390a = obj;
+        this.f5391a = obj;
     }
 
     private Method b(String str, Class<?>[] clsArr) throws NoSuchMethodException {

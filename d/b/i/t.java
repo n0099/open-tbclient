@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t extends a<d.b.h0.r.q.a> {
     public View j;
     public ThreadLinkView k;

@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public List<l.b<String>> cacheList;
     public long gid;

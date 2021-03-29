@@ -3,21 +3,21 @@ package d.b.i0.b1.c;
 import com.baidu.adp.BdUniqueId;
 import tbclient.Hottopic.PkModule;
 import tbclient.Hottopic.PkView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i implements d.b.b.j.e.n {
     public static final BdUniqueId p = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52117e;
+    public String f52118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52118f;
+    public String f52119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52119g;
+    public String f52120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f52120h;
+    public long f52121h;
     public String i;
     public long j;
     public int k;
@@ -30,11 +30,11 @@ public class i implements d.b.b.j.e.n {
         if (pkModule == null) {
             return;
         }
-        this.f52117e = pkModule.module_name;
-        this.f52118f = pkModule.ques_desc;
+        this.f52118e = pkModule.module_name;
+        this.f52119f = pkModule.ques_desc;
         PkView pkView = pkModule.pk_1;
-        this.f52119g = pkView.pk_desc;
-        this.f52120h = pkView.pk_num.longValue();
+        this.f52120g = pkView.pk_desc;
+        this.f52121h = pkView.pk_num.longValue();
         pkModule.pk_1.pk_index.intValue();
         PkView pkView2 = pkModule.pk_2;
         this.i = pkView2.pk_desc;
@@ -46,7 +46,7 @@ public class i implements d.b.b.j.e.n {
         this.l = pkModule.pk_id.longValue();
         this.m = pkModule.user_pk_id.longValue();
         int i = this.k;
-        long j = this.f52120h;
+        long j = this.f52121h;
         if (i == 1) {
             j--;
         }

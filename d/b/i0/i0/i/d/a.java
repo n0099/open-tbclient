@@ -17,24 +17,24 @@ import d.b.i0.i0.i.c.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f55616a;
+    public BdUniqueId f55617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55617b = 1;
+    public int f55618b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f55618c;
+    public c f55619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f55619d;
+    public b f55620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.c.g.a f55620e;
+    public d.b.b.c.g.a f55621e;
 
     /* renamed from: d.b.i0.i0.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1287a extends d.b.b.c.g.a {
-        public C1287a(int i, int i2) {
+    public class C1288a extends d.b.b.c.g.a {
+        public C1288a(int i, int i2) {
             super(i, i2);
         }
 
@@ -43,7 +43,7 @@ public class a {
             if (responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == a.this.f55616a) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == a.this.f55617a) {
                 c cVar = null;
                 if (responsedMessage instanceof HotUserRankHttpResMsg) {
                     cVar = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
@@ -51,29 +51,29 @@ public class a {
                     cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (a.this.f55617b == 1 && (cVar == null || ListUtils.isEmpty(cVar.f55608b))) {
-                        if (a.this.f55619d != null) {
-                            a.this.f55619d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    if (a.this.f55618b == 1 && (cVar == null || ListUtils.isEmpty(cVar.f55609b))) {
+                        if (a.this.f55620d != null) {
+                            a.this.f55620d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
                     } else if (cVar != null) {
-                        a.this.f55618c.f55607a = cVar.f55607a;
-                        a.this.f55618c.f55608b.addAll(cVar.f55608b);
-                        a.this.f55618c.f55609c = cVar.f55609c;
-                        a.this.f55618c.f55610d = cVar.f55610d;
-                        a.this.f55618c.f55611e = cVar.f55611e;
-                        a.this.f55618c.f55612f = cVar.f55612f;
-                        if (ListUtils.isEmpty(cVar.f55608b)) {
-                            a.this.f55618c.f55613g = false;
+                        a.this.f55619c.f55608a = cVar.f55608a;
+                        a.this.f55619c.f55609b.addAll(cVar.f55609b);
+                        a.this.f55619c.f55610c = cVar.f55610c;
+                        a.this.f55619c.f55611d = cVar.f55611d;
+                        a.this.f55619c.f55612e = cVar.f55612e;
+                        a.this.f55619c.f55613f = cVar.f55613f;
+                        if (ListUtils.isEmpty(cVar.f55609b)) {
+                            a.this.f55619c.f55614g = false;
                         } else {
-                            a.this.f55618c.f55613g = cVar.f55613g;
+                            a.this.f55619c.f55614g = cVar.f55614g;
                             a.c(a.this);
                         }
-                        if (a.this.f55619d != null) {
-                            a.this.f55619d.a(cVar);
+                        if (a.this.f55620d != null) {
+                            a.this.f55620d.a(cVar);
                         }
                     }
-                } else if (a.this.f55619d != null) {
-                    a.this.f55619d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                } else if (a.this.f55620d != null) {
+                    a.this.f55620d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -87,36 +87,36 @@ public class a {
     }
 
     public a(BdUniqueId bdUniqueId) {
-        C1287a c1287a = new C1287a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.f55620e = c1287a;
-        this.f55616a = bdUniqueId;
-        c1287a.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f55620e);
+        C1288a c1288a = new C1288a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
+        this.f55621e = c1288a;
+        this.f55617a = bdUniqueId;
+        c1288a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f55621e);
         m();
         l();
-        this.f55618c = new c();
+        this.f55619c = new c();
     }
 
     public static /* synthetic */ int c(a aVar) {
-        int i = aVar.f55617b;
-        aVar.f55617b = i + 1;
+        int i = aVar.f55618b;
+        aVar.f55618b = i + 1;
         return i;
     }
 
     public int f() {
-        return this.f55617b;
+        return this.f55618b;
     }
 
     public c g() {
-        return this.f55618c;
+        return this.f55619c;
     }
 
     public void h(long j) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.forumId = j;
         hotUserRankReqMsg.pageSize = 20;
-        hotUserRankReqMsg.pageNum = this.f55617b;
-        hotUserRankReqMsg.setTag(this.f55616a);
+        hotUserRankReqMsg.pageNum = this.f55618b;
+        hotUserRankReqMsg.setTag(this.f55617a);
         MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
     }
 
@@ -124,18 +124,18 @@ public class a {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.category = str;
         hotUserRankReqMsg.pageSize = 20;
-        hotUserRankReqMsg.pageNum = this.f55617b;
-        hotUserRankReqMsg.setTag(this.f55616a);
+        hotUserRankReqMsg.pageNum = this.f55618b;
+        hotUserRankReqMsg.setTag(this.f55617a);
         MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
     }
 
     public boolean j() {
-        return this.f55618c.f55613g;
+        return this.f55619c.f55614g;
     }
 
     public void k() {
-        MessageManager.getInstance().removeMessage(this.f55616a);
-        MessageManager.getInstance().unRegisterListener(this.f55616a);
+        MessageManager.getInstance().removeMessage(this.f55617a);
+        MessageManager.getInstance().unRegisterListener(this.f55617a);
     }
 
     public final void l() {
@@ -155,6 +155,6 @@ public class a {
     }
 
     public void n(b bVar) {
-        this.f55619d = bVar;
+        this.f55620d = bVar;
     }
 }

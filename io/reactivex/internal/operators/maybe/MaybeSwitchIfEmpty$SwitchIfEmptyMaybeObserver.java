@@ -15,34 +15,34 @@ public final class MaybeSwitchIfEmpty$SwitchIfEmptyMaybeObserver<T> extends Atom
     public static final class a<T> implements i<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f68046e;
+        public final i<? super T> f68051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicReference<b> f68047f;
+        public final AtomicReference<b> f68052f;
 
         public a(i<? super T> iVar, AtomicReference<b> atomicReference) {
-            this.f68046e = iVar;
-            this.f68047f = atomicReference;
+            this.f68051e = iVar;
+            this.f68052f = atomicReference;
         }
 
         @Override // f.a.i
         public void onComplete() {
-            this.f68046e.onComplete();
+            this.f68051e.onComplete();
         }
 
         @Override // f.a.i
         public void onError(Throwable th) {
-            this.f68046e.onError(th);
+            this.f68051e.onError(th);
         }
 
         @Override // f.a.i
         public void onSubscribe(b bVar) {
-            DisposableHelper.setOnce(this.f68047f, bVar);
+            DisposableHelper.setOnce(this.f68052f, bVar);
         }
 
         @Override // f.a.i
         public void onSuccess(T t) {
-            this.f68046e.onSuccess(t);
+            this.f68051e.onSuccess(t);
         }
     }
 

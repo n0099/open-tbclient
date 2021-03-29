@@ -45,7 +45,7 @@ import protobuf.NewpushGroupRepair;
 import protobuf.NewpushRepair;
 import protobuf.TshowInfo;
 import protobuf.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MessageUtils {
     public static void assignChatMessage(List<GroupMsgData> list, LinkedList<ChatMessage> linkedList, HashMap<String, GroupMsgData> hashMap, HashMap<String, GroupMsgData> hashMap2, ChatMessage chatMessage, MsgInfo msgInfo, GroupMsgData groupMsgData, Long l) {
         long longValue;

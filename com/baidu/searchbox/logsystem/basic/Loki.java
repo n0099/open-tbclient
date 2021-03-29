@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
 import d.b.d0.b.a.a;
 import d.b.o.a.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Loki {
     public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
     public static volatile boolean sIsInitialized = false;

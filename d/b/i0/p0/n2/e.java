@@ -21,13 +21,13 @@ import d.b.i.q;
 public class e implements q {
 
     /* renamed from: f  reason: collision with root package name */
-    public NoPressedRelativeLayout f58148f;
+    public NoPressedRelativeLayout f58149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsFragment f58149g;
+    public FrsFragment f58150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58150h;
+    public TextView f58151h;
     public final Animation j;
     public final Runnable k;
     public int l = -1;
@@ -35,7 +35,7 @@ public class e implements q {
     public int n = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f58147e = new Handler(new a());
+    public final Handler f58148e = new Handler(new a());
     public final Animation i = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
 
     /* loaded from: classes4.dex */
@@ -60,8 +60,8 @@ public class e implements q {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (e.this.f58150h.getParent() != null) {
-                ((ViewGroup) e.this.f58150h.getParent()).removeView(e.this.f58150h);
+            if (e.this.f58151h.getParent() != null) {
+                ((ViewGroup) e.this.f58151h.getParent()).removeView(e.this.f58151h);
             }
         }
 
@@ -93,16 +93,16 @@ public class e implements q {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e.this.e();
-            if (e.this.f58149g == null || e.this.f58149g.u2() || e.this.f58149g.x0() == null) {
+            if (e.this.f58150g == null || e.this.f58150g.u2() || e.this.f58150g.x0() == null) {
                 return;
             }
-            e.this.f58149g.x0().K1();
+            e.this.f58150g.x0().K1();
         }
     }
 
     public e(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        this.f58148f = noPressedRelativeLayout;
-        this.f58149g = frsFragment;
+        this.f58149f = noPressedRelativeLayout;
+        this.f58150g = frsFragment;
         Animation loadAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new b());
@@ -111,36 +111,36 @@ public class e implements q {
     }
 
     public final void e() {
-        if (this.f58150h.getParent() == null) {
+        if (this.f58151h.getParent() == null) {
             return;
         }
         this.l = -1;
         this.n = -1;
-        this.f58147e.removeCallbacks(this.k);
-        this.f58150h.clearAnimation();
-        this.f58150h.startAnimation(this.j);
+        this.f58148e.removeCallbacks(this.k);
+        this.f58151h.clearAnimation();
+        this.f58151h.startAnimation(this.j);
     }
 
     public final void f() {
         TextView textView = new TextView(TbadkCoreApplication.getInst());
-        this.f58150h = textView;
+        this.f58151h = textView;
         textView.setOnClickListener(new d());
-        this.f58150h.setGravity(17);
-        this.f58150h.setText(R.string.frs_game_refresh_tip_text);
-        int dimensionPixelSize = this.f58149g.getResources().getDimensionPixelSize(R.dimen.ds20);
-        int dimensionPixelSize2 = this.f58149g.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.f58150h.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
-        this.f58150h.setTextSize(0, this.f58149g.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        SkinManager.setBackgroundResource(this.f58150h, R.drawable.bg_home_float);
-        SkinManager.setViewTextColor(this.f58150h, R.color.CAM_X0302);
+        this.f58151h.setGravity(17);
+        this.f58151h.setText(R.string.frs_game_refresh_tip_text);
+        int dimensionPixelSize = this.f58150g.getResources().getDimensionPixelSize(R.dimen.ds20);
+        int dimensionPixelSize2 = this.f58150g.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.f58151h.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.f58151h.setTextSize(0, this.f58150g.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+        SkinManager.setBackgroundResource(this.f58151h, R.drawable.bg_home_float);
+        SkinManager.setViewTextColor(this.f58151h, R.color.CAM_X0302);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.f58149g.Q().getBottom() + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds8);
-        this.f58150h.setLayoutParams(layoutParams);
+        layoutParams.topMargin = this.f58150g.Q().getBottom() + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds8);
+        this.f58151h.setLayoutParams(layoutParams);
     }
 
     public void g() {
-        this.f58147e.removeCallbacksAndMessages(null);
+        this.f58148e.removeCallbacksAndMessages(null);
     }
 
     public void h(RecyclerView recyclerView, int i, int i2) {
@@ -157,26 +157,26 @@ public class e implements q {
         if (i == 0) {
             int i4 = this.l;
             if (i4 > 0 && (i2 = this.m) > 0 && (i3 = this.n) >= 0 && i4 + i2 + 1 < i3) {
-                this.f58147e.sendEmptyMessage(111);
+                this.f58148e.sendEmptyMessage(111);
             }
             this.n = this.l;
         }
     }
 
     public final void j() {
-        if (this.f58150h.getParent() != null) {
+        if (this.f58151h.getParent() != null) {
             return;
         }
-        this.f58148f.addView(this.f58150h);
-        this.f58150h.clearAnimation();
-        this.f58150h.startAnimation(this.i);
-        this.f58147e.removeCallbacks(this.k);
-        this.f58147e.postDelayed(this.k, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+        this.f58149f.addView(this.f58151h);
+        this.f58151h.clearAnimation();
+        this.f58151h.startAnimation(this.i);
+        this.f58148e.removeCallbacks(this.k);
+        this.f58148e.postDelayed(this.k, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
     }
 
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        SkinManager.setBackgroundResource(this.f58150h, R.drawable.bg_home_float);
-        SkinManager.setViewTextColor(this.f58150h, R.color.CAM_X0302);
+        SkinManager.setBackgroundResource(this.f58151h, R.drawable.bg_home_float);
+        SkinManager.setViewTextColor(this.f58151h, R.color.CAM_X0302);
     }
 }

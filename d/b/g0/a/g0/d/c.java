@@ -1,7 +1,7 @@
 package d.b.g0.a.g0.d;
 
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static void a(SQLiteDatabase sQLiteDatabase) {
         try {

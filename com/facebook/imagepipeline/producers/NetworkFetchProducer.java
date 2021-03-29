@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
     public static final String PRODUCER_NAME = "NetworkFetchProducer";
@@ -32,12 +32,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
     }
 
     public static float calculateProgress(int i, int i2) {
-        if (i2 > 0) {
-            return i / i2;
-        }
-        double d2 = -i;
-        Double.isNaN(d2);
-        return 1.0f - ((float) Math.exp(d2 / 50000.0d));
+        return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
     }
 
     @Nullable

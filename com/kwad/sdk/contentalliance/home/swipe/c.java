@@ -23,28 +23,28 @@ public class c extends d {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32802a;
+    public final int f32803a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32803b;
+    public final int f32804b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f32804c;
+    public final int f32805c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VelocityTracker f32805d;
+    public VelocityTracker f32806d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f32806e;
+    public float f32807e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f32807f;
+    public float f32808f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32808g;
+    public long f32809g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f32809h = 1.0f;
+    public float f32810h = 1.0f;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -53,9 +53,9 @@ public class c extends d {
 
     public c(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.f32802a = (int) (context.getResources().getDisplayMetrics().density * 400.0f);
-        this.f32803b = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.f32804c = viewConfiguration.getScaledPagingTouchSlop();
+        this.f32803a = (int) (context.getResources().getDisplayMetrics().density * 400.0f);
+        this.f32804b = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.f32805c = viewConfiguration.getScaledPagingTouchSlop();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,8 +81,8 @@ public class c extends d {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (c.this.n != null) {
-                    c.this.f32809h = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    c.this.n.a(c.this.f32809h);
+                    c.this.f32810h = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    c.this.n.a(c.this.f32810h);
                 }
             }
         });
@@ -123,11 +123,11 @@ public class c extends d {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f32806e;
+                    float x = motionEvent.getX() - this.f32807e;
                     float abs = Math.abs(x);
-                    float abs2 = Math.abs(motionEvent.getY() - this.f32807f);
-                    if (this.n != null && abs > this.f32804c && abs > abs2) {
-                        if (this.f32809h < 1.0f) {
+                    float abs2 = Math.abs(motionEvent.getY() - this.f32808f);
+                    if (this.n != null && abs > this.f32805c && abs > abs2) {
+                        if (this.f32810h < 1.0f) {
                             z = false;
                             this.i = z;
                         } else {
@@ -139,28 +139,28 @@ public class c extends d {
                 }
             }
             this.i = false;
-            VelocityTracker velocityTracker = this.f32805d;
+            VelocityTracker velocityTracker = this.f32806d;
             if (velocityTracker != null) {
                 velocityTracker.recycle();
-                this.f32805d = null;
+                this.f32806d = null;
             }
-            if (this.f32805d == null) {
-                this.f32805d = VelocityTracker.obtain();
+            if (this.f32806d == null) {
+                this.f32806d = VelocityTracker.obtain();
             }
-            this.f32805d.addMovement(motionEvent);
+            this.f32806d.addMovement(motionEvent);
             return this.i;
         }
         this.i = false;
         this.j = false;
-        this.f32808g = 0L;
+        this.f32809g = 0L;
         this.o = false;
-        this.f32806e = motionEvent.getX();
-        this.f32807f = motionEvent.getY();
-        str = "handlerInterceptTouchEvent ACTION_DOWN mInitialMotionX: " + this.f32806e;
+        this.f32807e = motionEvent.getX();
+        this.f32808f = motionEvent.getY();
+        str = "handlerInterceptTouchEvent ACTION_DOWN mInitialMotionX: " + this.f32807e;
         com.kwad.sdk.core.d.a.a("SwipeToProfileListTouchDetector", str);
-        if (this.f32805d == null) {
+        if (this.f32806d == null) {
         }
-        this.f32805d.addMovement(motionEvent);
+        this.f32806d.addMovement(motionEvent);
         return this.i;
     }
 
@@ -175,7 +175,7 @@ public class c extends d {
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
         if (r0 != 3) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0075, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0072, code lost:
         r3 = true;
      */
     /*
@@ -186,10 +186,10 @@ public class c extends d {
         if (this.k) {
             return true;
         }
-        if (this.f32805d == null) {
-            this.f32805d = VelocityTracker.obtain();
+        if (this.f32806d == null) {
+            this.f32806d = VelocityTracker.obtain();
         }
-        this.f32805d.addMovement(motionEvent);
+        this.f32806d.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action != 0) {
             boolean z = false;
@@ -197,18 +197,14 @@ public class c extends d {
                 if (action == 2) {
                     com.kwad.sdk.core.d.a.a("SwipeToProfileListTouchDetector", "onTouchEvent ACTION_MOVE");
                     if (!this.j) {
-                        float x = motionEvent.getX() - this.f32806e;
+                        float x = motionEvent.getX() - this.f32807e;
                         float abs = Math.abs(x);
-                        float abs2 = Math.abs(motionEvent.getY() - this.f32807f);
-                        if (!this.i && this.n != null && abs > this.f32804c) {
-                            double d2 = abs;
-                            Double.isNaN(d2);
-                            if (d2 * 0.5d > abs2) {
-                                if (this.f32809h == 0.0f) {
-                                    this.i = z;
-                                } else {
-                                    this.i = z;
-                                }
+                        float abs2 = Math.abs(motionEvent.getY() - this.f32808f);
+                        if (!this.i && this.n != null && abs > this.f32805c && abs * 0.5d > abs2) {
+                            if (this.f32810h == 0.0f) {
+                                this.i = z;
+                            } else {
+                                this.i = z;
                             }
                         }
                         if (this.i) {
@@ -220,7 +216,7 @@ public class c extends d {
                                 com.kwad.sdk.core.d.a.a("SwipeToProfileListTouchDetector", "progress" + b2);
                                 a aVar = this.n;
                                 if (aVar != null) {
-                                    this.f32809h = b2;
+                                    this.f32810h = b2;
                                     if (!this.o) {
                                         this.o = true;
                                         aVar.d(b2);
@@ -239,10 +235,10 @@ public class c extends d {
             }
             this.j = false;
             this.o = false;
-            VelocityTracker velocityTracker = this.f32805d;
+            VelocityTracker velocityTracker = this.f32806d;
             if (velocityTracker != null) {
                 velocityTracker.recycle();
-                this.f32805d = null;
+                this.f32806d = null;
             }
             return this.i;
         }
@@ -252,13 +248,13 @@ public class c extends d {
     }
 
     private boolean c(MotionEvent motionEvent) {
-        if (this.f32808g == 0) {
-            this.f32808g = SystemClock.elapsedRealtime();
+        if (this.f32809g == 0) {
+            this.f32809g = SystemClock.elapsedRealtime();
         }
-        if (SystemClock.elapsedRealtime() - this.f32808g >= 80 || Math.abs(e()) < this.f32802a) {
+        if (SystemClock.elapsedRealtime() - this.f32809g >= 80 || Math.abs(e()) < this.f32803a) {
             return false;
         }
-        this.f32806e = motionEvent.getX();
+        this.f32807e = motionEvent.getX();
         return true;
     }
 
@@ -271,22 +267,22 @@ public class c extends d {
     private void d() {
         float f2;
         int e2 = e();
-        if (Math.abs(e2) >= this.f32802a) {
+        if (Math.abs(e2) >= this.f32803a) {
             if (e2 < 0) {
-                f2 = this.f32809h;
+                f2 = this.f32810h;
                 a(f2, 0.0f, true);
                 return;
             }
-            f2 = this.f32809h;
+            f2 = this.f32810h;
             a(f2, 1.0f, true);
             return;
         }
-        f2 = this.f32809h;
+        f2 = this.f32810h;
     }
 
     private int e() {
-        VelocityTracker velocityTracker = this.f32805d;
-        velocityTracker.computeCurrentVelocity(1000, this.f32803b);
+        VelocityTracker velocityTracker = this.f32806d;
+        velocityTracker.computeCurrentVelocity(1000, this.f32804b);
         return (int) velocityTracker.getXVelocity();
     }
 
@@ -316,7 +312,7 @@ public class c extends d {
     }
 
     public boolean b() {
-        return this.f32809h != 1.0f;
+        return this.f32810h != 1.0f;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.swipe.d
@@ -325,7 +321,7 @@ public class c extends d {
     }
 
     public void c() {
-        float f2 = this.f32809h;
+        float f2 = this.f32810h;
         if (f2 != 1.0f) {
             this.o = false;
             a(f2, 1.0f, false);

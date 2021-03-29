@@ -12,70 +12,70 @@ import java.util.List;
 public class d extends RecyclerView.Adapter<h> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32247a;
+    public Context f32248a;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32249c;
+    public long f32250c;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PhotoComment> f32248b = new ArrayList();
+    public List<PhotoComment> f32249b = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b> f32250d = new ArrayList();
+    public List<b> f32251d = new ArrayList();
 
     public d(@NonNull Context context, @NonNull e eVar) {
-        this.f32247a = context;
+        this.f32248a = context;
         a(eVar.d());
         if (eVar.d() != null) {
             for (int i = 0; i < eVar.e(); i++) {
                 PhotoComment photoComment = eVar.d().get(i);
                 b bVar = new b();
-                bVar.f32239a = photoComment;
-                bVar.f32240b = eVar.a();
-                bVar.f32241c = eVar.c();
-                bVar.f32243e = i;
-                bVar.f32245g = ag.c(photoComment.content);
-                this.f32250d.add(bVar);
+                bVar.f32240a = photoComment;
+                bVar.f32241b = eVar.a();
+                bVar.f32242c = eVar.c();
+                bVar.f32244e = i;
+                bVar.f32246g = ag.c(photoComment.content);
+                this.f32251d.add(bVar);
             }
         }
     }
 
     private void a(int i) {
         long j = i;
-        if (j > this.f32249c) {
-            this.f32249c = j;
+        if (j > this.f32250c) {
+            this.f32250c = j;
         }
     }
 
     public long a() {
-        return this.f32249c;
+        return this.f32250c;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public h onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f32247a));
+        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f32248a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(h hVar, int i) {
-        hVar.a(this.f32250d.get(i));
+        hVar.a(this.f32251d.get(i));
     }
 
     public void a(List<PhotoComment> list) {
         if (list != null) {
-            this.f32248b.clear();
-            this.f32248b.addAll(list);
+            this.f32249b.clear();
+            this.f32249b.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.f32248b.size();
+        return this.f32249b.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

@@ -7,7 +7,7 @@ import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static String k = "";
     public static String l = "";
@@ -19,33 +19,33 @@ public class i {
     public static int r;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42933a;
+    public Context f42934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42934b;
+    public String f42935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42935c;
+    public int f42936c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42936d;
+    public int f42937d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42937e;
+    public String f42938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42938f;
+    public long f42939f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42939g;
+    public String f42940g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42940h;
+    public String f42941h;
     public long i;
     public long j = 8000;
 
     public i(Context context) {
-        this.f42933a = context;
+        this.f42934a = context;
     }
 
     public static void i(String str, String str2, String str3) {
@@ -65,44 +65,44 @@ public class i {
         try {
             if (d.b.f0.c.a.c().h(i)) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f42935c);
-                jSONObject.put("1", this.f42937e);
-                jSONObject.put("3", this.f42934b);
-                jSONObject.put("4", d.b.f0.l.d.l(this.f42933a));
-                if (!TextUtils.isEmpty(this.f42939g)) {
-                    jSONObject.put("5", d.b.f0.l.e.c(this.f42939g.getBytes(), d.b.f0.b.a.g(this.f42933a).h0()));
+                jSONObject.put("0", this.f42936c);
+                jSONObject.put("1", this.f42938e);
+                jSONObject.put("3", this.f42935b);
+                jSONObject.put("4", d.b.f0.l.d.l(this.f42934a));
+                if (!TextUtils.isEmpty(this.f42940g)) {
+                    jSONObject.put("5", d.b.f0.l.e.c(this.f42940g.getBytes(), d.b.f0.b.a.g(this.f42934a).h0()));
                 }
                 jSONObject.put("6", q);
-                String c2 = d.b.f0.b.c.b(this.f42933a).c(jSONObject, this.j);
+                String c2 = d.b.f0.b.c.b(this.f42934a).c(jSONObject, this.j);
                 if (d.b.f0.c.a.c().h(i)) {
                     if (!TextUtils.isEmpty(c2)) {
                         r();
                         JSONObject jSONObject2 = new JSONObject(c2);
                         int optInt = jSONObject2.optInt("0", -1);
-                        d.b.f0.b.a.g(this.f42933a).y(System.currentTimeMillis());
+                        d.b.f0.b.a.g(this.f42934a).y(System.currentTimeMillis());
                         if (optInt == 0) {
-                            d.b.f0.b.a.g(this.f42933a).j(0);
+                            d.b.f0.b.a.g(this.f42934a).j(0);
                             JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
-                            e(i, 0, 0, this.f42935c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
+                            e(i, 0, 0, this.f42936c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
                             return;
                         }
-                        d.b.f0.b.a.g(this.f42933a).j(4);
-                        e(i, 4, a.a(optInt), this.f42935c, jSONObject2.optString("1"), optInt, "");
+                        d.b.f0.b.a.g(this.f42934a).j(4);
+                        e(i, 4, a.a(optInt), this.f42936c, jSONObject2.optString("1"), optInt, "");
                         return;
                     }
-                    e(i, 4, 2005, this.f42935c, "server req empty.", -1, "");
+                    e(i, 4, 2005, this.f42936c, "server req empty.", -1, "");
                 }
             }
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
-            c(i, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f42935c, "post token unknown error.");
+            c(i, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f42936c, "post token unknown error.");
         }
     }
 
     public void b(int i, int i2) {
         Message message = new Message();
         message.what = i;
-        message.arg1 = this.f42935c;
+        message.arg1 = this.f42936c;
         message.arg2 = i2;
         d.a().c(message, this.j);
     }
@@ -113,15 +113,15 @@ public class i {
 
     public synchronized void d(int i, int i2, int i3, int i4, String str, int i5) {
         b bVar = new b();
-        bVar.f42860a = i5;
+        bVar.f42861a = i5;
         c.i().c(i, i2, i3, i4, str, bVar, true);
     }
 
     public synchronized void e(int i, int i2, int i3, int i4, String str, int i5, String str2) {
         b bVar = new b();
-        bVar.f42860a = 2;
-        bVar.f42862c = i5;
-        bVar.f42863d = str2;
+        bVar.f42861a = 2;
+        bVar.f42863c = i5;
+        bVar.f42864d = str2;
         c.i().c(i, i2, i3, i4, str, bVar, true);
     }
 
@@ -131,29 +131,29 @@ public class i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", i2);
                 jSONObject.put("1", str);
-                String e2 = d.b.f0.b.c.b(this.f42933a).e(jSONObject, this.j);
+                String e2 = d.b.f0.b.c.b(this.f42934a).e(jSONObject, this.j);
                 if (d.b.f0.c.a.c().h(i)) {
                     if (TextUtils.isEmpty(e2)) {
-                        l(i, 4, 2005, this.f42935c, "server req empty.");
+                        l(i, 4, 2005, this.f42936c, "server req empty.");
                     } else {
                         s();
                         JSONObject jSONObject2 = new JSONObject(e2);
                         int optInt = jSONObject2.optInt("0", -1);
                         String optString = jSONObject2.optString("1");
-                        d.b.f0.b.a.g(this.f42933a).I(System.currentTimeMillis());
+                        d.b.f0.b.a.g(this.f42934a).I(System.currentTimeMillis());
                         if (optInt == 0) {
-                            d.b.f0.b.a.g(this.f42933a).p(0);
-                            m(i, 0, 0, this.f42935c, optString, optInt, "");
+                            d.b.f0.b.a.g(this.f42934a).p(0);
+                            m(i, 0, 0, this.f42936c, optString, optInt, "");
                         } else {
                             int a2 = a.a(optInt);
-                            d.b.f0.b.a.g(this.f42933a).p(4);
-                            m(i, 4, a2, this.f42935c, optString, optInt, "");
+                            d.b.f0.b.a.g(this.f42934a).p(4);
+                            m(i, 4, a2, this.f42936c, optString, optInt, "");
                         }
                     }
                 }
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
-                l(i, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f42935c, "post token unknown error.");
+                l(i, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f42936c, "post token unknown error.");
             }
         }
     }
@@ -173,7 +173,7 @@ public class i {
     }
 
     public void k(int i) {
-        this.f42936d = i;
+        this.f42937d = i;
     }
 
     public void l(int i, int i2, int i3, int i4, String str) {
@@ -182,9 +182,9 @@ public class i {
 
     public void m(int i, int i2, int i3, int i4, String str, int i5, String str2) {
         b bVar = new b();
-        bVar.f42860a = 4;
-        bVar.f42862c = i5;
-        bVar.f42863d = str2;
+        bVar.f42861a = 4;
+        bVar.f42863c = i5;
+        bVar.f42864d = str2;
         c.i().c(i, i2, i3, i4, str, bVar, true);
     }
 
@@ -203,18 +203,18 @@ public class i {
     }
 
     public boolean q() {
-        int i = this.f42935c;
+        int i = this.f42936c;
         return i == 1 ? (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) ? false : true : i == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
     }
 
     public void r() {
-        this.f42937e = null;
-        this.f42938f = 0L;
-        this.f42939g = null;
+        this.f42938e = null;
+        this.f42939f = 0L;
+        this.f42940g = null;
     }
 
     public void s() {
-        this.f42940h = null;
+        this.f42941h = null;
         this.i = 0L;
     }
 

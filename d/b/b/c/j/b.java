@@ -5,30 +5,30 @@ import com.baidu.tbadk.TbConfig;
 public class b extends d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f41568d;
+    public static b f41569d;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f41569c;
+    public e f41570c;
 
     public b() {
-        this.f41569c = null;
-        this.f41571a = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.f41569c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.f41572b = 3;
+        this.f41570c = null;
+        this.f41572a = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.f41570c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.f41573b = 3;
     }
 
     public static b d() {
-        if (f41568d == null) {
+        if (f41569d == null) {
             synchronized (b.class) {
-                if (f41568d == null) {
-                    f41568d = new b();
+                if (f41569d == null) {
+                    f41569d = new b();
                 }
             }
         }
-        return f41568d;
+        return f41569d;
     }
 
     public e c() {
-        return this.f41569c;
+        return this.f41570c;
     }
 }

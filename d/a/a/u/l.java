@@ -12,14 +12,14 @@ import java.util.List;
 public class l implements j0<d.a.a.s.j.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41430a;
+    public int f41431a;
 
     public l(int i) {
-        this.f41430a = i;
+        this.f41431a = i;
     }
 
     public final void b(d.a.a.s.j.c cVar, List<Float> list) {
-        int i = this.f41430a * 4;
+        int i = this.f41431a * 4;
         if (list.size() <= i) {
             return;
         }
@@ -79,28 +79,25 @@ public class l implements j0<d.a.a.s.j.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.f41430a == -1) {
-            this.f41430a = arrayList.size() / 4;
+        if (this.f41431a == -1) {
+            this.f41431a = arrayList.size() / 4;
         }
-        int i = this.f41430a;
+        int i = this.f41431a;
         float[] fArr = new float[i];
         int[] iArr = new int[i];
         int i2 = 0;
         int i3 = 0;
-        for (int i4 = 0; i4 < this.f41430a * 4; i4++) {
+        for (int i4 = 0; i4 < this.f41431a * 4; i4++) {
             int i5 = i4 / 4;
             double floatValue = arrayList.get(i4).floatValue();
             int i6 = i4 % 4;
             if (i6 == 0) {
                 fArr[i5] = (float) floatValue;
             } else if (i6 == 1) {
-                Double.isNaN(floatValue);
                 i2 = (int) (floatValue * 255.0d);
             } else if (i6 == 2) {
-                Double.isNaN(floatValue);
                 i3 = (int) (floatValue * 255.0d);
             } else if (i6 == 3) {
-                Double.isNaN(floatValue);
                 iArr[i5] = Color.argb(255, i2, i3, (int) (floatValue * 255.0d));
             }
         }

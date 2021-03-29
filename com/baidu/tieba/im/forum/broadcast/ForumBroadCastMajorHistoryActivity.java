@@ -14,7 +14,7 @@ import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
 import d.b.b.e.p.j;
 import d.b.i0.d1.i.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements a {
     public String mForumId;
     public String mForumName;

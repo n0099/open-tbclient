@@ -48,7 +48,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (view.getId() == R.id.free_flow) {
             a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
-            View.OnClickListener onClickListener = this.f20526g;
+            View.OnClickListener onClickListener = this.f20527g;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }

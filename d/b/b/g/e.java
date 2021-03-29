@@ -9,10 +9,10 @@ import java.util.concurrent.Executor;
 public class e implements IThreadManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f42179a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+    public Executor f42180a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
 
     @Override // com.baidu.nps.interfa.IThreadManager
     public void run(Runnable runnable) {
-        this.f42179a.execute(runnable);
+        this.f42180a.execute(runnable);
     }
 }

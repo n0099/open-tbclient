@@ -29,18 +29,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class a extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16405a;
+        public final /* synthetic */ Bitmap f16406a;
 
         public a(Bitmap bitmap) {
-            this.f16405a = bitmap;
+            this.f16406a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16405a);
-            return GameShareCardActivity.this.generateShareItem(this.f16405a);
+            GameShareCardActivity.this.createWaterMark(this.f16406a);
+            return GameShareCardActivity.this.generateShareItem(this.f16406a);
         }
     }
 
@@ -61,18 +61,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class c extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16408a;
+        public final /* synthetic */ Bitmap f16409a;
 
         public c(Bitmap bitmap) {
-            this.f16408a = bitmap;
+            this.f16409a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16408a);
-            return GameShareCardActivity.this.generateShareItem(this.f16408a);
+            GameShareCardActivity.this.createWaterMark(this.f16409a);
+            return GameShareCardActivity.this.generateShareItem(this.f16409a);
         }
     }
 
@@ -93,18 +93,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class e extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16411a;
+        public final /* synthetic */ Bitmap f16412a;
 
         public e(Bitmap bitmap) {
-            this.f16411a = bitmap;
+            this.f16412a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16411a);
-            return GameShareCardActivity.this.generateShareItem(this.f16411a);
+            GameShareCardActivity.this.createWaterMark(this.f16412a);
+            return GameShareCardActivity.this.generateShareItem(this.f16412a);
         }
     }
 
@@ -125,18 +125,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class g extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f16414a;
+        public final /* synthetic */ Bitmap f16415a;
 
         public g(Bitmap bitmap) {
-            this.f16414a = bitmap;
+            this.f16415a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f16414a);
-            return GameShareCardActivity.this.generateShareItem(this.f16414a);
+            GameShareCardActivity.this.createWaterMark(this.f16415a);
+            return GameShareCardActivity.this.generateShareItem(this.f16415a);
         }
     }
 

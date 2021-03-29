@@ -6,16 +6,16 @@ import com.baidu.mapapi.UIMsg;
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f39596a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+    public static final Uri f39597a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f39597b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+    public static final Uri f39598b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f39598c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+    public static final Uri f39599c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f39599d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+    public static final Uri f39600d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
 
     public static String a(int i) {
         switch (i) {

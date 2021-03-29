@@ -1,5 +1,5 @@
 package com.baidu.bankdetection;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.bankdetection";
     public static final String BUILD_TYPE = "release";

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import d.b.g0.a.t1.k.p;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g implements d.b.g0.a.p.c.u {
     @Override // d.b.g0.a.p.c.u
     public boolean a(Activity activity, String str, p.b bVar) {

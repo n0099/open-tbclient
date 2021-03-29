@@ -17,14 +17,14 @@ import com.baidu.android.imsdk.group.GroupManagerImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMConversationMsg extends BIMConversation {
     public static String TAG = "BIMConversation";
     public ISendMessageListener mInternalSendMessageListener;
     public ChatMsg mLastChatMsg;
 
     /* renamed from: com.baidu.android.imsdk.BIMConversationMsg$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE;
 

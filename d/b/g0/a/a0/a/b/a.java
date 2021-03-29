@@ -21,33 +21,33 @@ import d.b.g0.a.a0.a.b.b;
 import d.b.g0.a.c0.c;
 import d.b.g0.a.r1.e;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.a.a0.a.d.a<V, M> {
 
     /* renamed from: d.b.g0.a.a0.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0587a {
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class C0588a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43095a;
+        public static final /* synthetic */ int[] f43096a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f43095a = iArr;
+            f43096a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43095a[PathType.RELATIVE.ordinal()] = 2;
+                f43096a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43095a[PathType.NETWORK.ordinal()] = 3;
+                f43096a[PathType.NETWORK.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43095a[PathType.ERROR.ordinal()] = 4;
+                f43096a[PathType.ERROR.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -63,7 +63,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         PathType c2 = d.b.g0.a.a2.b.c(str);
         e y = e.y();
         if (y != null) {
-            str2 = y.f45739f;
+            str2 = y.f45740f;
             str3 = y.W();
         } else {
             str2 = null;
@@ -72,7 +72,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return null;
         }
-        int i = C0587a.f43095a[c2.ordinal()];
+        int i = C0588a.f43096a[c2.ordinal()];
         if (i == 1) {
             String u = d.b.g0.a.a2.b.u(str, str2);
             if (TextUtils.isEmpty(u)) {
@@ -120,7 +120,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends d.b.g0.
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-SimpleDrawee", "renderImageStyle");
         }
         String str = m.x;

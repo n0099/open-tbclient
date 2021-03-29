@@ -8,7 +8,7 @@ import protobuf.ActivityInfo;
 import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.UserInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 12)
     public final ActivityInfo activity;

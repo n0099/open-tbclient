@@ -120,9 +120,9 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             if ((O != null ? O.z : null) != null) {
                 d.b.i0.i2.c S = VideoMiddlePageLightCardView.this.S();
                 d.b.i0.p0.i1.g O2 = VideoMiddlePageLightCardView.this.O();
-                String str = (O2 == null || (cVar = O2.z) == null) ? null : cVar.f57645d;
+                String str = (O2 == null || (cVar = O2.z) == null) ? null : cVar.f57646d;
                 d.b.i0.p0.i1.g O3 = VideoMiddlePageLightCardView.this.O();
-                S.d2(str, O3 != null ? O3.f57619f : null);
+                S.d2(str, O3 != null ? O3.f57620f : null);
             }
         }
     }
@@ -131,10 +131,10 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class b<T> implements Observer<Configuration> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16692b;
+        public final /* synthetic */ TbPageContext f16693b;
 
         public b(TbPageContext tbPageContext) {
-            this.f16692b = tbPageContext;
+            this.f16693b = tbPageContext;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,11 +148,11 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
                 int i = configuration.orientation;
                 if (Q != i) {
                     if (i == 2) {
-                        VideoMiddlePageLightCardView.this.K(this.f16692b);
+                        VideoMiddlePageLightCardView.this.K(this.f16693b);
                     } else {
-                        VideoMiddlePageLightCardView.this.L(this.f16692b);
+                        VideoMiddlePageLightCardView.this.L(this.f16693b);
                     }
-                    VideoMiddlePageLightCardView.this.S().V0(this.f16692b, configuration);
+                    VideoMiddlePageLightCardView.this.S().V0(this.f16693b, configuration);
                     VideoMiddlePageLightCardView.this.c0(configuration.orientation);
                 }
             }
@@ -163,10 +163,10 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class c implements View.OnClickListener {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16694f;
+        public final /* synthetic */ TbPageContext f16695f;
 
         public c(TbPageContext tbPageContext) {
-            this.f16694f = tbPageContext;
+            this.f16695f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -174,16 +174,16 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             if (VideoMiddlePageLightCardView.this.O() == null) {
                 return;
             }
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(VideoMiddlePageLightCardView.this.f62181g);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(VideoMiddlePageLightCardView.this.f62182g);
             d.b.i0.p0.i1.g O = VideoMiddlePageLightCardView.this.O();
-            pbActivityConfig.createNormalCfg(O != null ? O.f57619f : null, null, null);
+            pbActivityConfig.createNormalCfg(O != null ? O.f57620f : null, null, null);
             pbActivityConfig.setVideo_source("auto_midpage");
             d.b.i0.p0.i1.g O2 = VideoMiddlePageLightCardView.this.O();
             pbActivityConfig.setBjhData(O2 != null ? O2.A : null);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             a2 T = VideoMiddlePageLightCardView.this.T();
             d.b.i0.p0.i1.g O3 = VideoMiddlePageLightCardView.this.O();
-            d.b.i0.b3.c.g().c(this.f16694f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 1, O3 != null ? O3.I : 0, false, null, null));
+            d.b.i0.b3.c.g().c(this.f16695f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 1, O3 != null ? O3.I : 0, false, null, null));
         }
     }
 
@@ -191,10 +191,10 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class d implements View.OnClickListener {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16696f;
+        public final /* synthetic */ TbPageContext f16697f;
 
         public d(TbPageContext tbPageContext) {
-            this.f16696f = tbPageContext;
+            this.f16697f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -203,18 +203,18 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             String str;
             w1 w1Var2;
             d.b.i0.p0.i1.g O = VideoMiddlePageLightCardView.this.O();
-            if (O == null || (w1Var = O.B) == null || (str = w1Var.f50916b) == null) {
+            if (O == null || (w1Var = O.B) == null || (str = w1Var.f50917b) == null) {
                 return;
             }
             if (str.length() > 0) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(VideoMiddlePageLightCardView.this.b());
                 d.b.i0.p0.i1.g O2 = VideoMiddlePageLightCardView.this.O();
-                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((O2 == null || (w1Var2 = O2.B) == null) ? null : w1Var2.f50916b, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((O2 == null || (w1Var2 = O2.B) == null) ? null : w1Var2.f50917b, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
                 a2 T = VideoMiddlePageLightCardView.this.T();
                 d.b.i0.p0.i1.g O3 = VideoMiddlePageLightCardView.this.O();
-                d.b.i0.b3.c.g().c(this.f16696f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 9, O3 != null ? O3.I : 0, false, null, null));
+                d.b.i0.b3.c.g().c(this.f16697f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 9, O3 != null ? O3.I : 0, false, null, null));
             }
         }
     }
@@ -223,23 +223,23 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class e implements c.x {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16698b;
+        public final /* synthetic */ TbPageContext f16699b;
 
         public e(TbPageContext tbPageContext) {
-            this.f16698b = tbPageContext;
+            this.f16699b = tbPageContext;
         }
 
         @Override // d.b.i0.i2.c.x
         public void a() {
             if (VideoMiddlePageLightCardView.this.X()) {
-                VideoMiddlePageLightCardView.this.K(this.f16698b);
+                VideoMiddlePageLightCardView.this.K(this.f16699b);
             }
         }
 
         @Override // d.b.i0.i2.c.x
         public void b() {
             if (VideoMiddlePageLightCardView.this.X()) {
-                VideoMiddlePageLightCardView.this.L(this.f16698b);
+                VideoMiddlePageLightCardView.this.L(this.f16699b);
             }
         }
     }
@@ -248,10 +248,10 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class f implements View.OnClickListener {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16700f;
+        public final /* synthetic */ TbPageContext f16701f;
 
         public f(TbPageContext tbPageContext) {
-            this.f16700f = tbPageContext;
+            this.f16701f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -264,27 +264,27 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             if (VideoMiddlePageLightCardView.this.O() == null) {
                 return;
             }
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(VideoMiddlePageLightCardView.this.f62181g);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(VideoMiddlePageLightCardView.this.f62182g);
             d.b.i0.p0.i1.g O = VideoMiddlePageLightCardView.this.O();
             String str = null;
-            String str2 = O != null ? O.f57619f : null;
+            String str2 = O != null ? O.f57620f : null;
             d.b.i0.p0.i1.g O2 = VideoMiddlePageLightCardView.this.O();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str2, (O2 == null || (list2 = O2.D) == null || (pVar2 = list2.get(0)) == null || (r2 = pVar2.f53410a) == null) ? "" : "", null);
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str2, (O2 == null || (list2 = O2.D) == null || (pVar2 = list2.get(0)) == null || (r2 = pVar2.f53411a) == null) ? "" : "", null);
             createNormalCfg.setStartFrom(24);
             d.b.i0.p0.i1.g O3 = VideoMiddlePageLightCardView.this.O();
-            createNormalCfg.setForumId(O3 != null ? O3.f57618e : null);
+            createNormalCfg.setForumId(O3 != null ? O3.f57619e : null);
             d.b.i0.p0.i1.g O4 = VideoMiddlePageLightCardView.this.O();
-            createNormalCfg.setForumName((O4 == null || (w1Var = O4.B) == null) ? null : w1Var.f50916b);
+            createNormalCfg.setForumName((O4 == null || (w1Var = O4.B) == null) ? null : w1Var.f50917b);
             d.b.i0.p0.i1.g O5 = VideoMiddlePageLightCardView.this.O();
             if (O5 != null && (list = O5.D) != null && (pVar = list.get(0)) != null) {
-                str = pVar.f53410a;
+                str = pVar.f53411a;
             }
             createNormalCfg.setHighLightPostId(str);
             createNormalCfg.setJumpToCommentArea(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
             a2 T = VideoMiddlePageLightCardView.this.T();
             d.b.i0.p0.i1.g O6 = VideoMiddlePageLightCardView.this.O();
-            d.b.i0.b3.c.g().c(this.f16700f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 5, O6 != null ? O6.I : 0, false, null, null));
+            d.b.i0.b3.c.g().c(this.f16701f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 5, O6 != null ? O6.I : 0, false, null, null));
         }
     }
 
@@ -307,10 +307,10 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public static final class h implements View.OnClickListener {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16703f;
+        public final /* synthetic */ TbPageContext f16704f;
 
         public h(TbPageContext tbPageContext) {
-            this.f16703f = tbPageContext;
+            this.f16704f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -320,13 +320,13 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             g.b bVar3;
             d.b.i0.p0.i1.g O = VideoMiddlePageLightCardView.this.O();
             String str = null;
-            String str2 = (O == null || (bVar3 = O.y) == null) ? null : bVar3.f57628a;
+            String str2 = (O == null || (bVar3 = O.y) == null) ? null : bVar3.f57629a;
             d.b.i0.p0.i1.g O2 = VideoMiddlePageLightCardView.this.O();
-            String str3 = (O2 == null || (bVar2 = O2.y) == null) ? null : bVar2.f57630c;
+            String str3 = (O2 == null || (bVar2 = O2.y) == null) ? null : bVar2.f57631c;
             if (str3 == null || StringsKt__StringsJVMKt.isBlank(str3)) {
                 d.b.i0.p0.i1.g O3 = VideoMiddlePageLightCardView.this.O();
                 if (O3 != null && (bVar = O3.y) != null) {
-                    str = bVar.f57629b;
+                    str = bVar.f57630b;
                 }
                 str3 = str;
             }
@@ -335,7 +335,7 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             }
             a2 T = VideoMiddlePageLightCardView.this.T();
             d.b.i0.p0.i1.g O4 = VideoMiddlePageLightCardView.this.O();
-            d.b.i0.b3.c.g().c(this.f16703f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 2, O4 != null ? O4.I : 0, false, null, null));
+            d.b.i0.b3.c.g().c(this.f16704f.getUniqueId(), d.b.i0.b3.a.d(T, "a023", "common_click", 2, O4 != null ? O4.I : 0, false, null, null));
         }
     }
 
@@ -397,14 +397,8 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
     public VideoMiddlePageLightCardView(TbPageContext<?> tbPageContext, VideoMiddlePageViewModel videoMiddlePageViewModel) {
         super(tbPageContext);
         this.d0 = videoMiddlePageViewModel;
-        double k = l.k(tbPageContext.getPageActivity());
-        Double.isNaN(k);
-        Double.isNaN(k);
-        this.m = (int) (k * 0.5625d);
-        double k2 = l.k(tbPageContext.getPageActivity());
-        Double.isNaN(k2);
-        Double.isNaN(k2);
-        this.n = (int) (k2 * 1.0d);
+        this.m = (int) (l.k(tbPageContext.getPageActivity()) * 0.5625d);
+        this.n = (int) (l.k(tbPageContext.getPageActivity()) * 1.0d);
         this.r = 1;
         this.t = new c(tbPageContext);
         View findViewById = m().findViewById(R.id.forum_info_layout);
@@ -494,7 +488,8 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
         Intrinsics.checkExpressionValueIsNotNull(view, "view");
         singleLineEllipsizeTextView.setEllipsisSuffix(view.getResources().getString(R.string.ellipsis_suffix_bar));
         this.w.setOnClickListener(this.z);
-        this.w.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X005), 0, 0);
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        this.w.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
         this.A.setOnClickListener(this.E);
         this.B.setIsRound(true);
         this.B.setPlaceHolder(1);
@@ -546,15 +541,15 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             this.H.L1(i2);
             this.H.S1(gVar.z.j);
             this.H.W1(3);
-            this.H.T1(gVar.z.f57646e);
-            this.H.Y1(gVar.z.f57645d, gVar.f57619f);
-            this.H.m1(gVar.f57618e);
+            this.H.T1(gVar.z.f57647e);
+            this.H.Y1(gVar.z.f57646d, gVar.f57620f);
+            this.H.m1(gVar.f57619e);
             this.H.I0().setVideoStatData(M(gVar));
             this.H.a1();
             this.H.a2();
-            this.I.setVideoLength(gVar.z.f57649h);
-            this.I.setVideoDuration(gVar.z.f57646e);
-            this.I.setTid(gVar.f57619f);
+            this.I.setVideoLength(gVar.z.f57650h);
+            this.I.setVideoDuration(gVar.z.f57647e);
+            this.I.setTid(gVar.f57620f);
             if (gVar.F) {
                 this.H.c2(false);
                 if (this.I.d()) {
@@ -565,7 +560,7 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
                 }
                 this.I.setVisibility(8);
                 this.H.n1(false);
-                this.H.d2(gVar.z.f57645d, gVar.f57619f);
+                this.H.d2(gVar.z.f57646d, gVar.f57620f);
                 return;
             }
             this.I.setVisibility(8);
@@ -729,13 +724,13 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
 
     public final o M(d.b.i0.p0.i1.g gVar) {
         o oVar = new o();
-        oVar.f56165c = gVar.f57619f;
-        oVar.t = gVar.f57620g;
-        oVar.f56166d = gVar.f57618e;
-        oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
-        oVar.f56163a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-        oVar.f56168f = gVar.q;
-        oVar.f56169g = gVar.r;
+        oVar.f56166c = gVar.f57620f;
+        oVar.t = gVar.f57621g;
+        oVar.f56167d = gVar.f57619e;
+        oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f56164a = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+        oVar.f56169f = gVar.q;
+        oVar.f56170g = gVar.r;
         oVar.i = this.d0.d();
         oVar.l = gVar.t;
         oVar.k = this.d0.e();
@@ -824,22 +819,22 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
         if (bVar == null) {
             return;
         }
-        g.b.a aVar = bVar.f57635h;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f57637b)) {
-            this.B.W(bVar.f57635h.f57637b, 12, false);
+        g.b.a aVar = bVar.f57636h;
+        if (aVar != null && !TextUtils.isEmpty(aVar.f57638b)) {
+            this.B.W(bVar.f57636h.f57638b, 12, false);
         } else {
-            if (!StringUtils.isNull(bVar.f57631d)) {
-                String str = bVar.f57631d;
+            if (!StringUtils.isNull(bVar.f57632d)) {
+                String str = bVar.f57632d;
                 Intrinsics.checkExpressionValueIsNotNull(str, "data.portrait");
                 if (StringsKt__StringsJVMKt.startsWith$default(str, "http", false, 2, null)) {
-                    this.B.W(bVar.f57631d, 10, false);
+                    this.B.W(bVar.f57632d, 10, false);
                 }
             }
-            this.B.W(bVar.f57631d, 12, false);
+            this.B.W(bVar.f57632d, 12, false);
         }
-        g.b.a aVar2 = bVar.f57635h;
-        if (aVar2 != null && Intrinsics.compare(aVar2.f57640e.intValue(), 0) > 0) {
-            Integer num = bVar.f57635h.f57640e;
+        g.b.a aVar2 = bVar.f57636h;
+        if (aVar2 != null && Intrinsics.compare(aVar2.f57641e.intValue(), 0) > 0) {
+            Integer num = bVar.f57636h.f57641e;
             Intrinsics.checkExpressionValueIsNotNull(num, "data.baijiahaoData.auth_id");
             this.B.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(num.intValue(), 1));
             this.B.setShowV(true);
@@ -847,18 +842,18 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
             return;
         }
         this.B.setBjhAuthIconRes(0);
-        boolean z = bVar.f57634g;
+        boolean z = bVar.f57635g;
         if (z) {
             this.B.setShowV(z);
-            this.B.setIsBigV(bVar.f57634g);
+            this.B.setIsBigV(bVar.f57635g);
         } else {
-            boolean z2 = bVar.f57633f;
+            boolean z2 = bVar.f57634f;
             if (z2) {
                 this.B.setShowV(z2);
-                this.B.setIsBigV(bVar.f57633f);
+                this.B.setIsBigV(bVar.f57634f);
             } else {
                 this.B.setShowV(z2);
-                this.B.setIsBigV(bVar.f57633f);
+                this.B.setIsBigV(bVar.f57634f);
             }
         }
         this.B.setGodIconWidth(R.dimen.tbds31);
@@ -904,30 +899,30 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
         w1 w1Var;
         String str;
         String str2 = null;
-        if (gVar.o() == 1 && (w1Var = gVar.B) != null && (str = w1Var.f50916b) != null && (!StringsKt__StringsJVMKt.isBlank(str))) {
+        if (gVar.o() == 1 && (w1Var = gVar.B) != null && (str = w1Var.f50917b) != null && (!StringsKt__StringsJVMKt.isBlank(str))) {
             this.u.setVisibility(0);
             this.A.setVisibility(8);
             BarImageView barImageView = this.v;
             w1 w1Var2 = gVar.B;
-            barImageView.W(w1Var2 != null ? w1Var2.f50917c : null, 10, false);
+            barImageView.W(w1Var2 != null ? w1Var2.f50918c : null, 10, false);
             SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.w;
             String string = b().getString(R.string.chosen_pb_original_bar);
             Object[] objArr = new Object[1];
             w1 w1Var3 = gVar.B;
-            objArr[0] = w1Var3 != null ? w1Var3.f50916b : null;
+            objArr[0] = w1Var3 != null ? w1Var3.f50917b : null;
             singleLineEllipsizeTextView.setText(String.format(string, objArr));
             TextView textView = this.x;
             StringBuilder sb = new StringBuilder();
             g.b bVar = gVar.y;
-            if (TextUtils.isEmpty(bVar != null ? bVar.f57630c : null)) {
+            if (TextUtils.isEmpty(bVar != null ? bVar.f57631c : null)) {
                 g.b bVar2 = gVar.y;
                 if (bVar2 != null) {
-                    str2 = bVar2.f57629b;
+                    str2 = bVar2.f57630b;
                 }
             } else {
                 g.b bVar3 = gVar.y;
                 if (bVar3 != null) {
-                    str2 = bVar3.f57630c;
+                    str2 = bVar3.f57631c;
                 }
             }
             sb.append(str2);
@@ -949,15 +944,15 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
         d0(bVar4);
         EMTextView eMTextView = this.C;
         g.b bVar5 = gVar.y;
-        if (TextUtils.isEmpty(bVar5 != null ? bVar5.f57630c : null)) {
+        if (TextUtils.isEmpty(bVar5 != null ? bVar5.f57631c : null)) {
             g.b bVar6 = gVar.y;
             if (bVar6 != null) {
-                str2 = bVar6.f57629b;
+                str2 = bVar6.f57630b;
             }
         } else {
             g.b bVar7 = gVar.y;
             if (bVar7 != null) {
-                str2 = bVar7.f57630c;
+                str2 = bVar7.f57631c;
             }
         }
         eMTextView.setText(str2);
@@ -980,13 +975,13 @@ public final class VideoMiddlePageLightCardView extends d.b.i0.x.b<d.b.i0.p0.i1.
         if (list != null && !list.isEmpty()) {
             this.T.setVisibility(0);
             p pVar = gVar.D.get(0);
-            MetaData metaData = pVar.f53411b;
+            MetaData metaData = pVar.f53412b;
             if (metaData == null || (string = metaData.getName_show()) == null) {
                 string = TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
                 Intrinsics.checkExpressionValueIsNotNull(string, "TbadkCoreApplication.get…ng.user_name_default_txt)");
             }
             this.V = string;
-            this.W = (char) 65306 + U(pVar.f53412c);
+            this.W = (char) 65306 + U(pVar.f53413c);
             this.X = new SpannableString(this.V + this.W);
             E();
             return;

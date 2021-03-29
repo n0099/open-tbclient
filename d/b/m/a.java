@@ -14,28 +14,28 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements PlatformView, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public final MethodChannel f64022e;
+    public final MethodChannel f64023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f64023f;
+    public View f64024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64024g;
+    public int f64025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f64025h = "-1";
+    public String f64026h = "-1";
     public d.b.i0.z2.a i;
 
     @TargetApi(17)
     public a(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map) {
         a(context, map);
-        this.f64024g = i;
-        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + this.f64025h);
-        this.f64022e = methodChannel;
+        this.f64025g = i;
+        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + this.f64026h);
+        this.f64023e = methodChannel;
         methodChannel.setMethodCallHandler(this);
     }
 
@@ -59,13 +59,13 @@ public class a implements PlatformView, MethodChannel.MethodCallHandler {
         if (obj4 != null) {
             Double.valueOf(obj4.toString()).doubleValue();
         }
-        this.f64025h = String.valueOf(map.get("persistentViewId"));
+        this.f64026h = String.valueOf(map.get("persistentViewId"));
         if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
             d.b.i0.z2.a aVar = new d.b.i0.z2.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
             this.i = aVar;
             aVar.e();
             this.i.m();
-            this.f64023f = this.i.f63441d.d();
+            this.f64024f = this.i.f63442d.d();
         }
     }
 
@@ -76,7 +76,7 @@ public class a implements PlatformView, MethodChannel.MethodCallHandler {
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.f64023f;
+        return this.f64024f;
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
@@ -100,7 +100,7 @@ public class a implements PlatformView, MethodChannel.MethodCallHandler {
         if (methodCall.method.equals("getPlatformVersion")) {
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (methodCall.method.equals("removePlatformView")) {
-            b.a(this.f64024g);
+            b.a(this.f64025g);
             result.success(Boolean.TRUE);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;

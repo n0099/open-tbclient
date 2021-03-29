@@ -15,16 +15,16 @@ public interface b extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0479a implements b {
+        public static class C0480a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static b f38716a;
+            public static b f38717a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38717b;
+            public IBinder f38718b;
 
-            public C0479a(IBinder iBinder) {
-                this.f38717b = iBinder;
+            public C0480a(IBinder iBinder) {
+                this.f38718b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.b
@@ -35,7 +35,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    if (!this.f38717b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38718b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(map, map2);
                     } else {
                         obtain2.readException();
@@ -48,7 +48,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38717b;
+                return this.f38718b;
             }
         }
 
@@ -64,7 +64,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C0479a(iBinder);
+            return new C0480a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -89,7 +89,7 @@ public interface b extends IInterface {
         }
 
         public static b a() {
-            return C0479a.f38716a;
+            return C0480a.f38717a;
         }
     }
 }

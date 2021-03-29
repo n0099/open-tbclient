@@ -21,28 +21,28 @@ import java.util.List;
 public class MarqueeView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f32389a = new a(40);
+    public static a f32390a = new a(40);
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32390b;
+    public String f32391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f32391c;
+    public float f32392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32392d;
+    public int f32393d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f32393e;
+    public float f32394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32394f;
+    public int f32395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f32395g;
+    public float f32396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f32396h;
+    public float f32397h;
     public int i;
     public boolean j;
     public TextPaint k;
@@ -58,31 +58,31 @@ public class MarqueeView extends View {
     public static class a implements Handler.Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public HandlerThread f32398a;
+        public HandlerThread f32399a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f32399b;
+        public Handler f32400b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Object f32400c = new Object();
+        public final Object f32401c = new Object();
 
         /* renamed from: d  reason: collision with root package name */
-        public List<WeakReference<b>> f32401d = new ArrayList();
+        public List<WeakReference<b>> f32402d = new ArrayList();
 
         /* renamed from: e  reason: collision with root package name */
-        public long f32402e;
+        public long f32403e;
 
         public a(long j) {
-            this.f32402e = j;
+            this.f32403e = j;
             HandlerThread handlerThread = new HandlerThread("marquee");
-            this.f32398a = handlerThread;
+            this.f32399a = handlerThread;
             handlerThread.start();
-            this.f32399b = new Handler(this.f32398a.getLooper(), this);
+            this.f32400b = new Handler(this.f32399a.getLooper(), this);
         }
 
         private void c() {
-            synchronized (this.f32400c) {
-                for (WeakReference<b> weakReference : this.f32401d) {
+            synchronized (this.f32401c) {
+                for (WeakReference<b> weakReference : this.f32402d) {
                     b bVar = weakReference.get();
                     if (bVar != null) {
                         bVar.a();
@@ -92,16 +92,16 @@ public class MarqueeView extends View {
         }
 
         public void a() {
-            this.f32399b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.f32402e);
+            this.f32400b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.f32403e);
         }
 
         public void a(b bVar) {
-            synchronized (this.f32400c) {
-                if (this.f32401d.size() == 0) {
+            synchronized (this.f32401c) {
+                if (this.f32402d.size() == 0) {
                     a();
                 }
                 boolean z = false;
-                Iterator<WeakReference<b>> it = this.f32401d.iterator();
+                Iterator<WeakReference<b>> it = this.f32402d.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -115,18 +115,18 @@ public class MarqueeView extends View {
                     }
                 }
                 if (!z) {
-                    this.f32401d.add(new WeakReference<>(bVar));
+                    this.f32402d.add(new WeakReference<>(bVar));
                 }
             }
         }
 
         public void b() {
-            this.f32399b.removeMessages(0);
+            this.f32400b.removeMessages(0);
         }
 
         public void b(b bVar) {
-            synchronized (this.f32400c) {
-                Iterator<WeakReference<b>> it = this.f32401d.iterator();
+            synchronized (this.f32401c) {
+                Iterator<WeakReference<b>> it = this.f32402d.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -139,7 +139,7 @@ public class MarqueeView extends View {
                         break;
                     }
                 }
-                if (this.f32401d.size() == 0) {
+                if (this.f32402d.size() == 0) {
                     b();
                 }
             }
@@ -148,14 +148,14 @@ public class MarqueeView extends View {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 0) {
-                if (this.f32401d.size() > 0) {
+                if (this.f32402d.size() > 0) {
                     try {
                         c();
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
                 }
-                this.f32399b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.f32402e);
+                this.f32400b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.f32403e);
             }
             return false;
         }
@@ -176,12 +176,12 @@ public class MarqueeView extends View {
 
     public MarqueeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f32391c = 1.0f;
-        this.f32392d = -16777216;
-        this.f32393e = 12.0f;
-        this.f32394f = 1;
-        this.f32395g = 1.0f;
-        this.f32396h = 0.0f;
+        this.f32392c = 1.0f;
+        this.f32393d = -16777216;
+        this.f32394e = 12.0f;
+        this.f32395f = 1;
+        this.f32396g = 1.0f;
+        this.f32397h = 0.0f;
         this.j = false;
         this.n = 0;
         this.o = true;
@@ -192,7 +192,7 @@ public class MarqueeView extends View {
                 if (!MarqueeView.this.j || TextUtils.isEmpty(MarqueeView.this.p)) {
                     return;
                 }
-                MarqueeView.this.f32396h -= MarqueeView.this.f32391c;
+                MarqueeView.this.f32397h -= MarqueeView.this.f32392c;
                 MarqueeView.this.postInvalidate();
             }
         };
@@ -216,8 +216,8 @@ public class MarqueeView extends View {
         TextPaint textPaint = new TextPaint(1);
         this.k = textPaint;
         textPaint.setStyle(Paint.Style.FILL);
-        this.k.setColor(this.f32392d);
-        this.k.setTextSize(ao.a(getContext(), this.f32393e));
+        this.k.setColor(this.f32393d);
+        this.k.setTextSize(ao.a(getContext(), this.f32394e));
     }
 
     private float getBlacktWidth() {
@@ -233,49 +233,49 @@ public class MarqueeView extends View {
         if (this.j) {
             return;
         }
-        f32389a.a(this.r);
+        f32390a.a(this.r);
         this.j = true;
     }
 
     public void b() {
         this.j = false;
-        f32389a.b(this.r);
+        f32390a.b(this.r);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.o) {
-            float f2 = this.f32395g;
+            float f2 = this.f32396g;
             if (f2 < 0.0f) {
-                this.f32395g = 0.0f;
+                this.f32396g = 0.0f;
             } else if (f2 > 1.0f) {
-                this.f32395g = 1.0f;
+                this.f32396g = 1.0f;
             }
-            this.f32396h = getWidth() * this.f32395g;
+            this.f32397h = getWidth() * this.f32396g;
             this.o = false;
         }
-        int i = this.f32394f;
+        int i = this.f32395f;
         if (i != 1) {
             if (i == 2) {
-                float f3 = this.f32396h;
+                float f3 = this.f32397h;
                 if (f3 < 0.0f) {
                     int i2 = (int) ((-f3) / this.i);
                     int i3 = this.n;
                     if (i2 >= i3) {
                         this.n = i3 + 1;
-                        this.f32390b += this.p;
+                        this.f32391b += this.p;
                     }
                 }
-            } else if (this.i < (-this.f32396h)) {
+            } else if (this.i < (-this.f32397h)) {
                 b();
             }
-        } else if (this.i <= (-this.f32396h)) {
-            this.f32396h = getWidth();
+        } else if (this.i <= (-this.f32397h)) {
+            this.f32397h = getWidth();
         }
-        String str = this.f32390b;
+        String str = this.f32391b;
         if (str != null) {
-            canvas.drawText(str, this.f32396h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
+            canvas.drawText(str, this.f32397h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
         }
     }
 
@@ -283,45 +283,45 @@ public class MarqueeView extends View {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f32396h = getWidth() * this.f32395g;
+        this.f32397h = getWidth() * this.f32396g;
         if (!str.endsWith("")) {
             str = str + "";
         }
         this.p = str;
-        int i = this.f32394f;
+        int i = this.f32395f;
         if (i == 2) {
             this.i = (int) (a(str) + this.m);
             this.n = 0;
             int width = (getWidth() / this.i) + 2;
-            this.f32390b = "";
+            this.f32391b = "";
             StringBuilder sb = new StringBuilder("");
             for (int i2 = 0; i2 <= width; i2++) {
                 sb.append(this.p);
             }
             str = sb.toString();
         } else {
-            float f2 = this.f32396h;
+            float f2 = this.f32397h;
             if (f2 < 0.0f && i == 0 && (-f2) > this.i) {
-                this.f32396h = getWidth() * this.f32395g;
+                this.f32397h = getWidth() * this.f32396g;
             }
             this.i = (int) a(this.p);
         }
-        this.f32390b = str;
+        this.f32391b = str;
     }
 
     public void setRepetType(int i) {
-        this.f32394f = i;
+        this.f32395f = i;
         this.o = true;
         setContent(this.p);
     }
 
     public void setStartLocationDistance(float f2) {
-        this.f32395g = f2;
+        this.f32396g = f2;
     }
 
     public void setTextColor(int i) {
         if (i != 0) {
-            this.f32392d = i;
+            this.f32393d = i;
             this.k.setColor(i);
         }
     }
@@ -342,13 +342,13 @@ public class MarqueeView extends View {
 
     public void setTextSize(float f2) {
         if (f2 > 0.0f) {
-            this.f32393e = f2;
+            this.f32394e = f2;
             this.k.setTextSize(ao.a(getContext(), f2));
             this.i = (int) (a(this.p) + this.m);
         }
     }
 
     public void setTextSpeed(float f2) {
-        this.f32391c = f2;
+        this.f32392c = f2;
     }
 }

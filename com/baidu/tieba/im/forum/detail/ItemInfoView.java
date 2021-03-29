@@ -18,11 +18,11 @@ import d.b.h0.w.p.b;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17985e;
+    public TextView f17986e;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -33,11 +33,11 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.f17985e = (TextView) findViewById(R.id.info_brief_content);
+        this.f17986e = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void b(ForumDetailActivity forumDetailActivity, int i) {
-        SkinManager.setViewTextColor(this.f17985e, R.color.common_color_10177, 1);
+        SkinManager.setViewTextColor(this.f17986e, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().k(i == 1);
         forumDetailActivity.getLayoutMode().j(this);
     }
@@ -69,9 +69,9 @@ public class ItemInfoView extends LinearLayout {
     public void setData(RecommendForumInfo recommendForumInfo) {
         List<PbContent> list;
         if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !k.isEmpty(recommendForumInfo.slogan))) {
-            this.f17985e.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.f17986e.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.f17985e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.f17986e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }

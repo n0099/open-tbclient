@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ReportResult {
     public String mJobId;
     public String mValid;

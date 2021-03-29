@@ -12,10 +12,10 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f52308a = "c12585";
+        public static String f52309a = "c12585";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f52309b = "c12586";
+        public static String f52310b = "c12586";
     }
 
     public static CustomDialogData a(JSONObject jSONObject) {

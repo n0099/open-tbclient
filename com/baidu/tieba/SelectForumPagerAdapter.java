@@ -15,20 +15,20 @@ import java.util.List;
 public class SelectForumPagerAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<SelectForumActivity> f14445a;
+    public TbPageContext<SelectForumActivity> f14446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d> f14446b;
+    public List<d> f14447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14447c = -1;
+    public int f14448c = -1;
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
-        this.f14445a = tbPageContext;
+        this.f14446a = tbPageContext;
         ArrayList arrayList = new ArrayList();
-        this.f14446b = arrayList;
-        arrayList.add(new LatelyView(this.f14445a.getPageActivity()));
-        this.f14446b.add(new AttentionView(this.f14445a.getPageActivity()));
+        this.f14447b = arrayList;
+        arrayList.add(new LatelyView(this.f14446a.getPageActivity()));
+        this.f14447b.add(new AttentionView(this.f14446a.getPageActivity()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @NonNull
     /* renamed from: b */
     public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.f14446b, i);
+        d dVar = (d) ListUtils.getItem(this.f14447b, i);
         if (dVar instanceof View) {
             View view = (View) dVar;
             if (view.getParent() != null) {
@@ -53,25 +53,25 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     }
 
     public void e() {
-        for (d dVar : this.f14446b) {
+        for (d dVar : this.f14447b) {
             dVar.onDestroy();
         }
     }
 
     public void f() {
-        for (d dVar : this.f14446b) {
+        for (d dVar : this.f14447b) {
             dVar.a();
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f14446b);
+        return ListUtils.getCount(this.f14447b);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return ListUtils.getItem(this.f14446b, i) == null ? "" : ((d) ListUtils.getItem(this.f14446b, i)).getTitle();
+        return ListUtils.getItem(this.f14447b, i) == null ? "" : ((d) ListUtils.getItem(this.f14447b, i)).getTitle();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -82,11 +82,11 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.f14447c == i) {
+        if (this.f14448c == i) {
             return;
         }
-        this.f14447c = i;
-        d dVar = (d) ListUtils.getItem(this.f14446b, i);
+        this.f14448c = i;
+        d dVar = (d) ListUtils.getItem(this.f14447b, i);
         if (dVar != null) {
             dVar.c(null);
         }

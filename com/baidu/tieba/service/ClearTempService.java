@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ClearTempService extends BdBaseService {
     public static final int DELETE_FILE_COUNT = 300;
     public static final int MAX_FILE_COUNT = 500;

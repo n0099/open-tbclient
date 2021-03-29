@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static final String TYPE = "tfdt";
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
     public long baseMediaDecodeTime;
 
     static {

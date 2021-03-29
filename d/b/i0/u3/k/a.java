@@ -24,125 +24,125 @@ import d.b.i0.c3.q0.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f61558a;
+    public final b f61559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f61559b;
+    public final NewWriteModel f61560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61560c;
+    public boolean f61561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NewWriteModel.g f61561d;
+    public final NewWriteModel.g f61562d;
 
     /* renamed from: d.b.i0.u3.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1612a implements NewWriteModel.g {
-        public C1612a() {
+    public class C1613a implements NewWriteModel.g {
+        public C1613a() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, f0 f0Var, WriteData writeData, AntiData antiData) {
-            if (a.this.f61558a == null || a.this.f61559b == null || a.this.f61559b.T() == null) {
+            if (a.this.f61559a == null || a.this.f61560b == null || a.this.f61560b.T() == null) {
                 return;
             }
-            a.this.f61558a.p(false);
+            a.this.f61559a.p(false);
             if (writeData == null) {
-                writeData = a.this.f61559b.T();
+                writeData = a.this.f61560b.T();
             }
             WriteData writeData2 = writeData;
             if (z) {
-                a.this.f61560c = true;
+                a.this.f61561c = true;
                 if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
                     if (postWriteCallBackData == null) {
-                        g.b(a.this.f61558a.g().getActivity(), a.this.f61558a.g().getResources().getString(R.string.send_success), null, null);
+                        g.b(a.this.f61559a.g().getActivity(), a.this.f61559a.g().getResources().getString(R.string.send_success), null, null);
                     } else {
-                        g.b(a.this.f61558a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                        g.b(a.this.f61559a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                     }
                 }
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                BaseActivity g2 = a.this.f61558a.g();
-                a.this.f61558a.g();
+                BaseActivity g2 = a.this.f61559a.g();
+                a.this.f61559a.g();
                 g2.setResult(-1, intent);
-                a.this.f61558a.g().finish();
+                a.this.f61559a.g().finish();
             } else if (writeData2 != null && f0Var != null && !TextUtils.isEmpty(f0Var.d())) {
                 writeData2.setVcodeMD5(f0Var.b());
                 writeData2.setVcodeUrl(f0Var.c());
                 writeData2.setVcodeExtra(f0Var.a());
-                a.this.f61558a.g().setVisible(false);
+                a.this.f61559a.g().setVisible(false);
                 if (d.b.h0.a1.a.b(f0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(a.this.f61558a.g().getActivity(), 12006, writeData2, false, f0Var.d())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(a.this.f61559a.g().getActivity(), 12006, writeData2, false, f0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(a.this.f61558a.g().getActivity(), writeData2, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(a.this.f61559a.g().getActivity(), writeData2, 12006)));
                 }
             } else if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
                 if (postWriteCallBackData != null) {
-                    g.b(a.this.f61558a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    BaseActivity g3 = a.this.f61558a.g();
-                    a.this.f61558a.g();
+                    g.b(a.this.f61559a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                    BaseActivity g3 = a.this.f61559a.g();
+                    a.this.f61559a.g();
                     g3.setResult(0, null);
                 }
-                a.this.f61558a.g().finish();
+                a.this.f61559a.g().finish();
             } else {
                 Intent intent2 = new Intent();
                 Bundle bundle2 = new Bundle();
                 bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent2.putExtras(bundle2);
-                BaseActivity g4 = a.this.f61558a.g();
-                a.this.f61558a.g();
+                BaseActivity g4 = a.this.f61559a.g();
+                a.this.f61559a.g();
                 g4.setResult(0, intent2);
-                a.this.f61558a.g().finish();
+                a.this.f61559a.g().finish();
             }
         }
     }
 
     public a(b bVar, NewWriteModel newWriteModel) {
-        C1612a c1612a = new C1612a();
-        this.f61561d = c1612a;
-        this.f61558a = bVar;
-        this.f61559b = newWriteModel;
-        newWriteModel.d0(c1612a);
+        C1613a c1613a = new C1613a();
+        this.f61562d = c1613a;
+        this.f61559a = bVar;
+        this.f61560b = newWriteModel;
+        newWriteModel.d0(c1613a);
     }
 
     public void d() {
-        b bVar = this.f61558a;
+        b bVar = this.f61559a;
         if (bVar != null) {
             bVar.s(500);
         }
     }
 
     public void e() {
-        b bVar = this.f61558a;
+        b bVar = this.f61559a;
         if (bVar != null) {
             bVar.p(false);
         }
     }
 
     public boolean f(String str) {
-        if (this.f61558a == null || str == null) {
+        if (this.f61559a == null || str == null) {
             return false;
         }
         if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_CANCEL)) {
-            this.f61558a.g().finish();
+            this.f61559a.g().finish();
             return true;
         } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_INPUT_FOCUS)) {
-            this.f61558a.o(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.f61558a.h() != this.f61558a.i()) {
-                b bVar = this.f61558a;
+            this.f61559a.o(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.f61559a.h() != this.f61559a.i()) {
+                b bVar = this.f61559a;
                 bVar.n(bVar.h());
-                this.f61558a.t();
+                this.f61559a.t();
             }
-            this.f61558a.j().setVisibility(0);
+            this.f61559a.j().setVisibility(0);
             return true;
         } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_VALID_SUCCESS)) {
             g();
             return true;
         } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTP) || str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTPS)) {
-            this.f61558a.g().finish();
-            UrlManager.getInstance().dealOneLink(this.f61558a.g().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
+            this.f61559a.g().finish();
+            UrlManager.getInstance().dealOneLink(this.f61559a.g().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
             return true;
         } else {
             return true;
@@ -150,24 +150,24 @@ public class a {
     }
 
     public final void g() {
-        if (this.f61558a == null || this.f61559b == null) {
+        if (this.f61559a == null || this.f61560b == null) {
             return;
         }
         if (!l.C()) {
-            this.f61558a.g().showToast(R.string.neterror);
-            this.f61558a.g().finish();
+            this.f61559a.g().showToast(R.string.neterror);
+            this.f61559a.g().finish();
             return;
         }
-        this.f61558a.p(true);
-        this.f61559b.i0();
+        this.f61559a.p(true);
+        this.f61560b.i0();
     }
 
     public void h(String str) {
-        b bVar = this.f61558a;
+        b bVar = this.f61559a;
         if (bVar != null) {
             bVar.q(true);
-            this.f61558a.r(false);
-            this.f61558a.j().loadUrl(str);
+            this.f61559a.r(false);
+            this.f61559a.j().loadUrl(str);
         }
     }
 }

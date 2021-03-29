@@ -27,7 +27,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GroupMessageManagerImpl {
     public static final String TAG = "GroupMessageManagerImpl";
     public static Context mContext;

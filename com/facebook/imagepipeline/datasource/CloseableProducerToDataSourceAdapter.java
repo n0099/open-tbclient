@@ -9,7 +9,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<CloseableReference<T>> {
     public CloseableProducerToDataSourceAdapter(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener requestListener) {
         super(producer, settableProducerContext, requestListener);

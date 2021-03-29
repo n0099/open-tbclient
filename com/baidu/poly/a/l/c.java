@@ -16,16 +16,16 @@ import d.b.c0.g;
 public class c extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10427e;
+    public ImageView f10428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10428f;
+    public TextView f10429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f10429g;
+    public Animation f10430g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10430h;
+    public boolean f10431h;
 
     public c(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class c extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-        this.f10427e = (ImageView) findViewById(f.toast_loading_view);
-        this.f10428f = (TextView) findViewById(f.toast_text_view);
-        this.f10429g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        this.f10428e = (ImageView) findViewById(f.toast_loading_view);
+        this.f10429f = (TextView) findViewById(f.toast_text_view);
+        this.f10430g = AnimationUtils.loadAnimation(context, b.loading_rotate);
         setClickable(true);
     }
 
@@ -50,23 +50,23 @@ public class c extends FrameLayout {
     }
 
     public boolean getIsLoading() {
-        return this.f10430h;
+        return this.f10431h;
     }
 
     public void setLoading(boolean z) {
         b();
-        this.f10430h = z;
+        this.f10431h = z;
         if (z) {
             setVisibility(0);
-            this.f10427e.startAnimation(this.f10429g);
+            this.f10428e.startAnimation(this.f10430g);
             return;
         }
-        this.f10427e.clearAnimation();
+        this.f10428e.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.f10428f.setText(str);
+        this.f10429f.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

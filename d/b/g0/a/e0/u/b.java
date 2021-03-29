@@ -15,61 +15,61 @@ import d.b.g0.a.k;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f44288h = k.f45050a;
+    public static final boolean f44289h = k.f45051a;
     public static volatile b i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f44289a;
+    public Context f44290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f44290b = false;
+    public volatile boolean f44291b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44291c = false;
+    public boolean f44292c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44292d = false;
+    public boolean f44293d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f44293e = new Object();
+    public final Object f44294e = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f44294f = new Object();
+    public final Object f44295f = new Object();
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f44295g = new ArrayList<>();
+    public ArrayList<c> f44296g = new ArrayList<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f44296e;
+        public final /* synthetic */ boolean f44297e;
 
         public a(boolean z) {
-            this.f44296e = z;
+            this.f44297e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            b.this.g(this.f44296e);
-            b.this.f44290b = true;
-            synchronized (b.this.f44294f) {
-                b.this.f44292d = true;
-                b.this.f44294f.notifyAll();
+            b.this.g(this.f44297e);
+            b.this.f44291b = true;
+            synchronized (b.this.f44295f) {
+                b.this.f44293d = true;
+                b.this.f44295f.notifyAll();
                 b.this.m();
             }
         }
     }
 
     /* renamed from: d.b.g0.a.e0.u.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0682b implements Runnable {
-        public RunnableC0682b(b bVar) {
+    /* loaded from: classes2.dex */
+    public class RunnableC0683b implements Runnable {
+        public RunnableC0683b(b bVar) {
         }
 
         @Override // java.lang.Runnable
@@ -79,13 +79,13 @@ public final class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a();
     }
 
     public b(Context context) {
-        this.f44289a = context.getApplicationContext();
+        this.f44290a = context.getApplicationContext();
     }
 
     public static synchronized b h(Context context) {
@@ -100,23 +100,23 @@ public final class b {
     }
 
     public void e(c cVar) {
-        synchronized (this.f44294f) {
-            if (f44288h) {
+        synchronized (this.f44295f) {
+            if (f44289h) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
-            if (!this.f44295g.contains(cVar)) {
-                this.f44295g.add(cVar);
+            if (!this.f44296g.contains(cVar)) {
+                this.f44296g.add(cVar);
             }
-            if (this.f44292d) {
+            if (this.f44293d) {
                 m();
             }
         }
     }
 
     public void f(c cVar) {
-        synchronized (this.f44294f) {
-            boolean remove = this.f44295g.remove(cVar);
-            if (f44288h) {
+        synchronized (this.f44295f) {
+            boolean remove = this.f44296g.remove(cVar);
+            if (f44289h) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + cVar + " ,isRemoved: " + remove);
             }
         }
@@ -126,22 +126,22 @@ public final class b {
         WebKitFactory.setNeedDownloadCloudResource(false);
         WebKitFactory.setProcessType("1");
         com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
-        BdSailor.getInstance().init(this.f44289a, null, null);
-        if (f44288h) {
-            new Handler(Looper.getMainLooper()).post(new RunnableC0682b(this));
+        BdSailor.getInstance().init(this.f44290a, null, null);
+        if (f44289h) {
+            new Handler(Looper.getMainLooper()).post(new RunnableC0683b(this));
         }
         BdSailor.getInstance().initWebkit("swan", false);
         BdSailor.getInstance().setWebkitEnable(true);
         BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
         if (BdZeusUtil.isWebkitLoaded()) {
-            if (f44288h) {
+            if (f44289h) {
                 android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
             }
-        } else if (f44288h) {
+        } else if (f44289h) {
             android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
         }
-        CookieSyncManager.createInstance(this.f44289a);
-        BdSailor.initCookieSyncManager(this.f44289a);
+        CookieSyncManager.createInstance(this.f44290a);
+        BdSailor.initCookieSyncManager(this.f44290a);
     }
 
     public void i() {
@@ -149,20 +149,20 @@ public final class b {
     }
 
     public final void j(boolean z, boolean z2) {
-        if (this.f44290b) {
+        if (this.f44291b) {
             return;
         }
-        synchronized (this.f44293e) {
-            if (!this.f44291c) {
+        synchronized (this.f44294e) {
+            if (!this.f44292c) {
                 Executors.newSingleThreadExecutor().execute(new a(z2));
-                this.f44291c = true;
+                this.f44292c = true;
             }
         }
         if (z) {
-            synchronized (this.f44294f) {
-                while (!this.f44292d) {
+            synchronized (this.f44295f) {
+                while (!this.f44293d) {
                     try {
-                        this.f44294f.wait(1000L);
+                        this.f44295f.wait(1000L);
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
                     }
@@ -176,19 +176,19 @@ public final class b {
     }
 
     public boolean l() {
-        return this.f44290b;
+        return this.f44291b;
     }
 
     public void m() {
-        synchronized (this.f44294f) {
-            if (f44288h) {
+        synchronized (this.f44295f) {
+            if (f44289h) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }
-            Iterator<c> it = this.f44295g.iterator();
+            Iterator<c> it = this.f44296g.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
-            this.f44295g.clear();
+            this.f44296g.clear();
         }
     }
 

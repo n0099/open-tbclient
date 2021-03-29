@@ -15,23 +15,23 @@ import d.b.i0.x.z;
 public class b implements CustomMessageTask.CustomRunnable<a2>, z {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.p0.j2.b f57379e;
+    public d.b.i0.p0.j2.b f57380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageTag f57380f;
+    public TbPageTag f57381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f57381g;
+    public BdUniqueId f57382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57382h;
+    public int f57383h;
 
     public b(d.b.i0.p0.j2.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.f57379e = null;
-        this.f57380f = null;
-        this.f57379e = bVar;
-        this.f57380f = tbPageTag;
-        this.f57381g = bdUniqueId;
+        this.f57380e = null;
+        this.f57381f = null;
+        this.f57380e = bVar;
+        this.f57381f = tbPageTag;
+        this.f57382g = bdUniqueId;
     }
 
     @Override // d.b.i0.x.z
@@ -53,7 +53,7 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
         statisticItem.param(TiebaStatic.Params.STAR_ID, j);
         statisticItem.param("extra", a2Var.U0);
         statisticItem.param("source_from", a2Var.R0);
-        int i = this.f57382h;
+        int i = this.f57383h;
         if (i == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i == 13) {
@@ -77,7 +77,7 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
         statisticItem.param(TiebaStatic.Params.STAR_ID, j);
         statisticItem.param("extra", a2Var.U0);
         statisticItem.param("source_from", a2Var.R0);
-        int i = this.f57382h;
+        int i = this.f57383h;
         if (i == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i == 13) {
@@ -87,7 +87,7 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
     }
 
     public void d(int i) {
-        this.f57382h = i;
+        this.f57383h = i;
     }
 
     @Override // d.b.i0.x.z
@@ -101,20 +101,20 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
             a2 data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 b(data);
-                d.b.i0.p0.j2.c.j().g(this.f57379e, data, 1);
-                d.b.i0.p0.j2.a.b(data, 1, this.f57381g, this.f57379e, this.f57380f);
+                d.b.i0.p0.j2.c.j().g(this.f57380e, data, 1);
+                d.b.i0.p0.j2.a.b(data, 1, this.f57382g, this.f57380e, this.f57381f);
             } else if (customMessage.getCmd() == 2921016) {
                 b(data);
-                d.b.i0.p0.j2.c.j().g(this.f57379e, data, 2);
-                d.b.i0.p0.j2.a.b(data, 2, this.f57381g, this.f57379e, this.f57380f);
+                d.b.i0.p0.j2.c.j().g(this.f57380e, data, 2);
+                d.b.i0.p0.j2.a.b(data, 2, this.f57382g, this.f57380e, this.f57381f);
             } else if (customMessage.getCmd() == 2921019) {
                 b(data);
-                d.b.i0.p0.j2.c.j().g(this.f57379e, data, 4);
-                d.b.i0.p0.j2.a.b(data, 1, this.f57381g, this.f57379e, this.f57380f);
+                d.b.i0.p0.j2.c.j().g(this.f57380e, data, 4);
+                d.b.i0.p0.j2.a.b(data, 1, this.f57382g, this.f57380e, this.f57381f);
             } else if (customMessage.getCmd() == 2921017) {
                 c(data);
-                d.b.i0.p0.j2.c.j().c(this.f57379e, data);
-                d.b.i0.p0.j2.a.i(data, this.f57381g, this.f57379e, this.f57380f);
+                d.b.i0.p0.j2.c.j().c(this.f57380e, data);
+                d.b.i0.p0.j2.a.i(data, this.f57382g, this.f57380e, this.f57381f);
             }
         }
         return null;

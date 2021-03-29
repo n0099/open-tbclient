@@ -21,10 +21,10 @@ import d.b.i0.c2.b;
 public class e extends b<CustomDialogData> implements View.OnClickListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomDialogData f52497g;
+    public CustomDialogData f52498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f52498h;
+    public f f52499h;
     public TbImageView i;
     public TextView j;
     public TextView k;
@@ -72,7 +72,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         if (customDialogData == null) {
             return;
         }
-        this.f52497g = customDialogData;
+        this.f52498g = customDialogData;
         CustomDialogData.Head head = customDialogData.head;
         if (!TextUtils.isEmpty(head.imageUrl)) {
             this.i.W(head.imageUrl, 10, false);
@@ -95,7 +95,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     }
 
     public void f(f fVar) {
-        this.f52498h = fVar;
+        this.f52499h = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -103,27 +103,27 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         CustomDialogData.Button button;
         CustomDialogData.Button button2;
         if (view == this.l) {
-            CustomDialogData customDialogData = this.f52497g;
+            CustomDialogData customDialogData = this.f52498g;
             if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                UrlManager.getInstance().dealOneLink(d(), new String[]{this.f52497g.rightButton.action});
+                UrlManager.getInstance().dealOneLink(d(), new String[]{this.f52498g.rightButton.action});
             }
-            f fVar = this.f52498h;
+            f fVar = this.f52499h;
             if (fVar != null) {
                 fVar.dismiss();
             }
-            StatisticItem statisticItem = new StatisticItem(b.a.f52309b);
+            StatisticItem statisticItem = new StatisticItem(b.a.f52310b);
             statisticItem.param("obj_locate", 2);
             TiebaStatic.log(statisticItem);
         } else if (view == this.m) {
-            CustomDialogData customDialogData2 = this.f52497g;
+            CustomDialogData customDialogData2 = this.f52498g;
             if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f52495e.getPageActivity(), null, this.f52497g.leftButton.action, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f52496e.getPageActivity(), null, this.f52498g.leftButton.action, true)));
             }
-            f fVar2 = this.f52498h;
+            f fVar2 = this.f52499h;
             if (fVar2 != null) {
                 fVar2.dismiss();
             }
-            StatisticItem statisticItem2 = new StatisticItem(b.a.f52309b);
+            StatisticItem statisticItem2 = new StatisticItem(b.a.f52310b);
             statisticItem2.param("obj_locate", 1);
             TiebaStatic.log(statisticItem2);
         }

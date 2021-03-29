@@ -12,16 +12,16 @@ public final class d<T> implements Queue<T> {
     public static final Object n = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f67949e;
+    public final AtomicLong f67954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67950f;
+    public int f67955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67951g;
+    public long f67956g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67952h;
+    public int f67957h;
     public AtomicReferenceArray<Object> i;
     public int j;
     public AtomicReferenceArray<Object> k;
@@ -32,12 +32,12 @@ public final class d<T> implements Queue<T> {
         int i2 = b2 - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
         this.i = atomicReferenceArray;
-        this.f67952h = i2;
+        this.f67957h = i2;
         a(b2);
         this.k = atomicReferenceArray;
         this.j = i2;
-        this.f67951g = i2 - 1;
-        this.f67949e = new AtomicLong();
+        this.f67956g = i2 - 1;
+        this.f67954e = new AtomicLong();
         this.l = new AtomicLong();
     }
 
@@ -60,7 +60,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final void a(int i) {
-        this.f67950f = Math.min(i / 4, m);
+        this.f67955f = Math.min(i / 4, m);
     }
 
     @Override // java.util.Queue, java.util.Collection
@@ -97,7 +97,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final long e() {
-        return this.f67949e.get();
+        return this.f67954e.get();
     }
 
     @Override // java.util.Queue
@@ -116,7 +116,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final long i() {
-        return this.f67949e.get();
+        return this.f67954e.get();
     }
 
     @Override // java.util.Collection
@@ -149,7 +149,7 @@ public final class d<T> implements Queue<T> {
     public boolean l(T t, T t2) {
         AtomicReferenceArray<Object> atomicReferenceArray = this.i;
         long i = i();
-        int i2 = this.f67952h;
+        int i2 = this.f67957h;
         long j = 2 + i;
         if (g(atomicReferenceArray, c(j, i2)) == null) {
             int c2 = c(i, i2);
@@ -172,7 +172,7 @@ public final class d<T> implements Queue<T> {
     public final void m(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
         this.i = atomicReferenceArray2;
-        this.f67951g = (j2 + j) - 1;
+        this.f67956g = (j2 + j) - 1;
         o(atomicReferenceArray2, i, t);
         p(atomicReferenceArray, atomicReferenceArray2);
         o(atomicReferenceArray, i, n);
@@ -187,14 +187,14 @@ public final class d<T> implements Queue<T> {
     public boolean offer(T t) {
         AtomicReferenceArray<Object> atomicReferenceArray = this.i;
         long e2 = e();
-        int i = this.f67952h;
+        int i = this.f67957h;
         int c2 = c(e2, i);
-        if (e2 < this.f67951g) {
+        if (e2 < this.f67956g) {
             return r(atomicReferenceArray, t, e2, c2);
         }
-        long j = this.f67950f + e2;
+        long j = this.f67955f + e2;
         if (g(atomicReferenceArray, c(j, i)) == null) {
-            this.f67951g = j - 1;
+            this.f67956g = j - 1;
             return r(atomicReferenceArray, t, e2, c2);
         } else if (g(atomicReferenceArray, c(1 + e2, i)) == null) {
             return r(atomicReferenceArray, t, e2, c2);
@@ -239,7 +239,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final void q(long j) {
-        this.f67949e.lazySet(j);
+        this.f67954e.lazySet(j);
     }
 
     public final boolean r(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j, int i) {

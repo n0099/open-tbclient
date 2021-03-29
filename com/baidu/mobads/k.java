@@ -8,28 +8,28 @@ import com.baidu.mobads.CpuInfoManager;
 public final class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f8358a;
+    public final /* synthetic */ Context f8359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f8359b;
+    public final /* synthetic */ int f8360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f8360c;
+    public final /* synthetic */ String f8361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ CpuInfoManager.UrlListener f8361d;
+    public final /* synthetic */ CpuInfoManager.UrlListener f8362d;
 
     public k(Context context, int i, String str, CpuInfoManager.UrlListener urlListener) {
-        this.f8358a = context;
-        this.f8359b = i;
-        this.f8360c = str;
-        this.f8361d = urlListener;
+        this.f8359a = context;
+        this.f8360b = i;
+        this.f8361c = str;
+        this.f8362d = urlListener;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        String a2 = new com.baidu.mobads.production.cpu.d(this.f8358a.getApplicationContext(), this.f8359b, this.f8360c).a();
-        if (this.f8361d != null) {
+        String a2 = new com.baidu.mobads.production.cpu.d(this.f8359a.getApplicationContext(), this.f8360b, this.f8361c).a();
+        if (this.f8362d != null) {
             new Handler(Looper.getMainLooper()).post(new l(this, a2));
         }
     }

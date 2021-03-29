@@ -14,15 +14,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d implements a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Deque<Message>> f45394a = new HashMap();
+    public final Map<String, Deque<Message>> f45395a = new HashMap();
 
     @Override // d.b.g0.a.n1.c.a.c
     public void a() {
-        for (String str : this.f45394a.keySet()) {
+        for (String str : this.f45395a.keySet()) {
             c(str);
         }
     }
@@ -40,7 +40,7 @@ public class d implements a.c {
             while (it.hasNext()) {
                 c next = it.next();
                 boolean g2 = g(next, k);
-                if (l.contains(next.f45390f) || g2) {
+                if (l.contains(next.f45391f) || g2) {
                     next.P(h2);
                     if (g2) {
                         k.remove(next.getAppId());
@@ -53,7 +53,7 @@ public class d implements a.c {
         Iterator<c> it2 = e.j().p().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.D() && (l.contains(next2.f45390f) || g(next2, k))) {
+            if (next2 != null && next2.D() && (l.contains(next2.f45391f) || g(next2, k))) {
                 next2.P(h2);
             }
         }
@@ -61,7 +61,7 @@ public class d implements a.c {
 
     @Override // d.b.g0.a.n1.c.a.c
     public void c(String str) {
-        Deque<Message> deque = this.f45394a.get(str);
+        Deque<Message> deque = this.f45395a.get(str);
         d.b.g0.a.n1.c.a.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque == null || deque.isEmpty()) {
             return;
@@ -79,17 +79,17 @@ public class d implements a.c {
 
     @Override // d.b.g0.a.n1.c.a.c
     public void d(String str) {
-        this.f45394a.remove(str);
+        this.f45395a.remove(str);
     }
 
     public final void e(String str, @NonNull Message message) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        Deque<Message> deque = this.f45394a.get(str);
+        Deque<Message> deque = this.f45395a.get(str);
         if (deque == null) {
             deque = new ArrayDeque<>();
-            this.f45394a.put(str, deque);
+            this.f45395a.put(str, deque);
         }
         deque.offer(message);
     }
@@ -106,7 +106,7 @@ public class d implements a.c {
 
     public final void h(Message message) {
         try {
-            e.j().f45399c.send(message);
+            e.j().f45400c.send(message);
         } catch (RemoteException e2) {
             d.b.g0.a.n1.c.a.f(Log.getStackTraceString(e2));
         }

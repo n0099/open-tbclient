@@ -6,27 +6,27 @@ import com.baidu.searchbox.config.AppConfig;
 public abstract class a<T> implements b<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42729b = AppConfig.isDebug();
+    public static final boolean f42730b = AppConfig.isDebug();
 
     /* renamed from: a  reason: collision with root package name */
-    public T f42730a;
+    public T f42731a;
 
     public abstract T a() throws ServiceNotFoundException;
 
     @Override // d.b.d0.b.b.b
     public final T getService() {
         synchronized (this) {
-            if (this.f42730a == null) {
+            if (this.f42731a == null) {
                 try {
-                    this.f42730a = a();
+                    this.f42731a = a();
                 } catch (ServiceNotFoundException e2) {
-                    if (f42729b) {
+                    if (f42730b) {
                         e2.printStackTrace();
                         throw e2;
                     }
                 }
             }
         }
-        return this.f42730a;
+        return this.f42731a;
     }
 }

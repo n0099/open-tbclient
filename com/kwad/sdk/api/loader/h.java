@@ -29,7 +29,7 @@ import org.apache.http.protocol.HTTP;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f31795a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    public static final String f31796a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -42,10 +42,10 @@ public class h {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f31799a;
+        public final OutputStream f31800a;
 
         public b(File file, boolean z) {
-            this.f31799a = new FileOutputStream(file, z);
+            this.f31800a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -58,12 +58,12 @@ public class h {
 
         @Override // com.kwad.sdk.api.loader.h.d
         public void a(byte[] bArr, int i, int i2) {
-            this.f31799a.write(bArr, i, i2);
+            this.f31800a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f31799a.close();
+            this.f31800a.close();
         }
     }
 
@@ -215,41 +215,61 @@ public class h {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:81:0x016f A[Catch: all -> 0x0199, TryCatch #4 {all -> 0x0199, blocks: (B:79:0x016b, B:81:0x016f, B:83:0x0198, B:82:0x0172), top: B:101:0x016b }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0172 A[Catch: all -> 0x0199, TryCatch #4 {all -> 0x0199, blocks: (B:79:0x016b, B:81:0x016f, B:83:0x0198, B:82:0x0172), top: B:101:0x016b }] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x00d5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x016c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x017d A[Catch: all -> 0x01a7, TryCatch #3 {all -> 0x01a7, blocks: (B:88:0x0179, B:90:0x017d, B:92:0x01a6, B:91:0x0180), top: B:107:0x0179 }] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0180 A[Catch: all -> 0x01a7, TryCatch #3 {all -> 0x01a7, blocks: (B:88:0x0179, B:90:0x017d, B:92:0x01a6, B:91:0x0180), top: B:107:0x0179 }] */
+    /* JADX WARN: Type inference failed for: r14v5 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i, long j, long j2, boolean z) {
-        File file;
+        Object valueOf;
         FileOutputStream fileOutputStream;
-        InputStream bufferedInputStream;
-        long j3;
+        File file;
+        HashMap hashMap;
+        File file2;
         InputStream inputStream = null;
-        if (j > 0 || j2 > 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 > 0 || j2 > 0) {
             try {
                 Object[] objArr = new Object[2];
                 objArr[0] = Long.valueOf(j);
-                objArr[1] = j2 > 0 ? Long.valueOf(j2) : "";
+                if (j2 > 0) {
+                    try {
+                        valueOf = Long.valueOf(j2);
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                        file = null;
+                        try {
+                            if (th instanceof IOException) {
+                            }
+                        } catch (Throwable th2) {
+                            a(dVar);
+                            a(inputStream);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            a(fileOutputStream);
+                            if (file != null) {
+                                file.delete();
+                            }
+                            throw th2;
+                        }
+                    }
+                } else {
+                    valueOf = "";
+                }
+                objArr[1] = valueOf;
                 httpURLConnection.setRequestProperty("Range", String.format("bytes=%s-%s", objArr));
-            } catch (Throwable th) {
-                th = th;
-                file = null;
+            } catch (Throwable th3) {
+                th = th3;
                 fileOutputStream = null;
-                try {
-                    if (th instanceof IOException) {
-                    }
-                } catch (Throwable th2) {
-                    a(dVar);
-                    a(inputStream);
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    a(fileOutputStream);
-                    if (file != null) {
-                        file.delete();
-                    }
-                    throw th2;
+                inputStream = null;
+                file = null;
+                if (th instanceof IOException) {
                 }
             }
         }
@@ -268,107 +288,121 @@ public class h {
             }
         }
         httpURLConnection.setRequestProperty("User-Agent", RequestParamsUtils.getUserAgent());
-        InputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection.getInputStream());
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
         try {
             int contentLength = httpURLConnection.getContentLength();
-            HashMap hashMap = httpURLConnection.getHeaderFields() == null ? new HashMap() : new HashMap(httpURLConnection.getHeaderFields());
-            InputStream bufferedInputStream3 = new BufferedInputStream(httpURLConnection.getInputStream());
+            if (httpURLConnection.getHeaderFields() == null) {
+                try {
+                    hashMap = new HashMap();
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                    file = fileOutputStream;
+                    inputStream = bufferedInputStream;
+                    if (th instanceof IOException) {
+                        throw new IOException(th.getClass().getName() + ":" + th.getMessage(), th);
+                    }
+                    throw th;
+                }
+            } else {
+                hashMap = new HashMap(httpURLConnection.getHeaderFields());
+            }
+            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection.getInputStream());
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f31795a, random.nextInt() + ".tmp");
-                } catch (Throwable th3) {
-                    th = th3;
-                    file = null;
-                    fileOutputStream = null;
-                }
-                try {
-                    fileOutputStream = new FileOutputStream(file);
+                    file2 = new File(f31796a, random.nextInt() + ".tmp");
                     try {
-                        byte[] bArr = new byte[10240];
-                        contentLength = 0;
-                        while (true) {
-                            int read = bufferedInputStream3.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            contentLength += read;
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                        a(bufferedInputStream3);
-                        a(fileOutputStream);
-                        bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-                    } catch (Throwable th4) {
-                        th = th4;
-                        inputStream = bufferedInputStream3;
-                        if (th instanceof IOException) {
-                            throw new IOException(th.getClass().getName() + ":" + th.getMessage(), th);
-                        }
-                        throw th;
-                    }
-                    try {
-                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(contentLength)));
-                        bufferedInputStream3 = bufferedInputStream;
-                        j3 = 0;
+                        fileOutputStream = new FileOutputStream(file2);
                     } catch (Throwable th5) {
                         th = th5;
-                        inputStream = bufferedInputStream;
+                        fileOutputStream = null;
+                        inputStream = bufferedInputStream2;
+                        file = file2;
                         if (th instanceof IOException) {
                         }
                     }
                 } catch (Throwable th6) {
                     th = th6;
                     fileOutputStream = null;
-                    inputStream = bufferedInputStream3;
+                    file2 = null;
+                }
+                try {
+                    byte[] bArr = new byte[10240];
+                    int i3 = 0;
+                    while (true) {
+                        int read = bufferedInputStream2.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        i3 += read;
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    a(bufferedInputStream2);
+                    a(fileOutputStream);
+                    BufferedInputStream bufferedInputStream3 = new BufferedInputStream(new FileInputStream(file2));
+                    try {
+                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i3)));
+                        bufferedInputStream2 = bufferedInputStream3;
+                        contentLength = i3;
+                        file2 = file2;
+                    } catch (Throwable th7) {
+                        th = th7;
+                        inputStream = bufferedInputStream3;
+                        file = file2;
+                        if (th instanceof IOException) {
+                        }
+                    }
+                } catch (Throwable th8) {
+                    th = th8;
+                    inputStream = bufferedInputStream2;
+                    file = file2;
                     if (th instanceof IOException) {
                     }
                 }
             } else {
-                j3 = 0;
-                file = null;
                 fileOutputStream = null;
+                file2 = null;
             }
-            int i2 = (j <= j3 || !z) ? 0 : (int) j;
-            int i3 = contentLength + i2;
-            dVar.a(i3);
+            int i4 = (i2 <= 0 || !z) ? 0 : (int) j;
+            int i5 = contentLength + i4;
+            dVar.a(i5);
             dVar.a(httpURLConnection.getResponseCode(), hashMap);
             if (cVar != null) {
-                cVar.a(i2, i3, null);
+                cVar.a(i4, i5, null);
             }
             byte[] bArr2 = new byte[10240];
             if (SpeedLimitApiHolder.getInstance() != null) {
-                bufferedInputStream3 = SpeedLimitApiHolder.getInstance().wrapInputStream(bufferedInputStream3);
+                bufferedInputStream2 = SpeedLimitApiHolder.getInstance().wrapInputStream(bufferedInputStream2);
             }
             while (true) {
-                int read2 = bufferedInputStream3.read(bArr2);
+                int read2 = bufferedInputStream2.read(bArr2);
                 if (read2 == -1) {
                     break;
                 }
-                i2 += read2;
+                i4 += read2;
                 dVar.a(bArr2, 0, read2);
                 if (cVar != null) {
-                    cVar.a(i2, i3, null);
+                    cVar.a(i4, i5, null);
                 }
             }
             if (cVar != null) {
-                cVar.a(i3, i3, null);
+                cVar.a(i5, i5, null);
             }
             a(dVar);
-            a(bufferedInputStream3);
+            a(bufferedInputStream2);
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
             a(fileOutputStream);
-            if (file != null) {
-                file.delete();
+            if (file2 != null) {
+                file2.delete();
                 return true;
             }
             return true;
-        } catch (Throwable th7) {
-            th = th7;
-            file = null;
+        } catch (Throwable th9) {
+            th = th9;
             fileOutputStream = null;
-            inputStream = bufferedInputStream2;
         }
     }
 }

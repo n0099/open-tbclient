@@ -3,14 +3,14 @@ package d.b.b.e.b.b.a.d;
 public class o implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f41650a;
+    public Object f41651a;
 
     public o(Object obj) {
-        this.f41650a = obj;
+        this.f41651a = obj;
     }
 
     @Override // d.b.b.e.b.b.a.d.h
     public Object a(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41650a;
+        return this.f41651a;
     }
 }

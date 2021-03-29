@@ -8,11 +8,11 @@ import java.io.IOException;
 /* loaded from: classes.dex */
 public class g {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b2, code lost:
         if (r2.equals("gs") != false) goto L30;
      */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0038  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0043 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0042 A[SYNTHETIC] */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -11,14 +11,14 @@ import com.baidu.android.lbspay.network.NewCashierContent;
 import com.baidu.android.lbspay.utils.PayMode;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LbsPayRadioGroup extends LinearLayout {
     public ChannelViewBase checkedView;
     public CheckedViewClickListener checkedViewClickListener;
     public OnCheckedListener mCheckedListener;
     public PayChannelController.GetPayModeListener mGetPayModeListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class CheckedViewClickListener implements View.OnClickListener {
         public CheckedViewClickListener() {
         }
@@ -31,7 +31,7 @@ public class LbsPayRadioGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnCheckedListener {
         void onChecked(ChannelViewBase channelViewBase);
     }

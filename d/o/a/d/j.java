@@ -24,26 +24,26 @@ import d.o.a.d.n.f;
 import d.o.a.e.b.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j implements d.o.a.a.a.b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.a.b f66720a;
+        public final /* synthetic */ d.o.a.a.a.a.b f66725a;
 
         public a(j jVar, d.o.a.a.a.a.b bVar) {
-            this.f66720a = bVar;
+            this.f66725a = bVar;
         }
 
         @Override // d.o.a.e.b.a.a.d
         public boolean a() {
-            return this.f66720a.a();
+            return this.f66725a.a();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements d.o.a.e.b.f.i {
         public b(j jVar) {
         }
@@ -103,18 +103,18 @@ public class j implements d.o.a.a.a.b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static c f66721a = new c();
+            public static c f66726a = new c();
         }
 
         public static c a() {
-            return b.f66721a;
+            return b.f66726a;
         }
 
         public final JSONObject b(d.o.a.b.a.c.a aVar) {
@@ -141,11 +141,11 @@ public class j implements d.o.a.a.a.b {
             c.f v = c.g.e().v(j);
             if (v.w()) {
                 d.o.a.d.n.k.B();
-            } else if (v.f66544c.l()) {
+            } else if (v.f66545c.l()) {
                 int i2 = 1;
-                d.o.a.a.a.c.c cVar = v.f66544c;
+                d.o.a.a.a.c.c cVar = v.f66545c;
                 String c2 = i == 1 ? cVar.c() : cVar.b();
-                String m = d.o.a.d.n.k.m(v.f66544c.d(), PrefetchEvent.STATE_CLICK);
+                String m = d.o.a.d.n.k.m(v.f66545c.d(), PrefetchEvent.STATE_CLICK);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("download_click_type", Integer.valueOf(i));
@@ -158,10 +158,10 @@ public class j implements d.o.a.a.a.b {
                     e2.printStackTrace();
                 }
                 r(c2, m, jSONObject, v);
-                if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f66543b == null) {
+                if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f66544b == null) {
                     return;
                 }
-                e.a().b(j, v.f66543b.u());
+                e.a().b(j, v.f66544b.u());
             }
         }
 
@@ -174,15 +174,15 @@ public class j implements d.o.a.a.a.b {
             String str = null;
             JSONObject jSONObject = new JSONObject();
             if (i == 1) {
-                str = d.o.a.d.n.k.m(v.f66544c.i(), "storage_deny");
+                str = d.o.a.d.n.k.m(v.f66545c.i(), "storage_deny");
             } else if (i == 2) {
-                str = d.o.a.d.n.k.m(v.f66544c.e(), "click_start");
+                str = d.o.a.d.n.k.m(v.f66545c.e(), "click_start");
                 f.c(downloadInfo, jSONObject);
             } else if (i == 3) {
-                str = d.o.a.d.n.k.m(v.f66544c.f(), "click_pause");
+                str = d.o.a.d.n.k.m(v.f66545c.f(), "click_pause");
                 f.f(downloadInfo, jSONObject);
             } else if (i == 4) {
-                str = d.o.a.d.n.k.m(v.f66544c.g(), "click_continue");
+                str = d.o.a.d.n.k.m(v.f66545c.g(), "click_continue");
                 f.g(downloadInfo, jSONObject);
             } else if (i == 5) {
                 if (downloadInfo != null) {
@@ -192,7 +192,7 @@ public class j implements d.o.a.a.a.b {
                     } catch (Throwable unused) {
                     }
                 }
-                str = d.o.a.d.n.k.m(v.f66544c.h(), "click_install");
+                str = d.o.a.d.n.k.m(v.f66545c.h(), "click_install");
             }
             q(null, str, jSONObject, 0L, 1, v);
         }
@@ -231,9 +231,9 @@ public class j implements d.o.a.a.a.b {
             c.f v = c.g.e().v(j);
             if (v.w()) {
                 d.o.a.d.n.k.B();
-            } else if (v.f66543b.B() == null) {
+            } else if (v.f66544b.B() == null) {
             } else {
-                d.o.a.a.a.c.d dVar = v.f66543b;
+                d.o.a.a.a.c.d dVar = v.f66544b;
                 if (dVar instanceof d.o.a.b.a.a.c) {
                     ((d.o.a.b.a.a.c) dVar).b(3);
                 }
@@ -290,11 +290,7 @@ public class j implements d.o.a.a.a.b {
                     jSONObject.putOpt("fail_msg", c2.A());
                     jSONObject.put("download_failed_times", c2.f1());
                     if (downloadInfo.Q0() > 0) {
-                        double E = downloadInfo.E();
-                        double Q0 = downloadInfo.Q0();
-                        Double.isNaN(E);
-                        Double.isNaN(Q0);
-                        jSONObject.put("download_percent", E / Q0);
+                        jSONObject.put("download_percent", downloadInfo.E() / downloadInfo.Q0());
                     }
                     jSONObject.put("download_status", downloadInfo.z0());
                     long currentTimeMillis = System.currentTimeMillis();
@@ -450,11 +446,7 @@ public class j implements d.o.a.a.a.b {
                     c2.g1();
                     jSONObject.put("download_failed_times", c2.f1());
                     if (downloadInfo.Q0() > 0) {
-                        double E = downloadInfo.E();
-                        double Q0 = downloadInfo.Q0();
-                        Double.isNaN(E);
-                        Double.isNaN(Q0);
-                        jSONObject.put("download_percent", E / Q0);
+                        jSONObject.put("download_percent", downloadInfo.E() / downloadInfo.Q0());
                     }
                     int i = 1;
                     jSONObject.put("has_send_download_failed_finally", c2.L.get() ? 1 : 2);
@@ -475,11 +467,11 @@ public class j implements d.o.a.a.a.b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f66722a = {"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
+        public static final String[] f66727a = {"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
 
         public d(@Nullable Context context) {
             super(context, "click_event", (SQLiteDatabase.CursorFactory) null, 1);
@@ -497,37 +489,37 @@ public class j implements d.o.a.a.a.b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e {
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile e f66723b;
+        public static volatile e f66728b;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f66724a;
+        public SQLiteDatabase f66729a;
 
         public e() {
             try {
-                this.f66724a = new d(n.a()).getWritableDatabase();
+                this.f66729a = new d(n.a()).getWritableDatabase();
             } catch (Throwable th) {
                 d.o.a.d.n.k.q(th);
             }
         }
 
         public static e a() {
-            if (f66723b == null) {
+            if (f66728b == null) {
                 synchronized (e.class) {
-                    if (f66723b == null) {
-                        f66723b = new e();
+                    if (f66728b == null) {
+                        f66728b = new e();
                     }
                 }
             }
-            return f66723b;
+            return f66728b;
         }
 
         public void b(long j, String str) {
             String optString;
-            SQLiteDatabase sQLiteDatabase = this.f66724a;
+            SQLiteDatabase sQLiteDatabase = this.f66729a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
@@ -543,7 +535,7 @@ public class j implements d.o.a.a.a.b {
             contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
             contentValues.put("req_id", optString);
             contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            this.f66724a.insert("click_event", null, contentValues);
+            this.f66729a.insert("click_event", null, contentValues);
             e(j, str);
         }
 
@@ -553,7 +545,7 @@ public class j implements d.o.a.a.a.b {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
         public boolean d(long j, String str) {
-            SQLiteDatabase sQLiteDatabase = this.f66724a;
+            SQLiteDatabase sQLiteDatabase = this.f66729a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -564,7 +556,7 @@ public class j implements d.o.a.a.a.b {
                     if (TextUtils.isEmpty(optString)) {
                         return false;
                     }
-                    cursor = this.f66724a.query("click_event", d.f66722a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
+                    cursor = this.f66729a.query("click_event", d.f66727a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
                     boolean z = cursor.getCount() > 0;
                     if (cursor != null) {
                         cursor.close();
@@ -586,7 +578,7 @@ public class j implements d.o.a.a.a.b {
         }
 
         public final void e(long j, String str) {
-            SQLiteDatabase sQLiteDatabase = this.f66724a;
+            SQLiteDatabase sQLiteDatabase = this.f66729a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
@@ -595,7 +587,7 @@ public class j implements d.o.a.a.a.b {
                 if (TextUtils.isEmpty(optString)) {
                     return;
                 }
-                this.f66724a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
+                this.f66729a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

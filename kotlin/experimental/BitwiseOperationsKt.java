@@ -21,13 +21,13 @@ public final class BitwiseOperationsKt {
     @SinceKotlin(version = "1.1")
     @InlineOnly
     public static final byte inv(byte b2) {
-        return (byte) (b2 ^ (-1));
+        return (byte) (~b2);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
     public static final short inv(short s) {
-        return (short) (s ^ (-1));
+        return (short) (~s);
     }
 
     @SinceKotlin(version = "1.1")

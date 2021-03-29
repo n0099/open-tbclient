@@ -8,28 +8,28 @@ import android.view.ViewConfiguration;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f50046a;
+    public View f50047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f50047b;
+    public b f50048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VelocityTracker f50048c;
+    public VelocityTracker f50049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f50049d;
+    public float f50050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f50050e;
+    public float f50051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50051f;
+    public long f50052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50052g;
+    public long f50053g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50053h;
+    public boolean f50054h;
     public boolean i;
     public int j;
     public int k;
@@ -37,16 +37,16 @@ public class a {
 
     /* renamed from: d.b.h0.b1.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1058a implements Runnable {
-        public RunnableC1058a() {
+    public class RunnableC1059a implements Runnable {
+        public RunnableC1059a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.i || !a.this.f50053h || a.this.f50047b == null) {
+            if (a.this.i || !a.this.f50054h || a.this.f50048b == null) {
                 return;
             }
-            a.this.f50047b.k();
+            a.this.f50048b.k();
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
     }
 
     public a(View view) {
-        this.f50046a = view;
+        this.f50047a = view;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
         if (viewConfiguration != null) {
             this.l = viewConfiguration.getScaledPagingTouchSlop();
@@ -71,41 +71,41 @@ public class a {
 
     public boolean d(MotionEvent motionEvent) {
         b bVar;
-        if (this.f50048c == null) {
-            this.f50048c = VelocityTracker.obtain();
+        if (this.f50049c == null) {
+            this.f50049c = VelocityTracker.obtain();
         }
-        this.f50048c.addMovement(motionEvent);
+        this.f50049c.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f50049d = motionEvent.getX();
-            this.f50050e = motionEvent.getY();
-            this.f50051f = System.currentTimeMillis();
-            this.f50053h = true;
+            this.f50050d = motionEvent.getX();
+            this.f50051e = motionEvent.getY();
+            this.f50052f = System.currentTimeMillis();
+            this.f50054h = true;
         } else if (action == 1) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f50051f < 100 && currentTimeMillis - this.f50052g < 500) {
+            if (currentTimeMillis - this.f50052f < 100 && currentTimeMillis - this.f50053g < 500) {
                 this.i = true;
             } else {
                 this.i = false;
             }
-            VelocityTracker velocityTracker = this.f50048c;
+            VelocityTracker velocityTracker = this.f50049c;
             velocityTracker.computeCurrentVelocity(1000, this.k);
-            if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.f50050e - motionEvent.getY()) > 50.0f) {
+            if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.f50051e - motionEvent.getY()) > 50.0f) {
                 this.i = false;
-                this.f50053h = false;
+                this.f50054h = false;
             }
             if (this.i) {
-                b bVar2 = this.f50047b;
+                b bVar2 = this.f50048b;
                 if (bVar2 != null) {
                     bVar2.r0(motionEvent.getRawX(), motionEvent.getRawY());
                 }
-            } else if (Math.abs(this.f50049d - motionEvent.getX()) > this.l && (this.f50049d - motionEvent.getX()) - 50.0f > Math.abs(this.f50050e - motionEvent.getY()) && (bVar = this.f50047b) != null) {
+            } else if (Math.abs(this.f50050d - motionEvent.getX()) > this.l && (this.f50050d - motionEvent.getX()) - 50.0f > Math.abs(this.f50051e - motionEvent.getY()) && (bVar = this.f50048b) != null) {
                 bVar.l();
             }
-            if (!this.i && this.f50053h && Math.abs(this.f50049d - motionEvent.getX()) < 30.0f && Math.abs(this.f50050e - motionEvent.getY()) < 30.0f) {
-                this.f50046a.postDelayed(new RunnableC1058a(), 300L);
+            if (!this.i && this.f50054h && Math.abs(this.f50050d - motionEvent.getX()) < 30.0f && Math.abs(this.f50051e - motionEvent.getY()) < 30.0f) {
+                this.f50047a.postDelayed(new RunnableC1059a(), 300L);
             }
-            this.f50052g = currentTimeMillis;
+            this.f50053g = currentTimeMillis;
             e();
         } else if (action == 3) {
             e();
@@ -114,15 +114,15 @@ public class a {
     }
 
     public final void e() {
-        VelocityTracker velocityTracker = this.f50048c;
+        VelocityTracker velocityTracker = this.f50049c;
         if (velocityTracker != null) {
             velocityTracker.clear();
-            this.f50048c.recycle();
-            this.f50048c = null;
+            this.f50049c.recycle();
+            this.f50049c = null;
         }
     }
 
     public void f(b bVar) {
-        this.f50047b = bVar;
+        this.f50048b = bVar;
     }
 }

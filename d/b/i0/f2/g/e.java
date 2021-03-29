@@ -84,10 +84,10 @@ public class e extends d.b.i0.x.b<n> {
     /* renamed from: v */
     public void n(n nVar) {
         List<d.b.i0.f2.e.a> list;
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
-        if (this.n == null || nVar == null || (list = nVar.f54807e) == null || this.o == null || list.size() == 0) {
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
+        if (this.n == null || nVar == null || (list = nVar.f54808e) == null || this.o == null || list.size() == 0) {
             return;
         }
-        this.o.d(nVar.f54807e);
+        this.o.d(nVar.f54808e);
     }
 }

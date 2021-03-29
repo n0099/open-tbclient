@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a0 {
     public d(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/file/getSavedFileInfo");
@@ -26,7 +26,7 @@ public class d extends a0 {
                 return false;
             }
             String u = d.b.g0.a.a2.b.u(optParamsAsJo.optString("filePath"), d.b.g0.a.r1.e.T());
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
                 Log.d("GetSavedFileInfoAction", "——> handle: filePath " + u);
             }
@@ -39,7 +39,7 @@ public class d extends a0 {
             if (h2 == null) {
                 d.b.g0.a.c0.c.b("getSavedFile", "file info is null");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, d.b.g0.a.t1.f.a(2001)));
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: file not exist");
                 }
                 return false;
@@ -48,7 +48,7 @@ public class d extends a0 {
             try {
                 jSONObject.put("createTime", Math.round((float) (h2.a() / 1000)));
                 jSONObject.put("size", h2.c());
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
@@ -57,7 +57,7 @@ public class d extends a0 {
                 d.b.g0.a.c0.c.l("getSavedFile", "file info to json fail");
                 e2.printStackTrace();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d.b.g0.a.t1.f.a(2003)));
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: jsonException ");
                 }
                 return false;

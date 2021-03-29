@@ -30,29 +30,29 @@ import org.json.JSONObject;
 public class a implements z {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f60078a;
+    public c f60079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f60079b = new C1523a(2921365);
+    public CustomMessageListener f60080b = new C1524a(2921365);
 
     /* renamed from: d.b.i0.s.b.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1523a extends CustomMessageListener {
+    public class C1524a extends CustomMessageListener {
 
         /* renamed from: d.b.i0.s.b.g.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1524a implements Runnable {
-            public RunnableC1524a() {
+        public class RunnableC1525a implements Runnable {
+            public RunnableC1525a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f60078a = null;
-                MessageManager.getInstance().unRegisterListener(a.this.f60079b);
+                a.this.f60079a = null;
+                MessageManager.getInstance().unRegisterListener(a.this.f60080b);
             }
         }
 
-        public C1523a(int i) {
+        public C1524a(int i) {
             super(i);
         }
 
@@ -74,7 +74,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.f60078a != null) {
+                        if (a.this.f60079a != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -83,24 +83,24 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.f60078a.b(arrayList);
+                                a.this.f60079a.b(arrayList);
                             } else {
-                                a.this.f60078a.a(QueryResponse.Options.CANCEL);
+                                a.this.f60079a.a(QueryResponse.Options.CANCEL);
                             }
                         }
                     } else {
-                        c cVar = a.this.f60078a;
+                        c cVar = a.this.f60079a;
                         if (cVar != null) {
                             cVar.a("error");
                         }
                     }
-                    e.a().post(new RunnableC1524a());
+                    e.a().post(new RunnableC1525a());
                 }
             }
             intent = null;
             if (intent == null) {
             }
-            e.a().post(new RunnableC1524a());
+            e.a().post(new RunnableC1525a());
         }
     }
 

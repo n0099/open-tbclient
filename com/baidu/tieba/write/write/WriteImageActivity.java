@@ -265,75 +265,75 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     public class g extends BdAsyncTask<String, Void, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f22558a;
+        public String f22559a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f22559b;
+        public Bitmap f22560b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Boolean f22560c;
+        public Boolean f22561c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f22561d;
+        public Boolean f22562d;
 
         public g() {
             Boolean bool = Boolean.FALSE;
-            this.f22560c = bool;
-            this.f22561d = bool;
+            this.f22561c = bool;
+            this.f22562d = bool;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Bitmap doInBackground(String... strArr) {
-            this.f22558a = strArr[0];
+            this.f22559a = strArr[0];
             if (WriteImageActivity.this.mBitmap == null && WriteImageActivity.this.mPreparedBitmap == null) {
                 return null;
             }
-            if (!this.f22558a.equals("0") && !this.f22558a.equals("1")) {
-                if (this.f22558a.equals("2") || this.f22558a.equals("3")) {
-                    this.f22561d = Boolean.TRUE;
+            if (!this.f22559a.equals("0") && !this.f22559a.equals("1")) {
+                if (this.f22559a.equals("2") || this.f22559a.equals("3")) {
+                    this.f22562d = Boolean.TRUE;
                 }
             } else {
-                this.f22560c = Boolean.TRUE;
+                this.f22561c = Boolean.TRUE;
             }
-            if (this.f22560c.booleanValue() || this.f22561d.booleanValue()) {
+            if (this.f22561c.booleanValue() || this.f22562d.booleanValue()) {
                 if (WriteImageActivity.this.mPreparedBitmap == null || WriteImageActivity.this.mPreparedBitmap.isRecycled()) {
                     if (!WriteImageActivity.this.mBitmap.isRecycled()) {
-                        this.f22559b = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
+                        this.f22560b = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
                     }
                 } else {
-                    this.f22559b = WriteImageActivity.this.mPreparedBitmap.copy(WriteImageActivity.this.mPreparedBitmap.getConfig(), true);
+                    this.f22560b = WriteImageActivity.this.mPreparedBitmap.copy(WriteImageActivity.this.mPreparedBitmap.getConfig(), true);
                 }
             } else if (!WriteImageActivity.this.mBitmap.isRecycled()) {
-                this.f22559b = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
+                this.f22560b = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
             }
-            Bitmap bitmap = this.f22559b;
+            Bitmap bitmap = this.f22560b;
             if (bitmap == null) {
                 return null;
             }
-            if (bitmap.getWidth() > 2000 || this.f22559b.getHeight() > 2000) {
-                this.f22559b = BitmapHelper.resizeBitmap(this.f22559b, 2000);
+            if (bitmap.getWidth() > 2000 || this.f22560b.getHeight() > 2000) {
+                this.f22560b = BitmapHelper.resizeBitmap(this.f22560b, 2000);
             }
-            if (this.f22560c.booleanValue()) {
-                this.f22559b = BitmapHelper.rotateBitmap(this.f22559b, Integer.parseInt(this.f22558a));
-            } else if (this.f22561d.booleanValue()) {
-                this.f22559b = BitmapHelper.reversalBitmap(this.f22559b, Integer.parseInt(this.f22558a));
+            if (this.f22561c.booleanValue()) {
+                this.f22560b = BitmapHelper.rotateBitmap(this.f22560b, Integer.parseInt(this.f22559a));
+            } else if (this.f22562d.booleanValue()) {
+                this.f22560b = BitmapHelper.reversalBitmap(this.f22560b, Integer.parseInt(this.f22559a));
             }
-            return this.f22559b;
+            return this.f22560b;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            Bitmap bitmap = this.f22559b;
+            Bitmap bitmap = this.f22560b;
             if (bitmap != null && !bitmap.isRecycled()) {
                 Bitmap bitmap2 = WriteImageActivity.this.mPreparedBitmap;
-                Bitmap bitmap3 = this.f22559b;
+                Bitmap bitmap3 = this.f22560b;
                 if (bitmap2 != bitmap3) {
                     bitmap3.recycle();
                 }
             }
-            this.f22559b = null;
+            this.f22560b = null;
             WriteImageActivity.this.mProgress.setVisibility(8);
             WriteImageActivity.this.mTitleRightBtn.setEnabled(true);
             super.cancel(true);
@@ -355,17 +355,17 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             }
             WriteImageActivity.this.isEdited = true;
             WriteImageActivity.this.mImage.setImageBitmap(bitmap);
-            if (WriteImageActivity.this.mBitmap != null && (this.f22560c.booleanValue() || this.f22561d.booleanValue())) {
+            if (WriteImageActivity.this.mBitmap != null && (this.f22561c.booleanValue() || this.f22562d.booleanValue())) {
                 if (WriteImageActivity.this.mBitmap.getWidth() > 2000 || WriteImageActivity.this.mBitmap.getHeight() > 2000) {
                     WriteImageActivity writeImageActivity = WriteImageActivity.this;
                     writeImageActivity.mBitmap = BitmapHelper.resizeBitmap(writeImageActivity.mBitmap, 2000);
                 }
-                if (this.f22560c.booleanValue()) {
+                if (this.f22561c.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = WriteImageActivity.this;
-                    writeImageActivity2.mBitmap = BitmapHelper.rotateBitmap(writeImageActivity2.mBitmap, Integer.parseInt(this.f22558a));
-                } else if (this.f22561d.booleanValue()) {
+                    writeImageActivity2.mBitmap = BitmapHelper.rotateBitmap(writeImageActivity2.mBitmap, Integer.parseInt(this.f22559a));
+                } else if (this.f22562d.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = WriteImageActivity.this;
-                    writeImageActivity3.mBitmap = BitmapHelper.reversalBitmap(writeImageActivity3.mBitmap, Integer.parseInt(this.f22558a));
+                    writeImageActivity3.mBitmap = BitmapHelper.reversalBitmap(writeImageActivity3.mBitmap, Integer.parseInt(this.f22559a));
                 }
             }
             if (WriteImageActivity.this.mPreparedBitmap != null && !WriteImageActivity.this.mPreparedBitmap.isRecycled()) {

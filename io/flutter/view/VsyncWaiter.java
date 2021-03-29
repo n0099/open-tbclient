@@ -13,9 +13,7 @@ public class VsyncWaiter {
             Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() { // from class: io.flutter.view.VsyncWaiter.1.1
                 @Override // android.view.Choreographer.FrameCallback
                 public void doFrame(long j2) {
-                    double refreshRate = VsyncWaiter.this.windowManager.getDefaultDisplay().getRefreshRate();
-                    Double.isNaN(refreshRate);
-                    FlutterJNI.nativeOnVsync(j2, j2 + ((long) (1.0E9d / refreshRate)), j);
+                    FlutterJNI.nativeOnVsync(j2, j2 + ((long) (1.0E9d / VsyncWaiter.this.windowManager.getDefaultDisplay().getRefreshRate())), j);
                 }
             });
         }

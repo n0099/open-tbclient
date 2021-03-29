@@ -9,7 +9,7 @@ import d.n.a.d;
 import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class Layout extends Message<Layout, Builder> {
     public static final ProtoAdapter<Layout> ADAPTER = new ProtoAdapter_Layout();
     public static final Float DEFAULT_HEIGHT;

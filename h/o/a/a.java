@@ -47,7 +47,8 @@ public final class a {
         do {
             long j2 = Long.MIN_VALUE;
             while (true) {
-                if (j2 != j) {
+                int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i != 0) {
                     if (jVar.isUnsubscribed()) {
                         return;
                     }
@@ -60,7 +61,7 @@ public final class a {
                         j2++;
                     }
                 } else {
-                    if (j2 == j) {
+                    if (i == 0) {
                         if (jVar.isUnsubscribed()) {
                             return;
                         }
@@ -85,9 +86,10 @@ public final class a {
     public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, h.j<? super R> jVar, h.n.f<? super T, ? extends R> fVar) {
         long j2;
         long j3;
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
-        } else if (j == 0) {
+        } else if (i == 0) {
             return (atomicLong.get() & Long.MIN_VALUE) == 0;
         } else {
             while (true) {
@@ -122,8 +124,9 @@ public final class a {
     }
 
     public static boolean h(long j) {
-        if (j >= 0) {
-            return j != 0;
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
+            return i != 0;
         }
         throw new IllegalArgumentException("n >= 0 required but it was " + j);
     }

@@ -56,11 +56,11 @@ public class FileUploadStrategy implements IUpload {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(@NonNull FileEntity fileEntity) {
-            long longValue = this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue();
-            if (longValue > 0) {
+            int i = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
+            if (i > 0) {
                 return -1;
             }
-            return longValue < 0 ? 1 : 0;
+            return i < 0 ? 1 : 0;
         }
     }
 

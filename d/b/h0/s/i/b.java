@@ -30,7 +30,7 @@ import d.b.b.e.p.l;
 import d.b.h0.r.l.a;
 /* loaded from: classes3.dex */
 public class b {
-    public a.InterfaceC1081a A;
+    public a.InterfaceC1082a A;
     public Activity k;
     public Drawable s;
     public Drawable t;
@@ -41,28 +41,28 @@ public class b {
     public View y;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f51386a = null;
+    public View f51387a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f51387b = null;
+    public Dialog f51388b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f51388c = null;
+    public EditText f51389c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public RadioGroup f51389d = null;
+    public RadioGroup f51390d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public RadioGroup f51390e = null;
+    public RadioGroup f51391e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f51391f = null;
+    public CompoundButton.OnCheckedChangeListener f51392f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public RadioButton f51392g = null;
+    public RadioButton f51393g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public RadioButton f51393h = null;
+    public RadioButton f51394h = null;
     public RadioButton i = null;
     public TextView j = null;
     public f l = null;
@@ -88,8 +88,8 @@ public class b {
 
     /* renamed from: d.b.h0.s.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1100b implements View.OnClickListener {
-        public View$OnClickListenerC1100b() {
+    public class View$OnClickListenerC1101b implements View.OnClickListener {
+        public View$OnClickListenerC1101b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -106,32 +106,32 @@ public class b {
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             if (z) {
-                if (compoundButton == b.this.f51392g) {
-                    b.this.f51390e.clearCheck();
-                    b.this.f51392g.setChecked(true);
-                    b.this.f51392g.setCompoundDrawables(b.this.s, null, null, null);
-                    b.this.f51393h.setChecked(false);
-                    b.this.f51393h.setCompoundDrawables(b.this.t, null, null, null);
+                if (compoundButton == b.this.f51393g) {
+                    b.this.f51391e.clearCheck();
+                    b.this.f51393g.setChecked(true);
+                    b.this.f51393g.setCompoundDrawables(b.this.s, null, null, null);
+                    b.this.f51394h.setChecked(false);
+                    b.this.f51394h.setCompoundDrawables(b.this.t, null, null, null);
                     b.this.i.setChecked(false);
                     b.this.i.setCompoundDrawables(b.this.t, null, null, null);
-                } else if (compoundButton == b.this.f51393h) {
-                    b.this.f51390e.clearCheck();
-                    b.this.f51392g.setChecked(false);
-                    b.this.f51392g.setCompoundDrawables(b.this.t, null, null, null);
-                    b.this.f51393h.setChecked(true);
-                    b.this.f51393h.setCompoundDrawables(b.this.s, null, null, null);
+                } else if (compoundButton == b.this.f51394h) {
+                    b.this.f51391e.clearCheck();
+                    b.this.f51393g.setChecked(false);
+                    b.this.f51393g.setCompoundDrawables(b.this.t, null, null, null);
+                    b.this.f51394h.setChecked(true);
+                    b.this.f51394h.setCompoundDrawables(b.this.s, null, null, null);
                     b.this.i.setChecked(false);
                     b.this.i.setCompoundDrawables(b.this.t, null, null, null);
                 } else if (compoundButton == b.this.i) {
-                    b.this.f51389d.clearCheck();
-                    b.this.f51392g.setChecked(false);
-                    b.this.f51392g.setCompoundDrawables(b.this.t, null, null, null);
-                    b.this.f51393h.setChecked(false);
-                    b.this.f51393h.setCompoundDrawables(b.this.t, null, null, null);
+                    b.this.f51390d.clearCheck();
+                    b.this.f51393g.setChecked(false);
+                    b.this.f51393g.setCompoundDrawables(b.this.t, null, null, null);
+                    b.this.f51394h.setChecked(false);
+                    b.this.f51394h.setCompoundDrawables(b.this.t, null, null, null);
                     b.this.i.setChecked(true);
                     b.this.i.setCompoundDrawables(b.this.s, null, null, null);
                 }
-                b.this.f51388c.setText(compoundButton.getText());
+                b.this.f51389c.setText(compoundButton.getText());
             }
         }
     }
@@ -191,21 +191,17 @@ public class b {
 
     /* loaded from: classes3.dex */
     public class f extends BdAsyncTask<String, Integer, Object> {
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            throw null;
-        }
     }
 
     /* loaded from: classes3.dex */
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f51398e;
+        public View f51399e;
 
         public g(View view) {
-            this.f51398e = null;
-            this.f51398e = view;
+            this.f51399e = null;
+            this.f51399e = view;
         }
 
         @Override // java.lang.Runnable
@@ -215,8 +211,8 @@ public class b {
             }
             InputMethodManager inputMethodManager = (InputMethodManager) b.this.k.getSystemService("input_method");
             try {
-                if (this.f51398e != null && inputMethodManager != null) {
-                    inputMethodManager.showSoftInput(this.f51398e, 0);
+                if (this.f51399e != null && inputMethodManager != null) {
+                    inputMethodManager.showSoftInput(this.f51399e, 0);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -251,60 +247,59 @@ public class b {
     }
 
     public void B() {
-        String obj = this.f51388c.getText().toString();
+        String obj = this.f51389c.getText().toString();
         if (obj != null && obj.length() > 0) {
             if (UtilHelper.getFixedTextSize(obj) > 14) {
                 A(this.k.getString(R.string.input_alias_limit_length_tip));
                 return;
             }
             f fVar = this.l;
-            if (fVar == null) {
-                if (this.z || this.q == null) {
-                    return;
-                }
-                this.o.setVisibility(0);
-                this.n.setEnabled(false);
-                A(null);
-                q();
-                SapiAccountManager.getInstance().getAccountService().fillUsername(new d(), this.q.getBDUSS(), obj);
+            if (fVar != null) {
+                fVar.cancel();
+            }
+            if (this.z || this.q == null) {
                 return;
             }
-            fVar.cancel();
-            throw null;
+            this.o.setVisibility(0);
+            this.n.setEnabled(false);
+            A(null);
+            q();
+            SapiAccountManager.getInstance().getAccountService().fillUsername(new d(), this.q.getBDUSS(), obj);
+            return;
         }
         A(this.k.getString(R.string.error_tip_name_cannot_empty));
     }
 
     public void p() {
-        Dialog dialog = this.f51387b;
+        Dialog dialog = this.f51388b;
         if (dialog == null || !dialog.isShowing()) {
             return;
         }
-        d.b.b.e.m.g.a(this.f51387b, this.k);
+        d.b.b.e.m.g.a(this.f51388b, this.k);
     }
 
     public void q() {
-        this.f51389d.setVisibility(8);
-        this.f51389d.clearCheck();
-        this.f51390e.setVisibility(8);
-        this.f51390e.clearCheck();
-        this.f51392g.setVisibility(8);
-        this.f51393h.setVisibility(8);
+        this.f51390d.setVisibility(8);
+        this.f51390d.clearCheck();
+        this.f51391e.setVisibility(8);
+        this.f51391e.clearCheck();
+        this.f51393g.setVisibility(8);
+        this.f51394h.setVisibility(8);
         this.i.setVisibility(8);
-        this.f51392g.setChecked(false);
-        this.f51393h.setChecked(false);
+        this.f51393g.setChecked(false);
+        this.f51394h.setChecked(false);
         this.i.setChecked(false);
     }
 
     public final void r() {
-        SkinManager.setBackgroundResource(this.f51386a, R.drawable.dialog_background);
+        SkinManager.setBackgroundResource(this.f51387a, R.drawable.dialog_background);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.v, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f51388c, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f51389c, R.color.CAM_X0105);
         SkinManager.setBackgroundResource(this.w, R.drawable.bg_search_input);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0301);
-        SkinManager.setViewTextColor(this.f51392g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f51393h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f51393g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f51394h, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0105);
         SkinManager.setBackgroundColor(this.x, R.color.CAM_X0204);
         SkinManager.setBackgroundResource(this.j, R.drawable.dialog_left_button_selector);
@@ -312,20 +307,19 @@ public class b {
         SkinManager.setBackgroundColor(this.y, R.color.CAM_X0204);
         SkinManager.setBackgroundResource(this.n, R.drawable.dialog_right_button_selector);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0302);
-        this.f51388c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f51392g.setCompoundDrawables(this.t, null, null, null);
-        this.f51393h.setCompoundDrawables(this.t, null, null, null);
+        this.f51389c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f51393g.setCompoundDrawables(this.t, null, null, null);
+        this.f51394h.setCompoundDrawables(this.t, null, null, null);
         this.i.setCompoundDrawables(this.t, null, null, null);
     }
 
     public void s() {
         f fVar = this.l;
-        if (fVar == null) {
-            p();
-        } else {
+        if (fVar != null) {
             fVar.cancel();
-            throw null;
+            this.l = null;
         }
+        p();
     }
 
     public final void t() {
@@ -346,8 +340,8 @@ public class b {
     public void w(e eVar) {
     }
 
-    public void x(a.InterfaceC1081a interfaceC1081a) {
-        this.A = interfaceC1081a;
+    public void x(a.InterfaceC1082a interfaceC1082a) {
+        this.A = interfaceC1082a;
     }
 
     public void y() {
@@ -355,41 +349,41 @@ public class b {
     }
 
     public void z(int i) {
-        if (this.f51387b == null) {
+        if (this.f51388b == null) {
             View inflate = LayoutInflater.from(this.k).inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.f51386a = inflate;
+            this.f51387a = inflate;
             this.v = (TextView) inflate.findViewById(R.id.tip_info);
-            this.w = this.f51386a.findViewById(R.id.divider_under_account);
-            this.x = this.f51386a.findViewById(R.id.divider_under_radiongroup);
-            this.y = this.f51386a.findViewById(R.id.divider_with_yes_no_button);
-            EditText editText = (EditText) this.f51386a.findViewById(R.id.account);
-            this.f51388c = editText;
+            this.w = this.f51387a.findViewById(R.id.divider_under_account);
+            this.x = this.f51387a.findViewById(R.id.divider_under_radiongroup);
+            this.y = this.f51387a.findViewById(R.id.divider_with_yes_no_button);
+            EditText editText = (EditText) this.f51387a.findViewById(R.id.account);
+            this.f51389c = editText;
             editText.setHint(this.k.getString(R.string.hint_tip_input_name));
-            TextView textView = (TextView) this.f51386a.findViewById(R.id.back);
+            TextView textView = (TextView) this.f51387a.findViewById(R.id.back);
             this.j = textView;
             textView.setOnClickListener(new a());
-            TextView textView2 = (TextView) this.f51386a.findViewById(R.id.confirm);
+            TextView textView2 = (TextView) this.f51387a.findViewById(R.id.confirm);
             this.n = textView2;
-            textView2.setOnClickListener(new View$OnClickListenerC1100b());
-            this.o = (ProgressBar) this.f51386a.findViewById(R.id.confirm_progress);
-            this.m = (TextView) this.f51386a.findViewById(R.id.error_info);
-            this.f51389d = (RadioGroup) this.f51386a.findViewById(R.id.names_group1);
-            this.f51390e = (RadioGroup) this.f51386a.findViewById(R.id.names_group2);
-            this.f51392g = (RadioButton) this.f51386a.findViewById(R.id.name1);
-            this.f51393h = (RadioButton) this.f51386a.findViewById(R.id.name2);
-            this.i = (RadioButton) this.f51386a.findViewById(R.id.name3);
+            textView2.setOnClickListener(new View$OnClickListenerC1101b());
+            this.o = (ProgressBar) this.f51387a.findViewById(R.id.confirm_progress);
+            this.m = (TextView) this.f51387a.findViewById(R.id.error_info);
+            this.f51390d = (RadioGroup) this.f51387a.findViewById(R.id.names_group1);
+            this.f51391e = (RadioGroup) this.f51387a.findViewById(R.id.names_group2);
+            this.f51393g = (RadioButton) this.f51387a.findViewById(R.id.name1);
+            this.f51394h = (RadioButton) this.f51387a.findViewById(R.id.name2);
+            this.i = (RadioButton) this.f51387a.findViewById(R.id.name3);
             c cVar = new c();
-            this.f51391f = cVar;
-            this.f51392g.setOnCheckedChangeListener(cVar);
-            this.f51393h.setOnCheckedChangeListener(this.f51391f);
-            this.i.setOnCheckedChangeListener(this.f51391f);
-            this.p = (TextView) this.f51386a.findViewById(R.id.phone_info);
+            this.f51392f = cVar;
+            this.f51393g.setOnCheckedChangeListener(cVar);
+            this.f51394h.setOnCheckedChangeListener(this.f51392f);
+            this.i.setOnCheckedChangeListener(this.f51392f);
+            this.p = (TextView) this.f51387a.findViewById(R.id.phone_info);
             q();
             Dialog dialog = new Dialog(this.k, R.style.input_username_dialog);
-            this.f51387b = dialog;
+            this.f51388b = dialog;
             dialog.setCanceledOnTouchOutside(false);
-            this.f51387b.setCancelable(false);
-            this.f51387b.setCanceledOnTouchOutside(false);
+            this.f51388b.setCancelable(false);
+            this.f51388b.setCanceledOnTouchOutside(false);
             r();
         }
         if (i == 1) {
@@ -397,22 +391,22 @@ public class b {
         } else {
             this.p.setText(R.string.bar_friend);
         }
-        if (this.f51387b.isShowing()) {
+        if (this.f51388b.isShowing()) {
             return;
         }
-        this.f51388c.setText((CharSequence) null);
+        this.f51389c.setText((CharSequence) null);
         q();
         A(null);
         if (this.k.isFinishing()) {
             return;
         }
-        this.f51387b.setContentView(this.f51386a);
-        d.b.b.e.m.g.i(this.f51387b, this.k);
+        this.f51388b.setContentView(this.f51387a);
+        d.b.b.e.m.g.i(this.f51388b, this.k);
         Activity activity = this.k;
         if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).ShowSoftKeyPadDelay(this.f51388c, 150);
+            ((BaseActivity) activity).ShowSoftKeyPadDelay(this.f51389c, 150);
         } else {
-            new Handler().postDelayed(new g(this.f51388c), 150L);
+            new Handler().postDelayed(new g(this.f51389c), 150L);
         }
     }
 }

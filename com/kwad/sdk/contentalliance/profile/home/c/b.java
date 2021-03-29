@@ -12,19 +12,19 @@ import com.kwad.sdk.utils.ag;
 public class b extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f32882b;
+    public ImageView f32883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f32883c;
+    public TextView f32884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f32884d;
+    public TextView f32885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f32885e;
+    public TextView f32886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.profile.home.a.a f32886f = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.b.1
+    public com.kwad.sdk.contentalliance.profile.home.a.a f32887f = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.b.1
         @Override // com.kwad.sdk.contentalliance.profile.home.a.a
         public void a(@NonNull UserProfile userProfile) {
             b.this.a(userProfile);
@@ -33,30 +33,30 @@ public class b extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull UserProfile userProfile) {
-        this.f32884d.setText(ag.b(userProfile.ownerCount.fansCount));
-        this.f32885e.setText(ag.b(userProfile.ownerCount.followCount));
-        this.f32883c.setText(TextUtils.isEmpty(userProfile.authorName) ? "-" : userProfile.authorName);
+        this.f32885d.setText(ag.b(userProfile.ownerCount.fansCount));
+        this.f32886e.setText(ag.b(userProfile.ownerCount.followCount));
+        this.f32884c.setText(TextUtils.isEmpty(userProfile.authorName) ? "-" : userProfile.authorName);
     }
 
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a.f32873f.add(this.f32886f);
-        KSImageLoader.loadCircleIcon(this.f32882b, ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a.f32871d.mAuthorIcon, o().getResources().getDrawable(R.drawable.ksad_profile_author_icon));
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32874f.add(this.f32887f);
+        KSImageLoader.loadCircleIcon(this.f32883b, ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32872d.mAuthorIcon, o().getResources().getDrawable(R.drawable.ksad_profile_author_icon));
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a.f32873f.remove(this.f32886f);
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32874f.remove(this.f32887f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32882b = (ImageView) b(R.id.ksad_profile_author_icon);
-        this.f32883c = (TextView) b(R.id.ksad_profile_author_name);
-        this.f32884d = (TextView) b(R.id.ksad_profile_fans_count);
-        this.f32885e = (TextView) b(R.id.ksad_profile_follow_count);
+        this.f32883b = (ImageView) b(R.id.ksad_profile_author_icon);
+        this.f32884c = (TextView) b(R.id.ksad_profile_author_name);
+        this.f32885d = (TextView) b(R.id.ksad_profile_fans_count);
+        this.f32886e = (TextView) b(R.id.ksad_profile_follow_count);
     }
 }

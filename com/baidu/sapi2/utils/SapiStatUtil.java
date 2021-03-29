@@ -30,7 +30,7 @@ public class SapiStatUtil {
     public static final String LOGIN_STATUS_UNKNOWN = "3";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11417a = "SapiStatUtil";
+    public static final String f11418a = "SapiStatUtil";
 
     public static void buildStatExtraMap(Map<String, String> map, List<PassNameValuePair> list) {
         if (list == null || list.isEmpty()) {
@@ -165,8 +165,8 @@ public class SapiStatUtil {
             SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.a.j);
             HashMap hashMap = new HashMap();
             buildStatExtraMap(hashMap, list);
-            hashMap.put(a.c.f11353f, sapiAccount.getShareAccountTpl());
-            hashMap.put(a.c.f11354g, sapiAccount.app);
+            hashMap.put(a.c.f11354f, sapiAccount.getShareAccountTpl());
+            hashMap.put(a.c.f11355g, sapiAccount.app);
             hashMap.put("uid", sapiAccount.uid);
             StatService.onEvent("share_v1_account_suc", hashMap);
         }
@@ -175,11 +175,11 @@ public class SapiStatUtil {
     public static void statShareV2Click(a.c cVar, List<PassNameValuePair> list, String str) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.f11356a + "");
-        hashMap.put(a.c.f11353f, cVar.f11357b);
-        hashMap.put(a.c.f11354g, cVar.f11358c);
+        hashMap.put("index", cVar.f11357a + "");
+        hashMap.put(a.c.f11354f, cVar.f11358b);
+        hashMap.put(a.c.f11355g, cVar.f11359c);
         hashMap.put(a.c.i, str);
-        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11370c, hashMap);
+        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11371c, hashMap);
     }
 
     public static void statShareV2Fail(a.c cVar, String str, String str2, String str3, List<PassNameValuePair> list, String str4) {
@@ -188,12 +188,12 @@ public class SapiStatUtil {
         hashMap.put("fail_code", str);
         hashMap.put("fail_reason", str2);
         if (com.baidu.sapi2.share.a.l != null) {
-            hashMap.put(a.c.f11353f, cVar.f11357b);
-            hashMap.put(a.c.f11354g, cVar.f11358c);
+            hashMap.put(a.c.f11354f, cVar.f11358b);
+            hashMap.put(a.c.f11355g, cVar.f11359c);
         }
         hashMap.put("uid", str3);
         hashMap.put(a.c.i, str4);
-        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11372e, hashMap);
+        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11373e, hashMap);
     }
 
     public static void statShareV2Open(List<ShareStorage.StorageModel> list, String str, List<PassNameValuePair> list2) {
@@ -237,12 +237,12 @@ public class SapiStatUtil {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
         if (com.baidu.sapi2.share.a.l != null) {
-            hashMap.put(a.c.f11353f, cVar.f11357b);
-            hashMap.put(a.c.f11354g, cVar.f11358c);
+            hashMap.put(a.c.f11354f, cVar.f11358b);
+            hashMap.put(a.c.f11355g, cVar.f11359c);
         }
         hashMap.put("uid", str);
         hashMap.put(a.c.i, str2);
-        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11371d, hashMap);
+        StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11372d, hashMap);
     }
 
     public static void statSmsCodeClip(Context context, String str) {

@@ -17,14 +17,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3843a = "utf-8";
+    public static final String f3844a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3844b = "c82c403505338808201aad86f8194734";
+    public static final String f3845b = "c82c403505338808201aad86f8194734";
 
     public static String a(boolean z, Context context, String str) {
         if (context == null) {
@@ -115,53 +115,53 @@ public final class a {
         FileInputStream fileInputStream2 = null;
         try {
             fileInputStream = new FileInputStream(file);
-        } catch (FileNotFoundException unused) {
-        } catch (IOException unused2) {
-        } catch (IllegalArgumentException unused3) {
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-        }
-        try {
-            byte[] bArr = new byte[fileInputStream.available()];
-            fileInputStream.read(bArr);
-            String str2 = new String(Base64.decode(bArr, 2), "utf-8");
             try {
-                fileInputStream.close();
-            } catch (IOException unused4) {
-            }
-            return str2;
-        } catch (FileNotFoundException unused5) {
-            fileInputStream2 = fileInputStream;
-            if (fileInputStream2 == null) {
-                return "";
-            }
-            try {
-                fileInputStream2.close();
-            } catch (IOException unused6) {
-                return "";
-            }
-        } catch (IOException unused7) {
-            fileInputStream2 = fileInputStream;
-            if (fileInputStream2 == null) {
-                return "";
-            }
-            fileInputStream2.close();
-        } catch (IllegalArgumentException unused8) {
-            fileInputStream2 = fileInputStream;
-            if (fileInputStream2 == null) {
-                return "";
-            }
-            fileInputStream2.close();
-        } catch (Throwable th3) {
-            th = th3;
-            if (fileInputStream != null) {
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str2 = new String(Base64.decode(bArr, 2), "utf-8");
                 try {
                     fileInputStream.close();
-                } catch (IOException unused9) {
+                } catch (IOException unused) {
                 }
+                return str2;
+            } catch (FileNotFoundException unused2) {
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 == null) {
+                    return "";
+                }
+                try {
+                    fileInputStream2.close();
+                } catch (IOException unused3) {
+                    return "";
+                }
+            } catch (IOException unused4) {
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 == null) {
+                    return "";
+                }
+                fileInputStream2.close();
+            } catch (IllegalArgumentException unused5) {
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 == null) {
+                    return "";
+                }
+                fileInputStream2.close();
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused6) {
+                    }
+                }
+                throw th;
             }
-            throw th;
+        } catch (FileNotFoundException unused7) {
+        } catch (IOException unused8) {
+        } catch (IllegalArgumentException unused9) {
+        } catch (Throwable th3) {
+            fileInputStream = null;
+            th = th3;
         }
     }
 

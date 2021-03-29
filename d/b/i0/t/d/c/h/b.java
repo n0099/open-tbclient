@@ -36,65 +36,65 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
 
         /* renamed from: d.b.i0.t.d.c.h.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1547a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C1548a extends AlaBannerViewHolder<SdkLiveInfoData> {
 
             /* renamed from: a  reason: collision with root package name */
-            public View f60446a;
+            public View f60447a;
 
             /* renamed from: b  reason: collision with root package name */
-            public View f60447b;
+            public View f60448b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TabLiveStageLiveView f60448c;
+            public TabLiveStageLiveView f60449c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f60449d;
+            public int f60450d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f60450e;
+            public int f60451e;
 
-            public C1547a(View view) {
+            public C1548a(View view) {
                 super(view);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void b(View view) {
-                this.f60448c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
-                this.f60446a = view.findViewById(R.id.recom_live_item_left_space);
-                this.f60447b = view.findViewById(R.id.recom_live_item_right_space);
+                this.f60449c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
+                this.f60447a = view.findViewById(R.id.recom_live_item_left_space);
+                this.f60448b = view.findViewById(R.id.recom_live_item_right_space);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void c(int i) {
-                this.f60448c.c();
+                this.f60449c.c();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
             public void a(int i, SdkLiveInfoData sdkLiveInfoData) {
-                this.f60448c.setData(sdkLiveInfoData, 102);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60446a.getLayoutParams();
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f60447b.getLayoutParams();
+                this.f60449c.setData(sdkLiveInfoData, 102);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60447a.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f60448b.getLayoutParams();
                 if (i == 0) {
                     if (b.this.u) {
-                        layoutParams.width = b.this.f62180f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        layoutParams2.width = b.this.f62180f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        this.f60447b.setVisibility(0);
+                        layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        layoutParams2.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f60448b.setVisibility(0);
                     } else {
-                        layoutParams.width = b.this.f62180f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                        this.f60447b.setVisibility(8);
+                        layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f60448b.setVisibility(8);
                     }
                 } else {
-                    layoutParams.width = b.this.f62180f.getResources().getDimensionPixelSize(R.dimen.tbds12);
+                    layoutParams.width = b.this.f62181f.getResources().getDimensionPixelSize(R.dimen.tbds12);
                     if (b.this.n.getItemCount() - 1 == i) {
-                        this.f60447b.setVisibility(0);
+                        this.f60448b.setVisibility(0);
                     } else {
-                        this.f60447b.setVisibility(8);
+                        this.f60448b.setVisibility(8);
                     }
                 }
-                this.f60446a.setLayoutParams(layoutParams);
-                this.f60447b.setLayoutParams(layoutParams2);
+                this.f60447a.setLayoutParams(layoutParams);
+                this.f60448b.setLayoutParams(layoutParams2);
                 e();
                 StatisticItem statisticItem = new StatisticItem("c13558");
                 statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
@@ -102,17 +102,17 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
             }
 
             public final void e() {
-                this.f60449d = b.this.z();
-                this.f60450e = b.this.y();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60448c.getLayoutParams();
+                this.f60450d = b.this.z();
+                this.f60451e = b.this.y();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60449c.getLayoutParams();
                 if (layoutParams == null) {
-                    layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f60449d, this.f60450e);
+                    layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f60450d, this.f60451e);
                 } else {
-                    layoutParams.width = this.f60449d;
-                    layoutParams.height = this.f60450e;
+                    layoutParams.width = this.f60450d;
+                    layoutParams.height = this.f60451e;
                 }
                 layoutParams.gravity = 1;
-                this.f60448c.setLayoutParams(layoutParams);
+                this.f60449c.setLayoutParams(layoutParams);
             }
         }
 
@@ -121,7 +121,7 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
 
         @Override // d.b.i0.t.d.h.a.a
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
-            return new C1547a(LayoutInflater.from(b.this.b()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false));
+            return new C1548a(LayoutInflater.from(b.this.b()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false));
         }
     }
 
@@ -130,14 +130,10 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
         this.u = false;
         this.v = new a();
         this.u = false;
-        double k = l.k(b());
-        Double.isNaN(k);
-        int i = (int) (k * 0.76d);
-        this.r = i;
-        double d2 = i;
-        Double.isNaN(d2);
-        this.s = (int) ((d2 * 9.0d) / 16.0d);
-        this.t = d.b.i0.t.d.c.c.a(this.f62181g);
+        int k = (int) (l.k(b()) * 0.76d);
+        this.r = k;
+        this.s = (int) ((k * 9.0d) / 16.0d);
+        this.t = d.b.i0.t.d.c.c.a(this.f62182g);
         A();
     }
 
@@ -158,12 +154,12 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.c.e.c> {
     /* renamed from: B */
     public void n(d.b.i0.t.d.c.e.c cVar) {
         d.b.i0.t.d.c.e.d dVar;
-        if (cVar == null || (dVar = cVar.f60325e) == null) {
+        if (cVar == null || (dVar = cVar.f60326e) == null) {
             return;
         }
-        this.u = ListUtils.getCount(dVar.f60326a) == 1;
+        this.u = ListUtils.getCount(dVar.f60327a) == 1;
         E();
-        this.n.setData(cVar.f60325e.f60326a);
+        this.n.setData(cVar.f60326e.f60327a);
         this.n.notifyDataSetChanged();
     }
 

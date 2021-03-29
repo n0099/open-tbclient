@@ -27,16 +27,16 @@ import d.b.i0.p3.i.g.a;
 public class CloudMusicListFragment extends BaseFragment implements BdListView.q, f, a.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f21709e;
+    public BdListView f21710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.p3.i.g.a f21710f;
+    public d.b.i0.p3.i.g.a f21711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f21711g;
+    public e f21712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CloudMusicData.MusicTagList f21712h;
+    public CloudMusicData.MusicTagList f21713h;
     public PbListView i;
     public NoDataView k;
     public int j = 0;
@@ -52,10 +52,10 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921307 || CloudMusicListFragment.this.f21710f == null) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921307 || CloudMusicListFragment.this.f21711f == null) {
                 return;
             }
-            CloudMusicListFragment.this.f21710f.notifyDataSetChanged();
+            CloudMusicListFragment.this.f21711f.notifyDataSetChanged();
         }
     }
 
@@ -67,7 +67,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (j.z()) {
-                CloudMusicListFragment.this.f21711g.c(CloudMusicListFragment.this.f21710f.getItem(i), i);
+                CloudMusicListFragment.this.f21712g.c(CloudMusicListFragment.this.f21711f.getItem(i), i);
             } else {
                 l.K(CloudMusicListFragment.this.getPageContext().getPageActivity(), R.string.neterror);
             }
@@ -88,14 +88,14 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         if (pbListView != null) {
             if (z) {
                 if (pbListView.b().getParent() == null) {
-                    this.f21709e.setNextPage(this.i);
+                    this.f21710e.setNextPage(this.i);
                 }
                 this.i.M();
                 this.i.O();
                 return;
             }
             pbListView.f();
-            this.f21709e.setNextPage(null);
+            this.f21710e.setNextPage(null);
         }
     }
 
@@ -104,7 +104,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         PbListView pbListView = this.i;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f21709e.setNextPage(this.i);
+                this.f21710e.setNextPage(this.i);
             }
             this.i.A(getPageContext().getResources().getString(R.string.cloud_music_from_baidu_music));
             this.i.f();
@@ -114,13 +114,13 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
 
     @Override // d.b.i0.p3.i.f
     public void R(int i) {
-        this.f21710f.e(i, true);
+        this.f21711f.e(i, true);
     }
 
     @Override // d.b.i0.p3.i.f
     public void T(CloudMusicData.MusicTagList musicTagList) {
-        this.f21712h = musicTagList;
-        d.b.i0.p3.i.g.a aVar = this.f21710f;
+        this.f21713h = musicTagList;
+        d.b.i0.p3.i.g.a aVar = this.f21711f;
         if (aVar != null) {
             aVar.b(musicTagList.music_list);
         }
@@ -137,7 +137,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
 
     @Override // d.b.i0.p3.i.f
     public void h0(int i) {
-        this.f21710f.e(i, false);
+        this.f21711f.e(i, false);
         if (getPageContext() == null && getPageContext().getPageActivity() == null) {
             return;
         }
@@ -146,7 +146,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
 
     @Override // d.b.i0.p3.i.f
     public void m0(int i) {
-        this.f21710f.e(i, false);
+        this.f21711f.e(i, false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -166,14 +166,14 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         e eVar;
         CloudMusicData.MusicTagList.Page page;
         View inflate = layoutInflater.inflate(R.layout.fragment_cloud_music_list, viewGroup, false);
-        this.f21712h = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
-        this.f21709e = (BdListView) inflate.findViewById(R.id.cloud_music_list_view);
+        this.f21713h = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
+        this.f21710e = (BdListView) inflate.findViewById(R.id.cloud_music_list_view);
         d.b.i0.p3.i.g.a aVar = new d.b.i0.p3.i.g.a(getPageContext());
-        this.f21710f = aVar;
-        this.f21709e.setAdapter((ListAdapter) aVar);
-        this.f21709e.setExOnSrollToBottomListener(this);
-        this.f21709e.setDivider(null);
-        this.f21710f.d(this);
+        this.f21711f = aVar;
+        this.f21710e.setAdapter((ListAdapter) aVar);
+        this.f21710e.setExOnSrollToBottomListener(this);
+        this.f21710e.setDivider(null);
+        this.f21711f.d(this);
         PbListView pbListView = new PbListView(getPageContext().getPageActivity());
         this.i = pbListView;
         pbListView.a();
@@ -182,13 +182,13 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds200)), NoDataViewFactory.e.a(R.string.no_data_text), null);
         this.k = a2;
         a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        CloudMusicData.MusicTagList musicTagList = this.f21712h;
-        if (musicTagList != null && (eVar = this.f21711g) != null && (page = musicTagList.page) != null) {
+        CloudMusicData.MusicTagList musicTagList = this.f21713h;
+        if (musicTagList != null && (eVar = this.f21712g) != null && (page = musicTagList.page) != null) {
             this.j = musicTagList.tag_id;
             this.l = page.has_more;
             eVar.d(musicTagList);
         }
-        this.f21709e.setOnItemClickListener(new b());
+        this.f21710e.setOnItemClickListener(new b());
         registerListener(this.m);
         return inflate;
     }
@@ -196,7 +196,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        e eVar = this.f21711g;
+        e eVar = this.f21712g;
         if (eVar != null) {
             eVar.a();
         }
@@ -206,16 +206,16 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f21711g.b();
+        this.f21712g.b();
     }
 
     @Override // d.b.i0.p3.i.g.a.c
     public void v0(View view, String str, int i) {
         Intent intent = new Intent();
         intent.putExtra("music_resource", str);
-        d.b.i0.p3.i.g.a aVar = this.f21710f;
+        d.b.i0.p3.i.g.a aVar = this.f21711f;
         if (aVar != null && aVar.getItem(i) != null) {
-            intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.f21710f.getItem(i).music_id)));
+            intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.f21711f.getItem(i).music_id)));
         }
         getPageContext().getPageActivity().setResult(-1, intent);
         getPageContext().getPageActivity().finish();
@@ -223,7 +223,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
 
     @Override // d.b.i0.p3.i.f
     public void x(e eVar) {
-        this.f21711g = eVar;
+        this.f21712g = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.q
@@ -232,7 +232,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             l.K(getPageContext().getPageActivity(), R.string.neterror);
             return;
         }
-        e eVar = this.f21711g;
+        e eVar = this.f21712g;
         if (eVar == null || this.l == 0) {
             return;
         }

@@ -23,36 +23,36 @@ public class XAdSDKFoundationFacade {
     public static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    public m f8516a;
+    public m f8517a;
     public Context p;
     public IXAdContainerFactory q;
 
     /* renamed from: c  reason: collision with root package name */
-    public IBase64 f8518c = new a();
+    public IBase64 f8519c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public IXAdLogger f8519d = q.a();
+    public IXAdLogger f8520d = q.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public s f8517b = new s();
+    public s f8518b = new s();
 
     /* renamed from: e  reason: collision with root package name */
-    public IXAdViewUtils f8520e = new ab();
+    public IXAdViewUtils f8521e = new ab();
 
     /* renamed from: f  reason: collision with root package name */
-    public IXAdBitmapUtils f8521f = new g();
+    public IXAdBitmapUtils f8522f = new g();
 
     /* renamed from: g  reason: collision with root package name */
-    public IXAdURIUitls f8522g = new aa();
+    public IXAdURIUitls f8523g = new aa();
     public IXAdSystemUtils k = t.a();
     public h l = new h();
 
     /* renamed from: h  reason: collision with root package name */
-    public IXAdIOUtils f8523h = new p();
+    public IXAdIOUtils f8524h = new p();
     public r i = new r();
     public IXAdActivityUtils j = new f();
     public l m = new l();
-    public IXAdErrorCode n = new com.baidu.mobads.d.b(this.f8519d);
+    public IXAdErrorCode n = new com.baidu.mobads.d.b(this.f8520d);
 
     public static XAdSDKFoundationFacade getInstance() {
         return o;
@@ -60,7 +60,7 @@ public class XAdSDKFoundationFacade {
 
     public void downloadApp(IXAdInstanceInfo iXAdInstanceInfo) {
         try {
-            IXAdLogger iXAdLogger = this.f8519d;
+            IXAdLogger iXAdLogger = this.f8520d;
             iXAdLogger.i("download apk in proxy: " + iXAdInstanceInfo.getAppName());
         } catch (Exception unused) {
             Log.e("", "");
@@ -84,15 +84,15 @@ public class XAdSDKFoundationFacade {
     }
 
     public m getAdCreativeCacheManager() {
-        return this.f8516a;
+        return this.f8517a;
     }
 
     public IXAdLogger getAdLogger() {
-        return this.f8519d;
+        return this.f8520d;
     }
 
     public s getAdResource() {
-        return this.f8517b;
+        return this.f8518b;
     }
 
     public Context getApplicationContext() {
@@ -100,11 +100,11 @@ public class XAdSDKFoundationFacade {
     }
 
     public IBase64 getBase64() {
-        return this.f8518c;
+        return this.f8519c;
     }
 
     public IXAdBitmapUtils getBitmapUtils() {
-        return this.f8521f;
+        return this.f8522f;
     }
 
     public h getCommonUtils() {
@@ -124,7 +124,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public IXAdIOUtils getIoUtils() {
-        return this.f8523h;
+        return this.f8524h;
     }
 
     public r getPackageUtils() {
@@ -140,11 +140,11 @@ public class XAdSDKFoundationFacade {
     }
 
     public IXAdURIUitls getURIUitls() {
-        return this.f8522g;
+        return this.f8523g;
     }
 
     public IXAdViewUtils getViewUtils() {
-        return this.f8520e;
+        return this.f8521e;
     }
 
     public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
@@ -157,12 +157,12 @@ public class XAdSDKFoundationFacade {
         if (this.p == null) {
             this.p = context;
         }
-        this.f8516a = new m(this.p);
+        this.f8517a = new m(this.p);
     }
 
     public void makeRequest(String str) {
         com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(str, "");
-        bVar.f8413e = 1;
+        bVar.f8414e = 1;
         new com.baidu.mobads.openad.b.a().a(bVar);
     }
 
@@ -171,7 +171,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public void setMobileConfirmed(String str) {
-        IXAdLogger iXAdLogger = this.f8519d;
+        IXAdLogger iXAdLogger = this.f8520d;
         iXAdLogger.i("setMobileConfirmed in proxy: " + str);
     }
 

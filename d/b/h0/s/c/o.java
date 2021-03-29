@@ -3,35 +3,35 @@ package d.b.h0.s.c;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51205a;
+    public String f51206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51206b;
+    public long f51207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51207c;
+    public int f51208c;
 
     public int a() {
-        return this.f51207c;
+        return this.f51208c;
     }
 
     public String b() {
-        return this.f51205a;
+        return this.f51206a;
     }
 
     public long c() {
-        return this.f51206b;
+        return this.f51207b;
     }
 
     public void d(int i) {
-        this.f51207c = i;
+        this.f51208c = i;
     }
 
     public void e(String str) {
-        this.f51205a = str;
+        this.f51206a = str;
     }
 
     public void f(long j) {
-        this.f51206b = j;
+        this.f51207b = j;
     }
 }

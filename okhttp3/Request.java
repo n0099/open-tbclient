@@ -12,7 +12,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpMethod;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Request {
     @Nullable
     public final RequestBody body;
@@ -22,7 +22,7 @@ public final class Request {
     public final Map<Class<?>, Object> tags;
     public final HttpUrl url;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public RequestBody body;
         public Headers.Builder headers;

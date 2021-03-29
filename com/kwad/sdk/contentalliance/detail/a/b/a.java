@@ -15,46 +15,46 @@ import com.kwad.sdk.utils.p;
 public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public LottieAnimationView f31970b;
+    public LottieAnimationView f31971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f31971c;
+    public ViewGroup f31972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f31972d;
+    public TextView f31973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f31973e;
+    public Handler f31974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31974f = false;
+    public boolean f31975f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.a.a f31975g = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.b.a.1
+    public com.kwad.sdk.contentalliance.a.a f31976g = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.b.a.1
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (com.ksad.download.d.b.a(a.this.o()) || ((b) a.this).f32132a.m.a()) {
-                a.this.f31971c.setVisibility(8);
+            if (com.ksad.download.d.b.a(a.this.o()) || ((b) a.this).f32133a.m.a()) {
+                a.this.f31972c.setVisibility(8);
             } else {
                 a.this.g();
             }
-            if (((b) a.this).f32132a.m.b() && !a.this.f31974f) {
+            if (((b) a.this).f32133a.m.b() && !a.this.f31975f) {
                 a.this.h();
             }
-            a.this.f31974f = true;
+            a.this.f31975f = true;
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
             a.this.f();
-            a.this.f31974f = false;
+            a.this.f31975f = false;
         }
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f31976h;
+    public Runnable f31977h;
     public Runnable i;
     public e j;
 
@@ -65,7 +65,7 @@ public class a extends b {
                 a.this.f();
             }
         };
-        this.f31976h = runnable;
+        this.f31977h = runnable;
         this.i = new aq(runnable);
         this.j = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.b.a.4
             @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
@@ -86,17 +86,17 @@ public class a extends b {
             public void b() {
                 super.b();
                 com.kwad.sdk.core.d.a.a("DetailLoadingPresenter", "onVideoPlayStart");
-                a.this.f31973e.removeCallbacks(a.this.i);
-                a.this.f31971c.setVisibility(8);
+                a.this.f31974e.removeCallbacks(a.this.i);
+                a.this.f31972c.setVisibility(8);
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
             public void d() {
                 super.d();
-                a.this.f31973e.removeCallbacks(a.this.i);
+                a.this.f31974e.removeCallbacks(a.this.i);
                 com.kwad.sdk.core.d.a.a("DetailLoadingPresenter", "onVideoPlaying");
                 a.this.f();
-                a.this.f31971c.setVisibility(8);
+                a.this.f31972c.setVisibility(8);
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
@@ -128,15 +128,15 @@ public class a extends b {
         int i = 0;
         if (!com.ksad.download.d.b.a(o())) {
             f();
-            viewGroup = this.f31971c;
-        } else if (this.f31970b.getVisibility() == 0 && this.f31970b.c()) {
+            viewGroup = this.f31972c;
+        } else if (this.f31971b.getVisibility() == 0 && this.f31971b.c()) {
             return;
         } else {
-            this.f31970b.setVisibility(0);
-            if (!this.f31970b.c()) {
-                this.f31970b.b();
+            this.f31971b.setVisibility(0);
+            if (!this.f31971b.c()) {
+                this.f31971b.b();
             }
-            viewGroup = this.f31971c;
+            viewGroup = this.f31972c;
             i = 8;
         }
         viewGroup.setVisibility(i);
@@ -144,20 +144,20 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        LottieAnimationView lottieAnimationView = this.f31970b;
+        LottieAnimationView lottieAnimationView = this.f31971b;
         if (lottieAnimationView == null) {
             return;
         }
         if (lottieAnimationView.c()) {
-            this.f31970b.d();
+            this.f31971b.d();
         }
-        this.f31970b.setVisibility(8);
+        this.f31971b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f31970b.d();
-        this.f31970b.setVisibility(8);
+        this.f31971b.d();
+        this.f31971b.setVisibility(8);
         p.a(o(), "网络错误");
     }
 
@@ -168,38 +168,38 @@ public class a extends b {
         } else {
             f();
         }
-        this.f31973e.removeCallbacks(this.i);
-        this.f31973e.postDelayed(this.i, 10000L);
+        this.f31974e.removeCallbacks(this.i);
+        this.f31974e.postDelayed(this.i, 10000L);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("DetailLoadingPresenter", "onBind");
-        this.f31972d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.a.b.a.2
+        this.f31973d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.a.b.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!com.ksad.download.d.b.a(a.this.o())) {
                     p.a(a.this.o(), "网络错误");
-                } else if (((b) a.this).f32132a.m.a()) {
+                } else if (((b) a.this).f32133a.m.a()) {
                 } else {
-                    ((b) a.this).f32132a.m.f();
+                    ((b) a.this).f32133a.m.f();
                 }
             }
         });
-        ((b) this).f32132a.f32152b.add(this.f31975g);
-        ((b) this).f32132a.m.a(this.j);
+        ((b) this).f32133a.f32153b.add(this.f31976g);
+        ((b) this).f32133a.m.a(this.j);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        Handler handler = this.f31973e;
+        Handler handler = this.f31974e;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        ((b) this).f32132a.f32152b.remove(this.f31975g);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((b) this).f32132a.m;
+        ((b) this).f32133a.f32153b.remove(this.f31976g);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((b) this).f32133a.m;
         if (bVar != null) {
             bVar.b(this.j);
         }
@@ -208,18 +208,18 @@ public class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f31973e = new Handler();
-        this.f31971c = (ViewGroup) b(R.id.ksad_error_container);
-        this.f31972d = (TextView) b(R.id.ksad_retry_btn);
+        this.f31974e = new Handler();
+        this.f31972c = (ViewGroup) b(R.id.ksad_error_container);
+        this.f31973d = (TextView) b(R.id.ksad_retry_btn);
         LottieAnimationView lottieAnimationView = (LottieAnimationView) b(R.id.ksad_bottom_loading_animation_view);
         int i = R.raw.ksad_detail_loading_amin_bottom;
         ((LottieAnimationView) b(R.id.ksad_center_loading_animation_view)).setVisibility(8);
         lottieAnimationView.setVisibility(0);
-        this.f31970b = lottieAnimationView;
+        this.f31971b = lottieAnimationView;
         lottieAnimationView.setRepeatMode(1);
-        this.f31970b.setRepeatCount(-1);
-        this.f31970b.setAnimation(i);
-        this.f31970b.setRepeatMode(1);
-        this.f31970b.setRepeatCount(-1);
+        this.f31971b.setRepeatCount(-1);
+        this.f31971b.setAnimation(i);
+        this.f31971b.setRepeatMode(1);
+        this.f31971b.setRepeatCount(-1);
     }
 }

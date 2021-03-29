@@ -24,27 +24,27 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f57267a;
+    public View f57268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchMajorActivity f57268b;
+    public SearchMajorActivity f57269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.o1.a f57269c;
+    public d.b.i0.o1.a f57270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57270d;
+    public String f57271d;
 
     /* renamed from: d.b.i0.o1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnFocusChangeListenerC1371a implements View.OnFocusChangeListener {
-        public View$OnFocusChangeListenerC1371a() {
+    public class View$OnFocusChangeListenerC1372a implements View.OnFocusChangeListener {
+        public View$OnFocusChangeListenerC1372a() {
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                l.w(a.this.f57268b.getPageContext().getPageActivity(), view);
+                l.w(a.this.f57269b.getPageContext().getPageActivity(), view);
             } else {
                 a.this.k();
             }
@@ -76,9 +76,9 @@ public class a {
             if (editable == null) {
                 return;
             }
-            a.this.f57270d = editable.toString();
+            a.this.f57271d = editable.toString();
             a.this.k();
-            a.this.f57269c.k(!StringUtils.isNull(editable.toString()));
+            a.this.f57270c.k(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -99,7 +99,7 @@ public class a {
         public void a(String str) {
             Intent intent = new Intent();
             intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-            a.this.f57268b.finish(intent);
+            a.this.f57269b.finish(intent);
         }
     }
 
@@ -111,7 +111,7 @@ public class a {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if (i == 1 || i == 2) {
-                l.w(a.this.f57268b.getPageContext().getPageActivity(), recyclerView);
+                l.w(a.this.f57269b.getPageContext().getPageActivity(), recyclerView);
             }
         }
 
@@ -121,79 +121,79 @@ public class a {
     }
 
     public a(SearchMajorActivity searchMajorActivity) {
-        this.f57268b = searchMajorActivity;
+        this.f57269b = searchMajorActivity;
         h();
     }
 
     public void e() {
-        View$OnFocusChangeListenerC1371a view$OnFocusChangeListenerC1371a = new View$OnFocusChangeListenerC1371a();
+        View$OnFocusChangeListenerC1372a view$OnFocusChangeListenerC1372a = new View$OnFocusChangeListenerC1372a();
         b bVar = new b();
         c cVar = new c();
-        this.f57269c.q(view$OnFocusChangeListenerC1371a);
-        this.f57269c.p(bVar);
-        this.f57269c.r(cVar);
+        this.f57270c.q(view$OnFocusChangeListenerC1372a);
+        this.f57270c.p(bVar);
+        this.f57270c.r(cVar);
     }
 
     public final void f() {
         d dVar = new d();
         e eVar = new e();
-        this.f57269c.n(dVar);
-        this.f57269c.o(eVar);
+        this.f57270c.n(dVar);
+        this.f57270c.o(eVar);
     }
 
     public d.b.i0.o1.a g() {
-        return this.f57269c;
+        return this.f57270c;
     }
 
     public final void h() {
-        View inflate = LayoutInflater.from(this.f57268b).inflate(R.layout.search_major_main, (ViewGroup) null);
-        this.f57267a = inflate;
-        this.f57268b.setContentView(inflate);
-        this.f57269c = new d.b.i0.o1.a(this.f57267a, this.f57268b);
+        View inflate = LayoutInflater.from(this.f57269b).inflate(R.layout.search_major_main, (ViewGroup) null);
+        this.f57268a = inflate;
+        this.f57269b.setContentView(inflate);
+        this.f57270c = new d.b.i0.o1.a(this.f57268a, this.f57269b);
         e();
         f();
-        this.f57270d = "";
+        this.f57271d = "";
         k();
     }
 
     public void i(int i) {
-        this.f57269c.i(i);
+        this.f57270c.i(i);
     }
 
     public void j() {
-        d.b.i0.o1.a aVar = this.f57269c;
+        d.b.i0.o1.a aVar = this.f57270c;
         if (aVar != null) {
             aVar.j();
         }
     }
 
     public final void k() {
-        if (this.f57268b == null) {
+        if (this.f57269b == null) {
             return;
         }
         if (j.z()) {
-            if (this.f57270d != null) {
+            if (this.f57271d != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                httpMessage.addParam("keyword", this.f57270d.trim());
-                this.f57268b.sendMessage(httpMessage);
+                httpMessage.addParam("keyword", this.f57271d.trim());
+                this.f57269b.sendMessage(httpMessage);
             }
-        } else if (this.f57269c != null) {
+        } else if (this.f57270c != null) {
             m(new ErrorData());
-            this.f57268b.getRefreshView().h(R.drawable.new_pic_emotion_05);
-            this.f57268b.showNetRefreshViewNoClick(this.f57269c.d(), null);
-            this.f57268b.getRefreshView().n(this.f57268b.getString(R.string.im_error_default));
+            this.f57269b.getRefreshView().h(R.drawable.new_pic_emotion_05);
+            this.f57269b.showNetRefreshViewNoClick(this.f57270c.d(), null);
+            this.f57269b.getRefreshView().n(this.f57269b.getString(R.string.im_error_default));
         }
     }
 
     public void l(List<String> list) {
-        d.b.i0.o1.a aVar = this.f57269c;
+        d.b.i0.o1.a aVar = this.f57270c;
         if (aVar != null) {
-            aVar.l(list, this.f57270d);
+            aVar.l(list, this.f57271d);
         }
     }
 
     public void m(ErrorData errorData) {
-        d.b.i0.o1.a aVar = this.f57269c;
+        d.b.i0.o1.a aVar = this.f57270c;
         if (aVar != null) {
             aVar.m(errorData);
         }

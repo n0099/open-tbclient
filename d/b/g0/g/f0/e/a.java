@@ -16,21 +16,21 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a extends j {
-    public static final boolean l = k.f45050a;
+    public static final boolean l = k.f45051a;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f48145g;
+    public b.a f48146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48146h;
+    public String f48147h;
     public String i;
     public String j;
-    public c<g> k = new C0963a();
+    public c<g> k = new C0964a();
 
     /* renamed from: d.b.g0.g.f0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0963a extends d.b.g0.l.h.b<g> {
-        public C0963a() {
+    public class C0964a extends d.b.g0.l.h.b<g> {
+        public C0964a() {
         }
 
         @Override // d.b.g0.l.h.e
@@ -57,7 +57,7 @@ public class a extends j {
             a.this.T(2103);
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(12L);
-            aVar2.h(aVar.f48913a);
+            aVar2.h(aVar.f48914a);
             aVar2.c("分包下载失败");
             aVar2.e(aVar.toString());
             d.b.g0.a.e0.p.c.c().a(gVar, PMSDownloadType.ALONE_SUB, aVar2);
@@ -80,9 +80,9 @@ public class a extends j {
         public void a(g gVar) {
             super.a(gVar);
             if (a.l) {
-                Log.i("SwanGameSubPkgDownload", "onDownloadProgress: " + gVar.k + ":" + gVar.f48917b);
+                Log.i("SwanGameSubPkgDownload", "onDownloadProgress: " + gVar.k + ":" + gVar.f48918b);
             }
-            a.this.U(gVar.f48917b, gVar.k);
+            a.this.U(gVar.f48918b, gVar.k);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,25 +98,25 @@ public class a extends j {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements c.InterfaceC0667c {
+    public class b implements c.InterfaceC0668c {
         public b() {
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void a(PMSDownloadType pMSDownloadType) {
             a.this.V();
         }
 
-        @Override // d.b.g0.a.e0.p.c.InterfaceC0667c
+        @Override // d.b.g0.a.e0.p.c.InterfaceC0668c
         public void b(PMSDownloadType pMSDownloadType, d.b.g0.a.f2.a aVar) {
             a.this.T(2103);
         }
     }
 
     public a(String str, String str2, String str3, b.a aVar) {
-        this.f48146h = str;
+        this.f48147h = str;
         this.i = str3;
-        this.f48145g = aVar;
+        this.f48146g = aVar;
         this.j = a.d.h(str, str2).getPath();
     }
 
@@ -144,27 +144,23 @@ public class a extends j {
     }
 
     public final void T(int i) {
-        b.a aVar = this.f48145g;
+        b.a aVar = this.f48146g;
         if (aVar != null) {
             aVar.b(i);
         }
     }
 
     public final void U(long j, long j2) {
-        if (this.f48145g == null) {
+        if (this.f48146g == null) {
             return;
         }
         if (j2 > 0 && j <= j2) {
-            double d2 = j;
-            Double.isNaN(d2);
-            double d3 = j2;
-            Double.isNaN(d3);
-            int floor = (int) Math.floor((d2 * 100.0d) / d3);
+            int floor = (int) Math.floor((j * 100.0d) / j2);
             if (floor != 100) {
                 if (l) {
                     Log.i("SwanGameSubPkgDownload", "callbackProgress: " + floor);
                 }
-                this.f48145g.a(floor, j, j2);
+                this.f48146g.a(floor, j, j2);
                 return;
             }
             return;
@@ -173,14 +169,14 @@ public class a extends j {
     }
 
     public final void V() {
-        b.a aVar = this.f48145g;
+        b.a aVar = this.f48146g;
         if (aVar != null) {
             aVar.success();
         }
     }
 
     public final void W(g gVar) {
-        if (!e0.a(new File(gVar.f48916a), gVar.m)) {
+        if (!e0.a(new File(gVar.f48917a), gVar.m)) {
             if (l) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
@@ -190,12 +186,12 @@ public class a extends j {
             aVar.h(2300L);
             aVar.c("分包签名校验");
             d.b.g0.a.e0.p.c.c().a(gVar, PMSDownloadType.ALONE_SUB, aVar);
-        } else if (d.b.g0.a.e0.p.r.b.h(new File(gVar.f48916a), new File(this.j, this.i))) {
+        } else if (d.b.g0.a.e0.p.r.b.h(new File(gVar.f48917a), new File(this.j, this.i))) {
             if (l) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: 解压成功");
             }
             V();
-            gVar.o = this.f48146h;
+            gVar.o = this.f48147h;
             d.b.g0.l.i.a.h().l(gVar);
             d.b.g0.a.e0.p.c.c().b(gVar, PMSDownloadType.ALONE_SUB);
         } else {

@@ -14,31 +14,31 @@ import d.b.i0.l0.w;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile d f62349g;
+    public static volatile d f62350g;
 
     /* renamed from: a  reason: collision with root package name */
-    public NewFaceSyncUploadModel f62350a = new NewFaceSyncUploadModel();
+    public NewFaceSyncUploadModel f62351a = new NewFaceSyncUploadModel();
 
     /* renamed from: b  reason: collision with root package name */
-    public NewFaceSyncDownloadModel f62351b = new NewFaceSyncDownloadModel();
+    public NewFaceSyncDownloadModel f62352b = new NewFaceSyncDownloadModel();
 
     /* renamed from: c  reason: collision with root package name */
-    public NewFaceGroupDownloadModel f62352c = new NewFaceGroupDownloadModel();
+    public NewFaceGroupDownloadModel f62353c = new NewFaceGroupDownloadModel();
 
     /* renamed from: d  reason: collision with root package name */
-    public w f62353d = new w();
+    public w f62354d = new w();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62354e;
+    public boolean f62355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f62355f;
+    public boolean f62356f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -67,26 +67,26 @@ public class d {
                 }
                 str = sb.toString();
             }
-            d.this.f62350a.s(str);
+            d.this.f62351a.s(str);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.i0.x1.e.a {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GetCloudFaceGroupMessage f62358e;
+            public final /* synthetic */ GetCloudFaceGroupMessage f62359e;
 
             public a(GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
-                this.f62358e = getCloudFaceGroupMessage;
+                this.f62359e = getCloudFaceGroupMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.this.f62353d.f(this.f62358e.getCollectEmotionList());
+                d.this.f62354d.f(this.f62359e.getCollectEmotionList());
             }
         }
 
@@ -96,23 +96,23 @@ public class d {
         @Override // d.b.i0.x1.e.a
         public void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
             if (getCloudFaceGroupMessage == null) {
-                d.this.f62355f = false;
-                d.this.f62354e = false;
+                d.this.f62356f = false;
+                d.this.f62355e = false;
                 return;
             }
             if (getCloudFaceGroupMessage.getCollectUpdateTime() <= d.k()) {
-                d.this.f62355f = false;
+                d.this.f62356f = false;
                 if (getCloudFaceGroupMessage.getCollectUpdateTime() < d.k()) {
                     new UserCollectModel().s();
                 }
                 u.s().n();
             } else if (getCloudFaceGroupMessage.getCollectEmotionList() == null) {
-                d.this.f62355f = false;
+                d.this.f62356f = false;
             } else {
                 d.b.i0.x1.a.b().a(new a(getCloudFaceGroupMessage));
             }
             if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() <= d.l()) {
-                d.this.f62354e = false;
+                d.this.f62355e = false;
                 if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() < d.l()) {
                     d.this.w();
                 }
@@ -120,19 +120,19 @@ public class d {
             } else if (getCloudFaceGroupMessage.getFaceGroupData() != null) {
                 d.this.p(getCloudFaceGroupMessage.getFaceGroupData());
             } else {
-                d.this.f62354e = false;
+                d.this.f62355e = false;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f62360e;
+        public final /* synthetic */ List f62361e;
 
         public c(List list) {
-            this.f62360e = list;
+            this.f62361e = list;
         }
 
         @Override // java.lang.Runnable
@@ -145,29 +145,29 @@ public class d {
                     arrayList.add(myEmotionGroupData.getGroupId());
                 }
             }
-            d.this.h(this.f62360e, arrayList);
+            d.this.h(this.f62361e, arrayList);
         }
     }
 
     /* renamed from: d.b.i0.x1.d$d  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1660d implements d.b.i0.x1.e.b {
+    /* loaded from: classes3.dex */
+    public class C1661d implements d.b.i0.x1.e.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f62362a;
+        public final /* synthetic */ AtomicInteger f62363a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f62363b;
+        public final /* synthetic */ List f62364b;
 
-        public C1660d(AtomicInteger atomicInteger, List list) {
-            this.f62362a = atomicInteger;
-            this.f62363b = list;
+        public C1661d(AtomicInteger atomicInteger, List list) {
+            this.f62363a = atomicInteger;
+            this.f62364b = list;
         }
 
         @Override // d.b.i0.x1.e.b
         public void onFail(String str) {
-            if (this.f62362a.decrementAndGet() == 0) {
-                d.this.q(this.f62363b);
+            if (this.f62363a.decrementAndGet() == 0) {
+                d.this.q(this.f62364b);
             }
         }
 
@@ -177,25 +177,25 @@ public class d {
 
         @Override // d.b.i0.x1.e.b
         public void onSuccess(String str) {
-            if (this.f62362a.decrementAndGet() == 0) {
-                d.this.q(this.f62363b);
+            if (this.f62363a.decrementAndGet() == 0) {
+                d.this.q(this.f62364b);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f62365e;
+        public final /* synthetic */ List f62366e;
 
         public e(List list) {
-            this.f62365e = list;
+            this.f62366e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.q(this.f62365e);
+            d.this.q(this.f62366e);
         }
     }
 
@@ -214,14 +214,14 @@ public class d {
     }
 
     public static d m() {
-        if (f62349g == null) {
+        if (f62350g == null) {
             synchronized (d.class) {
-                if (f62349g == null) {
-                    f62349g = new d();
+                if (f62350g == null) {
+                    f62350g = new d();
                 }
             }
         }
-        return f62349g;
+        return f62350g;
     }
 
     public static void s(long j) {
@@ -260,22 +260,22 @@ public class d {
             if (!arrayList.isEmpty()) {
                 AtomicInteger atomicInteger = new AtomicInteger(arrayList.size());
                 for (String str2 : arrayList) {
-                    this.f62352c.s(str2, Boolean.FALSE, new C1660d(atomicInteger, list));
+                    this.f62353c.s(str2, Boolean.FALSE, new C1661d(atomicInteger, list));
                 }
                 return;
             }
             r(list);
             return;
         }
-        this.f62354e = false;
+        this.f62355e = false;
     }
 
     public boolean n() {
-        return this.f62355f;
+        return this.f62356f;
     }
 
     public boolean o() {
-        return this.f62354e;
+        return this.f62355e;
     }
 
     public final void p(List<String> list) {
@@ -286,7 +286,7 @@ public class d {
         if (d.b.i0.x1.c.i().j(list, false)) {
             t(System.currentTimeMillis());
         }
-        this.f62354e = false;
+        this.f62355e = false;
     }
 
     public final void r(List<String> list) {
@@ -298,13 +298,13 @@ public class d {
     }
 
     public void u(boolean z) {
-        this.f62355f = z;
+        this.f62356f = z;
     }
 
     public void v() {
-        this.f62354e = true;
-        this.f62355f = true;
-        this.f62351b.s(new b());
+        this.f62355e = true;
+        this.f62356f = true;
+        this.f62352b.s(new b());
     }
 
     public void w() {

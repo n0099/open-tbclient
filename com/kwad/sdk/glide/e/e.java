@@ -9,44 +9,44 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f35148a = new ArrayList();
+    public final List<String> f35149a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, List<a<?, ?>>> f35149b = new HashMap();
+    public final Map<String, List<a<?, ?>>> f35150b = new HashMap();
 
     /* loaded from: classes6.dex */
     public static class a<T, R> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<R> f35150a;
+        public final Class<R> f35151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.f<T, R> f35151b;
+        public final com.kwad.sdk.glide.load.f<T, R> f35152b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<T> f35152c;
+        public final Class<T> f35153c;
 
         public a(@NonNull Class<T> cls, @NonNull Class<R> cls2, com.kwad.sdk.glide.load.f<T, R> fVar) {
-            this.f35152c = cls;
-            this.f35150a = cls2;
-            this.f35151b = fVar;
+            this.f35153c = cls;
+            this.f35151a = cls2;
+            this.f35152b = fVar;
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.f35152c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f35150a);
+            return this.f35153c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f35151a);
         }
     }
 
     @NonNull
     private synchronized List<a<?, ?>> a(@NonNull String str) {
         List<a<?, ?>> list;
-        if (!this.f35148a.contains(str)) {
-            this.f35148a.add(str);
+        if (!this.f35149a.contains(str)) {
+            this.f35149a.add(str);
         }
-        list = this.f35149b.get(str);
+        list = this.f35150b.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f35149b.put(str, list);
+            this.f35150b.put(str, list);
         }
         return list;
     }
@@ -55,12 +55,12 @@ public class e {
     public synchronized <T, R> List<com.kwad.sdk.glide.load.f<T, R>> a(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f35148a) {
-            List<a<?, ?>> list = this.f35149b.get(str);
+        for (String str : this.f35149a) {
+            List<a<?, ?>> list = this.f35150b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
                     if (aVar.a(cls, cls2)) {
-                        arrayList.add(aVar.f35151b);
+                        arrayList.add(aVar.f35152b);
                     }
                 }
             }
@@ -73,12 +73,12 @@ public class e {
     }
 
     public synchronized void a(@NonNull List<String> list) {
-        ArrayList<String> arrayList = new ArrayList(this.f35148a);
-        this.f35148a.clear();
-        this.f35148a.addAll(list);
+        ArrayList<String> arrayList = new ArrayList(this.f35149a);
+        this.f35149a.clear();
+        this.f35149a.addAll(list);
         for (String str : arrayList) {
             if (!list.contains(str)) {
-                this.f35148a.add(str);
+                this.f35149a.add(str);
             }
         }
     }
@@ -87,12 +87,12 @@ public class e {
     public synchronized <T, R> List<Class<R>> b(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f35148a) {
-            List<a<?, ?>> list = this.f35149b.get(str);
+        for (String str : this.f35149a) {
+            List<a<?, ?>> list = this.f35150b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
-                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f35150a)) {
-                        arrayList.add(aVar.f35150a);
+                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f35151a)) {
+                        arrayList.add(aVar.f35151a);
                     }
                 }
             }

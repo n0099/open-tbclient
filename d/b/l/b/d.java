@@ -1,5 +1,5 @@
 package d.b.l.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
     String getAppName();
 }

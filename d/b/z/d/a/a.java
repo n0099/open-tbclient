@@ -1,5 +1,5 @@
 package d.b.z.d.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void onProgress(long j, long j2);
 

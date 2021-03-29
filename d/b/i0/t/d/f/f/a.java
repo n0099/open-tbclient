@@ -11,27 +11,25 @@ import d.b.b.e.p.l;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60578a;
+    public int f60579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60579b;
+    public int f60580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f60580c;
+    public TbPageContext f60581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.t.d.f.c.a f60581d;
+    public d.b.i0.t.d.f.c.a f60582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f60582e;
+    public View f60583e;
 
     public a(TbPageContext tbPageContext) {
-        this.f60580c = tbPageContext;
+        this.f60581c = tbPageContext;
         int k = l.k(tbPageContext.getPageActivity());
-        this.f60578a = k;
-        double d2 = k;
-        Double.isNaN(d2);
-        this.f60579b = (int) ((d2 * 9.0d) / 16.0d);
+        this.f60579a = k;
+        this.f60580b = (int) ((k * 9.0d) / 16.0d);
     }
 
     public void a(ViewGroup viewGroup) {
@@ -43,7 +41,7 @@ public abstract class a {
     }
 
     public void b(d.b.i0.t.d.f.c.a aVar) {
-        this.f60581d = aVar;
+        this.f60582d = aVar;
     }
 
     public abstract View c();
@@ -51,10 +49,10 @@ public abstract class a {
     public abstract void d();
 
     public View e() {
-        this.f60582e = new View(this.f60580c.getPageActivity());
-        this.f60582e.setLayoutParams(new FrameLayout.LayoutParams(this.f60578a, this.f60579b));
-        this.f60582e.setBackgroundDrawable(new ColorDrawable(this.f60580c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
-        return this.f60582e;
+        this.f60583e = new View(this.f60581c.getPageActivity());
+        this.f60583e.setLayoutParams(new FrameLayout.LayoutParams(this.f60579a, this.f60580b));
+        this.f60583e.setBackgroundDrawable(new ColorDrawable(this.f60581c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
+        return this.f60583e;
     }
 
     public abstract boolean f(d.b.i0.t.d.f.c.a aVar);
@@ -62,17 +60,15 @@ public abstract class a {
     public abstract void g(boolean z);
 
     public void h() {
-        int k = l.k(this.f60580c.getPageActivity());
-        this.f60578a = k;
-        double d2 = k;
-        Double.isNaN(d2);
-        this.f60579b = (int) ((d2 * 9.0d) / 16.0d);
-        View view = this.f60582e;
+        int k = l.k(this.f60581c.getPageActivity());
+        this.f60579a = k;
+        this.f60580b = (int) ((k * 9.0d) / 16.0d);
+        View view = this.f60583e;
         if (view != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-            layoutParams.width = this.f60578a;
-            layoutParams.height = this.f60579b;
-            this.f60582e.setLayoutParams(layoutParams);
+            layoutParams.width = this.f60579a;
+            layoutParams.height = this.f60580b;
+            this.f60583e.setLayoutParams(layoutParams);
         }
     }
 

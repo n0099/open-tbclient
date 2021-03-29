@@ -1,8 +1,8 @@
 package com.baidu.apollon.restnet.http;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class HttpDefines {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum HttpMethod {
         GET,
         POST,

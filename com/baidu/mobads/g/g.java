@@ -28,22 +28,22 @@ import java.util.jar.JarFile;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Thread.UncaughtExceptionHandler f8278a;
+    public static Thread.UncaughtExceptionHandler f8279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.baidu.mobads.g.a f8279b;
+    public static volatile com.baidu.mobads.g.a f8280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile com.baidu.mobads.g.a f8280c;
+    public static volatile com.baidu.mobads.g.a f8281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile Class f8281d;
+    public static volatile Class f8282d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8282e;
+    public static String f8283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Handler f8283f = new h(Looper.getMainLooper());
+    public static final Handler f8284f = new h(Looper.getMainLooper());
     public static String i;
     public com.baidu.mobads.openad.b.a j;
     public e k;
@@ -52,12 +52,12 @@ public class g {
     public boolean n = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f8284g = f8283f;
+    public Handler f8285g = f8284f;
     public CopyOnWriteArrayList<c> o = new CopyOnWriteArrayList<>();
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f8285h = new i(this, Looper.getMainLooper());
+    public final Handler f8286h = new i(this, Looper.getMainLooper());
 
     /* loaded from: classes2.dex */
     public static final class a extends Exception {
@@ -85,14 +85,14 @@ public class g {
         }
         this.l = context;
         c(context);
-        if (f8278a == null) {
-            f8278a = q.a(context);
+        if (f8279a == null) {
+            f8279a = q.a(context);
             q.a(context).a(new j(this));
         }
         if (Thread.getDefaultUncaughtExceptionHandler() instanceof q) {
             return;
         }
-        Thread.setDefaultUncaughtExceptionHandler(f8278a);
+        Thread.setDefaultUncaughtExceptionHandler(f8279a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -191,17 +191,17 @@ public class g {
     }
 
     public void i() {
-        if (f8279b != null) {
-            f8279b.b();
-            f8279b = null;
+        if (f8280b != null) {
+            f8280b.b();
+            f8280b = null;
         }
     }
 
     public static String f() {
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             return "";
         }
-        return f8282e + "__xadsdk__remote__final__downloaded__.jar";
+        return f8283e + "__xadsdk__remote__final__downloaded__.jar";
     }
 
     public void e() {
@@ -234,21 +234,21 @@ public class g {
     }
 
     public IXAdContainerFactory h() {
-        return a(f8279b);
+        return a(f8280b);
     }
 
     public static void c(Context context) {
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             File dir = context.getDir("baidu_ad_sdk", 0);
-            f8282e = dir.getAbsolutePath() + "/";
+            f8283e = dir.getAbsolutePath() + "/";
         }
     }
 
     public static String d() {
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             return "";
         }
-        return f8282e + "__xadsdk__remote__final__builtinversion__.jar";
+        return f8283e + "__xadsdk__remote__final__builtinversion__.jar";
     }
 
     public void b() {
@@ -275,7 +275,7 @@ public class g {
     private void b(com.baidu.mobads.g.b bVar) {
         IXAdLogger iXAdLogger = this.m;
         iXAdLogger.d("XAdApkLoader", "len=" + bVar.length() + ", path=" + bVar.getAbsolutePath());
-        if (f8279b == null) {
+        if (f8280b == null) {
             String a2 = a(this.l);
             com.baidu.mobads.g.b bVar2 = new com.baidu.mobads.g.b(a2, this.l);
             if (bVar2.exists()) {
@@ -286,35 +286,35 @@ public class g {
             } catch (Exception e2) {
                 this.m.e(e2);
             }
-            f8279b = new com.baidu.mobads.g.a(bVar2.b(), this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
+            f8280b = new com.baidu.mobads.g.a(bVar2.b(), this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
             try {
-                IXAdContainerFactory a3 = f8279b.a();
+                IXAdContainerFactory a3 = f8280b.a();
                 IXAdLogger iXAdLogger2 = this.m;
                 iXAdLogger2.d("XAdApkLoader", "preloaded apk.version=" + a3.getRemoteVersion());
                 return;
             } catch (a e3) {
                 IXAdLogger iXAdLogger3 = this.m;
-                iXAdLogger3.d("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + f8279b.f8249a);
+                iXAdLogger3.d("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + f8280b.f8250a);
                 a(e3.getMessage());
                 throw e3;
             }
         }
         IXAdLogger iXAdLogger4 = this.m;
-        iXAdLogger4.d("XAdApkLoader", "mApkBuilder already initialized, version: " + f8279b.f8249a);
+        iXAdLogger4.d("XAdApkLoader", "mApkBuilder already initialized, version: " + f8280b.f8250a);
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             return "";
         }
-        return f8282e + "__xadsdk__remote__final__builtin__.jar";
+        return f8283e + "__xadsdk__remote__final__builtin__.jar";
     }
 
     @TargetApi(9)
     public void a(String str) {
-        if (f8279b != null) {
+        if (f8280b != null) {
             SharedPreferences.Editor edit = k().edit();
-            edit.putFloat("__badApkVersion__8.8448", (float) f8279b.f8249a);
+            edit.putFloat("__badApkVersion__8.8448", (float) f8280b.f8250a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -334,19 +334,19 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        Message obtainMessage = this.f8284g.obtainMessage();
+        Message obtainMessage = this.f8285g.obtainMessage();
         Bundle bundle = new Bundle();
         bundle.putBoolean("success", z);
         obtainMessage.setData(bundle);
         obtainMessage.what = 0;
-        this.f8284g.sendMessage(obtainMessage);
+        this.f8285g.sendMessage(obtainMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
         try {
             IXAdURIUitls uRIUitls = XAdSDKFoundationFacade.getInstance().getURIUitls();
-            double d2 = z ? f8279b.f8249a : 0.0d;
+            double d2 = z ? f8280b.f8250a : 0.0d;
             m mVar = new m(this, d2);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("v", "" + d2);
@@ -354,7 +354,7 @@ public class g {
             hashMap.put(IXAdRequestInfo.PHONE_TYPE, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.MODEL));
             hashMap.put(IXAdRequestInfo.BDR, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.VERSION.SDK));
             com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(uRIUitls.addParameters(i, hashMap), "");
-            bVar.f8413e = 1;
+            bVar.f8414e = 1;
             com.baidu.mobads.openad.b.a aVar = new com.baidu.mobads.openad.b.a();
             this.j = aVar;
             aVar.addEventListener("URLLoader.Load.Complete", mVar);
@@ -368,7 +368,7 @@ public class g {
     public void a(com.baidu.mobads.g.b bVar) {
         Class<?> b2 = bVar.b();
         synchronized (this) {
-            f8280c = new com.baidu.mobads.g.a(b2, this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
+            f8281c = new com.baidu.mobads.g.a(b2, this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
         }
     }
 
@@ -400,14 +400,14 @@ public class g {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             File dir = context.getDir("baidu_ad_sdk", 0);
-            f8282e = dir.getAbsolutePath() + "/";
+            f8283e = dir.getAbsolutePath() + "/";
         }
-        if (TextUtils.isEmpty(f8282e)) {
+        if (TextUtils.isEmpty(f8283e)) {
             return "";
         }
-        return f8282e + "__xadsdk__remote__final__running__.jar";
+        return f8283e + "__xadsdk__remote__final__running__.jar";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -416,8 +416,8 @@ public class g {
         if (copyOnWriteArrayList != null && !copyOnWriteArrayList.contains(cVar)) {
             this.o.add(cVar);
         }
-        this.f8284g = handler;
-        if (f8279b == null) {
+        this.f8285g = handler;
+        if (f8280b == null) {
             g();
         } else {
             b(true);
@@ -427,7 +427,7 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
         if (eVar.a().booleanValue()) {
-            com.baidu.mobads.g.c a2 = com.baidu.mobads.g.c.a(this.l, eVar, f8282e, this.f8285h);
+            com.baidu.mobads.g.c a2 = com.baidu.mobads.g.c.a(this.l, eVar, f8283e, this.f8286h);
             if (!a2.isAlive()) {
                 this.m.d("XAdApkLoader", "XApkDownloadThread starting ...");
                 a2.start();
@@ -462,7 +462,7 @@ public class g {
     }
 
     public void a(c cVar) {
-        a(cVar, f8283f);
+        a(cVar, f8284f);
     }
 
     private IXAdContainerFactory a(com.baidu.mobads.g.a aVar) {

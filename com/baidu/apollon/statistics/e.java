@@ -5,32 +5,32 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3862a = "en";
+    public static final String f3863a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3863b = "et";
+    public static final String f3864b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3864c = "ev";
+    public static final String f3865c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3865d = "eg";
+    public static final String f3866d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3866e = "lk";
+    public static final String f3867e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3867f = "nu";
+    public static final String f3868f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3868g = "at";
+    public static final String f3869g = "at";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3869h;
+    public String f3870h;
     public long i;
     public String j;
     public String k;
@@ -41,7 +41,7 @@ public class e {
     public JSONObject a() throws NullPointerException {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("en", this.f3869h);
+            jSONObject.put("en", this.f3870h);
             jSONObject.put("et", this.i);
             jSONObject.put("nu", this.m);
             if (!TextUtils.isEmpty(this.k)) {
@@ -65,7 +65,7 @@ public class e {
 
     public static e a(String str, long j, String str2, long j2, String str3, Collection<String> collection, String str4) {
         e eVar = new e();
-        eVar.f3869h = str;
+        eVar.f3870h = str;
         eVar.i = j;
         eVar.k = str2;
         eVar.m = j2;

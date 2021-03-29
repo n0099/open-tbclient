@@ -24,25 +24,25 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdZeusUpdate {
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f4346e;
+    public static BdZeusUpdate f4347e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4347a;
+    public String f4348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4348b;
+    public String f4349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4349c;
+    public String f4350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4350d;
+    public boolean f4351d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
         public ByteArrayOutputStream mOutputStream;
 
@@ -99,13 +99,13 @@ public class BdZeusUpdate {
                         if (jSONObject.has("data")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                             if (jSONObject2.has("version")) {
-                                BdZeusUpdate.this.f4348b = jSONObject2.getString("version");
+                                BdZeusUpdate.this.f4349b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                BdZeusUpdate.this.f4347a = jSONObject2.getString("link");
+                                BdZeusUpdate.this.f4348a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has(PackageTable.MD5)) {
-                                BdZeusUpdate.this.f4349c = jSONObject2.getString(PackageTable.MD5);
+                                BdZeusUpdate.this.f4350c = jSONObject2.getString(PackageTable.MD5);
                             }
                         }
                     }
@@ -144,14 +144,14 @@ public class BdZeusUpdate {
     }
 
     public static BdZeusUpdate a() {
-        if (f4346e == null) {
+        if (f4347e == null) {
             synchronized (BdZeusUpdate.class) {
-                if (f4346e == null) {
-                    f4346e = new BdZeusUpdate();
+                if (f4347e == null) {
+                    f4347e = new BdZeusUpdate();
                 }
             }
         }
-        return f4346e;
+        return f4347e;
     }
 
     public static String b(String str, Context context) {
@@ -347,8 +347,8 @@ public class BdZeusUpdate {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             boolean z = false;
             if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f4348b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4347a, this.f4349c);
+                if (e(zeusVersionName, this.f4349b)) {
+                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4348a, this.f4350c);
                     return;
                 }
                 return;
@@ -371,7 +371,7 @@ public class BdZeusUpdate {
             BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4347a, this.f4349c);
+            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4348a, this.f4350c);
         }
     }
 }

@@ -51,7 +51,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static final int MAX_TUNNEL_ATTEMPTS = 21;
     public static final String NPE_THROW_WITH_NULL = "throw with null exception";
@@ -261,14 +261,14 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         Util.closeQuietly(this.rawSocket);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0090 A[Catch: IOException -> 0x00f9, TRY_LEAVE, TryCatch #0 {IOException -> 0x00f9, blocks: (B:18:0x0088, B:20:0x0090), top: B:67:0x0088 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0090 A[Catch: IOException -> 0x00f9, TRY_LEAVE, TryCatch #0 {IOException -> 0x00f9, blocks: (B:18:0x0088, B:20:0x0090), top: B:66:0x0088 }] */
     /* JADX WARN: Removed duplicated region for block: B:24:0x00a9  */
     /* JADX WARN: Removed duplicated region for block: B:30:0x00ce  */
     /* JADX WARN: Removed duplicated region for block: B:37:0x00e4  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x00f4 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:55:0x012f  */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0135  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0142 A[EDGE_INSN: B:77:0x0142->B:61:0x0142 ?: BREAK  ] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0142 A[EDGE_INSN: B:76:0x0142->B:61:0x0142 ?: BREAK  ] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

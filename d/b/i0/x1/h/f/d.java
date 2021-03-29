@@ -18,20 +18,20 @@ import d.b.b.e.p.l;
 import d.b.h0.b1.e.a;
 import d.b.h0.d0.g;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements Object<List<EmotionPackageData>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f62498e;
+    public TbPageContext f62499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDragSortListView f62499f;
+    public SimpleDragSortListView f62500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f62500g;
+    public View f62501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.x1.h.d.a f62501h;
+    public d.b.i0.x1.h.d.a f62502h;
     public d.b.i0.x1.h.f.b i;
     public g j;
     public FrameLayout k;
@@ -40,64 +40,64 @@ public class d implements Object<List<EmotionPackageData>> {
     public NoDataView n;
     public NoNetworkView o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.i {
         public a() {
         }
 
         @Override // d.b.h0.b1.e.a.i
         public void drop(int i, int i2) {
-            d.this.f62501h.a(i, i2);
+            d.this.f62502h.a(i, i2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f62503e;
+        public final /* synthetic */ List f62504e;
 
         public b(List list) {
-            this.f62503e = list;
+            this.f62504e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.this.j();
-            if (d.this.f62501h == null || this.f62503e == null) {
+            if (d.this.f62502h == null || this.f62504e == null) {
                 return;
             }
-            d.this.f62501h.c(this.f62503e);
+            d.this.f62502h.c(this.f62504e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f62501h != null) {
-                d.this.f62501h.b();
+            if (d.this.f62502h != null) {
+                d.this.f62502h.b();
             }
         }
     }
 
     public d(TbPageContext tbPageContext) {
-        this.f62498e = tbPageContext;
+        this.f62499e = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_my_emotions, (ViewGroup) null, false);
-        this.f62500g = inflate;
+        this.f62501g = inflate;
         this.k = (FrameLayout) inflate.findViewById(R.id.my_emotion_loading);
-        this.o = (NoNetworkView) this.f62500g.findViewById(R.id.view_no_network);
-        this.i = new d.b.i0.x1.h.f.b(this.f62500g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f62500g.findViewById(R.id.my_emotion_list);
-        this.f62499f = simpleDragSortListView;
+        this.o = (NoNetworkView) this.f62501g.findViewById(R.id.view_no_network);
+        this.i = new d.b.i0.x1.h.f.b(this.f62501g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f62501g.findViewById(R.id.my_emotion_list);
+        this.f62500f = simpleDragSortListView;
         simpleDragSortListView.setDivider(null);
-        this.f62499f.setOverScrollMode(2);
-        this.f62499f.setVerticalScrollBarEnabled(false);
+        this.f62500f.setOverScrollMode(2);
+        this.f62500f.setVerticalScrollBarEnabled(false);
         k();
-        this.f62501h = new d.b.i0.x1.h.d.a(tbPageContext, this.f62499f, this.m);
+        this.f62502h = new d.b.i0.x1.h.d.a(tbPageContext, this.f62500f, this.m);
         l();
         this.o.a(this);
     }
@@ -110,7 +110,7 @@ public class d implements Object<List<EmotionPackageData>> {
     }
 
     public View d() {
-        return this.f62500g;
+        return this.f62501g;
     }
 
     public void e() {
@@ -146,13 +146,13 @@ public class d implements Object<List<EmotionPackageData>> {
         if (bVar2 != null) {
             SkinManager.setBackgroundColor(bVar2.a(), R.color.CAM_X0201, i);
         }
-        SimpleDragSortListView simpleDragSortListView = this.f62499f;
+        SimpleDragSortListView simpleDragSortListView = this.f62500f;
         if (simpleDragSortListView != null) {
             SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i);
         }
         NoNetworkView noNetworkView = this.o;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f62498e, i);
+            noNetworkView.c(this.f62499e, i);
         }
     }
 
@@ -167,7 +167,7 @@ public class d implements Object<List<EmotionPackageData>> {
 
     public final void j() {
         d.b.i0.x1.h.f.b bVar;
-        SimpleDragSortListView simpleDragSortListView = this.f62499f;
+        SimpleDragSortListView simpleDragSortListView = this.f62500f;
         if (simpleDragSortListView == null || this.l || (bVar = this.i) == null) {
             return;
         }
@@ -176,33 +176,33 @@ public class d implements Object<List<EmotionPackageData>> {
     }
 
     public final void k() {
-        d.b.i0.x1.h.b.a aVar = new d.b.i0.x1.h.b.a(this.f62499f);
+        d.b.i0.x1.h.b.a aVar = new d.b.i0.x1.h.b.a(this.f62500f);
         this.m = aVar;
         aVar.c(new a());
     }
 
     public final void l() {
-        if (this.f62498e == null || this.k == null) {
+        if (this.f62499e == null || this.k == null) {
             return;
         }
         i();
         this.k.setVisibility(0);
-        g gVar = new g(this.f62498e.getPageActivity());
+        g gVar = new g(this.f62499e.getPageActivity());
         this.j = gVar;
         gVar.attachView(this.k, true);
         this.j.onChangeSkinType();
     }
 
     public void m() {
-        if (this.f62498e == null || this.k == null) {
+        if (this.f62499e == null || this.k == null) {
             return;
         }
         i();
         this.k.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.f62498e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f62498e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f62498e.getString(R.string.emotion_error_net_tip)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.f62499e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f62499e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f62499e.getString(R.string.emotion_error_net_tip)), null, true);
         this.n = b2;
         b2.setVisibility(0);
-        this.n.d(this.f62498e);
+        this.n.d(this.f62499e);
     }
 
     public void n(List<EmotionPackageData> list) {

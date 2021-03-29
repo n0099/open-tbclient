@@ -7,25 +7,25 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import d.b.g0.a.i2.k0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends d.b.g0.a.t.b.d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46046e;
+        public final /* synthetic */ String f46047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f46047f;
+        public final /* synthetic */ boolean f46048f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f46048g;
+        public final /* synthetic */ boolean f46049g;
 
         public a(String str, boolean z, boolean z2) {
-            this.f46046e = str;
-            this.f46047f = z;
-            this.f46048g = z2;
+            this.f46047e = str;
+            this.f46048f = z;
+            this.f46049g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -34,22 +34,22 @@ public class g extends d.b.g0.a.t.b.d {
             d.b.g0.a.d2.b.a s = g.s();
             if (s == null) {
                 d.b.g0.a.c0.c.b("Api-TabBar", "tabBarViewController is null");
-                g.this.c(this.f46046e, new d.b.g0.a.t.e.b(1001));
+                g.this.c(this.f46047e, new d.b.g0.a.t.e.b(1001));
                 return;
             }
-            if (this.f46047f) {
-                j = s.r(this.f46048g);
+            if (this.f46048f) {
+                j = s.r(this.f46049g);
             } else {
-                j = s.j(this.f46048g);
+                j = s.j(this.f46049g);
             }
             if (!j) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f46047f ? "open" : IntentConfig.CLOSE);
+                sb.append(this.f46048f ? "open" : IntentConfig.CLOSE);
                 sb.append("bottom bar fail");
                 d.b.g0.a.c0.c.b("Api-TabBar", sb.toString());
-                g.this.c(this.f46046e, new d.b.g0.a.t.e.b(1001));
+                g.this.c(this.f46047e, new d.b.g0.a.t.e.b(1001));
             }
-            g.this.c(this.f46046e, new d.b.g0.a.t.e.b(0));
+            g.this.c(this.f46047e, new d.b.g0.a.t.e.b(0));
         }
     }
 
@@ -72,20 +72,20 @@ public class g extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-TabBar", "start close tab bar");
         }
         return t(str, false);
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-TabBar", "handle: " + str);
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-TabBar", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-TabBar", "parse fail");
             }
             return bVar;
@@ -115,7 +115,7 @@ public class g extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-TabBar", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-TabBar", "parse fail");
             }
             return bVar;
@@ -131,20 +131,20 @@ public class g extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b v(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-TabBar", "start open tab bar");
         }
         return t(str, true);
     }
 
     public d.b.g0.a.t.e.b w(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-TabBar", "handle: " + str);
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-TabBar", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-TabBar", "parse fail");
             }
             return bVar;

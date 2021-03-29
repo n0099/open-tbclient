@@ -9,35 +9,35 @@ import com.baidu.swan.apps.canvas.view.CanvasView;
 import d.b.g0.a.i2.p;
 import d.b.g0.a.t1.j;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends d.b.g0.a.y.a.a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y.b.c f46956e;
+        public final /* synthetic */ d.b.g0.a.y.b.c f46957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f46957f;
+        public final /* synthetic */ CanvasView f46958f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46958g;
+        public final /* synthetic */ CallbackHandler f46959g;
 
         public a(c cVar, d.b.g0.a.y.b.c cVar2, CanvasView canvasView, CallbackHandler callbackHandler) {
-            this.f46956e = cVar2;
-            this.f46957f = canvasView;
-            this.f46958g = callbackHandler;
+            this.f46957e = cVar2;
+            this.f46958f = canvasView;
+            this.f46959g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONObject i = this.f46956e.i(this.f46957f);
-            String str = this.f46956e.i;
+            JSONObject i = this.f46957e.i(this.f46958f);
+            String str = this.f46957e.i;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f46958g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, 0).toString());
+            this.f46959g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, 0).toString());
         }
     }
 
@@ -54,10 +54,10 @@ public class c extends d.b.g0.a.y.a.a {
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        if (TextUtils.isEmpty(m.f43113g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
-            m.f43113g = A.X2();
+        if (TextUtils.isEmpty(m.f43114g) && (A = d.b.g0.a.z0.f.V().A()) != null) {
+            m.f43114g = A.X2();
         }
-        if (!TextUtils.isEmpty(m.f43113g) && !TextUtils.isEmpty(m.f43112f)) {
+        if (!TextUtils.isEmpty(m.f43114g) && !TextUtils.isEmpty(m.f43113f)) {
             CanvasView a2 = d.b.g0.a.a0.c.d.b.a.a(m);
             if (a2 == null) {
                 d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasGetImageData canvas view is null");
@@ -68,7 +68,7 @@ public class c extends d.b.g0.a.y.a.a {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f43113g + " ; canvas id = " + m.f43112f);
+        d.b.g0.a.c0.c.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f43114g + " ; canvas id = " + m.f43113f);
         unitedSchemeEntity.result = l(201);
         return false;
     }

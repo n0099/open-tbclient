@@ -18,20 +18,20 @@ import com.ss.android.downloadlib.guide.install.ClipImageView;
 import d.o.a.d.f.c;
 import d.o.a.d.f.n;
 import d.o.a.d.n.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f66568e;
+    public TextView f66573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f66569f;
+    public TextView f66574f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f66570g;
+    public TextView f66575g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f66571h;
+    public TextView f66576h;
     public TextView i;
     public TextView j;
     public ClipImageView k;
@@ -39,12 +39,12 @@ public class a extends Dialog {
     public Activity m;
     public final long n;
     public long o;
-    public final c.C1823c p;
+    public final c.C1824c p;
 
     /* renamed from: d.o.a.d.f.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class DialogInterface$OnCancelListenerC1825a implements DialogInterface.OnCancelListener {
-        public DialogInterface$OnCancelListenerC1825a() {
+    /* loaded from: classes7.dex */
+    public class DialogInterface$OnCancelListenerC1826a implements DialogInterface.OnCancelListener {
+        public DialogInterface$OnCancelListenerC1826a() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -53,7 +53,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements d.c {
         public b() {
         }
@@ -68,7 +68,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -81,7 +81,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -94,7 +94,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -106,7 +106,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -127,23 +127,23 @@ public class a extends Dialog {
     }
 
     public final void b() {
-        this.f66568e = (TextView) findViewById(d.o.a.d.b.tv_app_name);
-        this.f66569f = (TextView) findViewById(d.o.a.d.b.tv_app_version);
-        this.f66570g = (TextView) findViewById(d.o.a.d.b.tv_app_developer);
-        this.f66571h = (TextView) findViewById(d.o.a.d.b.tv_app_detail);
+        this.f66573e = (TextView) findViewById(d.o.a.d.b.tv_app_name);
+        this.f66574f = (TextView) findViewById(d.o.a.d.b.tv_app_version);
+        this.f66575g = (TextView) findViewById(d.o.a.d.b.tv_app_developer);
+        this.f66576h = (TextView) findViewById(d.o.a.d.b.tv_app_detail);
         this.i = (TextView) findViewById(d.o.a.d.b.tv_app_privacy);
         this.j = (TextView) findViewById(d.o.a.d.b.tv_give_up);
         this.k = (ClipImageView) findViewById(d.o.a.d.b.iv_app_icon);
         this.l = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
-        this.f66568e.setText(k.m(this.p.f66523d, "--"));
-        TextView textView = this.f66569f;
-        textView.setText("版本号：" + k.m(this.p.f66524e, "--"));
-        TextView textView2 = this.f66570g;
-        textView2.setText("开发者：" + k.m(this.p.f66525f, "应用信息正在完善中"));
+        this.f66573e.setText(k.m(this.p.f66524d, "--"));
+        TextView textView = this.f66574f;
+        textView.setText("版本号：" + k.m(this.p.f66525e, "--"));
+        TextView textView2 = this.f66575g;
+        textView2.setText("开发者：" + k.m(this.p.f66526f, "应用信息正在完善中"));
         this.k.setRoundRadius(k.b(n.a(), 8.0f));
         this.k.setBackgroundColor(Color.parseColor("#EBEBEB"));
         com.ss.android.downloadlib.addownload.compliance.d.a().a(this.n, new b());
-        this.f66571h.setOnClickListener(new c());
+        this.f66576h.setOnClickListener(new c());
         this.i.setOnClickListener(new d());
         this.j.setOnClickListener(new e());
         this.l.setOnClickListener(new f());
@@ -170,9 +170,9 @@ public class a extends Dialog {
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        this.o = this.p.f66521b;
+        this.o = this.p.f66522b;
         b();
         d.o.a.d.f.f.c.f("lp_app_dialog_show", this.o);
-        setOnCancelListener(new DialogInterface$OnCancelListenerC1825a());
+        setOnCancelListener(new DialogInterface$OnCancelListenerC1826a());
     }
 }

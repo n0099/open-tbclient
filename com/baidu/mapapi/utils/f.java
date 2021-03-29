@@ -5,14 +5,14 @@ import android.content.Context;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7401a;
+    public final /* synthetic */ Context f7402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7402b;
+    public final /* synthetic */ int f7403b;
 
     public f(Context context, int i) {
-        this.f7401a = context;
-        this.f7402b = i;
+        this.f7402a = context;
+        this.f7403b = i;
     }
 
     @Override // java.lang.Runnable
@@ -21,8 +21,8 @@ public final class f implements Runnable {
         long currentTimeMillis = System.currentTimeMillis();
         do {
             if (System.currentTimeMillis() - currentTimeMillis > 3000) {
-                b.a(this.f7401a);
-                b.a(this.f7402b, this.f7401a);
+                b.a(this.f7402a);
+                b.a(this.f7403b, this.f7402a);
             }
             thread = b.v;
         } while (!thread.isInterrupted());

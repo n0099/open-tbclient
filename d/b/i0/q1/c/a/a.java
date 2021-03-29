@@ -8,7 +8,7 @@ import tbclient.GetVipInfo.VipUpgrade;
 public class a implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f59289e = BdUniqueId.gen();
+    public static final BdUniqueId f59290e = BdUniqueId.gen();
 
     public void a(DataRes dataRes) {
         VipUpgrade vipUpgrade;
@@ -28,6 +28,6 @@ public class a implements n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f59289e;
+        return f59290e;
     }
 }

@@ -7,13 +7,13 @@ import d.b.b.e.p.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f50356a;
+    public c f50357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50357b;
+    public String f50358b;
 
     public a(String str) {
-        this.f50357b = str;
+        this.f50358b = str;
     }
 
     public final void a(String str, int i) {
@@ -36,18 +36,18 @@ public class a {
 
     public void b() {
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.f50356a == null) {
-                this.f50356a = new c();
+            if (this.f50357a == null) {
+                this.f50357a = new c();
             }
-            this.f50356a.c();
+            this.f50357a.c();
         }
     }
 
     public void c() {
-        c cVar = this.f50356a;
+        c cVar = this.f50357a;
         if (cVar != null && Build.VERSION.SDK_INT >= 16) {
             cVar.d();
-            a(this.f50357b, this.f50356a.b());
+            a(this.f50358b, this.f50357a.b());
         }
     }
 }

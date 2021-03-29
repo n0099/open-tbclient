@@ -12,40 +12,40 @@ import com.baidu.tieba.R;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f10217a;
+    public TextView f10218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f10218b;
+    public TextView f10219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f10219c;
+    public TextView f10220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f10220d;
+    public TextView f10221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f10221e;
+    public LinearLayout f10222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f10222f;
+    public LinearLayout f10223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public InterfaceC0127a f10223g;
+    public InterfaceC0128a f10224g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC0127a f10224h;
+    public InterfaceC0128a f10225h;
     public boolean i;
     public boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0127a {
+    public interface InterfaceC0128a {
         void a();
     }
 
     public a(Context context, int i) {
         super(context);
-        if (com.baidu.platform.comapi.bikenavi.a.a.f9824a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f9825a) {
             Resources.Theme newTheme = com.baidu.platform.comapi.wnplatform.o.a.a.b().newTheme();
             newTheme.applyStyle(i, true);
             com.baidu.platform.comapi.wnplatform.o.a.a.a(this, newTheme);
@@ -55,10 +55,10 @@ public class a extends Dialog {
     public a c(String str) {
         if (str == null) {
             this.i = false;
-            this.f10219c.setText("", TextView.BufferType.SPANNABLE);
+            this.f10220c.setText("", TextView.BufferType.SPANNABLE);
         } else {
             this.i = true;
-            this.f10219c.setText(str, TextView.BufferType.SPANNABLE);
+            this.f10220c.setText(str, TextView.BufferType.SPANNABLE);
         }
         d();
         return this;
@@ -67,10 +67,10 @@ public class a extends Dialog {
     public a d(String str) {
         if (str == null) {
             this.j = false;
-            this.f10220d.setText("", TextView.BufferType.SPANNABLE);
+            this.f10221d.setText("", TextView.BufferType.SPANNABLE);
         } else {
             this.j = true;
-            this.f10220d.setText(str, TextView.BufferType.SPANNABLE);
+            this.f10221d.setText(str, TextView.BufferType.SPANNABLE);
         }
         d();
         return this;
@@ -78,22 +78,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.f10218b.setVisibility(8);
-            this.f10218b.setText("", TextView.BufferType.SPANNABLE);
+            this.f10219b.setVisibility(8);
+            this.f10219b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f10218b.setVisibility(0);
-            this.f10218b.setText(str, TextView.BufferType.SPANNABLE);
+            this.f10219b.setVisibility(0);
+            this.f10219b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f10217a.setVisibility(8);
-            this.f10217a.setText("", TextView.BufferType.SPANNABLE);
+            this.f10218a.setVisibility(8);
+            this.f10218a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f10217a.setVisibility(0);
-            this.f10217a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f10218a.setVisibility(0);
+            this.f10218a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
@@ -104,67 +104,67 @@ public class a extends Dialog {
 
     private void d() {
         if (!this.i) {
-            this.f10219c.setVisibility(8);
-            this.f10220d.setVisibility(8);
-            this.f10221e.setVisibility(8);
-            this.f10222f.setVisibility(8);
+            this.f10220c.setVisibility(8);
+            this.f10221d.setVisibility(8);
+            this.f10222e.setVisibility(8);
+            this.f10223f.setVisibility(8);
         } else if (!this.j) {
-            this.f10219c.setVisibility(0);
-            this.f10220d.setVisibility(8);
-            this.f10221e.setVisibility(8);
-            this.f10222f.setVisibility(8);
+            this.f10220c.setVisibility(0);
+            this.f10221d.setVisibility(8);
+            this.f10222e.setVisibility(8);
+            this.f10223f.setVisibility(8);
         } else {
-            this.f10219c.setVisibility(0);
-            this.f10220d.setVisibility(0);
-            this.f10221e.setVisibility(8);
-            this.f10222f.setVisibility(8);
+            this.f10220c.setVisibility(0);
+            this.f10221d.setVisibility(0);
+            this.f10222e.setVisibility(8);
+            this.f10223f.setVisibility(8);
         }
     }
 
     public a a() {
-        this.f10219c.setTextColor(-12352272);
+        this.f10220c.setTextColor(-12352272);
         return this;
     }
 
     public a b() {
-        this.f10220d.setTextColor(-12352272);
+        this.f10221d.setTextColor(-12352272);
         return this;
     }
 
     public TextView c() {
-        return this.f10220d;
+        return this.f10221d;
     }
 
     public a(Activity activity) {
         this(activity, R.id.BOTH);
         View a2 = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.array.Mask_X005, null);
         setContentView(a2);
-        this.f10217a = (TextView) a2.findViewById(R.dimen.T_X03);
-        this.f10218b = (TextView) a2.findViewById(R.dimen.T_X06);
-        this.f10219c = (TextView) a2.findViewById(R.dimen.T_X10);
-        this.f10220d = (TextView) a2.findViewById(R.dimen.T_X11);
-        this.f10221e = (LinearLayout) a2.findViewById(R.dimen.T_X09);
-        this.f10222f = (LinearLayout) a2.findViewById(R.dimen._bottom_enter_anim_place_holder_height);
-        this.f10219c.setOnClickListener(new b(this));
-        this.f10220d.setOnClickListener(new c(this));
+        this.f10218a = (TextView) a2.findViewById(R.dimen.T_X03);
+        this.f10219b = (TextView) a2.findViewById(R.dimen.T_X06);
+        this.f10220c = (TextView) a2.findViewById(R.dimen.T_X10);
+        this.f10221d = (TextView) a2.findViewById(R.dimen.T_X11);
+        this.f10222e = (LinearLayout) a2.findViewById(R.dimen.T_X09);
+        this.f10223f = (LinearLayout) a2.findViewById(R.dimen._bottom_enter_anim_place_holder_height);
+        this.f10220c.setOnClickListener(new b(this));
+        this.f10221d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f10217a.setVisibility(8);
-        this.f10218b.setVisibility(8);
-        this.f10219c.setVisibility(8);
-        this.f10220d.setVisibility(8);
-        this.f10221e.setVisibility(8);
-        this.f10222f.setVisibility(8);
+        this.f10218a.setVisibility(8);
+        this.f10219b.setVisibility(8);
+        this.f10220c.setVisibility(8);
+        this.f10221d.setVisibility(8);
+        this.f10222e.setVisibility(8);
+        this.f10223f.setVisibility(8);
         setCanceledOnTouchOutside(false);
     }
 
-    public a a(InterfaceC0127a interfaceC0127a) {
-        this.f10223g = interfaceC0127a;
+    public a a(InterfaceC0128a interfaceC0128a) {
+        this.f10224g = interfaceC0128a;
         return this;
     }
 
-    public a b(InterfaceC0127a interfaceC0127a) {
-        this.f10224h = interfaceC0127a;
+    public a b(InterfaceC0128a interfaceC0128a) {
+        this.f10225h = interfaceC0128a;
         return this;
     }
 

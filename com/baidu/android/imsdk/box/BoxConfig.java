@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.util.io.FileUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BoxConfig extends DefaultConfig {
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
     public int getHeartBeatType() {

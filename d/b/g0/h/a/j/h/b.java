@@ -15,28 +15,28 @@ public class b {
     public static class a implements IWEngineInitListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LatLng f48829a;
+        public final /* synthetic */ LatLng f48830a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LatLng f48830b;
+        public final /* synthetic */ LatLng f48831b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ WalkNavigateHelper f48831c;
+        public final /* synthetic */ WalkNavigateHelper f48832c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f48832d;
+        public final /* synthetic */ c f48833d;
 
         public a(LatLng latLng, LatLng latLng2, WalkNavigateHelper walkNavigateHelper, c cVar) {
-            this.f48829a = latLng;
-            this.f48830b = latLng2;
-            this.f48831c = walkNavigateHelper;
-            this.f48832d = cVar;
+            this.f48830a = latLng;
+            this.f48831b = latLng2;
+            this.f48832c = walkNavigateHelper;
+            this.f48833d = cVar;
         }
 
         @Override // com.baidu.mapapi.walknavi.adapter.IWEngineInitListener
         public void engineInitFail() {
-            this.f48831c.quit();
-            c cVar = this.f48832d;
+            this.f48832c.quit();
+            c cVar = this.f48833d;
             if (cVar != null) {
                 cVar.c("engineInitFail");
             }
@@ -44,29 +44,29 @@ public class b {
 
         @Override // com.baidu.mapapi.walknavi.adapter.IWEngineInitListener
         public void engineInitSuccess() {
-            b.g(this.f48831c, b.d(this.f48829a, this.f48830b), this.f48832d);
+            b.g(this.f48832c, b.d(this.f48830a, this.f48831b), this.f48833d);
         }
     }
 
     /* renamed from: d.b.g0.h.a.j.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1015b implements IWRoutePlanListener {
+    public static class C1016b implements IWRoutePlanListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f48833a;
+        public final /* synthetic */ c f48834a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WalkNavigateHelper f48834b;
+        public final /* synthetic */ WalkNavigateHelper f48835b;
 
-        public C1015b(c cVar, WalkNavigateHelper walkNavigateHelper) {
-            this.f48833a = cVar;
-            this.f48834b = walkNavigateHelper;
+        public C1016b(c cVar, WalkNavigateHelper walkNavigateHelper) {
+            this.f48834a = cVar;
+            this.f48835b = walkNavigateHelper;
         }
 
         @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
         public void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError) {
-            this.f48834b.quit();
-            c cVar = this.f48833a;
+            this.f48835b.quit();
+            c cVar = this.f48834a;
             if (cVar != null) {
                 cVar.c(walkRoutePlanError.toString());
             }
@@ -78,7 +78,7 @@ public class b {
 
         @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
         public void onRoutePlanSuccess() {
-            c cVar = this.f48833a;
+            c cVar = this.f48834a;
             if (cVar != null) {
                 cVar.a();
             }
@@ -131,7 +131,7 @@ public class b {
 
     public static void g(WalkNavigateHelper walkNavigateHelper, WalkNaviLaunchParam walkNaviLaunchParam, c cVar) {
         try {
-            walkNavigateHelper.routePlanWithParams(walkNaviLaunchParam, new C1015b(cVar, walkNavigateHelper));
+            walkNavigateHelper.routePlanWithParams(walkNaviLaunchParam, new C1016b(cVar, walkNavigateHelper));
         } catch (Exception e2) {
             d.b.g0.a.c0.c.b("map", "routePlanWithParams fail");
             walkNavigateHelper.quit();

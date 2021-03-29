@@ -7,24 +7,24 @@ import com.baidu.card.view.MutiImgTextLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class z extends d.b.i.a<d.b.h0.r.q.a> {
     public MutiImgTextLayout j;
     public d.b.h0.r.q.a k;
     public int l;
     public String m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements a.b {
         public a() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (z.this.k != null && z.this.k.n() != null) {
                 d.b.i0.x.m.a(z.this.k.n().o0());
-                d.b.i0.x.m.l(z.this.j.f4488e, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(z.this.j.f4489f, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(z.this.j.f4489e, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(z.this.j.f4490f, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }

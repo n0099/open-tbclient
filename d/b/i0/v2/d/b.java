@@ -23,7 +23,7 @@ import java.util.Iterator;
 public class b extends d.b.i0.v2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public Tencent f62054h;
+    public Tencent f62055h;
     public int i;
     public IUiListener j;
     public ShareEntity k;
@@ -59,7 +59,7 @@ public class b extends d.b.i0.v2.d.a {
 
     /* renamed from: d.b.i0.v2.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1641b extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class C1642b extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: d.b.i0.v2.d.b$b$a */
         /* loaded from: classes5.dex */
@@ -88,13 +88,13 @@ public class b extends d.b.i0.v2.d.a {
             }
         }
 
-        public C1641b() {
+        public C1642b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
-            super.onLoaded((C1641b) aVar, str, i);
+            super.onLoaded((C1642b) aVar, str, i);
             if (aVar != null) {
                 a aVar2 = new a();
                 aVar2.setPriority(3);
@@ -107,19 +107,19 @@ public class b extends d.b.i0.v2.d.a {
     public class c implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.v2.e.b f62058a;
+        public d.b.i0.v2.e.b f62059a;
 
         public c(d.b.i0.v2.e.b bVar) {
-            this.f62058a = bVar;
+            this.f62059a = bVar;
         }
 
         public final void a() {
-            FileHelper.deleteFile(new File(d.b.i0.v2.d.a.f62047e + d.b.i0.v2.d.a.f62048f));
+            FileHelper.deleteFile(new File(d.b.i0.v2.d.a.f62048e + d.b.i0.v2.d.a.f62049f));
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            d.b.i0.v2.e.b bVar = this.f62058a;
+            d.b.i0.v2.e.b bVar = this.f62059a;
             if (bVar != null) {
                 bVar.onShare(b.this.i, 3);
             }
@@ -129,7 +129,7 @@ public class b extends d.b.i0.v2.d.a {
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
-            d.b.i0.v2.e.b bVar = this.f62058a;
+            d.b.i0.v2.e.b bVar = this.f62059a;
             if (bVar != null) {
                 bVar.onShare(b.this.i, 1);
             }
@@ -140,7 +140,7 @@ public class b extends d.b.i0.v2.d.a {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            d.b.i0.v2.e.b bVar = this.f62058a;
+            d.b.i0.v2.e.b bVar = this.f62059a;
             if (bVar != null) {
                 bVar.onShare(b.this.i, 2);
             }
@@ -155,8 +155,8 @@ public class b extends d.b.i0.v2.d.a {
         super(context);
         this.i = 8;
         this.l = new a();
-        this.m = new C1641b();
-        this.f62054h = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.m = new C1642b();
+        this.f62055h = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     public final void B(ShareEntity shareEntity, d.b.i0.v2.e.b bVar) {
@@ -166,7 +166,7 @@ public class b extends d.b.i0.v2.d.a {
         }
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.f62051b.getPackageManager().queryIntentActivities(intent, 0).iterator();
+        Iterator<ResolveInfo> it = this.f62052b.getPackageManager().queryIntentActivities(intent, 0).iterator();
         while (true) {
             if (!it.hasNext()) {
                 str = "";
@@ -184,7 +184,7 @@ public class b extends d.b.i0.v2.d.a {
         intent2.putExtra("android.intent.extra.TEXT", shareEntity.b());
         intent2.setClassName("com.tencent.mobileqq", str);
         intent2.setFlags(268435456);
-        if (d.b.i0.v2.f.a.a(this.f62051b, intent2)) {
+        if (d.b.i0.v2.f.a.a(this.f62052b, intent2)) {
             if (bVar != null) {
                 bVar.onShare(this.i, 1);
                 return;
@@ -205,9 +205,9 @@ public class b extends d.b.i0.v2.d.a {
         bundle.putString("title", shareEntity.n());
         if (shareEntity.i() >= 0) {
             if (shareEntity.i() < 10000) {
-                bundle.putString("summary", this.f62051b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f62052b.getString(R.string.share_qq_default_content));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.i()) + this.f62051b.getString(R.string.share_qq_content));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.i()) + this.f62052b.getString(R.string.share_qq_content));
             }
         } else {
             bundle.putString("summary", shareEntity.b());
@@ -219,7 +219,7 @@ public class b extends d.b.i0.v2.d.a {
         } else {
             bundle.putString("imageUrl", shareEntity.e());
         }
-        this.f62054h.shareToQQ((Activity) this.f62051b, bundle, iUiListener);
+        this.f62055h.shareToQQ((Activity) this.f62052b, bundle, iUiListener);
     }
 
     public final void D(String str, IUiListener iUiListener) {
@@ -230,13 +230,13 @@ public class b extends d.b.i0.v2.d.a {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 2);
-        this.f62054h.shareToQQ((Activity) this.f62051b, bundle, iUiListener);
+        this.f62055h.shareToQQ((Activity) this.f62052b, bundle, iUiListener);
     }
 
     @Override // d.b.i0.v2.e.a
     public void a(ShareEntity shareEntity, d.b.i0.v2.e.b bVar) {
-        if (shareEntity != null && this.f62054h != null) {
-            Context context = this.f62051b;
+        if (shareEntity != null && this.f62055h != null) {
+            Context context = this.f62052b;
             if (context != null && (context instanceof Activity)) {
                 this.j = new c(bVar);
                 String e2 = shareEntity.e();

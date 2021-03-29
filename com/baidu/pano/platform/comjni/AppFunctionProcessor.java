@@ -146,6 +146,6 @@ public class AppFunctionProcessor {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return str.contains(i.f9458b) || str.contains(i.f9457a) || str.contains(i.f9462f) || str.contains(i.f9461e) || str.contains(i.f9460d) || str.contains(i.f9459c);
+        return str.contains(i.f9459b) || str.contains(i.f9458a) || str.contains(i.f9463f) || str.contains(i.f9462e) || str.contains(i.f9461d) || str.contains(i.f9460c);
     }
 }

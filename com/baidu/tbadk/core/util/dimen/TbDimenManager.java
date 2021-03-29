@@ -7,7 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import java.lang.reflect.Field;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbDimenManager {
     public static volatile TbDimenManager sInstance = null;
     public static final int targetDensity = 3;

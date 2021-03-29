@@ -60,29 +60,29 @@ import tbclient.SearchSug.ForumInfo;
 public class SquareSearchViewController implements d.b.i0.n1.i.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f18853a;
+    public BaseActivity f18854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.n1.i.c f18854b;
+    public d.b.i0.n1.i.c f18855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f18855c;
+    public View f18856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18856d;
+    public boolean f18857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HotSearchInfoData f18857e;
+    public HotSearchInfoData f18858e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18859g;
+    public String f18860g;
     public SearchHistoryViewController i;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18858f = true;
+    public boolean f18859f = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public Stack<String> f18860h = new Stack<>();
+    public Stack<String> f18861h = new Stack<>();
     public CustomMessageListener j = new d(2921444);
 
     /* loaded from: classes3.dex */
@@ -130,17 +130,17 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             d.b.h0.r.z.a.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
             if (!TbadkCoreApplication.isLogin() && str != null && e0.e(str) && e0.a()) {
-                r0 r0Var = new r0(SquareSearchViewController.this.f18853a, "sousuo_dianji");
+                r0 r0Var = new r0(SquareSearchViewController.this.f18854a, "sousuo_dianji");
                 r0Var.d(str);
                 DialogLoginHelper.checkUpIsLogin(r0Var);
                 return true;
-            } else if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(SquareSearchViewController.this.f18853a.getPageContext(), new String[]{str}) != 3) {
+            } else if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(SquareSearchViewController.this.f18854a.getPageContext(), new String[]{str}) != 3) {
                 return true;
             } else {
                 if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
                     return false;
                 }
-                UrlManager.getInstance().dealOneLink(SquareSearchViewController.this.f18853a.getPageContext(), new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(SquareSearchViewController.this.f18854a.getPageContext(), new String[]{str}, true);
                 return true;
             }
         }
@@ -150,17 +150,17 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     public class c extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f18862a;
+        public final /* synthetic */ String f18863a;
 
         public c(SquareSearchViewController squareSearchViewController, String str) {
-            this.f18862a = str;
+            this.f18863a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            d.b.i0.c3.n0.a.o(this.f18862a);
+            d.b.i0.c3.n0.a.o(this.f18863a);
             return Boolean.TRUE;
         }
     }
@@ -177,7 +177,7 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            SquareSearchViewController.this.f18854b.L(!((Boolean) customResponsedMessage.getData()).booleanValue());
+            SquareSearchViewController.this.f18855b.L(!((Boolean) customResponsedMessage.getData()).booleanValue());
         }
     }
 
@@ -189,7 +189,7 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                d.b.b.e.p.l.w(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity(), view);
+                d.b.b.e.p.l.w(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity(), view);
             } else {
                 SquareSearchViewController.this.q();
             }
@@ -204,13 +204,13 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if (i == 3) {
-                if (StringUtils.isNull(SquareSearchViewController.this.f18859g)) {
-                    d.b.b.e.p.l.w(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity(), textView);
+                if (StringUtils.isNull(SquareSearchViewController.this.f18860g)) {
+                    d.b.b.e.p.l.w(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity(), textView);
                     SquareSearchViewController.this.A();
                 } else {
                     SquareSearchViewController squareSearchViewController = SquareSearchViewController.this;
-                    squareSearchViewController.a(squareSearchViewController.f18859g, false, 1);
-                    TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", SquareSearchViewController.this.f18859g).param("obj_source", "1").param("obj_type", "1"));
+                    squareSearchViewController.a(squareSearchViewController.f18860g, false, 1);
+                    TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", SquareSearchViewController.this.f18860g).param("obj_source", "1").param("obj_type", "1"));
                 }
                 return true;
             }
@@ -228,11 +228,11 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
             if (editable == null) {
                 return;
             }
-            if (SquareSearchViewController.this.f18858f) {
-                SquareSearchViewController.this.f18859g = editable.toString();
+            if (SquareSearchViewController.this.f18859f) {
+                SquareSearchViewController.this.f18860g = editable.toString();
                 SquareSearchViewController.this.G();
             }
-            SquareSearchViewController.this.f18854b.r(!StringUtils.isNull(editable.toString()));
+            SquareSearchViewController.this.f18855b.r(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -254,7 +254,7 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
 
             @Override // java.lang.Runnable
             public void run() {
-                SquareSearchViewController.this.f18853a.finish();
+                SquareSearchViewController.this.f18854a.finish();
             }
         }
 
@@ -263,17 +263,17 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != SquareSearchViewController.this.f18854b.g() || SquareSearchViewController.this.f18854b.g().getText() == null) {
-                if (view == SquareSearchViewController.this.f18854b.d()) {
-                    d.b.b.e.p.l.w(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity(), SquareSearchViewController.this.f18854b.g());
+            if (view != SquareSearchViewController.this.f18855b.g() || SquareSearchViewController.this.f18855b.g().getText() == null) {
+                if (view == SquareSearchViewController.this.f18855b.d()) {
+                    d.b.b.e.p.l.w(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity(), SquareSearchViewController.this.f18855b.g());
                     d.b.b.e.m.e.a().postDelayed(new a(), 1000L);
                     return;
                 }
                 return;
             }
             SquareSearchViewController squareSearchViewController = SquareSearchViewController.this;
-            squareSearchViewController.f18859g = squareSearchViewController.f18854b.g().getText().toString();
-            if (StringUtils.isNull(SquareSearchViewController.this.f18859g)) {
+            squareSearchViewController.f18860g = squareSearchViewController.f18855b.g().getText().toString();
+            if (StringUtils.isNull(SquareSearchViewController.this.f18860g)) {
                 SquareSearchViewController.this.F();
             }
         }
@@ -295,11 +295,11 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
             if (item instanceof String) {
                 String str = (String) item;
                 SquareSearchViewController.this.a(str, true, 3);
-                TiebaStatic.eventStat(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity(), "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", SquareSearchViewController.this.f18859g));
+                TiebaStatic.eventStat(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity(), "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", SquareSearchViewController.this.f18860g));
             } else if (item instanceof ForumInfo) {
                 ForumInfo forumInfo = (ForumInfo) item;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTER_FORUM_SUG_SHOW).param("obj_type", forumInfo.has_concerned.intValue() <= 0 ? "2" : "1").param("fid", forumInfo.forum_id.intValue()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
@@ -317,7 +317,7 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (i == 2 || i == 1) {
-                d.b.b.e.p.l.w(SquareSearchViewController.this.f18853a.getPageContext().getPageActivity(), absListView);
+                d.b.b.e.p.l.w(SquareSearchViewController.this.f18854a.getPageContext().getPageActivity(), absListView);
             }
         }
     }
@@ -345,52 +345,52 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     }
 
     public SquareSearchViewController(BaseActivity baseActivity, boolean z) {
-        this.f18853a = baseActivity;
-        this.f18856d = z;
+        this.f18854a = baseActivity;
+        this.f18857d = z;
         t();
     }
 
     public final void A() {
-        HotSearchInfoData hotSearchInfoData = this.f18857e;
+        HotSearchInfoData hotSearchInfoData = this.f18858e;
         if (hotSearchInfoData == null) {
-            BaseActivity baseActivity = this.f18853a;
+            BaseActivity baseActivity = this.f18854a;
             baseActivity.showToast(baseActivity.getResources().getString(R.string.write_keyword));
             return;
         }
-        if (hotSearchInfoData.t() != 0 && this.f18857e.t() != 2) {
-            if (this.f18857e.t() == 1 && !d.b.h0.p0.b.b(this.f18853a.getPageContext())) {
-                this.f18853a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f18853a.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.f18857e.getId()), this.f18857e.getName(), "4")));
+        if (hotSearchInfoData.t() != 0 && this.f18858e.t() != 2) {
+            if (this.f18858e.t() == 1 && !d.b.h0.p0.b.b(this.f18854a.getPageContext())) {
+                this.f18854a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f18854a.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.f18858e.getId()), this.f18858e.getName(), "4")));
             }
         } else {
-            a(this.f18857e.getName(), true, 1);
+            a(this.f18858e.getName(), true, 1);
         }
-        TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.f18857e.getName()).param("obj_type", this.f18857e.t() == 0 ? 2 : 1));
+        TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.f18858e.getName()).param("obj_type", this.f18858e.t() == 0 ? 2 : 1));
     }
 
     public final void B() {
-        d.b.i0.n1.i.c cVar = this.f18854b;
+        d.b.i0.n1.i.c cVar = this.f18855b;
         if (cVar == null) {
             return;
         }
-        HotSearchInfoData hotSearchInfoData = this.f18857e;
+        HotSearchInfoData hotSearchInfoData = this.f18858e;
         if (hotSearchInfoData == null) {
-            cVar.B(this.f18853a.getResources().getString(R.string.search_bar));
+            cVar.B(this.f18854a.getResources().getString(R.string.search_bar));
         } else {
             cVar.B(hotSearchInfoData.s());
         }
     }
 
     public void C(HotSearchInfoData hotSearchInfoData) {
-        this.f18857e = hotSearchInfoData;
+        this.f18858e = hotSearchInfoData;
         B();
     }
 
     public void D(List<String> list) {
-        this.f18854b.E(list, this.f18859g);
+        this.f18855b.E(list, this.f18860g);
     }
 
     public void E(List<ForumInfo> list) {
-        this.f18854b.F(list, this.f18859g);
+        this.f18855b.F(list, this.f18860g);
     }
 
     public final void F() {
@@ -398,7 +398,7 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     }
 
     public final void G() {
-        if (!StringUtils.isNull(this.f18859g)) {
+        if (!StringUtils.isNull(this.f18860g)) {
             z();
         } else {
             F();
@@ -408,24 +408,24 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     @Override // d.b.i0.n1.i.b
     public void a(String str, boolean z, int i2) {
         if (!d.b.b.e.p.j.z()) {
-            this.f18853a.showToast(R.string.neterror);
+            this.f18854a.showToast(R.string.neterror);
         } else if (StringUtils.isNull(str)) {
         } else {
             if (z) {
-                this.f18858f = false;
-                this.f18854b.C(str);
-                this.f18858f = true;
+                this.f18859f = false;
+                this.f18855b.C(str);
+                this.f18859f = true;
             }
-            d.b.b.e.p.l.w(this.f18853a.getPageContext().getPageActivity(), this.f18854b.g());
-            this.f18854b.y();
+            d.b.b.e.p.l.w(this.f18854a.getPageContext().getPageActivity(), this.f18855b.g());
+            this.f18855b.y();
             String str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + str + "&sub_type=" + i2;
             try {
                 str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + URLEncoder.encode(str, "utf-8");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.f18854b.f().loadUrl(str2);
-            this.f18860h.push(str);
+            this.f18855b.f().loadUrl(str2);
+            this.f18861h.push(str);
             h0.b(new c(this, str), null);
             this.i.i(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921345, str));
@@ -437,8 +437,8 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     }
 
     public final void m() {
-        this.f18854b.f().h(new UegTbJsBridge(this.f18853a.getPageContext()));
-        this.f18854b.f().h(new SearchResultJsBridge(this, null));
+        this.f18855b.f().h(new UegTbJsBridge(this.f18854a.getPageContext()));
+        this.f18855b.f().h(new SearchResultJsBridge(this, null));
     }
 
     public final void n() {
@@ -446,17 +446,17 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         l lVar = new l(this);
         a aVar = new a(this);
         b bVar = new b();
-        this.f18854b.I(kVar);
-        this.f18854b.K(lVar);
-        this.f18854b.J(aVar);
-        this.f18854b.H(bVar);
+        this.f18855b.I(kVar);
+        this.f18855b.K(lVar);
+        this.f18855b.J(aVar);
+        this.f18855b.H(bVar);
     }
 
     public final void o() {
         i iVar = new i();
         j jVar = new j();
-        this.f18854b.t(iVar);
-        this.f18854b.u(jVar);
+        this.f18855b.t(iVar);
+        this.f18855b.u(jVar);
     }
 
     public void p() {
@@ -464,32 +464,32 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
         f fVar = new f();
         g gVar = new g();
         h hVar = new h();
-        this.f18854b.A(eVar);
-        this.f18854b.z(fVar);
-        this.f18854b.D(gVar);
-        this.f18854b.x(hVar);
+        this.f18855b.A(eVar);
+        this.f18855b.z(fVar);
+        this.f18855b.D(gVar);
+        this.f18855b.x(hVar);
     }
 
     public final void q() {
-        if (this.f18854b.n()) {
+        if (this.f18855b.n()) {
             return;
         }
         z();
     }
 
     public View r() {
-        return this.f18854b.g();
+        return this.f18855b.g();
     }
 
     public BaseWebView s() {
-        return this.f18854b.f();
+        return this.f18855b.f();
     }
 
     public final void t() {
         try {
-            View inflate = LayoutInflater.from(this.f18853a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
-            this.f18855c = inflate;
-            this.f18853a.setContentView(inflate);
+            View inflate = LayoutInflater.from(this.f18854a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
+            this.f18856c = inflate;
+            this.f18854a.setContentView(inflate);
         } catch (Exception e2) {
             e2.printStackTrace();
             Map<String, String> a2 = d.b.i0.n1.i.a.a();
@@ -499,9 +499,9 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
                 for (String str : a2.keySet()) {
                     d.b.i0.n1.i.a.b(str);
                     try {
-                        View inflate2 = LayoutInflater.from(this.f18853a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
-                        this.f18855c = inflate2;
-                        this.f18853a.setContentView(inflate2);
+                        View inflate2 = LayoutInflater.from(this.f18854a).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
+                        this.f18856c = inflate2;
+                        this.f18854a.setContentView(inflate2);
                         break;
                     } catch (Exception e3) {
                         e3.printStackTrace();
@@ -509,31 +509,31 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
                     }
                 }
                 if (i2 == size) {
-                    this.f18853a.finish();
+                    this.f18854a.finish();
                     return;
                 }
             } else {
-                this.f18853a.finish();
+                this.f18854a.finish();
                 return;
             }
         }
-        View view = this.f18855c;
+        View view = this.f18856c;
         if (view == null) {
-            this.f18853a.finish();
+            this.f18854a.finish();
             return;
         }
-        d.b.i0.n1.i.c cVar = new d.b.i0.n1.i.c(view, this.f18853a.getPageContext().getPageActivity());
-        this.f18854b = cVar;
-        this.i = new SearchHistoryViewController(this.f18853a, this, cVar);
+        d.b.i0.n1.i.c cVar = new d.b.i0.n1.i.c(view, this.f18854a.getPageContext().getPageActivity());
+        this.f18855b = cVar;
+        this.i = new SearchHistoryViewController(this.f18854a, this, cVar);
         p();
         o();
         n();
         m();
         B();
         G();
-        n0.g(this.f18854b.f(), this.f18853a.getUniqueId());
-        n0.g(this.f18854b.e(), this.f18853a.getUniqueId());
-        this.f18853a.registerListener(this.j);
+        n0.g(this.f18855b.f(), this.f18854a.getUniqueId());
+        n0.g(this.f18855b.e(), this.f18854a.getUniqueId());
+        this.f18854a.registerListener(this.j);
     }
 
     public final String u() {
@@ -569,18 +569,18 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
     }
 
     public void v(int i2) {
-        this.f18854b.o(this.f18853a.getPageContext(), i2);
+        this.f18855b.o(this.f18854a.getPageContext(), i2);
     }
 
     public void w() {
-        d.b.i0.n1.i.c cVar = this.f18854b;
+        d.b.i0.n1.i.c cVar = this.f18855b;
         if (cVar != null) {
             cVar.p();
         }
     }
 
     public void x() {
-        d.b.i0.n1.i.c cVar = this.f18854b;
+        d.b.i0.n1.i.c cVar = this.f18855b;
         if (cVar != null) {
             cVar.q();
         }
@@ -588,30 +588,30 @@ public class SquareSearchViewController implements d.b.i0.n1.i.b {
 
     public void y() {
         d.b.i0.n1.i.c cVar;
-        if (this.f18860h.size() > 1) {
-            this.f18860h.pop();
-            String peek = this.f18860h.peek();
-            if (TextUtils.isEmpty(peek) || (cVar = this.f18854b) == null) {
+        if (this.f18861h.size() > 1) {
+            this.f18861h.pop();
+            String peek = this.f18861h.peek();
+            if (TextUtils.isEmpty(peek) || (cVar = this.f18855b) == null) {
                 return;
             }
-            boolean z = this.f18858f;
-            this.f18858f = false;
+            boolean z = this.f18859f;
+            this.f18859f = false;
             cVar.C(peek);
-            this.f18858f = z;
-            this.f18854b.y();
+            this.f18859f = z;
+            this.f18855b.y();
             return;
         }
-        this.f18860h.clear();
+        this.f18861h.clear();
     }
 
     public final void z() {
-        if (StringUtils.isNull(this.f18859g)) {
+        if (StringUtils.isNull(this.f18860g)) {
             F();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-        searchListNetMessage.mKey = this.f18859g.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.f18856d ? 1 : 0);
-        this.f18853a.sendMessage(searchListNetMessage);
+        searchListNetMessage.mKey = this.f18860g.trim();
+        searchListNetMessage.isForum = Integer.valueOf(this.f18857d ? 1 : 0);
+        this.f18854a.sendMessage(searchListNetMessage);
     }
 }

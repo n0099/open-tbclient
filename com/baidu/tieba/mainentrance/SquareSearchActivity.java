@@ -190,19 +190,19 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class c0 extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f18806a = null;
+        public NetWork f18807a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18807b;
+        public String f18808b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BasicNameValuePair f18808c;
+        public BasicNameValuePair f18809c;
 
         public c0(String str, BasicNameValuePair basicNameValuePair, boolean z) {
-            this.f18807b = null;
-            this.f18808c = null;
-            this.f18807b = str;
-            this.f18808c = basicNameValuePair;
+            this.f18808b = null;
+            this.f18809c = null;
+            this.f18808b = str;
+            this.f18809c = basicNameValuePair;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -212,13 +212,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             ForumSuggestModel forumSuggestModel = null;
             if (d.b.b.e.p.j.z()) {
                 try {
-                    NetWork netWork = new NetWork(this.f18807b);
-                    this.f18806a = netWork;
-                    netWork.addPostData(this.f18808c);
-                    String postNetData = this.f18806a.postNetData();
+                    NetWork netWork = new NetWork(this.f18808b);
+                    this.f18807a = netWork;
+                    netWork.addPostData(this.f18809c);
+                    String postNetData = this.f18807a.postNetData();
                     if (postNetData != null) {
                         forumSuggestModel = ForumSuggestModel.parserJson(postNetData);
-                        SquareSearchActivity.this.lastSearchBarKey = this.f18808c.getValue();
+                        SquareSearchActivity.this.lastSearchBarKey = this.f18809c.getValue();
                         return forumSuggestModel;
                     }
                     return null;
@@ -251,10 +251,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f18806a;
+            NetWork netWork = this.f18807a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f18806a = null;
+                this.f18807a = null;
             }
             SquareSearchActivity squareSearchActivity = SquareSearchActivity.this;
             squareSearchActivity.hideLoadingView(squareSearchActivity.mMainLayout);
@@ -289,20 +289,20 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class d0 implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18811e;
+        public String f18812e;
 
         public d0(String str) {
-            this.f18811e = str;
+            this.f18812e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18811e)) {
+            if (TextUtils.isEmpty(this.f18812e)) {
                 return;
             }
-            SquareSearchActivity.this.mSearchKey = this.f18811e;
+            SquareSearchActivity.this.mSearchKey = this.f18812e;
             TiebaStatic.log(new StatisticItem("c12034"));
-            SquareSearchActivity.this.doSearch(this.f18811e, true);
+            SquareSearchActivity.this.doSearch(this.f18812e, true);
         }
     }
 
@@ -472,13 +472,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class m implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18822e;
+        public final /* synthetic */ String f18823e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f18823f;
+        public final /* synthetic */ View f18824f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f18824g;
+        public final /* synthetic */ ArrayList f18825g;
 
         /* loaded from: classes3.dex */
         public class a extends f0<Boolean> {
@@ -489,7 +489,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.b.h0.z0.f0
             public Boolean doInBackground() {
-                d.b.i0.c3.n0.a.h(m.this.f18822e);
+                d.b.i0.c3.n0.a.h(m.this.f18823e);
                 return Boolean.TRUE;
             }
         }
@@ -503,19 +503,19 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             @Override // d.b.h0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                SquareSearchActivity.this.mSearchHistoryLayout.removeView(m.this.f18823f);
+                SquareSearchActivity.this.mSearchHistoryLayout.removeView(m.this.f18824f);
                 m mVar = m.this;
-                mVar.f18824g.remove(mVar.f18822e);
-                if (m.this.f18824g.size() <= 0) {
+                mVar.f18825g.remove(mVar.f18823e);
+                if (m.this.f18825g.size() <= 0) {
                     SquareSearchActivity.this.showHistoryResult(null);
                 }
             }
         }
 
         public m(String str, View view, ArrayList arrayList) {
-            this.f18822e = str;
-            this.f18823f = view;
-            this.f18824g = arrayList;
+            this.f18823e = str;
+            this.f18824f = view;
+            this.f18825g = arrayList;
         }
 
         @Override // android.view.View.OnClickListener
@@ -619,17 +619,17 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class s extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f18833a;
+        public final /* synthetic */ String f18834a;
 
         public s(String str) {
-            this.f18833a = str;
+            this.f18834a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            d.b.i0.c3.n0.a.o(this.f18833a);
+            d.b.i0.c3.n0.a.o(this.f18834a);
             return Boolean.TRUE;
         }
     }

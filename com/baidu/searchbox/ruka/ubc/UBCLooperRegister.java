@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCLooperRegister extends ILooperRegister {
     public static final String KEY_EXT = "ext";
     public static final String TAG = "UBCLooperRegister";

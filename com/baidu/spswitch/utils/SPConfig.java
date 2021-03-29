@@ -1,5 +1,5 @@
 package com.baidu.spswitch.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPConfig {
     public static boolean sDebug = false;
 

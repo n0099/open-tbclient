@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class jj extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40884a;
+    public int f40885a;
 
     /* renamed from: a  reason: collision with other field name */
     public it f814a;
@@ -15,12 +15,12 @@ public class jj extends jl {
     @Override // com.xiaomi.push.jl
     public int a(byte[] bArr, int i, int i2) {
         byte[] m497a = this.f814a.m497a();
-        if (i2 > this.f814a.a() - this.f40884a) {
-            i2 = this.f814a.a() - this.f40884a;
+        if (i2 > this.f814a.a() - this.f40885a) {
+            i2 = this.f814a.a() - this.f40885a;
         }
         if (i2 > 0) {
-            System.arraycopy(m497a, this.f40884a, bArr, i, i2);
-            this.f40884a += i2;
+            System.arraycopy(m497a, this.f40885a, bArr, i, i2);
+            this.f40885a += i2;
         }
         return i2;
     }

@@ -315,9 +315,7 @@ public class WalletPayViewController {
     }
 
     private void refreshView() {
-        double longValue = this.mDataRes.payAmount.longValue();
-        Double.isNaN(longValue);
-        String format = String.format("%.2f", Double.valueOf(longValue / 100.0d));
+        String format = String.format("%.2f", Double.valueOf(this.mDataRes.payAmount.longValue() / 100.0d));
         this.mMoneyTv.setText(this.mContext.getString(R.string.pay_money, format));
         boolean z = this.mPayConfig.getPayType() == 2;
         if (z) {
@@ -327,7 +325,8 @@ public class WalletPayViewController {
             Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.icon_huobi_tdou);
             drawable.setBounds(0, 0, tbds29, tbds26);
             this.mGoodCount.setCompoundDrawables(drawable, null, null, null);
-            this.mGoodCount.setText(this.mPayConfig.getTBeanNum() + "");
+            TextView textView = this.mGoodCount;
+            textView.setText(this.mPayConfig.getTBeanNum() + "");
         }
         String str = this.mDataRes.title;
         if (z && !StringUtils.isNull(str)) {

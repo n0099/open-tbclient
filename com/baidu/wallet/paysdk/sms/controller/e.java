@@ -27,28 +27,28 @@ import java.io.Serializable;
 public class e implements ISmsController {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseActivity f25809a;
+    public PayBaseActivity f25810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SmsUpdateUiInterface f25810b;
+    public SmsUpdateUiInterface f25811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BindFastRequest f25811c;
+    public BindFastRequest f25812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PayRequest f25812d;
+    public PayRequest f25813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public o f25813e;
+    public o f25814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f25814f;
+    public l f25815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SmsVerifyHandler f25815g;
+    public SmsVerifyHandler f25816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25816h = false;
+    public boolean f25817h = false;
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean doOnBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
@@ -62,10 +62,10 @@ public class e implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnDestroy() {
-        if (this.f25816h) {
+        if (this.f25817h) {
             PasswordController.getPassWordInstance().clearSetPwdListener();
         }
-        this.f25809a = null;
+        this.f25810a = null;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
@@ -80,20 +80,20 @@ public class e implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("mBindRequest", this.f25811c);
-        bundle.putSerializable("mPayRequest", this.f25812d);
+        bundle.putSerializable("mBindRequest", this.f25812c);
+        bundle.putSerializable("mPayRequest", this.f25813d);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean handleFailure(int i, int i2, String str) {
         if (i != 522) {
             if (i == 523) {
-                WalletGlobalUtils.safeDismissDialog(this.f25809a, 0);
+                WalletGlobalUtils.safeDismissDialog(this.f25810a, 0);
                 if (i2 == 5003) {
-                    AccountManager.getInstance(this.f25809a).logout();
+                    AccountManager.getInstance(this.f25810a).logout();
                     WalletLoginHelper.getInstance().logout(false);
                 }
-                SmsVerifyHandler smsVerifyHandler = this.f25815g;
+                SmsVerifyHandler smsVerifyHandler = this.f25816g;
                 if (smsVerifyHandler != null) {
                     smsVerifyHandler.onSmsVerifyFailure(i2, str);
                 }
@@ -102,19 +102,19 @@ public class e implements ISmsController {
             }
             return false;
         }
-        WalletGlobalUtils.safeDismissDialog(this.f25809a, 0);
+        WalletGlobalUtils.safeDismissDialog(this.f25810a, 0);
         if (i2 == 5003) {
-            AccountManager.getInstance(this.f25809a).logout();
+            AccountManager.getInstance(this.f25810a).logout();
             WalletLoginHelper.getInstance().logout(false);
         }
         if (TextUtils.isEmpty(str)) {
-            str = ResUtils.getString(this.f25809a.getActivity(), "ebpay_send_fail");
+            str = ResUtils.getString(this.f25810a.getActivity(), "ebpay_send_fail");
         }
-        SmsVerifyHandler smsVerifyHandler2 = this.f25815g;
+        SmsVerifyHandler smsVerifyHandler2 = this.f25816g;
         if (smsVerifyHandler2 != null) {
             smsVerifyHandler2.onSmsSendFailure(i2, str);
         }
-        SmsUpdateUiInterface smsUpdateUiInterface = this.f25810b;
+        SmsUpdateUiInterface smsUpdateUiInterface = this.f25811b;
         if (smsUpdateUiInterface != null) {
             smsUpdateUiInterface.doStopCountDown();
         }
@@ -126,30 +126,30 @@ public class e implements ISmsController {
     public boolean handleResponse(int i, Object obj, String str) {
         BindFastRequest bindFastRequest;
         if (i == 522 && (obj instanceof FindPWDFromOldCardSendSmsResponse)) {
-            WalletGlobalUtils.safeDismissDialog(this.f25809a, 0);
+            WalletGlobalUtils.safeDismissDialog(this.f25810a, 0);
             PayStatisticsUtil.onEventEnd(StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD_SENDASMS, 0);
             FindPWDFromOldCardSendSmsResponse findPWDFromOldCardSendSmsResponse = (FindPWDFromOldCardSendSmsResponse) obj;
             if (findPWDFromOldCardSendSmsResponse.checkResponseValidity()) {
                 findPWDFromOldCardSendSmsResponse.decrypt();
             }
-            SmsUpdateUiInterface smsUpdateUiInterface = this.f25810b;
+            SmsUpdateUiInterface smsUpdateUiInterface = this.f25811b;
             if (smsUpdateUiInterface != null) {
                 smsUpdateUiInterface.upDateSafeKeyBoradView(findPWDFromOldCardSendSmsResponse.sms_length, findPWDFromOldCardSendSmsResponse.sms_type);
             }
-            SmsVerifyHandler smsVerifyHandler = this.f25815g;
+            SmsVerifyHandler smsVerifyHandler = this.f25816g;
             if (smsVerifyHandler != null) {
                 smsVerifyHandler.onSmsSendSuccess();
             }
             return true;
         } else if (i == 523 && (obj instanceof FindPWDFromOldCardCheckSmsResponse)) {
-            WalletGlobalUtils.safeDismissDialog(this.f25809a, 0);
+            WalletGlobalUtils.safeDismissDialog(this.f25810a, 0);
             PayStatisticsUtil.onEventEnd(StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD_CHECKSMS, 0);
             FindPWDFromOldCardCheckSmsResponse findPWDFromOldCardCheckSmsResponse = (FindPWDFromOldCardCheckSmsResponse) obj;
-            if (findPWDFromOldCardCheckSmsResponse.checkResponseValidity() && (bindFastRequest = this.f25811c) != null) {
+            if (findPWDFromOldCardCheckSmsResponse.checkResponseValidity() && (bindFastRequest = this.f25812c) != null) {
                 bindFastRequest.setSmsToken(findPWDFromOldCardCheckSmsResponse.sms_token);
                 a();
             }
-            SmsVerifyHandler smsVerifyHandler2 = this.f25815g;
+            SmsVerifyHandler smsVerifyHandler2 = this.f25816g;
             if (smsVerifyHandler2 != null) {
                 smsVerifyHandler2.onSmsVerifySuccess();
             }
@@ -161,9 +161,9 @@ public class e implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void initSmsActivityView() {
-        String string = ResUtils.getString(this.f25809a, "ebpay_pay_next");
-        String sendSmsphone = !TextUtils.isEmpty(this.f25811c.getSendSmsphone()) ? this.f25811c.getSendSmsphone() : "";
-        SmsUpdateUiInterface smsUpdateUiInterface = this.f25810b;
+        String string = ResUtils.getString(this.f25810a, "ebpay_pay_next");
+        String sendSmsphone = !TextUtils.isEmpty(this.f25812c.getSendSmsphone()) ? this.f25812c.getSendSmsphone() : "";
+        SmsUpdateUiInterface smsUpdateUiInterface = this.f25811b;
         if (smsUpdateUiInterface != null) {
             smsUpdateUiInterface.initSMSActivityView("ebpay_sms_title_tip_security_check", "", string, sendSmsphone, true);
         }
@@ -183,82 +183,82 @@ public class e implements ISmsController {
     public boolean onCreateCheckInvalide(Bundle bundle) {
         PayRequest payRequest;
         if (bundle == null) {
-            this.f25811c = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
-            this.f25812d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+            this.f25812c = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+            this.f25813d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         } else {
             Serializable serializable = bundle.getSerializable("mBindRequest");
             if (serializable != null && (serializable instanceof BindFastRequest)) {
-                this.f25811c = (BindFastRequest) serializable;
+                this.f25812c = (BindFastRequest) serializable;
             }
             Serializable serializable2 = bundle.getSerializable("mPayRequest");
             if (serializable2 != null && (serializable2 instanceof PayRequest)) {
-                this.f25812d = (PayRequest) serializable2;
+                this.f25813d = (PayRequest) serializable2;
             }
         }
-        if (this.f25811c != null) {
-            PayRequestCache.getInstance().addBeanRequestToCache(this.f25811c.getRequestId(), this.f25811c);
-            if (this.f25811c.isRealPay() && (payRequest = this.f25812d) != null && payRequest.checkRequestValidity()) {
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f25812d.getRequestId(), this.f25812d);
+        if (this.f25812c != null) {
+            PayRequestCache.getInstance().addBeanRequestToCache(this.f25812c.getRequestId(), this.f25812c);
+            if (this.f25812c.isRealPay() && (payRequest = this.f25813d) != null && payRequest.checkRequestValidity()) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f25813d.getRequestId(), this.f25813d);
                 return true;
             }
             return true;
         }
-        PayCallBackManager.callBackClientCancel(this.f25809a, "SmsControllerForFindPWD.onCreateCheckInvalide().1");
+        PayCallBackManager.callBackClientCancel(this.f25810a, "SmsControllerForFindPWD.onCreateCheckInvalide().1");
         return false;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void onNextBtnClick(String str) {
         PayStatisticsUtil.onEvent(StatServiceEvent.NEXT_THIRD);
-        this.f25811c.mSmsVCode = str;
+        this.f25812c.mSmsVCode = str;
         a(str);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void sendSms() {
-        WalletGlobalUtils.safeShowDialog(this.f25809a, 0, "");
-        if (this.f25813e == null) {
-            this.f25813e = (o) PayBeanFactory.getInstance().getBean((Context) this.f25809a, PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_SENDSMS, ISmsController.BEAN_TAG);
+        WalletGlobalUtils.safeShowDialog(this.f25810a, 0, "");
+        if (this.f25814e == null) {
+            this.f25814e = (o) PayBeanFactory.getInstance().getBean((Context) this.f25810a, PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_SENDSMS, ISmsController.BEAN_TAG);
         }
-        this.f25813e.a((BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Pwd));
+        this.f25814e.a((BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Pwd));
         PayStatisticsUtil.onEventStart(StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD_SENDASMS);
-        this.f25813e.setResponseCallback(this.f25809a);
-        this.f25813e.execBean();
+        this.f25814e.setResponseCallback(this.f25810a);
+        this.f25814e.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setActivity(PayBaseActivity payBaseActivity) {
-        this.f25809a = payBaseActivity;
+        this.f25810a = payBaseActivity;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsUpdateUIInterface(SmsUpdateUiInterface smsUpdateUiInterface) {
-        this.f25810b = smsUpdateUiInterface;
+        this.f25811b = smsUpdateUiInterface;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsVerifyHandler(SmsVerifyHandler smsVerifyHandler) {
-        this.f25815g = smsVerifyHandler;
+        this.f25816g = smsVerifyHandler;
     }
 
     private void a(String str) {
-        WalletGlobalUtils.safeShowDialog(this.f25809a, 0, "");
+        WalletGlobalUtils.safeShowDialog(this.f25810a, 0, "");
         PayStatisticsUtil.onEventStart(StatServiceEvent.FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD_CHECKSMS);
-        l lVar = (l) PayBeanFactory.getInstance().getBean((Context) this.f25809a, PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_CHECKSMS, ISmsController.BEAN_TAG);
-        this.f25814f = lVar;
-        lVar.setResponseCallback(this.f25809a);
-        this.f25814f.execBean();
+        l lVar = (l) PayBeanFactory.getInstance().getBean((Context) this.f25810a, PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_CHECKSMS, ISmsController.BEAN_TAG);
+        this.f25815f = lVar;
+        lVar.setResponseCallback(this.f25810a);
+        this.f25815f.execBean();
     }
 
     private void a() {
-        PasswordController.getPassWordInstance().setPwd(this.f25809a, false, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.sms.controller.e.1
+        PasswordController.getPassWordInstance().setPwd(this.f25810a, false, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.sms.controller.e.1
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
             public void onFail(int i, String str) {
-                if (e.this.f25810b != null) {
-                    e.this.f25810b.clearSmsEditText();
-                    e.this.f25810b.doStopCountDown();
+                if (e.this.f25811b != null) {
+                    e.this.f25811b.clearSmsEditText();
+                    e.this.f25811b.doStopCountDown();
                 }
-                if (e.this.f25811c == null || e.this.f25811c.mBindFrom != 5) {
+                if (e.this.f25812c == null || e.this.f25812c.mBindFrom != 5) {
                     return;
                 }
                 PasswordController.getPassWordInstance().setPassByUserFail(str);
@@ -266,8 +266,8 @@ public class e implements ISmsController {
 
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
             public void onSucceed(String str) {
-                if (e.this.f25811c == null || e.this.f25811c.mBindFrom != 5) {
-                    if (e.this.f25811c == null || e.this.f25811c.mBindFrom != 4) {
+                if (e.this.f25812c == null || e.this.f25812c.mBindFrom != 5) {
+                    if (e.this.f25812c == null || e.this.f25812c.mBindFrom != 4) {
                         return;
                     }
                     PasswordController.getPassWordInstance().forgetPasswdSucceed(str);
@@ -276,6 +276,6 @@ public class e implements ISmsController {
                 PasswordController.getPassWordInstance().setPassByUserSucceed(str);
             }
         }, PayRequestCache.BindCategory.Pwd);
-        this.f25816h = true;
+        this.f25817h = true;
     }
 }

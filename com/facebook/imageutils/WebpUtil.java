@@ -6,7 +6,7 @@ import com.baidu.wallet.base.audio.b;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class WebpUtil {
     public static final String VP8L_HEADER = "VP8L";
     public static final String VP8X_HEADER = "VP8X";
@@ -65,7 +65,7 @@ public class WebpUtil {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            if (compare(bArr, b.f23529e)) {
+            if (compare(bArr, b.f23530e)) {
                 getInt(inputStream);
                 inputStream.read(bArr);
                 if (!compare(bArr, "WEBP")) {

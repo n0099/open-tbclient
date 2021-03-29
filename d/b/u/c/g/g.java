@@ -11,12 +11,12 @@ public class g extends b {
 
     @Override // d.b.u.c.g.b
     public void j() {
-        if (this.f64776h == 0) {
-            this.f64776h = this.f64773e.presentationTimeUs;
+        if (this.f64777h == 0) {
+            this.f64777h = this.f64774e.presentationTimeUs;
             b.j = 0L;
         }
-        MediaCodec.BufferInfo bufferInfo = this.f64773e;
-        long j = bufferInfo.presentationTimeUs - this.f64776h;
+        MediaCodec.BufferInfo bufferInfo = this.f64774e;
+        long j = bufferInfo.presentationTimeUs - this.f64777h;
         bufferInfo.presentationTimeUs = j;
         b.j = j;
         d.b.u.c.d.x().V(b.j / 1000);
@@ -35,7 +35,7 @@ public class g extends b {
         c cVar;
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.f64771c = eVar;
+            this.f64772c = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.j(), dVar.n(), dVar.l());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, dVar.i());
@@ -43,14 +43,14 @@ public class g extends b {
             createVideoFormat.setInteger("i-frame-interval", dVar.m());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.j());
-                this.f64772d = createEncoderByType;
+                this.f64773d = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.l = this.f64772d.createInputSurface();
-                this.f64775g = true;
+                this.l = this.f64773d.createInputSurface();
+                this.f64776g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            cVar = this.f64774f;
+            cVar = this.f64775f;
             if (cVar == null) {
                 cVar.c(z);
                 return;
@@ -58,7 +58,7 @@ public class g extends b {
             return;
         }
         z = false;
-        cVar = this.f64774f;
+        cVar = this.f64775f;
         if (cVar == null) {
         }
     }

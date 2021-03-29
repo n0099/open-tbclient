@@ -7,20 +7,20 @@ import d.b.b.j.e.n;
 public class c implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f53627f = BdUniqueId.gen();
+    public static BdUniqueId f53628f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f53628e;
+    public FeatureCardCompetition f53629e;
 
     public FeatureCardCompetition a() {
-        return this.f53628e;
+        return this.f53629e;
     }
 
     public void e(FeatureCardCompetition featureCardCompetition) {
         if (featureCardCompetition == null) {
             return;
         }
-        this.f53628e = featureCardCompetition;
+        this.f53629e = featureCardCompetition;
         String str = featureCardCompetition.title;
         Integer num = featureCardCompetition.floor;
         Integer num2 = featureCardCompetition.type;
@@ -28,6 +28,6 @@ public class c implements n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f53627f;
+        return f53628f;
     }
 }

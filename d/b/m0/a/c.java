@@ -17,58 +17,58 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64043a;
+    public Context f64044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64044b;
+    public String f64045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64045c;
+    public String f64046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64046d;
+    public boolean f64047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f64047e;
+    public JSONArray f64048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, com.baidu.ubs.analytics.a.g> f64048f;
+    public Map<String, com.baidu.ubs.analytics.a.g> f64049f;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f64049a = new c((byte) 0);
+        public static final c f64050a = new c((byte) 0);
     }
 
     /* loaded from: classes5.dex */
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public C1733c f64050a = new C1733c();
+        public C1734c f64051a = new C1734c();
 
         public final List<com.baidu.ubs.analytics.a.a> a() {
-            return this.f64050a.a();
+            return this.f64051a.a();
         }
 
         public final void b(int i) {
-            this.f64050a.b(i);
+            this.f64051a.b(i);
         }
 
         public final void c(com.baidu.ubs.analytics.a.a aVar) {
-            this.f64050a.c(aVar);
+            this.f64051a.c(aVar);
         }
     }
 
     /* renamed from: d.b.m0.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public final class C1733c {
+    public final class C1734c {
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f64051a = f.a().c();
+        public SQLiteDatabase f64052a = f.a().c();
 
         public final List<com.baidu.ubs.analytics.a.a> a() {
-            Cursor rawQuery = this.f64051a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+            Cursor rawQuery = this.f64052a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
             ArrayList arrayList = new ArrayList();
             while (rawQuery.moveToNext()) {
                 com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
@@ -86,11 +86,11 @@ public final class c {
         }
 
         public final void b(int i) {
-            this.f64051a.execSQL("delete from tb_ab_click_log where _id <= " + i);
+            this.f64052a.execSQL("delete from tb_ab_click_log where _id <= " + i);
         }
 
         public final void c(com.baidu.ubs.analytics.a.a aVar) {
-            this.f64051a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+            this.f64052a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
         }
     }
 
@@ -104,7 +104,7 @@ public final class c {
         public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             int i = 0;
             while (true) {
-                String[] strArr = e.f64052a;
+                String[] strArr = e.f64053a;
                 if (i >= strArr.length) {
                     return;
                 }
@@ -122,50 +122,50 @@ public final class c {
     public final class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f64052a = {"CREATE TABLE if not exists tb_ab_click_log (\n  _eventId varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameter varchar,\n  _timeStamp varchar,\n  _sessionId varchar,\n  _productLine varchar,\n  _pagerName varchar\n);", "CREATE TABLE if not exists tb_ab_netlog (\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameters varchar,\n  _timeStamp varchar,\n  _type varchar,\n  _url varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_page_log (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _pagerName varchar,\n  _path varchar,\n  _startTime varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_sessionlog (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _keepTime varchar,\n  _sessionId varchar,\n  _startTime varchar\n);"};
+        public static final String[] f64053a = {"CREATE TABLE if not exists tb_ab_click_log (\n  _eventId varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameter varchar,\n  _timeStamp varchar,\n  _sessionId varchar,\n  _productLine varchar,\n  _pagerName varchar\n);", "CREATE TABLE if not exists tb_ab_netlog (\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameters varchar,\n  _timeStamp varchar,\n  _type varchar,\n  _url varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_page_log (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _pagerName varchar,\n  _path varchar,\n  _startTime varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_sessionlog (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _keepTime varchar,\n  _sessionId varchar,\n  _startTime varchar\n);"};
     }
 
     /* loaded from: classes5.dex */
     public final class f {
 
         /* renamed from: c  reason: collision with root package name */
-        public static f f64053c;
+        public static f f64054c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static SQLiteOpenHelper f64054d;
+        public static SQLiteOpenHelper f64055d;
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicInteger f64055a = new AtomicInteger();
+        public AtomicInteger f64056a = new AtomicInteger();
 
         /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f64056b;
+        public SQLiteDatabase f64057b;
 
         public static synchronized f a() {
             f fVar;
             synchronized (f.class) {
-                if (f64053c == null) {
+                if (f64054c == null) {
                     b(c.i().g());
                 }
-                fVar = f64053c;
+                fVar = f64054c;
             }
             return fVar;
         }
 
         public static synchronized void b(Context context) {
             synchronized (f.class) {
-                if (f64053c == null) {
-                    f64053c = new f();
-                    f64054d = new d(context);
+                if (f64054c == null) {
+                    f64054c = new f();
+                    f64055d = new d(context);
                 }
             }
         }
 
         public final synchronized SQLiteDatabase c() {
-            if (this.f64055a.incrementAndGet() == 1) {
+            if (this.f64056a.incrementAndGet() == 1) {
                 d.b.m0.a.f.a.a("***************新建立了 一个数据库的实例****************");
-                this.f64056b = f64054d.getWritableDatabase();
+                this.f64057b = f64055d.getWritableDatabase();
             }
-            return this.f64056b;
+            return this.f64057b;
         }
     }
 
@@ -173,10 +173,10 @@ public final class c {
     public final class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f64057a = f.a().c();
+        public SQLiteDatabase f64058a = f.a().c();
 
         public final List<com.baidu.ubs.analytics.a.i> a() {
-            Cursor rawQuery = this.f64057a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            Cursor rawQuery = this.f64058a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
             ArrayList arrayList = new ArrayList();
             while (rawQuery.moveToNext()) {
                 com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
@@ -193,7 +193,7 @@ public final class c {
         }
 
         public final void b(int i) {
-            this.f64057a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+            this.f64058a.execSQL("delete from tb_ab_netlog where _id <= " + i);
         }
     }
 
@@ -201,14 +201,14 @@ public final class c {
     public final class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public g f64058a = new g();
+        public g f64059a = new g();
 
         public final List<com.baidu.ubs.analytics.a.i> a() {
-            return this.f64058a.a();
+            return this.f64059a.a();
         }
 
         public final void b(int i) {
-            this.f64058a.b(i);
+            this.f64059a.b(i);
         }
     }
 
@@ -216,10 +216,10 @@ public final class c {
     public final class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f64059a = f.a().c();
+        public SQLiteDatabase f64060a = f.a().c();
 
         public final List<com.baidu.ubs.analytics.a.l> a() {
-            Cursor rawQuery = this.f64059a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            Cursor rawQuery = this.f64060a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
             ArrayList arrayList = new ArrayList();
             while (rawQuery.moveToNext()) {
                 com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
@@ -236,11 +236,11 @@ public final class c {
         }
 
         public final void b(int i) {
-            this.f64059a.execSQL("delete from tb_ab_page_log where _id <= " + i);
+            this.f64060a.execSQL("delete from tb_ab_page_log where _id <= " + i);
         }
 
         public final void c(com.baidu.ubs.analytics.a.l lVar) {
-            this.f64059a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+            this.f64060a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
         }
     }
 
@@ -248,18 +248,18 @@ public final class c {
     public final class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public i f64060a = new i();
+        public i f64061a = new i();
 
         public final List<com.baidu.ubs.analytics.a.l> a() {
-            return this.f64060a.a();
+            return this.f64061a.a();
         }
 
         public final void b(int i) {
-            this.f64060a.b(i);
+            this.f64061a.b(i);
         }
 
         public final void c(com.baidu.ubs.analytics.a.l lVar) {
-            this.f64060a.c(lVar);
+            this.f64061a.c(lVar);
         }
     }
 
@@ -267,21 +267,21 @@ public final class c {
     public final class k {
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f64061a = f.a().c();
+        public SQLiteDatabase f64062a = f.a().c();
 
         public final void a(String str) {
-            this.f64061a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+            this.f64062a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
         }
 
         public final boolean b(String str) {
-            Cursor rawQuery = this.f64061a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+            Cursor rawQuery = this.f64062a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
             int count = rawQuery.getCount();
             rawQuery.close();
             return count > 0;
         }
 
         public final List<n> c() {
-            Cursor rawQuery = this.f64061a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+            Cursor rawQuery = this.f64062a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
             ArrayList arrayList = new ArrayList();
             while (rawQuery.moveToNext()) {
                 n nVar = new n();
@@ -296,11 +296,11 @@ public final class c {
         }
 
         public final void d(n nVar) {
-            this.f64061a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+            this.f64062a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
         }
 
         public final void e(n nVar) {
-            this.f64061a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+            this.f64062a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
         }
     }
 
@@ -308,30 +308,30 @@ public final class c {
     public final class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public k f64062a = new k();
+        public k f64063a = new k();
 
         public final void a(String str) {
-            this.f64062a.a(str);
+            this.f64063a.a(str);
         }
 
         public final boolean b(String str) {
-            return this.f64062a.b(str);
+            return this.f64063a.b(str);
         }
 
         public final void c(String str) {
-            this.f64062a.a(str);
+            this.f64063a.a(str);
         }
 
         public final List<n> d() {
-            return this.f64062a.c();
+            return this.f64063a.c();
         }
 
         public final void e(n nVar) {
-            this.f64062a.e(nVar);
+            this.f64063a.e(nVar);
         }
 
         public final void f(n nVar) {
-            this.f64062a.d(nVar);
+            this.f64063a.d(nVar);
         }
     }
 
@@ -340,47 +340,47 @@ public final class c {
     }
 
     public static c i() {
-        return a.f64049a;
+        return a.f64050a;
     }
 
     public final void a(Context context) {
-        this.f64043a = context;
+        this.f64044a = context;
     }
 
     public final void b(String str) {
-        this.f64044b = str;
+        this.f64045b = str;
     }
 
     public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
-        this.f64048f = new HashMap();
+        this.f64049f = new HashMap();
         for (int i2 = 0; i2 < list.size(); i2++) {
             if (list.get(i2) != null) {
-                this.f64048f.put(list.get(i2).getId(), list.get(i2));
+                this.f64049f.put(list.get(i2).getId(), list.get(i2));
             }
         }
     }
 
     public final synchronized void d(boolean z) {
-        this.f64046d = z;
+        this.f64047d = z;
     }
 
     public final void e(String str) {
-        this.f64045c = str;
+        this.f64046c = str;
     }
 
     public final SampleResult f(String str) {
         Map<String, com.baidu.ubs.analytics.a.g> map;
-        if (this.f64047e == null) {
-            if (str != null && (map = this.f64048f) != null) {
+        if (this.f64048e == null) {
+            if (str != null && (map = this.f64049f) != null) {
                 if (map.containsKey(str)) {
-                    return d.b.m0.a.f.h.a(this.f64048f.get(str).getGroup());
+                    return d.b.m0.a.f.h.a(this.f64049f.get(str).getGroup());
                 }
                 return SampleResult.OTHERE;
             }
             return SampleResult.OTHERE;
         }
-        for (int i2 = 0; i2 < this.f64047e.length(); i2++) {
-            JSONObject optJSONObject = this.f64047e.optJSONObject(i2);
+        for (int i2 = 0; i2 < this.f64048e.length(); i2++) {
+            JSONObject optJSONObject = this.f64048e.optJSONObject(i2);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return d.b.m0.a.f.h.a(optJSONObject.optString("group"));
             }
@@ -389,26 +389,26 @@ public final class c {
     }
 
     public final Context g() {
-        return this.f64043a;
+        return this.f64044a;
     }
 
     public final boolean h() {
-        return this.f64046d;
+        return this.f64047d;
     }
 
     public final String j() {
-        return this.f64044b;
+        return this.f64045b;
     }
 
     public final String k() {
-        return this.f64045c;
+        return this.f64046c;
     }
 
     public final Map<String, com.baidu.ubs.analytics.a.g> l() {
-        return this.f64048f;
+        return this.f64049f;
     }
 
     public c() {
-        this.f64046d = true;
+        this.f64047d = true;
     }
 }

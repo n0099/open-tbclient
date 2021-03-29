@@ -18,19 +18,19 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     public static class IndoorRouteStep extends RouteStep {
 
         /* renamed from: d  reason: collision with root package name */
-        public RouteNode f7268d;
+        public RouteNode f7269d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7269e;
+        public RouteNode f7270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f7270f;
+        public String f7271f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7271g;
+        public String f7272g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7272h;
+        public String f7273h;
         public List<IndoorStepNode> i;
         public List<Double> j;
 
@@ -38,47 +38,47 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public static class IndoorStepNode {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f7273a;
+            public String f7274a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f7274b;
+            public int f7275b;
 
             /* renamed from: c  reason: collision with root package name */
-            public LatLng f7275c;
+            public LatLng f7276c;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f7276d;
+            public String f7277d;
 
             public String getDetail() {
-                return this.f7276d;
+                return this.f7277d;
             }
 
             public LatLng getLocation() {
-                return this.f7275c;
+                return this.f7276c;
             }
 
             public String getName() {
-                return this.f7273a;
+                return this.f7274a;
             }
 
             public int getType() {
-                return this.f7274b;
+                return this.f7275b;
             }
 
             public void setDetail(String str) {
-                this.f7276d = str;
+                this.f7277d = str;
             }
 
             public void setLocation(LatLng latLng) {
-                this.f7275c = latLng;
+                this.f7276c = latLng;
             }
 
             public void setName(String str) {
-                this.f7273a = str;
+                this.f7274a = str;
             }
 
             public void setType(int i) {
-                this.f7274b = i;
+                this.f7275b = i;
             }
         }
 
@@ -91,23 +91,23 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public String getBuildingId() {
-            return this.f7272h;
+            return this.f7273h;
         }
 
         public RouteNode getEntrace() {
-            return this.f7268d;
+            return this.f7269d;
         }
 
         public RouteNode getExit() {
-            return this.f7269e;
+            return this.f7270e;
         }
 
         public String getFloorId() {
-            return this.f7271g;
+            return this.f7272g;
         }
 
         public String getInstructions() {
-            return this.f7270f;
+            return this.f7271f;
         }
 
         public List<IndoorStepNode> getStepNodes() {
@@ -123,23 +123,23 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public void setBuildingId(String str) {
-            this.f7272h = str;
+            this.f7273h = str;
         }
 
         public void setEntrace(RouteNode routeNode) {
-            this.f7268d = routeNode;
+            this.f7269d = routeNode;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7269e = routeNode;
+            this.f7270e = routeNode;
         }
 
         public void setFloorId(String str) {
-            this.f7271g = str;
+            this.f7272g = str;
         }
 
         public void setInstructions(String str) {
-            this.f7270f = str;
+            this.f7271f = str;
         }
 
         public void setPath(List<Double> list) {

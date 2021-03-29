@@ -6,36 +6,36 @@ import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
 public class c implements com.baidu.platform.comapi.wnplatform.i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IWRoutePlanListener f7433a;
+    public final /* synthetic */ IWRoutePlanListener f7434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f7434b;
+    public final /* synthetic */ a f7435b;
 
     public c(a aVar, IWRoutePlanListener iWRoutePlanListener) {
-        this.f7434b = aVar;
-        this.f7433a = iWRoutePlanListener;
+        this.f7435b = aVar;
+        this.f7434a = iWRoutePlanListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a() {
-        this.f7433a.onRoutePlanStart();
+        this.f7434a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void b() {
-        this.f7433a.onRoutePlanSuccess();
+        this.f7434a.onRoutePlanSuccess();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a(int i) {
         if (i == 16777214) {
-            this.f7433a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
+            this.f7434a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
         } else if (i == 16777216) {
-            this.f7433a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
+            this.f7434a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
         } else if (i != 805306368) {
-            this.f7433a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+            this.f7434a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
         } else {
-            this.f7433a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
+            this.f7434a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
         }
     }
 }

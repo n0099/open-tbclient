@@ -6,16 +6,16 @@ import android.content.ServiceConnection;
 public class u {
 
     /* renamed from: b  reason: collision with root package name */
-    public s f30868b;
+    public s f30869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f30869c;
+    public ServiceConnection f30870c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30867a = null;
+    public Context f30868a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f30870d = null;
+    public a f30871d = null;
 
     /* loaded from: classes6.dex */
     public interface a<T> {

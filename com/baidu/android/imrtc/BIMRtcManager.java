@@ -50,7 +50,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcManager {
     public static int BIM_RTC_ACTION_SYNC_SEQID_MAX = 100;
     public static int BIM_RTC_ANSWER_TIMEOUT_INTERNAL = 30000;

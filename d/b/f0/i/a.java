@@ -8,19 +8,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 import d.b.f0.l.c;
 import d.b.f0.l.e;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f42994c;
+    public static volatile a f42995c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f42995a;
+    public b f42996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42996b;
+    public Context f42997b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b extends SQLiteOpenHelper {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
@@ -41,19 +41,19 @@ public class a {
     }
 
     public a(Context context) {
-        this.f42996b = context;
-        this.f42995a = new b(this.f42996b);
+        this.f42997b = context;
+        this.f42996a = new b(this.f42997b);
     }
 
     public static a a(Context context) {
-        if (f42994c == null) {
+        if (f42995c == null) {
             synchronized (a.class) {
-                if (f42994c == null) {
-                    f42994c = new a(context);
+                if (f42995c == null) {
+                    f42995c = new a(context);
                 }
             }
         }
-        return f42994c;
+        return f42995c;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -61,7 +61,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         try {
-            SQLiteDatabase writableDatabase = this.f42995a.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f42996a.getWritableDatabase();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM rp_tb WHERE c IN (");
             sb.append(str);
@@ -74,7 +74,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             d.b.f0.j.a aVar = new d.b.f0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f42996b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f42997b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);
@@ -130,10 +130,10 @@ public class a {
         }
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("a", e.b(this.f42996b, aVar.d().getBytes()));
+            contentValues.put("a", e.b(this.f42997b, aVar.d().getBytes()));
             contentValues.put("c", Integer.valueOf(aVar.h()));
             contentValues.put("d", Integer.valueOf(aVar.f()));
-            this.f42995a.getWritableDatabase().insert("rp_tb", null, contentValues);
+            this.f42996a.getWritableDatabase().insert("rp_tb", null, contentValues);
         } catch (Throwable th) {
             c.d(th);
         }
@@ -159,7 +159,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         try {
-            SQLiteDatabase writableDatabase = this.f42995a.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f42996a.getWritableDatabase();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM rp_tb WHERE c IN (");
             sb.append(str);
@@ -176,7 +176,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             d.b.f0.j.a aVar = new d.b.f0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f42996b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f42997b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);
@@ -228,7 +228,7 @@ public class a {
 
     public final void f(d.b.f0.j.a aVar) {
         try {
-            this.f42995a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(aVar.a())});
+            this.f42996a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(aVar.a())});
         } catch (Throwable th) {
             System.currentTimeMillis();
             c.d(th);

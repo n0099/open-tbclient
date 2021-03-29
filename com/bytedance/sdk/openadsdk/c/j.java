@@ -25,31 +25,31 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27565d;
+    public String f27566d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27566e;
+    public String f27567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f27567f;
+    public final Context f27568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d.l f27568g;
+    public final com.bytedance.sdk.openadsdk.core.d.l f27569g;
     public WebView p;
     public JSONObject v;
     public p w;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27562a = 1;
+    public int f27563a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27563b = false;
+    public boolean f27564b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27564c = -1;
+    public int f27565c = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27569h = "landingpage";
+    public String f27570h = "landingpage";
     public long i = 0;
     public long j = 0;
     public long k = 0;
@@ -120,8 +120,8 @@ public class j {
     }
 
     public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, WebView webView) {
-        this.f27567f = context;
-        this.f27568g = lVar;
+        this.f27568f = context;
+        this.f27569g = lVar;
         this.p = webView;
         if (Build.VERSION.SDK_INT >= 19) {
             this.p.addJavascriptInterface(new a(), "JS_LANDING_PAGE_LOG_OBJ");
@@ -134,7 +134,7 @@ public class j {
             return;
         }
         if (!com.bytedance.sdk.openadsdk.core.p.h().u() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
-            com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.f27568g, this.v);
+            com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.f27569g, this.v);
         }
     }
 
@@ -148,13 +148,13 @@ public class j {
 
     public void c() {
         u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        if (this.f27562a == 2) {
+        if (this.f27563a == 2) {
             long currentTimeMillis = System.currentTimeMillis();
             this.j = currentTimeMillis;
             long j = currentTimeMillis - this.i;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("load_status", this.f27562a);
+                jSONObject.put("load_status", this.f27563a);
                 jSONObject.put("max_scroll_percent", this.o.get());
                 jSONObject.putOpt("render_type", "h5");
                 jSONObject.putOpt("render_type_2", 0);
@@ -171,20 +171,20 @@ public class j {
         if (this.x.get()) {
             return;
         }
-        d.b(this.f27567f, this.f27568g, this.f27569h, System.currentTimeMillis() - this.m);
+        d.b(this.f27568f, this.f27569g, this.f27570h, System.currentTimeMillis() - this.m);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f27569h = str;
+        this.f27570h = str;
     }
 
     private boolean b(String str) {
         com.bytedance.sdk.openadsdk.core.d.l lVar;
         com.bytedance.sdk.openadsdk.core.h.h h2;
-        return (TextUtils.isEmpty(str) || (lVar = this.f27568g) == null || lVar.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h2 = com.bytedance.sdk.openadsdk.core.p.h()) == null || h2.l() <= this.r.get()) ? false : true;
+        return (TextUtils.isEmpty(str) || (lVar = this.f27569g) == null || lVar.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h2 = com.bytedance.sdk.openadsdk.core.p.h()) == null || h2.l() <= this.r.get()) ? false : true;
     }
 
     public p a() {
@@ -219,10 +219,10 @@ public class j {
         if (pVar != null) {
             pVar.e();
         }
-        if (this.f27563b) {
+        if (this.f27564b) {
             return;
         }
-        this.f27563b = true;
+        this.f27564b = true;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("render_type", "h5");
@@ -250,18 +250,18 @@ public class j {
         if (this.x.get()) {
             return;
         }
-        if (this.f27562a != 3) {
-            this.f27562a = 2;
+        if (this.f27563a != 3) {
+            this.f27563a = 2;
         }
         this.x.set(true);
         this.i = System.currentTimeMillis();
-        if (this.f27562a == 2) {
+        if (this.f27563a == 2) {
             long j = this.l - this.k;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("error_code", this.f27564c);
-                jSONObject.put("error_msg", this.f27565d);
-                jSONObject.put("error_url", this.f27566e);
+                jSONObject.put("error_code", this.f27565c);
+                jSONObject.put("error_msg", this.f27566d);
+                jSONObject.put("error_url", this.f27567e);
                 jSONObject.putOpt("render_type", "h5");
                 jSONObject.putOpt("render_type_2", 0);
             } catch (Exception unused) {
@@ -271,9 +271,9 @@ public class j {
         }
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("error_code", this.f27564c);
-            jSONObject2.put("error_msg", this.f27565d);
-            jSONObject2.put("error_url", this.f27566e);
+            jSONObject2.put("error_code", this.f27565c);
+            jSONObject2.put("error_msg", this.f27566d);
+            jSONObject2.put("error_url", this.f27567e);
             jSONObject2.putOpt("render_type", "h5");
             jSONObject2.putOpt("render_type_2", 0);
         } catch (Exception unused2) {
@@ -288,11 +288,11 @@ public class j {
             pVar.g();
         }
         if (!(str3 != null && str3.startsWith("image"))) {
-            this.f27562a = 3;
+            this.f27563a = 3;
         }
-        this.f27564c = i;
-        this.f27565d = str;
-        this.f27566e = str2;
+        this.f27565c = i;
+        this.f27566d = str;
+        this.f27567e = str2;
     }
 
     @RequiresApi(api = 21)
@@ -323,15 +323,15 @@ public class j {
     }
 
     private void a(String str, JSONObject jSONObject, long j) {
-        if (!this.q || this.f27568g == null || TextUtils.isEmpty(str)) {
+        if (!this.q || this.f27569g == null || TextUtils.isEmpty(str)) {
             return;
         }
         JSONObject jSONObject2 = null;
         if (jSONObject != null) {
             try {
                 int i = 1;
-                jSONObject.put("is_playable", this.f27568g.C() ? 1 : 0);
-                if (!com.bytedance.sdk.openadsdk.core.g.a.a().a(this.f27568g)) {
+                jSONObject.put("is_playable", this.f27569g.C() ? 1 : 0);
+                if (!com.bytedance.sdk.openadsdk.core.g.a.a().a(this.f27569g)) {
                     i = 0;
                 }
                 jSONObject.put("usecache", i);
@@ -350,7 +350,7 @@ public class j {
             } catch (JSONException unused3) {
             }
         }
-        u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f27569h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
-        d.c(this.f27567f, this.f27568g, this.f27569h, str, jSONObject2);
+        u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f27570h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
+        d.c(this.f27568f, this.f27569g, this.f27570h, str, jSONObject2);
     }
 }

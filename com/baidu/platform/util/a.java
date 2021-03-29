@@ -7,26 +7,26 @@ import java.util.Map;
 public class a implements ParamBuilder<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f10426a;
+    public Map<String, String> f10427a;
 
     public a a(String str, String str2) {
-        if (this.f10426a == null) {
-            this.f10426a = new LinkedHashMap();
+        if (this.f10427a == null) {
+            this.f10427a = new LinkedHashMap();
         }
-        this.f10426a.put(str, str2);
+        this.f10427a.put(str, str2);
         return this;
     }
 
     public String a() {
         StringBuilder sb;
-        Map<String, String> map = this.f10426a;
+        Map<String, String> map = this.f10427a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         String str = new String();
         int i = 0;
-        for (String str2 : this.f10426a.keySet()) {
-            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f10426a.get(str2));
+        for (String str2 : this.f10427a.keySet()) {
+            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f10427a.get(str2));
             if (i == 0) {
                 sb = new StringBuilder();
             } else {

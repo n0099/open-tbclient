@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.v0;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b0 extends c implements p<v0>, q {
     public static final int l = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     public NEGFeedBackView i;
@@ -88,7 +88,7 @@ public class b0 extends c implements p<v0>, q {
             } else if (aVar.isSupportTop()) {
                 v((!p(aVar) || d.b.h0.b.d.R()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
-                k0 k0Var = this.f51770h;
+                k0 k0Var = this.f51771h;
                 if (k0Var != null) {
                     k0Var.n(this);
                 }

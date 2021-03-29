@@ -156,30 +156,30 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
     }
 
     /* loaded from: classes4.dex */
-    public class d implements a.InterfaceC1115a {
+    public class d implements a.InterfaceC1116a {
         public d() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, k0.this.f42357e, 3);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, k0.this.f42358e, 3);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements a.InterfaceC1115a {
+    public class e implements a.InterfaceC1116a {
         public e() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, k0.this.f42357e, 3);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, k0.this.f42358e, 3);
         }
     }
 
@@ -220,7 +220,7 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
                     k0.this.D.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), k0.this.B, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -249,7 +249,7 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithOriginThreadData(originalThreadInfo);
             arrayList.add(videoItemData);
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f42357e, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs");
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f42358e, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs");
             BaijiahaoData baijiahaoData = originalThreadInfo.p;
             if (baijiahaoData != null) {
                 videoPlayActivityConfig.setNid(baijiahaoData.oriUgcNid);
@@ -262,7 +262,7 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
         if (a2Var != null) {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
             videoSerializeVideoThreadInfo.copyFromTransmitThreadData(a2Var);
-            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.f42357e, "frs", videoSerializeVideoThreadInfo.threadId, d.b.i0.x.m.g(), a2Var.j(), videoSerializeVideoThreadInfo);
+            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.f42358e, "frs", videoSerializeVideoThreadInfo.threadId, d.b.i0.x.m.g(), a2Var.j(), videoSerializeVideoThreadInfo);
             BaijiahaoData baijiahaoData = videoSerializeVideoThreadInfo.mBaijiahaoData;
             if (baijiahaoData != null) {
                 videoMiddlePageActivityConfig.setNid(baijiahaoData.oriUgcNid);
@@ -289,7 +289,7 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
         } else {
             f0Var.x(true);
         }
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds38));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds38));
         bVar.n(f0Var);
         d.b.i.f0 f0Var2 = new d.b.i.f0(this.w);
         f0Var2.n(Boolean.TRUE);
@@ -315,8 +315,8 @@ public class k0 extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(3);

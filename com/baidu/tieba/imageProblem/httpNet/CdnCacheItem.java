@@ -4,7 +4,7 @@ import d.b.b.e.p.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CdnCacheItem implements Serializable {
     public static final int TB_CDNCACHEITEM_ERROR = -1;
     public static final int TB_CDN_IP_DISABLE_TIME = 3600000;
@@ -25,7 +25,7 @@ public class CdnCacheItem implements Serializable {
     public long mobileLastTachometerTime = 0;
     public HashMap<String, String> ipHashMap = new HashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class TBIPListItem implements Serializable {
         public static final long serialVersionUID = -99289965442562023L;
         public String cdnIp;

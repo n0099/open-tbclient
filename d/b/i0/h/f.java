@@ -35,16 +35,16 @@ public class f {
     public String A;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f55079a;
+    public Context f55080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f55080b;
+    public TbPageContext f55081b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f55082d;
+    public ViewGroup f55083d;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55086h;
+    public int f55087h;
     public int i;
     public int j;
     public PopupWindow l;
@@ -53,7 +53,7 @@ public class f {
     public boolean o;
     public int q;
     public LinearLayout r;
-    public InterfaceC1260f s;
+    public InterfaceC1261f s;
     public g t;
     public TextView u;
     public TextView v;
@@ -63,16 +63,16 @@ public class f {
     public View z;
 
     /* renamed from: c  reason: collision with root package name */
-    public PopupWindow f55081c = null;
+    public PopupWindow f55082c = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public v0 f55083e = null;
+    public v0 f55084e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<String> f55084f = null;
+    public SparseArray<String> f55085f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.C1258b> f55085g = new ArrayList();
+    public List<b.C1259b> f55086g = new ArrayList();
     public NEGFeedBackView.b k = null;
     public int p = 3;
     public d.b.h0.r.f0.a B = null;
@@ -88,18 +88,18 @@ public class f {
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             if (f.this.k != null) {
-                f.this.k.onCheckedChanged(f.this.f55083e, compoundButton, z);
+                f.this.k.onCheckedChanged(f.this.f55084e, compoundButton, z);
             }
-            if (compoundButton.getTag() instanceof b.C1258b) {
-                b.C1258b c1258b = (b.C1258b) compoundButton.getTag();
+            if (compoundButton.getTag() instanceof b.C1259b) {
+                b.C1259b c1259b = (b.C1259b) compoundButton.getTag();
                 if (z) {
-                    if (f.this.f55085g.contains(c1258b)) {
+                    if (f.this.f55086g.contains(c1259b)) {
                         return;
                     }
-                    f.this.f55085g.add(c1258b);
+                    f.this.f55086g.add(c1259b);
                     return;
                 }
-                f.this.f55085g.remove(c1258b);
+                f.this.f55086g.remove(c1259b);
             }
         }
     }
@@ -145,9 +145,9 @@ public class f {
                 f.this.l.dismiss();
                 f.this.l = null;
             }
-            if (f.this.f55081c != null) {
-                f.this.f55081c.dismiss();
-                f.this.f55081c = null;
+            if (f.this.f55082c != null) {
+                f.this.f55082c.dismiss();
+                f.this.f55082c = null;
             }
             if (f.this.s != null) {
                 f.this.s.onClick();
@@ -167,7 +167,7 @@ public class f {
                 f.this.q();
             } else if (r != null) {
                 f.this.A();
-                CustomMessage customMessage = new CustomMessage(2016489, f.this.f55080b.getUniqueId());
+                CustomMessage customMessage = new CustomMessage(2016489, f.this.f55081b.getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, r);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -177,7 +177,7 @@ public class f {
 
     /* renamed from: d.b.i0.h.f$f  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1260f {
+    public interface InterfaceC1261f {
         void onClick();
     }
 
@@ -187,16 +187,16 @@ public class f {
     }
 
     public f(TbPageContext tbPageContext, View view) {
-        this.f55079a = null;
-        this.f55079a = tbPageContext.getPageActivity();
-        this.f55080b = tbPageContext;
+        this.f55080a = null;
+        this.f55080a = tbPageContext.getPageActivity();
+        this.f55081b = tbPageContext;
         this.m = view;
         u();
     }
 
     public final void A() {
         if (this.B == null) {
-            this.B = new d.b.h0.r.f0.a(this.f55080b);
+            this.B = new d.b.h0.r.f0.a(this.f55081b);
         }
         this.B.i(R.string.loading);
         this.B.h(true);
@@ -205,7 +205,7 @@ public class f {
     public final void o() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.p) {
-            SkinManager.setBackgroundColor(this.f55082d, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f55083d, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0106, 1);
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0204);
@@ -224,10 +224,10 @@ public class f {
     }
 
     public void q() {
-        PopupWindow popupWindow = this.f55081c;
+        PopupWindow popupWindow = this.f55082c;
         if (popupWindow != null) {
             popupWindow.dismiss();
-            this.f55081c = null;
+            this.f55082c = null;
         }
         PopupWindow popupWindow2 = this.l;
         if (popupWindow2 != null) {
@@ -238,18 +238,18 @@ public class f {
 
     public final JSONObject r() {
         JSONObject jSONObject = new JSONObject();
-        if (this.f55083e == null) {
+        if (this.f55084e == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
         int i = 0;
-        if (!ListUtils.isEmpty(this.f55085g)) {
+        if (!ListUtils.isEmpty(this.f55086g)) {
             int i2 = 0;
-            while (i < this.f55085g.size()) {
-                b.C1258b c1258b = this.f55085g.get(i);
-                if (c1258b != null) {
-                    jSONArray.put(String.valueOf(c1258b.f55054b));
-                    i2 = c1258b.f55053a + 1;
+            while (i < this.f55086g.size()) {
+                b.C1259b c1259b = this.f55086g.get(i);
+                if (c1259b != null) {
+                    jSONArray.put(String.valueOf(c1259b.f55055b));
+                    i2 = c1259b.f55054a + 1;
                 }
                 i++;
             }
@@ -262,9 +262,9 @@ public class f {
         }
         try {
             jSONObject.put("reason", jSONArray);
-            jSONObject.put("thread_ids", this.f55083e.f());
-            jSONObject.put("type", this.f55083e.a());
-            jSONObject.put("forum_id", this.f55083e.c());
+            jSONObject.put("thread_ids", this.f55084e.f());
+            jSONObject.put("type", this.f55084e.a());
+            jSONObject.put("forum_id", this.f55084e.c());
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -272,30 +272,30 @@ public class f {
     }
 
     public final View s() {
-        Context context = this.f55079a;
+        Context context = this.f55080a;
         if (context == null) {
             return null;
         }
-        if (this.f55082d == null) {
+        if (this.f55083d == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.neg_dt_head_popupwindow, (ViewGroup) null);
-            this.f55082d = viewGroup;
+            this.f55083d = viewGroup;
             this.w = (TextView) viewGroup.findViewById(R.id.head_text);
-            this.x = (TextView) this.f55082d.findViewById(R.id.sub_head_text);
+            this.x = (TextView) this.f55083d.findViewById(R.id.sub_head_text);
         }
         View g2 = this.n.g();
         if (g2 != null && g2.getParent() == null) {
-            int g3 = l.g(this.f55079a, R.dimen.ds40);
+            int g3 = l.g(this.f55080a, R.dimen.ds40);
             g2.setPadding(g3, 0, g3, 0);
-            this.f55082d.addView(g2);
+            this.f55083d.addView(g2);
         }
         if (this.r == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f55079a).inflate(R.layout.neg_dt_bottom_popupwindow, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f55080a).inflate(R.layout.neg_dt_bottom_popupwindow, (ViewGroup) null);
             this.r = linearLayout;
             this.v = (TextView) linearLayout.findViewById(R.id.dialog_bottom_cancel_button);
             this.u = (TextView) this.r.findViewById(R.id.dialog_bottom_certain_button);
             this.y = this.r.findViewById(R.id.top_line);
             this.z = this.r.findViewById(R.id.middle_line);
-            this.f55082d.addView(this.r);
+            this.f55083d.addView(this.r);
             this.v.setOnClickListener(new d());
             TextView textView = this.u;
             if (textView != null) {
@@ -303,32 +303,32 @@ public class f {
             }
             o();
         }
-        return this.f55082d;
+        return this.f55083d;
     }
 
     public final int t() {
-        ViewGroup viewGroup = this.f55082d;
+        ViewGroup viewGroup = this.f55083d;
         if (viewGroup == null) {
             return 0;
         }
         viewGroup.measure(0, 0);
-        int measuredHeight = this.f55082d.getMeasuredHeight() + l.g(this.f55079a, R.dimen.ds12);
+        int measuredHeight = this.f55083d.getMeasuredHeight() + l.g(this.f55080a, R.dimen.ds12);
         this.j = measuredHeight;
         return measuredHeight;
     }
 
     public final void u() {
-        this.q = l.g(this.f55079a, R.dimen.tbds32);
-        this.i = l.k(this.f55079a) - (this.q * 2);
-        d.b.i0.h.b bVar = new d.b.i0.h.b(this.f55080b);
+        this.q = l.g(this.f55080a, R.dimen.tbds32);
+        this.i = l.k(this.f55080a) - (this.q * 2);
+        d.b.i0.h.b bVar = new d.b.i0.h.b(this.f55081b);
         this.n = bVar;
         bVar.o(this.C);
         this.n.n(true);
     }
 
     public final void v() {
-        if (this.o && this.f55085g.size() != 0) {
-            this.f55085g.clear();
+        if (this.o && this.f55086g.size() != 0) {
+            this.f55086g.clear();
         }
     }
 
@@ -336,12 +336,12 @@ public class f {
         if (v0Var == null) {
             return;
         }
-        this.f55083e = v0Var;
+        this.f55084e = v0Var;
         SparseArray<String> b2 = v0Var.b();
-        this.f55084f = b2;
+        this.f55085f = b2;
         if (b2 != null && b2.size() > 8) {
-            for (int size = this.f55084f.size() - 1; size >= 8; size--) {
-                this.f55084f.removeAt(size);
+            for (int size = this.f55085f.size() - 1; size >= 8; size--) {
+                this.f55085f.removeAt(size);
             }
         }
         this.n.j(v0Var);
@@ -356,7 +356,7 @@ public class f {
     }
 
     public void z(String str) {
-        if (this.f55079a == null) {
+        if (this.f55080a == null) {
             return;
         }
         this.A = str;
@@ -365,26 +365,26 @@ public class f {
             ((ViewGroup) s.getParent()).removeView(s);
         }
         o();
-        this.f55086h = t() - l.g(this.f55079a, R.dimen.ds12);
-        PopupWindow popupWindow = new PopupWindow(s, this.i, this.f55086h);
-        this.f55081c = popupWindow;
+        this.f55087h = t() - l.g(this.f55080a, R.dimen.ds12);
+        PopupWindow popupWindow = new PopupWindow(s, this.i, this.f55087h);
+        this.f55082c = popupWindow;
         popupWindow.setFocusable(true);
-        this.f55081c.setTouchable(true);
-        this.f55081c.setOnDismissListener(this.D);
+        this.f55082c.setTouchable(true);
+        this.f55082c.setOnDismissListener(this.D);
         v();
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f55079a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f55080a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
         this.l = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);
         }
         this.l.showAtLocation(this.m, 0, 0, 0);
-        SkinManager.setBackgroundDrawable(this.f55081c, R.drawable.bg_dailog);
-        this.f55081c.showAtLocation(this.m, 17, 0, 0);
+        SkinManager.setBackgroundDrawable(this.f55082c, R.drawable.bg_dailog);
+        this.f55082c.showAtLocation(this.m, 17, 0, 0);
         NEGFeedBackView.b bVar = this.k;
         if (bVar != null) {
-            bVar.onNEGFeedbackWindowShow(this.f55083e);
+            bVar.onNEGFeedbackWindowShow(this.f55084e);
         }
         this.o = true;
-        this.f55080b.registerListener(this.E);
+        this.f55081b.registerListener(this.E);
     }
 }

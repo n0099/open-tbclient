@@ -3,7 +3,7 @@ package d.b.h0.r0;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import d.b.b.c.f.j;
 import d.b.h0.z0.p;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class b extends j {
     public b() {
         super(0);

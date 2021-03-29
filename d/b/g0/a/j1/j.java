@@ -6,7 +6,7 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 import d.b.g0.a.e0.v.b;
 import d.b.g0.a.y0.e.b;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static void a(String str) {
         b.a L;
@@ -52,16 +52,16 @@ public class j {
         if (cVar == null) {
             return;
         }
-        d.b.g0.a.p.d.b bVar = cVar.f44303a;
+        d.b.g0.a.p.d.b bVar = cVar.f44304a;
         if (bVar != null) {
             bVar.O(str);
         }
         HybridUbcFlow p = i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
         UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
-        ubcFlowEvent.h(cVar.f44306d);
+        ubcFlowEvent.h(cVar.f44307d);
         p.A(ubcFlowEvent);
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
-        ubcFlowEvent2.h(cVar.f44307e);
+        ubcFlowEvent2.h(cVar.f44308e);
         p.A(ubcFlowEvent2);
     }
 

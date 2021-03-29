@@ -8,36 +8,36 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60927a;
+    public String f60928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60928b;
+    public int f60929b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f60929c = new ArrayList();
+    public List<b> f60930c = new ArrayList();
 
     public List<b> a() {
-        if (this.f60929c == null) {
-            this.f60929c = new ArrayList();
+        if (this.f60930c == null) {
+            this.f60930c = new ArrayList();
         }
-        return this.f60929c;
+        return this.f60930c;
     }
 
     public String b() {
-        return this.f60927a;
+        return this.f60928a;
     }
 
     public void c(JSONObject jSONObject) {
-        this.f60927a = jSONObject.optString("mark_type_name");
-        this.f60928b = jSONObject.optInt("mark_type_wear");
+        this.f60928a = jSONObject.optString("mark_type_name");
+        this.f60929b = jSONObject.optInt("mark_type_wear");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.n(optJSONArray.optJSONObject(i));
-                bVar.o(this.f60927a);
-                bVar.p(this.f60928b);
-                this.f60929c.add(bVar);
+                bVar.o(this.f60928a);
+                bVar.p(this.f60929b);
+                this.f60930c.add(bVar);
             }
         }
     }

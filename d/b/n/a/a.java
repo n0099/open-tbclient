@@ -1,5 +1,5 @@
 package d.b.n.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a implements f {
     public a(com.baidu.crabsdk.a.c cVar) {
     }

@@ -19,67 +19,67 @@ import java.util.WeakHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29438a;
+    public static String f29439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29439b;
+    public static String f29440b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f29440g;
+    public static volatile a f29441g;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f29441c = new WeakHashMap<>();
+    public WeakHashMap<String, String> f29442c = new WeakHashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final LruCache<String, C0320a> f29444f = new LruCache<String, C0320a>(5242880) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
+    public final LruCache<String, C0321a> f29445f = new LruCache<String, C0321a>(5242880) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public int sizeOf(String str, C0320a c0320a) {
-            byte[] bArr = c0320a.f29446a;
+        public int sizeOf(String str, C0321a c0321a) {
+            byte[] bArr = c0321a.f29447a;
             int length = bArr != null ? 0 + bArr.length : 0;
-            return length == 0 ? super.sizeOf(str, c0320a) : length;
+            return length == 0 ? super.sizeOf(str, c0321a) : length;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public void entryRemoved(boolean z, String str, C0320a c0320a, C0320a c0320a2) {
-            super.entryRemoved(z, str, c0320a, c0320a2);
-            if (!z || c0320a == null) {
+        public void entryRemoved(boolean z, String str, C0321a c0321a, C0321a c0321a2) {
+            super.entryRemoved(z, str, c0321a, c0321a2);
+            if (!z || c0321a == null) {
                 return;
             }
-            c0320a.f29446a = null;
+            c0321a.f29447a = null;
         }
     };
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f29442d = new com.bytedance.sdk.openadsdk.b.d();
+    public final com.bytedance.sdk.openadsdk.b.a f29443d = new com.bytedance.sdk.openadsdk.b.d();
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f29443e = new com.bytedance.sdk.openadsdk.b.d(DownloadManager.MIN_LEFT_SIZE, true);
+    public final com.bytedance.sdk.openadsdk.b.a f29444e = new com.bytedance.sdk.openadsdk.b.d(DownloadManager.MIN_LEFT_SIZE, true);
 
     /* renamed from: com.bytedance.sdk.openadsdk.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0320a {
+    public static class C0321a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f29446a;
+        public byte[] f29447a;
 
-        public C0320a(byte[] bArr) {
-            this.f29446a = bArr;
+        public C0321a(byte[] bArr) {
+            this.f29447a = bArr;
         }
     }
 
     public static a a() {
-        if (f29440g == null) {
+        if (f29441g == null) {
             synchronized (a.class) {
-                if (f29440g == null) {
-                    f29440g = new a();
+                if (f29441g == null) {
+                    f29441g = new a();
                 }
             }
         }
-        return f29440g;
+        return f29441g;
     }
 
     public synchronized void b(String str, byte[] bArr) {
@@ -87,7 +87,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f29444f.put(str, new C0320a(bArr));
+                this.f29445f.put(str, new C0321a(bArr));
             }
             File file = new File(c(), str);
             if (file.exists() && file.isFile() && file.length() > 0) {
@@ -112,7 +112,7 @@ public class a {
                         }
                         file2.renameTo(file);
                     }
-                    this.f29442d.a(file);
+                    this.f29443d.a(file);
                     fileOutputStream.close();
                 } catch (Throwable unused2) {
                     fileOutputStream2 = fileOutputStream;
@@ -132,7 +132,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f29444f.put(str, new C0320a(bArr));
+                this.f29445f.put(str, new C0321a(bArr));
             }
             u.f("splashLoadAd", " GifCache put 保存到本地图片的素材路径 getCacheDir() " + b());
             File file = new File(b(), str);
@@ -159,8 +159,8 @@ public class a {
                         }
                         file2.renameTo(file);
                     }
-                    if (this.f29443e != null) {
-                        this.f29443e.a(file);
+                    if (this.f29444e != null) {
+                        this.f29444e.a(file);
                     }
                     fileOutputStream.close();
                 } catch (Throwable unused2) {
@@ -177,8 +177,8 @@ public class a {
     }
 
     public synchronized void a(String str, byte[] bArr) {
-        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f29448b);
-        if (b.f29448b) {
+        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f29449b);
+        if (b.f29449b) {
             c(str, bArr);
         } else {
             b(str, bArr);
@@ -207,14 +207,14 @@ public class a {
         return null;
     }
 
-    public synchronized C0320a a(String str) {
+    public synchronized C0321a a(String str) {
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0320a c0320a = this.f29444f.get(str);
-        if (c0320a != null) {
-            return c0320a;
+        C0321a c0321a = this.f29445f.get(str);
+        if (c0321a != null) {
+            return c0321a;
         }
         File file = new File(c(), str);
         if (file.exists()) {
@@ -223,12 +223,12 @@ public class a {
                 try {
                     ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                     fileInputStream.getChannel().read(allocate);
-                    C0320a c0320a2 = new C0320a(allocate.array());
+                    C0321a c0321a2 = new C0321a(allocate.array());
                     try {
                         fileInputStream.close();
                     } catch (IOException unused) {
                     }
-                    return c0320a2;
+                    return c0321a2;
                 } catch (Throwable th) {
                     th = th;
                     u.c("GifCache", "gifCache get error ", th);
@@ -248,15 +248,15 @@ public class a {
         return null;
     }
 
-    public synchronized C0320a b(String str) {
+    public synchronized C0321a b(String str) {
         FileInputStream fileInputStream;
         u.f("splashLoadAd", " GifCache get  key " + str);
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0320a c0320a = this.f29444f.get(str);
-        if (c0320a != null) {
-            return c0320a;
+        C0321a c0321a = this.f29445f.get(str);
+        if (c0321a != null) {
+            return c0321a;
         }
         u.f("splashLoadAd", " GifCache 从缓存文件中获取图片素材，图片路径为" + b() + " key " + str);
         File file = new File(b(), str);
@@ -271,12 +271,12 @@ public class a {
                 try {
                     ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                     fileInputStream.getChannel().read(allocate);
-                    C0320a c0320a2 = new C0320a(allocate.array());
+                    C0321a c0321a2 = new C0321a(allocate.array());
                     try {
                         fileInputStream.close();
                     } catch (IOException unused) {
                     }
-                    return c0320a2;
+                    return c0321a2;
                 } catch (Throwable th) {
                     th = th;
                     u.c("GifCache", "gifCache get error ", th);
@@ -299,10 +299,10 @@ public class a {
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f29438a)) {
-            f29438a = c("diskGif");
+        if (TextUtils.isEmpty(f29439a)) {
+            f29439a = c("diskGif");
         }
-        return f29438a;
+        return f29439a;
     }
 
     public static String c(String str) {
@@ -345,19 +345,19 @@ public class a {
         if (str.startsWith("https")) {
             str = str.replaceFirst("https", "http");
         }
-        String str2 = this.f29441c.get(str);
+        String str2 = this.f29442c.get(str);
         if (TextUtils.isEmpty(str2)) {
             String a2 = j.a(str);
-            this.f29441c.put(str, a2);
+            this.f29442c.put(str, a2);
             return a2;
         }
         return str2;
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f29439b)) {
-            f29439b = c("splash_image");
+        if (TextUtils.isEmpty(f29440b)) {
+            f29440b = c("splash_image");
         }
-        return f29439b;
+        return f29440b;
     }
 }

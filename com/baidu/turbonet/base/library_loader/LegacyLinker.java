@@ -4,22 +4,22 @@ import com.baidu.turbonet.base.ThreadUtils;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class LegacyLinker extends Linker {
 
     /* loaded from: classes5.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f22663e;
+        public final /* synthetic */ long f22664e;
 
         public a(long j) {
-            this.f22663e = j;
+            this.f22664e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LegacyLinker.nativeRunCallbackOnUiThread(this.f22663e);
+            LegacyLinker.nativeRunCallbackOnUiThread(this.f22664e);
         }
     }
 

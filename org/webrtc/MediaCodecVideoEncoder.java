@@ -123,7 +123,7 @@ public class MediaCodecVideoEncoder {
     public class C1CaughtException {
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f68130e;
+        public Exception f68135e;
 
         public C1CaughtException() {
         }
@@ -504,9 +504,7 @@ public class MediaCodecVideoEncoder {
     }
 
     private double getBitrateScale(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return Math.pow(4.0d, d2 / 20.0d);
+        return Math.pow(4.0d, i / 20.0d);
     }
 
     @Nullable
@@ -596,35 +594,24 @@ public class MediaCodecVideoEncoder {
         if (i2 == 0 || this.bitrateAdjustmentType != BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
             return;
         }
-        double d2 = this.targetBitrateBps;
-        double d3 = i2;
-        Double.isNaN(d3);
-        Double.isNaN(d2);
-        double d4 = d2 / (d3 * 8.0d);
-        double d5 = this.bitrateAccumulator;
-        double d6 = i;
-        Double.isNaN(d6);
-        double d7 = d5 + (d6 - d4);
-        this.bitrateAccumulator = d7;
-        double d8 = this.bitrateObservationTimeMs;
-        double d9 = i2;
-        Double.isNaN(d9);
-        this.bitrateObservationTimeMs = d8 + (1000.0d / d9);
-        double d10 = this.bitrateAccumulatorMax * 3.0d;
-        double min = Math.min(d7, d10);
+        double d2 = this.bitrateAccumulator + (i - (this.targetBitrateBps / (i2 * 8.0d)));
+        this.bitrateAccumulator = d2;
+        this.bitrateObservationTimeMs += 1000.0d / i2;
+        double d3 = this.bitrateAccumulatorMax * 3.0d;
+        double min = Math.min(d2, d3);
         this.bitrateAccumulator = min;
-        this.bitrateAccumulator = Math.max(min, -d10);
+        this.bitrateAccumulator = Math.max(min, -d3);
         if (this.bitrateObservationTimeMs > 3000.0d) {
             Logging.d(TAG, "Acc: " + ((int) this.bitrateAccumulator) + ". Max: " + ((int) this.bitrateAccumulatorMax) + ". ExpScale: " + this.bitrateAdjustmentScaleExp);
-            double d11 = this.bitrateAccumulator;
-            double d12 = this.bitrateAccumulatorMax;
+            double d4 = this.bitrateAccumulator;
+            double d5 = this.bitrateAccumulatorMax;
             boolean z = true;
-            if (d11 > d12) {
-                this.bitrateAdjustmentScaleExp -= (int) ((d11 / d12) + 0.5d);
-                this.bitrateAccumulator = d12;
-            } else if (d11 < (-d12)) {
-                this.bitrateAdjustmentScaleExp += (int) (((-d11) / d12) + 0.5d);
-                this.bitrateAccumulator = -d12;
+            if (d4 > d5) {
+                this.bitrateAdjustmentScaleExp -= (int) ((d4 / d5) + 0.5d);
+                this.bitrateAccumulator = d5;
+            } else if (d4 < (-d5)) {
+                this.bitrateAdjustmentScaleExp += (int) (((-d4) / d5) + 0.5d);
+                this.bitrateAccumulator = -d5;
             } else {
                 z = false;
             }
@@ -659,16 +646,10 @@ public class MediaCodecVideoEncoder {
         int i3 = i * 1000;
         if (this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
             double d2 = i3;
-            Double.isNaN(d2);
             this.bitrateAccumulatorMax = d2 / 8.0d;
             int i4 = this.targetBitrateBps;
             if (i4 > 0 && i3 < i4) {
-                double d3 = this.bitrateAccumulator;
-                Double.isNaN(d2);
-                double d4 = d3 * d2;
-                double d5 = i4;
-                Double.isNaN(d5);
-                this.bitrateAccumulator = d4 / d5;
+                this.bitrateAccumulator = (this.bitrateAccumulator * d2) / i4;
             }
         }
         this.targetBitrateBps = i3;
@@ -685,10 +666,7 @@ public class MediaCodecVideoEncoder {
                 Logging.v(TAG, "setRates: " + i + " kbps. Fps: " + this.targetFps + ". ExpScale: " + this.bitrateAdjustmentScaleExp);
                 int i5 = this.bitrateAdjustmentScaleExp;
                 if (i5 != 0) {
-                    double d6 = i3;
-                    double bitrateScale = getBitrateScale(i5);
-                    Double.isNaN(d6);
-                    i3 = (int) (d6 * bitrateScale);
+                    i3 = (int) (i3 * getBitrateScale(i5));
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("video-bitrate", i3);
@@ -914,7 +892,7 @@ public class MediaCodecVideoEncoder {
         if (r6 > 23) goto L53;
      */
     /* JADX WARN: Removed duplicated region for block: B:38:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x024d  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x024a  */
     @CalledByNativeUnchecked
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -995,9 +973,7 @@ public class MediaCodecVideoEncoder {
                     int i10 = i4 * 1000;
                     this.targetBitrateBps = i10;
                     this.targetFps = i9;
-                    double d2 = i10;
-                    Double.isNaN(d2);
-                    this.bitrateAccumulatorMax = d2 / 8.0d;
+                    this.bitrateAccumulatorMax = i10 / 8.0d;
                     this.bitrateAccumulator = 0.0d;
                     this.bitrateObservationTimeMs = 0.0d;
                     this.bitrateAdjustmentScaleExp = 0;
@@ -1076,7 +1052,7 @@ public class MediaCodecVideoEncoder {
                         MediaCodecVideoEncoder.this.mediaCodec.release();
                     } catch (Exception e3) {
                         Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                        c1CaughtException.f68130e = e3;
+                        c1CaughtException.f68135e = e3;
                     }
                     Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                     countDownLatch.countDown();
@@ -1106,12 +1082,12 @@ public class MediaCodecVideoEncoder {
         }
         runningInstance = null;
         if (!z) {
-            if (c1CaughtException.f68130e == null) {
+            if (c1CaughtException.f68135e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
                 return;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f68130e);
-            runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f68130e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f68135e);
+            runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f68135e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         codecErrors++;

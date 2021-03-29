@@ -182,40 +182,40 @@ public class SearchLocationActivity extends NavigationBarActivity {
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
             MessageManager messageManager = MessageManager.getInstance();
-            a.C1343a c1343a = (a.C1343a) SearchLocationActivity.this.mAdapter.getItem(i);
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1343a.a(), c1343a.a(), c1343a.b()));
+            a.C1344a c1344a = (a.C1344a) SearchLocationActivity.this.mAdapter.getItem(i);
+            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1344a.a(), c1344a.a(), c1344a.b()));
             SearchLocationActivity.this.finish();
         }
     }
 
-    private ArrayList<a.C1343a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
+    private ArrayList<a.C1344a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
         LocationData.NearByAddressData nearByAddressData = null;
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<a.C1343a> arrayList = new ArrayList<>();
+        ArrayList<a.C1344a> arrayList = new ArrayList<>();
         for (LocationData.NearByAddressData nearByAddressData2 : list) {
             if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                 if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                     nearByAddressData = nearByAddressData2;
                 } else {
-                    a.C1343a c1343a = new a.C1343a();
-                    c1343a.d(nearByAddressData2.getName());
-                    c1343a.e(nearByAddressData2.getSn());
-                    arrayList.add(c1343a);
+                    a.C1344a c1344a = new a.C1344a();
+                    c1344a.d(nearByAddressData2.getName());
+                    c1344a.e(nearByAddressData2.getSn());
+                    arrayList.add(c1344a);
                 }
             }
         }
         if (nearByAddressData != null) {
-            a.C1343a c1343a2 = new a.C1343a();
-            c1343a2.d(nearByAddressData.getName());
-            c1343a2.e(nearByAddressData.getSn());
-            arrayList.add(0, c1343a2);
+            a.C1344a c1344a2 = new a.C1344a();
+            c1344a2.d(nearByAddressData.getName());
+            c1344a2.e(nearByAddressData.getSn());
+            arrayList.add(0, c1344a2);
         } else {
-            a.C1343a c1343a3 = new a.C1343a();
-            c1343a3.d(str);
-            c1343a3.e(str2);
-            arrayList.add(0, c1343a3);
+            a.C1344a c1344a3 = new a.C1344a();
+            c1344a3.d(str);
+            c1344a3.e(str2);
+            arrayList.add(0, c1344a3);
         }
         return arrayList;
     }

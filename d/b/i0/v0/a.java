@@ -10,36 +10,36 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61964a;
+    public String f61965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61965b;
+    public String f61966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f61966c;
+    public b f61967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61967d;
+    public String f61968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61968e;
+    public String f61969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<C1635a> f61969f;
+    public List<C1636a> f61970f;
 
     /* renamed from: d.b.i0.v0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1635a {
+    public static class C1636a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f61970a;
+        public String f61971a;
 
         public String a() {
-            return this.f61970a;
+            return this.f61971a;
         }
 
         public void b(String str) {
-            this.f61970a = str;
+            this.f61971a = str;
         }
     }
 
@@ -47,25 +47,25 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f61971a;
+        public String f61972a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61972b;
+        public String f61973b;
 
         public String a() {
-            return this.f61971a;
+            return this.f61972a;
         }
 
         public String b() {
-            return this.f61972b;
+            return this.f61973b;
         }
 
         public void c(String str) {
-            this.f61971a = str;
+            this.f61972a = str;
         }
 
         public void d(String str) {
-            this.f61972b = str;
+            this.f61973b = str;
         }
 
         public void e(String str) {
@@ -85,11 +85,11 @@ public class a {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                C1635a c1635a = new C1635a();
+                C1636a c1636a = new C1636a();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    c1635a.b(optJSONObject.optString(UserAccountActionItem.KEY_SRC));
-                    arrayList.add(c1635a);
+                    c1636a.b(optJSONObject.optString(UserAccountActionItem.KEY_SRC));
+                    arrayList.add(c1636a);
                 }
             }
             aVar.l(arrayList);
@@ -118,27 +118,27 @@ public class a {
     }
 
     public String a() {
-        return this.f61968e;
+        return this.f61969e;
     }
 
-    public List<C1635a> b() {
-        return this.f61969f;
+    public List<C1636a> b() {
+        return this.f61970f;
     }
 
     public String c() {
-        return this.f61964a;
+        return this.f61965a;
     }
 
     public String d() {
-        return this.f61965b;
+        return this.f61966b;
     }
 
     public b e() {
-        return this.f61966c;
+        return this.f61967c;
     }
 
     public String f() {
-        return this.f61967d;
+        return this.f61968d;
     }
 
     public void h(String str) {
@@ -148,14 +148,14 @@ public class a {
     }
 
     public void j(String str) {
-        this.f61968e = str;
+        this.f61969e = str;
     }
 
     public void k(String str) {
     }
 
-    public void l(List<C1635a> list) {
-        this.f61969f = list;
+    public void l(List<C1636a> list) {
+        this.f61970f = list;
     }
 
     public void m(String str) {
@@ -174,11 +174,11 @@ public class a {
     }
 
     public void r(String str) {
-        this.f61964a = str;
+        this.f61965a = str;
     }
 
     public void s(String str) {
-        this.f61965b = str;
+        this.f61966b = str;
     }
 
     public void t(String str) {
@@ -188,14 +188,14 @@ public class a {
     }
 
     public void v(b bVar) {
-        this.f61966c = bVar;
+        this.f61967c = bVar;
     }
 
     public void w(String str) {
     }
 
     public void x(String str) {
-        this.f61967d = str;
+        this.f61968d = str;
     }
 
     public void y(String str) {

@@ -16,49 +16,49 @@ import org.json.JSONObject;
 public class e extends Presenter implements com.kwad.sdk.core.i.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f36626a;
+    public com.kwad.sdk.splashscreen.c f36627a;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f36631f;
+    public ImageView f36632f;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f36627b = false;
+    public volatile boolean f36628b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36628c = false;
+    public boolean f36629c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36629d = false;
+    public boolean f36630d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36630e = false;
+    public boolean f36631e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public g.a f36632g = new g.a() { // from class: com.kwad.sdk.splashscreen.a.e.1
+    public g.a f36633g = new g.a() { // from class: com.kwad.sdk.splashscreen.a.e.1
         @Override // com.kwad.sdk.utils.g.a
         public void a() {
-            e.this.f36627b = false;
-            if (e.this.f36631f != null) {
-                e.this.f36631f.post(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.e.1.1
+            e.this.f36628b = false;
+            if (e.this.f36632f != null) {
+                e.this.f36632f.post(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.e.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         e eVar = e.this;
-                        com.kwad.sdk.splashscreen.b.a aVar = eVar.f36626a.f36661e;
+                        com.kwad.sdk.splashscreen.b.a aVar = eVar.f36627a.f36662e;
                         if (aVar != null) {
-                            aVar.a(eVar.f36627b, false);
+                            aVar.a(eVar.f36628b, false);
                         }
-                        com.kwad.sdk.splashscreen.c cVar = e.this.f36626a;
+                        com.kwad.sdk.splashscreen.c cVar = e.this.f36627a;
                         if (cVar != null) {
-                            AdInfo j = com.kwad.sdk.core.response.b.c.j(cVar.f36659c);
-                            boolean z = e.this.f36627b;
+                            AdInfo j = com.kwad.sdk.core.response.b.c.j(cVar.f36660c);
+                            boolean z = e.this.f36628b;
                             AdInfo.AdSplashInfo adSplashInfo = j.adSplashInfo;
                             String str = z ? adSplashInfo.speakerIconUrl : adSplashInfo.speakerMuteIconUrl;
                             if (TextUtils.isEmpty(str)) {
-                                e.this.f36631f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
+                                e.this.f36632f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
                             } else {
-                                KSImageLoader.loadImage(e.this.f36631f, str, e.this.f36626a.f36659c);
+                                KSImageLoader.loadImage(e.this.f36632f, str, e.this.f36627a.f36660c);
                             }
-                            e.this.f36631f.setSelected(false);
+                            e.this.f36632f.setSelected(false);
                         }
                     }
                 });
@@ -71,10 +71,10 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.e f36633h = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.splashscreen.a.e.2
+    public com.kwad.sdk.contentalliance.detail.video.e f36634h = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.splashscreen.a.e.2
         @Override // com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = e.this.f36626a.f36657a;
+            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = e.this.f36627a.f36658a;
             if (splashScreenAdInteractionListener != null) {
                 splashScreenAdInteractionListener.onAdShowEnd();
             }
@@ -83,10 +83,10 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
         @Override // com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
             e eVar = e.this;
-            if (eVar.f36626a.f36657a == null || eVar.f36630e) {
+            if (eVar.f36627a.f36658a == null || eVar.f36631e) {
                 return;
             }
-            e.this.f36626a.f36657a.onAdShowError(0, "onVideoPlayError");
+            e.this.f36627a.f36658a.onAdShowError(0, "onVideoPlayError");
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e
@@ -96,9 +96,9 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
         @Override // com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             e eVar = e.this;
-            com.kwad.sdk.splashscreen.b.a aVar = eVar.f36626a.f36661e;
+            com.kwad.sdk.splashscreen.b.a aVar = eVar.f36627a.f36662e;
             if (aVar != null) {
-                aVar.a(eVar.f36627b, false);
+                aVar.a(eVar.f36628b, false);
             }
         }
 
@@ -108,21 +108,21 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            if (e.this.f36628c) {
+            if (e.this.f36629c) {
                 return;
             }
             e.this.e();
-            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = e.this.f36626a.f36657a;
+            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = e.this.f36627a.f36658a;
             if (splashScreenAdInteractionListener != null) {
                 splashScreenAdInteractionListener.onAdShowStart();
-                com.kwad.sdk.splashscreen.b.a aVar = e.this.f36626a.f36661e;
+                com.kwad.sdk.splashscreen.b.a aVar = e.this.f36627a.f36662e;
                 if (aVar != null) {
                     aVar.a(true);
                     e eVar = e.this;
-                    eVar.f36626a.f36661e.a(eVar.f36627b, true);
+                    eVar.f36627a.f36662e.a(eVar.f36628b, true);
                 }
             }
-            e.this.f36628c = true;
+            e.this.f36629c = true;
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e
@@ -144,7 +144,7 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.b.h(this.f36626a.f36659c);
+        com.kwad.sdk.core.report.b.h(this.f36627a.f36660c);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x005d  */
@@ -162,92 +162,92 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
         String str;
         super.a();
         com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
-        this.f36626a = cVar;
-        ((DetailVideoView) cVar.f36660d.findViewById(R.id.ksad_splash_video_player)).setVisibility(0);
-        com.kwad.sdk.splashscreen.b.a aVar2 = this.f36626a.f36661e;
+        this.f36627a = cVar;
+        ((DetailVideoView) cVar.f36661d.findViewById(R.id.ksad_splash_video_player)).setVisibility(0);
+        com.kwad.sdk.splashscreen.b.a aVar2 = this.f36627a.f36662e;
         if (aVar2 != null) {
-            aVar2.a(this.f36633h);
+            aVar2.a(this.f36634h);
         }
-        this.f36626a.f36664h.a(this);
-        final AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f36626a.f36659c);
+        this.f36627a.f36665h.a(this);
+        final AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f36627a.f36660c);
         int i = j.adSplashInfo.mute;
         boolean z = true;
         if (i != 2) {
             if (i != 3) {
-                this.f36627b = false;
+                this.f36628b = false;
                 if (com.kwad.sdk.utils.b.a().b()) {
-                    this.f36627b = false;
+                    this.f36628b = false;
                 }
-                aVar = this.f36626a.f36661e;
+                aVar = this.f36627a.f36662e;
                 if (aVar != null) {
-                    aVar.a(this.f36627b, false);
-                    this.f36626a.f36661e.a(this.f36632g);
+                    aVar.a(this.f36628b, false);
+                    this.f36627a.f36662e.a(this.f36633g);
                 }
-                ImageView imageView = (ImageView) this.f36626a.f36660d.findViewById(R.id.ksad_splash_sound);
-                this.f36631f = imageView;
+                ImageView imageView = (ImageView) this.f36627a.f36661d.findViewById(R.id.ksad_splash_sound);
+                this.f36632f = imageView;
                 imageView.setVisibility(0);
-                str = !this.f36627b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
+                str = !this.f36628b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                 if (TextUtils.isEmpty(str)) {
-                    KSImageLoader.loadImage(this.f36631f, str, this.f36626a.f36659c);
+                    KSImageLoader.loadImage(this.f36632f, str, this.f36627a.f36660c);
                 } else {
-                    this.f36631f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
+                    this.f36632f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
                 }
-                this.f36631f.setSelected(this.f36627b);
-                this.f36631f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.e.3
+                this.f36632f.setSelected(this.f36628b);
+                this.f36632f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         e eVar = e.this;
-                        eVar.f36627b = !eVar.f36627b;
-                        String str2 = e.this.f36627b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
+                        eVar.f36628b = !eVar.f36628b;
+                        String str2 = e.this.f36628b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                         if (TextUtils.isEmpty(str2)) {
-                            e.this.f36631f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
+                            e.this.f36632f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
                         } else {
-                            KSImageLoader.loadImage(e.this.f36631f, str2, e.this.f36626a.f36659c);
+                            KSImageLoader.loadImage(e.this.f36632f, str2, e.this.f36627a.f36660c);
                         }
-                        e.this.f36631f.setSelected(e.this.f36627b);
+                        e.this.f36632f.setSelected(e.this.f36628b);
                         e eVar2 = e.this;
-                        eVar2.f36626a.f36661e.a(eVar2.f36627b, true);
+                        eVar2.f36627a.f36662e.a(eVar2.f36628b, true);
                     }
                 });
-            } else if (ah.j(this.f36626a.f36660d.getContext()) <= 0) {
+            } else if (ah.j(this.f36627a.f36661d.getContext()) <= 0) {
                 z = false;
             }
         }
-        this.f36627b = z;
+        this.f36628b = z;
         if (com.kwad.sdk.utils.b.a().b()) {
         }
-        aVar = this.f36626a.f36661e;
+        aVar = this.f36627a.f36662e;
         if (aVar != null) {
         }
-        ImageView imageView2 = (ImageView) this.f36626a.f36660d.findViewById(R.id.ksad_splash_sound);
-        this.f36631f = imageView2;
+        ImageView imageView2 = (ImageView) this.f36627a.f36661d.findViewById(R.id.ksad_splash_sound);
+        this.f36632f = imageView2;
         imageView2.setVisibility(0);
-        if (!this.f36627b) {
+        if (!this.f36628b) {
         }
         if (TextUtils.isEmpty(str)) {
         }
-        this.f36631f.setSelected(this.f36627b);
-        this.f36631f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.e.3
+        this.f36632f.setSelected(this.f36628b);
+        this.f36632f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e eVar = e.this;
-                eVar.f36627b = !eVar.f36627b;
-                String str2 = e.this.f36627b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
+                eVar.f36628b = !eVar.f36628b;
+                String str2 = e.this.f36628b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                 if (TextUtils.isEmpty(str2)) {
-                    e.this.f36631f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
+                    e.this.f36632f.setImageDrawable(e.this.o().getResources().getDrawable(R.drawable.ksad_splash_sound_selector));
                 } else {
-                    KSImageLoader.loadImage(e.this.f36631f, str2, e.this.f36626a.f36659c);
+                    KSImageLoader.loadImage(e.this.f36632f, str2, e.this.f36627a.f36660c);
                 }
-                e.this.f36631f.setSelected(e.this.f36627b);
+                e.this.f36632f.setSelected(e.this.f36628b);
                 e eVar2 = e.this;
-                eVar2.f36626a.f36661e.a(eVar2.f36627b, true);
+                eVar2.f36627a.f36662e.a(eVar2.f36628b, true);
             }
         });
     }
 
     @Override // com.kwad.sdk.core.i.c
     public void b() {
-        com.kwad.sdk.splashscreen.b.a aVar = this.f36626a.f36661e;
+        com.kwad.sdk.splashscreen.b.a aVar = this.f36627a.f36662e;
         if (aVar != null) {
             aVar.e();
         }
@@ -256,26 +256,26 @@ public class e extends Presenter implements com.kwad.sdk.core.i.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        com.kwad.sdk.splashscreen.b.a aVar = this.f36626a.f36661e;
+        com.kwad.sdk.splashscreen.b.a aVar = this.f36627a.f36662e;
         if (aVar != null) {
-            aVar.b(this.f36633h);
-            this.f36626a.f36661e.b(this.f36632g);
+            aVar.b(this.f36634h);
+            this.f36627a.f36662e.b(this.f36633g);
         }
-        this.f36626a.f36664h.b(this);
+        this.f36627a.f36665h.b(this);
     }
 
     @Override // com.kwad.sdk.core.i.c
     public void c_() {
-        if (this.f36629d) {
+        if (this.f36630d) {
             return;
         }
-        this.f36629d = true;
-        com.kwad.sdk.core.report.b.a(this.f36626a.f36659c, (JSONObject) null);
+        this.f36630d = true;
+        com.kwad.sdk.core.report.b.a(this.f36627a.f36660c, (JSONObject) null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        this.f36630e = true;
+        this.f36631e = true;
     }
 }

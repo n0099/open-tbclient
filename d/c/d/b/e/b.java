@@ -25,16 +25,16 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f65815c = {"version_code", "manifest_version_code", "aid", "update_version_code"};
+    public static final String[] f65816c = {"version_code", "manifest_version_code", "aid", "update_version_code"};
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65816a;
+    public Context f65817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f65817b = new JSONObject();
+    public JSONObject f65818b = new JSONObject();
 
     public b(Context context) {
-        this.f65816a = context;
+        this.f65817a = context;
     }
 
     public static b a(Context context) {
@@ -51,54 +51,54 @@ public final class b {
     }
 
     public JSONObject b() {
-        return this.f65817b;
+        return this.f65818b;
     }
 
     public JSONObject c(String str) {
         try {
-            this.f65817b.put(Constants.KEY_DEVICE_ID, str);
+            this.f65818b.put(Constants.KEY_DEVICE_ID, str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        return this.f65817b;
+        return this.f65818b;
     }
 
     public JSONObject d(@Nullable Map<String, Object> map) {
         String[] strArr;
         if (map == null) {
-            return this.f65817b;
+            return this.f65818b;
         }
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            if (!this.f65817b.has(entry.getKey())) {
-                this.f65817b.put(entry.getKey(), entry.getValue());
+            if (!this.f65818b.has(entry.getKey())) {
+                this.f65818b.put(entry.getKey(), entry.getValue());
             }
         }
-        for (String str : f65815c) {
+        for (String str : f65816c) {
             if (map.containsKey(str)) {
                 try {
-                    this.f65817b.put(str, Integer.parseInt((String) map.get(str)));
+                    this.f65818b.put(str, Integer.parseInt((String) map.get(str)));
                 } catch (Exception unused) {
-                    this.f65817b.put(str, map.get(str));
+                    this.f65818b.put(str, map.get(str));
                 }
             }
         }
         if (map.containsKey("version_code") && !map.containsKey("manifest_version_code")) {
-            this.f65817b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
+            this.f65818b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
         }
         if (map.containsKey("iid")) {
-            this.f65817b.put("udid", map.get("iid"));
-            this.f65817b.remove("iid");
+            this.f65818b.put("udid", map.get("iid"));
+            this.f65818b.remove("iid");
         }
-        return this.f65817b;
+        return this.f65818b;
     }
 
     @SuppressLint({"MissingPermission"})
     public final void e(JSONObject jSONObject) {
         int i;
         try {
-            PackageInfo packageInfo = this.f65816a.getPackageManager().getPackageInfo(this.f65816a.getPackageName(), 0);
+            PackageInfo packageInfo = this.f65817a.getPackageManager().getPackageInfo(this.f65817a.getPackageName(), 0);
             if (packageInfo.applicationInfo != null && (i = packageInfo.applicationInfo.labelRes) > 0) {
-                jSONObject.put("display_name", this.f65816a.getString(i));
+                jSONObject.put("display_name", this.f65817a.getString(i));
             }
             jSONObject.put("sdk_version", 22130);
             jSONObject.put("sdk_version_name", "2.2.1-alpha.30");
@@ -136,12 +136,12 @@ public final class b {
     public JSONObject g(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                this.f65817b.put("user_id", str);
+                this.f65818b.put("user_id", str);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        return this.f65817b;
+        return this.f65818b;
     }
 
     public final void h(JSONObject jSONObject) {
@@ -174,7 +174,7 @@ public final class b {
 
     public final void j(JSONObject jSONObject) {
         try {
-            DisplayMetrics displayMetrics = this.f65816a.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f65817a.getResources().getDisplayMetrics();
             int i = displayMetrics.densityDpi;
             String str = i != 120 ? i != 240 ? i != 320 ? "mdpi" : "xhdpi" : "hdpi" : "ldpi";
             jSONObject.put("density_dpi", i);
@@ -186,7 +186,7 @@ public final class b {
 
     public final void k(JSONObject jSONObject) {
         try {
-            String language = this.f65816a.getResources().getConfiguration().locale.getLanguage();
+            String language = this.f65817a.getResources().getConfiguration().locale.getLanguage();
             if (!TextUtils.isEmpty(language)) {
                 jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, language);
             }
@@ -234,7 +234,7 @@ public final class b {
 
     public final void m(JSONObject jSONObject) {
         try {
-            jSONObject.put("access", l.j.a(this.f65816a));
+            jSONObject.put("access", l.j.a(this.f65817a));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -242,7 +242,7 @@ public final class b {
 
     public final void n(JSONObject jSONObject) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f65816a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f65817a.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperatorName = telephonyManager.getNetworkOperatorName();
                 if (!TextUtils.isEmpty(networkOperatorName)) {

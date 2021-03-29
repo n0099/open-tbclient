@@ -10,19 +10,19 @@ public final class a<T> implements e<T> {
     public static final Object n = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67520f;
+    public int f67525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67521g;
+    public long f67526g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f67522h;
+    public final int f67527h;
     public AtomicReferenceArray<Object> i;
     public final int j;
     public AtomicReferenceArray<Object> k;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f67519e = new AtomicLong();
+    public final AtomicLong f67524e = new AtomicLong();
     public final AtomicLong l = new AtomicLong();
 
     public a(int i) {
@@ -30,11 +30,11 @@ public final class a<T> implements e<T> {
         int i2 = a2 - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(a2 + 1);
         this.i = atomicReferenceArray;
-        this.f67522h = i2;
+        this.f67527h = i2;
         a(a2);
         this.k = atomicReferenceArray;
         this.j = i2;
-        this.f67521g = i2 - 1;
+        this.f67526g = i2 - 1;
         r(0L);
     }
 
@@ -57,7 +57,7 @@ public final class a<T> implements e<T> {
     }
 
     public final void a(int i) {
-        this.f67520f = Math.min(i / 4, m);
+        this.f67525f = Math.min(i / 4, m);
     }
 
     @Override // f.a.x.c.f
@@ -74,7 +74,7 @@ public final class a<T> implements e<T> {
     }
 
     public final long e() {
-        return this.f67519e.get();
+        return this.f67524e.get();
     }
 
     public final long f() {
@@ -89,7 +89,7 @@ public final class a<T> implements e<T> {
     }
 
     public final long i() {
-        return this.f67519e.get();
+        return this.f67524e.get();
     }
 
     @Override // f.a.x.c.f
@@ -116,7 +116,7 @@ public final class a<T> implements e<T> {
     public boolean l(T t, T t2) {
         AtomicReferenceArray<Object> atomicReferenceArray = this.i;
         long i = i();
-        int i2 = this.f67522h;
+        int i2 = this.f67527h;
         long j = 2 + i;
         if (g(atomicReferenceArray, c(j, i2)) == null) {
             int c2 = c(i, i2);
@@ -139,7 +139,7 @@ public final class a<T> implements e<T> {
     public final void m(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
         this.i = atomicReferenceArray2;
-        this.f67521g = (j2 + j) - 1;
+        this.f67526g = (j2 + j) - 1;
         p(atomicReferenceArray2, i, t);
         q(atomicReferenceArray, atomicReferenceArray2);
         p(atomicReferenceArray, i, n);
@@ -167,14 +167,14 @@ public final class a<T> implements e<T> {
         if (t != null) {
             AtomicReferenceArray<Object> atomicReferenceArray = this.i;
             long e2 = e();
-            int i = this.f67522h;
+            int i = this.f67527h;
             int c2 = c(e2, i);
-            if (e2 < this.f67521g) {
+            if (e2 < this.f67526g) {
                 return s(atomicReferenceArray, t, e2, c2);
             }
-            long j = this.f67520f + e2;
+            long j = this.f67525f + e2;
             if (g(atomicReferenceArray, c(j, i)) == null) {
-                this.f67521g = j - 1;
+                this.f67526g = j - 1;
                 return s(atomicReferenceArray, t, e2, c2);
             } else if (g(atomicReferenceArray, c(1 + e2, i)) == null) {
                 return s(atomicReferenceArray, t, e2, c2);
@@ -220,7 +220,7 @@ public final class a<T> implements e<T> {
     }
 
     public final void r(long j) {
-        this.f67519e.lazySet(j);
+        this.f67524e.lazySet(j);
     }
 
     public final boolean s(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j, int i) {

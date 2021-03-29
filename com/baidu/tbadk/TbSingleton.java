@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class TbSingleton {
     public static final int HOME_PAGE_STYLE_AB_TEST_001 = 1;
     public static final int HOME_PAGE_STYLE_AB_TEST_010 = 2;

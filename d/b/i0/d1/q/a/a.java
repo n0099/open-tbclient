@@ -8,7 +8,7 @@ import com.squareup.wire.Wire;
 import d.b.b.e.d.l;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

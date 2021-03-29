@@ -14,28 +14,28 @@ import java.net.URL;
 public class U extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public W f39812a;
+    public W f39813a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f39813b;
+    public final /* synthetic */ String f39814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f39814c;
+    public final /* synthetic */ boolean f39815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Y f39815d;
+    public final /* synthetic */ Y f39816d;
 
     public U(Y y, String str, boolean z) {
-        this.f39815d = y;
-        this.f39813b = str;
-        this.f39814c = z;
+        this.f39816d = y;
+        this.f39814b = str;
+        this.f39815c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00a6 A[Catch: all -> 0x00cc, TRY_LEAVE, TryCatch #5 {all -> 0x00cc, blocks: (B:41:0x00a0, B:43:0x00a6), top: B:80:0x00a0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00bb A[Catch: Exception -> 0x00b7, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:75:0x00b3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:75:0x00b3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00a6 A[Catch: all -> 0x00cc, TRY_LEAVE, TryCatch #5 {all -> 0x00cc, blocks: (B:41:0x00a0, B:43:0x00a6), top: B:78:0x00a0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00bb A[Catch: Exception -> 0x00b7, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:73:0x00b3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:73:0x00b3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.AsyncTask
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -49,14 +49,14 @@ public class U extends AsyncTask {
         Void[] voidArr = (Void[]) objArr;
         int i = 1;
         try {
-            httpURLConnection = (HttpURLConnection) new URL(this.f39813b).openConnection();
+            httpURLConnection = (HttpURLConnection) new URL(this.f39814b).openConnection();
             try {
                 try {
-                    if (this.f39814c) {
+                    if (this.f39815c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
-                            this.f39812a = new W("Invalid content length. The URL is probably not pointing to a file");
+                            this.f39813a = new W("Invalid content length. The URL is probably not pointing to a file");
                             cancel(true);
                         }
                         inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
@@ -82,7 +82,7 @@ public class U extends AsyncTask {
                             th = th;
                             try {
                                 if (!isCancelled()) {
-                                    this.f39812a = new W(th);
+                                    this.f39813a = new W(th);
                                     cancel(true);
                                 }
                                 if (httpURLConnection != null) {
@@ -175,8 +175,8 @@ public class U extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public void onCancelled() {
-        this.f39815d.f39835b.remove(this.f39813b);
-        ((j) this.f39815d.f39834a).a(this.f39812a);
+        this.f39816d.f39836b.remove(this.f39814b);
+        ((j) this.f39816d.f39835a).a(this.f39813a);
     }
 
     @Override // android.os.AsyncTask
@@ -185,16 +185,16 @@ public class U extends AsyncTask {
         File file2;
         Bitmap bitmap = (Bitmap) obj;
         if (bitmap == null) {
-            ((j) this.f39815d.f39834a).a(new W("downloaded file could not be decoded as bitmap"));
+            ((j) this.f39816d.f39835a).a(new W("downloaded file could not be decoded as bitmap"));
         } else {
-            j jVar = (j) this.f39815d.f39834a;
-            PBSplash pBSplash = jVar.f39955b;
+            j jVar = (j) this.f39816d.f39835a;
+            PBSplash pBSplash = jVar.f39956b;
             if (pBSplash.j) {
                 file = pBSplash.l;
                 if (!file.exists()) {
-                    file2 = jVar.f39955b.l;
+                    file2 = jVar.f39956b.l;
                     i iVar = new i(jVar);
-                    Bitmap.CompressFormat compressFormat = jVar.f39954a;
+                    Bitmap.CompressFormat compressFormat = jVar.f39955a;
                     if (file2.isDirectory()) {
                         new W("the specified path points to a directory, should be a file");
                     } else if (file2.exists()) {
@@ -217,25 +217,25 @@ public class U extends AsyncTask {
                     }
                 }
             } else {
-                PBSplashListener pBSplashListener = pBSplash.f39763e;
+                PBSplashListener pBSplashListener = pBSplash.f39764e;
                 if (pBSplashListener != null) {
-                    pBSplash.f39761c = bitmap;
+                    pBSplash.f39762c = bitmap;
                     pBSplashListener.onLoaded();
-                    jVar.f39955b.i = true;
+                    jVar.f39956b.i = true;
                 }
             }
         }
-        this.f39815d.f39835b.remove(this.f39813b);
+        this.f39816d.f39836b.remove(this.f39814b);
         System.gc();
     }
 
     @Override // android.os.AsyncTask
     public void onPreExecute() {
-        this.f39815d.f39835b.add(this.f39813b);
+        this.f39816d.f39836b.add(this.f39814b);
     }
 
     @Override // android.os.AsyncTask
     public void onProgressUpdate(Object[] objArr) {
-        ((j) this.f39815d.f39834a).a(((Integer[]) objArr)[0].intValue());
+        ((j) this.f39816d.f39835a).a(((Integer[]) objArr)[0].intValue());
     }
 }

@@ -12,10 +12,10 @@ import com.baidu.tieba.R;
 public class b extends a {
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f60583f;
+    public ViewGroup f60584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f60584g;
+    public TbImageView f60585g;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,21 +29,21 @@ public class b extends a {
 
     @Override // d.b.i0.t.d.f.f.a
     public View c() {
-        return this.f60583f;
+        return this.f60584f;
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void d() {
-        this.f60583f = new FrameLayout(this.f60580c.getPageActivity());
-        this.f60584g = new TbImageView(this.f60580c.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f60578a, this.f60579b);
-        this.f60584g.setDefaultBgResource(R.drawable.pic_live_ufan);
-        this.f60584g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f60584g.setLayoutParams(layoutParams);
-        this.f60583f.addView(this.f60584g);
-        this.f60582e.setVisibility(8);
-        this.f60583f.addView(this.f60582e);
-        this.f60584g.setClickable(false);
+        this.f60584f = new FrameLayout(this.f60581c.getPageActivity());
+        this.f60585g = new TbImageView(this.f60581c.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f60579a, this.f60580b);
+        this.f60585g.setDefaultBgResource(R.drawable.pic_live_ufan);
+        this.f60585g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f60585g.setLayoutParams(layoutParams);
+        this.f60584f.addView(this.f60585g);
+        this.f60583e.setVisibility(8);
+        this.f60584f.addView(this.f60583e);
+        this.f60585g.setClickable(false);
         i(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -59,27 +59,27 @@ public class b extends a {
     @Override // d.b.i0.t.d.f.f.a
     public void h() {
         super.h();
-        TbImageView tbImageView = this.f60584g;
+        TbImageView tbImageView = this.f60585g;
         if (tbImageView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
-            layoutParams.width = this.f60578a;
-            layoutParams.height = this.f60579b;
-            this.f60584g.setLayoutParams(layoutParams);
+            layoutParams.width = this.f60579a;
+            layoutParams.height = this.f60580b;
+            this.f60585g.setLayoutParams(layoutParams);
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void i(int i) {
         if (1 == i) {
-            this.f60582e.setVisibility(0);
+            this.f60583e.setVisibility(0);
         } else {
-            this.f60582e.setVisibility(8);
+            this.f60583e.setVisibility(8);
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void j() {
-        this.f60584g = null;
+        this.f60585g = null;
     }
 
     @Override // d.b.i0.t.d.f.f.a

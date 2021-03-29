@@ -47,31 +47,31 @@ public class b {
     public boolean D;
     public NoDataView E;
     public String F;
-    public View.OnClickListener G = new View$OnClickListenerC1274b();
+    public View.OnClickListener G = new View$OnClickListenerC1275b();
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f55379a;
+    public TbPageContext f55380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f55380b;
+    public View f55381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f55381c;
+    public TextView f55382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlignTextView f55382d;
+    public AlignTextView f55383d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f55383e;
+    public TextView f55384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f55384f;
+    public LinearLayout f55385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55385g;
+    public TextView f55386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55386h;
+    public TextView f55387h;
     public LinearLayout i;
     public TextView j;
     public AlignTextView k;
@@ -114,8 +114,8 @@ public class b {
 
     /* renamed from: d.b.i0.h2.i.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1274b implements View.OnClickListener {
-        public View$OnClickListenerC1274b() {
+    public class View$OnClickListenerC1275b implements View.OnClickListener {
+        public View$OnClickListenerC1275b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -124,7 +124,7 @@ public class b {
                 if (b.this.D) {
                     b.this.q();
                 } else {
-                    PersonIntroductionActivity.startPersonIntroductionActivity(b.this.f55379a.getPageActivity(), b.this.B.getIntro());
+                    PersonIntroductionActivity.startPersonIntroductionActivity(b.this.f55380a.getPageActivity(), b.this.B.getIntro());
                 }
             } else if (view == b.this.q) {
                 b.this.q();
@@ -132,9 +132,9 @@ public class b {
                 b.this.q();
             } else if (view == b.this.w) {
                 if (StringUtils.isNull(b.this.F)) {
-                    BdToast.c(b.this.f55379a.getPageActivity(), b.this.f55379a.getPageActivity().getText(R.string.god_get_error)).q();
+                    BdToast.c(b.this.f55380a.getPageActivity(), b.this.f55380a.getPageActivity().getText(R.string.god_get_error)).q();
                 } else {
-                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f55379a.getPageActivity());
+                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f55380a.getPageActivity());
                     hotUserRankActivityConfig.setCategory(b.this.F);
                     hotUserRankActivityConfig.setIsGod(true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
@@ -145,7 +145,7 @@ public class b {
     }
 
     public b(TbPageContext tbPageContext, boolean z) {
-        this.f55379a = tbPageContext;
+        this.f55380a = tbPageContext;
         this.D = z;
         p();
     }
@@ -156,45 +156,45 @@ public class b {
         }
         this.C = aVar;
         this.B = aVar.j();
-        this.f55380b.setVisibility(0);
-        ViewGroup.LayoutParams layoutParams = this.f55380b.getLayoutParams();
+        this.f55381b.setVisibility(0);
+        ViewGroup.LayoutParams layoutParams = this.f55381b.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new RecyclerView.LayoutParams(-1, -2);
         } else {
             layoutParams.width = -1;
         }
-        this.f55380b.setLayoutParams(layoutParams);
+        this.f55381b.setLayoutParams(layoutParams);
         if (this.B.getAlaUserData() != null && this.B.getAlaUserData().ala_id > 0) {
             this.i.setVisibility(0);
-            this.f55386h.setVisibility(0);
-            this.f55386h.setText(String.valueOf(this.B.getAlaUserData().ala_id));
+            this.f55387h.setVisibility(0);
+            this.f55387h.setText(String.valueOf(this.B.getAlaUserData().ala_id));
         } else {
             this.i.setVisibility(8);
-            this.f55386h.setVisibility(8);
+            this.f55387h.setVisibility(8);
         }
         String tb_age = this.B.getTb_age();
         if (k.isEmpty(tb_age)) {
             tb_age = "0";
         }
-        this.j.setText(this.f55379a.getResources().getString(R.string.person_forum_age_suffix, tb_age));
+        this.j.setText(this.f55380a.getResources().getString(R.string.person_forum_age_suffix, tb_age));
         g2 birthdayInfo = this.B.getBirthdayInfo();
-        if (birthdayInfo != null && !k.isEmpty(birthdayInfo.f50800b)) {
-            if (birthdayInfo.f50801c < 0) {
-                birthdayInfo.f50801c = 0;
+        if (birthdayInfo != null && !k.isEmpty(birthdayInfo.f50801b)) {
+            if (birthdayInfo.f50802c < 0) {
+                birthdayInfo.f50802c = 0;
             }
-            if (birthdayInfo.f50802d == 2) {
-                this.f55383e.setVisibility(0);
-                this.f55383e.setText(this.f55379a.getResources().getString(R.string.person_information_header_age, Integer.valueOf(birthdayInfo.f50801c)));
+            if (birthdayInfo.f50803d == 2) {
+                this.f55384e.setVisibility(0);
+                this.f55384e.setText(this.f55380a.getResources().getString(R.string.person_information_header_age, Integer.valueOf(birthdayInfo.f50802c)));
             } else {
-                this.f55383e.setVisibility(8);
+                this.f55384e.setVisibility(8);
             }
-            this.f55381c.setVisibility(0);
-            this.f55381c.setText(birthdayInfo.f50800b);
-            this.f55384f.setVisibility(0);
+            this.f55382c.setVisibility(0);
+            this.f55382c.setText(birthdayInfo.f50801b);
+            this.f55385f.setVisibility(0);
         } else {
-            this.f55384f.setVisibility(8);
-            this.f55381c.setVisibility(8);
-            this.f55383e.setVisibility(8);
+            this.f55385f.setVisibility(8);
+            this.f55382c.setVisibility(8);
+            this.f55384e.setVisibility(8);
         }
         if (this.D) {
             this.r.setVisibility(0);
@@ -244,16 +244,16 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 this.F = "";
             }
-            this.x.setText(String.format(this.f55379a.getString(R.string.god_entry_title), this.F));
+            this.x.setText(String.format(this.f55380a.getString(R.string.god_entry_title), this.F));
             if (aVar.E.is_in_rank.booleanValue()) {
                 Integer num = aVar.E.today_rank;
                 if (num != null && num.intValue() > 0 && aVar.E.today_rank.intValue() <= 500) {
-                    this.y.setText(String.format(this.f55379a.getString(R.string.god_entry_rank), aVar.E.today_rank));
+                    this.y.setText(String.format(this.f55380a.getString(R.string.god_entry_rank), aVar.E.today_rank));
                 } else {
-                    this.y.setText(this.f55379a.getString(R.string.god_entry_no_rank));
+                    this.y.setText(this.f55380a.getString(R.string.god_entry_no_rank));
                 }
             } else {
-                this.y.setText(this.f55379a.getString(R.string.god_entry_no_rank));
+                this.y.setText(this.f55380a.getString(R.string.god_entry_no_rank));
             }
             TiebaStatic.log(new StatisticItem("c13898").param("uid", this.B.getUserId()));
             return;
@@ -270,59 +270,59 @@ public class b {
     }
 
     public View o() {
-        return this.f55380b;
+        return this.f55381b;
     }
 
     public final void p() {
-        View inflate = LayoutInflater.from(this.f55379a.getPageActivity()).inflate(R.layout.person_information_header, (ViewGroup) null);
-        this.f55380b = inflate;
+        View inflate = LayoutInflater.from(this.f55380a.getPageActivity()).inflate(R.layout.person_information_header, (ViewGroup) null);
+        this.f55381b = inflate;
         inflate.setVisibility(8);
-        this.s = (TextView) this.f55380b.findViewById(R.id.person_information_title);
-        this.f55381c = (TextView) this.f55380b.findViewById(R.id.person_information_constellation);
-        AlignTextView alignTextView = (AlignTextView) this.f55380b.findViewById(R.id.person_information_constellation_label);
-        this.f55382d = alignTextView;
+        this.s = (TextView) this.f55381b.findViewById(R.id.person_information_title);
+        this.f55382c = (TextView) this.f55381b.findViewById(R.id.person_information_constellation);
+        AlignTextView alignTextView = (AlignTextView) this.f55381b.findViewById(R.id.person_information_constellation_label);
+        this.f55383d = alignTextView;
         alignTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-        this.f55383e = (TextView) this.f55380b.findViewById(R.id.person_information_age);
-        this.f55384f = (LinearLayout) this.f55380b.findViewById(R.id.person_information_constellation_layout);
-        this.t = this.f55380b.findViewById(R.id.space_view);
-        this.f55385g = (TextView) this.f55380b.findViewById(R.id.person_information_ala_id_label);
-        this.f55386h = (TextView) this.f55380b.findViewById(R.id.person_information_ala_id);
-        this.i = (LinearLayout) this.f55380b.findViewById(R.id.person_information_ala_id_layout);
-        AlignTextView alignTextView2 = (AlignTextView) this.f55380b.findViewById(R.id.person_information_forum_age_label);
+        this.f55384e = (TextView) this.f55381b.findViewById(R.id.person_information_age);
+        this.f55385f = (LinearLayout) this.f55381b.findViewById(R.id.person_information_constellation_layout);
+        this.t = this.f55381b.findViewById(R.id.space_view);
+        this.f55386g = (TextView) this.f55381b.findViewById(R.id.person_information_ala_id_label);
+        this.f55387h = (TextView) this.f55381b.findViewById(R.id.person_information_ala_id);
+        this.i = (LinearLayout) this.f55381b.findViewById(R.id.person_information_ala_id_layout);
+        AlignTextView alignTextView2 = (AlignTextView) this.f55381b.findViewById(R.id.person_information_forum_age_label);
         this.k = alignTextView2;
         alignTextView2.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-        this.j = (TextView) this.f55380b.findViewById(R.id.person_information_forum_age);
-        AlignTextView alignTextView3 = (AlignTextView) this.f55380b.findViewById(R.id.person_information_intro_label);
+        this.j = (TextView) this.f55381b.findViewById(R.id.person_information_forum_age);
+        AlignTextView alignTextView3 = (AlignTextView) this.f55381b.findViewById(R.id.person_information_intro_label);
         this.l = alignTextView3;
         alignTextView3.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-        this.m = (TextView) this.f55380b.findViewById(R.id.person_information_intro);
-        ImageView imageView = (ImageView) this.f55380b.findViewById(R.id.person_information_more_icon);
+        this.m = (TextView) this.f55381b.findViewById(R.id.person_information_intro);
+        ImageView imageView = (ImageView) this.f55381b.findViewById(R.id.person_information_more_icon);
         this.n = imageView;
         imageView.setOnClickListener(this.G);
-        RelativeLayout relativeLayout = (RelativeLayout) this.f55380b.findViewById(R.id.person_information_intro_layout);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f55381b.findViewById(R.id.person_information_intro_layout);
         this.o = relativeLayout;
         relativeLayout.setOnClickListener(this.G);
-        this.p = (RelativeLayout) this.f55380b.findViewById(R.id.person_information_perfect);
-        TextView textView = (TextView) this.f55380b.findViewById(R.id.person_information_perfect_btn);
+        this.p = (RelativeLayout) this.f55381b.findViewById(R.id.person_information_perfect);
+        TextView textView = (TextView) this.f55381b.findViewById(R.id.person_information_perfect_btn);
         this.q = textView;
         textView.setOnClickListener(this.G);
-        this.u = (ImageView) this.f55380b.findViewById(R.id.person_information_perfect_image);
-        this.v = (TextView) this.f55380b.findViewById(R.id.person_information_perfect_tip);
-        RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.f55380b.findViewById(R.id.god_container);
+        this.u = (ImageView) this.f55381b.findViewById(R.id.person_information_perfect_image);
+        this.v = (TextView) this.f55381b.findViewById(R.id.person_information_perfect_tip);
+        RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.f55381b.findViewById(R.id.god_container);
         this.w = roundRelativeLayout;
         roundRelativeLayout.setOnClickListener(this.G);
-        this.A = (ImageView) this.f55380b.findViewById(R.id.god_arrow);
-        this.z = (ImageView) this.f55380b.findViewById(R.id.god_icon);
-        this.y = (TextView) this.f55380b.findViewById(R.id.god_rank);
-        this.x = (TextView) this.f55380b.findViewById(R.id.god_title);
-        ImageView imageView2 = (ImageView) this.f55380b.findViewById(R.id.person_information_edit_icon);
+        this.A = (ImageView) this.f55381b.findViewById(R.id.god_arrow);
+        this.z = (ImageView) this.f55381b.findViewById(R.id.god_icon);
+        this.y = (TextView) this.f55381b.findViewById(R.id.god_rank);
+        this.x = (TextView) this.f55381b.findViewById(R.id.god_title);
+        ImageView imageView2 = (ImageView) this.f55381b.findViewById(R.id.person_information_edit_icon);
         this.r = imageView2;
         imageView2.setOnClickListener(this.G);
-        int measureText = (int) this.f55385g.getPaint().measureText(this.f55379a.getString(R.string.person_ala_id));
-        ViewGroup.LayoutParams layoutParams = this.f55382d.getLayoutParams();
+        int measureText = (int) this.f55386g.getPaint().measureText(this.f55380a.getString(R.string.person_ala_id));
+        ViewGroup.LayoutParams layoutParams = this.f55383d.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = measureText;
-            this.f55382d.setLayoutParams(layoutParams);
+            this.f55383d.setLayoutParams(layoutParams);
         }
         ViewGroup.LayoutParams layoutParams2 = this.k.getLayoutParams();
         if (layoutParams2 != null) {
@@ -334,9 +334,9 @@ public class b {
             layoutParams3.width = measureText;
             this.l.setLayoutParams(layoutParams3);
         }
-        NoDataView a2 = NoDataViewFactory.a(this.f55379a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10)), NoDataViewFactory.e.d(null, this.f55379a.getResources().getString(R.string.no_data_common_txt)), null);
+        NoDataView a2 = NoDataViewFactory.a(this.f55380a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10)), NoDataViewFactory.e.d(null, this.f55380a.getResources().getString(R.string.no_data_common_txt)), null);
         this.E = a2;
-        View view = this.f55380b;
+        View view = this.f55381b;
         if (view instanceof ViewGroup) {
             ((ViewGroup) view).addView(a2);
         }
@@ -368,23 +368,23 @@ public class b {
                 personChangeData.setNickNameLeftDays(nicknameInfo.left_days.intValue());
             }
             if (this.B.getBirthdayInfo() != null) {
-                personChangeData.setUserAge(this.B.getBirthdayInfo().f50801c);
-                personChangeData.setBirthdayTime(this.B.getBirthdayInfo().f50799a);
-                personChangeData.setBirthdayShowStatus(this.B.getBirthdayInfo().f50802d);
+                personChangeData.setUserAge(this.B.getBirthdayInfo().f50802c);
+                personChangeData.setBirthdayTime(this.B.getBirthdayInfo().f50800a);
+                personChangeData.setBirthdayShowStatus(this.B.getBirthdayInfo().f50803d);
             }
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.f55379a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.f55380a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
     }
 
     public void r(int i) {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.icon_pure_personalba_edit24_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.f55382d, R.color.CAM_X0108, 1, i);
-        SkinManager.setViewTextColor(this.f55381c, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.f55383e, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.f55385g, R.color.CAM_X0108, 1, i);
-        SkinManager.setViewTextColor(this.f55386h, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f55383d, R.color.CAM_X0108, 1, i);
+        SkinManager.setViewTextColor(this.f55382c, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f55384e, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f55386g, R.color.CAM_X0108, 1, i);
+        SkinManager.setViewTextColor(this.f55387h, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1, i);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0108, 1, i);
@@ -397,7 +397,7 @@ public class b {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.A, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
         NoDataView noDataView = this.E;
         if (noDataView != null) {
-            noDataView.f(this.f55379a, i);
+            noDataView.f(this.f55380a, i);
         }
     }
 }

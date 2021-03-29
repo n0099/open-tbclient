@@ -11,65 +11,65 @@ import java.util.List;
 public abstract class a<T> extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49867b;
+    public int f49868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f49868c;
+    public List<T> f49869c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f49869d;
+    public Context f49870d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f49870e;
+    public LayoutInflater f49871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e<T> f49871f;
+    public e<T> f49872f;
 
     /* renamed from: d.b.h0.b1.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1050a implements View.OnClickListener {
+    public class View$OnClickListenerC1051a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public T f49872e;
+        public T f49873e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f49873f;
+        public int f49874f;
 
-        public View$OnClickListenerC1050a(T t, int i) {
-            this.f49872e = t;
-            this.f49873f = i;
+        public View$OnClickListenerC1051a(T t, int i) {
+            this.f49873e = t;
+            this.f49874f = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e<T> eVar = a.this.f49871f;
+            e<T> eVar = a.this.f49872f;
             if (eVar != null) {
-                T t = this.f49872e;
-                int i = this.f49873f;
+                T t = this.f49873e;
+                int i = this.f49874f;
                 eVar.a(view, t, i, i);
             }
         }
     }
 
     public a(Context context, List<T> list, int i) {
-        this.f49869d = context;
-        this.f49868c = list == null ? new ArrayList() : new ArrayList(list);
-        this.f49867b = i;
-        this.f49870e = LayoutInflater.from(this.f49869d);
+        this.f49870d = context;
+        this.f49869c = list == null ? new ArrayList() : new ArrayList(list);
+        this.f49868b = i;
+        this.f49871e = LayoutInflater.from(this.f49870d);
     }
 
     @Override // d.b.h0.b1.f.a.b
     public int a() {
-        return this.f49868c.size();
+        return this.f49869c.size();
     }
 
     @Override // d.b.h0.b1.f.a.b
     public View b(int i, ViewGroup viewGroup) {
-        View inflate = this.f49870e.inflate(this.f49867b, viewGroup, false);
+        View inflate = this.f49871e.inflate(this.f49868b, viewGroup, false);
         c cVar = new c(inflate);
-        T t = this.f49868c.get(i);
+        T t = this.f49869c.get(i);
         f(cVar, t, i);
-        cVar.c(new View$OnClickListenerC1050a(t, i));
+        cVar.c(new View$OnClickListenerC1051a(t, i));
         return inflate;
     }
 
@@ -79,12 +79,12 @@ public abstract class a<T> extends b {
         if (list == null) {
             list = new ArrayList<>();
         }
-        this.f49868c = list;
+        this.f49869c = list;
         c();
     }
 
     public void h(e<T> eVar) {
-        this.f49871f = eVar;
+        this.f49872f = eVar;
     }
 
     public a(Context context, int i) {

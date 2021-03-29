@@ -8,13 +8,13 @@ import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38548a = "com.sdk.base.framework.f.g.a";
+    public static final String f38549a = "com.sdk.base.framework.f.g.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f38549b = Boolean.valueOf(com.sdk.base.framework.c.f.f38519b);
+    public static final Boolean f38550b = Boolean.valueOf(com.sdk.base.framework.c.f.f38520b);
 
     public static c a(Context context) {
-        c cVar = c.f38552c;
+        c cVar = c.f38553c;
         if (context == null) {
             return cVar;
         }
@@ -23,13 +23,13 @@ public class a {
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                 String typeName = activeNetworkInfo.getTypeName();
                 if ("MOBILE".equalsIgnoreCase(typeName)) {
-                    cVar = c.f38551b;
+                    cVar = c.f38552b;
                 } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
-                    cVar = c.f38550a;
+                    cVar = c.f38551a;
                 }
             }
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f38548a, th.getMessage(), f38549b);
+            com.sdk.base.framework.a.a.c.b(f38549a, th.getMessage(), f38550b);
         }
         return cVar;
     }

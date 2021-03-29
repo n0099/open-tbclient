@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class PeerConnection {
     public final List<MediaStream> localStreams;
     public final long nativePeerConnection;
@@ -72,7 +72,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class IceServer {
         public final String hostname;
         public final String password;
@@ -84,7 +84,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes7.dex */
         public static class Builder {
             public String hostname;
             public String password;
@@ -345,7 +345,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class RTCConfiguration {
         @Nullable
         public RtcCertificatePem certificate;

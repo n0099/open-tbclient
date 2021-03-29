@@ -1,5 +1,5 @@
 package d.b.g0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static final int abc_action_bar_content_inset_material = 2131165244;
     public static final int abc_action_bar_content_inset_with_nav = 2131165245;

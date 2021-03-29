@@ -5,11 +5,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i> f51172a = new ArrayList();
+    public List<i> f51173a = new ArrayList();
 
     public void a(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -21,7 +21,7 @@ public class h {
             if (jSONObject2 != null) {
                 i iVar = new i();
                 iVar.a(jSONObject2);
-                this.f51172a.add(iVar);
+                this.f51173a.add(iVar);
             }
         }
     }

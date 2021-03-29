@@ -40,7 +40,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineView
         if (bVar == null) {
             return;
         }
-        String str = bVar.f60357e;
+        String str = bVar.f60358e;
         if (StringUtils.isNull(str) || d.b.b.e.m.b.f(str, 0L) == 0) {
             return;
         }
@@ -65,7 +65,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineView
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
         d.b.i0.t.d.c.f.d.f fVar;
-        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f14798a) == null) {
+        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f14799a) == null) {
             return null;
         }
         fVar.n(bVar);

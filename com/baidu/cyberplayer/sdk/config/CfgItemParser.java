@@ -7,10 +7,10 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CfgItemParser {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum a {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -18,23 +18,23 @@ public class CfgItemParser {
         SUCCESS
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4900e;
+        public int f4901e;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f4898c = false;
+        public boolean f4899c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4899d = false;
+        public boolean f4900d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4896a = null;
+        public String[] f4897a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4897b = true;
+        public boolean f4898b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, String str2, String str3) {
@@ -42,23 +42,23 @@ public class CfgItemParser {
                 return;
             }
             if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
-                this.f4899d = true;
-                this.f4898c = false;
+                this.f4900d = true;
+                this.f4899c = false;
             } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
-                this.f4898c = true;
-                this.f4899d = false;
+                this.f4899c = true;
+                this.f4900d = false;
             } else if (!str.contains(str2)) {
-                this.f4896a = a(str, str3);
+                this.f4897a = a(str, str3);
             } else {
                 if (str2.endsWith(FieldBuilder.SE)) {
                     str2 = "\\|";
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f4896a = a(split[0], str3);
-                    this.f4897b = c(split[1]);
+                    this.f4897a = a(split[0], str3);
+                    this.f4898b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f4896a = a(split[0], str3);
+                    this.f4897a = a(split[0], str3);
                 }
             }
         }
@@ -88,20 +88,20 @@ public class CfgItemParser {
         }
 
         public void a(int i) {
-            this.f4900e = i;
+            this.f4901e = i;
         }
 
         public boolean a(String str) {
             String[] strArr;
-            if (this.f4898c) {
+            if (this.f4899c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && (strArr = this.f4896a) != null) {
+            if (!TextUtils.isEmpty(str) && (strArr = this.f4897a) != null) {
                 int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (!str.equals(this.f4896a[i]) && (this.f4900e != 0 || !a(str, this.f4896a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
-                        if (this.f4900e == 1) {
-                            if (str.contains("." + this.f4896a[i])) {
+                    if (!str.equals(this.f4897a[i]) && (this.f4901e != 0 || !a(str, this.f4897a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                        if (this.f4901e == 1) {
+                            if (str.contains("." + this.f4897a[i])) {
                             }
                         }
                     }
@@ -131,11 +131,11 @@ public class CfgItemParser {
         }
 
         public a b(String str) {
-            if (this.f4899d) {
+            if (this.f4900d) {
                 return a.FAILED;
             }
             boolean a2 = a(str);
-            return this.f4897b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
+            return this.f4898b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
         }
     }
 

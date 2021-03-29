@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.SurfaceView;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CyberRTCVideoView {
 
     /* renamed from: a  reason: collision with root package name */
-    public RTCVideoViewProvider f5049a;
+    public RTCVideoViewProvider f5050a;
 
     public CyberRTCVideoView(Context context) {
         this(context, null);
@@ -20,11 +20,11 @@ public class CyberRTCVideoView {
     }
 
     public CyberRTCVideoView(Context context, AttributeSet attributeSet, boolean z) {
-        this.f5049a = a.a().a(context, attributeSet, z);
+        this.f5050a = a.a().a(context, attributeSet, z);
     }
 
     public SurfaceView getRTCVideoView() {
-        RTCVideoViewProvider rTCVideoViewProvider = this.f5049a;
+        RTCVideoViewProvider rTCVideoViewProvider = this.f5050a;
         if (rTCVideoViewProvider != null) {
             return rTCVideoViewProvider.getRTCVideoView();
         }

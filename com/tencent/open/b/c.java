@@ -16,19 +16,19 @@ import kotlin.text.Typography;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39226a;
+    public static String f39227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39227b;
+    public static String f39228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39228c;
+    public static String f39229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39229d;
+    public static String f39230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39230e;
+    public static String f39231e;
 
     public static String a() {
         WifiManager wifiManager;
@@ -47,42 +47,42 @@ public class c {
     }
 
     public static String c(Context context) {
-        String str = f39227b;
+        String str = f39228b;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String simSerialNumber = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                f39227b = simSerialNumber;
+                f39228b = simSerialNumber;
                 return simSerialNumber;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39227b;
+        return f39228b;
     }
 
     public static String d(Context context) {
-        String str = f39228c;
+        String str = f39229c;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-                f39228c = string;
+                f39229c = string;
                 return string;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39228c;
+        return f39229c;
     }
 
     public static String e(Context context) {
         try {
-            if (f39230e == null) {
+            if (f39231e == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
@@ -118,45 +118,45 @@ public class c {
                 sb.append("&");
                 sb.append("wifi=");
                 sb.append(a.e(context));
-                f39230e = sb.toString();
+                f39231e = sb.toString();
             }
-            return f39230e;
+            return f39231e;
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static String b(Context context) {
-        String str = f39226a;
+        String str = f39227a;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                f39226a = deviceId;
+                f39227a = deviceId;
                 return deviceId;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39226a;
+        return f39227a;
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f39229d)) {
+        if (TextUtils.isEmpty(f39230d)) {
             if (context == null) {
                 return "";
             }
-            f39229d = "";
+            f39230d = "";
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager != null) {
                 int width = windowManager.getDefaultDisplay().getWidth();
                 int height = windowManager.getDefaultDisplay().getHeight();
-                f39229d = width + "x" + height;
+                f39230d = width + "x" + height;
             }
-            return f39229d;
+            return f39230d;
         }
-        return f39229d;
+        return f39230d;
     }
 }

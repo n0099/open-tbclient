@@ -42,9 +42,7 @@ public class RGStateOverview extends RGState {
                 float a2 = b.a().G().a(T, com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), com.baidu.platform.comapi.wnplatform.o.b.b.a().c() - b.a().Q().n());
                 builder.target(CoordUtil.mc2ll(new GeoPoint((T.getPtLB().getmPty() + T.getPtRT().getmPty()) / 2, (T.getPtLB().getmPtx() + T.getPtRT().getmPtx()) / 2)));
                 if (a2 > 3.0f) {
-                    double d2 = a2;
-                    Double.isNaN(d2);
-                    a2 = (float) (d2 - 0.8d);
+                    a2 = (float) (a2 - 0.8d);
                 }
                 builder.zoom(a2);
             }

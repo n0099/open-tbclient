@@ -559,10 +559,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         if (!this.mIconifiedByDefault || this.mSearchHintIcon == null) {
             return charSequence;
         }
-        double textSize = this.mSearchSrcTextView.getTextSize();
-        Double.isNaN(textSize);
-        int i = (int) (textSize * 1.25d);
-        this.mSearchHintIcon.setBounds(0, 0, i, i);
+        int textSize = (int) (this.mSearchSrcTextView.getTextSize() * 1.25d);
+        this.mSearchHintIcon.setBounds(0, 0, textSize, textSize);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("   ");
         spannableStringBuilder.setSpan(new ImageSpan(this.mSearchHintIcon), 1, 2, 33);
         spannableStringBuilder.append(charSequence);

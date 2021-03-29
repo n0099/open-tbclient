@@ -5,10 +5,10 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48472a;
+    public int f48473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48473b = 0;
+    public int f48474b = 0;
     @V8JavascriptField
     public String digest;
     @V8JavascriptField
@@ -17,11 +17,11 @@ public class c {
     public int size;
 
     public c() {
-        this.f48472a = 0;
-        this.f48472a = 0 + 1;
+        this.f48473a = 0;
+        this.f48473a = 0 + 1;
     }
 
     public String toString() {
-        return "GetFileInfoCallBack" + this.f48473b;
+        return "GetFileInfoCallBack" + this.f48474b;
     }
 }

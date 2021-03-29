@@ -92,7 +92,7 @@ public class RecAppStatic {
     }
 
     static {
-        s.f59847a.set(new u());
+        s.f59848a.set(new u());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         d.b.i0.o.a.l().e(new a());
         e.b().c(1, new g());
@@ -108,6 +108,6 @@ public class RecAppStatic {
         c.t().a();
         c.t().f();
         BdLog.isDebugMode();
-        d.b.i0.o.c.g.a.f57194a.set(new d.b.i0.r2.x.b());
+        d.b.i0.o.c.g.a.f57195a.set(new d.b.i0.r2.x.b());
     }
 }

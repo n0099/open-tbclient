@@ -1,20 +1,20 @@
 package d.c.c.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static n f65161a;
+    public static n f65162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f65162b;
+    public static long f65163b;
 
     public static n a() {
         synchronized (o.class) {
-            if (f65161a != null) {
-                n nVar = f65161a;
-                f65161a = nVar.f65159f;
-                nVar.f65159f = null;
-                f65162b -= 8192;
+            if (f65162a != null) {
+                n nVar = f65162a;
+                f65162a = nVar.f65160f;
+                nVar.f65160f = null;
+                f65163b -= 8192;
                 return nVar;
             }
             return new n();
@@ -22,19 +22,19 @@ public final class o {
     }
 
     public static void b(n nVar) {
-        if (nVar.f65159f == null && nVar.f65160g == null) {
-            if (nVar.f65157d) {
+        if (nVar.f65160f == null && nVar.f65161g == null) {
+            if (nVar.f65158d) {
                 return;
             }
             synchronized (o.class) {
-                if (f65162b + 8192 > 65536) {
+                if (f65163b + 8192 > 65536) {
                     return;
                 }
-                f65162b += 8192;
-                nVar.f65159f = f65161a;
-                nVar.f65156c = 0;
-                nVar.f65155b = 0;
-                f65161a = nVar;
+                f65163b += 8192;
+                nVar.f65160f = f65162a;
+                nVar.f65157c = 0;
+                nVar.f65156b = 0;
+                f65162a = nVar;
                 return;
             }
         }

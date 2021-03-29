@@ -11,16 +11,16 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements g, d {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62558e;
+    public int f62559e;
 
     public void b() {
-        this.f62558e++;
+        this.f62559e++;
     }
 
     @Override // d.b.h0.g0.b.i
     public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.f62558e);
+        builder.pn = Integer.valueOf(this.f62559e);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         DataReq build = builder.build(false);
         builder2.data = build;

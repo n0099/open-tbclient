@@ -19,16 +19,16 @@ import d.b.h0.m.d;
 public class BannerGifView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public GifView f13729e;
+    public GifView f13730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13730f;
+    public ImageView f13731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13731g;
+    public View f13732g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13732h;
+    public float f13733h;
     public String i;
     public String j;
     public boolean k;
@@ -59,7 +59,7 @@ public class BannerGifView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == BannerGifView.this.f13730f) {
+            if (view == BannerGifView.this.f13731f) {
                 BannerGifView.this.setCloseVisibility(false);
             }
         }
@@ -67,7 +67,7 @@ public class BannerGifView extends RelativeLayout {
 
     public BannerGifView(Context context) {
         super(context);
-        this.f13732h = 5.744f;
+        this.f13733h = 5.744f;
         this.k = false;
         this.n = new a();
         this.o = new b();
@@ -80,7 +80,7 @@ public class BannerGifView extends RelativeLayout {
         if (i != 1 && i != 4) {
             z = false;
         }
-        this.f13731g.setVisibility((this.k && z) ? 8 : 8);
+        this.f13732g.setVisibility((this.k && z) ? 8 : 8);
     }
 
     public final void e() {
@@ -96,25 +96,25 @@ public class BannerGifView extends RelativeLayout {
 
     public final void f() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-        this.f13730f = (ImageView) inflate.findViewById(R.id.btn_close);
-        this.f13731g = inflate.findViewById(R.id.image_mask);
+        this.f13731f = (ImageView) inflate.findViewById(R.id.btn_close);
+        this.f13732g = inflate.findViewById(R.id.image_mask);
         GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
-        this.f13729e = gifView;
+        this.f13730e = gifView;
         gifView.setShowStaticDrawable(false);
-        this.f13729e.setSupportNoImage(false);
-        this.f13729e.setAutoPlay(true);
-        this.f13730f.setOnClickListener(this.o);
-        this.f13729e.setOnInterceptClickListener(this.n);
+        this.f13730e.setSupportNoImage(false);
+        this.f13730e.setAutoPlay(true);
+        this.f13731f.setOnClickListener(this.o);
+        this.f13730e.setOnInterceptClickListener(this.n);
         g(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void g(int i) {
-        SkinManager.setBackgroundColor(this.f13731g, R.color.black_alpha30, i);
+        SkinManager.setBackgroundColor(this.f13732g, R.color.black_alpha30, i);
         d(i);
     }
 
     public GifView getGifView() {
-        return this.f13729e;
+        return this.f13730e;
     }
 
     public String getUrl() {
@@ -129,7 +129,7 @@ public class BannerGifView extends RelativeLayout {
         View.MeasureSpec.getSize(i2);
         getPaddingBottom();
         getPaddingTop();
-        float f2 = this.f13732h;
+        float f2 = this.f13733h;
         if (f2 > 0.0f) {
             i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
         }
@@ -145,15 +145,15 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setCloseVisibility(boolean z) {
-        this.f13730f.setVisibility(z ? 0 : 8);
+        this.f13731f.setVisibility(z ? 0 : 8);
     }
 
     public void setDefaultResid(int i) {
-        SkinManager.setImageResource(this.f13729e, i);
+        SkinManager.setImageResource(this.f13730e, i);
     }
 
     public void setErrorResid(int i) {
-        this.f13729e.setErrorResid(i);
+        this.f13730e.setErrorResid(i);
     }
 
     public void setIWindowChangedListener(c cVar) {
@@ -170,7 +170,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setRatio(float f2) {
-        this.f13732h = f2;
+        this.f13733h = f2;
         invalidate();
     }
 }

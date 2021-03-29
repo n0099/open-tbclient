@@ -7,7 +7,7 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 import d.b.i0.e1.b.l;
 import d.b.i0.e1.b.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
     public ReplyMeNetModel(TbPageContext tbPageContext, l lVar) {
         super(tbPageContext, lVar);

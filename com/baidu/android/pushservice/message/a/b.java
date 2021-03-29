@@ -1,19 +1,19 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends d {
 
     /* renamed from: com.baidu.android.pushservice.message.a.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3430a;
+        public static final /* synthetic */ int[] f3431a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3430a = iArr;
+            f3431a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -30,17 +30,17 @@ public class b extends d {
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
         int a2 = kVar.a();
         int i = 12;
-        if (AnonymousClass1.f3430a[com.baidu.android.pushservice.a.d.a(this.f3432a, kVar.c()).a().ordinal()] != 1) {
+        if (AnonymousClass1.f3431a[com.baidu.android.pushservice.a.d.a(this.f3433a, kVar.c()).a().ordinal()] != 1) {
             i = 7;
         } else {
             if (kVar.g() == l.MSG_TYPE_CLEAR_MESSAGE.b()) {
-                if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f3432a, a2)) {
-                    com.baidu.android.pushservice.j.h.a(this.f3432a, a2);
-                    if (com.baidu.android.pushservice.c.c.b(this.f3432a, a2)) {
+                if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f3433a, a2)) {
+                    com.baidu.android.pushservice.j.h.a(this.f3433a, a2);
+                    if (com.baidu.android.pushservice.c.c.b(this.f3433a, a2)) {
                         i = 10;
                     }
                 } else {
-                    com.baidu.android.pushservice.j.h.a(this.f3432a);
+                    com.baidu.android.pushservice.j.h.a(this.f3433a);
                 }
             }
             i = 1;

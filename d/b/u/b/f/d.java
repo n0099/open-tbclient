@@ -5,16 +5,16 @@ public class d implements Cloneable {
     public int j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64706e = 3553;
+    public int f64707e = 3553;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64707f = -1;
+    public int f64708f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f64708g = false;
+    public boolean f64709g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64709h = false;
+    public boolean f64710h = false;
     public long k = 0;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,11 +33,11 @@ public class d implements Cloneable {
     }
 
     public int d() {
-        return this.f64707f;
+        return this.f64708f;
     }
 
     public int e() {
-        return this.f64706e;
+        return this.f64707e;
     }
 
     public int f() {
@@ -45,14 +45,14 @@ public class d implements Cloneable {
     }
 
     public boolean g() {
-        return this.f64707f != -1;
+        return this.f64708f != -1;
     }
 
     public void h(int i) {
-        this.f64707f = i;
+        this.f64708f = i;
     }
 
     public String toString() {
-        return "type = " + this.f64706e + " && id = " + this.f64707f + " && cameraFrame" + this.f64708g + " && frontCamera = " + this.f64709h + " && width * height = " + this.i + " * " + this.j + " && timestamp = " + this.k;
+        return "type = " + this.f64707e + " && id = " + this.f64708f + " && cameraFrame" + this.f64709g + " && frontCamera = " + this.f64710h + " && width * height = " + this.i + " * " + this.j + " && timestamp = " + this.k;
     }
 }

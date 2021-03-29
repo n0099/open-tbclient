@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDVideoPlayerUbcContent {
     public Builder mBuilder;
     public final JSONObject mExtStatisticsLog;
@@ -17,7 +17,7 @@ public class BDVideoPlayerUbcContent {
     public final String mTitle;
     public final String mVid;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public String extLog;
         public String from;

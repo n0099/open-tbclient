@@ -39,33 +39,33 @@ import d.b.b.e.p.l;
 import d.b.h0.z0.o;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f53683a;
+    public static boolean f53684a;
 
     static {
         o.e();
     }
 
     public static void a(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
-        double d2 = context.getResources().getDisplayMetrics().density;
-        int i = d2 > 1.5d ? 240 : 160;
-        int i2 = d2 <= 1.5d ? 160 : 240;
+        int i = (context.getResources().getDisplayMetrics().density > 1.5d ? 1 : (context.getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
+        int i2 = i > 0 ? 240 : 160;
+        int i3 = i <= 0 ? 160 : 240;
         gifView.setVisibility(0);
         GifInfo gifInfo = chatMessage.getGifInfo();
         if (chatMessage.getGifInfo() != null) {
-            int i3 = gifInfo.mGifWidth;
-            if (i3 > 0) {
-                i = i3;
-            }
-            gifInfo.mGifWidth = i;
-            int i4 = gifInfo.mGifHeight;
+            int i4 = gifInfo.mGifWidth;
             if (i4 > 0) {
                 i2 = i4;
             }
-            gifInfo.mGifHeight = i2;
+            gifInfo.mGifWidth = i2;
+            int i5 = gifInfo.mGifHeight;
+            if (i5 > 0) {
+                i3 = i5;
+            }
+            gifInfo.mGifHeight = i3;
             gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
             gifView.w0(gifInfo);
             gifView.setVisibility(0);

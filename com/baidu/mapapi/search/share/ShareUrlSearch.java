@@ -10,10 +10,10 @@ import com.baidu.platform.core.e.h;
 public class ShareUrlSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7337b = false;
+    public boolean f7338b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.e.a f7336a = new h();
+    public com.baidu.platform.core.e.a f7337a = new h();
 
     private boolean a(String str) {
         try {
@@ -30,16 +30,16 @@ public class ShareUrlSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7337b) {
+        if (this.f7338b) {
             return;
         }
-        this.f7337b = true;
-        this.f7336a.a();
+        this.f7338b = true;
+        this.f7337a.a();
         BMapManager.destroy();
     }
 
     public boolean requestLocationShareUrl(LocationShareURLOption locationShareURLOption) {
-        com.baidu.platform.core.e.a aVar = this.f7336a;
+        com.baidu.platform.core.e.a aVar = this.f7337a;
         if (aVar != null) {
             if (locationShareURLOption == null || locationShareURLOption.mLocation == null || locationShareURLOption.mName == null || locationShareURLOption.mSnippet == null) {
                 throw new IllegalArgumentException("option or name or snippet  can not be null");
@@ -50,7 +50,7 @@ public class ShareUrlSearch extends l {
     }
 
     public boolean requestPoiDetailShareUrl(PoiDetailShareURLOption poiDetailShareURLOption) {
-        com.baidu.platform.core.e.a aVar = this.f7336a;
+        com.baidu.platform.core.e.a aVar = this.f7337a;
         if (aVar != null) {
             if (poiDetailShareURLOption == null || poiDetailShareURLOption.mUid == null) {
                 throw new IllegalArgumentException("option or uid can not be null");
@@ -61,7 +61,7 @@ public class ShareUrlSearch extends l {
     }
 
     public boolean requestRouteShareUrl(RouteShareURLOption routeShareURLOption) {
-        if (this.f7336a != null) {
+        if (this.f7337a != null) {
             if (routeShareURLOption != null) {
                 if (routeShareURLOption.getmMode().ordinal() < 0) {
                     return false;
@@ -84,7 +84,7 @@ public class ShareUrlSearch extends l {
                         throw new IllegalArgumentException("end cityCode must be set if not set end location");
                     }
                 }
-                return this.f7336a.a(routeShareURLOption);
+                return this.f7337a.a(routeShareURLOption);
             }
             throw new IllegalArgumentException("option is null");
         }
@@ -92,7 +92,7 @@ public class ShareUrlSearch extends l {
     }
 
     public void setOnGetShareUrlResultListener(OnGetShareUrlResultListener onGetShareUrlResultListener) {
-        com.baidu.platform.core.e.a aVar = this.f7336a;
+        com.baidu.platform.core.e.a aVar = this.f7337a;
         if (aVar == null) {
             throw new IllegalStateException("searcher has been destroyed");
         }

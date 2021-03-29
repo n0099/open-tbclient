@@ -9,17 +9,17 @@ import tbclient.User;
 public class b implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f57013f = BdUniqueId.gen();
+    public static final BdUniqueId f57014f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57014e;
+    public int f57015e;
 
     public int a() {
-        return this.f57014e;
+        return this.f57015e;
     }
 
     public void e(int i) {
-        this.f57014e = i;
+        this.f57015e = i;
     }
 
     public void f(MemberGodInfo memberGodInfo) {
@@ -32,6 +32,6 @@ public class b implements n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f57013f;
+        return f57014f;
     }
 }

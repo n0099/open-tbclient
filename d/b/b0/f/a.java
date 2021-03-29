@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class a implements d.b.b0.g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42479a = SchemeConfig.getSchemeHead() + "://swan/";
+    public static final String f42480a = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // d.b.b0.g.a
     public void a(Context context, JSONObject jSONObject, d.b.b0.e.a aVar) {
@@ -53,7 +53,7 @@ public class a implements d.b.b0.g.a {
         String optString = jSONObject.optString("appKey");
         String optString2 = jSONObject.optString("redirectUrl");
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-            SchemeRouter.invoke(context, f42479a + optString + optString2);
+            SchemeRouter.invoke(context, f42480a + optString + optString2);
             return;
         }
         d.b.b0.a.h(3, "支付信息不能为空");
@@ -65,7 +65,7 @@ public class a implements d.b.b0.g.a {
 
     @Override // d.b.b0.g.a
     public void h(Bundle bundle) {
-        String str = d.b.g0.a.i1.a.b().f44618a;
+        String str = d.b.g0.a.i1.a.b().f44619a;
         if (TextUtils.isEmpty(str)) {
             d.a(bundle);
             return;
@@ -79,6 +79,6 @@ public class a implements d.b.b0.g.a {
 
     @Override // d.b.b0.g.a
     public void i(String str) {
-        d.b.g0.a.i1.a.b().f44618a = str;
+        d.b.g0.a.i1.a.b().f44619a = str;
     }
 }

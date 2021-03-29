@@ -31,28 +31,28 @@ import java.util.Map;
 public class b extends l implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f28064a;
+    public a f28065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f28065b;
+    public final Context f28066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28066c;
+    public com.bytedance.sdk.openadsdk.core.d.l f28067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdSlot f28067d;
+    public AdSlot f28068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressAdInteractionListener f28068e;
+    public TTNativeExpressAd.ExpressAdInteractionListener f28069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TTAppDownloadListener f28069f;
+    public TTAppDownloadListener f28070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTDislikeDialogAbstract f28070g;
+    public TTDislikeDialogAbstract f28071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f28071h;
+    public com.bytedance.sdk.openadsdk.dislike.b f28072h;
     public am i;
     public int j;
     public TTAdDislike.DislikeInteractionCallback k;
@@ -60,15 +60,15 @@ public class b extends l implements am.a {
     public String o = "banner_ad";
 
     public b(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
-        this.f28065b = context;
-        this.f28066c = lVar;
-        this.f28067d = adSlot;
+        this.f28066b = context;
+        this.f28067c = lVar;
+        this.f28068d = adSlot;
         a(context, lVar, adSlot);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void destroy() {
-        a aVar = this.f28064a;
+        a aVar = this.f28065a;
         if (aVar != null) {
             aVar.d();
         }
@@ -76,20 +76,20 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public TTAdDislike getDislikeDialog(Activity activity) {
-        if (this.f28071h == null) {
+        if (this.f28072h == null) {
             a(activity, (TTAdDislike.DislikeInteractionCallback) null);
         }
-        return this.f28071h;
+        return this.f28072h;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public View getExpressAdView() {
-        return this.f28064a;
+        return this.f28065a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public List<FilterWord> getFilterWords() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
         if (lVar == null) {
             return null;
         }
@@ -98,7 +98,7 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public int getImageMode() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
         if (lVar == null) {
             return -1;
         }
@@ -107,7 +107,7 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public int getInteractionType() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
         if (lVar == null) {
             return -1;
         }
@@ -116,7 +116,7 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public Map<String, Object> getMediaExtraInfo() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
         if (lVar != null) {
             return lVar.ay();
         }
@@ -125,7 +125,7 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public PersonalizationPrompt getPersonalizationPrompt() {
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
         if (lVar == null) {
             return null;
         }
@@ -134,7 +134,7 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void render() {
-        this.f28064a.e();
+        this.f28065a.e();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
@@ -152,18 +152,18 @@ public class b extends l implements am.a {
             u.b("dialog is null, please check");
             return;
         }
-        this.f28070g = tTDislikeDialogAbstract;
-        tTDislikeDialogAbstract.setMaterialMeta(this.f28066c);
-        a aVar = this.f28064a;
+        this.f28071g = tTDislikeDialogAbstract;
+        tTDislikeDialogAbstract.setMaterialMeta(this.f28067c);
+        a aVar = this.f28065a;
         if (aVar == null || aVar.getCurView() == null) {
             return;
         }
-        this.f28064a.getCurView().setOuterDislike(tTDislikeDialogAbstract);
+        this.f28065a.getCurView().setOuterDislike(tTDislikeDialogAbstract);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
-        this.f28069f = tTAppDownloadListener;
+        this.f28070f = tTAppDownloadListener;
         l.a aVar = this.n;
         if (aVar != null) {
             aVar.a(tTAppDownloadListener);
@@ -172,8 +172,8 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
-        this.f28068e = expressAdInteractionListener;
-        this.f28064a.setExpressInteractionListener(expressAdInteractionListener);
+        this.f28069e = expressAdInteractionListener;
+        this.f28065a.setExpressInteractionListener(expressAdInteractionListener);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
@@ -182,8 +182,8 @@ public class b extends l implements am.a {
             return;
         }
         this.o = "slide_banner_ad";
-        a(this.f28064a.getCurView(), this.f28066c);
-        this.f28064a.setDuration(1000);
+        a(this.f28065a.getCurView(), this.f28067c);
+        this.f28065a.setDuration(1000);
         if (i < 30000) {
             i = 30000;
         } else if (i > 120000) {
@@ -202,7 +202,7 @@ public class b extends l implements am.a {
     }
 
     private void c() {
-        com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f28065b).a(this.f28067d, 1, null, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.b.3
+        com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f28066b).a(this.f28068d, 1, null, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.b.3
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.b.a
             public void a(List<com.bytedance.sdk.openadsdk.core.d.l> list) {
                 if (list == null || list.isEmpty()) {
@@ -211,9 +211,9 @@ public class b extends l implements am.a {
                 }
                 com.bytedance.sdk.openadsdk.core.d.l lVar = list.get(0);
                 b bVar = b.this;
-                bVar.f28064a.a(lVar, bVar.f28067d);
+                bVar.f28065a.a(lVar, bVar.f28068d);
                 b.this.b(lVar);
-                b.this.f28064a.c();
+                b.this.f28065a.c();
                 b.this.a();
             }
 
@@ -226,36 +226,36 @@ public class b extends l implements am.a {
 
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
         a aVar = new a(context, lVar, adSlot);
-        this.f28064a = aVar;
-        a(aVar.getCurView(), this.f28066c);
+        this.f28065a = aVar;
+        a(aVar.getCurView(), this.f28067c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setExpressInteractionListener(TTNativeExpressAd.AdInteractionListener adInteractionListener) {
-        this.f28068e = adInteractionListener;
-        this.f28064a.setExpressInteractionListener(adInteractionListener);
+        this.f28069e = adInteractionListener;
+        this.f28065a.setExpressInteractionListener(adInteractionListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(@NonNull com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (this.f28064a.getNextView() == null || !this.f28064a.b()) {
+        if (this.f28065a.getNextView() == null || !this.f28065a.b()) {
             return;
         }
-        b(this.f28064a.getNextView(), lVar);
-        a(this.f28064a.getNextView(), lVar);
+        b(this.f28065a.getNextView(), lVar);
+        a(this.f28065a.getNextView(), lVar);
     }
 
     private void a(Activity activity, TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback) {
-        if (this.f28071h == null) {
-            this.f28071h = new com.bytedance.sdk.openadsdk.dislike.b(activity, this.f28066c, this.o);
+        if (this.f28072h == null) {
+            this.f28072h = new com.bytedance.sdk.openadsdk.dislike.b(activity, this.f28067c, this.o);
         }
         this.l = activity;
-        this.f28071h.setDislikeInteractionCallback(dislikeInteractionCallback);
-        a aVar = this.f28064a;
+        this.f28072h.setDislikeInteractionCallback(dislikeInteractionCallback);
+        a aVar = this.f28065a;
         if (aVar == null || aVar.getCurView() == null) {
             return;
         }
-        this.f28064a.getCurView().setDislike(this.f28071h);
+        this.f28065a.getCurView().setDislike(this.f28072h);
     }
 
     private void b(@NonNull NativeExpressView nativeExpressView, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar) {
@@ -263,23 +263,23 @@ public class b extends l implements am.a {
             return;
         }
         if (this.k != null) {
-            this.f28071h.a(lVar);
+            this.f28072h.a(lVar);
             if (nativeExpressView != null) {
-                nativeExpressView.setDislike(this.f28071h);
+                nativeExpressView.setDislike(this.f28072h);
             }
         }
-        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28070g;
+        TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28071g;
         if (tTDislikeDialogAbstract != null) {
             tTDislikeDialogAbstract.setMaterialMeta(lVar);
             if (nativeExpressView != null) {
-                nativeExpressView.setOuterDislike(this.f28070g);
+                nativeExpressView.setOuterDislike(this.f28071g);
             }
         }
     }
 
     private com.bytedance.sdk.openadsdk.downloadnew.core.a a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         if (lVar.Z() == 4) {
-            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28065b, lVar, this.o);
+            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28066b, lVar, this.o);
         }
         return null;
     }
@@ -298,7 +298,7 @@ public class b extends l implements am.a {
         if (nativeExpressView == null || lVar == null) {
             return;
         }
-        this.f28066c = lVar;
+        this.f28067c = lVar;
         final com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = a(lVar);
         nativeExpressView.setBackupListener(new com.bytedance.sdk.openadsdk.core.nativeexpress.c() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.b.1
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
@@ -306,9 +306,9 @@ public class b extends l implements am.a {
                 try {
                     nativeExpressView2.l();
                     BannerExpressBackupView bannerExpressBackupView = new BannerExpressBackupView(nativeExpressView2.getContext());
-                    bannerExpressBackupView.a(b.this.f28066c, nativeExpressView2, a2);
-                    bannerExpressBackupView.setDislikeInner(b.this.f28071h);
-                    bannerExpressBackupView.setDislikeOuter(b.this.f28070g);
+                    bannerExpressBackupView.a(b.this.f28067c, nativeExpressView2, a2);
+                    bannerExpressBackupView.setDislikeInner(b.this.f28072h);
+                    bannerExpressBackupView.setDislikeOuter(b.this.f28071g);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -324,7 +324,7 @@ public class b extends l implements am.a {
         d.a(lVar);
         EmptyView a3 = a(nativeExpressView);
         if (a3 == null) {
-            a3 = new EmptyView(this.f28065b, nativeExpressView);
+            a3 = new EmptyView(this.f28066b, nativeExpressView);
             nativeExpressView.addView(a3);
         }
         if (a2 != null) {
@@ -380,27 +380,27 @@ public class b extends l implements am.a {
                 hashMap.put("dynamic_show_type", Integer.valueOf(nativeExpressView.m() ? 1 : 0));
                 u.e("AdEvent", "pangolin ad show " + ak.a(lVar, nativeExpressView));
                 b bVar = b.this;
-                d.a(bVar.f28065b, lVar, bVar.o, hashMap);
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = b.this.f28068e;
+                d.a(bVar.f28066b, lVar, bVar.o, hashMap);
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = b.this.f28069e;
                 if (expressAdInteractionListener != null) {
                     expressAdInteractionListener.onAdShow(view, lVar.Z());
                 }
                 b.this.a();
                 b.this.m.getAndSet(true);
-                a aVar2 = b.this.f28064a;
+                a aVar2 = b.this.f28065a;
                 if (aVar2 == null || aVar2.getCurView() == null) {
                     return;
                 }
-                b.this.f28064a.getCurView().i();
-                b.this.f28064a.getCurView().g();
+                b.this.f28065a.getCurView().i();
+                b.this.f28065a.getCurView().g();
             }
         });
-        e eVar = new e(this.f28065b, lVar, this.o, 2);
+        e eVar = new e(this.f28066b, lVar, this.o, 2);
         eVar.a(nativeExpressView);
         eVar.a(a2);
         eVar.a(this);
         nativeExpressView.setClickListener(eVar);
-        com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(this.f28065b, lVar, this.o, 2);
+        com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(this.f28066b, lVar, this.o, 2);
         dVar.a(nativeExpressView);
         dVar.a(a2);
         dVar.a(this);
@@ -413,8 +413,8 @@ public class b extends l implements am.a {
         if (aVar == null || nativeExpressView == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28066c;
-        l.a aVar2 = new l.a(this.f28069f, lVar != null ? lVar.am() : "");
+        com.bytedance.sdk.openadsdk.core.d.l lVar = this.f28067c;
+        l.a aVar2 = new l.a(this.f28070f, lVar != null ? lVar.am() : "");
         this.n = aVar2;
         aVar.a(aVar2);
     }

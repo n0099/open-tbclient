@@ -16,8 +16,8 @@ public class a extends ActivityDelegation {
 
     /* renamed from: d.b.g0.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0917a implements d.b.g0.a.m.a {
-        public C0917a() {
+    public class C0918a implements d.b.g0.a.m.a {
+        public C0918a() {
         }
 
         @Override // d.b.g0.a.m.a
@@ -119,7 +119,7 @@ public class a extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
         if (!d.b.g0.b.i.a.H(getAgent())) {
-            d.b.g0.b.i.a.O(getAgent(), null, new C0917a());
+            d.b.g0.b.i.a.O(getAgent(), null, new C0918a());
             return false;
         }
         l();

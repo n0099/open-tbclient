@@ -11,7 +11,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a0 {
     public b(j jVar) {
         super(jVar, "/swanAPI/setNavigationBarColor");
@@ -19,7 +19,7 @@ public class b extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

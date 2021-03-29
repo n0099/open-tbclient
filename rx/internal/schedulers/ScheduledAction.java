@@ -66,23 +66,23 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     public final class a implements k {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Future<?> f68221e;
+        public final Future<?> f68226e;
 
         public a(Future<?> future) {
-            this.f68221e = future;
+            this.f68226e = future;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68221e.isCancelled();
+            return this.f68226e.isCancelled();
         }
 
         @Override // h.k
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
-                this.f68221e.cancel(true);
+                this.f68226e.cancel(true);
             } else {
-                this.f68221e.cancel(false);
+                this.f68226e.cancel(false);
             }
         }
     }

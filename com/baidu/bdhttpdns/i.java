@@ -27,101 +27,101 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class i {
     public static volatile i n = null;
     public static boolean o = true;
     public static c p;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4287b;
+    public String f4288b;
     public int l;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4286a = "180.76.76.200";
+    public String f4287a = "180.76.76.200";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4288c = true;
+    public boolean f4289c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4289d = 0;
+    public long f4290d = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f4292g = new Object();
+    public final Object f4293g = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f4293h = new ArrayList<>();
+    public ArrayList<String> f4294h = new ArrayList<>();
     public String i = "";
     public String j = "";
     public boolean k = false;
     public int m = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f4291f = new Object();
+    public final Object f4292f = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<String> f4290e = new HashSet<>();
+    public final HashSet<String> f4291e = new HashSet<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(int i, d dVar, Map<String, e> map, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f4294e;
+        public String f4295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d f4295f;
+        public d f4296f;
 
         /* renamed from: g  reason: collision with root package name */
-        public a f4296g;
+        public a f4297g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f4297h = false;
+        public boolean f4298h = false;
         public boolean i = false;
 
         public b(String str, d dVar, a aVar) {
-            this.f4294e = str;
-            this.f4295f = dVar;
-            this.f4296g = aVar;
+            this.f4295e = str;
+            this.f4296f = dVar;
+            this.f4297g = aVar;
         }
 
         public final String a(String str, d dVar) {
             String str2;
-            long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + i.this.f4289d;
+            long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + i.this.f4290d;
             String g2 = i.this.g(str, currentTimeMillis);
             if (g2 == null) {
                 return null;
             }
-            if (i.this.f4287b == null || i.this.l >= 3) {
-                str2 = i.this.f4286a;
+            if (i.this.f4288b == null || i.this.l >= 3) {
+                str2 = i.this.f4287a;
                 this.i = false;
-                k.a("Using BGPServerIp(%s)", i.this.f4286a);
+                k.a("Using BGPServerIp(%s)", i.this.f4287a);
             } else {
-                str2 = i.this.f4287b;
+                str2 = i.this.f4288b;
                 this.i = true;
-                k.a("Using IDCServerIP(%s)", i.this.f4287b);
+                k.a("Using IDCServerIP(%s)", i.this.f4288b);
             }
             String format = dVar.equals(d.TAG_OF_HOSTS) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android");
-            return i.this.f4288c ? String.format("https://%s", format) : String.format("http://%s", format);
+            return i.this.f4289c ? String.format("https://%s", format) : String.format("http://%s", format);
         }
 
         public final void b() {
-            String a2 = a(this.f4294e, this.f4295f);
+            String a2 = a(this.f4295e, this.f4296f);
             if (a2 != null) {
                 c(a2);
                 return;
             }
-            this.f4296g.a(-1, this.f4295f, null, this.f4294e);
-            k.a("Httpdns request failed for  %s(%s), get url error", this.f4295f.toString(), this.f4294e);
+            this.f4297g.a(-1, this.f4296f, null, this.f4295e);
+            k.a("Httpdns request failed for  %s(%s), get url error", this.f4296f.toString(), this.f4295e);
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0137 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x000c */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:89:0x000c */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x000c */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x000c */
         /* JADX WARN: Code restructure failed: missing block: B:55:0x0169, code lost:
             if (r1 == null) goto L59;
          */
@@ -180,7 +180,7 @@ public final class i {
             try {
                 try {
                     URL url = new URL(str);
-                    if (i.this.f4288c) {
+                    if (i.this.f4289c) {
                         HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                         httpsURLConnection2.setRequestProperty("Host", "httpdns.baidubce.com");
                         httpsURLConnection2.setHostnameVerifier(i.p);
@@ -215,10 +215,10 @@ public final class i {
                     e.printStackTrace();
                     ?? r14 = Boolean.FALSE;
                     i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), caught network IOException", this.f4295f.toString(), this.f4294e);
-                    a aVar2 = this.f4296g;
-                    d dVar2 = this.f4295f;
-                    str2 = this.f4294e;
+                    k.a("Httpdns request failed for %s(%s), caught network IOException", this.f4296f.toString(), this.f4295e);
+                    a aVar2 = this.f4297g;
+                    d dVar2 = this.f4296f;
+                    str2 = this.f4295e;
                     aVar2.a(-1, dVar2, null, str2);
                     httpURLConnection3 = httpURLConnection2;
                     str3 = r14;
@@ -230,10 +230,10 @@ public final class i {
                     e.printStackTrace();
                     ?? r142 = Boolean.FALSE;
                     i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f4295f.toString(), this.f4294e);
-                    a aVar3 = this.f4296g;
-                    d dVar3 = this.f4295f;
-                    str2 = this.f4294e;
+                    k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f4296f.toString(), this.f4295e);
+                    a aVar3 = this.f4297g;
+                    d dVar3 = this.f4296f;
+                    str2 = this.f4295e;
                     aVar3.a(-1, dVar3, null, str2);
                     httpURLConnection3 = httpURLConnection;
                     str3 = r142;
@@ -270,17 +270,17 @@ public final class i {
                 if (f2 == null) {
                     Boolean bool4 = Boolean.FALSE;
                     i.this.l(Boolean.valueOf(this.i));
-                    k.a("Httpdns request failed for %s(%s), get empty response data", this.f4295f.toString(), this.f4294e);
-                    this.f4296g.a(-1, this.f4295f, null, this.f4294e);
+                    k.a("Httpdns request failed for %s(%s), get empty response data", this.f4296f.toString(), this.f4295e);
+                    this.f4297g.a(-1, this.f4296f, null, this.f4295e);
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                         return;
                     }
                     return;
                 }
-                Map j = i.this.j(f2, this.f4294e, this.f4295f);
+                Map j = i.this.j(f2, this.f4295e, this.f4296f);
                 if (j.get("isSignExpired").equals(Boolean.TRUE)) {
-                    this.f4297h = true;
+                    this.f4298h = true;
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                     }
@@ -290,7 +290,7 @@ public final class i {
                     }
                     return;
                 } else if (j.get("isMsgOK").equals(Boolean.TRUE) && responseCode == 200) {
-                    hashMap = i.this.i(f2, this.f4294e);
+                    hashMap = i.this.i(f2, this.f4295e);
                     bool2 = bool3;
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
@@ -299,24 +299,24 @@ public final class i {
                         i.this.l = 0;
                     }
                     if (hashMap != null || hashMap.isEmpty()) {
-                        this.f4296g.a(-1, this.f4295f, null, this.f4294e);
+                        this.f4297g.a(-1, this.f4296f, null, this.f4295e);
                     } else {
-                        this.f4296g.a(0, this.f4295f, hashMap, this.f4294e);
+                        this.f4297g.a(0, this.f4296f, hashMap, this.f4295e);
                         return;
                     }
                 } else {
-                    aVar = this.f4296g;
-                    dVar = this.f4295f;
-                    str4 = this.f4294e;
+                    aVar = this.f4297g;
+                    dVar = this.f4296f;
+                    str4 = this.f4295e;
                     bool = bool3;
                 }
             } else {
                 Boolean bool5 = Boolean.FALSE;
                 i.this.l(Boolean.valueOf(this.i));
-                k.a("Httpdns request failed for %s(%s), get null response stream", this.f4295f.toString(), this.f4294e);
-                aVar = this.f4296g;
-                dVar = this.f4295f;
-                str4 = this.f4294e;
+                k.a("Httpdns request failed for %s(%s), get null response stream", this.f4296f.toString(), this.f4295e);
+                aVar = this.f4297g;
+                dVar = this.f4296f;
+                str4 = this.f4295e;
                 bool = bool5;
             }
             aVar.a(-1, dVar, null, str4);
@@ -328,34 +328,34 @@ public final class i {
             }
             if (hashMap != null) {
             }
-            this.f4296g.a(-1, this.f4295f, null, this.f4294e);
+            this.f4297g.a(-1, this.f4296f, null, this.f4295e);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             b();
-            if (this.f4297h) {
-                k.a("Retry for %s(%s).", this.f4295f.toString(), this.f4294e);
+            if (this.f4298h) {
+                k.a("Retry for %s(%s).", this.f4296f.toString(), this.f4295e);
                 b();
             }
-            synchronized (i.this.f4291f) {
-                if (!this.f4295f.equals(d.TAG_OF_HOSTS)) {
-                    for (String str : this.f4294e.split(",")) {
-                        i.this.f4290e.remove(str);
+            synchronized (i.this.f4292f) {
+                if (!this.f4296f.equals(d.TAG_OF_HOSTS)) {
+                    for (String str : this.f4295e.split(",")) {
+                        i.this.f4291e.remove(str);
                     }
                 }
             }
-            synchronized (i.this.f4292g) {
-                if (this.f4295f.equals(d.DNLIST_HOSTS)) {
-                    for (String str2 : this.f4294e.split(",")) {
-                        i.this.f4293h.remove(str2);
+            synchronized (i.this.f4293g) {
+                if (this.f4296f.equals(d.DNLIST_HOSTS)) {
+                    for (String str2 : this.f4295e.split(",")) {
+                        i.this.f4294h.remove(str2);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements HostnameVerifier {
         public c(i iVar) {
         }
@@ -366,32 +366,32 @@ public final class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum d {
         DNLIST_HOSTS,
         TAG_OF_HOSTS
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ArrayList<String> f4301a;
+        public final ArrayList<String> f4302a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f4302b;
+        public final long f4303b;
 
         public e(i iVar, ArrayList<String> arrayList, long j) {
-            this.f4301a = arrayList;
-            this.f4302b = j;
+            this.f4302a = arrayList;
+            this.f4303b = j;
         }
 
         public ArrayList<String> a() {
-            return this.f4301a;
+            return this.f4302a;
         }
 
         public long b() {
-            return this.f4302b;
+            return this.f4303b;
         }
     }
 
@@ -504,7 +504,7 @@ public final class i {
             if (jSONObject.has("serverip")) {
                 JSONArray optJSONArray = jSONObject.optJSONObject("serverip").optJSONArray("ipv4");
                 if (optJSONArray.length() > 0) {
-                    this.f4287b = optJSONArray.optString(0);
+                    this.f4288b = optJSONArray.optString(0);
                 }
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -585,7 +585,7 @@ public final class i {
                 if (optInt == 0) {
                     k.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
                 } else {
-                    this.f4289d = optInt - (System.currentTimeMillis() / 1000);
+                    this.f4290d = optInt - (System.currentTimeMillis() / 1000);
                     hashMap.put("isSignExpired", Boolean.TRUE);
                 }
                 return hashMap;
@@ -606,9 +606,9 @@ public final class i {
     }
 
     public void m(String str) {
-        synchronized (this.f4292g) {
-            if (!this.f4293h.contains(str)) {
-                this.f4293h.add(str);
+        synchronized (this.f4293g) {
+            if (!this.f4294h.contains(str)) {
+                this.f4294h.add(str);
             }
         }
     }
@@ -617,18 +617,18 @@ public final class i {
         if (str == null || str.isEmpty()) {
             return;
         }
-        synchronized (this.f4291f) {
+        synchronized (this.f4292f) {
             if (dVar.equals(d.DNLIST_HOSTS)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(Arrays.asList(str.split(",")));
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    if (this.f4290e.contains(str2)) {
+                    if (this.f4291e.contains(str2)) {
                         k.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
-                        this.f4290e.add(str2);
+                        this.f4291e.add(str2);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -674,12 +674,12 @@ public final class i {
     }
 
     public void p(boolean z) {
-        this.f4288c = z;
+        this.f4289c = z;
     }
 
     public void r() {
         this.l = 0;
-        this.f4287b = null;
+        this.f4288b = null;
     }
 
     public void s(boolean z) {
@@ -687,7 +687,7 @@ public final class i {
     }
 
     public ArrayList v() {
-        return this.f4293h;
+        return this.f4294h;
     }
 
     public void w(String str) {

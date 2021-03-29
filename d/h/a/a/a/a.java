@@ -3,20 +3,20 @@ package d.h.a.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66179a;
+    public long f66180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66180b;
+    public String f66181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66181c;
+    public int f66182c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66182d;
+    public int f66183d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66183e;
+    public String f66184e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66184f;
+    public int f66185f;
 }

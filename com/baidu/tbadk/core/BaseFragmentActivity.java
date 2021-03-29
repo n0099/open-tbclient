@@ -228,30 +228,30 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class e implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f13158a;
+        public final /* synthetic */ Animation.AnimationListener f13159a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f13159b;
+        public final /* synthetic */ WeakReference f13160b;
 
         public e(Animation.AnimationListener animationListener, WeakReference weakReference) {
-            this.f13158a = animationListener;
-            this.f13159b = weakReference;
+            this.f13159a = animationListener;
+            this.f13160b = weakReference;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f13158a;
+            Animation.AnimationListener animationListener = this.f13159a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
             synchronized (BaseFragmentActivity.this.animationList) {
-                BaseFragmentActivity.this.animationList.remove(this.f13159b);
+                BaseFragmentActivity.this.animationList.remove(this.f13160b);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f13158a;
+            Animation.AnimationListener animationListener = this.f13159a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -259,7 +259,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f13158a;
+            Animation.AnimationListener animationListener = this.f13159a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -361,11 +361,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f13166e;
+        public View f13167e;
 
         public k(View view) {
-            this.f13166e = null;
-            this.f13166e = view;
+            this.f13167e = null;
+            this.f13167e = view;
         }
 
         @Override // java.lang.Runnable
@@ -373,7 +373,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (BaseFragmentActivity.this.isFinishing()) {
                 return;
             }
-            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f13166e);
+            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f13167e);
         }
     }
 
@@ -943,7 +943,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                d.b.b.e.p.l.f42019a = false;
+                d.b.b.e.p.l.f42020a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {

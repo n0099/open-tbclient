@@ -15,36 +15,36 @@ import java.util.Map;
 public class a implements b.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64827a;
+    public String f64828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f64828b;
+    public d f64829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64829c;
+    public String f64830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f64830d;
+    public HashMap<String, Object> f64831d;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f64834h;
+    public Runnable f64835h;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64831e = true;
+    public boolean f64832e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64832f = -1;
+    public int f64833f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f64833g = false;
+    public boolean f64834g = false;
     public c i = null;
     public boolean j = false;
     public long k = 0;
 
     /* renamed from: d.b.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC1776a implements Runnable {
-        public RunnableC1776a() {
+    public class RunnableC1777a implements Runnable {
+        public RunnableC1777a() {
         }
 
         @Override // java.lang.Runnable
@@ -68,22 +68,22 @@ public class a implements b.d {
     public static class c extends BdAsyncTask<Object, String, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f64837a;
+        public a f64838a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpNetContext f64838b;
+        public HttpNetContext f64839b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f64839c = null;
+        public NetWork f64840c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f64840d = false;
+        public boolean f64841d = false;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64841e = 0;
+        public long f64842e = 0;
 
         public c(a aVar) {
-            this.f64837a = aVar;
+            this.f64838a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,22 +91,22 @@ public class a implements b.d {
         /* renamed from: b */
         public String doInBackground(Object... objArr) {
             String postNetData;
-            this.f64841e = System.currentTimeMillis() - this.f64837a.k();
-            this.f64837a.f64833g = true;
-            this.f64839c = new NetWork(this.f64837a.h());
-            HashMap<String, Object> j = this.f64837a.j();
+            this.f64842e = System.currentTimeMillis() - this.f64838a.k();
+            this.f64838a.f64834g = true;
+            this.f64840c = new NetWork(this.f64838a.h());
+            HashMap<String, Object> j = this.f64838a.j();
             if (j != null && !j.isEmpty()) {
                 for (Map.Entry<String, Object> entry : j.entrySet()) {
-                    this.f64839c.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
+                    this.f64840c.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
-            if (this.f64837a.i() && j != null) {
-                this.f64839c.addPostData("debugfile", (byte[]) j.get("debugfile"));
-                postNetData = this.f64839c.postMultiNetData();
+            if (this.f64838a.i() && j != null) {
+                this.f64840c.addPostData("debugfile", (byte[]) j.get("debugfile"));
+                postNetData = this.f64840c.postMultiNetData();
             } else {
-                postNetData = this.f64839c.postNetData();
+                postNetData = this.f64840c.postNetData();
             }
-            this.f64838b = this.f64839c.getNetContext();
+            this.f64839b = this.f64840c.getNetContext();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -119,40 +119,40 @@ public class a implements b.d {
             if (strArr == null || strArr.length <= 0) {
                 return;
             }
-            this.f64837a.f64833g = false;
-            if (this.f64837a.f64834h != null) {
-                e.a().removeCallbacks(this.f64837a.f64834h);
+            this.f64838a.f64834g = false;
+            if (this.f64838a.f64835h != null) {
+                e.a().removeCallbacks(this.f64838a.f64835h);
             }
-            HttpNetContext httpNetContext = this.f64838b;
-            if (httpNetContext != null && httpNetContext.getResponse() != null && !this.f64840d && this.f64837a.f64828b != null) {
+            HttpNetContext httpNetContext = this.f64839b;
+            if (httpNetContext != null && httpNetContext.getResponse() != null && !this.f64841d && this.f64838a.f64829b != null) {
                 HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put("server", this.f64837a.h());
-                hashMap.put(RetrieveTaskManager.KEY, this.f64837a.h());
-                hashMap.put("state", this.f64838b.getStat().stat.f41784h);
-                if (this.f64838b.getPerformance() != null && this.f64837a.k() > 0 && this.f64838b.getPerformance().containsKey("startTime")) {
-                    long f2 = d.b.b.e.m.b.f(this.f64838b.getPerformance().get("startTime"), 0L) - this.f64837a.k();
+                hashMap.put("server", this.f64838a.h());
+                hashMap.put(RetrieveTaskManager.KEY, this.f64838a.h());
+                hashMap.put("state", this.f64839b.getStat().stat.f41785h);
+                if (this.f64839b.getPerformance() != null && this.f64838a.k() > 0 && this.f64839b.getPerformance().containsKey("startTime")) {
+                    long f2 = d.b.b.e.m.b.f(this.f64839b.getPerformance().get("startTime"), 0L) - this.f64838a.k();
                     if (f2 > 0) {
-                        this.f64838b.getPerformance().put("taskWaitTime", String.valueOf(f2));
+                        this.f64839b.getPerformance().put("taskWaitTime", String.valueOf(f2));
                     }
-                    if (this.f64841e < 20000) {
-                        this.f64838b.getPerformance().put("queneTime", String.valueOf(this.f64841e));
+                    if (this.f64842e < 20000) {
+                        this.f64839b.getPerformance().put("queneTime", String.valueOf(this.f64842e));
                     }
                 }
-                this.f64837a.f64828b.a(hashMap, this.f64838b.getPerformance(), this.f64838b.getResponse().mServerErrorCode, this.f64838b.getResponse().mErrorString, strArr[0], this.f64837a.f64827a);
+                this.f64838a.f64829b.a(hashMap, this.f64839b.getPerformance(), this.f64839b.getResponse().mServerErrorCode, this.f64839b.getResponse().mErrorString, strArr[0], this.f64838a.f64828a);
             }
-            this.f64837a.o();
+            this.f64838a.o();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.f64840d = true;
+            this.f64841d = true;
             super.cancel(true);
-            NetWork netWork = this.f64839c;
+            NetWork netWork = this.f64840c;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            if (this.f64837a.f64828b != null) {
-                this.f64837a.f64828b.a(null, null, -1, "cancle", "", this.f64837a.f64827a);
+            if (this.f64838a.f64829b != null) {
+                this.f64838a.f64829b.a(null, null, -1, "cancle", "", this.f64838a.f64828a);
             }
         }
     }
@@ -163,21 +163,21 @@ public class a implements b.d {
     }
 
     public a(String str) {
-        this.f64827a = str;
+        this.f64828a = str;
     }
 
     @Override // d.b.x.b.d
     public boolean a() {
         c cVar;
-        if (this.f64833g && (cVar = this.i) != null) {
+        if (this.f64834g && (cVar = this.i) != null) {
             cVar.cancel();
         }
-        this.f64833g = false;
+        this.f64834g = false;
         return true;
     }
 
     public String h() {
-        return this.f64829c;
+        return this.f64830c;
     }
 
     public boolean i() {
@@ -185,7 +185,7 @@ public class a implements b.d {
     }
 
     public HashMap<String, Object> j() {
-        return this.f64830d;
+        return this.f64831d;
     }
 
     public long k() {
@@ -193,22 +193,22 @@ public class a implements b.d {
     }
 
     public Runnable l() {
-        if (this.f64834h == null) {
-            this.f64834h = new b();
+        if (this.f64835h == null) {
+            this.f64835h = new b();
         }
-        return this.f64834h;
+        return this.f64835h;
     }
 
     public boolean m() {
-        if (this.f64828b == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.f64829b == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.f64831e = l.C();
-        if (this.f64832f >= 10) {
-            e.a().postDelayed(l(), this.f64832f * 1000);
+        this.f64832e = l.C();
+        if (this.f64833f >= 10) {
+            e.a().postDelayed(l(), this.f64833f * 1000);
         }
-        if (!this.f64831e) {
-            e.a().post(new RunnableC1776a());
+        if (!this.f64832e) {
+            e.a().post(new RunnableC1777a());
             return false;
         } else if (this.i == null) {
             c cVar = new c(this);
@@ -221,9 +221,9 @@ public class a implements b.d {
     }
 
     public final void n(int i, String str) {
-        d dVar = this.f64828b;
+        d dVar = this.f64829b;
         if (dVar != null) {
-            dVar.a(null, null, i, str, null, this.f64827a);
+            dVar.a(null, null, i, str, null, this.f64828a);
         }
     }
 
@@ -232,11 +232,11 @@ public class a implements b.d {
     }
 
     public void p(d dVar) {
-        this.f64828b = dVar;
+        this.f64829b = dVar;
     }
 
     public void q(String str) {
-        this.f64829c = str;
+        this.f64830c = str;
     }
 
     public void r(boolean z) {
@@ -244,7 +244,7 @@ public class a implements b.d {
     }
 
     public void s(HashMap<String, Object> hashMap) {
-        this.f64830d = hashMap;
+        this.f64831d = hashMap;
     }
 
     public void t(long j) {

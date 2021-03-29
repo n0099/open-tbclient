@@ -10,7 +10,7 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 import tbclient.AgreeMe.DataRes;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<a> datas;
     public boolean hasMore;

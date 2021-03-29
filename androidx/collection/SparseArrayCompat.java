@@ -134,7 +134,7 @@ public class SparseArrayCompat<E> implements Cloneable {
             this.mValues[binarySearch] = e2;
             return;
         }
-        int i2 = binarySearch ^ (-1);
+        int i2 = ~binarySearch;
         if (i2 < this.mSize) {
             Object[] objArr = this.mValues;
             if (objArr[i2] == DELETED) {
@@ -145,7 +145,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
-            i2 = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i) ^ (-1);
+            i2 = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
         }
         int i3 = this.mSize;
         if (i3 >= this.mKeys.length) {

@@ -8,19 +8,19 @@ import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends d {
 
     /* renamed from: com.baidu.android.pushservice.message.a.e$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3433a;
+        public static final /* synthetic */ int[] f3434a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3433a = iArr;
+            f3434a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -58,40 +58,40 @@ public class e extends d {
         int a2 = kVar.a();
         byte[] i2 = kVar.i();
         String d2 = kVar.d();
-        PublicMsg a3 = j.a(this.f3432a, f2, c2, bArr);
+        PublicMsg a3 = j.a(this.f3433a, f2, c2, bArr);
         if (a3 == null || TextUtils.isEmpty(a3.mDescription)) {
-            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f3432a);
+            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f3433a);
             i = 2;
         } else {
-            com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f3432a, c2);
-            if (TextUtils.isEmpty(d2) || !m.b(this.f3432a, d2)) {
+            com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f3433a, c2);
+            if (TextUtils.isEmpty(d2) || !m.b(this.f3433a, d2)) {
                 if (a4.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT) {
-                    d2 = a4.f2687a.b();
+                    d2 = a4.f2688a.b();
                 }
-                m.a(this.f3432a, a3);
+                m.a(this.f3433a, a3);
                 i = 1;
-                if (AnonymousClass1.f3433a[a4.a().ordinal()] == 1) {
-                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f3432a);
+                if (AnonymousClass1.f3434a[a4.a().ordinal()] == 1) {
+                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f3433a);
                     i = 7;
                 } else {
-                    PackageManager packageManager = this.f3432a.getPackageManager();
+                    PackageManager packageManager = this.f3433a.getPackageManager();
                     try {
                         ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a3.mPkgName, 128);
                         if (TextUtils.isEmpty(a3.mTitle)) {
                             a3.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                         }
-                        f.a(this.f3432a, a3, f2, c2, g2, i2, bArr, a2);
-                        m.a(f2 + " is showing Notification!", this.f3432a);
+                        f.a(this.f3433a, a3, f2, c2, g2, i2, bArr, a2);
+                        m.a(f2 + " is showing Notification!", this.f3433a);
                     } catch (PackageManager.NameNotFoundException e2) {
-                        new b.c(this.f3432a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f3433a).a(Log.getStackTraceString(e2)).a();
                         i = 8;
                     }
                 }
             }
             a3.mPkgName = d2;
-            m.a(this.f3432a, a3);
+            m.a(this.f3433a, a3);
             i = 1;
-            if (AnonymousClass1.f3433a[a4.a().ordinal()] == 1) {
+            if (AnonymousClass1.f3434a[a4.a().ordinal()] == 1) {
             }
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.upload.IUploadTransferListener;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMConversation implements NoProGuard {
     public static final String TAG = "BIMConversation";
     public boolean isMulAppSync = false;
@@ -36,7 +36,7 @@ public class BIMConversation implements NoProGuard {
     public Context mContext;
     public ChatSession session;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum MSGTYPE {
         ALL,
         MSG,

@@ -13,28 +13,28 @@ import org.json.JSONObject;
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8616a;
+    public int f8617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f8617b;
+    public Boolean f8618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8618c;
+    public String f8619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8619d;
+    public int f8620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8620e;
+    public int f8621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8621f;
+    public String f8622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8622g;
+    public String f8623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8623h;
+    public String f8624h;
     public int i;
     public int j;
     public String k;
@@ -46,13 +46,13 @@ public class c implements IXAdResponseInfo {
     public long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f8616a = 0;
-        this.f8617b = Boolean.FALSE;
+        this.f8617a = 0;
+        this.f8618b = Boolean.FALSE;
         this.i = -1;
         this.j = -1;
         this.p = new ArrayList<>();
         this.o = str;
-        com.baidu.mobads.b.a.f8164c = str;
+        com.baidu.mobads.b.a.f8165c = str;
         JSONObject jSONObject = new JSONObject(str);
         try {
             JSONArray jSONArray = jSONObject.getJSONArray("ad");
@@ -67,13 +67,13 @@ public class c implements IXAdResponseInfo {
         } catch (Exception unused2) {
             this.p = new ArrayList<>();
         }
-        this.f8616a = jSONObject.optInt("n", 0);
-        this.f8619d = jSONObject.optInt("x", 0);
-        this.f8620e = jSONObject.optInt("y", 0);
-        this.f8617b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
-        this.f8618c = jSONObject.optString("u", "");
-        this.f8621f = jSONObject.optString("exp2", StringUtil.EMPTY_ARRAY);
-        this.f8622g = jSONObject.optString("ext_act", StringUtil.EMPTY_ARRAY);
+        this.f8617a = jSONObject.optInt("n", 0);
+        this.f8620d = jSONObject.optInt("x", 0);
+        this.f8621e = jSONObject.optInt("y", 0);
+        this.f8618b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
+        this.f8619c = jSONObject.optString("u", "");
+        this.f8622f = jSONObject.optString("exp2", StringUtil.EMPTY_ARRAY);
+        this.f8623g = jSONObject.optString("ext_act", StringUtil.EMPTY_ARRAY);
         this.i = jSONObject.optInt("lunpan", -1);
         this.j = jSONObject.optInt("intIcon", -1);
         this.k = jSONObject.optString("ck", "");
@@ -81,7 +81,7 @@ public class c implements IXAdResponseInfo {
         this.m = jSONObject.optString("error_code", "");
         this.n = jSONObject.optString("error_msg", "");
         try {
-            this.f8623h = jSONObject.getString(AppActivityImp.EXTRA_LP_THEME);
+            this.f8624h = jSONObject.getString(AppActivityImp.EXTRA_LP_THEME);
         } catch (JSONException unused3) {
         }
     }
@@ -93,7 +93,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f8616a;
+        return this.f8617a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -103,7 +103,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public String getDefaultFillInThemeForStaticAds() {
-        return this.f8623h;
+        return this.f8624h;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -127,12 +127,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public String getExp2() {
-        return this.f8621f;
+        return this.f8622f;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public String getExtentionActionExp() {
-        return this.f8622g;
+        return this.f8623g;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -142,12 +142,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getLatitude() {
-        return this.f8620e;
+        return this.f8621e;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getLongitude() {
-        return this.f8619d;
+        return this.f8620d;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -157,7 +157,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public Boolean getOpenPointModeForWall() {
-        return this.f8617b;
+        return this.f8618b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -167,7 +167,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public String getPointUnitForWall() {
-        return this.f8618c;
+        return this.f8619c;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -195,7 +195,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f8616a = i;
+        this.f8617a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -205,7 +205,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setDefaultFillInThemeForStaticAds(String str) {
-        this.f8623h = str;
+        this.f8624h = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -220,12 +220,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setExp2(String str) {
-        this.f8621f = str;
+        this.f8622f = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setExtentionActionExp(String str) {
-        this.f8622g = str;
+        this.f8623g = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -235,12 +235,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setLatitude(int i) {
-        this.f8620e = i;
+        this.f8621e = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setLongitude(int i) {
-        this.f8619d = i;
+        this.f8620d = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -250,7 +250,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setOpenPointModeForWall(Boolean bool) {
-        this.f8617b = bool;
+        this.f8618b = bool;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -260,7 +260,7 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setPointUnitForWall(String str) {
-        this.f8618c = str;
+        this.f8619c = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

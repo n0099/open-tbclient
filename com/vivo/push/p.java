@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39492a = new Object();
+    public static final Object f39493a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile p f39493b;
+    public static volatile p f39494b;
     public Context i;
     public com.vivo.push.util.a k;
     public String l;
@@ -36,22 +36,22 @@ public final class p {
     public int t;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39494c = -1;
+    public long f39495c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39495d = -1;
+    public long f39496d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39496e = -1;
+    public long f39497e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39497f = -1;
+    public long f39498f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39498g = -1;
+    public long f39499g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f39499h = -1;
+    public long f39500h = -1;
     public boolean j = true;
     public SparseArray<a> n = new SparseArray<>();
     public int o = 0;
@@ -180,14 +180,14 @@ public final class p {
     }
 
     public static p a() {
-        if (f39493b == null) {
-            synchronized (f39492a) {
-                if (f39493b == null) {
-                    f39493b = new p();
+        if (f39494b == null) {
+            synchronized (f39493a) {
+                if (f39494b == null) {
+                    f39494b = new p();
                 }
             }
         }
-        return f39493b;
+        return f39494b;
     }
 
     public final void b() throws VivoPushException {
@@ -201,47 +201,47 @@ public final class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IPushActionListener f39500a;
+        public IPushActionListener f39501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.vivo.push.b.c f39501b;
+        public com.vivo.push.b.c f39502b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IPushActionListener f39502c;
+        public IPushActionListener f39503c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Runnable f39503d;
+        public Runnable f39504d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object[] f39504e;
+        public Object[] f39505e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
-            this.f39501b = cVar;
-            this.f39500a = iPushActionListener;
+            this.f39502b = cVar;
+            this.f39501a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
-            this.f39504e = objArr;
-            IPushActionListener iPushActionListener = this.f39502c;
+            this.f39505e = objArr;
+            IPushActionListener iPushActionListener = this.f39503c;
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(i);
             }
-            IPushActionListener iPushActionListener2 = this.f39500a;
+            IPushActionListener iPushActionListener2 = this.f39501a;
             if (iPushActionListener2 != null) {
                 iPushActionListener2.onStateChanged(i);
             }
         }
 
         public final Object[] b() {
-            return this.f39504e;
+            return this.f39505e;
         }
 
         public final void a(Runnable runnable) {
-            this.f39503d = runnable;
+            this.f39504d = runnable;
         }
 
         public final void a() {
-            Runnable runnable = this.f39503d;
+            Runnable runnable = this.f39504d;
             if (runnable == null) {
                 com.vivo.push.util.p.a("PushClientManager", "task is null");
             } else {
@@ -250,7 +250,7 @@ public final class p {
         }
 
         public final void a(IPushActionListener iPushActionListener) {
-            this.f39502c = iPushActionListener;
+            this.f39503c = iPushActionListener;
         }
     }
 
@@ -327,12 +327,12 @@ public final class p {
             }
         } else if ("".equals(this.l)) {
             iPushActionListener.onStateChanged(0);
-        } else if (!a(this.f39495d)) {
+        } else if (!a(this.f39496d)) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(1002);
             }
         } else {
-            this.f39495d = SystemClock.elapsedRealtime();
+            this.f39496d = SystemClock.elapsedRealtime();
             String packageName = this.i.getPackageName();
             a aVar = null;
             if (this.i != null) {
@@ -421,12 +421,12 @@ public final class p {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(0);
             }
-        } else if (!a(this.f39494c)) {
+        } else if (!a(this.f39495c)) {
             if (iPushActionListener != null) {
                 iPushActionListener.onStateChanged(1002);
             }
         } else {
-            this.f39494c = SystemClock.elapsedRealtime();
+            this.f39495c = SystemClock.elapsedRealtime();
             String packageName = this.i.getPackageName();
             a aVar = null;
             if (this.i != null) {
@@ -493,14 +493,14 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39497f)) {
+                } else if (!a(this.f39498f)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39497f = SystemClock.elapsedRealtime();
+                    this.f39498f = SystemClock.elapsedRealtime();
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
@@ -567,14 +567,14 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39496e)) {
+                } else if (!a(this.f39497e)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39496e = SystemClock.elapsedRealtime();
+                    this.f39497e = SystemClock.elapsedRealtime();
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
@@ -633,14 +633,14 @@ public final class p {
                     return;
                 }
                 return;
-            } else if (!a(this.f39499h)) {
+            } else if (!a(this.f39500h)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                     return;
                 }
                 return;
             } else {
-                this.f39499h = SystemClock.elapsedRealtime();
+                this.f39500h = SystemClock.elapsedRealtime();
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
@@ -743,14 +743,14 @@ public final class p {
                     return;
                 }
                 return;
-            } else if (!a(this.f39498g)) {
+            } else if (!a(this.f39499g)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                     return;
                 }
                 return;
             } else {
-                this.f39498g = SystemClock.elapsedRealtime();
+                this.f39499g = SystemClock.elapsedRealtime();
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {

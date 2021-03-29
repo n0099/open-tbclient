@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f extends c implements p<a2>, q {
     public final CardForumHeadLayout i;
     public int j = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);

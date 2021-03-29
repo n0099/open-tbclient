@@ -2,7 +2,7 @@ package d.b.l.c;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     public static String a(String str) {
         try {

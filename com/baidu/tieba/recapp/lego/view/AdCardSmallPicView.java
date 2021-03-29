@@ -19,7 +19,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public void S(AdCard adCard) {
         AdCard.d[] dVarArr;
         if (adCard != null && (dVarArr = adCard.threadPicList) != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20706a;
+            String str = dVarArr[0].f20707a;
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
                 this.A.W(str, 17, false);

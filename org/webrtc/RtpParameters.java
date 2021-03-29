@@ -62,7 +62,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class Encoding {
         public boolean active;
         @Nullable

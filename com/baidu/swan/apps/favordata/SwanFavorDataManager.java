@@ -24,17 +24,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanFavorDataManager implements d.b.g0.a.m.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f12222e = k.f45050a;
+    public static final boolean f12223e = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class FavorDataDBLoaderCB implements LoaderManager.LoaderCallbacks<Cursor> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f12223a;
+        public d f12224a;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:23:0x0048  */
@@ -47,7 +47,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
             d dVar;
             if (loader.getId() != 101) {
-                d dVar2 = this.f12223a;
+                d dVar2 = this.f12224a;
                 if (dVar2 != null) {
                     dVar2.onLoadFail();
                     return;
@@ -62,11 +62,11 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
                         arrayList.add(l);
                     }
                 } while (cursor.moveToNext());
-                dVar = this.f12223a;
+                dVar = this.f12224a;
                 if (dVar == null) {
                 }
             } else {
-                dVar = this.f12223a;
+                dVar = this.f12224a;
                 if (dVar == null) {
                     dVar.onLoadSuccess(arrayList);
                 }
@@ -81,14 +81,14 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
 
         @Override // androidx.loader.app.LoaderManager.LoaderCallbacks
         public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            d dVar = this.f12223a;
+            d dVar = this.f12224a;
             if (dVar != null) {
                 dVar.onLoadFail();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.z.a.a {
         public a() {
         }
@@ -99,7 +99,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.z.a.b {
         public b() {
         }
@@ -110,7 +110,7 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -138,18 +138,18 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void onLoadFail();
 
         void onLoadSuccess(List<SwanFavorItemData> list);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SwanFavorDataManager f12227a = new SwanFavorDataManager(null);
+        public static final SwanFavorDataManager f12228a = new SwanFavorDataManager(null);
     }
 
     public /* synthetic */ SwanFavorDataManager(a aVar) {
@@ -157,11 +157,11 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
     }
 
     public static SwanFavorDataManager i() {
-        return e.f12227a;
+        return e.f12228a;
     }
 
     public static void m(boolean z) {
-        if (f12222e) {
+        if (f12223e) {
             Log.d("SwanFavorDataManager", "sendFavorStatusMsg: isAddfavor = " + z);
         }
         HashMap hashMap = new HashMap();
@@ -190,8 +190,8 @@ public class SwanFavorDataManager implements d.b.g0.a.m.c {
         }
     }
 
-    public void d(String str, d.b.g0.a.m0.b.b bVar, b.C0707b c0707b) {
-        if (d.b.g0.a.g0.c.a.g(str, bVar, c0707b)) {
+    public void d(String str, d.b.g0.a.m0.b.b bVar, b.C0708b c0708b) {
+        if (d.b.g0.a.g0.c.a.g(str, bVar, c0708b)) {
             n(str, false);
         }
         l(str, QueryResponse.Options.CANCEL, "-1");

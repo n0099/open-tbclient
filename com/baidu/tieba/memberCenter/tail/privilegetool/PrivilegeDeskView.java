@@ -126,8 +126,8 @@ public class PrivilegeDeskView extends CommonTabHost {
         if (aVar == null) {
             return;
         }
-        if (aVar.f51523a == 2) {
-            Object obj = aVar.f51525c;
+        if (aVar.f51524a == 2) {
+            Object obj = aVar.f51526c;
             if (obj == null) {
                 this.r--;
             } else if (obj instanceof String) {
@@ -146,7 +146,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 d(new d.b.h0.w.a(2, 18, null));
             }
         }
-        if (aVar.f51523a == 1) {
+        if (aVar.f51524a == 1) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
         }
     }

@@ -40,17 +40,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public TextView mRemoveView;
     public TextView mResultTipView;
     public LinearLayout mRootView;
-    public b.InterfaceC1339b mNetDataCallBack = new a();
+    public b.InterfaceC1340b mNetDataCallBack = new a();
     public View.OnClickListener mRemoveAllClick = new b();
     public View.OnClickListener mRemoveSingleClick = new c();
     public View.OnClickListener mPersonClick = new d();
 
     /* loaded from: classes4.dex */
-    public class a implements b.InterfaceC1339b {
+    public class a implements b.InterfaceC1340b {
         public a() {
         }
 
-        @Override // d.b.i0.m0.a.b.InterfaceC1339b
+        @Override // d.b.i0.m0.a.b.InterfaceC1340b
         public void a(int i, String str, ArrayList<d.b.i0.m0.a.a> arrayList) {
             if (MyForbiddenFansActivity.this.isProgressBarShown()) {
                 MyForbiddenFansActivity.this.hideProgressBar();
@@ -102,7 +102,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                 myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.neterror));
             } else if (view.getTag() instanceof d.b.i0.m0.a.a) {
                 TiebaStatic.log(new StatisticItem("c13105"));
-                MyForbiddenFansActivity.this.mRemoveController.f(((d.b.i0.m0.a.a) view.getTag()).f56806a);
+                MyForbiddenFansActivity.this.mRemoveController.f(((d.b.i0.m0.a.a) view.getTag()).f56807a);
             }
         }
     }
@@ -116,7 +116,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view) {
             if (view.getTag() instanceof d.b.i0.m0.a.a) {
                 d.b.i0.m0.a.a aVar = (d.b.i0.m0.a.a) view.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f56806a), aVar.f56807b)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f56807a), aVar.f56808b)));
             }
         }
     }

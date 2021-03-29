@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class e extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47777c = k.f45050a;
+    public static final boolean f47778c = k.f45051a;
 
     public e() {
         super("openApp");
@@ -19,7 +19,7 @@ public class e extends d.b.g0.f.i.a {
 
     @Override // d.b.g0.f.i.a
     public d.b.g0.a.t.e.b a(@NonNull JSONObject jSONObject, @NonNull d.b.g0.a.p0.b bVar) {
-        if (f47777c) {
+        if (f47778c) {
             Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
         }
         String optString = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);

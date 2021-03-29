@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class s extends h {
     public static final int m = d.b.b.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     public ItemCardView l;

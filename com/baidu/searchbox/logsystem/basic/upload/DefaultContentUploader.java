@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DefaultContentUploader extends BaseContentUploader {
     public static final int CONNECT_TIMEOUT = 30000;
     public static final boolean DEBUG = LLog.sDebug;
@@ -27,10 +27,10 @@ public class DefaultContentUploader extends BaseContentUploader {
     public static final int READ_TIMEOUT = 30000;
     public static final String TAG = "LSStrategy";
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0004 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:94:0x0004 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0139 A[Catch: all -> 0x0162, TryCatch #0 {all -> 0x0162, blocks: (B:79:0x0135, B:81:0x0139, B:84:0x0145, B:86:0x0149), top: B:95:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0149 A[Catch: all -> 0x0162, TRY_LEAVE, TryCatch #0 {all -> 0x0162, blocks: (B:79:0x0135, B:81:0x0139, B:84:0x0145, B:86:0x0149), top: B:95:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x013a A[Catch: all -> 0x0163, TryCatch #1 {all -> 0x0163, blocks: (B:79:0x0136, B:81:0x013a, B:84:0x0146, B:86:0x014a), top: B:94:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x014a A[Catch: all -> 0x0163, TRY_LEAVE, TryCatch #1 {all -> 0x0163, blocks: (B:79:0x0136, B:81:0x013a, B:84:0x0146, B:86:0x014a), top: B:94:0x0004 }] */
     /* JADX WARN: Type inference failed for: r13v0, types: [java.io.File] */
     /* JADX WARN: Type inference failed for: r13v15 */
     /* JADX WARN: Type inference failed for: r13v16 */

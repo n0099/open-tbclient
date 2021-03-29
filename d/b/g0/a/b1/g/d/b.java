@@ -8,11 +8,11 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f43544b = d.b.g0.a.k.f45050a;
+    public static final boolean f43545b = d.b.g0.a.k.f45051a;
 
     public b(String str) {
         super(str);
@@ -20,7 +20,7 @@ public class b extends g {
 
     @Override // d.b.g0.a.b1.g.d.g
     public boolean a(d.b.g0.a.b1.g.a aVar, d.b.g0.a.b1.g.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        d.b.g0.a.c0.c.g("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f43113g);
+        d.b.g0.a.c0.c.g("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f43114g);
         e(aVar, cVar.w, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -33,7 +33,7 @@ public class b extends g {
         try {
             return new JSONObject(str).optInt("direction", -1);
         } catch (JSONException e2) {
-            if (f43544b) {
+            if (f43545b) {
                 e2.printStackTrace();
                 return -1;
             }

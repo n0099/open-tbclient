@@ -17,28 +17,28 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f52388a;
+    public Context f52389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52389b;
+    public View f52390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52390c;
+    public TextView f52391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f52391d;
+    public ImageView f52392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52392e;
+    public TextView f52393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52393f;
+    public TextView f52394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f52394g;
+    public c f52395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52395h;
+    public boolean f52396h;
     public Animation j;
     public long i = 0;
     public boolean k = false;
@@ -50,11 +50,11 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!e.this.k && ViewHelper.checkUpIsLogin(e.this.f52388a)) {
+            if (!e.this.k && ViewHelper.checkUpIsLogin(e.this.f52389a)) {
                 e.this.k = true;
-                e.this.f52391d.startAnimation(e.this.g());
-                if (e.this.f52394g != null) {
-                    e.this.f52394g.b(e.this.f52395h);
+                e.this.f52392d.startAnimation(e.this.g());
+                if (e.this.f52395g != null) {
+                    e.this.f52395g.b(e.this.f52396h);
                 }
             }
         }
@@ -64,18 +64,18 @@ public class e {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExcellentPbThreadInfo f52397e;
+        public final /* synthetic */ ExcellentPbThreadInfo f52398e;
 
         public b(ExcellentPbThreadInfo excellentPbThreadInfo) {
-            this.f52397e = excellentPbThreadInfo;
+            this.f52398e = excellentPbThreadInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (e.this.f52394g != null) {
-                c cVar = e.this.f52394g;
-                long longValue = this.f52397e.forum.forum_id.longValue();
-                cVar.a(longValue, this.f52397e.thread_id + "");
+            if (e.this.f52395g != null) {
+                c cVar = e.this.f52395g;
+                long longValue = this.f52398e.forum.forum_id.longValue();
+                cVar.a(longValue, this.f52398e.thread_id + "");
             }
         }
     }
@@ -88,39 +88,39 @@ public class e {
     }
 
     public e(Context context) {
-        this.f52388a = context;
+        this.f52389a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.f52389b = inflate;
-        this.f52390c = (TextView) inflate.findViewById(R.id.chosen_post_info_copyright);
-        this.f52391d = (ImageView) this.f52389b.findViewById(R.id.chosen_post_info_praise_icon);
-        this.f52392e = (TextView) this.f52389b.findViewById(R.id.chosen_post_info_praise_num);
-        this.f52393f = (TextView) this.f52389b.findViewById(R.id.chosen_post_info_original_post);
+        this.f52390b = inflate;
+        this.f52391c = (TextView) inflate.findViewById(R.id.chosen_post_info_copyright);
+        this.f52392d = (ImageView) this.f52390b.findViewById(R.id.chosen_post_info_praise_icon);
+        this.f52393e = (TextView) this.f52390b.findViewById(R.id.chosen_post_info_praise_num);
+        this.f52394f = (TextView) this.f52390b.findViewById(R.id.chosen_post_info_original_post);
     }
 
     public final Animation g() {
         if (this.j == null) {
-            this.j = AnimationUtils.loadAnimation(this.f52388a, R.anim.praise_animation_scale3);
+            this.j = AnimationUtils.loadAnimation(this.f52389a, R.anim.praise_animation_scale3);
         }
         return this.j;
     }
 
     public View h() {
-        return this.f52389b;
+        return this.f52390b;
     }
 
     public void i(c cVar) {
-        this.f52394g = cVar;
+        this.f52395g = cVar;
     }
 
     public void j(int i) {
-        TextView textView = this.f52390c;
+        TextView textView = this.f52391c;
         if (textView != null) {
             textView.setText(i);
         }
     }
 
     public void k(View.OnClickListener onClickListener) {
-        TextView textView = this.f52393f;
+        TextView textView = this.f52394f;
         if (textView != null) {
             textView.setOnClickListener(onClickListener);
         }
@@ -131,16 +131,16 @@ public class e {
             return;
         }
         this.i = j;
-        TextView textView = this.f52392e;
+        TextView textView = this.f52393e;
         if (textView != null) {
             textView.setVisibility(0);
-            this.f52392e.setText(this.f52388a.getString(R.string.chosen_pb_praise_num, StringHelper.numFormatOver10000(j)));
+            this.f52393e.setText(this.f52389a.getString(R.string.chosen_pb_praise_num, StringHelper.numFormatOver10000(j)));
         }
-        TextView textView2 = this.f52392e;
+        TextView textView2 = this.f52393e;
         if (textView2 == null || textView2.getVisibility() != 8) {
             return;
         }
-        this.f52392e.setVisibility(0);
+        this.f52393e.setVisibility(0);
     }
 
     public void m(boolean z) {
@@ -164,17 +164,17 @@ public class e {
         j(R.string.chosen_pb_copyright);
         l(excellentPbThreadInfo.zan.zansum.longValue());
         p(excellentPbThreadInfo.zan.is_zan.booleanValue());
-        this.f52391d.setOnClickListener(new a());
+        this.f52392d.setOnClickListener(new a());
         k(new b(excellentPbThreadInfo));
     }
 
     public final void p(boolean z) {
-        this.f52395h = z;
+        this.f52396h = z;
         if (z) {
-            SkinManager.setImageResource(this.f52391d, R.drawable.btn_zambia_big_s);
+            SkinManager.setImageResource(this.f52392d, R.drawable.btn_zambia_big_s);
         } else {
-            SkinManager.setImageResource(this.f52391d, R.drawable.btn_zambia_big_n);
+            SkinManager.setImageResource(this.f52392d, R.drawable.btn_zambia_big_n);
         }
-        this.f52391d.setVisibility(0);
+        this.f52392d.setVisibility(0);
     }
 }

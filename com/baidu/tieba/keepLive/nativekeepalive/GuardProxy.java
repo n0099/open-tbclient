@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GuardProxy {
     public static final String INDICATOR_DAEMON_ASSISTANT_FILENAME = "indicator_d";
     public static final String INDICATOR_DIR_NAME = "indicators";
@@ -31,33 +31,33 @@ public class GuardProxy {
     public static final String OBSERVER_PERSISTENT_FILENAME = "observer_p";
     public GuardConfigurations mConfigs;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a implements IGuard {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlarmManager f18504a;
+        public AlarmManager f18505a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PendingIntent f18505b;
+        public PendingIntent f18506b;
 
         /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        public class C0200a extends Thread {
+        /* loaded from: classes3.dex */
+        public class C0201a extends Thread {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18506e;
+            public final /* synthetic */ Context f18507e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GuardConfigurations f18507f;
+            public final /* synthetic */ GuardConfigurations f18508f;
 
-            public C0200a(a aVar, Context context, GuardConfigurations guardConfigurations) {
-                this.f18506e = context;
-                this.f18507f = guardConfigurations;
+            public C0201a(a aVar, Context context, GuardConfigurations guardConfigurations) {
+                this.f18507e = context;
+                this.f18508f = guardConfigurations;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                new NativeGuardLow(this.f18506e).doDaemon(this.f18506e.getPackageName(), this.f18507f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18506e.getDir("bin", 0), "daemon").getAbsolutePath());
+                new NativeGuardLow(this.f18507e).doDaemon(this.f18507e.getPackageName(), this.f18508f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18507e.getDir("bin", 0), "daemon").getAbsolutePath());
             }
         }
 
@@ -90,16 +90,16 @@ public class GuardProxy {
         }
 
         public final void c(Context context, String str) {
-            if (this.f18504a == null) {
-                this.f18504a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            if (this.f18505a == null) {
+                this.f18505a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
-            if (this.f18505b == null) {
+            if (this.f18506b == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.f18505b = PendingIntent.getService(context, 0, intent, 0);
+                this.f18506b = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.f18504a.cancel(this.f18505b);
+            this.f18505a.cancel(this.f18506b);
         }
 
         public final boolean d(Context context, String str, String str2, String str3) {
@@ -151,7 +151,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.f18504a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18505b);
+                this.f18505a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18506b);
                 Process.killProcess(Process.myPid());
             }
         }
@@ -166,9 +166,9 @@ public class GuardProxy {
             GuardConfigurations.DaemonListener daemonListener;
             if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
                 c(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-                C0200a c0200a = new C0200a(this, context, guardConfigurations);
-                c0200a.setPriority(10);
-                c0200a.start();
+                C0201a c0201a = new C0201a(this, context, guardConfigurations);
+                c0201a.setPriority(10);
+                c0201a.start();
                 if (guardConfigurations == null || (daemonListener = guardConfigurations.LISTENER) == null) {
                     return;
                 }
@@ -177,47 +177,47 @@ public class GuardProxy {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class b implements IGuard {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlarmManager f18508a;
+        public AlarmManager f18509a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PendingIntent f18509b;
+        public PendingIntent f18510b;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes3.dex */
         public class a extends Thread {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18511e;
-
-            public a(b bVar, Context context) {
-                this.f18511e = context;
-            }
-
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                File dir = this.f18511e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                new NativeGuardHigh(this.f18511e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$b$b  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        public class C0201b extends Thread {
 
             /* renamed from: e  reason: collision with root package name */
             public final /* synthetic */ Context f18512e;
 
-            public C0201b(b bVar, Context context) {
+            public a(b bVar, Context context) {
                 this.f18512e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 File dir = this.f18512e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                new NativeGuardHigh(this.f18512e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+                new NativeGuardHigh(this.f18512e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$b$b  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0202b extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18513e;
+
+            public C0202b(b bVar, Context context) {
+                this.f18513e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18513e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18513e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
             }
         }
 
@@ -225,16 +225,16 @@ public class GuardProxy {
         }
 
         public final void a(Context context, String str) {
-            if (this.f18508a == null) {
-                this.f18508a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            if (this.f18509a == null) {
+                this.f18509a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
-            if (this.f18509b == null) {
+            if (this.f18510b == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.f18509b = PendingIntent.getService(context, 0, intent, 0);
+                this.f18510b = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.f18508a.cancel(this.f18509b);
+            this.f18509a.cancel(this.f18510b);
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
@@ -243,9 +243,9 @@ public class GuardProxy {
             intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
             context.startService(intent);
             a(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            C0201b c0201b = new C0201b(this, context);
-            c0201b.setPriority(10);
-            c0201b.start();
+            C0202b c0202b = new C0202b(this, context);
+            c0202b.setPriority(10);
+            c0202b.start();
             if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                 return;
             }
@@ -256,7 +256,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.f18508a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18509b);
+                this.f18509a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18510b);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -288,46 +288,46 @@ public class GuardProxy {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class c implements IGuard {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f18513a;
+        public IBinder f18514a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Parcel f18514b;
+        public Parcel f18515b;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes3.dex */
         public class a extends Thread {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18516e;
-
-            public a(c cVar, Context context) {
-                this.f18516e = context;
-            }
-
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                File dir = this.f18516e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                new NativeGuardHigh(this.f18516e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
-            }
-        }
-
-        /* loaded from: classes.dex */
-        public class b extends Thread {
 
             /* renamed from: e  reason: collision with root package name */
             public final /* synthetic */ Context f18517e;
 
-            public b(c cVar, Context context) {
+            public a(c cVar, Context context) {
                 this.f18517e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 File dir = this.f18517e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                new NativeGuardHigh(this.f18517e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+                new NativeGuardHigh(this.f18517e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class b extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18518e;
+
+            public b(c cVar, Context context) {
+                this.f18518e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18518e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18518e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
             }
         }
 
@@ -340,7 +340,7 @@ public class GuardProxy {
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
                 Field declaredField = invoke.getClass().getDeclaredField("mRemote");
                 declaredField.setAccessible(true);
-                this.f18513a = (IBinder) declaredField.get(invoke);
+                this.f18514a = (IBinder) declaredField.get(invoke);
             } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
             } catch (IllegalAccessException e3) {
@@ -361,18 +361,18 @@ public class GuardProxy {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
             Parcel obtain = Parcel.obtain();
-            this.f18514b = obtain;
+            this.f18515b = obtain;
             obtain.writeInterfaceToken("android.app.IActivityManager");
-            this.f18514b.writeStrongBinder(null);
-            intent.writeToParcel(this.f18514b, 0);
-            this.f18514b.writeString(null);
-            this.f18514b.writeInt(0);
+            this.f18515b.writeStrongBinder(null);
+            intent.writeToParcel(this.f18515b, 0);
+            this.f18515b.writeString(null);
+            this.f18515b.writeInt(0);
         }
 
         public final boolean c() {
             try {
-                if (this.f18513a != null && this.f18514b != null) {
-                    this.f18513a.transact(34, this.f18514b, null, 0);
+                if (this.f18514a != null && this.f18515b != null) {
+                    this.f18514a.transact(34, this.f18515b, null, 0);
                     return true;
                 }
                 return false;
@@ -429,32 +429,32 @@ public class GuardProxy {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class d implements IGuard {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f18518a;
+        public IBinder f18519a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Parcel f18519b;
+        public Parcel f18520b;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes3.dex */
         public class a extends Thread {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18521e;
+            public final /* synthetic */ Context f18522e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GuardConfigurations f18522f;
+            public final /* synthetic */ GuardConfigurations f18523f;
 
             public a(d dVar, Context context, GuardConfigurations guardConfigurations) {
-                this.f18521e = context;
-                this.f18522f = guardConfigurations;
+                this.f18522e = context;
+                this.f18523f = guardConfigurations;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                new NativeGuardLow(this.f18521e).doDaemon(this.f18521e.getPackageName(), this.f18522f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18521e.getDir("bin", 0), "daemon").getAbsolutePath());
+                new NativeGuardLow(this.f18522e).doDaemon(this.f18522e.getPackageName(), this.f18523f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18522e.getDir("bin", 0), "daemon").getAbsolutePath());
             }
         }
 
@@ -492,7 +492,7 @@ public class GuardProxy {
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
                 Field declaredField = invoke.getClass().getDeclaredField("mRemote");
                 declaredField.setAccessible(true);
-                this.f18518a = (IBinder) declaredField.get(invoke);
+                this.f18519a = (IBinder) declaredField.get(invoke);
             } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
             } catch (IllegalAccessException e3) {
@@ -513,12 +513,12 @@ public class GuardProxy {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
             Parcel obtain = Parcel.obtain();
-            this.f18519b = obtain;
+            this.f18520b = obtain;
             obtain.writeInterfaceToken("android.app.IActivityManager");
-            this.f18519b.writeStrongBinder(null);
-            intent.writeToParcel(this.f18519b, 0);
-            this.f18519b.writeString(null);
-            this.f18519b.writeInt(0);
+            this.f18520b.writeStrongBinder(null);
+            intent.writeToParcel(this.f18520b, 0);
+            this.f18520b.writeString(null);
+            this.f18520b.writeInt(0);
         }
 
         public final boolean e(Context context, String str, String str2, String str3) {
@@ -549,8 +549,8 @@ public class GuardProxy {
 
         public final boolean g() {
             try {
-                if (this.f18518a != null && this.f18519b != null) {
-                    this.f18518a.transact(34, this.f18519b, null, 0);
+                if (this.f18519a != null && this.f18520b != null) {
+                    this.f18519a.transact(34, this.f18520b, null, 0);
                     return true;
                 }
                 return false;

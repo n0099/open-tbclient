@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.event;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatisticsEventTrigger extends SingleTargetTrigger {
     public static final int KEY_LOOP_COUNT = 1;
 

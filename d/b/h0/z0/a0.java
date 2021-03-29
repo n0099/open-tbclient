@@ -3,15 +3,9 @@ package d.b.h0.z0;
 import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public class a0 {
-    public void a(int i, int i2) {
-        throw null;
-    }
+    public abstract void a(int i, int i2);
 
-    public void b(ViewGroup viewGroup, int i) {
-        throw null;
-    }
+    public abstract void b(ViewGroup viewGroup, int i);
 
-    public void c(boolean z) {
-        throw null;
-    }
+    public abstract void c(boolean z);
 }

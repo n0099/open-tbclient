@@ -6,28 +6,28 @@ import tbclient.ElectionInfo.NoticeContent;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f61912a;
+    public long f61913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61913b;
+    public long f61914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61914c;
+    public long f61915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61915d = 0;
+    public int f61916d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61916e;
+    public long f61917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61917f;
+    public int f61918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61918g;
+    public boolean f61919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoticeContent f61919h;
+    public NoticeContent f61920h;
 
     public static e i(Basic basic) {
         if (basic == null) {
@@ -56,69 +56,69 @@ public class e {
     }
 
     public boolean a() {
-        return this.f61918g;
+        return this.f61919g;
     }
 
     public int b() {
-        return this.f61917f;
+        return this.f61918f;
     }
 
     public long c() {
-        return this.f61912a;
+        return this.f61913a;
     }
 
     public long d() {
-        return this.f61914c;
+        return this.f61915c;
     }
 
     public NoticeContent e() {
-        return this.f61919h;
+        return this.f61920h;
     }
 
     public long f() {
-        return this.f61916e;
+        return this.f61917e;
     }
 
     public int g() {
-        return this.f61915d;
+        return this.f61916d;
     }
 
     public long h() {
-        return this.f61913b;
+        return this.f61914b;
     }
 
     public void k(boolean z) {
-        this.f61918g = z;
+        this.f61919g = z;
     }
 
     public void l(int i) {
-        this.f61917f = i;
+        this.f61918f = i;
     }
 
     public void m(long j) {
-        this.f61912a = j;
+        this.f61913a = j;
     }
 
     public void n(long j) {
-        this.f61914c = j;
+        this.f61915c = j;
     }
 
     public void o(NoticeContent noticeContent) {
-        this.f61919h = noticeContent;
+        this.f61920h = noticeContent;
     }
 
     public void p(long j) {
-        this.f61916e = j;
+        this.f61917e = j;
     }
 
     public void q(int i) {
-        this.f61915d = i;
+        this.f61916d = i;
     }
 
     public void r(int i) {
     }
 
     public void s(long j) {
-        this.f61913b = j;
+        this.f61914b = j;
     }
 }

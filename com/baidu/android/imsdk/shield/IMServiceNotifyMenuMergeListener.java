@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.shield;
 
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.shield.model.GetSubscriptionResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMServiceNotifyMenuMergeListener implements IGetSubscriptionListener, IGetShieldAndTopListener {
     public int mCategory;
     public IGetServiceNotifyMenuListener mListener;

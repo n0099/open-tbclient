@@ -28,10 +28,10 @@ import java.util.concurrent.ConcurrentSkipListMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Type, InstanceCreator<?>> f66089a;
+    public final Map<Type, InstanceCreator<?>> f66090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.g.c.b.k.b f66090b = d.g.c.b.k.b.a();
+    public final d.g.c.b.k.b f66091b = d.g.c.b.k.b.a();
 
     /* loaded from: classes6.dex */
     public class a implements d.g.c.b.e<T> {
@@ -47,8 +47,8 @@ public final class b {
 
     /* renamed from: d.g.c.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1807b implements d.g.c.b.e<T> {
-        public C1807b(b bVar) {
+    public class C1808b implements d.g.c.b.e<T> {
+        public C1808b(b bVar) {
         }
 
         /* JADX WARN: Type inference failed for: r0v0, types: [java.util.TreeMap, T] */
@@ -86,26 +86,26 @@ public final class b {
     public class e implements d.g.c.b.e<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.g.c.b.i f66091a = d.g.c.b.i.b();
+        public final d.g.c.b.i f66092a = d.g.c.b.i.b();
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Class f66092b;
+        public final /* synthetic */ Class f66093b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Type f66093c;
+        public final /* synthetic */ Type f66094c;
 
         public e(b bVar, Class cls, Type type) {
-            this.f66092b = cls;
-            this.f66093c = type;
+            this.f66093b = cls;
+            this.f66094c = type;
         }
 
         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
         @Override // d.g.c.b.e
         public T a() {
             try {
-                return this.f66091a.c(this.f66092b);
+                return this.f66092a.c(this.f66093b);
             } catch (Exception e2) {
-                throw new RuntimeException("Unable to invoke no-args constructor for " + this.f66093c + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
+                throw new RuntimeException("Unable to invoke no-args constructor for " + this.f66094c + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
             }
         }
     }
@@ -114,20 +114,20 @@ public final class b {
     public class f implements d.g.c.b.e<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InstanceCreator f66094a;
+        public final /* synthetic */ InstanceCreator f66095a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Type f66095b;
+        public final /* synthetic */ Type f66096b;
 
         public f(b bVar, InstanceCreator instanceCreator, Type type) {
-            this.f66094a = instanceCreator;
-            this.f66095b = type;
+            this.f66095a = instanceCreator;
+            this.f66096b = type;
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
         @Override // d.g.c.b.e
         public T a() {
-            return this.f66094a.createInstance(this.f66095b);
+            return this.f66095a.createInstance(this.f66096b);
         }
     }
 
@@ -135,20 +135,20 @@ public final class b {
     public class g implements d.g.c.b.e<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InstanceCreator f66096a;
+        public final /* synthetic */ InstanceCreator f66097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Type f66097b;
+        public final /* synthetic */ Type f66098b;
 
         public g(b bVar, InstanceCreator instanceCreator, Type type) {
-            this.f66096a = instanceCreator;
-            this.f66097b = type;
+            this.f66097a = instanceCreator;
+            this.f66098b = type;
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
         @Override // d.g.c.b.e
         public T a() {
-            return this.f66096a.createInstance(this.f66097b);
+            return this.f66097a.createInstance(this.f66098b);
         }
     }
 
@@ -156,23 +156,23 @@ public final class b {
     public class h implements d.g.c.b.e<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Constructor f66098a;
+        public final /* synthetic */ Constructor f66099a;
 
         public h(b bVar, Constructor constructor) {
-            this.f66098a = constructor;
+            this.f66099a = constructor;
         }
 
         /* JADX WARN: Type inference failed for: r0v6, types: [T, java.lang.Object] */
         @Override // d.g.c.b.e
         public T a() {
             try {
-                return this.f66098a.newInstance(null);
+                return this.f66099a.newInstance(null);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             } catch (InstantiationException e3) {
-                throw new RuntimeException("Failed to invoke " + this.f66098a + " with no args", e3);
+                throw new RuntimeException("Failed to invoke " + this.f66099a + " with no args", e3);
             } catch (InvocationTargetException e4) {
-                throw new RuntimeException("Failed to invoke " + this.f66098a + " with no args", e4.getTargetException());
+                throw new RuntimeException("Failed to invoke " + this.f66099a + " with no args", e4.getTargetException());
             }
         }
     }
@@ -193,24 +193,24 @@ public final class b {
     public class j implements d.g.c.b.e<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Type f66099a;
+        public final /* synthetic */ Type f66100a;
 
         public j(b bVar, Type type) {
-            this.f66099a = type;
+            this.f66100a = type;
         }
 
         /* JADX WARN: Type inference failed for: r0v7, types: [T, java.util.EnumSet] */
         @Override // d.g.c.b.e
         public T a() {
-            Type type = this.f66099a;
+            Type type = this.f66100a;
             if (type instanceof ParameterizedType) {
                 Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
                 if (type2 instanceof Class) {
                     return EnumSet.noneOf((Class) type2);
                 }
-                throw new JsonIOException("Invalid EnumSet type: " + this.f66099a.toString());
+                throw new JsonIOException("Invalid EnumSet type: " + this.f66100a.toString());
             }
-            throw new JsonIOException("Invalid EnumSet type: " + this.f66099a.toString());
+            throw new JsonIOException("Invalid EnumSet type: " + this.f66100a.toString());
         }
     }
 
@@ -263,17 +263,17 @@ public final class b {
     }
 
     public b(Map<Type, InstanceCreator<?>> map) {
-        this.f66089a = map;
+        this.f66090a = map;
     }
 
     public <T> d.g.c.b.e<T> a(d.g.c.c.a<T> aVar) {
         Type e2 = aVar.e();
         Class<? super T> c2 = aVar.c();
-        InstanceCreator<?> instanceCreator = this.f66089a.get(e2);
+        InstanceCreator<?> instanceCreator = this.f66090a.get(e2);
         if (instanceCreator != null) {
             return new f(this, instanceCreator, e2);
         }
-        InstanceCreator<?> instanceCreator2 = this.f66089a.get(c2);
+        InstanceCreator<?> instanceCreator2 = this.f66090a.get(c2);
         if (instanceCreator2 != null) {
             return new g(this, instanceCreator2, e2);
         }
@@ -289,7 +289,7 @@ public final class b {
         try {
             Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
-                this.f66090b.b(declaredConstructor);
+                this.f66091b.b(declaredConstructor);
             }
             return new h(this, declaredConstructor);
         } catch (NoSuchMethodException unused) {
@@ -320,7 +320,7 @@ public final class b {
                 return new a(this);
             }
             if (SortedMap.class.isAssignableFrom(cls)) {
-                return new C1807b(this);
+                return new C1808b(this);
             }
             if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(d.g.c.c.a.b(((ParameterizedType) type).getActualTypeArguments()[0]).c())) {
                 return new c(this);
@@ -336,6 +336,6 @@ public final class b {
     }
 
     public String toString() {
-        return this.f66089a.toString();
+        return this.f66090a.toString();
     }
 }

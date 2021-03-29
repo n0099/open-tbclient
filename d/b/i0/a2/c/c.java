@@ -22,20 +22,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 import com.google.gson.Gson;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements d.b.i0.a2.c.a, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginDialogActivity f51932e;
+    public LoginDialogActivity f51933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51933f;
+    public View f51934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51934g;
+    public View f51935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f51935h;
+    public View f51936h;
     public ImageView i;
     public TextView j;
     public TextView k;
@@ -50,7 +50,7 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
     public View t;
     public final ShareStorage.StorageModel u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
         public a() {
         }
@@ -58,44 +58,44 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            c.this.f51932e.showToast(String.format(c.this.f51932e.getString(R.string.share_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            c.this.f51933e.showToast(String.format(c.this.f51933e.getString(R.string.share_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            c.this.f51932e.passLoginSucc();
-            c.this.f51932e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_SHARE);
+            c.this.f51933e.passLoginSucc();
+            c.this.f51933e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_SHARE);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends WebAuthListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SocialType f51937e;
+        public final /* synthetic */ SocialType f51938e;
 
         public b(SocialType socialType) {
-            this.f51937e = socialType;
+            this.f51938e = socialType;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
         public void beforeSuccess(SapiAccount sapiAccount) {
-            c.this.f51932e.showLoading();
+            c.this.f51933e.showLoading();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            c.this.f51932e.closeLoadingDialog();
-            c.this.f51932e.showToast(String.format(c.this.f51932e.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            c.this.f51933e.closeLoadingDialog();
+            c.this.f51933e.showToast(String.format(c.this.f51933e.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            c.this.f51932e.passLoginSucc();
-            c.this.f51932e.addLoginSuccessLog(this.f51937e.name().toLowerCase());
+            c.this.f51933e.passLoginSucc();
+            c.this.f51933e.addLoginSuccessLog(this.f51938e.name().toLowerCase());
         }
     }
 
@@ -105,11 +105,11 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
 
     @Override // d.b.i0.a2.c.a
     public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
-        this.f51932e = loginDialogActivity;
+        this.f51933e = loginDialogActivity;
         View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.share_login_dialog_activity_layout, viewGroup, true);
-        this.f51933f = inflate.findViewById(R.id.dialog_background);
-        this.f51934g = inflate.findViewById(R.id.dialog_layout);
-        this.f51935h = inflate.findViewById(R.id.close_btn_layout);
+        this.f51934f = inflate.findViewById(R.id.dialog_background);
+        this.f51935g = inflate.findViewById(R.id.dialog_layout);
+        this.f51936h = inflate.findViewById(R.id.close_btn_layout);
         this.i = (ImageView) inflate.findViewById(R.id.close_btn_view);
         this.j = (TextView) inflate.findViewById(R.id.dialog_title);
         this.k = (TextView) inflate.findViewById(R.id.dialog_subtitle);
@@ -122,10 +122,10 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
         this.r = inflate.findViewById(R.id.wechat_login_btn);
         this.s = inflate.findViewById(R.id.weibo_login_btn);
         this.t = inflate.findViewById(R.id.more_login_btn);
-        this.f51933f.setOnClickListener(this);
-        this.f51935h.setOnClickListener(this);
+        this.f51934f.setOnClickListener(this);
+        this.f51936h.setOnClickListener(this);
         this.i.setOnClickListener(this);
-        this.f51934g.setOnClickListener(this);
+        this.f51935g.setOnClickListener(this);
         this.m.setIsRound(true);
         this.m.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
         this.p.setOnClickListener(this);
@@ -137,7 +137,7 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
     }
 
     public final void c() {
-        this.f51932e.finish();
+        this.f51933e.finish();
     }
 
     public final void d() {
@@ -147,18 +147,18 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
         }
         this.m.W(storageModel.url, 10, false);
         this.n.setText(this.u.displayname);
-        this.o.setText(this.f51932e.getResources().getString(R.string.share_login_dialog_subtitle, this.u.app));
+        this.o.setText(this.f51933e.getResources().getString(R.string.share_login_dialog_subtitle, this.u.app));
     }
 
     public final void e() {
         if (this.u != null) {
-            PassportSDK.getInstance().invokeV2ShareLogin(this.f51932e, new a(), this.u);
+            PassportSDK.getInstance().invokeV2ShareLogin(this.f51933e, new a(), this.u);
         }
     }
 
     public final void f() {
-        this.f51932e.finish();
-        new LoginActivityConfig((Context) this.f51932e, true).start();
+        this.f51933e.finish();
+        new LoginActivityConfig((Context) this.f51933e, true).start();
     }
 
     @Override // d.b.i0.a2.c.a
@@ -210,7 +210,7 @@ public class c implements d.b.i0.a2.c.a, View.OnClickListener {
 
     @Override // d.b.i0.a2.c.a
     public void onViewChangeSkinType(int i) {
-        SkinManager.setBackgroundResource(this.f51934g, R.drawable.nav_bg_corner_shape, i);
+        SkinManager.setBackgroundResource(this.f51935g, R.drawable.nav_bg_corner_shape, i);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.j);
         a2.n(R.color.CAM_X0105);

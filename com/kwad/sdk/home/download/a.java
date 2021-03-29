@@ -20,50 +20,50 @@ public class a {
     public static volatile a l;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f35890e;
+    public File f35891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f35891f;
+    public File f35892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f35892g;
+    public File f35893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f35893h;
+    public File f35894h;
     public File i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<HomeApkBannerData> f35886a = new Stack<>();
+    public Stack<HomeApkBannerData> f35887a = new Stack<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Stack<HomeApkBannerData> f35887b = new Stack<>();
+    public Stack<HomeApkBannerData> f35888b = new Stack<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f35888c = new HashMap();
+    public Map<String, Integer> f35889c = new HashMap();
     public int j = 0;
     public boolean k = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35889d = ad.d(KsAdSDKImpl.get().getContext());
+    public String f35890d = ad.d(KsAdSDKImpl.get().getContext());
 
     public a() {
-        File file = new File(this.f35889d);
+        File file = new File(this.f35890d);
         if (!file.exists()) {
             file.mkdir();
         }
-        this.f35890e = new File(this.f35889d + File.separator + "download_uninstall");
-        File file2 = new File(this.f35889d + File.separator + "download_uninstall_apk_data");
-        this.f35892g = file2;
+        this.f35891e = new File(this.f35890d + File.separator + "download_uninstall");
+        File file2 = new File(this.f35890d + File.separator + "download_uninstall_apk_data");
+        this.f35893g = file2;
         if (!file2.exists()) {
-            this.f35892g.mkdir();
+            this.f35893g.mkdir();
         }
-        File file3 = new File(this.f35889d + File.separator + "install_unopen_apk_data");
-        this.f35893h = file3;
+        File file3 = new File(this.f35890d + File.separator + "install_unopen_apk_data");
+        this.f35894h = file3;
         if (!file3.exists()) {
-            this.f35893h.mkdir();
+            this.f35894h.mkdir();
         }
-        this.f35891f = new File(this.f35889d + File.separator + "install_unopen");
-        this.i = new File(this.f35889d + File.separator + "app_has_show_banner_counts");
+        this.f35892f = new File(this.f35890d + File.separator + "install_unopen");
+        this.i = new File(this.f35890d + File.separator + "app_has_show_banner_counts");
     }
 
     public static a a() {
@@ -78,7 +78,7 @@ public class a {
     }
 
     private File b(HomeApkBannerData homeApkBannerData, boolean z) {
-        String path = (z ? this.f35892g : this.f35893h).getPath();
+        String path = (z ? this.f35893g : this.f35894h).getPath();
         return new File(path + File.separator + homeApkBannerData.mAdTemplateUniqueId);
     }
 
@@ -86,8 +86,8 @@ public class a {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00ac A[Catch: all -> 0x00a6, Exception -> 0x00a8, TRY_LEAVE, TryCatch #5 {Exception -> 0x00a8, blocks: (B:45:0x00a2, B:51:0x00ac), top: B:62:0x00a2, outer: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00ac A[Catch: all -> 0x00a6, Exception -> 0x00a8, TRY_LEAVE, TryCatch #5 {Exception -> 0x00a8, blocks: (B:45:0x00a2, B:51:0x00ac), top: B:60:0x00a2, outer: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -114,10 +114,10 @@ public class a {
             if (convertAdTemplateToHomeApkBannerData == null) {
                 return;
             }
-            this.f35886a.push(convertAdTemplateToHomeApkBannerData);
-            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f35890e));
+            this.f35887a.push(convertAdTemplateToHomeApkBannerData);
+            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f35891e));
             try {
-                objectOutputStream3.writeObject(this.f35886a);
+                objectOutputStream3.writeObject(this.f35887a);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(b(convertAdTemplateToHomeApkBannerData, true)));
                 try {
                     objectOutputStream.writeObject(adTemplate);
@@ -182,9 +182,9 @@ public class a {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0058 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0096 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x002b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x002b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r1v12, types: [java.io.ObjectOutputStream] */
     /* JADX WARN: Type inference failed for: r1v15 */
     /* JADX WARN: Type inference failed for: r1v19 */
@@ -208,17 +208,17 @@ public class a {
             }
             int i = 1;
             this.j++;
-            Integer num = this.f35888c.get(str);
+            Integer num = this.f35889c.get(str);
             if (num != null) {
                 i = 1 + num.intValue();
             }
-            ?? r1 = this.f35888c;
+            ?? r1 = this.f35889c;
             r1.put(str, Integer.valueOf(i));
             try {
                 try {
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.i));
                     try {
-                        objectOutputStream.writeObject(this.f35888c);
+                        objectOutputStream.writeObject(this.f35889c);
                         try {
                             objectOutputStream.close();
                             r1 = objectOutputStream;
@@ -271,10 +271,10 @@ public class a {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:47:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00af A[Catch: all -> 0x00fc, TryCatch #5 {, blocks: (B:4:0x0003, B:6:0x000e, B:9:0x0012, B:11:0x0014, B:13:0x001c, B:15:0x001e, B:17:0x0028, B:23:0x0034, B:27:0x004f, B:45:0x00a5, B:49:0x00bb, B:51:0x00c3, B:54:0x00c7, B:56:0x00da, B:55:0x00ce, B:48:0x00af, B:30:0x0054, B:31:0x0067, B:41:0x008c, B:44:0x0091, B:61:0x00e0, B:65:0x00fb, B:64:0x00e5), top: B:78:0x0003, inners: #0, #3, #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: all -> 0x00fc, DONT_GENERATE, TryCatch #5 {, blocks: (B:4:0x0003, B:6:0x000e, B:9:0x0012, B:11:0x0014, B:13:0x001c, B:15:0x001e, B:17:0x0028, B:23:0x0034, B:27:0x004f, B:45:0x00a5, B:49:0x00bb, B:51:0x00c3, B:54:0x00c7, B:56:0x00da, B:55:0x00ce, B:48:0x00af, B:30:0x0054, B:31:0x0067, B:41:0x008c, B:44:0x0091, B:61:0x00e0, B:65:0x00fb, B:64:0x00e5), top: B:78:0x0003, inners: #0, #3, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00af A[Catch: all -> 0x00fc, TryCatch #5 {, blocks: (B:4:0x0003, B:6:0x000e, B:9:0x0012, B:11:0x0014, B:13:0x001c, B:15:0x001e, B:17:0x0028, B:23:0x0034, B:27:0x004f, B:45:0x00a5, B:49:0x00bb, B:51:0x00c3, B:54:0x00c7, B:56:0x00da, B:55:0x00ce, B:48:0x00af, B:30:0x0054, B:31:0x0067, B:41:0x008c, B:44:0x0091, B:61:0x00e0, B:65:0x00fb, B:64:0x00e5), top: B:76:0x0003, inners: #0, #3, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: all -> 0x00fc, DONT_GENERATE, TryCatch #5 {, blocks: (B:4:0x0003, B:6:0x000e, B:9:0x0012, B:11:0x0014, B:13:0x001c, B:15:0x001e, B:17:0x0028, B:23:0x0034, B:27:0x004f, B:45:0x00a5, B:49:0x00bb, B:51:0x00c3, B:54:0x00c7, B:56:0x00da, B:55:0x00ce, B:48:0x00af, B:30:0x0054, B:31:0x0067, B:41:0x008c, B:44:0x0091, B:61:0x00e0, B:65:0x00fb, B:64:0x00e5), top: B:76:0x0003, inners: #0, #3, #6 }] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x00c5  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -307,11 +307,11 @@ public class a {
                     throw th;
                 }
                 if (this.i.exists()) {
-                    this.f35888c.clear();
+                    this.f35889c.clear();
                     objectInputStream = new ObjectInputStream(new FileInputStream(this.i));
                     try {
                         try {
-                            this.f35888c = (Map) objectInputStream.readObject();
+                            this.f35889c = (Map) objectInputStream.readObject();
                         } catch (Exception e4) {
                             e2 = e4;
                             com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " canShowBanner e" + e2);
@@ -322,11 +322,11 @@ public class a {
                                     str = "HomeApkBannerDataManager";
                                     str2 = " canShowBanner close e" + e5;
                                     com.kwad.sdk.core.d.a.a(str, str2);
-                                    if ((this.f35888c.get(str3) != null ? 0 : this.f35888c.get(str3).intValue()) < c.a.ad.e()) {
+                                    if ((this.f35889c.get(str3) != null ? 0 : this.f35889c.get(str3).intValue()) < c.a.ad.e()) {
                                     }
                                 }
                             }
-                            if ((this.f35888c.get(str3) != null ? 0 : this.f35888c.get(str3).intValue()) < c.a.ad.e()) {
+                            if ((this.f35889c.get(str3) != null ? 0 : this.f35889c.get(str3).intValue()) < c.a.ad.e()) {
                             }
                         }
                         try {
@@ -335,10 +335,10 @@ public class a {
                             str = "HomeApkBannerDataManager";
                             str2 = " canShowBanner close e" + e6;
                             com.kwad.sdk.core.d.a.a(str, str2);
-                            if ((this.f35888c.get(str3) != null ? 0 : this.f35888c.get(str3).intValue()) < c.a.ad.e()) {
+                            if ((this.f35889c.get(str3) != null ? 0 : this.f35889c.get(str3).intValue()) < c.a.ad.e()) {
                             }
                         }
-                        if ((this.f35888c.get(str3) != null ? 0 : this.f35888c.get(str3).intValue()) < c.a.ad.e()) {
+                        if ((this.f35889c.get(str3) != null ? 0 : this.f35889c.get(str3).intValue()) < c.a.ad.e()) {
                             return false;
                         }
                         return z ? b(homeApkBannerData.mDownloadFilePath) : y.a(KsAdSDKImpl.get().getContext(), str3);
@@ -367,7 +367,7 @@ public class a {
     /* JADX WARN: Code restructure failed: missing block: B:36:0x009b, code lost:
         com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " getCanShowInstalledBannerData finally e" + r1);
      */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -386,15 +386,15 @@ public class a {
             } catch (Throwable th) {
                 th = th;
             }
-            if (!this.f35890e.exists()) {
+            if (!this.f35891e.exists()) {
                 com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", "getCanShowDownloadBannerData mDownloadFile is not exists");
                 return null;
             }
-            this.f35886a.clear();
-            ObjectInputStream objectInputStream3 = new ObjectInputStream(new FileInputStream(this.f35890e));
+            this.f35887a.clear();
+            ObjectInputStream objectInputStream3 = new ObjectInputStream(new FileInputStream(this.f35891e));
             try {
                 stack = (Stack) objectInputStream3.readObject();
-                this.f35886a = stack;
+                this.f35887a = stack;
             } catch (Exception e3) {
                 objectInputStream = objectInputStream3;
                 e = e3;
@@ -438,7 +438,7 @@ public class a {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            Stack stack2 = (Stack) this.f35886a.clone();
+            Stack stack2 = (Stack) this.f35887a.clone();
             while (true) {
                 if (!stack2.isEmpty()) {
                     HomeApkBannerData homeApkBannerData = (HomeApkBannerData) stack2.pop();
@@ -477,7 +477,7 @@ public class a {
         return adTemplate;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -493,7 +493,7 @@ public class a {
                 return;
             }
             boolean z = false;
-            Iterator<HomeApkBannerData> it = this.f35886a.iterator();
+            Iterator<HomeApkBannerData> it = this.f35887a.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                     it.remove();
@@ -502,10 +502,10 @@ public class a {
             }
             if (z) {
                 try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35890e));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35891e));
                     try {
                         try {
-                            objectOutputStream.writeObject(this.f35886a);
+                            objectOutputStream.writeObject(this.f35887a);
                         } catch (Exception e3) {
                             e2 = e3;
                             com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeApkDownloadedData e" + e2);
@@ -557,7 +557,7 @@ public class a {
     /* JADX WARN: Code restructure failed: missing block: B:36:0x009b, code lost:
         com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " getCanShowInstalledBannerData finally e" + r1);
      */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -576,15 +576,15 @@ public class a {
             } catch (Throwable th) {
                 th = th;
             }
-            if (!this.f35891f.exists()) {
+            if (!this.f35892f.exists()) {
                 com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", "getCanShowInstalledBannerData mInstallFile is not exists");
                 return null;
             }
-            this.f35887b.clear();
-            ObjectInputStream objectInputStream3 = new ObjectInputStream(new FileInputStream(this.f35891f));
+            this.f35888b.clear();
+            ObjectInputStream objectInputStream3 = new ObjectInputStream(new FileInputStream(this.f35892f));
             try {
                 stack = (Stack) objectInputStream3.readObject();
-                this.f35887b = stack;
+                this.f35888b = stack;
             } catch (Exception e3) {
                 objectInputStream = objectInputStream3;
                 e = e3;
@@ -628,7 +628,7 @@ public class a {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            Stack stack2 = (Stack) this.f35887b.clone();
+            Stack stack2 = (Stack) this.f35888b.clone();
             while (true) {
                 if (!stack2.isEmpty()) {
                     HomeApkBannerData homeApkBannerData = (HomeApkBannerData) stack2.pop();
@@ -667,8 +667,8 @@ public class a {
         return adTemplate;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00ac A[Catch: all -> 0x00a6, Exception -> 0x00a8, TRY_LEAVE, TryCatch #5 {Exception -> 0x00a8, blocks: (B:45:0x00a2, B:51:0x00ac), top: B:62:0x00a2, outer: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00ac A[Catch: all -> 0x00a6, Exception -> 0x00a8, TRY_LEAVE, TryCatch #5 {Exception -> 0x00a8, blocks: (B:45:0x00a2, B:51:0x00ac), top: B:60:0x00a2, outer: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -695,10 +695,10 @@ public class a {
             if (convertAdTemplateToHomeApkBannerData == null) {
                 return;
             }
-            this.f35887b.push(convertAdTemplateToHomeApkBannerData);
-            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f35891f));
+            this.f35888b.push(convertAdTemplateToHomeApkBannerData);
+            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f35892f));
             try {
-                objectOutputStream3.writeObject(this.f35887b);
+                objectOutputStream3.writeObject(this.f35888b);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(b(convertAdTemplateToHomeApkBannerData, false)));
                 try {
                     objectOutputStream.writeObject(adTemplate);
@@ -761,13 +761,13 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:118:0x000f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:119:0x000f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:116:0x000f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:117:0x000f */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x006a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x003a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:88:0x003a */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00ce A[Catch: all -> 0x0178, TryCatch #9 {, blocks: (B:4:0x0003, B:5:0x000f, B:7:0x0019, B:9:0x0027, B:11:0x0034, B:17:0x004d, B:20:0x0053, B:21:0x0066, B:31:0x0088, B:34:0x008d, B:39:0x00a5, B:43:0x00c0, B:42:0x00aa, B:44:0x00c1, B:45:0x00c8, B:47:0x00ce, B:49:0x00dc, B:51:0x00e9, B:56:0x0101, B:59:0x0107, B:60:0x011a, B:77:0x015a, B:81:0x0175, B:80:0x015f, B:71:0x013f, B:74:0x0144, B:82:0x0176), top: B:105:0x0003, inners: #3, #5, #7, #8, #10, #12 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00ce A[Catch: all -> 0x0178, TryCatch #9 {, blocks: (B:4:0x0003, B:5:0x000f, B:7:0x0019, B:9:0x0027, B:11:0x0034, B:17:0x004d, B:20:0x0053, B:21:0x0066, B:31:0x0088, B:34:0x008d, B:39:0x00a5, B:43:0x00c0, B:42:0x00aa, B:44:0x00c1, B:45:0x00c8, B:47:0x00ce, B:49:0x00dc, B:51:0x00e9, B:56:0x0101, B:59:0x0107, B:60:0x011a, B:77:0x015a, B:81:0x0175, B:80:0x015f, B:71:0x013f, B:74:0x0144, B:82:0x0176), top: B:103:0x0003, inners: #3, #5, #7, #8, #10, #12 }] */
     /* JADX WARN: Type inference failed for: r5v0 */
     /* JADX WARN: Type inference failed for: r5v1 */
     /* JADX WARN: Type inference failed for: r5v17 */
@@ -791,7 +791,7 @@ public class a {
         ObjectOutputStream objectOutputStream2;
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
-            Iterator<HomeApkBannerData> it2 = this.f35886a.iterator();
+            Iterator<HomeApkBannerData> it2 = this.f35887a.iterator();
             ?? r5 = 0;
             while (it2.hasNext()) {
                 HomeApkBannerData next = it2.next();
@@ -808,9 +808,9 @@ public class a {
             try {
                 if (r5 != 0) {
                     try {
-                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35890e));
+                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35891e));
                         try {
-                            objectOutputStream.writeObject(this.f35886a);
+                            objectOutputStream.writeObject(this.f35887a);
                         } catch (Exception e2) {
                             e = e2;
                             com.kwad.sdk.core.d.a.d("HomeApkBannerDataManager", " cleanInvalidData needUpdateDownloadData e" + e);
@@ -823,7 +823,7 @@ public class a {
                                     str = "HomeApkBannerDataManager";
                                     str2 = " cleanInvalidData needUpdateDownloadData final close e" + e3;
                                     com.kwad.sdk.core.d.a.d(str, str2);
-                                    it = this.f35887b.iterator();
+                                    it = this.f35888b.iterator();
                                     z = false;
                                     while (it.hasNext()) {
                                     }
@@ -831,7 +831,7 @@ public class a {
                                     }
                                 }
                             }
-                            it = this.f35887b.iterator();
+                            it = this.f35888b.iterator();
                             z = false;
                             while (it.hasNext()) {
                             }
@@ -845,7 +845,7 @@ public class a {
                             str = "HomeApkBannerDataManager";
                             str2 = " cleanInvalidData needUpdateDownloadData final close e" + e4;
                             com.kwad.sdk.core.d.a.d(str, str2);
-                            it = this.f35887b.iterator();
+                            it = this.f35888b.iterator();
                             z = false;
                             while (it.hasNext()) {
                             }
@@ -867,7 +867,7 @@ public class a {
                         throw th;
                     }
                 }
-                it = this.f35887b.iterator();
+                it = this.f35888b.iterator();
                 z = false;
                 while (it.hasNext()) {
                     HomeApkBannerData next2 = it.next();
@@ -883,12 +883,12 @@ public class a {
                 try {
                     if (z) {
                         try {
-                            objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(this.f35891f));
+                            objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(this.f35892f));
                         } catch (Exception e7) {
                             e = e7;
                         }
                         try {
-                            objectOutputStream2.writeObject(this.f35887b);
+                            objectOutputStream2.writeObject(this.f35888b);
                             try {
                                 objectOutputStream2.close();
                             } catch (Exception e8) {
@@ -932,7 +932,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:48:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -945,7 +945,7 @@ public class a {
         synchronized (a.class) {
             HomeApkBannerData convertAdTemplateToHomeApkBannerData = HomeApkBannerData.convertAdTemplateToHomeApkBannerData(adTemplate);
             boolean z = false;
-            Iterator<HomeApkBannerData> it = this.f35887b.iterator();
+            Iterator<HomeApkBannerData> it = this.f35888b.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                     it.remove();
@@ -954,10 +954,10 @@ public class a {
             }
             if (z) {
                 try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35891f));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f35892f));
                     try {
                         try {
-                            objectOutputStream.writeObject(this.f35887b);
+                            objectOutputStream.writeObject(this.f35888b);
                         } catch (Exception e3) {
                             e2 = e3;
                             com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData e" + e2);

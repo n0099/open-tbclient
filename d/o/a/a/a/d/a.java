@@ -1,28 +1,28 @@
 package d.o.a.a.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: d.o.a.a.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1816a {
+    /* loaded from: classes7.dex */
+    public static class C1817a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f66346a;
+        public String f66347a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66347b;
+        public String f66348b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66348c;
+        public String f66349c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66349d;
+        public String f66350d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66350e;
+        public String f66351e;
 
-        public C1816a a(String str) {
-            this.f66346a = str;
+        public C1817a a(String str) {
+            this.f66347a = str;
             return this;
         }
 
@@ -30,27 +30,27 @@ public class a {
             return new a(this);
         }
 
-        public C1816a d(String str) {
-            this.f66347b = str;
+        public C1817a d(String str) {
+            this.f66348b = str;
             return this;
         }
 
-        public C1816a f(String str) {
-            this.f66349d = str;
+        public C1817a f(String str) {
+            this.f66350d = str;
             return this;
         }
 
-        public C1816a h(String str) {
-            this.f66350e = str;
+        public C1817a h(String str) {
+            this.f66351e = str;
             return this;
         }
     }
 
-    public a(C1816a c1816a) {
-        String unused = c1816a.f66346a;
-        String unused2 = c1816a.f66347b;
-        String unused3 = c1816a.f66348c;
-        String unused4 = c1816a.f66349d;
-        String unused5 = c1816a.f66350e;
+    public a(C1817a c1817a) {
+        String unused = c1817a.f66347a;
+        String unused2 = c1817a.f66348b;
+        String unused3 = c1817a.f66349c;
+        String unused4 = c1817a.f66350d;
+        String unused5 = c1817a.f66351e;
     }
 }

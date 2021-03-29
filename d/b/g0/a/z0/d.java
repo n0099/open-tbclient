@@ -13,7 +13,7 @@ import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import d.b.g0.a.z0.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d extends e.b {
     d.b.g0.a.e0.l.e A();
 

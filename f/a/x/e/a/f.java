@@ -6,11 +6,11 @@ import io.reactivex.internal.operators.flowable.FlowableGroupBy$State;
 public final class f<K, T> extends f.a.v.b<K, T> {
 
     /* renamed from: g  reason: collision with root package name */
-    public final FlowableGroupBy$State<T, K> f67480g;
+    public final FlowableGroupBy$State<T, K> f67485g;
 
     public f(K k, FlowableGroupBy$State<T, K> flowableGroupBy$State) {
         super(k);
-        this.f67480g = flowableGroupBy$State;
+        this.f67485g = flowableGroupBy$State;
     }
 
     public static <T, K> f<K, T> d(K k, int i, FlowableGroupBy$GroupBySubscriber<?, K, T> flowableGroupBy$GroupBySubscriber, boolean z) {
@@ -19,18 +19,18 @@ public final class f<K, T> extends f.a.v.b<K, T> {
 
     @Override // f.a.e
     public void c(g.d.c<? super T> cVar) {
-        this.f67480g.subscribe(cVar);
+        this.f67485g.subscribe(cVar);
     }
 
     public void onComplete() {
-        this.f67480g.onComplete();
+        this.f67485g.onComplete();
     }
 
     public void onError(Throwable th) {
-        this.f67480g.onError(th);
+        this.f67485g.onError(th);
     }
 
     public void onNext(T t) {
-        this.f67480g.onNext(t);
+        this.f67485g.onNext(t);
     }
 }

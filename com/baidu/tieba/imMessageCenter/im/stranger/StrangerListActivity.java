@@ -24,7 +24,7 @@ import d.b.h0.r.s.a;
 import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public StrangerListActivity mActivity;
     public d.b.h0.r.s.a mDelAllDialog;
@@ -37,39 +37,39 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public d.b.i0.d1.f.i.a mCompleteProcess = new e();
     public final d.b.i0.d1.f.i.b IProcessImpl = new f();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f18285e;
+        public final /* synthetic */ j f18286e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18286f;
+        public final /* synthetic */ int f18287f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f18287g;
+        public final /* synthetic */ ImMessageCenterShowItemData f18288g;
 
         public a(j jVar, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-            this.f18285e = jVar;
-            this.f18286f = i;
-            this.f18287g = imMessageCenterShowItemData;
+            this.f18286e = jVar;
+            this.f18287f = i;
+            this.f18288g = imMessageCenterShowItemData;
         }
 
         @Override // d.b.h0.r.s.l.e
         public void onItemClick(l lVar, int i, View view) {
-            j jVar = this.f18285e;
+            j jVar = this.f18286e;
             if (jVar != null && jVar.isShowing()) {
-                this.f18285e.dismiss();
+                this.f18286e.dismiss();
             }
-            if (this.f18286f == 1) {
+            if (this.f18287f == 1) {
                 StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
             } else {
-                StrangerListActivity.this.mModel.asyncDeleteItem(this.f18287g, StrangerListActivity.this.IProcessImpl);
+                StrangerListActivity.this.mModel.asyncDeleteItem(this.f18288g, StrangerListActivity.this.IProcessImpl);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b() {
         }
@@ -81,7 +81,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -92,7 +92,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -119,7 +119,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements d.b.i0.d1.f.i.a {
         public e() {
         }
@@ -130,7 +130,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements d.b.i0.d1.f.i.b {
         public f() {
         }

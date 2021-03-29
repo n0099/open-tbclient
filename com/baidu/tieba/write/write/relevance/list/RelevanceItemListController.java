@@ -27,16 +27,16 @@ import java.util.List;
 public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdListView.p {
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f22579e;
+    public final View f22580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RelevanceItemListFragment f22580f;
+    public final RelevanceItemListFragment f22581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.i0.u3.v.m.a.a f22581g;
+    public final d.b.i0.u3.v.m.a.a f22582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdRecyclerView f22582h;
+    public BdRecyclerView f22583h;
     public PbListView i;
     public String l;
     public List<ReleavanceItemListData.ItemListBean> j = new ArrayList();
@@ -47,19 +47,19 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
     public static class ListViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public final View f22583a;
+        public final View f22584a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ItemCardView f22584b;
+        public ItemCardView f22585b;
 
         public ListViewHolder(View view) {
             super(view);
             ItemCardView itemCardView = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.f22584b = itemCardView;
+            this.f22585b = itemCardView;
             itemCardView.setBackGroundColor(R.color.transparent_1);
-            this.f22584b.setSizeStyle(1);
+            this.f22585b.setSizeStyle(1);
             View findViewById = view.findViewById(R.id.bottom_divider);
-            this.f22583a = findViewById;
+            this.f22584a = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0203);
         }
 
@@ -78,9 +78,9 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                 e2.printStackTrace();
             }
             tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-            ItemCardView itemCardView = this.f22584b;
+            ItemCardView itemCardView = this.f22585b;
             itemCardView.setHighLightText(str + "");
-            this.f22584b.setData(tbRichTextEvaluateItemInfo, 10);
+            this.f22585b.setData(tbRichTextEvaluateItemInfo, 10);
         }
     }
 
@@ -110,26 +110,26 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
     }
 
     public RelevanceItemListController(RelevanceItemListFragment relevanceItemListFragment, View view, String str, BdUniqueId bdUniqueId) {
-        this.f22579e = view;
-        this.f22580f = relevanceItemListFragment;
-        this.f22581g = new d.b.i0.u3.v.m.a.a(bdUniqueId, str);
+        this.f22580e = view;
+        this.f22581f = relevanceItemListFragment;
+        this.f22582g = new d.b.i0.u3.v.m.a.a(bdUniqueId, str);
         j();
     }
 
     @Override // d.b.i0.u3.v.m.a.a.b
     public void a() {
-        this.f22580f.I0();
+        this.f22581f.I0();
     }
 
     @Override // d.b.i0.u3.v.m.a.a.b
     public void b(RelevanceItemSearchData relevanceItemSearchData) {
-        this.f22580f.G0();
+        this.f22581f.G0();
         if (relevanceItemSearchData != null && !ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
             this.j.addAll(relevanceItemSearchData.getData().getItem_list());
             this.m.notifyDataSetChanged();
         }
-        if (this.f22582h.getVisibility() == 8) {
-            this.f22582h.setVisibility(0);
+        if (this.f22583h.getVisibility() == 8) {
+            this.f22583h.setVisibility(0);
         }
     }
 
@@ -161,23 +161,23 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                 d4 = d2;
                 i2 = 0;
                 MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i2, itemListBean.getTags()));
-                this.f22580f.getActivity().finish();
+                this.f22581f.getActivity().finish();
             }
         } catch (NumberFormatException e3) {
             e = e3;
             d2 = 0.0d;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i2, itemListBean.getTags()));
-        this.f22580f.getActivity().finish();
+        this.f22581f.getActivity().finish();
     }
 
     @Override // d.b.i0.u3.v.m.a.a.b
     public void d() {
         this.k = false;
-        this.f22582h.setNextPage(this.i);
-        this.i.A(this.f22580f.getResources().getString(R.string.list_no_more));
+        this.f22583h.setNextPage(this.i);
+        this.i.A(this.f22581f.getResources().getString(R.string.list_no_more));
         this.i.f();
-        this.i.J(l.g(this.f22582h.getContext(), R.dimen.tbds44));
+        this.i.J(l.g(this.f22583h.getContext(), R.dimen.tbds44));
     }
 
     public void g(String str) {
@@ -185,23 +185,23 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         this.k = true;
         this.l = str;
         this.m.notifyDataSetChanged();
-        this.f22581g.g(str);
+        this.f22582g.g(str);
     }
 
     public void h() {
-        this.f22581g.h();
+        this.f22582g.h();
     }
 
     public BdRecyclerView i() {
-        return this.f22582h;
+        return this.f22583h;
     }
 
     public final void j() {
-        BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f22579e.findViewById(R.id.item_list);
-        this.f22582h = bdRecyclerView;
-        bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f22579e.getContext()));
-        this.f22582h.setAdapter(this.m);
-        PbListView pbListView = new PbListView(this.f22579e.getContext());
+        BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f22580e.findViewById(R.id.item_list);
+        this.f22583h = bdRecyclerView;
+        bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f22580e.getContext()));
+        this.f22583h.setAdapter(this.m);
+        PbListView pbListView = new PbListView(this.f22580e.getContext());
         this.i = pbListView;
         pbListView.a();
         this.i.o(R.color.CAM_X0205);
@@ -209,20 +209,20 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         this.i.C(SkinManager.getColor(R.color.CAM_X0107));
         this.i.E(R.dimen.tbfontsize33);
         this.i.y(R.color.CAM_X0110);
-        this.f22582h.setNextPage(this.i);
-        this.f22582h.setOnItemClickListener(this);
-        this.f22582h.setOnSrollToBottomListener(this);
-        this.f22581g.m(this);
+        this.f22583h.setNextPage(this.i);
+        this.f22583h.setOnItemClickListener(this);
+        this.f22583h.setOnSrollToBottomListener(this);
+        this.f22582g.m(this);
     }
 
     public void k() {
-        this.f22581g.j();
+        this.f22582g.j();
     }
 
     public void l() {
         this.i.H();
         this.i.O();
-        this.i.A(this.f22582h.getContext().getString(R.string.list_loading));
+        this.i.A(this.f22583h.getContext().getString(R.string.list_loading));
         this.i.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
@@ -230,14 +230,14 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
     public void onError(int i, String str) {
         this.j.clear();
         this.m.notifyDataSetChanged();
-        this.f22582h.setVisibility(8);
-        this.f22580f.H0(str);
+        this.f22583h.setVisibility(8);
+        this.f22581f.H0(str);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
         if (this.k) {
-            this.f22581g.h();
+            this.f22582g.h();
             l();
         }
     }

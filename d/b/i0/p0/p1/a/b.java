@@ -21,8 +21,8 @@ public class b extends k<e0, FrsU9ViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: t0 */
     public FrsU9ViewHolder R(ViewGroup viewGroup) {
-        Log.e("Adapter", "Frs U9 Context:" + this.f42357e + "   Resource:" + this.f42357e.getResources() + "  Asset:" + this.f42357e.getResources().getAssets());
-        return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f42357e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.i);
+        Log.e("Adapter", "Frs U9 Context:" + this.f42358e + "   Resource:" + this.f42358e.getResources() + "  Asset:" + this.f42358e.getResources().getAssets());
+        return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f42358e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

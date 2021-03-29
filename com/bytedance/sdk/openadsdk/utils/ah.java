@@ -17,10 +17,10 @@ import java.util.Properties;
 public class ah implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f30374a = Thread.getDefaultUncaughtExceptionHandler();
+    public Thread.UncaughtExceptionHandler f30375a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30375b;
+    public String f30376b;
 
     public ah() {
         Thread.setDefaultUncaughtExceptionHandler(this);
@@ -40,12 +40,12 @@ public class ah implements Thread.UncaughtExceptionHandler {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                 externalFilesDir.mkdirs();
-                this.f30375b = externalFilesDir.getPath();
+                this.f30376b = externalFilesDir.getPath();
             }
-            if (TextUtils.isEmpty(this.f30375b)) {
+            if (TextUtils.isEmpty(this.f30376b)) {
                 File file = new File(a2.getFilesDir(), "TTCache");
                 file.mkdirs();
-                this.f30375b = file.getPath();
+                this.f30376b = file.getPath();
             }
         } catch (Throwable unused) {
         }
@@ -105,19 +105,20 @@ public class ah implements Thread.UncaughtExceptionHandler {
         if (z) {
             a(thread, th);
         }
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30374a;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30375a;
         if (uncaughtExceptionHandler == null || uncaughtExceptionHandler == this) {
             return;
         }
         uncaughtExceptionHandler.uncaughtException(thread, th);
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IF, IF, IF, NOP, INVOKE, IF, NOP] complete} */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00cc */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0103 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x0113 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:99:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v15 */
     /* JADX WARN: Type inference failed for: r2v16, types: [java.io.OutputStream, java.io.FileOutputStream] */
     /* JADX WARN: Type inference failed for: r2v8 */
@@ -132,17 +133,17 @@ public class ah implements Thread.UncaughtExceptionHandler {
         boolean z;
         FileInputStream fileInputStream = null;
         try {
-            if (TextUtils.isEmpty(this.f30375b)) {
+            if (TextUtils.isEmpty(this.f30376b)) {
                 b();
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
         }
-        if (TextUtils.isEmpty(this.f30375b)) {
+        if (TextUtils.isEmpty(this.f30376b)) {
             return;
         }
-        File file = new File(this.f30375b, "tt_crash_count.properties");
+        File file = new File(this.f30376b, "tt_crash_count.properties");
         boolean z2 = true;
         if (file.exists() && file.isFile() && file.canRead()) {
             ?? properties = new Properties();
@@ -225,7 +226,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
                         return;
                     }
                     fileOutputStream.close();
-                } catch (Throwable th6) {
+                } finally {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -238,14 +239,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
                         } catch (Throwable unused4) {
                         }
                     }
-                    throw th6;
                 }
-            }
-        }
-        if (fileInputStream != null) {
-            try {
-                fileInputStream.close();
-            } catch (Throwable unused5) {
             }
         }
         if (fileOutputStream == null) {
@@ -253,7 +247,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
         }
         try {
             fileOutputStream.close();
-        } catch (Throwable unused6) {
+        } catch (Throwable unused5) {
         }
     }
 }

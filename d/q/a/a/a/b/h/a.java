@@ -10,24 +10,24 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f67326b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f67331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f67327c;
+    public Context f67332c;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.g.a f67325a = null;
+    public com.yxcorp.kuaishou.addfp.a.b.g.a f67330a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f67328d = new CountDownLatch(1);
+    public CountDownLatch f67333d = new CountDownLatch(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f67329e = new b(this);
+    public ServiceConnection f67334e = new b(this);
 
     public final String a() {
         try {
-            if (this.f67325a != null) {
-                return this.f67325a.a();
+            if (this.f67330a != null) {
+                return this.f67330a.a();
             }
             return null;
         } catch (RemoteException unused) {
@@ -36,7 +36,7 @@ public final class a {
     }
 
     public final void c(Context context) {
-        ServiceConnection serviceConnection = this.f67329e;
+        ServiceConnection serviceConnection = this.f67334e;
         if (serviceConnection == null || context == null) {
             return;
         }
@@ -45,17 +45,17 @@ public final class a {
 
     public final void d(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.f67326b = bVar;
-            this.f67327c = context;
+            this.f67331b = bVar;
+            this.f67332c = context;
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (!context.bindService(intent, this.f67329e, 1)) {
+            if (!context.bindService(intent, this.f67334e, 1)) {
                 d.q.a.a.c.b.b.e("sumsang off");
                 e(false);
                 return;
             }
-            this.f67328d.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.f67325a != null) {
+            this.f67333d.await(2000L, TimeUnit.MILLISECONDS);
+            if (this.f67330a != null) {
                 e(true);
             } else {
                 e(false);
@@ -69,9 +69,9 @@ public final class a {
     public final void e(boolean z) {
         try {
             if (z) {
-                this.f67326b.a(this.f67325a);
+                this.f67331b.a(this.f67330a);
             } else {
-                this.f67326b.e();
+                this.f67331b.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -79,6 +79,6 @@ public final class a {
     }
 
     public final boolean f() {
-        return this.f67325a != null;
+        return this.f67330a != null;
     }
 }

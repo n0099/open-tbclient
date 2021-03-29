@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public double mLatitude;
     public double mLongitude;

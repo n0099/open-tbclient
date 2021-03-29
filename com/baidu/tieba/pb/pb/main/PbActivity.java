@@ -79,13 +79,13 @@ public class PbActivity extends BaseFragmentActivity implements d.b.i0.c2.k.a<Pb
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0214a implements Runnable {
+        public class RunnableC0215a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f19499e;
+            public final /* synthetic */ String f19500e;
 
-            public RunnableC0214a(String str) {
-                this.f19499e = str;
+            public RunnableC0215a(String str) {
+                this.f19500e = str;
             }
 
             @Override // java.lang.Runnable
@@ -95,12 +95,12 @@ public class PbActivity extends BaseFragmentActivity implements d.b.i0.c2.k.a<Pb
                         return;
                     }
                     PbActivity pbActivity = PbActivity.this;
-                    pbActivity.isShowDeleteResumeEditorTips(((VideoPbFragment) pbActivity.mCurrentFragment).M2(), ((VideoPbFragment) PbActivity.this.mCurrentFragment).Z2(), this.f19499e);
+                    pbActivity.isShowDeleteResumeEditorTips(((VideoPbFragment) pbActivity.mCurrentFragment).M2(), ((VideoPbFragment) PbActivity.this.mCurrentFragment).Z2(), this.f19500e);
                     PbActivity.this.hasRemindedEditorTips = true;
                     return;
                 }
                 PbActivity pbActivity2 = PbActivity.this;
-                pbActivity2.isShowDeleteResumeEditorTips(((PbFragment) pbActivity2.mCurrentFragment).G4().f0(), ((PbFragment) PbActivity.this.mCurrentFragment).D4(), this.f19499e);
+                pbActivity2.isShowDeleteResumeEditorTips(((PbFragment) pbActivity2.mCurrentFragment).G4().f0(), ((PbFragment) PbActivity.this.mCurrentFragment).D4(), this.f19500e);
                 PbActivity.this.hasRemindedEditorTips = true;
             }
         }
@@ -164,7 +164,7 @@ public class PbActivity extends BaseFragmentActivity implements d.b.i0.c2.k.a<Pb
             if (TextUtils.isEmpty(stringExtra) || PbActivity.this.hasRemindedEditorTips) {
                 return;
             }
-            d.b.b.e.m.e.a().postDelayed(new RunnableC0214a(stringExtra), 100L);
+            d.b.b.e.m.e.a().postDelayed(new RunnableC0215a(stringExtra), 100L);
         }
     }
 
@@ -204,26 +204,26 @@ public class PbActivity extends BaseFragmentActivity implements d.b.i0.c2.k.a<Pb
     public class c implements WriteTipBubbleController.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f19502a;
+        public final /* synthetic */ View f19503a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.w.w.e f19503b;
+        public final /* synthetic */ d.b.h0.w.w.e f19504b;
 
         public c(View view, d.b.h0.w.w.e eVar) {
-            this.f19502a = view;
-            this.f19503b = eVar;
+            this.f19503a = view;
+            this.f19504b = eVar;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
         public void a(View view, String str) {
-            this.f19502a.performClick();
-            this.f19503b.l();
-            this.f19503b.v().i().setText(str);
-            Editable text = this.f19503b.v().i().getText();
+            this.f19503a.performClick();
+            this.f19504b.l();
+            this.f19504b.v().i().setText(str);
+            Editable text = this.f19504b.v().i().getText();
             if (TextUtils.isEmpty(text)) {
                 return;
             }
-            this.f19503b.v().i().setSelection(text.length());
+            this.f19504b.v().i().setSelection(text.length());
         }
     }
 
@@ -253,28 +253,28 @@ public class PbActivity extends BaseFragmentActivity implements d.b.i0.c2.k.a<Pb
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f19506a;
+        public ArrayList<String> f19507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f19507b;
+        public ConcurrentHashMap<String, ImageUrlData> f19508b;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f19513h;
+        public boolean f19514h;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f19508c = null;
+        public String f19509c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f19509d = null;
+        public String f19510d = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f19510e = null;
+        public String f19511e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f19511f = null;
+        public String f19512f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f19512g = false;
+        public boolean f19513g = false;
         public String i = "";
         public int j = 0;
     }

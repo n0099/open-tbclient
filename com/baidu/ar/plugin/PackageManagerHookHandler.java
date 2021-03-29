@@ -6,7 +6,7 @@ import com.baidu.ar.session.XRSessionAnchor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PackageManagerHookHandler implements InvocationHandler {
     public Object mBase;
     public PluginPackageParser mPPP;

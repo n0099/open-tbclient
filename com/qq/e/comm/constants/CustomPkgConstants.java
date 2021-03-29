@@ -12,26 +12,26 @@ import com.qq.e.comm.util.StringUtil;
 public class CustomPkgConstants {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38261a = DownloadService.class.getName();
+    public static final String f38262a = DownloadService.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38262b = ADActivity.class.getName();
+    public static final String f38263b = ADActivity.class.getName();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38263c = PortraitADActivity.class.getName();
+    public static final String f38264c = PortraitADActivity.class.getName();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38264d = RewardvideoPortraitADActivity.class.getName();
+    public static final String f38265d = RewardvideoPortraitADActivity.class.getName();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38265e = LandscapeADActivity.class.getName();
+    public static final String f38266e = LandscapeADActivity.class.getName();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38266f = RewardvideoLandscapeADActivity.class.getName();
+    public static final String f38267f = RewardvideoLandscapeADActivity.class.getName();
 
     public static String getADActivityName() {
         String customADActivityClassName = GlobalSetting.getCustomADActivityClassName();
-        return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f38262b;
+        return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f38263b;
     }
 
     public static String getAssetPluginDir() {
@@ -47,26 +47,26 @@ public class CustomPkgConstants {
     }
 
     public static String getDownLoadServiceName() {
-        return f38261a;
+        return f38262a;
     }
 
     public static String getLandscapeADActivityName() {
         String customLandscapeActivityClassName = GlobalSetting.getCustomLandscapeActivityClassName();
-        return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f38265e;
+        return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f38266e;
     }
 
     public static String getPortraitADActivityName() {
         String customPortraitActivityClassName = GlobalSetting.getCustomPortraitActivityClassName();
-        return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f38263c;
+        return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f38264c;
     }
 
     public static String getRewardvideoLandscapeADActivityName() {
         String customRewardvideoLandscapeActivityClassName = GlobalSetting.getCustomRewardvideoLandscapeActivityClassName();
-        return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f38266f;
+        return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f38267f;
     }
 
     public static String getRewardvideoPortraitADActivityName() {
         String customRewardvideoPortraitActivityClassName = GlobalSetting.getCustomRewardvideoPortraitActivityClassName();
-        return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f38264d;
+        return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f38265d;
     }
 }

@@ -5,7 +5,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.down.utils.Utils;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ConnectManager {
     public static final boolean DEBUG = false;
     public static final String TAG = "ConnectManager";
@@ -15,7 +15,7 @@ public class ConnectManager {
     public String mProxy;
     public boolean mUseWap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum NetWorkType {
         TYPE_UNKNOWN,
         TYPE_WF,

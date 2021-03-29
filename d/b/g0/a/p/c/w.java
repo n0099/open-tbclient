@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface w {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onResult(String str);
     }

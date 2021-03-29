@@ -3,28 +3,28 @@ package d.b.h0.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50196a;
+    public String f50197a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50197b;
+    public int f50198b;
 
     public a() {
     }
 
     public String a() {
-        return this.f50196a;
+        return this.f50197a;
     }
 
     public int b() {
-        return this.f50197b;
+        return this.f50198b;
     }
 
     public void c(int i) {
-        this.f50197b = i;
+        this.f50198b = i;
     }
 
     public a(String str, int i) {
-        this.f50196a = str;
-        this.f50197b = i;
+        this.f50197a = str;
+        this.f50198b = i;
     }
 }

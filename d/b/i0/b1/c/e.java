@@ -18,34 +18,34 @@ import tbclient.Hottopic.PkModule;
 import tbclient.Hottopic.RelateForum;
 import tbclient.Hottopic.SpecialTopic;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d.b.b.j.e.n> f52102a;
+    public ArrayList<d.b.b.j.e.n> f52103a;
 
     /* renamed from: d  reason: collision with root package name */
-    public o1 f52105d;
+    public o1 f52106d;
     public boolean r;
     public int s;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f52103b = null;
+    public f f52104b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public n f52104c = null;
+    public n f52105c = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public PostForumData f52106e = null;
+    public PostForumData f52107e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f52107f = null;
+    public i f52108f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f52108g = null;
+    public a f52109g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f52109h = null;
+    public a f52110h = null;
     public a i = null;
     public g j = null;
     public d k = null;
@@ -57,8 +57,8 @@ public class e {
     public int q = 0;
 
     public e() {
-        this.f52102a = null;
-        this.f52102a = new ArrayList<>();
+        this.f52103a = null;
+        this.f52103a = new ArrayList<>();
     }
 
     public void a(d dVar) {
@@ -66,7 +66,7 @@ public class e {
             return;
         }
         for (d.b.i0.x.e0.b bVar : dVar.E3) {
-            this.f52102a.add(bVar);
+            this.f52103a.add(bVar);
         }
     }
 
@@ -75,21 +75,21 @@ public class e {
             return;
         }
         d.b.i0.x.e0.k kVar = new d.b.i0.x.e0.k();
-        kVar.f62196e = a2Var;
+        kVar.f62197e = a2Var;
         a2Var.Z3(5);
-        this.f52102a.add(0, kVar);
+        this.f52103a.add(0, kVar);
     }
 
     public a c() {
-        return this.f52108g;
+        return this.f52109g;
     }
 
     public a d() {
-        return this.f52109h;
+        return this.f52110h;
     }
 
     public o1 e() {
-        return this.f52105d;
+        return this.f52106d;
     }
 
     public int f() {
@@ -97,15 +97,15 @@ public class e {
     }
 
     public i g() {
-        return this.f52107f;
+        return this.f52108f;
     }
 
     public f h() {
-        return this.f52103b;
+        return this.f52104b;
     }
 
     public ArrayList<d.b.b.j.e.n> i() {
-        return this.f52102a;
+        return this.f52103a;
     }
 
     public z0 j() {
@@ -113,7 +113,7 @@ public class e {
     }
 
     public n k() {
-        return this.f52104c;
+        return this.f52105c;
     }
 
     public List<d.b.b.j.e.n> l() {
@@ -135,7 +135,7 @@ public class e {
         this.p = dataRes.is_new_url.intValue() == 1;
         if (dataRes.topic_info != null) {
             f fVar = new f();
-            this.f52103b = fVar;
+            this.f52104b = fVar;
             fVar.a(dataRes.topic_info);
         }
         HotThread hotThread = dataRes.good_threads;
@@ -151,13 +151,13 @@ public class e {
                 d.b.i0.x.e0.b bVar = null;
                 if (a2Var.s1) {
                     bVar = new d.b.i0.x.e0.k();
-                    bVar.f62196e = a2Var;
+                    bVar.f62197e = a2Var;
                 } else if (d.b.i0.x.e0.l.d0(a2Var)) {
                     bVar = new d.b.i0.x.e0.l(a2Var);
                     bVar.x = true;
                 } else if (d.b.i0.x.e0.k.i0(a2Var)) {
                     bVar = new d.b.i0.x.e0.k();
-                    bVar.f62196e = a2Var;
+                    bVar.f62197e = a2Var;
                 }
                 if (bVar != null && bVar.isValid()) {
                     bVar.X("c10814");
@@ -168,17 +168,17 @@ public class e {
         List<RelateForum> list = dataRes.relate_forum;
         if (list != null && list.size() != 0) {
             n nVar = new n();
-            this.f52104c = nVar;
+            this.f52105c = nVar;
             nVar.parserProtobuf(dataRes.relate_forum);
             o1 o1Var = new o1();
-            this.f52105d = o1Var;
+            this.f52106d = o1Var;
             o1Var.floorPosition = 2;
             if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                this.f52105d.f50853h = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
+                this.f52106d.f50854h = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
             } else {
-                this.f52105d.f50853h = dataRes.relate_forum_title;
+                this.f52106d.f50854h = dataRes.relate_forum_title;
             }
-            o1 o1Var2 = this.f52105d;
+            o1 o1Var2 = this.f52106d;
             o1Var2.i = R.color.CAM_X0108;
             ArrayList<n1> B = o1Var2.B();
             for (RelateForum relateForum : dataRes.relate_forum) {
@@ -198,23 +198,23 @@ public class e {
         List<RelateForum> list2 = dataRes.post_forum;
         if (list2 != null && list2.size() != 0) {
             PostForumData postForumData = new PostForumData();
-            this.f52106e = postForumData;
+            this.f52107e = postForumData;
             postForumData.parserProtobuf(dataRes.post_forum);
         }
         PkModule pkModule = dataRes.pk_module;
         if (pkModule != null && !StringUtils.isNull(pkModule.ques_desc)) {
             i iVar = new i();
-            this.f52107f = iVar;
+            this.f52108f = iVar;
             iVar.a(dataRes.pk_module);
         }
         if (dataRes.bless_module != null) {
             a aVar = new a();
-            this.f52108g = aVar;
+            this.f52109g = aVar;
             aVar.a(dataRes.bless_module);
         }
         if (dataRes.candle_module != null) {
             a aVar2 = new a();
-            this.f52109h = aVar2;
+            this.f52110h = aVar2;
             aVar2.a(dataRes.candle_module);
         }
         if (dataRes.weiguan_module != null) {
@@ -240,13 +240,13 @@ public class e {
         }
         if (!ListUtils.isEmpty(dataRes.special_topic)) {
             this.n = new ArrayList();
-            boolean z = this.f52107f != null;
+            boolean z = this.f52108f != null;
             for (SpecialTopic specialTopic : dataRes.special_topic) {
                 if (!ListUtils.isEmpty(specialTopic.thread_list)) {
                     if (!TextUtils.isEmpty(specialTopic.title)) {
                         d.b.i0.w1.e.c cVar = new d.b.i0.w1.e.c(specialTopic.title);
                         if (!z) {
-                            cVar.f62148f = false;
+                            cVar.f62149f = false;
                             z = true;
                         }
                         this.n.add(cVar);
@@ -266,35 +266,35 @@ public class e {
     }
 
     public final ArrayList<d.b.b.j.e.n> p() {
-        i iVar = this.f52107f;
+        i iVar = this.f52108f;
         if (iVar != null) {
-            this.f52102a.add(iVar);
+            this.f52103a.add(iVar);
         }
         if (ListUtils.getCount(this.m) > 0) {
-            this.f52102a.add(this.l);
+            this.f52103a.add(this.l);
             if (this.m.size() > 5) {
                 this.m = this.m.subList(0, 5);
             }
             for (d.b.i0.x.e0.b bVar : this.m) {
-                this.f52102a.add(bVar);
+                this.f52103a.add(bVar);
             }
         }
-        n nVar = this.f52104c;
+        n nVar = this.f52105c;
         if (nVar != null && nVar.getCount() > 0 && this.s == 1) {
-            this.f52102a.add(this.f52104c);
+            this.f52103a.add(this.f52105c);
         }
         d dVar = this.k;
         if (dVar != null && !ListUtils.isEmpty(dVar.E3)) {
-            this.f52102a.add(this.j);
+            this.f52103a.add(this.j);
             for (int i = 0; i < this.k.E3.size(); i++) {
-                this.f52102a.add((d.b.i0.x.e0.b) ListUtils.getItem(this.k.E3, i));
-                n nVar2 = this.f52104c;
+                this.f52103a.add((d.b.i0.x.e0.b) ListUtils.getItem(this.k.E3, i));
+                n nVar2 = this.f52105c;
                 if (nVar2 != null && nVar2.getCount() > 0 && i == 2 && this.s == 0) {
-                    this.f52102a.add(this.f52104c);
+                    this.f52103a.add(this.f52105c);
                 }
             }
         }
-        return this.f52102a;
+        return this.f52103a;
     }
 
     public void q(z0 z0Var) {

@@ -18,7 +18,7 @@ public class c extends d.b.g0.l.m.b {
             jSONObject4.put("version", b.b().c());
             jSONObject.put("pkg_clean_strategy", jSONObject4);
         } catch (JSONException e2) {
-            if (d.b.g0.l.f.f48888a) {
+            if (d.b.g0.l.f.f48889a) {
                 e2.printStackTrace();
             }
         }

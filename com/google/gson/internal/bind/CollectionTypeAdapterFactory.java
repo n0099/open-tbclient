@@ -15,20 +15,20 @@ import java.util.Collection;
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f30944e;
+    public final b f30945e;
 
     /* loaded from: classes6.dex */
     public static final class Adapter<E> extends TypeAdapter<Collection<E>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final TypeAdapter<E> f30945a;
+        public final TypeAdapter<E> f30946a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final e<? extends Collection<E>> f30946b;
+        public final e<? extends Collection<E>> f30947b;
 
         public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, e<? extends Collection<E>> eVar) {
-            this.f30945a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.f30946b = eVar;
+            this.f30946a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.f30947b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,10 +39,10 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.I();
                 return null;
             }
-            Collection<E> a2 = this.f30946b.a();
+            Collection<E> a2 = this.f30947b.a();
             aVar.n();
             while (aVar.y()) {
-                a2.add(this.f30945a.read(aVar));
+                a2.add(this.f30946a.read(aVar));
             }
             aVar.t();
             return a2;
@@ -58,14 +58,14 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             }
             bVar.q();
             for (E e2 : collection) {
-                this.f30945a.write(bVar, e2);
+                this.f30946a.write(bVar, e2);
             }
             bVar.t();
         }
     }
 
     public CollectionTypeAdapterFactory(b bVar) {
-        this.f30944e = bVar;
+        this.f30945e = bVar;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
@@ -74,7 +74,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
         Class<? super T> c2 = aVar.c();
         if (Collection.class.isAssignableFrom(c2)) {
             Type h2 = C$Gson$Types.h(e2, c2);
-            return new Adapter(gson, h2, gson.getAdapter(d.g.c.c.a.b(h2)), this.f30944e.a(aVar));
+            return new Adapter(gson, h2, gson.getAdapter(d.g.c.c.a.b(h2)), this.f30945e.a(aVar));
         }
         return null;
     }

@@ -28,7 +28,7 @@ import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     public static final int DEFAULT_FADE_COLOR = -858993460;
     public static final SlidingPanelLayoutImpl IMPL;
@@ -61,7 +61,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public double slideEdgeFactor;
     public double slideWidthFactor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public final Rect mTmpRect = new Rect();
 
@@ -130,7 +130,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DisableLayerRunnable implements Runnable {
         public final View mChildView;
 
@@ -148,7 +148,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DragHelperCallback extends ViewDragHelper.Callback {
         public final int OFFSET_X;
         public int currX;
@@ -215,8 +215,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             int i;
             int paddingLeft = SlidingPaneLayout.this.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) view.getLayoutParams())).leftMargin;
             if (SlidingPaneLayout.this.mEnableReleaseWhenNoTranslucent || SlidingPaneLayout.this.mIsActivityTranslucent) {
-                if (f2 != 0.0f || SlidingPaneLayout.this.mSlideOffset <= 0.25f) {
-                    if (f2 > 0.0f) {
+                int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                if (i2 != 0 || SlidingPaneLayout.this.mSlideOffset <= 0.25f) {
+                    if (i2 > 0) {
                         paddingLeft += SlidingPaneLayout.this.mSlideRange;
                     }
                     SlidingPaneLayout.this.mDragHelper.settleCapturedViewAt(paddingLeft, view.getTop());
@@ -245,7 +246,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view);
 
@@ -254,7 +255,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         void onPanelSlide(View view, float f2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -289,7 +290,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelClosed(View view) {
@@ -304,12 +305,12 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
         public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view) {
@@ -317,7 +318,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         public Method mGetDisplayList;
         public Field mRecreateDisplayList;
@@ -354,7 +355,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImplBase, com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
         public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view) {
@@ -623,14 +624,8 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mPostedRunnables.clear();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x009b, code lost:
-        if (r0 < (r9 * r11)) goto L33;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00e8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00e2, code lost:
         if (isDimmed(r13.mSlideableView) != false) goto L33;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ea, code lost:
-        r0 = true;
      */
     @Override // android.view.ViewGroup
     /*
@@ -644,11 +639,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         if (!this.mCanSlide && actionMasked == 0 && getChildCount() > 1 && (childAt = getChildAt(1)) != null) {
             this.mPreservedOpenState = !this.mDragHelper.isViewUnder(childAt, (int) motionEvent.getX(), (int) motionEvent.getY());
         }
-        float x = motionEvent.getX();
-        double d2 = this.mScreenWidth;
-        double d3 = this.slideWidthFactor;
-        Double.isNaN(d2);
-        if (x >= ((int) (d2 * d3))) {
+        if (motionEvent.getX() >= ((int) (this.mScreenWidth * this.slideWidthFactor))) {
             this.mDragHelper.cancel();
             return super.onInterceptTouchEvent(motionEvent);
         } else if (!this.mCanSlide || (this.mIsUnableToDrag && actionMasked != 0)) {
@@ -657,30 +648,28 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         } else if (actionMasked != 3 && actionMasked != 1) {
             if (actionMasked != 0) {
                 if (actionMasked == 2) {
-                    float x2 = motionEvent.getX();
+                    float x = motionEvent.getX();
                     float y = motionEvent.getY();
-                    float abs = Math.abs(x2 - this.mInitialMotionX);
+                    float abs = Math.abs(x - this.mInitialMotionX);
                     float abs2 = Math.abs(y - this.mInitialMotionY);
                     int touchSlop = this.mDragHelper.getTouchSlop();
-                    if (abs > 0.0f && abs > abs2 && this.mCanSlide) {
-                        double d4 = this.mScreenWidth;
-                        double d5 = this.slideEdgeFactor;
-                        Double.isNaN(d4);
+                    if (abs <= 0.0f || abs <= abs2 || !this.mCanSlide || x >= this.mScreenWidth * this.slideEdgeFactor) {
+                        if ((abs > touchSlop && abs2 > abs) || canScroll(this, false, Math.round(x - this.mInitialMotionX), Math.round(x), Math.round(y))) {
+                            this.mDragHelper.cancel();
+                            this.mIsUnableToDrag = true;
+                            return false;
+                        }
                     }
-                    if ((abs > touchSlop && abs2 > abs) || canScroll(this, false, Math.round(x2 - this.mInitialMotionX), Math.round(x2), Math.round(y))) {
-                        this.mDragHelper.cancel();
-                        this.mIsUnableToDrag = true;
-                        return false;
-                    }
+                    z = true;
                 }
                 z = false;
             } else {
                 this.mIsUnableToDrag = false;
-                float x3 = motionEvent.getX();
+                float x2 = motionEvent.getX();
                 float y2 = motionEvent.getY();
-                this.mInitialMotionX = x3;
+                this.mInitialMotionX = x2;
                 this.mInitialMotionY = y2;
-                if (this.mDragHelper.isViewUnder(this.mSlideableView, (int) x3, (int) y2)) {
+                if (this.mDragHelper.isViewUnder(this.mSlideableView, (int) x2, (int) y2)) {
                 }
                 z = false;
             }
@@ -1123,7 +1112,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static final int[] ATTRS = {16843137};
         public Paint dimPaint;

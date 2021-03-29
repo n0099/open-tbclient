@@ -17,10 +17,10 @@ import java.util.regex.Pattern;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f54864a;
+    public TbPageContext f54865a;
 
     public e(TbPageContext tbPageContext) {
-        this.f54864a = tbPageContext;
+        this.f54865a = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
@@ -30,18 +30,18 @@ public class e {
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.f54864a.getString(R.string.des_page_home_recommend);
+            String string = this.f54865a.getString(R.string.des_page_home_recommend);
             j1 j1Var = new j1();
             Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
             int i = 1;
             if (matcher.find()) {
-                j1Var.f50824c = matcher.group(1);
+                j1Var.f50825c = matcher.group(1);
             }
             if (stringExtra.equals(string)) {
-                j1Var.f50822a = 1;
+                j1Var.f50823a = 1;
             } else {
-                j1Var.f50822a = 2;
-                j1Var.f50823b = stringExtra;
+                j1Var.f50823a = 2;
+                j1Var.f50824b = stringExtra;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, j1Var));
             if (stringExtra.equals(string)) {
@@ -54,7 +54,7 @@ public class e {
                 dVar.C().setCurrentTabByType(i);
                 FragmentTabHost.b g2 = dVar.C().g(i);
                 if (g2 != null) {
-                    Fragment fragment = g2.f13312c;
+                    Fragment fragment = g2.f13313c;
                     if (fragment instanceof g) {
                         ((g) fragment).o0(intent);
                     }

@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class b implements d.b.g0.e.a.m.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47691a;
+    public boolean f47692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f47692b;
+    public Context f47693b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<String> {
@@ -46,13 +46,13 @@ public class b implements d.b.g0.e.a.m.e {
     }
 
     public b(Context context) {
-        this.f47692b = context;
+        this.f47693b = context;
     }
 
     @Override // d.b.g0.e.a.m.e
     public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f47691a = startsWith;
+        this.f47692a = startsWith;
         if (startsWith) {
             ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) d.b.g0.k.e.a.f().postRequest().url(str)).cookieManager(d.b.g0.a.w0.a.m().a())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             return;
@@ -63,7 +63,7 @@ public class b implements d.b.g0.e.a.m.e {
     @Override // d.b.g0.e.a.m.e
     public void b(String str, ResponseCallback<d.b.g0.e.a.p.a> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f47691a = startsWith;
+        this.f47692a = startsWith;
         if (startsWith) {
             d.b.g0.k.e.a.f().getRequest().url(str).cookieManager(d.b.g0.a.w0.a.m().a()).build().executeAsync(responseCallback);
             return;
@@ -77,9 +77,9 @@ public class b implements d.b.g0.e.a.m.e {
             return;
         }
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a();
-        aVar.f48879b = "POST";
-        aVar.f48878a = "https://pimlog.baidu.com/mapp/advlog";
-        aVar.f48881d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        aVar.f48880b = "POST";
+        aVar.f48879a = "https://pimlog.baidu.com/mapp/advlog";
+        aVar.f48882d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
         d.b.g0.k.e.a.f().e(aVar);
     }
 
@@ -87,7 +87,7 @@ public class b implements d.b.g0.e.a.m.e {
     public void d(String str) {
         a aVar = new a(this);
         boolean startsWith = str.startsWith("https://");
-        this.f47691a = startsWith;
+        this.f47692a = startsWith;
         if (startsWith) {
             d.b.g0.k.e.a.f().getRequest().url(str).cookieManager(d.b.g0.a.w0.a.m().a()).build().executeAsync(aVar);
             return;
@@ -98,7 +98,7 @@ public class b implements d.b.g0.e.a.m.e {
     @Override // d.b.g0.e.a.m.e
     public void e(String str, ResponseCallback<AdResponseInfo> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f47691a = startsWith;
+        this.f47692a = startsWith;
         if (startsWith) {
             d.b.g0.k.e.a.f().getRequest().url(str).cookieManager(d.b.g0.a.w0.a.m().a()).build().executeAsync(responseCallback);
             return;

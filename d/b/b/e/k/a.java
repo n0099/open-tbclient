@@ -6,36 +6,36 @@ import java.util.Map;
 public class a<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f41830a = new LinkedHashMap<>(0, 0.75f, true);
+    public final LinkedHashMap<K, V> f41831a = new LinkedHashMap<>(0, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41831b;
+    public int f41832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41832c;
+    public int f41833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41833d;
+    public int f41834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41834e;
+    public int f41835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41835f;
+    public int f41836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41836g;
+    public int f41837g;
 
     public a(int i) {
-        this.f41832c = i;
+        this.f41833c = i;
     }
 
     public final synchronized void a() {
         c();
-        this.f41833d = 0;
-        this.f41834e = 0;
-        this.f41835f = 0;
-        this.f41836g = 0;
+        this.f41834d = 0;
+        this.f41835e = 0;
+        this.f41836f = 0;
+        this.f41837g = 0;
     }
 
     public void b(boolean z, K k, V v, V v2) {
@@ -46,15 +46,12 @@ public class a<K, V> {
     }
 
     public final synchronized int d() {
-        return this.f41834e;
+        return this.f41835e;
     }
 
     public synchronized boolean e(int i) {
-        double d2 = this.f41831b + i;
-        double d3 = this.f41832c;
-        Double.isNaN(d3);
-        if (d2 > d3 * 0.8d) {
-            n(this.f41831b - i);
+        if (this.f41832b + i > this.f41833c * 0.8d) {
+            n(this.f41832b - i);
         }
         return true;
     }
@@ -64,18 +61,18 @@ public class a<K, V> {
             return null;
         }
         synchronized (this) {
-            V v = this.f41830a.get(k);
+            V v = this.f41831a.get(k);
             if (v != null) {
-                this.f41835f++;
+                this.f41836f++;
                 return v;
             }
-            this.f41836g++;
+            this.f41837g++;
             return null;
         }
     }
 
     public final synchronized int g() {
-        return this.f41832c;
+        return this.f41833c;
     }
 
     public final V h(K k, V v) {
@@ -84,17 +81,17 @@ public class a<K, V> {
             return null;
         }
         synchronized (this) {
-            this.f41833d++;
-            this.f41831b += j(k, v);
-            put = this.f41830a.put(k, v);
+            this.f41834d++;
+            this.f41832b += j(k, v);
+            put = this.f41831a.put(k, v);
             if (put != null) {
-                this.f41831b -= j(k, put);
+                this.f41832b -= j(k, put);
             }
         }
         if (put != null) {
             b(false, k, put, v);
         }
-        n(this.f41832c);
+        n(this.f41833c);
         return put;
     }
 
@@ -104,9 +101,9 @@ public class a<K, V> {
             return null;
         }
         synchronized (this) {
-            remove = this.f41830a.remove(k);
+            remove = this.f41831a.remove(k);
             if (remove != null) {
-                this.f41831b -= j(k, remove);
+                this.f41832b -= j(k, remove);
             }
         }
         if (remove != null) {
@@ -125,13 +122,13 @@ public class a<K, V> {
 
     public final void k(int i) {
         synchronized (this) {
-            this.f41832c = i;
+            this.f41833c = i;
             n(i);
         }
     }
 
     public final synchronized int l() {
-        return this.f41831b;
+        return this.f41832b;
     }
 
     public int m(K k, V v) {
@@ -149,16 +146,16 @@ public class a<K, V> {
         V value;
         while (true) {
             synchronized (this) {
-                if (this.f41831b >= 0 && (!this.f41830a.isEmpty() || this.f41831b == 0)) {
-                    if (this.f41831b <= i || this.f41830a.isEmpty()) {
+                if (this.f41832b >= 0 && (!this.f41831a.isEmpty() || this.f41832b == 0)) {
+                    if (this.f41832b <= i || this.f41831a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.f41830a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.f41831a.entrySet().iterator().next();
                     key = next.getKey();
                     value = next.getValue();
-                    this.f41830a.remove(key);
-                    this.f41831b -= j(key, value);
-                    this.f41834e++;
+                    this.f41831a.remove(key);
+                    this.f41832b -= j(key, value);
+                    this.f41835e++;
                 } else {
                     break;
                 }

@@ -8,11 +8,11 @@ import com.squareup.wire.Wire;
 import d.b.b.e.d.l;
 import java.io.IOException;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f63194a = false;
+    public static boolean f63195a = false;
 
     public static void a() {
         l<byte[]> e2 = d.b.h0.r.r.a.f().e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());

@@ -13,53 +13,53 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RestHttpDNSEnabler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3710a = "RestHttpDNSEnabler";
+    public static final String f3711a = "RestHttpDNSEnabler";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3711b = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+    public static final String f3712b = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Pattern f3712c = Pattern.compile(f3711b);
+    public static Pattern f3713c = Pattern.compile(f3712b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConcurrentHashMap<String, a> f3713d = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, a> f3714d = new ConcurrentHashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f3714e = 86400;
+    public static long f3715e = 86400;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f3717a;
+        public String f3718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f3718b;
+        public long f3719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3719c;
+        public long f3720c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f3720d;
+        public boolean f3721d;
 
         public a(String str) {
-            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f3714e);
+            this(str, System.currentTimeMillis(), RestHttpDNSEnabler.f3715e);
         }
 
         public a(String str, long j, long j2) {
-            this.f3717a = str;
-            this.f3718b = j;
-            this.f3719c = j2;
+            this.f3718a = str;
+            this.f3719b = j;
+            this.f3720c = j2;
         }
     }
 
     public static boolean c(String str) {
-        for (Map.Entry<String, a> entry : f3713d.entrySet()) {
-            if (entry.getValue().f3717a.equals(str)) {
+        for (Map.Entry<String, a> entry : f3714d.entrySet()) {
+            if (entry.getValue().f3718a.equals(str)) {
                 return true;
             }
         }
@@ -68,7 +68,7 @@ public class RestHttpDNSEnabler {
 
     public static void enableHttpDns(final Context context, final String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            if (f3713d.containsKey(str)) {
+            if (f3714d.containsKey(str)) {
                 return;
             }
             new Thread(new Runnable() { // from class: com.baidu.apollon.restnet.RestHttpDNSEnabler.1
@@ -90,8 +90,8 @@ public class RestHttpDNSEnabler {
                             if (TextUtils.isEmpty(trim) || !RestHttpDNSEnabler.a(trim)) {
                                 return;
                             }
-                            synchronized (RestHttpDNSEnabler.f3713d) {
-                                RestHttpDNSEnabler.f3713d.put(str, new a(trim));
+                            synchronized (RestHttpDNSEnabler.f3714d) {
+                                RestHttpDNSEnabler.f3714d.put(str, new a(trim));
                             }
                         }
                     } catch (Exception e2) {
@@ -101,19 +101,19 @@ public class RestHttpDNSEnabler {
             }).start();
             return;
         }
-        String str2 = f3710a;
-        LogUtil.w(str2, f3710a + " enableHttpDns params context is null or hostName is null.");
+        String str2 = f3711a;
+        LogUtil.w(str2, f3711a + " enableHttpDns params context is null or hostName is null.");
     }
 
     public static boolean a(String str) {
-        return f3712c.matcher(str).matches();
+        return f3713c.matcher(str).matches();
     }
 
     public static void b(String str) {
         if (a(str)) {
-            Iterator<Map.Entry<String, a>> it = f3713d.entrySet().iterator();
+            Iterator<Map.Entry<String, a>> it = f3714d.entrySet().iterator();
             while (it.hasNext()) {
-                if (it.next().getValue().f3717a.equals(str)) {
+                if (it.next().getValue().f3718a.equals(str)) {
                     it.remove();
                     return;
                 }
@@ -125,11 +125,11 @@ public class RestHttpDNSEnabler {
         String replaceFirst;
         String host = url.getHost();
         String url2 = url.toString();
-        for (Map.Entry<String, a> entry : f3713d.entrySet()) {
+        for (Map.Entry<String, a> entry : f3714d.entrySet()) {
             String key = entry.getKey();
             if (key.equals(host) || (ApollonConstants.WALLET_SPECIFIC && key.endsWith("baifubao.com") && host.endsWith("baifubao.com"))) {
-                synchronized (f3713d) {
-                    replaceFirst = url2.replaceFirst(host, f3713d.get(key).f3717a);
+                synchronized (f3714d) {
+                    replaceFirst = url2.replaceFirst(host, f3714d.get(key).f3718a);
                 }
                 return replaceFirst;
             }

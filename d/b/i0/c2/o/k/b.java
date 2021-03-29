@@ -18,31 +18,31 @@ import tbclient.PbPage.PbSortType;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f53287a;
+    public View f53288a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53288b;
+    public TextView f53289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f53289c;
+    public TextView f53290c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SortSwitchButton f53290d;
+    public SortSwitchButton f53291d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SortSwitchButton.f f53291e;
+    public SortSwitchButton.f f53292e;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f53293g;
+    public View.OnClickListener f53294g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53294h;
+    public int f53295h;
     public int i;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53292f = 0;
+    public int f53293f = 0;
     public SortSwitchButton.f j = new a();
-    public View.OnClickListener k = new View$OnClickListenerC1181b();
+    public View.OnClickListener k = new View$OnClickListenerC1182b();
 
     /* loaded from: classes5.dex */
     public class a implements SortSwitchButton.f {
@@ -51,8 +51,8 @@ public class b {
 
         @Override // com.baidu.tieba.view.SortSwitchButton.f
         public boolean a(int i) {
-            if (b.this.f53291e != null) {
-                return b.this.f53291e.a(i);
+            if (b.this.f53292e != null) {
+                return b.this.f53292e.a(i);
             }
             return true;
         }
@@ -60,19 +60,19 @@ public class b {
 
     /* renamed from: d.b.i0.c2.o.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1181b implements View.OnClickListener {
-        public View$OnClickListenerC1181b() {
+    public class View$OnClickListenerC1182b implements View.OnClickListener {
+        public View$OnClickListenerC1182b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f53293g != null) {
-                b.this.f53293g.onClick(view);
+            if (b.this.f53294g != null) {
+                b.this.f53294g.onClick(view);
             }
             if (j.z()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.f53288b) {
-                        if (view == b.this.f53289c) {
+                    if (view != b.this.f53289b) {
+                        if (view == b.this.f53290c) {
                             b.this.k(1);
                             return;
                         }
@@ -88,17 +88,17 @@ public class b {
         if (view == null) {
             return;
         }
-        this.f53287a = view;
+        this.f53288a = view;
         TextView textView = (TextView) view.findViewById(R.id.all_reply);
-        this.f53288b = textView;
+        this.f53289b = textView;
         textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.f53287a.findViewById(R.id.owner_reply);
-        this.f53289c = textView2;
+        TextView textView2 = (TextView) this.f53288a.findViewById(R.id.owner_reply);
+        this.f53290c = textView2;
         textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f53287a.findViewById(R.id.video_pb_sort_switch_btn);
-        this.f53290d = sortSwitchButton;
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f53288a.findViewById(R.id.video_pb_sort_switch_btn);
+        this.f53291d = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.j);
-        this.f53290d.u(2);
+        this.f53291d.u(2);
         h(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -107,26 +107,26 @@ public class b {
             return;
         }
         int i = 0;
-        if (oVar.f52454f == o.l) {
-            this.f53288b.setClickable(true);
-            this.f53288b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-            this.f53289c.setVisibility(0);
-            f(oVar.f52456h);
+        if (oVar.f52455f == o.l) {
+            this.f53289b.setClickable(true);
+            this.f53289b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+            this.f53290c.setVisibility(0);
+            f(oVar.f52457h);
         }
         if (oVar.i) {
-            this.f53289c.setVisibility(8);
-            this.f53290d.setVisibility(8);
+            this.f53290c.setVisibility(8);
+            this.f53291d.setVisibility(8);
         } else if (oVar.j) {
-            this.f53289c.setVisibility(8);
+            this.f53290c.setVisibility(8);
         } else {
-            this.f53289c.setVisibility(0);
+            this.f53290c.setVisibility(0);
         }
         if (!oVar.i && oVar.k != null) {
-            this.f53290d.setVisibility(0);
+            this.f53291d.setVisibility(0);
             int i2 = 0;
             while (true) {
                 if (i2 < oVar.k.size()) {
-                    if (oVar.k.get(i2) != null && oVar.f52455g == oVar.k.get(i2).sort_type.intValue()) {
+                    if (oVar.k.get(i2) != null && oVar.f52456g == oVar.k.get(i2).sort_type.intValue()) {
                         i = i2;
                         break;
                     }
@@ -150,7 +150,7 @@ public class b {
 
     public void g(List<PbSortType> list, int i) {
         if (ListUtils.isEmpty(list)) {
-            this.f53290d.setVisibility(8);
+            this.f53291d.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -160,38 +160,38 @@ public class b {
             rVar.d(pbSortType.sort_name);
             arrayList.add(rVar);
         }
-        this.f53290d.setVisibility(0);
-        this.f53290d.setData(arrayList, i);
+        this.f53291d.setVisibility(0);
+        this.f53291d.setData(arrayList, i);
     }
 
     public void h(int i) {
-        SkinManager.setBackgroundColor(this.f53287a, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f53288a, R.color.CAM_X0205);
         this.i = SkinManager.getColor(R.color.CAM_X0105);
-        this.f53294h = SkinManager.getColor(R.color.CAM_X0107);
-        k(this.f53292f);
-        this.f53290d.F();
+        this.f53295h = SkinManager.getColor(R.color.CAM_X0107);
+        k(this.f53293f);
+        this.f53291d.F();
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.f53293g = onClickListener;
+        this.f53294g = onClickListener;
     }
 
     public void j(SortSwitchButton.f fVar) {
-        this.f53291e = fVar;
+        this.f53292e = fVar;
     }
 
     public void k(int i) {
-        this.f53292f = i;
+        this.f53293f = i;
         if (i == 0) {
-            this.f53288b.setTypeface(Typeface.defaultFromStyle(1));
-            this.f53289c.setTypeface(Typeface.defaultFromStyle(0));
-            this.f53288b.setTextColor(this.i);
-            this.f53289c.setTextColor(this.f53294h);
+            this.f53289b.setTypeface(Typeface.defaultFromStyle(1));
+            this.f53290c.setTypeface(Typeface.defaultFromStyle(0));
+            this.f53289b.setTextColor(this.i);
+            this.f53290c.setTextColor(this.f53295h);
         } else if (i == 1) {
-            this.f53288b.setTypeface(Typeface.defaultFromStyle(0));
-            this.f53289c.setTypeface(Typeface.defaultFromStyle(1));
-            this.f53288b.setTextColor(this.f53294h);
-            this.f53289c.setTextColor(this.i);
+            this.f53289b.setTypeface(Typeface.defaultFromStyle(0));
+            this.f53290c.setTypeface(Typeface.defaultFromStyle(1));
+            this.f53289b.setTextColor(this.f53295h);
+            this.f53290c.setTextColor(this.i);
         }
     }
 }

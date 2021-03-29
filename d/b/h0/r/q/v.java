@@ -10,16 +10,16 @@ import com.baidu.tieba.R;
 public class v implements Comparable<v> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50896e;
+    public int f50897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50897f;
+    public int f50898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50898g;
+    public String f50899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50899h;
+    public String f50900h;
     public String i;
     public String j;
     public String k;
@@ -34,8 +34,8 @@ public class v implements Comparable<v> {
     public int t;
 
     public v(int i, int i2) {
-        this.f50896e = i;
-        this.f50897f = i2;
+        this.f50897e = i;
+        this.f50898f = i2;
     }
 
     public static v b(TbLinkSpanGroup tbLinkSpanGroup, d.b.i0.v0.a aVar) {
@@ -52,8 +52,8 @@ public class v implements Comparable<v> {
         } else {
             str = aVar.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
         }
-        vVar.f50899h = str;
-        vVar.f50898g = aVar.c();
+        vVar.f50900h = str;
+        vVar.f50899g = aVar.c();
         vVar.q = aVar.a();
         if (!ListUtils.isEmpty(aVar.b()) && aVar.b().get(0) != null) {
             vVar.i = aVar.b().get(0).a();
@@ -76,15 +76,15 @@ public class v implements Comparable<v> {
         if (dVar == null) {
             return vVar;
         }
-        vVar.f50898g = dVar.f50552e;
-        vVar.i = dVar.f50551d;
-        vVar.p = dVar.f50553f;
-        vVar.j = dVar.f50554g;
-        vVar.k = dVar.f50550c;
-        vVar.r = dVar.f50555h;
+        vVar.f50899g = dVar.f50553e;
+        vVar.i = dVar.f50552d;
+        vVar.p = dVar.f50554f;
+        vVar.j = dVar.f50555g;
+        vVar.k = dVar.f50551c;
+        vVar.r = dVar.f50556h;
         String str = dVar.i;
-        vVar.m = dVar.f50549b == 1;
-        vVar.s = dVar.f50549b;
+        vVar.m = dVar.f50550b == 1;
+        vVar.s = dVar.f50550b;
         tbLinkSpanGroup.y(vVar);
         return vVar;
     }

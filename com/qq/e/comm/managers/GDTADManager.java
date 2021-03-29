@@ -20,39 +20,39 @@ public class GDTADManager {
     public static final ExecutorService INIT_EXECUTOR = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f38277a;
+    public volatile Boolean f38278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Context f38278b;
+    public volatile Context f38279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SM f38279c;
+    public volatile SM f38280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PM f38280d;
+    public volatile PM f38281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile DevTools f38281e;
+    public volatile DevTools f38282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile APPStatus f38282f;
+    public volatile APPStatus f38283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile DeviceStatus f38283g;
+    public volatile DeviceStatus f38284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f38284h;
-    public PM.a.InterfaceC0469a i;
+    public volatile String f38285h;
+    public PM.a.InterfaceC0470a i;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static GDTADManager f38285a = new GDTADManager((byte) 0);
+        public static GDTADManager f38286a = new GDTADManager((byte) 0);
     }
 
     public GDTADManager() {
-        this.f38277a = Boolean.FALSE;
+        this.f38278a = Boolean.FALSE;
     }
 
     public /* synthetic */ GDTADManager(byte b2) {
@@ -60,15 +60,15 @@ public class GDTADManager {
     }
 
     public static GDTADManager getInstance() {
-        return a.f38285a;
+        return a.f38286a;
     }
 
     public JSONObject buildS2SSBaseInfo() throws JSONException {
         if (isInitialized()) {
-            JSONObject a2 = com.qq.e.comm.net.a.a(this.f38279c);
-            a2.put("app", com.qq.e.comm.net.a.a(this.f38282f));
-            a2.put("c", com.qq.e.comm.net.a.a(this.f38283g));
-            a2.put("sdk", com.qq.e.comm.net.a.a(this.f38280d));
+            JSONObject a2 = com.qq.e.comm.net.a.a(this.f38280c);
+            a2.put("app", com.qq.e.comm.net.a.a(this.f38283f));
+            a2.put("c", com.qq.e.comm.net.a.a(this.f38284g));
+            a2.put("sdk", com.qq.e.comm.net.a.a(this.f38281d));
             return a2;
         }
         return null;
@@ -79,22 +79,22 @@ public class GDTADManager {
     }
 
     public Context getAppContext() {
-        return this.f38278b;
+        return this.f38279b;
     }
 
     public APPStatus getAppStatus() {
-        return this.f38282f;
+        return this.f38283f;
     }
 
     public DevTools getDevTools() {
-        if (this.f38281e == null) {
-            this.f38281e = new DevTools();
+        if (this.f38282e == null) {
+            this.f38282e = new DevTools();
         }
-        return this.f38281e;
+        return this.f38282e;
     }
 
     public DeviceStatus getDeviceStatus() {
-        return this.f38283g;
+        return this.f38284g;
     }
 
     public String getDownLoadClazz() {
@@ -106,7 +106,7 @@ public class GDTADManager {
     }
 
     public PM getPM() {
-        return this.f38280d;
+        return this.f38281d;
     }
 
     public String getPortraitADActivityClazz() {
@@ -114,7 +114,7 @@ public class GDTADManager {
     }
 
     public String getProcessName() {
-        return this.f38284h;
+        return this.f38285h;
     }
 
     public String getRewardvideoLandscapeADActivityClazz() {
@@ -126,14 +126,14 @@ public class GDTADManager {
     }
 
     public SM getSM() {
-        return this.f38279c;
+        return this.f38280c;
     }
 
     public synchronized boolean initWith(Context context, String str) {
         if (Build.VERSION.SDK_INT < 14) {
             GDTLogger.e("system version not support !");
             return false;
-        } else if (this.f38277a.booleanValue()) {
+        } else if (this.f38278a.booleanValue()) {
             return true;
         } else {
             if (context == null || StringUtil.isEmpty(str)) {
@@ -141,28 +141,28 @@ public class GDTADManager {
                 return false;
             }
             long nanoTime = System.nanoTime();
-            this.f38284h = SystemUtil.getProcessName(context);
-            this.f38278b = context.getApplicationContext();
-            this.f38279c = new SM(this.f38278b);
-            this.f38280d = new PM(this.f38278b, this.i);
-            this.f38282f = new APPStatus(str, this.f38278b);
-            this.f38283g = new DeviceStatus(this.f38278b);
+            this.f38285h = SystemUtil.getProcessName(context);
+            this.f38279b = context.getApplicationContext();
+            this.f38280c = new SM(this.f38279b);
+            this.f38281d = new PM(this.f38279b, this.i);
+            this.f38283f = new APPStatus(str, this.f38279b);
+            this.f38284g = new DeviceStatus(this.f38279b);
             if (Build.VERSION.SDK_INT > 7) {
-                com.qq.e.comm.services.a.a().a(this.f38278b, this.f38279c, this.f38280d, this.f38283g, this.f38282f, nanoTime);
+                com.qq.e.comm.services.a.a().a(this.f38279b, this.f38280c, this.f38281d, this.f38284g, this.f38283f, nanoTime);
             }
-            this.f38277a = Boolean.TRUE;
+            this.f38278a = Boolean.TRUE;
             return true;
         }
     }
 
     public boolean isInitialized() {
-        if (this.f38277a == null) {
+        if (this.f38278a == null) {
             return false;
         }
-        return this.f38277a.booleanValue();
+        return this.f38278a.booleanValue();
     }
 
-    public void setPluginLoadListener(PM.a.InterfaceC0469a interfaceC0469a) {
-        this.i = interfaceC0469a;
+    public void setPluginLoadListener(PM.a.InterfaceC0470a interfaceC0470a) {
+        this.i = interfaceC0470a;
     }
 }

@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.down.utils.Utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommonUtils {
     public static String getAppVersionName(Context context) {
         try {

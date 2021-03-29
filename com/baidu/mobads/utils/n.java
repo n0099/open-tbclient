@@ -6,14 +6,14 @@ import java.util.Arrays;
 public class n extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f8551a;
+    public final /* synthetic */ String f8552a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ m f8552c;
+    public final /* synthetic */ m f8553c;
 
     public n(m mVar, String str) {
-        this.f8552c = mVar;
-        this.f8551a = str;
+        this.f8553c = mVar;
+        this.f8552a = str;
     }
 
     @Override // com.baidu.mobads.f.a
@@ -21,7 +21,7 @@ public class n extends com.baidu.mobads.f.a {
         File file;
         long j;
         try {
-            file = new File(this.f8551a);
+            file = new File(this.f8552a);
         } catch (Exception unused) {
         }
         if (!file.exists()) {
@@ -36,7 +36,7 @@ public class n extends com.baidu.mobads.f.a {
                 File file2 = listFiles[length];
                 if (file2.exists()) {
                     if (System.currentTimeMillis() - file2.lastModified() <= 2592000000L) {
-                        j = m.f8545a;
+                        j = m.f8546a;
                         if (file2.length() + j2 > j) {
                             file2.delete();
                         } else {

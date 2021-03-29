@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.i0.g1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public ResponseHttpGetLabelMessage() {
         super(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST);

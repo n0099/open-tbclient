@@ -21,66 +21,66 @@ import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
 import protobuf.QueryUserInfos.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.s.e.a f54281a;
+    public d.b.h0.s.e.a f54282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f54282b;
+    public DataRes f54283b;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BlackListModel f54287g;
+    public final BlackListModel f54288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalTalkSettingActivity f54288h;
+    public PersonalTalkSettingActivity f54289h;
     public e i;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54283c = false;
+    public boolean f54284c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54284d = false;
+    public boolean f54285d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54285e = false;
+    public boolean f54286e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f54286f = BdUniqueId.gen();
+    public BdUniqueId f54287f = BdUniqueId.gen();
     public d.b.b.c.g.c j = new c(0);
     public CustomMessageListener k = new d(0);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends f0<PersonalSettingItemData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f54289a;
+        public final /* synthetic */ long f54290a;
 
         public a(f fVar, long j) {
-            this.f54289a = j;
+            this.f54290a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public PersonalSettingItemData doInBackground() {
-            return d.b.i0.d1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f54289a));
+            return d.b.i0.d1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f54290a));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements n<PersonalSettingItemData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f54290a;
+        public final /* synthetic */ long f54291a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f54291b;
+        public final /* synthetic */ PersonalTalkSettingActivity f54292b;
 
         public b(long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
-            this.f54290a = j;
-            this.f54291b = personalTalkSettingActivity;
+            this.f54291a = j;
+            this.f54292b = personalTalkSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class f {
         /* renamed from: a */
         public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
             if (personalSettingItemData != null) {
-                f.this.f54285e = personalSettingItemData.isAcceptNotify();
+                f.this.f54286e = personalSettingItemData.isAcceptNotify();
             }
             RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-            requestQueryUserInfoMessage.setReqUserId(this.f54290a);
-            this.f54291b.sendMessage(requestQueryUserInfoMessage);
+            requestQueryUserInfoMessage.setReqUserId(this.f54291a);
+            this.f54292b.sendMessage(requestQueryUserInfoMessage);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends d.b.b.c.g.c {
         public c(int i) {
             super(i);
@@ -111,9 +111,9 @@ public class f {
             int cmd = socketResponsedMessage.getCmd();
             if (cmd == 104102) {
                 if (socketResponsedMessage instanceof ResponsedMessage) {
-                    f.this.f54288h.closeLoadingDialog();
+                    f.this.f54289h.closeLoadingDialog();
                     if (socketResponsedMessage.getError() != 0) {
-                        f.this.f54288h.showToast(socketResponsedMessage.getErrorString());
+                        f.this.f54289h.showToast(socketResponsedMessage.getErrorString());
                     }
                 }
                 if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -121,7 +121,7 @@ public class f {
                     if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                         if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                            f.this.f54284d = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                            f.this.f54285d = requestUpdateMaskInfoMessage.getIsMask() == 1;
                             if (f.this.i != null) {
                                 f.this.i.updateUI();
                             }
@@ -131,17 +131,17 @@ public class f {
             } else if (cmd != 205003) {
             } else {
                 if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                    f.this.f54288h.hideProgressBar();
-                    f.this.f54288h.showToast(socketResponsedMessage.getErrorString());
+                    f.this.f54289h.hideProgressBar();
+                    f.this.f54289h.showToast(socketResponsedMessage.getErrorString());
                 } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                     ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                     if (responseQueryUserInfoMessage.getResData() != null) {
-                        f.this.f54282b = responseQueryUserInfoMessage.getResData();
+                        f.this.f54283b = responseQueryUserInfoMessage.getResData();
                         f fVar = f.this;
-                        fVar.f54283c = fVar.f54282b.hasConcerned.intValue() == 1;
+                        fVar.f54284c = fVar.f54283b.hasConcerned.intValue() == 1;
                         f fVar2 = f.this;
-                        fVar2.f54284d = fVar2.f54282b.isBlacklist.intValue() == 1;
-                        f.this.f54288h.hideProgressBar();
+                        fVar2.f54285d = fVar2.f54283b.isBlacklist.intValue() == 1;
+                        f.this.f54289h.hideProgressBar();
                         if (f.this.i != null) {
                             f.this.i.updateUI();
                         }
@@ -151,7 +151,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -163,18 +163,18 @@ public class f {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (f.this.f54288h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                    if (f.this.f54289h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
                         return;
                     }
-                    f.this.f54288h.showToast(updateAttentionMessage.getErrorString());
+                    f.this.f54289h.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
-                f.this.f54283c = updateAttentionMessage.isAttention();
-                if (f.this.f54288h != null) {
-                    if (f.this.f54283c) {
-                        f.this.f54288h.showToast(R.string.add_success);
+                f.this.f54284c = updateAttentionMessage.isAttention();
+                if (f.this.f54289h != null) {
+                    if (f.this.f54284c) {
+                        f.this.f54289h.showToast(R.string.add_success);
                     } else {
-                        f.this.f54288h.showToast(R.string.remove_succ);
+                        f.this.f54289h.showToast(R.string.remove_succ);
                     }
                 }
                 if (f.this.i != null) {
@@ -184,16 +184,16 @@ public class f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void updateUI();
     }
 
     public f(PersonalTalkSettingActivity personalTalkSettingActivity, e eVar, long j) {
-        this.f54288h = personalTalkSettingActivity;
+        this.f54289h = personalTalkSettingActivity;
         this.i = eVar;
-        this.f54281a = new d.b.h0.s.e.a(personalTalkSettingActivity.getPageContext());
-        this.f54287g = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.f54282a = new d.b.h0.s.e.a(personalTalkSettingActivity.getPageContext());
+        this.f54288g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         h0.c(new a(this, j), new b(j, personalTalkSettingActivity));
     }
@@ -203,7 +203,7 @@ public class f {
     }
 
     public DataRes j() {
-        return this.f54282b;
+        return this.f54283b;
     }
 
     public d.b.b.c.g.c k() {
@@ -211,44 +211,44 @@ public class f {
     }
 
     public boolean l() {
-        return this.f54284d;
+        return this.f54285d;
     }
 
     public boolean m() {
-        return this.f54285e;
+        return this.f54286e;
     }
 
     public void n() {
-        d.b.h0.s.e.a aVar = this.f54281a;
+        d.b.h0.s.e.a aVar = this.f54282a;
         if (aVar != null) {
             aVar.g();
         }
-        BlackListModel blackListModel = this.f54287g;
+        BlackListModel blackListModel = this.f54288g;
         if (blackListModel != null) {
             blackListModel.cancelLoadData();
         }
     }
 
     public void o(boolean z) {
-        this.f54285e = z;
+        this.f54286e = z;
     }
 
     public void p(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
-        requestUpdateMaskInfoMessage.setList(String.valueOf(this.f54282b.id));
+        requestUpdateMaskInfoMessage.setList(String.valueOf(this.f54283b.id));
         requestUpdateMaskInfoMessage.setSettingMask(z);
-        requestUpdateMaskInfoMessage.setTag(this.f54286f);
-        MessageManager.getInstance().removeMessage(104102, this.f54286f);
+        requestUpdateMaskInfoMessage.setTag(this.f54287f);
+        MessageManager.getInstance().removeMessage(104102, this.f54287f);
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
     public void q(boolean z) {
-        this.f54288h.showLoadingDialog(null);
+        this.f54289h.showLoadingDialog(null);
         if (z) {
-            this.f54287g.addToBlackList(this.f54282b.id.longValue());
+            this.f54288g.addToBlackList(this.f54283b.id.longValue());
         } else {
-            this.f54287g.removeFromBlackList(this.f54282b.id.longValue());
+            this.f54288g.removeFromBlackList(this.f54283b.id.longValue());
         }
     }
 }

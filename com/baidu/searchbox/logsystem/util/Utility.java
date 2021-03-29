@@ -43,7 +43,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utility {
     public static final String TAG = "Utility";
 
@@ -612,7 +612,7 @@ public class Utility {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0068 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0069 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
@@ -633,69 +633,69 @@ public class Utility {
             } catch (Throwable th) {
                 th = th;
             }
+        } catch (FileNotFoundException e2) {
+            e = e2;
+            byteArrayOutputStream = null;
+            fileInputStream = null;
+        } catch (IOException e3) {
+            e = e3;
+            byteArrayOutputStream = null;
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r8 = 0;
+            Closeables.closeSafely(fileInputStream2);
+            Closeables.closeSafely((Closeable) r8);
+            throw th;
+        }
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    Boolean bool = new Boolean(false);
-                    int i2 = 0;
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read != -1) {
-                            if (i - i2 >= read) {
-                                byteArrayOutputStream.write(bArr, 0, read);
-                                i2 += read;
-                            } else {
-                                byteArrayOutputStream.write(bArr, 0, read);
-                                bool = new Boolean(true);
-                                break;
-                            }
+                Boolean bool = new Boolean(false);
+                int i2 = 0;
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read != -1) {
+                        if (i - i2 >= read) {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                            i2 += read;
                         } else {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                            bool = new Boolean(true);
                             break;
                         }
+                    } else {
+                        break;
                     }
-                    Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString("utf-8"), bool);
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                    return pair;
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                    return null;
-                } catch (IOException e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                    return null;
                 }
+                Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString("utf-8"), bool);
+                Closeables.closeSafely(fileInputStream);
+                Closeables.closeSafely(byteArrayOutputStream);
+                return pair;
             } catch (FileNotFoundException e4) {
                 e = e4;
-                byteArrayOutputStream = null;
+                e.printStackTrace();
+                Closeables.closeSafely(fileInputStream);
+                Closeables.closeSafely(byteArrayOutputStream);
+                return null;
             } catch (IOException e5) {
                 e = e5;
-                byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                file = null;
-                fileInputStream2 = fileInputStream;
-                r8 = file;
-                Closeables.closeSafely(fileInputStream2);
-                Closeables.closeSafely((Closeable) r8);
-                throw th;
+                e.printStackTrace();
+                Closeables.closeSafely(fileInputStream);
+                Closeables.closeSafely(byteArrayOutputStream);
+                return null;
             }
         } catch (FileNotFoundException e6) {
             e = e6;
             byteArrayOutputStream = null;
-            fileInputStream = null;
         } catch (IOException e7) {
             e = e7;
             byteArrayOutputStream = null;
-            fileInputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            r8 = 0;
+            file = null;
+            fileInputStream2 = fileInputStream;
+            r8 = file;
             Closeables.closeSafely(fileInputStream2);
             Closeables.closeSafely((Closeable) r8);
             throw th;

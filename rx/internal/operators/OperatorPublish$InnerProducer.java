@@ -51,7 +51,8 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
     public void request(long j) {
         long j2;
         long j3;
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             return;
         }
         do {
@@ -59,7 +60,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
             if (j2 == Long.MIN_VALUE) {
                 return;
             }
-            if (j2 >= 0 && j == 0) {
+            if (j2 >= 0 && i == 0) {
                 return;
             }
             if (j2 == -4611686018427387904L) {
@@ -72,7 +73,6 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
             }
         } while (!compareAndSet(j2, j3));
         this.parent.b();
-        throw null;
     }
 
     @Override // h.k
@@ -81,6 +81,6 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
             return;
         }
         this.parent.c(this);
-        throw null;
+        this.parent.b();
     }
 }

@@ -28,7 +28,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements d.b.i0.w1.a, BdListView.p {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -46,7 +46,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public String topicName = null;
     public String mFrom = "";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements f.b {
         public a() {
         }
@@ -205,7 +205,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         this.mView.k();
         if (i == 0 && eVar != null) {
             if (eVar.h() != null) {
-                resetTopicId(eVar.h().f52110e, eVar.h().f52111f);
+                resetTopicId(eVar.h().f52111e, eVar.h().f52112f);
             }
             this.mView.l(eVar);
             this.mView.p();
@@ -350,6 +350,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f52110e, h2.f52111f, str, h2.k, h2.j, true);
+        this.hotTopicShareModel.e(h2.f52111e, h2.f52112f, str, h2.k, h2.j, true);
     }
 }

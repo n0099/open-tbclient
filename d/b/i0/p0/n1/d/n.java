@@ -66,8 +66,8 @@ public class n extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 } else if (view.getId() == R.id.img_disagree) {
                     d.b.i0.p0.j2.a.b(a2Var, 13, n.this.i, d.b.i0.p0.j2.d.J0, n.this.i0());
                 } else if (view instanceof TbImageView) {
-                    if (n.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) n.this.A.f62183a).booleanValue()) {
+                    if (n.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) n.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, n.this.i, d.b.i0.p0.j2.d.J0, n.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, n.this.i, d.b.i0.p0.j2.d.J0, n.this.i0());
@@ -87,8 +87,8 @@ public class n extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 if (view.getId() == R.id.card_divider_tv) {
                     d.b.i0.p0.m2.l.a(d.b.i0.p0.j2.d.J0, a2Var.V0());
                 } else if (view instanceof TbImageView) {
-                    if (n.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) n.this.A.f62183a).booleanValue()) {
+                    if (n.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) n.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 1);
                         } else {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 3);
@@ -128,7 +128,7 @@ public class n extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     n.this.A.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), n.this.z, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -137,24 +137,24 @@ public class n extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f58027a;
+        public final /* synthetic */ ViewGroup f58028a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f58028b;
+        public final /* synthetic */ View f58029b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f58029c;
+        public final /* synthetic */ int f58030c;
 
         public c(n nVar, ViewGroup viewGroup, View view, int i) {
-            this.f58027a = viewGroup;
-            this.f58028b = view;
-            this.f58029c = i;
+            this.f58028a = viewGroup;
+            this.f58029b = view;
+            this.f58030c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f58027a, this.f58028b, this.f58029c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f58028a, this.f58029b, this.f58030c));
             }
         }
     }
@@ -206,8 +206,8 @@ public class n extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         k0.b bVar = new k0.b(this.o.getPageActivity(), false);
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = this.w ? 10 : 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = this.w ? 10 : 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.B("frs_page");

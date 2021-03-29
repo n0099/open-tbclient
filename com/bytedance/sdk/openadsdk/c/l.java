@@ -15,12 +15,12 @@ public class l extends n {
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.f27589a.a("stats_serverbusy_retrycount", i);
+        this.f27590a.a("stats_serverbusy_retrycount", i);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public int b() {
-        return this.f27589a.b("stats_serverbusy_retrycount", 0);
+        return this.f27590a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.n

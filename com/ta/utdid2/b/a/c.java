@@ -23,32 +23,32 @@ public class c {
     public String f11a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38985b;
+    public String f38986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38986c;
+    public boolean f38987c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38987d;
+    public boolean f38988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38988e;
+    public boolean f38989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38989f;
+    public boolean f38990f;
     public Context mContext;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f38984a = null;
+    public SharedPreferences.Editor f38985a = null;
 
     /* renamed from: a  reason: collision with other field name */
     public b.a f8a = null;
 
-    /* JADX WARN: Removed duplicated region for block: B:107:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0155  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0165 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0173  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0181 A[Catch: Exception -> 0x018d, TRY_LEAVE, TryCatch #3 {Exception -> 0x018d, blocks: (B:83:0x017d, B:85:0x0181), top: B:97:0x017d }] */
+    /* JADX WARN: Removed duplicated region for block: B:102:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x014b  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x015b A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0169  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0177 A[Catch: Exception -> 0x0183, TRY_LEAVE, TryCatch #3 {Exception -> 0x0183, blocks: (B:78:0x0173, B:80:0x0177), top: B:92:0x0173 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -58,20 +58,20 @@ public class c {
         boolean z3;
         SharedPreferences sharedPreferences;
         this.f11a = "";
-        this.f38985b = "";
-        this.f38986c = false;
-        this.f38987d = false;
-        this.f38988e = false;
+        this.f38986b = "";
+        this.f38987c = false;
+        this.f38988d = false;
+        this.f38989e = false;
         String str3 = null;
         this.f7a = null;
         this.f9a = null;
         this.mContext = null;
         this.f10a = null;
-        this.f38989f = false;
-        this.f38986c = z;
-        this.f38989f = z2;
+        this.f38990f = false;
+        this.f38987c = z;
+        this.f38990f = z2;
         this.f11a = str2;
-        this.f38985b = str;
+        this.f38986b = str;
         this.mContext = context;
         if (context != null) {
             SharedPreferences sharedPreferences2 = context.getSharedPreferences(str2, 0);
@@ -86,20 +86,20 @@ public class c {
             e2.printStackTrace();
         }
         if (f.isEmpty(str3)) {
-            this.f38988e = false;
-            this.f38987d = false;
+            this.f38989e = false;
+            this.f38988d = false;
         } else if (str3.equals("mounted")) {
-            this.f38988e = true;
-            this.f38987d = true;
+            this.f38989e = true;
+            this.f38988d = true;
         } else if (str3.equals("mounted_ro")) {
-            this.f38987d = true;
-            this.f38988e = false;
+            this.f38988d = true;
+            this.f38989e = false;
         } else {
-            this.f38988e = false;
-            this.f38987d = false;
+            this.f38989e = false;
+            this.f38988d = false;
         }
         try {
-            if ((this.f38987d || this.f38988e) && context != null && !f.isEmpty(str)) {
+            if ((this.f38988d || this.f38989e) && context != null && !f.isEmpty(str)) {
                 d a2 = a(str);
                 this.f10a = a2;
                 if (a2 != null) {
@@ -113,62 +113,69 @@ public class c {
                         long j3 = this.f7a.getLong("t2", 0L);
                         try {
                             j2 = this.f9a.getLong("t2", 0L);
-                            if (j3 < j2 && j3 > 0) {
+                            int i = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+                            if (i < 0 && j3 > 0) {
                                 a(this.f7a, this.f9a);
                                 this.f9a = this.f10a.a(str2, 0);
-                            } else if (j3 > j2 && j2 > 0) {
+                            } else if (i <= 0 || j2 <= 0) {
+                                int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+                                if (i2 == 0 && j2 > 0) {
+                                    a(this.f9a, this.f7a);
+                                    this.f7a = context.getSharedPreferences(str2, 0);
+                                } else if (j2 == 0 && i2 > 0) {
+                                    a(this.f7a, this.f9a);
+                                    this.f9a = this.f10a.a(str2, 0);
+                                } else if (i == 0) {
+                                    a(this.f7a, this.f9a);
+                                    this.f9a = this.f10a.a(str2, 0);
+                                }
+                            } else {
                                 a(this.f9a, this.f7a);
                                 this.f7a = context.getSharedPreferences(str2, 0);
-                            } else if (j3 == 0 && j2 > 0) {
-                                a(this.f9a, this.f7a);
-                                this.f7a = context.getSharedPreferences(str2, 0);
-                            } else if (j2 == 0 && j3 > 0) {
-                                a(this.f7a, this.f9a);
-                                this.f9a = this.f10a.a(str2, 0);
-                            } else if (j3 == j2) {
-                                a(this.f7a, this.f9a);
-                                this.f9a = this.f10a.a(str2, 0);
                             }
                         } catch (Exception unused2) {
                         }
                         j = j3;
-                    } else if (j > j2) {
-                        a(this.f7a, this.f9a);
-                        this.f9a = this.f10a.a(str2, 0);
-                    } else if (j >= j2) {
-                        if (j == j2) {
+                    } else {
+                        int i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i3 > 0) {
                             a(this.f7a, this.f9a);
                             this.f9a = this.f10a.a(str2, 0);
-                        }
-                        if (j == j2 || (j == 0 && j2 == 0)) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            z3 = this.f38989f;
-                            if (z3 || (z3 && j == 0 && j2 == 0)) {
-                                sharedPreferences = this.f7a;
-                                if (sharedPreferences != null) {
-                                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                                    edit.putLong("t2", currentTimeMillis);
-                                    edit.commit();
-                                }
-                                if (this.f9a != null) {
-                                    b.a a4 = this.f9a.a();
-                                    a4.a("t2", currentTimeMillis);
-                                    a4.commit();
+                        } else if (i3 >= 0) {
+                            if (i3 == 0) {
+                                a(this.f7a, this.f9a);
+                                this.f9a = this.f10a.a(str2, 0);
+                            }
+                            if (j == j2 || (j == 0 && j2 == 0)) {
+                                long currentTimeMillis = System.currentTimeMillis();
+                                z3 = this.f38990f;
+                                if (z3 || (z3 && j == 0 && j2 == 0)) {
+                                    sharedPreferences = this.f7a;
+                                    if (sharedPreferences != null) {
+                                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                                        edit.putLong("t2", currentTimeMillis);
+                                        edit.commit();
+                                    }
+                                    if (this.f9a != null) {
+                                        b.a a4 = this.f9a.a();
+                                        a4.a("t2", currentTimeMillis);
+                                        a4.commit();
+                                        return;
+                                    }
                                     return;
                                 }
                                 return;
                             }
                             return;
+                        } else {
+                            a(this.f9a, this.f7a);
+                            this.f7a = context.getSharedPreferences(str2, 0);
                         }
-                        return;
-                    } else {
-                        a(this.f9a, this.f7a);
-                        this.f7a = context.getSharedPreferences(str2, 0);
                     }
                     if (j == j2) {
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    z3 = this.f38989f;
+                    z3 = this.f38990f;
                     if (z3) {
                     }
                     sharedPreferences = this.f7a;
@@ -187,7 +194,7 @@ public class c {
         if (j == j2) {
         }
         long currentTimeMillis22 = System.currentTimeMillis();
-        z3 = this.f38989f;
+        z3 = this.f38990f;
         if (z3) {
         }
         sharedPreferences = this.f7a;
@@ -234,12 +241,12 @@ public class c {
         String str;
         Context context;
         long currentTimeMillis = System.currentTimeMillis();
-        SharedPreferences.Editor editor = this.f38984a;
+        SharedPreferences.Editor editor = this.f38985a;
         if (editor != null) {
-            if (!this.f38989f && this.f7a != null) {
+            if (!this.f38990f && this.f7a != null) {
                 editor.putLong("t", currentTimeMillis);
             }
-            if (!this.f38984a.commit()) {
+            if (!this.f38985a.commit()) {
                 z = false;
                 if (this.f7a != null && (context = this.mContext) != null) {
                     this.f7a = context.getSharedPreferences(this.f11a, 0);
@@ -249,11 +256,11 @@ public class c {
                 if (!f.isEmpty(str)) {
                     if (str.equals("mounted")) {
                         if (this.f9a == null) {
-                            d a2 = a(this.f38985b);
+                            d a2 = a(this.f38986b);
                             if (a2 != null) {
                                 b a3 = a2.a(this.f11a, 0);
                                 this.f9a = a3;
-                                if (!this.f38989f) {
+                                if (!this.f38990f) {
                                     a(this.f7a, a3);
                                 } else {
                                     a(a3, this.f7a);
@@ -308,7 +315,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f38984a;
+        SharedPreferences.Editor editor = this.f38985a;
         if (editor != null) {
             editor.putString(str, str2);
         }
@@ -323,7 +330,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f38984a;
+        SharedPreferences.Editor editor = this.f38985a;
         if (editor != null) {
             editor.remove(str);
         }
@@ -349,10 +356,10 @@ public class c {
     private void b() {
         b bVar;
         SharedPreferences sharedPreferences;
-        if (this.f38984a == null && (sharedPreferences = this.f7a) != null) {
-            this.f38984a = sharedPreferences.edit();
+        if (this.f38985a == null && (sharedPreferences = this.f7a) != null) {
+            this.f38985a = sharedPreferences.edit();
         }
-        if (this.f38988e && this.f8a == null && (bVar = this.f9a) != null) {
+        if (this.f38989e && this.f8a == null && (bVar = this.f9a) != null) {
             this.f8a = bVar.a();
         }
         m41b();

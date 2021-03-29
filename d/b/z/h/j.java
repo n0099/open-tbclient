@@ -1,5 +1,5 @@
 package d.b.z.h;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static void a(boolean z, String str, Object... objArr) {
         if (!z) {

@@ -12,35 +12,35 @@ public class b extends com.baidu.platform.base.e {
     }
 
     private void a(BikingRoutePlanOption bikingRoutePlanOption) {
-        this.f9820a.a("mode", "riding");
+        this.f9821a.a("mode", "riding");
         LatLng location = bikingRoutePlanOption.mFrom.getLocation();
         if (location != null) {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location = CoordTrans.gcjToBaidu(location);
             }
-            com.baidu.platform.util.a aVar = this.f9820a;
+            com.baidu.platform.util.a aVar = this.f9821a;
             aVar.a("origin", location.latitude + "," + location.longitude);
         } else {
-            this.f9820a.a("origin", bikingRoutePlanOption.mFrom.getName());
+            this.f9821a.a("origin", bikingRoutePlanOption.mFrom.getName());
         }
         LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
         if (location2 != null) {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location2 = CoordTrans.gcjToBaidu(location2);
             }
-            com.baidu.platform.util.a aVar2 = this.f9820a;
+            com.baidu.platform.util.a aVar2 = this.f9821a;
             aVar2.a("destination", location2.latitude + "," + location2.longitude);
         } else {
-            this.f9820a.a("destination", bikingRoutePlanOption.mTo.getName());
+            this.f9821a.a("destination", bikingRoutePlanOption.mTo.getName());
         }
-        this.f9820a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
-        this.f9820a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
+        this.f9821a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
+        this.f9821a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
         int i = bikingRoutePlanOption.mRidingType;
         if (i == 1) {
-            this.f9820a.a("riding_type", String.valueOf(i));
+            this.f9821a.a("riding_type", String.valueOf(i));
         }
-        this.f9820a.a("output", "json");
-        this.f9820a.a("from", "android_map_sdk");
+        this.f9821a.a("output", "json");
+        this.f9821a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

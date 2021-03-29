@@ -17,13 +17,13 @@ import java.util.List;
 public class i implements f {
 
     /* renamed from: b  reason: collision with root package name */
-    public TbHttpMessageTask f59772b;
+    public TbHttpMessageTask f59773b;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpMessageListener f59771a = new a(CmdConfigHttp.CMD_AD_UPLOAD);
+    public HttpMessageListener f59772a = new a(CmdConfigHttp.CMD_AD_UPLOAD);
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<c> f59773c = new ArrayList<>();
+    public ArrayList<c> f59774c = new ArrayList<>();
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -49,7 +49,7 @@ public class i implements f {
 
     public i() {
         g();
-        MessageManager.getInstance().registerListener(this.f59771a);
+        MessageManager.getInstance().registerListener(this.f59772a);
     }
 
     @Override // d.b.i0.r2.b0.f
@@ -59,7 +59,7 @@ public class i implements f {
         }
         d.b.h0.s.c.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (!(adAdSense == null || adAdSense.e())) {
-            this.f59772b.setUrl("http://als.baidu.com/clog/clog");
+            this.f59773b.setUrl("http://als.baidu.com/clog/clog");
         }
         e(cVar);
         h();
@@ -82,10 +82,10 @@ public class i implements f {
         if (cVar == null) {
             return;
         }
-        if (ListUtils.getCount(this.f59773c) >= 20) {
-            this.f59773c.remove(0);
+        if (ListUtils.getCount(this.f59774c) >= 20) {
+            this.f59774c.remove(0);
         }
-        this.f59773c.add(cVar);
+        this.f59774c.add(cVar);
     }
 
     public final void f(List<c> list) {
@@ -101,17 +101,17 @@ public class i implements f {
 
     public final void g() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.f59772b = tbHttpMessageTask;
+        this.f59773b = tbHttpMessageTask;
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.f59772b.setIsNeedAddCommenParam(true);
-        this.f59772b.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.f59773b.setIsNeedAddCommenParam(true);
+        this.f59773b.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     public final void h() {
-        if (ListUtils.getCount(this.f59773c) <= 0) {
+        if (ListUtils.getCount(this.f59774c) <= 0) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.f59773c), this.f59772b);
-        this.f59773c.clear();
+        MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.f59774c), this.f59773b);
+        this.f59774c.clear();
     }
 }

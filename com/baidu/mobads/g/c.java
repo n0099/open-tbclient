@@ -17,62 +17,62 @@ import java.util.UUID;
 public class c extends Thread {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile c f8261f;
+    public static volatile c f8262f;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f8263b;
+    public volatile String f8264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8264c;
+    public String f8265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f8265d;
+    public double f8266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f8266e;
+    public Handler f8267e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f8267g;
+    public final Context f8268g;
     public final e i;
 
     /* renamed from: h  reason: collision with root package name */
-    public o f8268h = null;
+    public o f8269h = null;
     public IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    public o.a f8262a = new d(this);
+    public o.a f8263a = new d(this);
 
     public c(Context context, e eVar, String str, Handler handler) {
-        this.f8264c = null;
-        this.f8267g = context;
+        this.f8265c = null;
+        this.f8268g = context;
         this.i = eVar;
         a(eVar.c());
-        this.f8266e = handler;
-        this.f8264c = str;
+        this.f8267e = handler;
+        this.f8265c = str;
     }
 
     private boolean b() {
         double d2;
         try {
             try {
-                this.f8268h = new o(this.f8267g, new URL(this.f8263b), this.i, this.f8262a);
+                this.f8269h = new o(this.f8268g, new URL(this.f8264b), this.i, this.f8263a);
             } catch (MalformedURLException unused) {
-                this.f8268h = new o(this.f8267g, this.f8263b, this.i, this.f8262a);
+                this.f8269h = new o(this.f8268g, this.f8264b, this.i, this.f8263a);
             }
-            if (g.f8280c != null) {
-                d2 = g.f8280c.f8249a;
-            } else if (g.f8279b == null) {
+            if (g.f8281c != null) {
+                d2 = g.f8281c.f8250a;
+            } else if (g.f8280b == null) {
                 d2 = 0.0d;
-            } else if (g.f8279b.f8249a > 0.0d) {
-                d2 = g.f8279b.f8249a;
+            } else if (g.f8280b.f8250a > 0.0d) {
+                d2 = g.f8280b.f8250a;
             } else {
-                d2 = g.f8279b.f8249a;
+                d2 = g.f8280b.f8250a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d2 + ", remote apk version: " + this.i.b());
             if (d2 > 0.0d) {
                 if (this.i.b() > 0.0d) {
                     this.j.d("XAdApkDownloadThread", "remote not null, local apk version is null, force upgrade");
-                    this.f8265d = this.i.b();
+                    this.f8266d = this.i.b();
                     return true;
                 }
                 this.j.d("XAdApkDownloadThread", "remote is null, local apk version is null, do not upgrade");
@@ -81,7 +81,7 @@ public class c extends Thread {
                 this.j.d("XAdApkDownloadThread", "remote apk version is: null, local apk version is: " + d2 + ", do not upgrade");
                 return false;
             } else if (this.i.b() > d2) {
-                this.f8265d = this.i.b();
+                this.f8266d = this.i.b();
                 return true;
             } else {
                 return false;
@@ -100,49 +100,49 @@ public class c extends Thread {
                 try {
                     a();
                     this.j.d("XAdApkDownloadThread", "download apk successfully, downloader exit");
-                    f8261f = null;
+                    f8262f = null;
                 } catch (IOException e2) {
                     IXAdLogger iXAdLogger = this.j;
                     iXAdLogger.d("XAdApkDownloadThread", "create File or HTTP Get failed, exception: " + e2.getMessage());
                 }
                 this.j.d("XAdApkDownloadThread", "no newer apk, downloader exit");
-                f8261f = null;
+                f8262f = null;
             }
         } catch (Throwable unused) {
         }
     }
 
     public static c a(Context context, e eVar, String str, Handler handler) {
-        if (f8261f == null) {
-            f8261f = new c(context, eVar, str, handler);
+        if (f8262f == null) {
+            f8262f = new c(context, eVar, str, handler);
         }
-        return f8261f;
+        return f8262f;
     }
 
     public void a(String str) {
-        this.f8263b = str;
+        this.f8264b = str;
         interrupt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, e eVar, String str2) {
         if (str.equals("OK") || str.equals("ERROR")) {
-            Message obtainMessage = this.f8266e.obtainMessage();
+            Message obtainMessage = this.f8267e.obtainMessage();
             Bundle bundle = new Bundle();
             bundle.putParcelable("APK_INFO", eVar);
             bundle.putString("CODE", str);
             obtainMessage.setData(bundle);
-            this.f8266e.sendMessage(obtainMessage);
+            this.f8267e.sendMessage(obtainMessage);
         }
     }
 
     private String a() {
         String str = "__xadsdk__remote__final__" + UUID.randomUUID().toString() + ".jar";
-        String str2 = this.f8264c + str;
+        String str2 = this.f8265c + str;
         File file = new File(str2);
         try {
             file.createNewFile();
-            this.f8268h.a(this.f8264c, str);
+            this.f8269h.a(this.f8265c, str);
             return str2;
         } catch (IOException e2) {
             file.delete();

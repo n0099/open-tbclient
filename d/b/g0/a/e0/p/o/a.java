@@ -3,25 +3,25 @@ package d.b.g0.a.e0.p.o;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import d.b.g0.a.e0.p.f;
 import d.b.g0.a.i2.k0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends f {
     public b G;
 
     /* renamed from: d.b.g0.a.e0.p.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0673a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0674a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f44215e;
+        public final /* synthetic */ int f44216e;
 
-        public RunnableC0673a(int i) {
-            this.f44215e = i;
+        public RunnableC0674a(int i) {
+            this.f44216e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.G != null) {
-                int i = this.f44215e;
+                int i = this.f44216e;
                 if (i == -1) {
                     a.this.G.onError();
                 } else if (i == 0) {
@@ -34,7 +34,7 @@ public class a extends f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
 
@@ -61,7 +61,7 @@ public class a extends f {
     }
 
     public final void G0(int i) {
-        k0.T(new RunnableC0673a(i));
+        k0.T(new RunnableC0674a(i));
     }
 
     @Override // d.b.g0.a.e0.p.j

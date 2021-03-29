@@ -58,12 +58,12 @@ public class TracingConfig {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface PredefinedCategories {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface TracingMode {
     }
 

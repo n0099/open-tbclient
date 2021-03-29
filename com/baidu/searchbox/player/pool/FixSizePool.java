@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.pool;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
     public static final String TAG = "FixSizePool";
     public final Object[] mPool;

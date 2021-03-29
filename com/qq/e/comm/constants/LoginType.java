@@ -7,14 +7,14 @@ public enum LoginType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38276a;
+    public int f38277a;
 
     LoginType(int i) {
-        this.f38276a = i;
+        this.f38277a = i;
         ordinal();
     }
 
     public final int getValue() {
-        return this.f38276a;
+        return this.f38277a;
     }
 }

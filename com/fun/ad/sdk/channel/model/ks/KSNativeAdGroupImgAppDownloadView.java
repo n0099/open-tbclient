@@ -23,28 +23,28 @@ import java.util.List;
 public class KSNativeAdGroupImgAppDownloadView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30787a;
+    public TextView f30788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f30788b;
+    public LinearLayout f30789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30789c;
+    public ImageView f30790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30790d;
+    public ImageView f30791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30791e;
+    public ImageView f30792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30792f;
+    public ImageView f30793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30793g;
+    public ImageView f30794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f30794h;
+    public TextView f30795h;
     public Button i;
 
     public KSNativeAdGroupImgAppDownloadView(Context context) {
@@ -71,7 +71,7 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
             if (ksImage != null && ksImage.isValid()) {
                 Context context = getContext();
                 String imageUrl = ksImage.getImageUrl();
-                ImageView imageView = this.f30789c;
+                ImageView imageView = this.f30790c;
                 if (context == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
                 } else if (context instanceof Activity) {
@@ -89,7 +89,7 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
             if (ksImage2 != null && ksImage2.isValid()) {
                 Context context2 = getContext();
                 String imageUrl2 = ksImage2.getImageUrl();
-                ImageView imageView2 = this.f30790d;
+                ImageView imageView2 = this.f30791d;
                 if (context2 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
                 } else if (context2 instanceof Activity) {
@@ -107,7 +107,7 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
             if (ksImage3 != null && ksImage3.isValid()) {
                 Context context3 = getContext();
                 String imageUrl3 = ksImage3.getImageUrl();
-                ImageView imageView3 = this.f30791e;
+                ImageView imageView3 = this.f30792e;
                 if (context3 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
                 } else if (context3 instanceof Activity) {
@@ -122,15 +122,15 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
                 }
             }
         }
-        this.f30792f.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30787a.setText(ksNativeAd.getAdDescription());
+        this.f30793f.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30788a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-            this.f30793g.setVisibility(8);
+            this.f30794g.setVisibility(8);
         } else {
-            this.f30793g.setVisibility(0);
+            this.f30794g.setVisibility(0);
             Context context4 = getContext();
             String appIconUrl = ksNativeAd.getAppIconUrl();
-            ImageView imageView4 = this.f30793g;
+            ImageView imageView4 = this.f30794g;
             if (context4 == null) {
                 d.b("GlideHelper: context is null when load: " + appIconUrl, new Object[0]);
             } else if (context4 instanceof Activity) {
@@ -144,7 +144,7 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
                 Glide.with(context4).load(appIconUrl).into(imageView4);
             }
         }
-        this.f30794h.setText(ksNativeAd.getAppName());
+        this.f30795h.setText(ksNativeAd.getAppName());
         this.i.setText(ksNativeAd.getActionDescription());
         ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.i));
     }
@@ -152,27 +152,27 @@ public class KSNativeAdGroupImgAppDownloadView extends c {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30787a = (TextView) findViewById(R.id.ad_description);
-        this.f30788b = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30789c = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30790d = (ImageView) findViewById(R.id.ad_img_2);
-        this.f30791e = (ImageView) findViewById(R.id.ad_img_3);
-        this.f30792f = (ImageView) findViewById(R.id.ad_logo);
-        this.f30793g = (ImageView) findViewById(R.id.ad_app_icon);
-        this.f30794h = (TextView) findViewById(R.id.ad_app_title);
+        this.f30788a = (TextView) findViewById(R.id.ad_description);
+        this.f30789b = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f30790c = (ImageView) findViewById(R.id.ad_img_1);
+        this.f30791d = (ImageView) findViewById(R.id.ad_img_2);
+        this.f30792e = (ImageView) findViewById(R.id.ad_img_3);
+        this.f30793f = (ImageView) findViewById(R.id.ad_logo);
+        this.f30794g = (ImageView) findViewById(R.id.ad_app_icon);
+        this.f30795h = (TextView) findViewById(R.id.ad_app_title);
         this.i = (Button) findViewById(R.id.ad_app_download);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30788b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30789b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30789c.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30790d.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30791e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30790c.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30791d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30792e.getLayoutParams();
         layoutParams.width = i5;
         layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-        this.f30788b.setLayoutParams(layoutParams);
+        this.f30789b.setLayoutParams(layoutParams);
     }
 }

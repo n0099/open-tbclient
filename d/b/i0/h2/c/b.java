@@ -51,7 +51,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.h2.e.c, CardViewHolder<d.b.i0.h2.j.a>>
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(b.this.f42357e);
+            return new PersonCommonForumItemView(b.this.f42358e);
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -60,7 +60,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.h2.e.c, CardViewHolder<d.b.i0.h2.j.a>>
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.h2.e.c.f55272f);
+        super(tbPageContext.getPageActivity(), d.b.i0.h2.e.c.f55273f);
         this.n = new d.b.b.e.k.b<>(new a(), 12, 0);
         this.m = tbPageContext;
     }

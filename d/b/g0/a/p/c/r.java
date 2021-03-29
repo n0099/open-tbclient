@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface r {
     String A();
 

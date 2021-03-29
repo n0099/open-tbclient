@@ -11,7 +11,7 @@ import android.text.TextUtils;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40953a;
+    public static String f40954a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f894a = {"com.mi.globalbrowser", "com.android.browser"};
@@ -61,7 +61,7 @@ public class ap {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? f40953a : f894a[i];
+            str = i < 0 ? f40954a : f894a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -79,7 +79,7 @@ public class ap {
             }
         }
         intent.setPackage(str);
-        f40953a = str;
+        f40954a = str;
     }
 
     public static boolean a(Notification.Builder builder, boolean z) {

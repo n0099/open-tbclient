@@ -23,7 +23,7 @@ import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public float mCurrentPositionOffset;
     public int mCurrentTabIndex;
@@ -43,7 +43,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public LinearLayout mTabsContainer;
     public int mTextSize;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         public int mLastPosition;
 
@@ -99,7 +99,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ScrollTabPageListener {
         void onPageScrolled(int i, float f2, int i2);
 
@@ -108,7 +108,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         boolean onPrePageSelect(int i, TabData tabData);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class ViewHolder {
         public TextView icon;
         public TextView title;

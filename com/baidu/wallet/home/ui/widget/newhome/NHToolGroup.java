@@ -13,17 +13,17 @@ import java.util.List;
 public class NHToolGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24763a;
+    public List<BaseItemView> f24764a;
     public GridLayout mGridLayout;
 
     public NHToolGroup(Context context) {
         super(context);
-        this.f24763a = new ArrayList();
+        this.f24764a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24763a;
+        return this.f24764a;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -51,12 +51,12 @@ public class NHToolGroup extends BaseItemLayout {
             NHToolItem nHToolItem = new NHToolItem(getContext());
             nHToolItem.setData(dataItem, getWalletInterface());
             this.mGridLayout.addView(nHToolItem);
-            this.f24763a.add(nHToolItem);
+            this.f24764a.add(nHToolItem);
         }
     }
 
     public NHToolGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24763a = new ArrayList();
+        this.f24764a = new ArrayList();
     }
 }

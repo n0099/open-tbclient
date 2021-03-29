@@ -16,7 +16,7 @@ import d.b.i0.u3.h;
 public class e extends d.b.i0.u3.h {
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f61502h;
+    public ValueAnimator f61503h;
     public ValueAnimator i;
     public float j;
     public float k;
@@ -54,15 +54,15 @@ public class e extends d.b.i0.u3.h {
             e.this.v.g();
             e.this.u.C.setTranslationY(0.0f);
             e eVar3 = e.this;
-            eVar3.f61538e = 2;
-            h.a aVar = eVar3.f61537d;
+            eVar3.f61539e = 2;
+            h.a aVar = eVar3.f61538d;
             if (aVar != null) {
                 aVar.a(2);
             }
             e.this.u.q.setClickable(true);
             e.this.u.n.setClickable(true);
             e.this.u.k.setClickable(true);
-            e.this.u.f61464h.setClickable(true);
+            e.this.u.f61465h.setClickable(true);
             e.this.u.s.setClickable(true);
             e.this.u.v.setClickable(true);
             e.this.u.y.setClickable(true);
@@ -77,7 +77,7 @@ public class e extends d.b.i0.u3.h {
             e.this.u.q.setClickable(false);
             e.this.u.n.setClickable(false);
             e.this.u.k.setClickable(false);
-            e.this.u.f61464h.setClickable(false);
+            e.this.u.f61465h.setClickable(false);
             e.this.u.s.setClickable(false);
             e.this.u.v.setClickable(false);
             e.this.u.y.setClickable(false);
@@ -116,7 +116,7 @@ public class e extends d.b.i0.u3.h {
             e.this.u.q.setClickable(true);
             e.this.u.n.setClickable(true);
             e.this.u.k.setClickable(true);
-            e.this.u.f61464h.setClickable(true);
+            e.this.u.f61465h.setClickable(true);
             e.this.u.s.setClickable(true);
             e.this.u.v.setClickable(true);
             e.this.u.y.setClickable(true);
@@ -131,7 +131,7 @@ public class e extends d.b.i0.u3.h {
             e.this.u.q.setClickable(false);
             e.this.u.n.setClickable(false);
             e.this.u.k.setClickable(false);
-            e.this.u.f61464h.setClickable(false);
+            e.this.u.f61465h.setClickable(false);
             e.this.u.s.setClickable(false);
             e.this.u.v.setClickable(false);
             e.this.u.y.setClickable(false);
@@ -146,29 +146,29 @@ public class e extends d.b.i0.u3.h {
         @Override // java.lang.Runnable
         public void run() {
             e eVar = e.this;
-            if (eVar.f61539f != null && eVar.j == 0.0f && e.this.k == 0.0f) {
-                e.this.u.B.getGlobalVisibleRect(e.this.f61540g);
+            if (eVar.f61540f != null && eVar.j == 0.0f && e.this.k == 0.0f) {
+                e.this.u.B.getGlobalVisibleRect(e.this.f61541g);
                 e eVar2 = e.this;
-                eVar2.j = eVar2.f61539f.centerX() - e.this.f61540g.centerX();
+                eVar2.j = eVar2.f61540f.centerX() - e.this.f61541g.centerX();
                 e eVar3 = e.this;
-                eVar3.k = eVar3.f61539f.centerY() - e.this.f61540g.centerY();
+                eVar3.k = eVar3.f61540f.centerY() - e.this.f61541g.centerY();
             }
             e.this.u.B.setVisibility(0);
             e.this.u.B.setTranslationX(e.this.j);
             e.this.u.B.setTranslationY(e.this.k);
             e eVar4 = e.this;
-            View view = eVar4.f61536c;
+            View view = eVar4.f61537c;
             if (view instanceof OvalActionButton) {
                 ((OvalActionButton) view).b(eVar4.u.B);
             }
-            e.this.f61502h.start();
+            e.this.f61503h.start();
         }
     }
 
     /* renamed from: d.b.i0.u3.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1611e implements ValueAnimator.AnimatorUpdateListener {
-        public C1611e() {
+    public class C1612e implements ValueAnimator.AnimatorUpdateListener {
+        public C1612e() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -207,10 +207,10 @@ public class e extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            View view = e.this.f61536c;
+            View view = e.this.f61537c;
             if (view != null) {
                 view.setVisibility(4);
-                e.this.f61536c.setAlpha(0.0f);
+                e.this.f61537c.setAlpha(0.0f);
             }
             e.this.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.t, "webp");
         }
@@ -270,8 +270,8 @@ public class e extends d.b.i0.u3.h {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
                 e.this.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                e.this.u.f61461e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                e.this.u.f61462f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                e.this.u.f61462e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                e.this.u.f61463f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -289,8 +289,8 @@ public class e extends d.b.i0.u3.h {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             e.this.u.C.setAlpha(1.0f);
-            e.this.u.f61461e.setAlpha(1.0f);
-            e.this.u.f61462f.setAlpha(1.0f);
+            e.this.u.f61462e.setAlpha(1.0f);
+            e.this.u.f61463f.setAlpha(1.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -310,8 +310,8 @@ public class e extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
-                e.this.u.f61461e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                e.this.u.f61462f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                e.this.u.f61462e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                e.this.u.f61463f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -328,8 +328,8 @@ public class e extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            e.this.u.f61461e.setAlpha(0.0f);
-            e.this.u.f61462f.setAlpha(0.0f);
+            e.this.u.f61462e.setAlpha(0.0f);
+            e.this.u.f61463f.setAlpha(0.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -358,7 +358,7 @@ public class e extends d.b.i0.u3.h {
         super(context, dVar);
         d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
         this.u = dVar;
-        this.t = d.b.b.e.p.l.g(this.f61534a, R.dimen.tbds0);
+        this.t = d.b.b.e.p.l.g(this.f61535a, R.dimen.tbds0);
         x();
     }
 
@@ -374,11 +374,11 @@ public class e extends d.b.i0.u3.h {
 
     @Override // d.b.i0.u3.h
     public void g() {
-        if (this.f61538e != 4) {
+        if (this.f61539e != 4) {
             return;
         }
-        this.f61538e = 1;
-        h.a aVar = this.f61537d;
+        this.f61539e = 1;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(1);
         }
@@ -391,11 +391,11 @@ public class e extends d.b.i0.u3.h {
 
     @Override // d.b.i0.u3.h
     public void h() {
-        if (this.f61538e != 2) {
+        if (this.f61539e != 2) {
             return;
         }
-        this.f61538e = 3;
-        h.a aVar = this.f61537d;
+        this.f61539e = 3;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(3);
         }
@@ -406,7 +406,7 @@ public class e extends d.b.i0.u3.h {
     }
 
     public final void v() {
-        this.f61502h.cancel();
+        this.f61503h.cancel();
         this.i.cancel();
         this.m.cancel();
         this.l.cancel();
@@ -419,11 +419,11 @@ public class e extends d.b.i0.u3.h {
     public final void x() {
         this.n = new AnimatorSet();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f61502h = ofFloat;
+        this.f61503h = ofFloat;
         ofFloat.setDuration(450L);
-        this.f61502h.setInterpolator(new OvershootInterpolator());
-        this.f61502h.addUpdateListener(new C1611e());
-        this.f61502h.addListener(new f());
+        this.f61503h.setInterpolator(new OvershootInterpolator());
+        this.f61503h.addUpdateListener(new C1612e());
+        this.f61503h.addListener(new f());
         ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.i = ofFloat2;
         ofFloat2.setDuration(450L);
@@ -451,7 +451,7 @@ public class e extends d.b.i0.u3.h {
         this.p.addUpdateListener(new b());
         this.p.addListener(new c());
         this.u.j.setVisibility(0);
-        this.u.f61463g.setVisibility(0);
+        this.u.f61464g.setVisibility(0);
         this.u.m.setVisibility(0);
         this.u.p.setVisibility(0);
         this.u.s.setVisibility(0);
@@ -465,28 +465,28 @@ public class e extends d.b.i0.u3.h {
     }
 
     public final void y() {
-        View view = this.f61536c;
+        View view = this.f61537c;
         if (view != null) {
             view.setVisibility(0);
         }
-        this.f61538e = 4;
+        this.f61539e = 4;
         v();
         z(8);
         this.u.B.setVisibility(4);
-        View view2 = this.f61536c;
+        View view2 = this.f61537c;
         if (view2 != null) {
             view2.setVisibility(0);
-            this.f61536c.setAlpha(1.0f);
+            this.f61537c.setAlpha(1.0f);
         }
-        h.a aVar = this.f61537d;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
-            aVar.a(this.f61538e);
+            aVar.a(this.f61539e);
         }
     }
 
     public final void z(int i2) {
-        this.u.f61462f.setVisibility(i2);
-        this.u.f61461e.setVisibility(i2);
+        this.u.f61463f.setVisibility(i2);
+        this.u.f61462e.setVisibility(i2);
         this.u.C.setVisibility(i2);
     }
 }

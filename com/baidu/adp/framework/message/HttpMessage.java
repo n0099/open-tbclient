@@ -32,18 +32,18 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static class a implements Comparator<Map.Entry<String, Object>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f2127e;
+        public SORT f2128e;
 
         public a(SORT sort) {
-            this.f2127e = null;
-            this.f2127e = sort;
+            this.f2128e = null;
+            this.f2128e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            if (this.f2127e == SORT.ASCEND) {
+            if (this.f2128e == SORT.ASCEND) {
                 return entry.getKey().compareTo(entry2.getKey());
             }
             return entry2.getKey().compareTo(entry.getKey());

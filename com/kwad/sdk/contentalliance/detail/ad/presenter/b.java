@@ -27,22 +27,22 @@ import com.kwad.sdk.utils.ar;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f32079b;
+    public AdBaseFrameLayout f32080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f32080c;
+    public WebView f32081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f32081d;
+    public AdTemplate f32082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f32082e;
+    public com.kwad.sdk.contentalliance.detail.video.b f32083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdStyleInfo.PlayEndInfo.AdWebCardInfo f32083f;
+    public AdStyleInfo.PlayEndInfo.AdWebCardInfo f32084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32084g;
+    public com.kwad.sdk.core.download.b.b f32085g;
     public g i;
     public com.kwad.sdk.core.webview.a j;
     public n l;
@@ -50,35 +50,35 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     public long p;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32085h = 0;
+    public int f32086h = 0;
     public int k = -1;
     public e n = new f() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
             b.a(b.this);
-            int h2 = com.kwad.sdk.core.response.b.b.h(b.this.f32081d);
+            int h2 = com.kwad.sdk.core.response.b.b.h(b.this.f32082d);
             if (h2 <= 0) {
                 h2 = 1;
             }
-            if (((com.kwad.sdk.contentalliance.detail.b) b.this).f32132a.b()) {
-                if (b.this.f32082e == null) {
+            if (((com.kwad.sdk.contentalliance.detail.b) b.this).f32133a.b()) {
+                if (b.this.f32083e == null) {
                     return;
                 }
-            } else if (b.this.f32085h == 1 || (b.this.f32085h - 1) % h2 == 0) {
+            } else if (b.this.f32086h == 1 || (b.this.f32086h - 1) % h2 == 0) {
                 b.this.q();
                 return;
-            } else if (b.this.f32082e == null) {
+            } else if (b.this.f32083e == null) {
                 return;
             }
-            b.this.f32082e.h();
+            b.this.f32083e.h();
         }
     };
     public com.kwad.sdk.contentalliance.a.a o = new AnonymousClass2();
     public q.a q = new q.a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.3
         @Override // com.kwad.sdk.core.webview.jshandler.q.a
         public void a() {
-            if (b.this.f32082e != null) {
-                b.this.f32082e.h();
+            if (b.this.f32083e != null) {
+                b.this.f32083e.h();
             }
             b.this.r();
         }
@@ -93,7 +93,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.core.webview.jshandler.k.b
         public void a(int i) {
             b.this.k = i;
-            com.kwad.sdk.core.d.a.b("AdPlayEndWebPresenter", "position:" + ((com.kwad.sdk.contentalliance.detail.b) b.this).f32132a.i + " load time:" + (System.currentTimeMillis() - b.this.p));
+            com.kwad.sdk.core.d.a.b("AdPlayEndWebPresenter", "position:" + ((com.kwad.sdk.contentalliance.detail.b) b.this).f32133a.i + " load time:" + (System.currentTimeMillis() - b.this.p));
         }
     };
 
@@ -102,27 +102,27 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     public class AnonymousClass2 extends com.kwad.sdk.contentalliance.a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ViewTreeObserver.OnGlobalLayoutListener f32087a;
+        public ViewTreeObserver.OnGlobalLayoutListener f32088a;
 
         public AnonymousClass2() {
         }
 
         private void a() {
-            b.this.f32085h = 0;
-            b.this.f32080c.setVisibility(4);
+            b.this.f32086h = 0;
+            b.this.f32081c.setVisibility(4);
         }
 
         private void b() {
-            this.f32087a = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.2.1
+            this.f32088a = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.2.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    b.this.f32080c.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    b.this.f32081c.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
-                    anonymousClass2.f32087a = null;
+                    anonymousClass2.f32088a = null;
                     b.this.g();
                 }
             };
-            b.this.f32080c.getViewTreeObserver().addOnGlobalLayoutListener(this.f32087a);
+            b.this.f32081c.getViewTreeObserver().addOnGlobalLayoutListener(this.f32088a);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
@@ -137,21 +137,21 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
             super.k();
             a();
             b.this.p();
-            if (this.f32087a != null) {
-                b.this.f32080c.getViewTreeObserver().removeOnGlobalLayoutListener(this.f32087a);
+            if (this.f32088a != null) {
+                b.this.f32081c.getViewTreeObserver().removeOnGlobalLayoutListener(this.f32088a);
             }
         }
     }
 
     public static /* synthetic */ int a(b bVar) {
-        int i = bVar.f32085h;
-        bVar.f32085h = i + 1;
+        int i = bVar.f32086h;
+        bVar.f32086h = i + 1;
         return i;
     }
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.j, this.f32084g, null));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.j, this.f32085g, null));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.e(this.j));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.j));
         gVar.a(new c(this.j));
@@ -159,7 +159,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         n nVar = new n();
         this.l = nVar;
         gVar.a(nVar);
-        gVar.a(new o(this.j, this.f32084g));
+        gVar.a(new o(this.j, this.f32085g));
         gVar.a(new h(this.r));
         gVar.a(new j(this.j));
         gVar.a(new q(this.q));
@@ -167,37 +167,37 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     private void e() {
         com.kwad.sdk.core.webview.a aVar = this.j;
-        aVar.f34285b = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j;
-        aVar.f34284a = 0;
-        AdBaseFrameLayout adBaseFrameLayout = this.f32079b;
-        aVar.f34286c = adBaseFrameLayout;
-        aVar.f34288e = adBaseFrameLayout;
-        aVar.f34289f = this.f32080c;
+        aVar.f34286b = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.j;
+        aVar.f34285a = 0;
+        AdBaseFrameLayout adBaseFrameLayout = this.f32080b;
+        aVar.f34287c = adBaseFrameLayout;
+        aVar.f34289e = adBaseFrameLayout;
+        aVar.f34290f = this.f32081c;
     }
 
     private void f() {
-        this.f32080c.setVisibility(4);
-        this.f32080c.setBackgroundColor(0);
-        this.f32080c.getBackground().setAlpha(0);
+        this.f32081c.setVisibility(4);
+        this.f32081c.setBackgroundColor(0);
+        this.f32081c.getBackground().setAlpha(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f32080c.setVisibility(4);
+        this.f32081c.setVisibility(4);
         h();
         this.k = -1;
         this.p = System.currentTimeMillis();
-        this.f32080c.loadUrl(this.f32083f.cardUrl);
+        this.f32081c.loadUrl(this.f32084f.cardUrl);
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void h() {
         p();
-        ar.a(this.f32080c);
-        g gVar = new g(this.f32080c);
+        ar.a(this.f32081c);
+        g gVar = new g(this.f32081c);
         this.i = gVar;
         a(gVar);
-        this.f32080c.addJavascriptInterface(this.i, "KwaiAd");
+        this.f32081c.addJavascriptInterface(this.i, "KwaiAd");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -219,7 +219,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         if (nVar != null) {
             nVar.c();
         }
-        this.f32080c.setVisibility(0);
+        this.f32081c.setVisibility(0);
         n nVar2 = this.l;
         if (nVar2 != null) {
             nVar2.d();
@@ -228,12 +228,12 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        if (ao.a((View) this.f32080c, 50, false)) {
+        if (ao.a((View) this.f32081c, 50, false)) {
             n nVar = this.l;
             if (nVar != null) {
                 nVar.e();
             }
-            this.f32080c.setVisibility(4);
+            this.f32081c.setVisibility(4);
             n nVar2 = this.l;
             if (nVar2 != null) {
                 nVar2.f();
@@ -250,27 +250,27 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j;
-        this.f32081d = adTemplate;
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.j;
+        this.f32082d = adTemplate;
         this.m = !com.kwad.sdk.core.response.b.b.p(adTemplate);
-        this.f32080c.setVisibility(8);
+        this.f32081c.setVisibility(8);
         if (this.m) {
             return;
         }
-        this.f32083f = com.kwad.sdk.core.response.b.b.q(this.f32081d).playEndInfo.adWebCardInfo;
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
-        this.f32082e = cVar.m;
-        this.f32084g = cVar.o;
+        this.f32084f = com.kwad.sdk.core.response.b.b.q(this.f32082d).playEndInfo.adWebCardInfo;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
+        this.f32083e = cVar.m;
+        this.f32085g = cVar.o;
         if (this.j == null) {
             this.j = new com.kwad.sdk.core.webview.a();
             f();
         }
         e();
-        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32082e;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32083e;
         if (bVar != null) {
             bVar.a(this.n);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.o);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32153b.add(this.o);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -279,17 +279,17 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         if (this.m) {
             return;
         }
-        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32082e;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.f32083e;
         if (bVar != null) {
             bVar.b(this.n);
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.remove(this.o);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32153b.remove(this.o);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32079b = (AdBaseFrameLayout) b(R.id.ksad_root_container);
-        this.f32080c = (WebView) b(R.id.ksad_play_end_web_card);
+        this.f32080b = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32081c = (WebView) b(R.id.ksad_play_end_web_card);
     }
 }

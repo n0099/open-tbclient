@@ -8,23 +8,23 @@ import java.io.InputStream;
 public final class k implements e<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclableBufferedInputStream f35267a;
+    public final RecyclableBufferedInputStream f35268a;
 
     /* loaded from: classes6.dex */
     public static final class a implements e.a<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35268a;
+        public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35269a;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-            this.f35268a = bVar;
+            this.f35269a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<InputStream> a(InputStream inputStream) {
-            return new k(inputStream, this.f35268a);
+            return new k(inputStream, this.f35269a);
         }
 
         @Override // com.kwad.sdk.glide.load.a.e.a
@@ -36,13 +36,13 @@ public final class k implements e<InputStream> {
 
     public k(InputStream inputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
         RecyclableBufferedInputStream recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, bVar);
-        this.f35267a = recyclableBufferedInputStream;
+        this.f35268a = recyclableBufferedInputStream;
         recyclableBufferedInputStream.mark(5242880);
     }
 
     @Override // com.kwad.sdk.glide.load.a.e
     public void b() {
-        this.f35267a.b();
+        this.f35268a.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class k implements e<InputStream> {
     @NonNull
     /* renamed from: c */
     public InputStream a() {
-        this.f35267a.reset();
-        return this.f35267a;
+        this.f35268a.reset();
+        return this.f35268a;
     }
 }

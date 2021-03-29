@@ -25,10 +25,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f33861a = "UTF-8";
+    public static String f33862a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f33862b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
+    public static OkHttpClient f33863b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -43,7 +43,7 @@ public class b {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0063 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x000e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x000e */
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.zip.GZIPInputStream */
@@ -83,7 +83,7 @@ public class b {
                 } else {
                     inputStream2 = inputStream;
                 }
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f33861a), 8);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f33862a), 8);
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {
@@ -115,7 +115,7 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f33862b;
+        return f33863b;
     }
 
     public static Response a(String str, Map<String, String> map) {

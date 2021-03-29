@@ -11,19 +11,19 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 /* loaded from: classes5.dex */
 public class f extends Thread {
-    public static final boolean k = q.f65747b;
+    public static final boolean k = q.f65748b;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f65685e;
+    public final BlockingQueue<Request<?>> f65686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f65686f;
+    public final BlockingQueue<Request<?>> f65687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.c.c.b.f.b f65687g;
+    public final d.c.c.b.f.b f65688g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.c.c.b.f.d f65688h;
+    public final d.c.c.b.f.d f65689h;
     public volatile boolean i = false;
     public final b j = new b(this);
 
@@ -31,16 +31,16 @@ public class f extends Thread {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Request f65689e;
+        public final /* synthetic */ Request f65690e;
 
         public a(Request request) {
-            this.f65689e = request;
+            this.f65690e = request;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                f.this.f65686f.put(this.f65689e);
+                f.this.f65687f.put(this.f65690e);
             } catch (InterruptedException unused) {
                 Thread.currentThread().interrupt();
             }
@@ -51,32 +51,32 @@ public class f extends Thread {
     public static class b implements Request.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<Request<?>>> f65691a = new HashMap();
+        public final Map<String, List<Request<?>>> f65692a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public final f f65692b;
+        public final f f65693b;
 
         public b(f fVar) {
-            this.f65692b = fVar;
+            this.f65693b = fVar;
         }
 
         @Override // com.bytedance.sdk.adnet.core.Request.c
         public synchronized void a(Request<?> request) {
             String cacheKey = request.getCacheKey();
-            List<Request<?>> remove = this.f65691a.remove(cacheKey);
+            List<Request<?>> remove = this.f65692a.remove(cacheKey);
             if (remove != null && !remove.isEmpty()) {
-                if (q.f65747b) {
+                if (q.f65748b) {
                     q.a("%d waiting requests for cacheKey=%s; resend to network", Integer.valueOf(remove.size()), cacheKey);
                 }
                 Request<?> remove2 = remove.remove(0);
-                this.f65691a.put(cacheKey, remove);
+                this.f65692a.put(cacheKey, remove);
                 remove2.a(this);
                 try {
-                    this.f65692b.f65686f.put(remove2);
+                    this.f65693b.f65687f.put(remove2);
                 } catch (InterruptedException e2) {
                     q.d("Couldn't add request to queue. %s", e2.toString());
                     Thread.currentThread().interrupt();
-                    this.f65692b.b();
+                    this.f65693b.b();
                 }
             }
         }
@@ -84,18 +84,18 @@ public class f extends Thread {
         @Override // com.bytedance.sdk.adnet.core.Request.c
         public void b(Request<?> request, o<?> oVar) {
             List<Request<?>> remove;
-            b.a aVar = oVar.f65739b;
+            b.a aVar = oVar.f65740b;
             if (aVar != null && !aVar.a()) {
                 String cacheKey = request.getCacheKey();
                 synchronized (this) {
-                    remove = this.f65691a.remove(cacheKey);
+                    remove = this.f65692a.remove(cacheKey);
                 }
                 if (remove != null) {
-                    if (q.f65747b) {
+                    if (q.f65748b) {
                         q.a("Releasing %d waiting requests for cacheKey=%s.", Integer.valueOf(remove.size()), cacheKey);
                     }
                     for (Request<?> request2 : remove) {
-                        this.f65692b.f65688h.b(request2, oVar);
+                        this.f65693b.f65689h.b(request2, oVar);
                     }
                     return;
                 }
@@ -106,22 +106,22 @@ public class f extends Thread {
 
         public final synchronized boolean d(Request<?> request) {
             String cacheKey = request.getCacheKey();
-            if (this.f65691a.containsKey(cacheKey)) {
-                List<Request<?>> list = this.f65691a.get(cacheKey);
+            if (this.f65692a.containsKey(cacheKey)) {
+                List<Request<?>> list = this.f65692a.get(cacheKey);
                 if (list == null) {
                     list = new ArrayList<>();
                 }
                 request.addMarker("waiting-for-response");
                 list.add(request);
-                this.f65691a.put(cacheKey, list);
-                if (q.f65747b) {
+                this.f65692a.put(cacheKey, list);
+                if (q.f65748b) {
                     q.c("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
                 }
                 return true;
             }
-            this.f65691a.put(cacheKey, null);
+            this.f65692a.put(cacheKey, null);
             request.a(this);
-            if (q.f65747b) {
+            if (q.f65748b) {
                 q.c("new request, sending to network %s", cacheKey);
             }
             return false;
@@ -129,10 +129,10 @@ public class f extends Thread {
     }
 
     public f(BlockingQueue<Request<?>> blockingQueue, BlockingQueue<Request<?>> blockingQueue2, d.c.c.b.f.b bVar, d.c.c.b.f.d dVar) {
-        this.f65685e = blockingQueue;
-        this.f65686f = blockingQueue2;
-        this.f65687g = bVar;
-        this.f65688h = dVar;
+        this.f65686e = blockingQueue;
+        this.f65687f = blockingQueue2;
+        this.f65688g = bVar;
+        this.f65689h = dVar;
     }
 
     public void b() {
@@ -154,39 +154,39 @@ public class f extends Thread {
             request.a("cache-discard-canceled");
             return;
         }
-        b.a a2 = this.f65687g.a(request.getCacheKey());
+        b.a a2 = this.f65688g.a(request.getCacheKey());
         if (a2 == null) {
             request.addMarker("cache-miss");
             if (!this.j.d(request)) {
-                this.f65686f.put(request);
+                this.f65687f.put(request);
             }
         } else if (a2.a()) {
             request.addMarker("cache-hit-expired");
             request.setCacheEntry(a2);
             if (!this.j.d(request)) {
-                this.f65686f.put(request);
+                this.f65687f.put(request);
             }
         } else {
             request.addMarker("cache-hit");
-            o<?> a3 = request.a(new k(a2.f65763b, a2.f65769h));
+            o<?> a3 = request.a(new k(a2.f65764b, a2.f65770h));
             request.addMarker("cache-hit-parsed");
             if (!a2.b()) {
-                this.f65688h.b(request, a3);
+                this.f65689h.b(request, a3);
             } else {
                 request.addMarker("cache-hit-refresh-needed");
                 request.setCacheEntry(a2);
-                a3.f65741d = true;
+                a3.f65742d = true;
                 if (!this.j.d(request)) {
-                    this.f65688h.c(request, a3, new a(request));
+                    this.f65689h.c(request, a3, new a(request));
                 } else {
-                    this.f65688h.b(request, a3);
+                    this.f65689h.b(request, a3);
                 }
             }
         }
     }
 
     public final void e() throws InterruptedException {
-        c(this.f65685e.take());
+        c(this.f65686e.take());
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -195,7 +195,7 @@ public class f extends Thread {
             q.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
-        this.f65687g.a();
+        this.f65688g.a();
         while (true) {
             try {
                 e();

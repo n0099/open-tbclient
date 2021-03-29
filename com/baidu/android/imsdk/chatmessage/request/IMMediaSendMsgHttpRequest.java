@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static final String TAG = "IMMediaSendMsgHttpRequest";
     public long mContactor;

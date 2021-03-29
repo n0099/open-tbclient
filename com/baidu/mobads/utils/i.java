@@ -6,22 +6,22 @@ import android.content.Intent;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f8537a;
+    public final /* synthetic */ Context f8538a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Intent f8538b;
+    public final /* synthetic */ Intent f8539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ h f8539c;
+    public final /* synthetic */ h f8540c;
 
     public i(h hVar, Context context, Intent intent) {
-        this.f8539c = hVar;
-        this.f8537a = context;
-        this.f8538b = intent;
+        this.f8540c = hVar;
+        this.f8538a = context;
+        this.f8539b = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f8537a.startActivity(this.f8538b);
+        this.f8538a.startActivity(this.f8539b);
     }
 }

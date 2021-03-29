@@ -9,7 +9,7 @@ import d.b.h0.w.v.c.c;
 public class KPSwitchRootFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13878e;
+    public c f13879e;
 
     public KPSwitchRootFrameLayout(Context context) {
         super(context);
@@ -17,12 +17,12 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     }
 
     public final void a() {
-        this.f13878e = new c(this);
+        this.f13879e = new c(this);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        this.f13878e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.f13879e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 

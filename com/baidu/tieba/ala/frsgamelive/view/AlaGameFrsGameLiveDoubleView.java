@@ -18,11 +18,11 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsGameLiveDoubleView f14993a;
+        public AlaGameFrsGameLiveDoubleView f14994a;
 
         public AlaGameFrsGameLiveDoubleViewHolder(AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView) {
             super(alaGameFrsGameLiveDoubleView.m());
-            this.f14993a = alaGameFrsGameLiveDoubleView;
+            this.f14994a = alaGameFrsGameLiveDoubleView;
         }
     }
 
@@ -61,8 +61,8 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     /* renamed from: v */
     public void n(a aVar) {
         if (aVar != null) {
-            this.m.d(aVar.f60772e);
-            this.n.d(aVar.f60773f);
+            this.m.d(aVar.f60773e);
+            this.n.d(aVar.f60774f);
         }
     }
 

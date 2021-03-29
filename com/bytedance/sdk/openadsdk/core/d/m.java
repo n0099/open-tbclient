@@ -7,40 +7,40 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28198g;
+    public long f28199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f28199h;
+    public long f28200h;
     public long i;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28192a = ak.c();
+    public final String f28193a = ak.c();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28193b = -1;
+    public int f28194b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28194c = -1;
+    public int f28195c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f28195d = null;
+    public JSONArray f28196d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28196e = 1;
+    public int f28197e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28197f = System.currentTimeMillis();
+    public long f28198f = System.currentTimeMillis();
     public JSONObject j = null;
 
     public m a() {
         m mVar = new m();
-        mVar.f28193b = this.f28193b;
-        mVar.f28194c = this.f28194c;
-        mVar.f28195d = this.f28195d;
-        mVar.f28196e = this.f28196e;
-        mVar.f28197f = this.f28197f;
-        mVar.f28198g = this.f28198g;
-        mVar.f28199h = this.f28199h;
+        mVar.f28194b = this.f28194b;
+        mVar.f28195c = this.f28195c;
+        mVar.f28196d = this.f28196d;
+        mVar.f28197e = this.f28197e;
+        mVar.f28198f = this.f28198f;
+        mVar.f28199g = this.f28199g;
+        mVar.f28200h = this.f28200h;
         mVar.i = this.i;
         return mVar;
     }

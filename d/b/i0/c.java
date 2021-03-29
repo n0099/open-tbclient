@@ -15,28 +15,28 @@ import d.b.i0.r2.s;
 public class c {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile c f52261h;
+    public static volatile c f52262h;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f52262a;
+    public long f52263a;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52264c = -1;
+    public int f52265c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f52265d = new a(this, 2016522);
+    public CustomMessageListener f52266d = new a(this, 2016522);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f52266e = new b(2016521);
+    public CustomMessageListener f52267e = new b(2016521);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f52267f = new C1136c(2016520);
+    public CustomMessageListener f52268f = new C1137c(2016520);
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f52268g = new d(2016523);
+    public CustomMessageListener f52269g = new d(2016523);
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52263b = false;
+    public boolean f52264b = false;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -72,15 +72,15 @@ public class c {
 
     /* renamed from: d.b.i0.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1136c extends CustomMessageListener {
-        public C1136c(int i) {
+    public class C1137c extends CustomMessageListener {
+        public C1137c(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2016520 || c.this.f52262a == 0) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2016520 || c.this.f52263a == 0) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -125,46 +125,46 @@ public class c {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 if (((Boolean) data).booleanValue()) {
                     c cVar = c.this;
-                    cVar.f52263b = currentTimeMillis - cVar.f52262a <= 1;
+                    cVar.f52264b = currentTimeMillis - cVar.f52263a <= 1;
                 }
             }
         }
     }
 
     public c() {
-        MessageManager.getInstance().registerListener(this.f52266e);
-        MessageManager.getInstance().registerListener(this.f52267f);
-        MessageManager.getInstance().registerListener(this.f52265d);
-        MessageManager.getInstance().registerListener(this.f52268g);
+        MessageManager.getInstance().registerListener(this.f52267e);
+        MessageManager.getInstance().registerListener(this.f52268f);
+        MessageManager.getInstance().registerListener(this.f52266d);
+        MessageManager.getInstance().registerListener(this.f52269g);
         if (s.o().l() != null) {
             s.o().l().c();
         }
     }
 
     public static c g() {
-        if (f52261h == null) {
+        if (f52262h == null) {
             synchronized (c.class) {
-                if (f52261h == null) {
-                    f52261h = new c();
+                if (f52262h == null) {
+                    f52262h = new c();
                 }
             }
         }
-        return f52261h;
+        return f52262h;
     }
 
     public final void e() {
-        this.f52262a = System.currentTimeMillis() / 1000;
+        this.f52263a = System.currentTimeMillis() / 1000;
     }
 
     public final boolean f() {
         h();
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.f52263b) {
-            this.f52263b = false;
+        if (this.f52264b) {
+            this.f52264b = false;
             return false;
         }
-        long j = this.f52262a;
-        if (currentTimeMillis - j > 2 && currentTimeMillis - j > this.f52264c) {
+        long j = this.f52263a;
+        if (currentTimeMillis - j > 2 && currentTimeMillis - j > this.f52265c) {
             o l = s.o().l();
             return (l != null ? l.b() : 3) < 3;
         }
@@ -175,13 +175,13 @@ public class c {
         d.b.h0.s.c.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
             int b2 = adAdSense.b();
-            this.f52264c = b2;
+            this.f52265c = b2;
             if (b2 <= 0) {
-                this.f52264c = 86400;
+                this.f52265c = 86400;
                 return;
             }
             return;
         }
-        this.f52264c = 300;
+        this.f52265c = 300;
     }
 }

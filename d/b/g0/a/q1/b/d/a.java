@@ -12,23 +12,23 @@ import com.baidu.swan.apps.res.ui.BdShimmerView;
 import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import d.b.g0.a.k;
 import java.util.WeakHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45623a = k.f45050a & true;
+    public static final boolean f45624a = k.f45051a & true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WeakHashMap<ViewGroup, b> f45624b = new WeakHashMap<>();
+    public static final WeakHashMap<ViewGroup, b> f45625b = new WeakHashMap<>();
 
     public static void a() {
-        for (ViewGroup viewGroup : f45624b.keySet()) {
-            b bVar = f45624b.get(viewGroup);
+        for (ViewGroup viewGroup : f45625b.keySet()) {
+            b bVar = f45625b.get(viewGroup);
             if (bVar != null && bVar.getLoadingView() != null) {
                 viewGroup.removeView(bVar.getLoadingView());
             }
         }
-        f45624b.clear();
+        f45625b.clear();
     }
 
     public static boolean b(ViewGroup viewGroup) {
@@ -37,7 +37,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = f45624b.get(viewGroup);
+        b bVar2 = f45625b.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(8);
             return true;
@@ -45,10 +45,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
-                f45624b.put(viewGroup, bVar);
-                if (f45623a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45624b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45624b.toString());
+                f45625b.put(viewGroup, bVar);
+                if (f45624a) {
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45625b.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45625b.toString());
                 }
                 return true;
             }
@@ -62,7 +62,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = f45624b.get(viewGroup);
+        b bVar2 = f45625b.get(viewGroup);
         if (bVar2 != null) {
             View loadingView2 = bVar2.getLoadingView();
             if (loadingView2 != null) {
@@ -71,10 +71,10 @@ public final class a {
                 }
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
-                f45624b.remove(viewGroup);
-                if (f45623a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45624b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45624b.toString());
+                f45625b.remove(viewGroup);
+                if (f45624a) {
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45625b.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45625b.toString());
                 }
             }
             return true;
@@ -83,10 +83,10 @@ public final class a {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
                 viewGroup.removeView((View) bVar);
-                f45624b.remove(viewGroup);
-                if (f45623a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45624b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45624b.toString());
+                f45625b.remove(viewGroup);
+                if (f45624a) {
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45625b.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45625b.toString());
                 }
                 return true;
             }
@@ -100,7 +100,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = f45624b.get(viewGroup);
+        b bVar2 = f45625b.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(0);
             return true;
@@ -108,10 +108,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(0);
-                f45624b.put(viewGroup, bVar);
-                if (f45623a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45624b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45624b.toString());
+                f45625b.put(viewGroup, bVar);
+                if (f45624a) {
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45625b.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + f45625b.toString());
                 }
                 return true;
             }
@@ -153,11 +153,11 @@ public final class a {
                 layoutParams3.gravity = 17;
                 viewGroup.addView(loadingView2, layoutParams3);
             }
-            f45624b.put(viewGroup, loadingView);
+            f45625b.put(viewGroup, loadingView);
             loadingView2.setVisibility(0);
-            if (f45623a) {
-                Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45624b.size());
-                Log.d("LoadingViewHelper", "The content of cached views is : " + f45624b.toString());
+            if (f45624a) {
+                Log.d("LoadingViewHelper", "The count of cached loading views is : " + f45625b.size());
+                Log.d("LoadingViewHelper", "The content of cached views is : " + f45625b.toString());
             }
             return true;
         }

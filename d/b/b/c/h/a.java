@@ -14,7 +14,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, d.b.b.c.f.b, Custo
         super(messageManager);
         this.i = null;
         this.i = new d.b.b.c.e.b(messageManager);
-        this.f41556e = d.b.b.c.j.a.c();
+        this.f41557e = d.b.b.c.j.a.c();
     }
 
     @Override // d.b.b.c.b
@@ -35,7 +35,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, d.b.b.c.f.b, Custo
     @Override // d.b.b.c.h.c
     /* renamed from: w */
     public CustomMessage<?> l(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return this.f41552a.getController().g(customMessage, customMessageTask);
+        return this.f41553a.getController().g(customMessage, customMessageTask);
     }
 
     public void x(BdUniqueId bdUniqueId) {

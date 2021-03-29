@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<DialogSyncMsg> CREATOR = new Parcelable.Creator<DialogSyncMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DialogSyncMsg.1
         /* JADX DEBUG: Method merged with bridge method */

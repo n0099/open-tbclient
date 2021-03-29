@@ -23,20 +23,20 @@ import d.b.h0.r.f0.f;
 import d.b.i0.i1.h;
 import java.util.List;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoHotPageView extends FrameLayout implements AbsListView.OnScrollListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.i1.p.e f18535e;
+    public d.b.i0.i1.p.e f18536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.h0.r.f0.g f18536f;
+    public d.b.h0.r.f0.g f18537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f18537g;
+    public PbListView f18538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdListView f18538h;
+    public BdListView f18539h;
     public d.b.i0.i1.n.a i;
     public TbPageContext<?> j;
     public d.b.i0.i1.c k;
@@ -51,7 +51,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public CustomMessageListener t;
     public h.c u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -61,14 +61,14 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13692a) {
+            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13693a) {
                 return;
             }
             LegoHotPageView.this.p(updateAttentionMessage.getData());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -81,13 +81,13 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = true;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = true;
             LegoHotPageView.this.p(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -100,13 +100,13 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = false;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = false;
             LegoHotPageView.this.p(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements h.c {
         public d() {
         }
@@ -133,10 +133,10 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
 
         @Override // d.b.i0.i1.h.c
         public void c(int i, String str) {
-            if (LegoHotPageView.this.k == null || LegoHotPageView.this.f18535e == null) {
+            if (LegoHotPageView.this.k == null || LegoHotPageView.this.f18536e == null) {
                 return;
             }
-            LegoHotPageView.this.k.e(LegoHotPageView.this.f18535e.f56030a, LegoHotPageView.this.f18535e.f56031b, i, str);
+            LegoHotPageView.this.k.e(LegoHotPageView.this.f18536e.f56031a, LegoHotPageView.this.f18536e.f56032b, i, str);
         }
 
         @Override // d.b.i0.i1.h.c
@@ -150,7 +150,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         public void onError(int i, String str) {
             LegoHotPageView.this.q();
             if (i != 1) {
-                LegoHotPageView.this.f18538h.setVisibility(8);
+                LegoHotPageView.this.f18539h.setVisibility(8);
                 LegoHotPageView legoHotPageView = LegoHotPageView.this;
                 legoHotPageView.y(legoHotPageView, str, true);
             } else if (j.z()) {
@@ -162,11 +162,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         public void onSuccess() {
             LegoHotPageView.this.q();
             LegoHotPageView.this.r();
-            LegoHotPageView.this.f18538h.setVisibility(0);
+            LegoHotPageView.this.f18539h.setVisibility(0);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements f.g {
         public e() {
         }
@@ -177,7 +177,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements BdListView.p {
         public f() {
         }
@@ -185,15 +185,15 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (LegoHotPageView.this.q) {
-                if (LegoHotPageView.this.f18537g != null) {
-                    LegoHotPageView.this.f18537g.O();
+                if (LegoHotPageView.this.f18538g != null) {
+                    LegoHotPageView.this.f18538g.O();
                 }
                 LegoHotPageView.this.l.g();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -203,8 +203,8 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             if (LegoHotPageView.this.l == null) {
                 return;
             }
-            if (LegoHotPageView.this.f18535e != null) {
-                LegoHotPageView.this.l.m(LegoHotPageView.this.f18535e.f56030a, LegoHotPageView.this.f18535e.f56031b);
+            if (LegoHotPageView.this.f18536e != null) {
+                LegoHotPageView.this.l.m(LegoHotPageView.this.f18536e.f56031a, LegoHotPageView.this.f18536e.f56032b);
             } else {
                 LegoHotPageView.this.l.m(LegoHotPageView.this.o, LegoHotPageView.this.p);
             }
@@ -222,21 +222,21 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
 
     private void setHasMore(boolean z) {
         this.q = z;
-        if (this.f18538h == null) {
+        if (this.f18539h == null) {
             return;
         }
-        if (this.f18537g.b().getParent() == null) {
-            this.f18538h.setNextPage(this.f18537g);
+        if (this.f18538g.b().getParent() == null) {
+            this.f18539h.setNextPage(this.f18538g);
         }
         if (this.q) {
-            this.f18537g.A(getContext().getString(R.string.pb_load_more));
+            this.f18538g.A(getContext().getString(R.string.pb_load_more));
         } else {
-            this.f18537g.A("");
+            this.f18538g.A("");
         }
     }
 
     public void A(DataRes dataRes, boolean z) {
-        PbListView pbListView = this.f18537g;
+        PbListView pbListView = this.f18538g;
         if (pbListView != null) {
             pbListView.f();
         }
@@ -245,7 +245,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public void B(String str, int i) {
-        PbListView pbListView = this.f18537g;
+        PbListView pbListView = this.f18538g;
         if (pbListView != null) {
             pbListView.f();
         }
@@ -253,11 +253,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public long getTagCode() {
-        d.b.i0.i1.p.e eVar = this.f18535e;
+        d.b.i0.i1.p.e eVar = this.f18536e;
         if (eVar == null) {
             return 0L;
         }
-        return eVar.f56030a;
+        return eVar.f56031a;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -317,29 +317,29 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             this.j = (TbPageContext) a2;
         }
         BdListView bdListView = new BdListView(context);
-        this.f18538h = bdListView;
+        this.f18539h = bdListView;
         bdListView.setDividerHeight(0);
-        this.f18538h.setSelector(17170445);
+        this.f18539h.setSelector(17170445);
         d.b.i0.i1.n.a aVar = new d.b.i0.i1.n.a(this.j);
         this.i = aVar;
-        this.f18538h.setAdapter((ListAdapter) aVar);
+        this.f18539h.setAdapter((ListAdapter) aVar);
         PbListView pbListView = new PbListView(context);
-        this.f18537g = pbListView;
+        this.f18538g = pbListView;
         pbListView.a();
-        this.f18537g.o(R.color.CAM_X0204);
-        this.f18537g.C(SkinManager.getColor(R.color.CAM_X0109));
-        this.f18537g.d(TbadkCoreApplication.getInst().getSkinType());
+        this.f18538g.o(R.color.CAM_X0204);
+        this.f18538g.C(SkinManager.getColor(R.color.CAM_X0109));
+        this.f18538g.d(TbadkCoreApplication.getInst().getSkinType());
         d.b.h0.r.f0.g gVar = new d.b.h0.r.f0.g(this.j);
-        this.f18536f = gVar;
-        this.f18538h.setPullRefresh(gVar);
-        this.f18536f.B(true);
-        this.f18536f.b(new e());
-        this.f18538h.setOnSrollToBottomListener(new f());
-        this.f18538h.setOnScrollListener(this);
-        h hVar = new h(this.f18538h, this.i);
+        this.f18537f = gVar;
+        this.f18539h.setPullRefresh(gVar);
+        this.f18537f.B(true);
+        this.f18537f.b(new e());
+        this.f18539h.setOnSrollToBottomListener(new f());
+        this.f18539h.setOnScrollListener(this);
+        h hVar = new h(this.f18539h, this.i);
         this.l = hVar;
         hVar.l(this.u);
-        addView(this.f18538h);
+        addView(this.f18539h);
     }
 
     public void setCallback(d.b.i0.i1.c cVar) {
@@ -347,14 +347,14 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        d.b.h0.r.f0.g gVar = this.f18536f;
+        d.b.h0.r.f0.g gVar = this.f18537f;
         if (gVar != null) {
             gVar.Z(bdUniqueId);
         }
     }
 
     public void setTagInfo(d.b.i0.i1.p.e eVar) {
-        this.f18535e = eVar;
+        this.f18536e = eVar;
     }
 
     public void setViewBackGround() {
@@ -371,11 +371,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public void u(boolean z) {
-        if (this.f18538h == null) {
+        if (this.f18539h == null) {
             return;
         }
-        for (int i = 0; i < this.f18538h.getChildCount(); i++) {
-            View childAt = this.f18538h.getChildAt(i);
+        for (int i = 0; i < this.f18539h.getChildCount(); i++) {
+            View childAt = this.f18539h.getChildAt(i);
             if (childAt instanceof d.b.i0.i1.o.l.e) {
                 if (z) {
                     ((d.b.i0.i1.o.l.e) childAt).f();
@@ -387,11 +387,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public final void v() {
-        if (this.f18538h == null) {
+        if (this.f18539h == null) {
             return;
         }
-        for (int i = 0; i < this.f18538h.getChildCount(); i++) {
-            View childAt = this.f18538h.getChildAt(i);
+        for (int i = 0; i < this.f18539h.getChildCount(); i++) {
+            View childAt = this.f18539h.getChildAt(i);
             if (childAt instanceof d.b.i0.i1.o.l.e) {
                 ((d.b.i0.i1.o.l.e) childAt).e();
             }
@@ -407,18 +407,18 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        d.b.h0.r.f0.g gVar2 = this.f18536f;
+        d.b.h0.r.f0.g gVar2 = this.f18537f;
         if (gVar2 != null) {
             gVar2.I(i);
         }
-        BdListView bdListView = this.f18538h;
+        BdListView bdListView = this.f18539h;
         if (bdListView != null) {
             SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204, i);
         }
-        PbListView pbListView = this.f18537g;
+        PbListView pbListView = this.f18538g;
         if (pbListView != null) {
             pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
-            this.f18537g.d(i);
+            this.f18538g.d(i);
         }
     }
 

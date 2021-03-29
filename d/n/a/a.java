@@ -10,47 +10,47 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WireField.Label f66307a;
+    public final WireField.Label f66308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f66308b;
+    public final String f66309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66309c;
+    public final int f66310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f66310d;
+    public final String f66311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f66311e;
+    public final String f66312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f66312f;
+    public final boolean f66313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Field f66313g;
+    public final Field f66314g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Field f66314h;
+    public final Field f66315h;
     public final Method i;
     public ProtoAdapter<?> j;
     public ProtoAdapter<?> k;
     public ProtoAdapter<Object> l;
 
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.f66307a = wireField.label();
-        this.f66308b = field.getName();
-        this.f66309c = wireField.tag();
-        this.f66310d = wireField.keyAdapter();
-        this.f66311e = wireField.adapter();
-        this.f66312f = wireField.redacted();
-        this.f66313g = field;
-        this.f66314h = c(cls, this.f66308b);
-        this.i = d(cls, this.f66308b, field.getType());
+        this.f66308a = wireField.label();
+        this.f66309b = field.getName();
+        this.f66310c = wireField.tag();
+        this.f66311d = wireField.keyAdapter();
+        this.f66312e = wireField.adapter();
+        this.f66313f = wireField.redacted();
+        this.f66314g = field;
+        this.f66315h = c(cls, this.f66309b);
+        this.i = d(cls, this.f66309b, field.getType());
     }
 
     public static Field c(Class<?> cls, String str) {
@@ -79,14 +79,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
             this.l = newMapAdapter;
             return newMapAdapter;
         }
-        ProtoAdapter<?> withLabel = i().withLabel(this.f66307a);
+        ProtoAdapter<?> withLabel = i().withLabel(this.f66308a);
         this.l = withLabel;
         return withLabel;
     }
 
     public Object b(M m) {
         try {
-            return this.f66313g.get(m);
+            return this.f66314g.get(m);
         } catch (IllegalAccessException e2) {
             throw new AssertionError(e2);
         }
@@ -94,14 +94,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     public Object e(B b2) {
         try {
-            return this.f66314h.get(b2);
+            return this.f66315h.get(b2);
         } catch (IllegalAccessException e2) {
             throw new AssertionError(e2);
         }
     }
 
     public boolean f() {
-        return !this.f66310d.isEmpty();
+        return !this.f66311d.isEmpty();
     }
 
     public ProtoAdapter<?> g() {
@@ -109,17 +109,17 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f66310d);
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f66311d);
         this.k = protoAdapter2;
         return protoAdapter2;
     }
 
     public void h(B b2, Object obj) {
         try {
-            if (this.f66307a.isOneOf()) {
+            if (this.f66308a.isOneOf()) {
                 this.i.invoke(b2, obj);
             } else {
-                this.f66314h.set(b2, obj);
+                this.f66315h.set(b2, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e2) {
             throw new AssertionError(e2);
@@ -131,15 +131,15 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f66311e);
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f66312e);
         this.j = protoAdapter2;
         return protoAdapter2;
     }
 
     public void j(B b2, Object obj) {
-        if (this.f66307a.isRepeated()) {
+        if (this.f66308a.isRepeated()) {
             ((List) e(b2)).add(obj);
-        } else if (!this.f66310d.isEmpty()) {
+        } else if (!this.f66311d.isEmpty()) {
             ((Map) e(b2)).putAll((Map) obj);
         } else {
             h(b2, obj);

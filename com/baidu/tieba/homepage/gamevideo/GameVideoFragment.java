@@ -15,11 +15,11 @@ import d.b.i0.p0.o0;
 import d.b.i0.z0.d.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameVideoFragment extends BaseFragment implements o0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f17151e;
+    public c f17152e;
 
     @Override // d.b.i0.p0.o0
     public void A() {
@@ -64,7 +64,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.n();
         }
@@ -73,21 +73,21 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f17151e == null) {
-            this.f17151e = new c(getPageContext(), getUniqueId());
+        if (this.f17152e == null) {
+            this.f17152e = new c(getPageContext(), getUniqueId());
         }
-        this.f17151e.s();
+        this.f17152e.s();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null && cVar.r() != null) {
-            if (this.f17151e.r().getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f17151e.r().getParent()).removeView(this.f17151e.r());
+            if (this.f17152e.r().getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f17152e.r().getParent()).removeView(this.f17152e.r());
             }
-            return this.f17151e.r();
+            return this.f17152e.r();
         }
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
@@ -95,7 +95,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.v();
         }
@@ -104,7 +104,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.t();
         }
@@ -113,7 +113,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.w();
         }
@@ -125,7 +125,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
         }
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.y(isPrimary());
         }
@@ -133,7 +133,7 @@ public class GameVideoFragment extends BaseFragment implements o0 {
 
     @Override // d.b.i0.p0.o0
     public void w() {
-        c cVar = this.f17151e;
+        c cVar = this.f17152e;
         if (cVar != null) {
             cVar.x();
         }

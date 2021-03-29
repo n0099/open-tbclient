@@ -10,13 +10,13 @@ import d.b.h0.r.f0.l;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f52310a;
+    public static String f52311a;
 
     public static String a() {
-        if (TextUtils.isEmpty(f52310a)) {
-            f52310a = d.b.h0.r.d0.b.i().o("nick_name_activity_link", "");
+        if (TextUtils.isEmpty(f52311a)) {
+            f52311a = d.b.h0.r.d0.b.i().o("nick_name_activity_link", "");
         }
-        return f52310a;
+        return f52311a;
     }
 
     public static SpannableStringBuilder b(Context context, String str) {

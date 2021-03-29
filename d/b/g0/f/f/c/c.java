@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class c extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47775c = k.f45050a;
+    public static final boolean f47776c = k.f45051a;
 
     public c() {
         super("checkAppInstalled");
@@ -21,7 +21,7 @@ public class c extends d.b.g0.f.i.a {
 
     @Override // d.b.g0.f.i.a
     public d.b.g0.a.t.e.b a(@NonNull JSONObject jSONObject, @NonNull d.b.g0.a.p0.b bVar) {
-        if (f47775c) {
+        if (f47776c) {
             Log.d("checkAppInstalled", "handle: " + jSONObject);
         }
         String optString = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
@@ -31,7 +31,7 @@ public class c extends d.b.g0.f.i.a {
         }
         try {
             PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-            if (f47775c) {
+            if (f47776c) {
                 Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
             }
             if (packageInfo != null) {

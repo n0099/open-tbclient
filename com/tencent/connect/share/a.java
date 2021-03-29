@@ -142,29 +142,15 @@ public class a {
     }
 
     public static int b(BitmapFactory.Options options, int i, int i2) {
-        int ceil;
         int min;
         double d2 = options.outWidth;
         double d3 = options.outHeight;
-        if (i2 == -1) {
-            ceil = 1;
-        } else {
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            double d4 = i2;
-            Double.isNaN(d4);
-            ceil = (int) Math.ceil(Math.sqrt((d2 * d3) / d4));
-        }
+        int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
         if (i == -1) {
             min = 128;
         } else {
-            double d5 = i;
-            Double.isNaN(d2);
-            Double.isNaN(d5);
-            double floor = Math.floor(d2 / d5);
-            Double.isNaN(d3);
-            Double.isNaN(d5);
-            min = (int) Math.min(floor, Math.floor(d3 / d5));
+            double d4 = i;
+            min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
         }
         if (min < ceil) {
             return ceil;

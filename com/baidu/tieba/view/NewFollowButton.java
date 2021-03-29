@@ -48,15 +48,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22138a;
+        public final /* synthetic */ boolean f22139a;
 
         public a(boolean z) {
-            this.f22138a = z;
+            this.f22139a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            NewFollowButton.this.E(this.f22138a);
+            NewFollowButton.this.E(this.f22139a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener

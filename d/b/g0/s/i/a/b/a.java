@@ -24,33 +24,33 @@ import d.b.g0.a.s0.k.g.a;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a implements d.b.g0.a.s0.k.g.a {
-    public static final boolean v = d.b.g0.a.k.f45050a;
+    public static final boolean v = d.b.g0.a.k.f45051a;
     public static boolean w = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49359b;
+    public String f49360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f49360c;
+    public Context f49361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ZeusPluginFactory.Invoker f49361d;
+    public ZeusPluginFactory.Invoker f49362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayer f49362e;
+    public CyberPlayer f49363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49363f;
+    public String f49364f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AudioManager f49364g;
+    public AudioManager f49365g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49365h;
-    public a.InterfaceC0792a i;
+    public String f49366h;
+    public a.InterfaceC0793a i;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49358a = -1;
+    public int f49359a = -1;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
@@ -61,13 +61,13 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     public final CyberPlayerManager.OnInfoListener q = new i();
     public final CyberPlayerManager.OnBufferingUpdateListener r = new j();
     public final CyberPlayerManager.OnSeekCompleteListener s = new k();
-    public final CyberPlayerManager.OnVideoSizeChangedListener t = new C1031a();
+    public final CyberPlayerManager.OnVideoSizeChangedListener t = new C1032a();
     public final AudioManager.OnAudioFocusChangeListener u = new b(this);
 
     /* renamed from: d.b.g0.s.i.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1031a implements CyberPlayerManager.OnVideoSizeChangedListener {
-        public C1031a() {
+    public class C1032a implements CyberPlayerManager.OnVideoSizeChangedListener {
+        public C1032a() {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
@@ -75,11 +75,11 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             if (a.v) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onVideoSizeChanged(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            a.this.m.f49392e = i;
-            a.this.m.f49393f = i2;
-            a.InterfaceC0792a interfaceC0792a = a.this.i;
-            if (interfaceC0792a != null) {
-                interfaceC0792a.f();
+            a.this.m.f49393e = i;
+            a.this.m.f49394f = i2;
+            a.InterfaceC0793a interfaceC0793a = a.this.i;
+            if (interfaceC0793a != null) {
+                interfaceC0793a.f();
             }
         }
     }
@@ -101,15 +101,15 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     public class c implements l {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a f49367a;
+        public final /* synthetic */ d.a f49368a;
 
         public c(a aVar, d.a aVar2) {
-            this.f49367a = aVar2;
+            this.f49368a = aVar2;
         }
 
         @Override // d.b.g0.s.i.a.b.a.l
         public void a(boolean z) {
-            this.f49367a.a(z);
+            this.f49368a.a(z);
         }
     }
 
@@ -117,10 +117,10 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     public static class d implements CyberPlayerManager.InstallListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f49368a;
+        public final /* synthetic */ l f49369a;
 
         public d(l lVar) {
-            this.f49368a = lVar;
+            this.f49369a = lVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
@@ -129,7 +129,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
                 Log.i("【CyberCallback】", "CyberPlayer播放内核安装失败");
             }
             boolean unused = a.w = false;
-            l lVar = this.f49368a;
+            l lVar = this.f49369a;
             if (lVar != null) {
                 lVar.a(false);
             }
@@ -145,7 +145,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
                 Log.i("【CyberCallback】", "CyberPlayer播放内核安装成功");
             }
             boolean unused = a.w = false;
-            l lVar = this.f49368a;
+            l lVar = this.f49369a;
             if (lVar != null) {
                 lVar.a(true);
             }
@@ -156,10 +156,10 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f49369e;
+        public final /* synthetic */ boolean f49370e;
 
         public e(a aVar, boolean z) {
-            this.f49369e = z;
+            this.f49370e = z;
         }
 
         @Override // java.lang.Runnable
@@ -171,7 +171,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
                 return;
             }
             try {
-                if (this.f49369e) {
+                if (this.f49370e) {
                     window.addFlags(128);
                 } else {
                     window.clearFlags(128);
@@ -182,7 +182,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
                 }
             }
             if (a.v) {
-                Log.d("SwanInlineCyberWidget", "setKeepScreenOn: " + this.f49369e);
+                Log.d("SwanInlineCyberWidget", "setKeepScreenOn: " + this.f49370e);
             }
         }
     }
@@ -197,11 +197,11 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             if (a.v) {
                 Log.d("【CyberCallback】", "CyberPlayer" + a.this.hashCode() + " - onPrepared()");
             }
-            a.this.m.f49392e = a.this.getVideoWidth();
-            a.this.m.f49393f = a.this.getVideoHeight();
-            a.InterfaceC0792a interfaceC0792a = a.this.i;
-            if (interfaceC0792a != null) {
-                interfaceC0792a.onPrepared();
+            a.this.m.f49393e = a.this.getVideoWidth();
+            a.this.m.f49394f = a.this.getVideoHeight();
+            a.InterfaceC0793a interfaceC0793a = a.this.i;
+            if (interfaceC0793a != null) {
+                interfaceC0793a.onPrepared();
             }
         }
     }
@@ -220,9 +220,9 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             a.this.g0();
             a.this.p0(i);
             int i3 = i == -10000 ? 0 : i;
-            a.InterfaceC0792a interfaceC0792a = a.this.i;
-            if (interfaceC0792a != null) {
-                interfaceC0792a.onError(i3);
+            a.InterfaceC0793a interfaceC0793a = a.this.i;
+            if (interfaceC0793a != null) {
+                interfaceC0793a.onError(i3);
             }
             a.this.r0(i, i2, obj2);
             return false;
@@ -242,12 +242,12 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             }
             a.this.g0();
             a aVar = a.this;
-            a.InterfaceC0792a interfaceC0792a = aVar.i;
-            if (interfaceC0792a != null) {
+            a.InterfaceC0793a interfaceC0793a = aVar.i;
+            if (interfaceC0793a != null) {
                 if (z) {
-                    interfaceC0792a.onEnded();
+                    interfaceC0793a.onEnded();
                 } else {
-                    interfaceC0792a.b(aVar.c());
+                    interfaceC0793a.b(aVar.c());
                 }
             }
         }
@@ -266,13 +266,13 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             }
             switch (i) {
                 case CyberPlayerManager.MEDIA_INFO_AUDIO_BITRATE /* 938 */:
-                    a.this.m.f49389b = i2;
+                    a.this.m.f49390b = i2;
                     break;
                 case CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE /* 939 */:
-                    a.this.m.f49388a = i2;
+                    a.this.m.f49389a = i2;
                     break;
                 case CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE /* 940 */:
-                    a.this.m.f49390c = i2;
+                    a.this.m.f49391c = i2;
                     break;
             }
             a.this.p0(i);
@@ -317,15 +317,15 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     }
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.f49361d = invoker;
+        this.f49362d = invoker;
         if (invoker != null) {
             Object obj = invoker.get("id");
             if (obj instanceof String) {
-                this.f49363f = (String) obj;
+                this.f49364f = (String) obj;
             }
         }
-        this.f49360c = d.b.g0.a.w0.a.c();
-        this.f49365h = str;
+        this.f49361c = d.b.g0.a.w0.a.c();
+        this.f49366h = str;
     }
 
     public static String q0(String str) {
@@ -352,7 +352,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     @CallSuper
     public void H() {
-        this.f49358a = 0;
+        this.f49359a = 0;
         boolean isPlaying = isPlaying();
         pause();
         if (isPlaying) {
@@ -363,7 +363,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     @CallSuper
     public void Q() {
-        this.f49358a = 1;
+        this.f49359a = 1;
         if (isPlaying() || !l0()) {
             return;
         }
@@ -379,7 +379,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     public void U(boolean z) {
         if (z) {
-            ZeusPluginFactory.Invoker invoker = this.f49361d;
+            ZeusPluginFactory.Invoker invoker = this.f49362d;
             if (invoker != null) {
                 m0().changeProxyDynamic((String) invoker.get("Proxy"), true);
                 return;
@@ -402,25 +402,25 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     }
 
     @Override // d.b.g0.a.s0.k.g.a
-    public void a0(@NonNull a.InterfaceC0792a interfaceC0792a) {
-        this.i = interfaceC0792a;
+    public void a0(@NonNull a.InterfaceC0793a interfaceC0793a) {
+        this.i = interfaceC0793a;
     }
 
     @Override // d.b.g0.a.s0.d
     @Nullable
     public String b() {
-        return this.f49365h;
+        return this.f49366h;
     }
 
     @Override // d.b.g0.a.s0.k.g.a
     public String c() {
-        return this.f49363f + "-" + hashCode();
+        return this.f49364f + "-" + hashCode();
     }
 
     @Override // d.b.g0.a.s0.d
     @Nullable
     public String c0() {
-        return this.f49363f;
+        return this.f49364f;
     }
 
     @Override // d.b.g0.a.s0.k.g.a
@@ -431,10 +431,10 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     }
 
     public final void g0() {
-        if (this.f49364g == null) {
-            this.f49364g = (AudioManager) this.f49360c.getSystemService("audio");
+        if (this.f49365g == null) {
+            this.f49365g = (AudioManager) this.f49361c.getSystemService("audio");
         }
-        AudioManager audioManager = this.f49364g;
+        AudioManager audioManager = this.f49365g;
         if (audioManager == null) {
             return;
         }
@@ -443,7 +443,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
 
     @Override // d.b.g0.a.s0.k.g.a
     public Context getContext() {
-        return this.f49360c;
+        return this.f49361c;
     }
 
     @Override // d.b.g0.a.s0.k.g.a
@@ -480,30 +480,30 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     }
 
     public final synchronized CyberPlayer m0() {
-        if (this.f49362e == null) {
+        if (this.f49363e == null) {
             if (d.b.g0.a.w0.a.N().u()) {
                 if (v) {
                     Log.d("SwanInlineCyberWidget", "getPlayer: same process");
                 }
-                this.f49362e = new CyberPlayer(0);
+                this.f49363e = new CyberPlayer(0);
             } else {
                 if (v) {
                     Log.d("SwanInlineCyberWidget", "getPlayer: self process");
                 }
-                this.f49362e = new CyberPlayer(0);
+                this.f49363e = new CyberPlayer(0);
             }
-            this.f49362e.setOnPreparedListener(this.n);
-            this.f49362e.setOnVideoSizeChangedListener(this.t);
-            this.f49362e.setOnCompletionListener(this.p);
-            this.f49362e.setOnErrorListener(this.o);
-            this.f49362e.setOnInfoListener(this.q);
-            this.f49362e.setOnBufferingUpdateListener(this.r);
-            this.f49362e.setOnSeekCompleteListener(this.s);
+            this.f49363e.setOnPreparedListener(this.n);
+            this.f49363e.setOnVideoSizeChangedListener(this.t);
+            this.f49363e.setOnCompletionListener(this.p);
+            this.f49363e.setOnErrorListener(this.o);
+            this.f49363e.setOnInfoListener(this.q);
+            this.f49363e.setOnBufferingUpdateListener(this.r);
+            this.f49363e.setOnSeekCompleteListener(this.s);
             if (v) {
-                Log.d("SwanInlineCyberWidget", "create " + this.f49362e.hashCode() + " player");
+                Log.d("SwanInlineCyberWidget", "create " + this.f49363e.hashCode() + " player");
             }
         }
-        return this.f49362e;
+        return this.f49363e;
     }
 
     @Override // d.b.g0.a.s0.k.g.a
@@ -512,7 +512,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             Log.d("SwanInlineCyberWidget", "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2);
         }
         this.l = true;
-        this.f49359b = str;
+        this.f49360b = str;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -520,7 +520,7 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             str = str.substring(8);
         }
         String q0 = q0(str);
-        ZeusPluginFactory.Invoker invoker = this.f49361d;
+        ZeusPluginFactory.Invoker invoker = this.f49362d;
         if (invoker != null) {
             String str4 = (String) invoker.get("Proxy");
             if (!TextUtils.isEmpty(str4)) {
@@ -548,12 +548,12 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             }
             hashMap.put("Referer", b2);
         }
-        m0().setDataSource(this.f49360c, Uri.parse(q0), hashMap);
+        m0().setDataSource(this.f49361c, Uri.parse(q0), hashMap);
         return true;
     }
 
     public final boolean n0() {
-        if (this.f49358a == -1) {
+        if (this.f49359a == -1) {
             SwanAppActivity n = d.b.g0.a.r1.d.e().n();
             if (n == null) {
                 if (v) {
@@ -579,10 +579,10 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
         if (v) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("check background by kernel state, background ? ");
-            sb2.append(this.f49358a == 0);
+            sb2.append(this.f49359a == 0);
             Log.v("SwanInlineCyberWidget", sb2.toString());
         }
-        return this.f49358a == 0;
+        return this.f49359a == 0;
     }
 
     @Override // d.b.g0.a.s0.k.g.a
@@ -598,25 +598,25 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
         if (v) {
             Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onNetStatus(" + a2 + SmallTailInfo.EMOTION_SUFFIX);
         }
-        a.InterfaceC0792a interfaceC0792a = this.i;
-        if (interfaceC0792a != null) {
-            interfaceC0792a.d(a2);
+        a.InterfaceC0793a interfaceC0793a = this.i;
+        if (interfaceC0793a != null) {
+            interfaceC0793a.d(a2);
         }
     }
 
     public final void p0(int i2) {
-        a.InterfaceC0792a interfaceC0792a;
+        a.InterfaceC0793a interfaceC0793a;
         int b2 = d.b.g0.s.j.a.b.a.b(i2);
         if (v) {
             Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i2 + ", statusCode " + b2 + SmallTailInfo.EMOTION_SUFFIX);
         }
         if (b2 != 100) {
-            if (b2 == 2101 && (interfaceC0792a = this.i) != null) {
-                interfaceC0792a.a(2102);
+            if (b2 == 2101 && (interfaceC0793a = this.i) != null) {
+                interfaceC0793a.a(2102);
             }
-            a.InterfaceC0792a interfaceC0792a2 = this.i;
-            if (interfaceC0792a2 != null) {
-                interfaceC0792a2.a(b2);
+            a.InterfaceC0793a interfaceC0793a2 = this.i;
+            if (interfaceC0793a2 != null) {
+                interfaceC0793a2.a(b2);
             }
         }
     }
@@ -624,14 +624,14 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     public void pause() {
         if (v) {
-            Log.d("SwanInlineCyberWidget", this.f49363f + "-" + hashCode() + " pause()");
+            Log.d("SwanInlineCyberWidget", this.f49364f + "-" + hashCode() + " pause()");
         }
         m0().pause();
         u0(false);
         v0(false);
-        a.InterfaceC0792a interfaceC0792a = this.i;
-        if (interfaceC0792a != null) {
-            interfaceC0792a.b(c());
+        a.InterfaceC0793a interfaceC0793a = this.i;
+        if (interfaceC0793a != null) {
+            interfaceC0793a.b(c());
         }
     }
 
@@ -661,11 +661,11 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     public void release() {
         if (v) {
-            Log.d("SwanInlineCyberWidget", this.f49363f + " release()");
+            Log.d("SwanInlineCyberWidget", this.f49364f + " release()");
         }
-        a.InterfaceC0792a interfaceC0792a = this.i;
-        if (interfaceC0792a != null) {
-            interfaceC0792a.onRelease(c());
+        a.InterfaceC0793a interfaceC0793a = this.i;
+        if (interfaceC0793a != null) {
+            interfaceC0793a.onRelease(c());
         }
         g0();
         d.b.g0.a.t.c.m.j.c().m(c());
@@ -692,16 +692,16 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
     @Override // d.b.g0.a.s0.k.g.a
     public void start() {
         if (v) {
-            Log.d("SwanInlineCyberWidget", this.f49363f + "-" + hashCode() + " start()");
+            Log.d("SwanInlineCyberWidget", this.f49364f + "-" + hashCode() + " start()");
         }
         if (n0()) {
             if (v) {
-                Log.e("SwanInlineCyberWidget", this.f49363f + "-" + hashCode() + " start ignored, widget is in background");
+                Log.e("SwanInlineCyberWidget", this.f49364f + "-" + hashCode() + " start ignored, widget is in background");
             }
             v0(true);
-            a.InterfaceC0792a interfaceC0792a = this.i;
-            if (interfaceC0792a != null) {
-                interfaceC0792a.b(c());
+            a.InterfaceC0793a interfaceC0793a = this.i;
+            if (interfaceC0793a != null) {
+                interfaceC0793a.b(c());
                 return;
             }
             return;
@@ -709,14 +709,14 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
         t0();
         m0().start();
         u0(true);
-        a.InterfaceC0792a interfaceC0792a2 = this.i;
-        if (interfaceC0792a2 != null) {
-            interfaceC0792a2.e(c());
+        a.InterfaceC0793a interfaceC0793a2 = this.i;
+        if (interfaceC0793a2 != null) {
+            interfaceC0793a2.e(c());
         }
     }
 
     @Override // d.b.g0.a.s0.k.g.a
-    public a.InterfaceC0792a t() {
+    public a.InterfaceC0793a t() {
         return this.i;
     }
 
@@ -728,10 +728,10 @@ public abstract class a implements d.b.g0.a.s0.k.g.a {
             }
             return;
         }
-        if (this.f49364g == null) {
-            this.f49364g = (AudioManager) this.f49360c.getSystemService("audio");
+        if (this.f49365g == null) {
+            this.f49365g = (AudioManager) this.f49361c.getSystemService("audio");
         }
-        AudioManager audioManager = this.f49364g;
+        AudioManager audioManager = this.f49365g;
         if (audioManager == null) {
             return;
         }

@@ -3,5 +3,5 @@ package d.b.b.e.p;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42033a = "Static";
+    public static String f42034a = "Static";
 }

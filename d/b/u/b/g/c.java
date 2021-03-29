@@ -6,16 +6,16 @@ import d.b.u.b.f.d;
 public class c implements Cloneable, Comparable<c> {
 
     /* renamed from: e  reason: collision with root package name */
-    public EGLContext f64718e;
+    public EGLContext f64719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f64719f = new d();
+    public d f64720f = new d();
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.u.b.f.c f64720g = new d.b.u.b.f.c();
+    public d.b.u.b.f.c f64721g = new d.b.u.b.f.c();
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.u.b.f.a f64721h = new d.b.u.b.f.b();
+    public d.b.u.b.f.a f64722h = new d.b.u.b.f.b();
     public a i = new a();
     public boolean j = false;
     public d.b.u.b.e.c k = null;
@@ -24,7 +24,7 @@ public class c implements Cloneable, Comparable<c> {
     public boolean n;
 
     public c(EGLContext eGLContext, int i, boolean z) {
-        this.f64718e = eGLContext;
+        this.f64719e = eGLContext;
         this.m = i;
         this.n = z;
     }
@@ -62,11 +62,11 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public d.b.u.b.f.a f() {
-        return this.f64721h;
+        return this.f64722h;
     }
 
     public EGLContext g() {
-        return this.f64718e;
+        return this.f64719e;
     }
 
     public d.b.u.b.e.c h() {
@@ -78,11 +78,11 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public d.b.u.b.f.c j() {
-        return this.f64720g;
+        return this.f64721g;
     }
 
     public d k() {
-        return this.f64719f;
+        return this.f64720f;
     }
 
     public boolean l() {
@@ -98,7 +98,7 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public void o(EGLContext eGLContext) {
-        this.f64718e = eGLContext;
+        this.f64719e = eGLContext;
     }
 
     public void p(d.b.u.b.e.c cVar) {
@@ -110,6 +110,6 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public void r(d dVar) {
-        this.f64719f = dVar;
+        this.f64720f = dVar;
     }
 }

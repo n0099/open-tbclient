@@ -4,7 +4,7 @@ import android.app.Activity;
 import androidx.annotation.UiThread;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import d.b.g0.a.p.d.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d<T extends c> extends TypedCallbackHandler {
     @UiThread
     void A();

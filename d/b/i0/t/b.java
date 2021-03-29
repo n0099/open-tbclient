@@ -9,44 +9,44 @@ import java.util.List;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f60232b;
+    public static b f60233b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<StatisticItem> f60233a;
+    public List<StatisticItem> f60234a;
 
     public static b b() {
-        if (f60232b == null) {
+        if (f60233b == null) {
             synchronized (b.class) {
-                if (f60232b == null) {
-                    f60232b = new b();
+                if (f60233b == null) {
+                    f60233b = new b();
                 }
             }
         }
-        return f60232b;
+        return f60233b;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f60233a == null) {
-            this.f60233a = new ArrayList();
+        if (this.f60234a == null) {
+            this.f60234a = new ArrayList();
         }
-        List<StatisticItem> list = this.f60233a;
+        List<StatisticItem> list = this.f60234a;
         if (list != null) {
             list.add(statisticItem);
         }
     }
 
     public void c() {
-        if (ListUtils.getCount(this.f60233a) == 0) {
+        if (ListUtils.getCount(this.f60234a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f60233a) {
+        for (StatisticItem statisticItem : this.f60234a) {
             if (statisticItem != null) {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f60233a.clear();
+        this.f60234a.clear();
     }
 }

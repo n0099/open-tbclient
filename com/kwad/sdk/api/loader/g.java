@@ -8,13 +8,13 @@ import java.io.File;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f31792a;
+    public static File f31793a;
 
     public static File a(Context context) {
-        if (f31792a == null) {
-            f31792a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        if (f31793a == null) {
+            f31793a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f31792a;
+        return f31793a;
     }
 
     public static File a(Context context, String str) {

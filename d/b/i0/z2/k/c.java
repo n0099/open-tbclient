@@ -49,11 +49,11 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
         public void c(Object obj) {
             c.this.y = false;
             if (c.this.w.getErrorCode() == 22) {
-                l.L(c.this.f62180f.getPageActivity(), c.this.f62180f.getString(R.string.had_liked_forum));
+                l.L(c.this.f62181f.getPageActivity(), c.this.f62181f.getString(R.string.had_liked_forum));
             } else if (obj == null) {
             } else {
                 if (c.this.w.getErrorCode() != 0) {
-                    l.L(c.this.f62180f.getPageActivity(), c.this.w.getErrorString());
+                    l.L(c.this.f62181f.getPageActivity(), c.this.w.getErrorString());
                 } else {
                     c.this.A(true);
                 }
@@ -113,7 +113,7 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
             if (this.p.getVisibility() != 8) {
                 this.p.setVisibility(8);
                 if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f62180f.getPageActivity(), R.dimen.tbds47);
+                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f62181f.getPageActivity(), R.dimen.tbds47);
                     this.o.requestLayout();
                     return;
                 }
@@ -124,7 +124,7 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
         if (this.p.getVisibility() != 0) {
             this.p.setVisibility(0);
             if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f62180f.getPageActivity(), R.dimen.tbds24);
+                ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f62181f.getPageActivity(), R.dimen.tbds24);
                 this.o.requestLayout();
             }
         }
@@ -159,8 +159,8 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
                 b0Var.a(view, this.v);
             }
         } else if (this.s == view) {
-            if (this.f62180f.getPageActivity() instanceof ForumSquareActivity) {
-                String f2 = ((ForumSquareActivity) this.f62180f.getPageActivity()).getDelegate().f();
+            if (this.f62181f.getPageActivity() instanceof ForumSquareActivity) {
+                String f2 = ((ForumSquareActivity) this.f62181f.getPageActivity()).getDelegate().f();
                 if (!"推荐".equals(f2)) {
                     statisticItem = new StatisticItem("c13653");
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f2);
@@ -169,7 +169,7 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
                     statisticItem.param("obj_locate", 3);
                 }
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", this.v.f63474e);
+                statisticItem.param("fid", this.v.f63475e);
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, this.v.u() ? 2 : 1);
                 TiebaStatic.log(statisticItem);
             }
@@ -186,15 +186,15 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
             return;
         }
         if (!l.C()) {
-            UtilHelper.showToast(this.f62180f.getPageActivity(), this.f62180f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f62181f.getPageActivity(), this.f62181f.getString(R.string.neterror));
             return;
         }
         d.b.i0.z2.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.n()) || this.v.j() <= 0 || !ViewHelper.checkUpIsLogin(this.f62180f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.n()) || this.v.j() <= 0 || !ViewHelper.checkUpIsLogin(this.f62181f.getPageActivity())) {
             return;
         }
         if (this.w == null) {
-            LikeModel likeModel = new LikeModel(this.f62180f);
+            LikeModel likeModel = new LikeModel(this.f62181f);
             this.w = likeModel;
             likeModel.setLoadDataCallBack(new a());
         }
@@ -210,11 +210,11 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
             return;
         }
         if (!l.C()) {
-            UtilHelper.showToast(this.f62180f.getPageActivity(), this.f62180f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f62181f.getPageActivity(), this.f62181f.getString(R.string.neterror));
             return;
         }
         d.b.i0.z2.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.n()) || this.v.j() <= 0 || !ViewHelper.checkUpIsLogin(this.f62180f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.n()) || this.v.j() <= 0 || !ViewHelper.checkUpIsLogin(this.f62181f.getPageActivity())) {
             return;
         }
         if (this.x == null) {
@@ -233,7 +233,7 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
         }
         String n = bVar.n();
         if (k.isForumName(n)) {
-            this.f62180f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f62180f.getPageActivity()).createNormalCfg(n, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+            this.f62181f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f62181f.getPageActivity()).createNormalCfg(n, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
         }
     }
 
@@ -262,6 +262,6 @@ public class c extends d.b.i0.x.b<d.b.i0.z2.f.b> {
         A(this.v.u());
         this.m.setOnClickListener(this);
         this.s.setOnClickListener(this);
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -23,22 +23,22 @@ public class b extends d {
                     if (b2 == null) {
                         return false;
                     }
-                    if (this.f29224h) {
-                        com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29219c, this.f29220d, "lp_open_dpl", str);
+                    if (this.f29225h) {
+                        com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29220c, this.f29221d, "lp_open_dpl", str);
                     }
                     n();
                     b2.putExtra("START_ONLY_FOR_ANDROID", true);
                     context.startActivity(b2);
-                    if (this.f29224h) {
-                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29219c, this.f29220d, "lp_openurl");
+                    if (this.f29225h) {
+                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29220c, this.f29221d, "lp_openurl");
                     }
-                    if (this.f29224h) {
-                        k.a().a(this.f29219c, this.f29220d, true);
+                    if (this.f29225h) {
+                        k.a().a(this.f29220c, this.f29221d, true);
                     }
                     return true;
                 } catch (Exception unused) {
-                    if (this.f29224h) {
-                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29219c, this.f29220d, "lp_openurl_failed");
+                    if (this.f29225h) {
+                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29220c, this.f29221d, "lp_openurl_failed");
                     }
                 }
             } catch (Throwable unused2) {
@@ -49,7 +49,7 @@ public class b extends d {
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.a.d, com.bytedance.sdk.openadsdk.downloadnew.core.a
     public boolean j() {
-        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f29218b;
+        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f29219b;
         boolean z = false;
         if (bVar == null) {
             return false;
@@ -57,9 +57,9 @@ public class b extends d {
         String d2 = bVar.d();
         if (!TextUtils.isEmpty(d2) && b(m(), d2)) {
             z = true;
-            this.f29222f.set(true);
-            if (!a(this.f29220d, "click_open", this.f29219c)) {
-                com.bytedance.sdk.openadsdk.c.d.j(m(), this.f29219c, this.f29220d, ak.h(this.f29219c), null);
+            this.f29223f.set(true);
+            if (!a(this.f29221d, "click_open", this.f29220c)) {
+                com.bytedance.sdk.openadsdk.c.d.j(m(), this.f29220c, this.f29221d, ak.h(this.f29220c), null);
             }
         }
         return z;
@@ -67,52 +67,52 @@ public class b extends d {
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.a.d
     public boolean k() {
-        if (this.f29219c.ao() != null) {
-            String a2 = this.f29219c.ao().a();
+        if (this.f29220c.ao() != null) {
+            String a2 = this.f29220c.ao().a();
             if (!TextUtils.isEmpty(a2)) {
                 Uri parse = Uri.parse(a2);
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(parse);
-                if (this.f29224h) {
-                    com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29219c, this.f29220d, "lp_open_dpl", a(a2));
+                if (this.f29225h) {
+                    com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29220c, this.f29221d, "lp_open_dpl", a(a2));
                 }
                 try {
                     Context m = m();
                     if (!(m instanceof Activity)) {
                         intent.addFlags(268435456);
                     }
-                    if (!a(this.f29220d, "open_url_app", this.f29219c)) {
-                        com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29219c, this.f29220d, "open_url_app", null);
+                    if (!a(this.f29221d, "open_url_app", this.f29220c)) {
+                        com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29220c, this.f29221d, "open_url_app", null);
                     }
                     n();
                     m.startActivity(intent);
-                    k.a().a(this.f29219c, this.f29220d, this.f29224h);
-                    if (this.f29224h) {
-                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29219c, this.f29220d, "lp_openurl");
-                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29219c, this.f29220d, "lp_deeplink_success_realtime");
+                    k.a().a(this.f29220c, this.f29221d, this.f29225h);
+                    if (this.f29225h) {
+                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29220c, this.f29221d, "lp_openurl");
+                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29220c, this.f29221d, "lp_deeplink_success_realtime");
                     } else {
-                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29219c, this.f29220d, "deeplink_success_realtime");
+                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29220c, this.f29221d, "deeplink_success_realtime");
                     }
                     return true;
                 } catch (Throwable unused) {
-                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29219c, this.f29220d, "open_fallback_download");
-                    if (this.f29224h) {
-                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29219c, this.f29220d, "lp_openurl_failed");
-                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29219c, this.f29220d, "lp_deeplink_fail_realtime");
+                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29220c, this.f29221d, "open_fallback_download");
+                    if (this.f29225h) {
+                        com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29220c, this.f29221d, "lp_openurl_failed");
+                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29220c, this.f29221d, "lp_deeplink_fail_realtime");
                     } else {
-                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29219c, this.f29220d, "deeplink_fail_realtime");
+                        com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29220c, this.f29221d, "deeplink_fail_realtime");
                     }
                 }
             }
-            if (this.f29221e.get() == 4 || this.f29221e.get() == 3) {
+            if (this.f29222e.get() == 4 || this.f29222e.get() == 3) {
                 return false;
             }
-            if (!this.f29223g || this.f29222f.get()) {
-                this.f29223g = true;
-                if (a(this.f29220d, "open_fallback_url", this.f29219c)) {
+            if (!this.f29224g || this.f29223f.get()) {
+                this.f29224g = true;
+                if (a(this.f29221d, "open_fallback_url", this.f29220c)) {
                     return false;
                 }
-                com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29219c, this.f29220d, "open_fallback_url", null);
+                com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29220c, this.f29221d, "open_fallback_url", null);
                 return false;
             }
             return false;

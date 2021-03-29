@@ -9,54 +9,54 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f61393a;
+    public b f61394a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f61396d;
+    public Context f61397d;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61394b = null;
+    public String f61395b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61395c = false;
+    public boolean f61396c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a f61397e = new C1599a();
+    public b.a f61398e = new C1600a();
 
     /* renamed from: d.b.i0.u2.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1599a implements b.a {
-        public C1599a() {
+    public class C1600a implements b.a {
+        public C1600a() {
         }
 
         @Override // d.b.i0.u2.c.j.b.a
         public void a() {
-            if (a.this.f61395c) {
-                a.this.f61395c = false;
+            if (a.this.f61396c) {
+                a.this.f61396c = false;
             }
         }
     }
 
     public a(Context context) {
-        this.f61396d = context;
+        this.f61397d = context;
     }
 
     public final String c() {
-        if (!TextUtils.isEmpty(this.f61394b)) {
-            return this.f61394b;
+        if (!TextUtils.isEmpty(this.f61395b)) {
+            return this.f61395b;
         }
         String b2 = c.b();
-        this.f61394b = b2;
+        this.f61395b = b2;
         if (TextUtils.isEmpty(b2)) {
-            this.f61394b = c.c();
-        } else if (!this.f61394b.endsWith(File.separator)) {
-            this.f61394b += File.separator;
+            this.f61395b = c.c();
+        } else if (!this.f61395b.endsWith(File.separator)) {
+            this.f61395b += File.separator;
         }
-        return this.f61394b;
+        return this.f61395b;
     }
 
     public boolean d() {
-        return this.f61395c;
+        return this.f61396c;
     }
 
     public final void e(String str) {
@@ -75,18 +75,18 @@ public class a {
     }
 
     public final boolean f(String str, String str2, boolean z) {
-        if (this.f61393a == null) {
+        if (this.f61394a == null) {
             e(str);
             b bVar = new b(str, str2, z);
-            this.f61393a = bVar;
-            bVar.b(this.f61397e);
+            this.f61394a = bVar;
+            bVar.b(this.f61398e);
             try {
-                this.f61393a.start();
+                this.f61394a.start();
                 return true;
             } catch (IllegalThreadStateException unused) {
                 return true;
             } catch (Exception e2) {
-                this.f61393a = null;
+                this.f61394a = null;
                 BdLog.e(e2);
                 return false;
             }
@@ -101,7 +101,7 @@ public class a {
         }
         h();
         if (c.e(c2) && f(c2, "instant", true)) {
-            this.f61395c = true;
+            this.f61396c = true;
         }
     }
 
@@ -109,7 +109,7 @@ public class a {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [d.b.i0.u2.c.j.b$a, d.b.i0.u2.c.j.b] */
     public final void h() {
-        b bVar = this.f61393a;
+        b bVar = this.f61394a;
         if (bVar != null) {
             try {
                 try {
@@ -118,11 +118,11 @@ public class a {
                     BdLog.e(e2);
                 }
             } finally {
-                this.f61393a.b(null);
-                this.f61393a = null;
+                this.f61394a.b(null);
+                this.f61394a = null;
             }
         }
-        this.f61395c = false;
+        this.f61396c = false;
     }
 
     public void i() {

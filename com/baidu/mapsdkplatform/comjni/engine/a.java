@@ -9,14 +9,14 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7893a = "a";
+    public static final String f7894a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static SparseArray<List<Handler>> f7894b = new SparseArray<>();
+    public static SparseArray<List<Handler>> f7895b = new SparseArray<>();
 
     public static void a(int i, int i2, int i3, long j) {
-        synchronized (f7894b) {
-            List<Handler> list = f7894b.get(i);
+        synchronized (f7895b) {
+            List<Handler> list = f7895b.get(i);
             if (list != null && !list.isEmpty()) {
                 for (Handler handler : list) {
                     Message.obtain(handler, i, i2, i3, Long.valueOf(j)).sendToTarget();
@@ -26,15 +26,15 @@ public class a {
     }
 
     public static void a(int i, Handler handler) {
-        synchronized (f7894b) {
+        synchronized (f7895b) {
             if (handler == null) {
                 return;
             }
-            List<Handler> list = f7894b.get(i);
+            List<Handler> list = f7895b.get(i);
             if (list == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(handler);
-                f7894b.put(i, arrayList);
+                f7895b.put(i, arrayList);
             } else if (!list.contains(handler)) {
                 list.add(handler);
             }
@@ -42,10 +42,10 @@ public class a {
     }
 
     public static void b(int i, Handler handler) {
-        synchronized (f7894b) {
+        synchronized (f7895b) {
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                List<Handler> list = f7894b.get(i);
+                List<Handler> list = f7895b.get(i);
                 if (list != null) {
                     list.remove(handler);
                 }

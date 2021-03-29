@@ -11,57 +11,57 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<c, List<b>> f65809a = new HashMap();
+    public Map<c, List<b>> f65810a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f65810b = new HashMap();
+    public Map<String, String> f65811b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<i> f65811c;
+    public final List<i> f65812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<i> f65812d;
+    public final List<i> f65813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f65813e;
+    public k f65814e;
 
     public d() {
         new CopyOnWriteArrayList();
-        this.f65811c = new CopyOnWriteArrayList();
+        this.f65812c = new CopyOnWriteArrayList();
         new CopyOnWriteArrayList();
-        this.f65812d = new CopyOnWriteArrayList();
-        this.f65813e = null;
+        this.f65813d = new CopyOnWriteArrayList();
+        this.f65814e = null;
     }
 
     @Nullable
     public List<b> a(c cVar) {
-        return this.f65809a.get(cVar);
+        return this.f65810a.get(cVar);
     }
 
     public Map<String, String> b() {
-        return this.f65810b;
+        return this.f65811b;
     }
 
     public void c(k kVar) {
-        this.f65813e = kVar;
+        this.f65814e = kVar;
     }
 
     public void d(Map<? extends String, ? extends String> map) {
-        this.f65810b.putAll(map);
+        this.f65811b.putAll(map);
     }
 
     @NonNull
     public List<i> e() {
-        return this.f65811c;
+        return this.f65812c;
     }
 
     @NonNull
     public List<i> f() {
-        return this.f65812d;
+        return this.f65813d;
     }
 
     @Nullable
     public k g() {
-        return this.f65813e;
+        return this.f65814e;
     }
 }

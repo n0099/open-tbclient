@@ -15,13 +15,13 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public static int[] s = {0, 0, 0};
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceTexture f58998e;
+    public SurfaceTexture f58999e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Surface f58999f;
+    public Surface f59000f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59001h;
+    public boolean f59002h;
     public Context i;
     public String j;
     public int k;
@@ -31,7 +31,7 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public int o;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f59000g = new Object();
+    public Object f59001g = new Object();
     public final float[] p = new float[16];
 
     public h(Context context, String str, int i, int i2) {
@@ -44,21 +44,21 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public void a() {
-        synchronized (this.f59000g) {
-            while (!this.f59001h) {
+        synchronized (this.f59001g) {
+            while (!this.f59002h) {
                 try {
-                    this.f59000g.wait(500L);
-                    if (!this.f59001h) {
+                    this.f59001g.wait(500L);
+                    if (!this.f59002h) {
                         throw new RuntimeException("Surface frame wait timed out");
                     }
                 } catch (InterruptedException e2) {
                     throw new RuntimeException(e2);
                 }
             }
-            this.f59001h = false;
+            this.f59002h = false;
         }
         b("before updateTexImage");
-        this.f58998e.updateTexImage();
+        this.f58999e.updateTexImage();
     }
 
     public void b(String str) {
@@ -71,8 +71,8 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public void c() {
-        this.f58998e.updateTexImage();
-        this.f58998e.getTransformMatrix(this.p);
+        this.f58999e.updateTexImage();
+        this.f58999e.getTransformMatrix(this.p);
         faceunity.fuItemSetParam(q, "filter_name", this.j);
         faceunity.fuItemSetParam(q, "eye_bright", 0.0d);
         faceunity.fuItemSetParam(q, "tooth_whiten", 0.0d);
@@ -80,13 +80,13 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public Surface d() {
-        return this.f58999f;
+        return this.f59000f;
     }
 
     public void e() {
-        this.f58999f.release();
-        this.f58999f = null;
-        this.f58998e = null;
+        this.f59000f.release();
+        this.f59000f = null;
+        this.f58999e = null;
         d.e.c.c cVar = this.m;
         if (cVar != null) {
             cVar.c(false);
@@ -109,21 +109,21 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
         d.e.c.c cVar = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
         this.n = cVar;
         this.o = cVar.a();
-        this.f58998e = new SurfaceTexture(this.o);
-        this.f58999f = new Surface(this.f58998e);
+        this.f58999e = new SurfaceTexture(this.o);
+        this.f59000f = new Surface(this.f58999e);
         int a2 = d.e.a.a(this.i);
         q = a2;
         s[0] = a2;
-        this.f58998e.setOnFrameAvailableListener(this);
+        this.f58999e.setOnFrameAvailableListener(this);
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Log.d(OutputSurface.TAG, "new frame available");
-        synchronized (this.f59000g) {
-            if (!this.f59001h) {
-                this.f59001h = true;
-                this.f59000g.notifyAll();
+        synchronized (this.f59001g) {
+            if (!this.f59002h) {
+                this.f59002h = true;
+                this.f59001g.notifyAll();
             } else {
                 throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
             }

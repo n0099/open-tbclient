@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.upload.action.track.Request;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BIMRtcPbGenerator {
     public static final String SDK_NAME = "bim_rtc";
     public static final String TAG = "BIMRtcPbGenerator";

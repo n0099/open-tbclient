@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.b.h0.r.q.g1;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Object> {
     public g1 data;
 

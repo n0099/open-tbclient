@@ -2,7 +2,7 @@ package com.baidu.searchbox.elasticthread;
 
 import androidx.annotation.NonNull;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SerialExecutor extends ExecutorProxy {
     public SerialExecutor(String str) {
         super(str, 4);

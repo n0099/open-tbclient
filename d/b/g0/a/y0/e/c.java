@@ -12,10 +12,10 @@ import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import d.b.g0.a.y0.e.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class a extends c<a> {
         @Override // d.b.g0.a.y0.e.c, d.b.g0.a.y0.e.f.c
         public /* bridge */ /* synthetic */ d.b.g0.a.y0.e.f.c C(Bundle bundle) {

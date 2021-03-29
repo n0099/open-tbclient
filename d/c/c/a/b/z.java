@@ -9,16 +9,16 @@ import java.util.ArrayList;
 public final class z implements i {
 
     /* renamed from: e  reason: collision with root package name */
-    public final y f65572e;
+    public final y f65573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.l f65573f;
+    public final e.l f65574f;
 
     /* renamed from: g  reason: collision with root package name */
-    public t f65574g;
+    public t f65575g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a0 f65575h;
+    public final a0 f65576h;
     public final boolean i;
     public boolean j;
 
@@ -26,10 +26,10 @@ public final class z implements i {
     public final class a extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final j f65576f;
+        public final j f65577f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ z f65577g;
+        public final /* synthetic */ z f65578g;
 
         @Override // d.c.c.a.b.a.d
         public void i() {
@@ -38,47 +38,47 @@ public final class z implements i {
             boolean z = true;
             try {
                 try {
-                    h2 = this.f65577g.h();
+                    h2 = this.f65578g.h();
                 } catch (IOException e3) {
                     e2 = e3;
                     z = false;
                 }
                 try {
-                    if (this.f65577g.f65573f.e()) {
-                        this.f65576f.b(this.f65577g, new IOException(ResponseException.CANCELED));
+                    if (this.f65578g.f65574f.e()) {
+                        this.f65577f.b(this.f65578g, new IOException(ResponseException.CANCELED));
                     } else {
-                        this.f65576f.a(this.f65577g, h2);
+                        this.f65577f.a(this.f65578g, h2);
                     }
                 } catch (IOException e4) {
                     e2 = e4;
                     if (!z) {
-                        this.f65577g.f65574g.h(this.f65577g, e2);
-                        this.f65576f.b(this.f65577g, e2);
+                        this.f65578g.f65575g.h(this.f65578g, e2);
+                        this.f65577f.b(this.f65578g, e2);
                     } else {
                         d.c.c.a.b.a.i.e j = d.c.c.a.b.a.i.e.j();
-                        j.f(4, "Callback failure for " + this.f65577g.f(), e2);
+                        j.f(4, "Callback failure for " + this.f65578g.f(), e2);
                     }
                 }
             } finally {
-                this.f65577g.f65572e.v().b(this);
+                this.f65578g.f65573e.v().b(this);
             }
         }
 
         public String j() {
-            return this.f65577g.f65575h.a().v();
+            return this.f65578g.f65576h.a().v();
         }
     }
 
     public z(y yVar, a0 a0Var, boolean z) {
-        this.f65572e = yVar;
-        this.f65575h = a0Var;
+        this.f65573e = yVar;
+        this.f65576h = a0Var;
         this.i = z;
-        this.f65573f = new e.l(yVar, z);
+        this.f65574f = new e.l(yVar, z);
     }
 
     public static z c(y yVar, a0 a0Var, boolean z) {
         z zVar = new z(yVar, a0Var, z);
-        zVar.f65574g = yVar.A().a(zVar);
+        zVar.f65575g = yVar.A().a(zVar);
         return zVar;
     }
 
@@ -92,32 +92,32 @@ public final class z implements i {
             }
         }
         i();
-        this.f65574g.b(this);
+        this.f65575g.b(this);
         try {
             try {
-                this.f65572e.v().c(this);
+                this.f65573e.v().c(this);
                 c h2 = h();
                 if (h2 != null) {
                     return h2;
                 }
                 throw new IOException(ResponseException.CANCELED);
             } catch (IOException e2) {
-                this.f65574g.h(this, e2);
+                this.f65575g.h(this, e2);
                 throw e2;
             }
         } finally {
-            this.f65572e.v().g(this);
+            this.f65573e.v().g(this);
         }
     }
 
     public boolean d() {
-        return this.f65573f.e();
+        return this.f65574f.e();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: e */
     public z clone() {
-        return c(this.f65572e, this.f65575h, this.i);
+        return c(this.f65573e, this.f65576h, this.i);
     }
 
     public String f() {
@@ -130,23 +130,23 @@ public final class z implements i {
     }
 
     public String g() {
-        return this.f65575h.a().C();
+        return this.f65576h.a().C();
     }
 
     public c h() throws IOException {
-        ArrayList arrayList = new ArrayList(this.f65572e.y());
-        arrayList.add(this.f65573f);
-        arrayList.add(new e.c(this.f65572e.i()));
-        arrayList.add(new d.c.c.a.b.a.a.a(this.f65572e.j()));
-        arrayList.add(new d.c.c.a.b.a.c.a(this.f65572e));
+        ArrayList arrayList = new ArrayList(this.f65573e.y());
+        arrayList.add(this.f65574f);
+        arrayList.add(new e.c(this.f65573e.i()));
+        arrayList.add(new d.c.c.a.b.a.a.a(this.f65573e.j()));
+        arrayList.add(new d.c.c.a.b.a.c.a(this.f65573e));
         if (!this.i) {
-            arrayList.addAll(this.f65572e.z());
+            arrayList.addAll(this.f65573e.z());
         }
         arrayList.add(new e.d(this.i));
-        return new e.i(arrayList, null, null, null, 0, this.f65575h, this, this.f65574g, this.f65572e.b(), this.f65572e.e(), this.f65572e.f()).a(this.f65575h);
+        return new e.i(arrayList, null, null, null, 0, this.f65576h, this, this.f65575g, this.f65573e.b(), this.f65573e.e(), this.f65573e.f()).a(this.f65576h);
     }
 
     public final void i() {
-        this.f65573f.d(d.c.c.a.b.a.i.e.j().c("response.body().close()"));
+        this.f65574f.d(d.c.c.a.b.a.i.e.j().c("response.body().close()"));
     }
 }

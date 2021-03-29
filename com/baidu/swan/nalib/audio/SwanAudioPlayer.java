@@ -155,9 +155,9 @@ public class SwanAudioPlayer {
     public void postAudioData(byte[] bArr, long j) {
         if (bArr != null) {
             d.b.g0.j.a.a aVar = new d.b.g0.j.a.a();
-            aVar.f48875a = bArr;
-            aVar.f48876b = j;
-            aVar.f48877c = System.nanoTime();
+            aVar.f48876a = bArr;
+            aVar.f48877b = j;
+            aVar.f48878c = System.nanoTime();
             this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
         }
     }

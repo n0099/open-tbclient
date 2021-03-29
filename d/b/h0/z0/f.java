@@ -10,10 +10,10 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f51689a;
+        public String f51690a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51690b;
+        public int f51691b;
 
         public a() {
         }
@@ -26,27 +26,27 @@ public class f {
             if (str.contains("#")) {
                 String[] split = str.split("#");
                 if (split.length == 1) {
-                    aVar.f51689a = split[0];
+                    aVar.f51690a = split[0];
                 } else if (split.length == 2) {
-                    aVar.f51689a = split[0];
-                    aVar.f51690b = d.b.b.e.m.b.d(split[1], -1);
+                    aVar.f51690a = split[0];
+                    aVar.f51691b = d.b.b.e.m.b.d(split[1], -1);
                 }
             } else {
-                aVar.f51689a = str;
+                aVar.f51690a = str;
             }
             return aVar;
         }
 
         public String toString() {
-            if (StringUtils.isNull(this.f51689a)) {
+            if (StringUtils.isNull(this.f51690a)) {
                 return null;
             }
-            return this.f51689a + "#" + this.f51690b;
+            return this.f51690a + "#" + this.f51691b;
         }
 
         public a(String str, int i) {
-            this.f51689a = str;
-            this.f51690b = i;
+            this.f51690a = str;
+            this.f51691b = i;
         }
     }
 
@@ -62,8 +62,8 @@ public class f {
         ArrayList arrayList = new ArrayList();
         for (String str : split) {
             a a2 = a.a(str);
-            if (a2 != null && !StringUtils.isNull(a2.f51689a)) {
-                arrayList.add(a2.f51689a);
+            if (a2 != null && !StringUtils.isNull(a2.f51690a)) {
+                arrayList.add(a2.f51690a);
             }
         }
         return (String[]) arrayList.toArray(new String[arrayList.size()]);

@@ -19,20 +19,20 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 public class a implements k, d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7692a = "a";
+    public static final String f7693a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public l f7693b;
+    public l f7694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f7694c;
+    public e f7695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SynchronizationDisplayListener f7695d;
+    public SynchronizationDisplayListener f7696d;
 
     public a(Context context, BaiduMap baiduMap, RoleOptions roleOptions, DisplayOptions displayOptions) {
-        this.f7693b = null;
-        this.f7694c = null;
+        this.f7694b = null;
+        this.f7695c = null;
         if (context == null) {
             throw new IllegalArgumentException("Context invalid, please check!");
         }
@@ -43,10 +43,10 @@ public class a implements k, d {
             throw new IllegalArgumentException("RoleOptions is invalid, please check!");
         }
         l lVar = new l(roleOptions, displayOptions);
-        this.f7693b = lVar;
+        this.f7694b = lVar;
         lVar.a(this);
         e eVar = new e(context, baiduMap);
-        this.f7694c = eVar;
+        this.f7695c = eVar;
         eVar.a(this);
     }
 
@@ -98,10 +98,10 @@ public class a implements k, d {
     private boolean b(RoleOptions roleOptions) {
         if (roleOptions == null || roleOptions.getOrderId() == null || roleOptions.getOrderId().equals("") || roleOptions.getRoleType() != 0 || roleOptions.getDriverId() == null || roleOptions.getDriverId().equals("") || roleOptions.getUserId() == null || roleOptions.getUserId().equals("") || !a(roleOptions.getCoordType()) || !a(roleOptions.getStartPosition(), roleOptions)) {
             if (roleOptions == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7692a, "The roleOptions is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7693a, "The roleOptions is null");
                 return false;
             }
-            String str = f7692a;
+            String str = f7693a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "The roleOptions content is: OrderId = " + roleOptions.getOrderId() + "; DriverId = " + roleOptions.getDriverId() + "; UserId = " + roleOptions.getUserId() + "; StartPosition = " + roleOptions.getStartPosition() + "; EndPosition = " + roleOptions.getEndPosition() + "; DriverPosition = " + roleOptions.getDriverPosition() + "; CoordType = " + roleOptions.getCoordType());
             return false;
         }
@@ -113,12 +113,12 @@ public class a implements k, d {
     }
 
     public void a() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7692a, MissionEvent.MESSAGE_RESUME);
-        l lVar = this.f7693b;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7693a, MissionEvent.MESSAGE_RESUME);
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.a();
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.a();
         }
@@ -126,27 +126,27 @@ public class a implements k, d {
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.data.k
     public void a(float f2, long j) {
-        SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+        SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
         if (synchronizationDisplayListener != null) {
             synchronizationDisplayListener.onRoutePlanInfoFreshFinished(f2, j);
         }
     }
 
     public void a(int i) {
-        String str = f7692a;
+        String str = f7693a;
         com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i);
         if (!e(i)) {
-            SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+            SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
             if (synchronizationDisplayListener != null) {
                 synchronizationDisplayListener.onSynchronizationProcessResult(1002, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_STATE_INVALID);
             }
             i = 0;
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.a(i);
         }
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.a(i);
         }
@@ -154,21 +154,21 @@ public class a implements k, d {
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.render.d
     public void a(int i, String str) {
-        SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+        SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
         if (synchronizationDisplayListener != null) {
             synchronizationDisplayListener.onSynchronizationProcessResult(i, str);
         }
     }
 
     public void a(View view) {
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.a(view);
         }
     }
 
     public void a(DisplayOptions displayOptions) {
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar == null || displayOptions == null) {
             return;
         }
@@ -177,14 +177,14 @@ public class a implements k, d {
 
     public void a(RoleOptions roleOptions) {
         if (roleOptions == null || !b(roleOptions)) {
-            SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+            SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
             if (synchronizationDisplayListener != null) {
                 synchronizationDisplayListener.onSynchronizationProcessResult(1003, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_PARAM_INVALID);
                 return;
             }
             return;
         }
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.a(roleOptions);
         }
@@ -192,20 +192,20 @@ public class a implements k, d {
 
     public void a(SynchronizationDisplayListener synchronizationDisplayListener) {
         if (synchronizationDisplayListener != null) {
-            this.f7695d = synchronizationDisplayListener;
+            this.f7696d = synchronizationDisplayListener;
         } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7692a, "SynchronizationDisplayListener is null, must be applied.");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7693a, "SynchronizationDisplayListener is null, must be applied.");
             throw new IllegalArgumentException("synchronizationDisplayListener is null");
         }
     }
 
     public void b() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7692a, MissionEvent.MESSAGE_PAUSE);
-        l lVar = this.f7693b;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7693a, MissionEvent.MESSAGE_PAUSE);
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.b();
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.b();
         }
@@ -218,11 +218,11 @@ public class a implements k, d {
         if (i > 30) {
             i = 30;
         }
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.b(i);
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.b(i);
         }
@@ -230,37 +230,37 @@ public class a implements k, d {
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.data.k
     public void b(int i, String str) {
-        SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+        SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
         if (synchronizationDisplayListener != null) {
             synchronizationDisplayListener.onSynchronizationProcessResult(i, str);
         }
     }
 
     public void b(View view) {
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.b(view);
         }
     }
 
     public void b(SynchronizationDisplayListener synchronizationDisplayListener) {
-        if (this.f7695d != null) {
-            this.f7695d = null;
+        if (this.f7696d != null) {
+            this.f7696d = null;
         }
     }
 
     public void c() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7692a, "release");
-        l lVar = this.f7693b;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7693a, "release");
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.c();
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.f();
         }
-        if (this.f7695d != null) {
-            this.f7695d = null;
+        if (this.f7696d != null) {
+            this.f7696d = null;
         }
     }
 
@@ -271,7 +271,7 @@ public class a implements k, d {
         if (i > 30) {
             i = 30;
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.c(i);
         }
@@ -279,23 +279,23 @@ public class a implements k, d {
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.data.k
     public void c(int i, String str) {
-        SynchronizationDisplayListener synchronizationDisplayListener = this.f7695d;
+        SynchronizationDisplayListener synchronizationDisplayListener = this.f7696d;
         if (synchronizationDisplayListener != null) {
             synchronizationDisplayListener.onSynchronizationProcessResult(i, str);
         }
     }
 
     public void c(View view) {
-        l lVar = this.f7693b;
+        l lVar = this.f7694b;
         if (lVar != null) {
             lVar.c(view);
         }
     }
 
     public Marker d() {
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7692a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7693a, "Data manager instance is null");
             return null;
         }
         return eVar.c();
@@ -308,32 +308,32 @@ public class a implements k, d {
         if (i > 30) {
             i = 30;
         }
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.d(i);
         }
     }
 
     public Marker e() {
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7692a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7693a, "Data manager instance is null");
             return null;
         }
         return eVar.d();
     }
 
     public Marker f() {
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7692a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7693a, "Data manager instance is null");
             return null;
         }
         return eVar.e();
     }
 
     public void g() {
-        e eVar = this.f7694c;
+        e eVar = this.f7695c;
         if (eVar != null) {
             eVar.g();
         }

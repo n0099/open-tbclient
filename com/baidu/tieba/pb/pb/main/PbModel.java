@@ -132,22 +132,22 @@ public class PbModel extends DataModel {
     public d.b.b.c.g.a d1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19730e;
+    public String f19731e;
     public boolean e0;
     public CustomMessageListener e1;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19731f;
+    public boolean f19732f;
     public boolean f0;
     public CustomMessageListener f1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19732g;
+    public String f19733g;
     public String g0;
     public PraiseData g1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19733h;
+    public String f19734h;
     public String h0;
     public String i;
     public long i0;
@@ -199,7 +199,7 @@ public class PbModel extends DataModel {
                 return;
             }
             if (hashMap.get(d.b.h0.a.f.o) instanceof String) {
-                PbModel.this.f19730e = (String) hashMap.get(d.b.h0.a.f.o);
+                PbModel.this.f19731e = (String) hashMap.get(d.b.h0.a.f.o);
             }
             if (hashMap.get(d.b.h0.a.f.p) instanceof String) {
                 PbModel.this.P0 = (String) hashMap.get(d.b.h0.a.f.p);
@@ -336,15 +336,15 @@ public class PbModel extends DataModel {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c2.h.e f19739e;
+        public final /* synthetic */ d.b.i0.c2.h.e f19740e;
 
         public f(d.b.i0.c2.h.e eVar) {
-            this.f19739e = eVar;
+            this.f19740e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PbModel.this.w1(this.f19739e, 3, false, 0, "", false, 0, 0L, 0L, true);
+            PbModel.this.w1(this.f19740e, 3, false, 0, "", false, 0, 0L, 0L, true);
             PbModel.this.isLoading = false;
         }
     }
@@ -366,10 +366,10 @@ public class PbModel extends DataModel {
     public PbModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
         this.mStType = null;
-        this.f19730e = null;
-        this.f19731f = false;
-        this.f19732g = null;
-        this.f19733h = null;
+        this.f19731e = null;
+        this.f19732f = false;
+        this.f19733g = null;
+        this.f19734h = null;
         this.j = null;
         this.k = false;
         this.l = false;
@@ -506,9 +506,9 @@ public class PbModel extends DataModel {
     }
 
     public void E1(Bundle bundle) {
-        bundle.putString("thread_id", this.f19730e);
-        bundle.putString("post_id", this.f19732g);
-        bundle.putString("forum_id", this.f19733h);
+        bundle.putString("thread_id", this.f19731e);
+        bundle.putString("post_id", this.f19733g);
+        bundle.putString("forum_id", this.f19734h);
         bundle.putString("from_forum_id", this.i);
         bundle.putInt("key_start_from", this.y0);
         bundle.putBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", this.k);
@@ -600,13 +600,13 @@ public class PbModel extends DataModel {
             return false;
         }
         if (i == 4 && !this.f0) {
-            G1(Y(), true, this.f19732g, 3);
+            G1(Y(), true, this.f19733g, 3);
         }
         if (i == 3 && !this.f0) {
             if (this.C) {
-                G1(Y(), true, this.f19732g, 3);
+                G1(Y(), true, this.f19733g, 3);
             } else {
-                G1(Y(), false, this.f19732g, 3);
+                G1(Y(), false, this.f19733g, 3);
             }
         }
         this.f0 = false;
@@ -621,8 +621,8 @@ public class PbModel extends DataModel {
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.f19730e != null && this.f19730e.length() != 0) {
-            pbPageRequestMessage.set_kz(d.b.b.e.m.b.f(this.f19730e, 0L));
+        if (this.f19731e != null && this.f19731e.length() != 0) {
+            pbPageRequestMessage.set_kz(d.b.b.e.m.b.f(this.f19731e, 0L));
             pbPageRequestMessage.setFloorSortType(1);
             pbPageRequestMessage.setFloor_rn(4);
             pbPageRequestMessage.set_rn(15);
@@ -682,7 +682,7 @@ public class PbModel extends DataModel {
                                         PostData postData = D.get(i3);
                                         if (postData != null) {
                                             String D2 = postData.D();
-                                            this.f19732g = D2;
+                                            this.f19733g = D2;
                                             if (StringUtils.isNull(D2)) {
                                             }
                                         }
@@ -693,8 +693,8 @@ public class PbModel extends DataModel {
                                     pbPageRequestMessage.set_pn(Integer.valueOf(this.v + 1));
                                 }
                             }
-                            if (this.f19732g == null && this.f19732g.length() > 0) {
-                                pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19732g, 0L));
+                            if (this.f19733g == null && this.f19733g.length() > 0) {
+                                pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19733g, 0L));
                                 if (this.o == 2) {
                                     pbPageRequestMessage.set_pid(0L);
                                 }
@@ -719,14 +719,14 @@ public class PbModel extends DataModel {
                         if (this.o == 2) {
                         }
                     }
-                    if (this.f19732g == null) {
+                    if (this.f19733g == null) {
                     }
                     if (this.o == 1) {
                     }
                     L1(pbPageRequestMessage);
                 case 2:
                     if (D != null && D.size() > 0 && D.get(0) != null) {
-                        this.f19732g = D.get(0).D();
+                        this.f19733g = D.get(0).D();
                     }
                     pbPageRequestMessage.set_back(1);
                     pbPageRequestMessage.set_banner(0);
@@ -739,8 +739,8 @@ public class PbModel extends DataModel {
                             pbPageRequestMessage.set_pn(Integer.valueOf(this.v + 1));
                         }
                     }
-                    if (this.f19732g != null && this.f19732g.length() > 0) {
-                        pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19732g, 0L));
+                    if (this.f19733g != null && this.f19733g.length() > 0) {
+                        pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19733g, 0L));
                         if (this.o == 2) {
                             pbPageRequestMessage.set_pid(0L);
                         }
@@ -776,7 +776,7 @@ public class PbModel extends DataModel {
                 case 4:
                     pbPageRequestMessage.set_st_type("store_thread");
                     pbPageRequestMessage.set_mark(1);
-                    pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19732g, 0L));
+                    pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19733g, 0L));
                     pbPageRequestMessage.set_back(0);
                     pbPageRequestMessage.set_banner(0);
                     L1(pbPageRequestMessage);
@@ -792,7 +792,7 @@ public class PbModel extends DataModel {
                     if (this.o == 1 && this.x0 && !this.l) {
                         pbPageRequestMessage.set_pid(0L);
                     } else {
-                        pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19732g, 0L));
+                        pbPageRequestMessage.set_pid(d.b.b.e.m.b.f(this.f19733g, 0L));
                         if (this.o == 2) {
                             pbPageRequestMessage.set_pid(0L);
                         }
@@ -832,7 +832,7 @@ public class PbModel extends DataModel {
             if (UtilHelper.isUgcThreadType(this.R0)) {
                 pbPageRequestMessage.setForumId(String.valueOf(0));
             } else {
-                pbPageRequestMessage.setForumId(this.f19733h);
+                pbPageRequestMessage.setForumId(this.f19734h);
             }
             pbPageRequestMessage.setNeedRepostRecommendForum(this.k);
             if (this.y0 == 7) {
@@ -860,7 +860,7 @@ public class PbModel extends DataModel {
                 }
                 pbPageRequestMessage.setAfterAdThreadCount(i4);
                 pbPageRequestMessage.setTag(this.unique_id);
-                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19730e);
+                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19731e);
                 pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                 sendMessage(pbPageRequestMessage);
                 return true;
@@ -876,7 +876,7 @@ public class PbModel extends DataModel {
             }
             pbPageRequestMessage.setAfterAdThreadCount(i4);
             pbPageRequestMessage.setTag(this.unique_id);
-            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19730e);
+            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.f19731e);
             pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
             sendMessage(pbPageRequestMessage);
             return true;
@@ -996,7 +996,7 @@ public class PbModel extends DataModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f19730e == null) {
+        if (this.f19731e == null) {
             return false;
         }
         cancelLoadData();
@@ -1028,7 +1028,7 @@ public class PbModel extends DataModel {
             l.setName(a2Var.h0().i());
             l.setUser_level(a2Var.h0().b());
             l.setImage_url(a2Var.h0().a());
-            l.setPost_num(a2Var.h0().f50922h);
+            l.setPost_num(a2Var.h0().f50923h);
             l.setMember_num(a2Var.h0().i);
         } else {
             ForumData l2 = eVar.l();
@@ -1062,9 +1062,9 @@ public class PbModel extends DataModel {
 
     public String N() {
         StringBuilder sb = new StringBuilder(20);
-        sb.append(this.f19730e);
+        sb.append(this.f19731e);
         if (!this.E) {
-            sb.append(this.f19732g);
+            sb.append(this.f19733g);
         }
         sb.append(this.l);
         sb.append(this.n);
@@ -1109,7 +1109,7 @@ public class PbModel extends DataModel {
     }
 
     public String O0() {
-        return this.f19730e;
+        return this.f19731e;
     }
 
     public void O1(String str) {
@@ -1134,8 +1134,8 @@ public class PbModel extends DataModel {
     }
 
     public String P0() {
-        if (!StringUtils.isNull(this.f19730e) && !"0".equals(this.f19730e)) {
-            return this.f19730e;
+        if (!StringUtils.isNull(this.f19731e) && !"0".equals(this.f19731e)) {
+            return this.f19731e;
         }
         return this.P0;
     }
@@ -1193,7 +1193,7 @@ public class PbModel extends DataModel {
         if (this.u < 1) {
             this.u = 1;
         }
-        if (this.f19730e == null) {
+        if (this.f19731e == null) {
             return false;
         }
         return F1(5);
@@ -1206,7 +1206,7 @@ public class PbModel extends DataModel {
     }
 
     public String S0() {
-        return this.f19732g;
+        return this.f19733g;
     }
 
     public d.b.i0.c2.h.e S1(d.b.i0.c2.h.e eVar) {
@@ -1269,7 +1269,7 @@ public class PbModel extends DataModel {
 
     public boolean V1(String str) {
         this.l = !this.l;
-        this.f19732g = str;
+        this.f19733g = str;
         TiebaStatic.log(new StatisticItem("pb_onlyowner_click").param("obj_source", 0));
         if (F1(6)) {
             return true;
@@ -1291,9 +1291,9 @@ public class PbModel extends DataModel {
             return false;
         }
         this.l = z;
-        this.f19732g = str;
+        this.f19733g = str;
         if (this.o == 2) {
-            this.f19732g = "";
+            this.f19733g = "";
         }
         if (z) {
             TiebaStatic.log(new StatisticItem("pb_onlyowner_click").param("obj_source", 1));
@@ -1309,12 +1309,12 @@ public class PbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19730e);
+        markData.setThreadId(this.f19731e);
         markData.setPostId(this.I.t());
         markData.setTime(date.getTime());
         markData.setHostMode(this.l);
         markData.setSequence(Boolean.valueOf(b1()));
-        markData.setId(this.f19730e);
+        markData.setId(this.f19731e);
         return markData;
     }
 
@@ -1335,7 +1335,7 @@ public class PbModel extends DataModel {
         this.o = i;
         this.n = !z;
         if (i == 2 && this.C) {
-            this.f19732g = "0";
+            this.f19733g = "0";
         }
         if (this.isLoading || !LoadData()) {
             this.n = !this.n;
@@ -1346,8 +1346,8 @@ public class PbModel extends DataModel {
     }
 
     public final String Y() {
-        String str = this.f19730e;
-        String v0 = (str == null || str.equals("0")) ? v0() : this.f19730e;
+        String str = this.f19731e;
+        String v0 = (str == null || str.equals("0")) ? v0() : this.f19731e;
         if (this.l) {
             v0 = v0 + DB_KEY_HOST;
         }
@@ -1406,7 +1406,7 @@ public class PbModel extends DataModel {
     }
 
     public boolean a1() {
-        return this.O0 && d.b.i0.p0.l.b() != null && d.b.i0.p0.l.b().equals(this.f19730e) && d.b.i0.p0.l.a() != null;
+        return this.O0 && d.b.i0.p0.l.b() != null && d.b.i0.p0.l.b().equals(this.f19731e) && d.b.i0.p0.l.a() != null;
     }
 
     public void a2(d.b.i0.c2.h.e eVar, ArrayList<PostData> arrayList) {
@@ -1532,7 +1532,7 @@ public class PbModel extends DataModel {
     }
 
     public String getForumId() {
-        return this.f19733h;
+        return this.f19734h;
     }
 
     public String getFromForumId() {
@@ -1545,7 +1545,7 @@ public class PbModel extends DataModel {
 
     public boolean h1(boolean z) {
         d.b.i0.c2.h.e eVar;
-        if (this.f19730e == null || (eVar = this.I) == null) {
+        if (this.f19731e == null || (eVar = this.I) == null) {
             return false;
         }
         if (z || eVar.w().b() != 0) {
@@ -1562,7 +1562,7 @@ public class PbModel extends DataModel {
         if (eVar == null) {
             return;
         }
-        this.f19730e = eVar.N();
+        this.f19731e = eVar.N();
         if (eVar.L() != null && eVar.L().V() != null) {
             BaijiahaoData V = eVar.L().V();
             this.P0 = V.oriUgcNid;
@@ -1575,7 +1575,7 @@ public class PbModel extends DataModel {
             this.R0 = 0;
             this.S0 = null;
         }
-        this.f19732g = null;
+        this.f19733g = null;
         this.l = false;
         this.n = true;
         LoadData();
@@ -1583,9 +1583,9 @@ public class PbModel extends DataModel {
 
     public void initWithBundle(Bundle bundle) {
         this.y0 = bundle.getInt("key_start_from", 0);
-        this.f19730e = bundle.getString("thread_id");
-        this.f19732g = bundle.getString("post_id");
-        this.f19733h = bundle.getString("forum_id");
+        this.f19731e = bundle.getString("thread_id");
+        this.f19733g = bundle.getString("post_id");
+        this.f19734h = bundle.getString("forum_id");
         this.i = bundle.getString("from_forum_id");
         bundle.getString(PbActivityConfig.KEY_GOD_REPLY_ID);
         this.k = bundle.getBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
@@ -1632,8 +1632,8 @@ public class PbModel extends DataModel {
         if (intent == null) {
             return;
         }
-        this.f19730e = intent.getStringExtra("thread_id");
-        this.f19731f = intent.getBooleanExtra(PbActivityConfig.KEY_IS_PRIVACY, false);
+        this.f19731e = intent.getStringExtra("thread_id");
+        this.f19732f = intent.getBooleanExtra(PbActivityConfig.KEY_IS_PRIVACY, false);
         this.P0 = intent.getStringExtra("key_ori_ugc_nid");
         this.Q0 = intent.getStringExtra("key_ori_ugc_tid");
         this.R0 = intent.getIntExtra("key_ori_ugc_type", 0);
@@ -1646,12 +1646,12 @@ public class PbModel extends DataModel {
         if (d.b.h0.a.f.c(uri)) {
             this.a1 = true;
             d.b.h0.a.f.b().f(uri, this.b1);
-        } else if (StringUtils.isNull(this.f19730e)) {
+        } else if (StringUtils.isNull(this.f19731e)) {
             this.a1 = true;
             this.p0.b(intent, this.b1);
             if (uri != null) {
-                if (StringUtils.isNull(this.f19730e)) {
-                    this.f19730e = uri.getQueryParameter("thread_id");
+                if (StringUtils.isNull(this.f19731e)) {
+                    this.f19731e = uri.getQueryParameter("thread_id");
                 }
                 if (StringUtils.isNull(this.P0)) {
                     this.P0 = uri.getQueryParameter("key_ori_ugc_nid");
@@ -1667,16 +1667,16 @@ public class PbModel extends DataModel {
                 }
             }
         }
-        if (k.isEmpty(this.f19730e)) {
-            this.f19730e = "0";
+        if (k.isEmpty(this.f19731e)) {
+            this.f19731e = "0";
         }
         int intExtra = intent.getIntExtra("key_start_from", 0);
         this.y0 = intExtra;
         if (intExtra == 0) {
-            this.y0 = this.p0.f52563a;
+            this.y0 = this.p0.f52564a;
         }
-        this.f19732g = intent.getStringExtra("post_id");
-        this.f19733h = intent.getStringExtra("forum_id");
+        this.f19733g = intent.getStringExtra("post_id");
+        this.f19734h = intent.getStringExtra("forum_id");
         this.i = intent.getStringExtra("from_forum_id");
         intent.getStringExtra(PbActivityConfig.KEY_GOD_REPLY_ID);
         this.k = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
@@ -1688,7 +1688,7 @@ public class PbModel extends DataModel {
             intExtra2 = d.b.h0.r.d0.b.i().j("key_pb_current_sort_type", 2);
         }
         this.o = intExtra2;
-        this.f19732g = intExtra2 != 2 ? this.f19732g : "0";
+        this.f19733g = intExtra2 != 2 ? this.f19733g : "0";
         this.mStType = intent.getStringExtra("st_type");
         this.P = intent.getStringExtra("locate");
         this.r = intent.getIntExtra("is_good", 0);
@@ -1727,7 +1727,7 @@ public class PbModel extends DataModel {
     }
 
     public boolean isPrivacy() {
-        return this.f19731f;
+        return this.f19732f;
     }
 
     public boolean isShareThread() {
@@ -1742,8 +1742,8 @@ public class PbModel extends DataModel {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f19730e = str;
-        this.f19732g = null;
+        this.f19731e = str;
+        this.f19733g = null;
         this.l = false;
         this.n = true;
         LoadData();
@@ -1758,7 +1758,7 @@ public class PbModel extends DataModel {
     }
 
     public boolean k1() {
-        if (this.f19730e == null || this.f19732g == null) {
+        if (this.f19731e == null || this.f19733g == null) {
             return false;
         }
         cancelMessage();
@@ -1774,7 +1774,7 @@ public class PbModel extends DataModel {
 
     public boolean l1(boolean z) {
         d.b.i0.c2.h.e eVar;
-        if (this.f19730e == null || (eVar = this.I) == null || ((!z && eVar.w().c() == 0) || this.I.D() == null || this.I.D().size() < 1)) {
+        if (this.f19731e == null || (eVar = this.I) == null || ((!z && eVar.w().c() == 0) || this.I.D() == null || this.I.D().size() < 1)) {
             return false;
         }
         return F1(2);
@@ -1799,8 +1799,8 @@ public class PbModel extends DataModel {
     }
 
     public boolean n1() {
-        String str = this.f19732g;
-        if (str != null && !str.equals("0") && this.f19732g.length() != 0) {
+        String str = this.f19733g;
+        if (str != null && !str.equals("0") && this.f19733g.length() != 0) {
             return k1();
         }
         return LoadData();
@@ -1841,7 +1841,7 @@ public class PbModel extends DataModel {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        TiebaStatic.log(new StatisticItem("c10754").param("fid", this.I.m()).param("tid", this.f19730e).param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(currentTimeMillis - this.i0)).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
+        TiebaStatic.log(new StatisticItem("c10754").param("fid", this.I.m()).param("tid", this.f19731e).param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(currentTimeMillis - this.i0)).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
         this.i0 = 0L;
     }
 
@@ -1861,7 +1861,7 @@ public class PbModel extends DataModel {
 
     public void r1(d.b.i0.c2.h.e eVar, int i, String str) {
         this.f0 = true;
-        if (eVar == null || eVar.f52426h != null) {
+        if (eVar == null || eVar.f52427h != null) {
             return;
         }
         b2(eVar);
@@ -1885,14 +1885,14 @@ public class PbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19730e);
+        markData.setThreadId(this.f19731e);
         markData.setPostId(postData.D());
         markData.setTime(date.getTime());
         markData.setHostMode(this.l);
         markData.setSequence(Boolean.valueOf(b1()));
-        markData.setId(this.f19730e);
+        markData.setId(this.f19731e);
         markData.setFloor(postData.z());
-        markData.setForumId(this.f19733h);
+        markData.setForumId(this.f19734h);
         if (postData instanceof o) {
             markData.setApp(((o) postData).F0());
         }
@@ -1950,7 +1950,7 @@ public class PbModel extends DataModel {
         }
         writeData.setFromForumId(this.i);
         writeData.sourceFrom = String.valueOf(this.y0);
-        writeData.setThreadId(this.f19730e);
+        writeData.setThreadId(this.f19731e);
         writeData.setIsAd(this.y);
         if (str == null) {
             writeData.setType(1);
@@ -2066,23 +2066,23 @@ public class PbModel extends DataModel {
             this.m = this.n;
             if (i != 8) {
                 this.p = this.o;
-                this.o = eVar.f52425g;
+                this.o = eVar.f52426g;
             }
-            List<PbSortType> list = eVar.f52424f;
+            List<PbSortType> list = eVar.f52425f;
             if (list != null && list.isEmpty()) {
                 PbSortType.Builder builder = new PbSortType.Builder();
                 builder.sort_name = this.a0.getResources().getString(R.string.default_sort);
                 builder.sort_type = 0;
                 ArrayList arrayList = new ArrayList();
-                eVar.f52424f = arrayList;
+                eVar.f52425f = arrayList;
                 arrayList.add(builder.build(false));
                 PbSortType.Builder builder2 = new PbSortType.Builder();
                 builder2.sort_name = this.a0.getResources().getString(R.string.view_reverse);
                 builder2.sort_type = 1;
-                eVar.f52424f.add(builder2.build(false));
+                eVar.f52425f.add(builder2.build(false));
                 int i6 = this.p;
                 this.o = i6;
-                eVar.f52425g = i6;
+                eVar.f52426g = i6;
             }
             this.G = false;
             if (eVar.w() != null && (this.o != 2 || i != 8)) {
@@ -2232,8 +2232,8 @@ public class PbModel extends DataModel {
                     }
                 }
                 d.b.i0.c2.h.e eVar5 = this.I;
-                eVar5.f52423e = -1;
-                eVar5.f52422d = -1;
+                eVar5.f52424e = -1;
+                eVar5.f52423d = -1;
             }
             g gVar = this.R;
             if (gVar != null) {
@@ -2254,7 +2254,7 @@ public class PbModel extends DataModel {
         historyMessage.Activity = this.a0.getPageContext();
         historyMessage.threadId = y0().L().o0();
         if (this.E0 && y0().L().r1 != null) {
-            historyMessage.threadName = y0().L().r1.f13211b;
+            historyMessage.threadName = y0().L().r1.f13212b;
         } else {
             historyMessage.threadName = y0().L().x1();
         }
@@ -2316,10 +2316,10 @@ public class PbModel extends DataModel {
             }
         }
         d.b.i0.c2.h.s P = eVar.P();
-        if (P == null || ListUtils.isEmpty(P.f52470a)) {
+        if (P == null || ListUtils.isEmpty(P.f52471a)) {
             return;
         }
-        for (PostData postData2 : P.f52470a) {
+        for (PostData postData2 : P.f52471a) {
             for (int i3 = 0; i3 < postData2.L().size(); i3++) {
                 postData2.L().get(i3).x0(this.a0.getPageContext(), A1.equals(postData2.L().get(i3).s().getUserId()));
             }
@@ -2344,10 +2344,10 @@ public class PbModel extends DataModel {
         }
         String A1 = A1(eVar);
         d.b.i0.c2.h.s P = eVar.P();
-        if (P == null || ListUtils.isEmpty(P.f52470a)) {
+        if (P == null || ListUtils.isEmpty(P.f52471a)) {
             return;
         }
-        List<PostData> list = P.f52470a;
+        List<PostData> list = P.f52471a;
         for (PostData postData : list.subList(i, list.size())) {
             for (int i2 = 0; i2 < postData.L().size(); i2++) {
                 postData.L().get(i2).x0(this.a0.getPageContext(), A1.equals(postData.L().get(i2).s().getUserId()));

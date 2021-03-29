@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt.chunk;
 public class g extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36153h;
+    public int f36154h;
     public int i;
 
     public g(com.kwad.sdk.pngencrypt.k kVar) {
@@ -12,7 +12,7 @@ public class g extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        this.f36153h = com.kwad.sdk.pngencrypt.n.c(dVar.f36142d, 0);
-        this.i = com.kwad.sdk.pngencrypt.n.c(dVar.f36142d, 4);
+        this.f36154h = com.kwad.sdk.pngencrypt.n.c(dVar.f36143d, 0);
+        this.i = com.kwad.sdk.pngencrypt.n.c(dVar.f36143d, 4);
     }
 }

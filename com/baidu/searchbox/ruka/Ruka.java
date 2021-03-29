@@ -7,7 +7,7 @@ import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class Ruka {
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;
     public static long sProcessLaunchTime = System.currentTimeMillis();

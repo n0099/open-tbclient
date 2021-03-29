@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
 import d.b.h0.s.d.b;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

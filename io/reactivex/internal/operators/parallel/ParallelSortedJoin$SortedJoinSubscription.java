@@ -55,8 +55,89 @@ public final class ParallelSortedJoin$SortedJoinSubscription<T> extends AtomicIn
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00a3, code lost:
+        if (r15 != 0) goto L77;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00a7, code lost:
+        if (r16.cancelled == false) goto L56;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00a9, code lost:
+        java.util.Arrays.fill(r3, (java.lang.Object) null);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00ad, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00ae, code lost:
+        r10 = r16.error.get();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00b7, code lost:
+        if (r10 == null) goto L58;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00b9, code lost:
+        cancelAll();
+        java.util.Arrays.fill(r3, (java.lang.Object) null);
+        r2.onError(r10);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c2, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00c3, code lost:
+        r5 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00c4, code lost:
+        if (r5 >= r4) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00ce, code lost:
+        if (r0[r5] == r3[r5].size()) goto L62;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00d0, code lost:
+        r13 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00d2, code lost:
+        r5 = r5 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00d5, code lost:
+        r13 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00d6, code lost:
+        if (r13 == false) goto L77;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00d8, code lost:
+        java.util.Arrays.fill(r3, (java.lang.Object) null);
+        r2.onComplete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00df, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00e4, code lost:
+        if (r11 == 0) goto L82;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00ed, code lost:
+        if (r7 == Long.MAX_VALUE) goto L82;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x00ef, code lost:
+        r16.requested.addAndGet(-r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00f5, code lost:
+        r5 = get();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00f9, code lost:
+        if (r5 != r6) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00fb, code lost:
+        r5 = addAndGet(-r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0100, code lost:
+        if (r5 != 0) goto L88;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0102, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
-        boolean z;
+        int i;
         if (getAndIncrement() != 0) {
             return;
         }
@@ -64,97 +145,64 @@ public final class ParallelSortedJoin$SortedJoinSubscription<T> extends AtomicIn
         List<T>[] listArr = this.lists;
         int[] iArr = this.indexes;
         int length = iArr.length;
-        int i = 1;
+        int i2 = 1;
         while (true) {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
-                if (this.cancelled) {
+            while (true) {
+                int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i3 == 0) {
+                    break;
+                } else if (this.cancelled) {
                     Arrays.fill(listArr, (Object) null);
                     return;
-                }
-                Throwable th = this.error.get();
-                if (th != null) {
-                    cancelAll();
-                    Arrays.fill(listArr, (Object) null);
-                    cVar.onError(th);
-                    return;
-                }
-                int i2 = -1;
-                T t = (Object) null;
-                for (int i3 = 0; i3 < length; i3++) {
-                    List<T> list = listArr[i3];
-                    int i4 = iArr[i3];
-                    if (list.size() != i4) {
-                        if (t == null) {
-                            t = list.get(i4);
-                        } else {
-                            T t2 = list.get(i4);
-                            try {
-                                if (this.comparator.compare(t, t2) > 0) {
-                                    t = t2;
+                } else {
+                    Throwable th = this.error.get();
+                    if (th != null) {
+                        cancelAll();
+                        Arrays.fill(listArr, (Object) null);
+                        cVar.onError(th);
+                        return;
+                    }
+                    int i4 = -1;
+                    T t = (Object) null;
+                    for (int i5 = 0; i5 < length; i5++) {
+                        List<T> list = listArr[i5];
+                        int i6 = iArr[i5];
+                        if (list.size() != i6) {
+                            if (t == null) {
+                                t = list.get(i6);
+                            } else {
+                                T t2 = list.get(i6);
+                                try {
+                                    if (this.comparator.compare(t, t2) > 0) {
+                                        t = t2;
+                                    }
+                                } catch (Throwable th2) {
+                                    a.a(th2);
+                                    cancelAll();
+                                    Arrays.fill(listArr, (Object) null);
+                                    if (!this.error.compareAndSet(null, th2)) {
+                                        f.a.a0.a.f(th2);
+                                    }
+                                    cVar.onError(this.error.get());
+                                    return;
                                 }
-                            } catch (Throwable th2) {
-                                a.a(th2);
-                                cancelAll();
-                                Arrays.fill(listArr, (Object) null);
-                                if (!this.error.compareAndSet(null, th2)) {
-                                    f.a.a0.a.f(th2);
-                                }
-                                cVar.onError(this.error.get());
-                                return;
                             }
+                            i4 = i5;
                         }
-                        i2 = i3;
                     }
-                }
-                if (t == null) {
-                    Arrays.fill(listArr, (Object) null);
-                    cVar.onComplete();
-                    return;
-                }
-                cVar.onNext(t);
-                iArr[i2] = iArr[i2] + 1;
-                j2++;
-            }
-            if (j2 == j) {
-                if (this.cancelled) {
-                    Arrays.fill(listArr, (Object) null);
-                    return;
-                }
-                Throwable th3 = this.error.get();
-                if (th3 != null) {
-                    cancelAll();
-                    Arrays.fill(listArr, (Object) null);
-                    cVar.onError(th3);
-                    return;
-                }
-                int i5 = 0;
-                while (true) {
-                    if (i5 >= length) {
-                        z = true;
-                        break;
-                    } else if (iArr[i5] != listArr[i5].size()) {
-                        z = false;
-                        break;
-                    } else {
-                        i5++;
+                    if (t == null) {
+                        Arrays.fill(listArr, (Object) null);
+                        cVar.onComplete();
+                        return;
                     }
-                }
-                if (z) {
-                    Arrays.fill(listArr, (Object) null);
-                    cVar.onComplete();
-                    return;
+                    cVar.onNext(t);
+                    iArr[i4] = iArr[i4] + 1;
+                    j2++;
                 }
             }
-            if (j2 != 0 && j != Long.MAX_VALUE) {
-                this.requested.addAndGet(-j2);
-            }
-            int i6 = get();
-            if (i6 == i && (i6 = addAndGet(-i)) == 0) {
-                return;
-            }
-            i = i6;
+            i2 = i;
         }
     }
 

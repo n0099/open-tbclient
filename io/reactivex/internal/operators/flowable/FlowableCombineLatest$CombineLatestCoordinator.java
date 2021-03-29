@@ -63,7 +63,7 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
                 if (z2) {
                     cancelAll();
                     Throwable b2 = ExceptionHelper.b(this.error);
-                    if (b2 != null && b2 != ExceptionHelper.f68092a) {
+                    if (b2 != null && b2 != ExceptionHelper.f68097a) {
                         cVar.onError(b2);
                     } else {
                         cVar.onComplete();
@@ -73,7 +73,7 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
                 return false;
             }
             Throwable b3 = ExceptionHelper.b(this.error);
-            if (b3 != null && b3 != ExceptionHelper.f68092a) {
+            if (b3 != null && b3 != ExceptionHelper.f68097a) {
                 cancelAll();
                 aVar.clear();
                 cVar.onError(b3);
@@ -107,13 +107,18 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
     }
 
     public void drainAsync() {
+        int i;
         c<? super R> cVar = this.actual;
         a<?> aVar = this.queue;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
+                    break;
+                }
                 boolean z = this.done;
                 Object poll = aVar.poll();
                 boolean z2 = poll == null;
@@ -137,14 +142,14 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
                     return;
                 }
             }
-            if (j2 == j && checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
+            if (i == 0 && checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
                 return;
             }
             if (j2 != 0 && j != Long.MAX_VALUE) {
                 this.requested.addAndGet(-j2);
             }
-            i = addAndGet(-i);
-        } while (i != 0);
+            i2 = addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     public void drainOutput() {

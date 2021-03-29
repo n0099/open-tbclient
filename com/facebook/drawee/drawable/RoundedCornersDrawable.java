@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public int mBorderColor;
     public final Path mBorderPath;

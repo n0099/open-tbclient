@@ -56,7 +56,7 @@ import tbclient.PbPage.PbPageResIdl;
 public class PbActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BdAsyncTaskParallel f19514a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public static BdAsyncTaskParallel f19515a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     /* loaded from: classes4.dex */
     public static class a implements d.b.h0.d.d {
@@ -151,7 +151,7 @@ public class PbActivityStatic {
     public static class g implements UrlManager.UrlDealListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f19515a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        public Pattern f19516a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
         /* JADX WARN: Removed duplicated region for block: B:191:0x037e  */
         /* JADX WARN: Removed duplicated region for block: B:193:0x0384 A[RETURN] */
@@ -177,7 +177,7 @@ public class PbActivityStatic {
             }
             boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
             String lowerCase = strArr[0].toLowerCase();
-            Matcher matcher = this.f19515a.matcher(lowerCase);
+            Matcher matcher = this.f19516a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                 if (lowerCase.contains("unidispatch/pb")) {
@@ -446,8 +446,8 @@ public class PbActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
         d.b.h0.v0.b h2 = d.b.i0.c3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask c2 = d.b.i0.c3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        h2.setParallel(f19514a);
-        c2.setParallel(f19514a);
+        h2.setParallel(f19515a);
+        c2.setParallel(f19515a);
     }
 
     public static void f() {

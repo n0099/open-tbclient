@@ -25,28 +25,28 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ScheduledExecutorService f49532a;
+    public final ScheduledExecutorService f49533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<d.b.h0.a.b>> f49533b;
+    public final SparseArray<List<d.b.h0.a.b>> f49534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<d.b.h0.a.b> f49534c;
+    public final LinkedList<d.b.h0.a.b> f49535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f49535d;
+    public f f49536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f49536e;
+    public AtomicBoolean f49537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49537f;
+    public boolean f49538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49538g;
+    public boolean f49539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f49539h;
+    public BdUniqueId f49540h;
     public d.b.h0.a.b0.d i;
     public d.b.h0.a.z.c j;
     public d.b.h0.a.a0.b k;
@@ -70,15 +70,15 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.f49537f = true;
-            if (c.this.f49534c.isEmpty()) {
+            c.this.f49538f = true;
+            if (c.this.f49535c.isEmpty()) {
                 return;
             }
-            Iterator it = c.this.f49534c.iterator();
+            Iterator it = c.this.f49535c.iterator();
             while (it.hasNext()) {
                 c.this.m((d.b.h0.a.b) it.next());
             }
-            c.this.f49534c.clear();
+            c.this.f49535c.clear();
         }
     }
 
@@ -100,8 +100,8 @@ public class c {
 
     /* renamed from: d.b.h0.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1040c extends CustomMessageListener {
-        public C1040c(int i) {
+    public class C1041c extends CustomMessageListener {
+        public C1041c(int i) {
             super(i);
         }
 
@@ -111,7 +111,7 @@ public class c {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
                 return;
             }
-            c.this.f49538g = true;
+            c.this.f49539g = true;
             c.this.q();
         }
     }
@@ -126,11 +126,11 @@ public class c {
         /* renamed from: b */
         public void a(d.b.h0.a.z.b bVar) {
             ActiveCenterData activeCenterData;
-            if (bVar == null || (activeCenterData = bVar.f49666g) == null || activeCenterData.mission == null) {
+            if (bVar == null || (activeCenterData = bVar.f49667g) == null || activeCenterData.mission == null) {
                 return;
             }
             d.b.h0.a.b bVar2 = new d.b.h0.a.b();
-            bVar2.O(bVar.f49666g.mission);
+            bVar2.O(bVar.f49667g.mission);
             ArrayList arrayList = new ArrayList();
             arrayList.add(bVar2);
             c.this.n(arrayList);
@@ -349,7 +349,7 @@ public class c {
     public static class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f49551a = new c(null);
+        public static final c f49552a = new c(null);
     }
 
     /* loaded from: classes3.dex */
@@ -391,7 +391,7 @@ public class c {
     }
 
     public static final c y() {
-        return l.f49551a;
+        return l.f49552a;
     }
 
     public boolean A() {
@@ -411,7 +411,7 @@ public class c {
             return true;
         }
         for (int i2 : h2) {
-            List<d.b.h0.a.b> list = this.f49533b.get(i2);
+            List<d.b.h0.a.b> list = this.f49534b.get(i2);
             if (list == null) {
                 return false;
             }
@@ -432,10 +432,10 @@ public class c {
     }
 
     public void E() {
-        this.f49536e.compareAndSet(true, false);
-        this.f49535d.f(0);
-        this.f49535d.h(0L);
-        this.f49535d.g(0L);
+        this.f49537e.compareAndSet(true, false);
+        this.f49536d.f(0);
+        this.f49536d.h(0L);
+        this.f49536d.g(0L);
         d.b.h0.a.b0.d dVar = this.i;
         if (dVar != null) {
             dVar.m();
@@ -443,7 +443,7 @@ public class c {
     }
 
     public void F() {
-        List<d.b.h0.a.b> list = this.f49533b.get(d.b.h0.a.b.V);
+        List<d.b.h0.a.b> list = this.f49534b.get(d.b.h0.a.b.V);
         if (ListUtils.isEmpty(list)) {
             return;
         }
@@ -461,13 +461,13 @@ public class c {
                 }
             }
         }
-        if (!z || this.f49536e.get()) {
+        if (!z || this.f49537e.get()) {
             return;
         }
-        this.f49535d.f(d.b.h0.a.b.V);
-        this.f49536e.compareAndSet(false, true);
-        synchronized (this.f49536e) {
-            this.f49536e.notify();
+        this.f49536d.f(d.b.h0.a.b.V);
+        this.f49537e.compareAndSet(false, true);
+        synchronized (this.f49537e) {
+            this.f49537e.notify();
         }
     }
 
@@ -492,11 +492,11 @@ public class c {
     public final void J(d.b.h0.a.b bVar) {
         int[] h2;
         for (int i2 : bVar.h()) {
-            List<d.b.h0.a.b> list = this.f49533b.get(i2);
+            List<d.b.h0.a.b> list = this.f49534b.get(i2);
             if (list == null) {
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(bVar);
-                this.f49533b.put(i2, linkedList);
+                this.f49534b.put(i2, linkedList);
             } else {
                 list.add(bVar);
             }
@@ -523,7 +523,7 @@ public class c {
     public void M() {
         int i2;
         List<d.b.h0.a.b> list;
-        if (B() && this.f49537f && (list = this.f49533b.get((i2 = d.b.h0.a.b.V))) != null && !list.isEmpty()) {
+        if (B() && this.f49538f && (list = this.f49534b.get((i2 = d.b.h0.a.b.V))) != null && !list.isEmpty()) {
             boolean z = false;
             for (d.b.h0.a.b bVar : list) {
                 if (bVar.x() == 8) {
@@ -548,18 +548,18 @@ public class c {
                     }
                 }
             }
-            this.f49535d.f(i2);
-            this.f49536e.compareAndSet(false, true);
-            synchronized (this.f49536e) {
-                this.f49536e.notify();
+            this.f49536d.f(i2);
+            this.f49537e.compareAndSet(false, true);
+            synchronized (this.f49537e) {
+                this.f49537e.notify();
             }
         }
     }
 
     public void N(int i2) {
-        if (B() && i2 != 0 && this.f49537f) {
+        if (B() && i2 != 0 && this.f49538f) {
             this.l = i2;
-            List<d.b.h0.a.b> list = this.f49533b.get(i2);
+            List<d.b.h0.a.b> list = this.f49534b.get(i2);
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -585,18 +585,18 @@ public class c {
                     }
                 }
             }
-            this.f49535d.f(i2);
-            this.f49536e.compareAndSet(false, true);
-            synchronized (this.f49536e) {
-                this.f49536e.notify();
+            this.f49536d.f(i2);
+            this.f49537e.compareAndSet(false, true);
+            synchronized (this.f49537e) {
+                this.f49537e.notify();
             }
         }
     }
 
     public void O(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f49537f) {
+        if (B() && i2 != 0 && j2 != 0 && this.f49538f) {
             this.l = i2;
-            List<d.b.h0.a.b> list = this.f49533b.get(i2);
+            List<d.b.h0.a.b> list = this.f49534b.get(i2);
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -623,19 +623,19 @@ public class c {
                     }
                 }
             }
-            this.f49535d.f(i2);
-            this.f49535d.g(j2);
-            this.f49536e.compareAndSet(false, true);
-            synchronized (this.f49536e) {
-                this.f49536e.notify();
+            this.f49536d.f(i2);
+            this.f49536d.g(j2);
+            this.f49537e.compareAndSet(false, true);
+            synchronized (this.f49537e) {
+                this.f49537e.notify();
             }
         }
     }
 
     public void P(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f49537f) {
+        if (B() && i2 != 0 && j2 != 0 && this.f49538f) {
             this.l = i2;
-            List<d.b.h0.a.b> list = this.f49533b.get(i2);
+            List<d.b.h0.a.b> list = this.f49534b.get(i2);
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -650,24 +650,24 @@ public class c {
                     o(bVar, j2);
                 }
             }
-            this.f49535d.f(i2);
-            this.f49535d.h(j2);
+            this.f49536d.f(i2);
+            this.f49536d.h(j2);
             this.m = j2;
-            this.f49536e.compareAndSet(false, true);
-            synchronized (this.f49536e) {
-                this.f49536e.notify();
+            this.f49537e.compareAndSet(false, true);
+            synchronized (this.f49537e) {
+                this.f49537e.notify();
             }
         }
     }
 
     public final void Q() {
-        this.f49532a.scheduleWithFixedDelay(this.f49535d, 0L, 1L, TimeUnit.SECONDS);
+        this.f49533a.scheduleWithFixedDelay(this.f49536d, 0L, 1L, TimeUnit.SECONDS);
     }
 
     public void R(int i2, long j2) {
         d.b.h0.a.k kVar;
         d.b.h0.a.b c2;
-        List<d.b.h0.a.b> list = this.f49533b.get(i2);
+        List<d.b.h0.a.b> list = this.f49534b.get(i2);
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -720,8 +720,8 @@ public class c {
         }
         if (bVar.x() == 9) {
             p.c().f(bVar);
-        } else if (!this.f49537f) {
-            this.f49534c.add(bVar);
+        } else if (!this.f49538f) {
+            this.f49535c.add(bVar);
         } else if (C(bVar)) {
         } else {
             J(bVar);
@@ -733,8 +733,8 @@ public class c {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        if (!this.f49537f) {
-            this.f49534c.addAll(list);
+        if (!this.f49538f) {
+            this.f49535c.addAll(list);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -804,7 +804,7 @@ public class c {
     }
 
     public void q() {
-        if (this.j != null && B() && this.f49538g && !t()) {
+        if (this.j != null && B() && this.f49539g && !t()) {
             this.j.f(A(), D(), 0);
         }
     }
@@ -841,8 +841,8 @@ public class c {
                 }
             }
         }
-        for (int i2 = 0; i2 < this.f49533b.size(); i2++) {
-            List<d.b.h0.a.b> valueAt = this.f49533b.valueAt(i2);
+        for (int i2 = 0; i2 < this.f49534b.size(); i2++) {
+            List<d.b.h0.a.b> valueAt = this.f49534b.valueAt(i2);
             if (valueAt != null && !valueAt.isEmpty()) {
                 Iterator<d.b.h0.a.b> it2 = valueAt.iterator();
                 while (it2.hasNext()) {
@@ -859,8 +859,8 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        for (int i2 = 0; i2 < this.f49533b.size(); i2++) {
-            List<d.b.h0.a.b> valueAt = this.f49533b.valueAt(i2);
+        for (int i2 = 0; i2 < this.f49534b.size(); i2++) {
+            List<d.b.h0.a.b> valueAt = this.f49534b.valueAt(i2);
             if (valueAt != null && !valueAt.isEmpty()) {
                 for (d.b.h0.a.b bVar2 : valueAt) {
                     if (bVar2 != null && bVar2.d() == bVar.d() && bVar2.q() == bVar.q()) {
@@ -887,24 +887,24 @@ public class c {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile int f49545e;
+        public volatile int f49546e;
 
         /* renamed from: f  reason: collision with root package name */
-        public volatile long f49546f;
+        public volatile long f49547f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile long f49547g;
+        public volatile long f49548g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile boolean f49548h;
+        public volatile boolean f49549h;
 
         public f() {
-            this.f49548h = false;
+            this.f49549h = false;
         }
 
-        public final void a(d.b.h0.a.b bVar, d.C1039d c1039d) {
+        public final void a(d.b.h0.a.b bVar, d.C1040d c1040d) {
             ArrayList<d.b.h0.a.h> n;
-            if (bVar == null || c1039d == null || (n = bVar.n()) == null) {
+            if (bVar == null || c1040d == null || (n = bVar.n()) == null) {
                 return;
             }
             Iterator<d.b.h0.a.h> it = n.iterator();
@@ -913,143 +913,143 @@ public class c {
                 d.b.h0.a.h next = it.next();
                 if (next instanceof d.b.h0.a.m) {
                     d.b.h0.a.m mVar = (d.b.h0.a.m) next;
-                    if (this.f49546f != 0 && mVar.i() == this.f49546f && !next.e()) {
-                        this.f49548h = false;
+                    if (this.f49547f != 0 && mVar.i() == this.f49547f && !next.e()) {
+                        this.f49549h = false;
                         next.a(1);
                         if (next.b() >= next.c().f()) {
                             next.f(true);
                             if (next.c().I() >= next.c().A()) {
-                                c1039d.b(next);
+                                c1040d.b(next);
                             }
                         }
-                        c1039d.c(bVar);
+                        c1040d.c(bVar);
                     }
                 } else if (next instanceof d.b.h0.a.k) {
                     d.b.h0.a.k kVar = (d.b.h0.a.k) next;
                     if (!bVar.L() && kVar.d() == bVar.w()) {
-                        if (this.f49546f != 0 && kVar.i() == this.f49546f && !next.e()) {
-                            this.f49548h = false;
+                        if (this.f49547f != 0 && kVar.i() == this.f49547f && !next.e()) {
+                            this.f49549h = false;
                             next.a(1);
                         }
                         i = (int) (i + next.b());
-                        if (this.f49546f != 0 && kVar.i() == this.f49546f && !next.e()) {
+                        if (this.f49547f != 0 && kVar.i() == this.f49547f && !next.e()) {
                             if (next.b() >= bVar.f()) {
                                 next.f(true);
                                 bVar.I();
                             }
-                            c1039d.c(bVar);
+                            c1040d.c(bVar);
                         }
                         int l = bVar.l();
                         int A = bVar.A();
                         if (i >= bVar.f() * bVar.A() && l >= A) {
-                            c1039d.a(bVar);
+                            c1040d.a(bVar);
                             bVar.c0(true);
                         }
                     }
                 } else if (next instanceof d.b.h0.a.j) {
-                    if (this.f49547g != 0 && ((d.b.h0.a.j) next).i() == this.f49547g && !next.e()) {
-                        this.f49548h = false;
+                    if (this.f49548g != 0 && ((d.b.h0.a.j) next).i() == this.f49548g && !next.e()) {
+                        this.f49549h = false;
                         next.a(1);
                         if (next.b() >= next.c().f()) {
                             next.f(true);
                             if (next.c().G() >= next.c().p()) {
-                                c1039d.b(next);
+                                c1040d.b(next);
                             }
                         }
                     }
                 } else if ((next instanceof d.b.h0.a.i) && !next.e()) {
-                    this.f49548h = false;
+                    this.f49549h = false;
                     next.a(1);
                     if (next.b() >= next.c().f()) {
                         next.f(true);
-                        c1039d.b(next);
+                        c1040d.b(next);
                     }
                 }
             }
         }
 
-        public final void b(d.b.h0.a.b bVar, d.C1039d c1039d) {
+        public final void b(d.b.h0.a.b bVar, d.C1040d c1040d) {
             ArrayList<d.b.h0.a.h> n;
-            if (bVar == null || c1039d == null || (n = bVar.n()) == null) {
+            if (bVar == null || c1040d == null || (n = bVar.n()) == null) {
                 return;
             }
             Iterator<d.b.h0.a.h> it = n.iterator();
             while (it.hasNext()) {
                 d.b.h0.a.h next = it.next();
                 if ((next instanceof d.b.h0.a.l) && !((d.b.h0.a.l) next).j() && !next.e()) {
-                    this.f49548h = false;
+                    this.f49549h = false;
                     next.a(1);
                     if (next.b() >= next.c().f()) {
                         next.f(true);
-                        c1039d.a(bVar);
+                        c1040d.a(bVar);
                     }
-                    c1039d.c(bVar);
+                    c1040d.c(bVar);
                 }
             }
         }
 
         public final void c() {
-            this.f49548h = true;
-            List<d.b.h0.a.b> list = (List) c.this.f49533b.get(d.b.h0.a.b.V);
-            List<d.b.h0.a.b> list2 = (List) c.this.f49533b.get(this.f49545e);
+            this.f49549h = true;
+            List<d.b.h0.a.b> list = (List) c.this.f49534b.get(d.b.h0.a.b.V);
+            List<d.b.h0.a.b> list2 = (List) c.this.f49534b.get(this.f49546e);
             if (ListUtils.isEmpty(list) && ListUtils.isEmpty(list2)) {
-                c.this.f49536e.compareAndSet(true, false);
+                c.this.f49537e.compareAndSet(true, false);
                 return;
             }
-            d.C1039d c1039d = new d.C1039d();
-            c1039d.f49526a = new LinkedList();
-            c1039d.f49527b = new LinkedList();
-            c1039d.f49528c = new LinkedList();
-            d(list, c1039d);
-            e(list2, c1039d);
-            if (this.f49548h) {
-                c.this.f49536e.compareAndSet(true, false);
+            d.C1040d c1040d = new d.C1040d();
+            c1040d.f49527a = new LinkedList();
+            c1040d.f49528b = new LinkedList();
+            c1040d.f49529c = new LinkedList();
+            d(list, c1040d);
+            e(list2, c1040d);
+            if (this.f49549h) {
+                c.this.f49537e.compareAndSet(true, false);
             }
-            if (!ListUtils.isEmpty(c1039d.f49528c)) {
-                d.b.h0.a.a.g().k(c1039d.f49528c);
+            if (!ListUtils.isEmpty(c1040d.f49529c)) {
+                d.b.h0.a.a.g().k(c1040d.f49529c);
             }
-            if (ListUtils.isEmpty(c1039d.f49526a) && ListUtils.isEmpty(c1039d.f49527b)) {
+            if (ListUtils.isEmpty(c1040d.f49527a) && ListUtils.isEmpty(c1040d.f49528b)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c1039d));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c1040d));
         }
 
-        public final void d(List<d.b.h0.a.b> list, d.C1039d c1039d) {
+        public final void d(List<d.b.h0.a.b> list, d.C1040d c1040d) {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
             for (d.b.h0.a.b bVar : list) {
-                b(bVar, c1039d);
+                b(bVar, c1040d);
             }
         }
 
-        public final void e(List<d.b.h0.a.b> list, d.C1039d c1039d) {
+        public final void e(List<d.b.h0.a.b> list, d.C1040d c1040d) {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
             for (d.b.h0.a.b bVar : list) {
-                a(bVar, c1039d);
+                a(bVar, c1040d);
             }
         }
 
         public synchronized void f(int i) {
-            this.f49545e = i;
+            this.f49546e = i;
         }
 
         public synchronized void g(long j) {
-            this.f49547g = j;
+            this.f49548g = j;
         }
 
         public synchronized void h(long j) {
-            this.f49546f = j;
+            this.f49547f = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f49545e == 0 || !c.this.f49536e.get()) {
-                synchronized (c.this.f49536e) {
+            if (this.f49546e == 0 || !c.this.f49537e.get()) {
+                synchronized (c.this.f49537e) {
                     try {
-                        c.this.f49536e.wait();
+                        c.this.f49537e.wait();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
                     }
@@ -1064,37 +1064,37 @@ public class c {
     }
 
     public c() {
-        this.f49532a = Executors.newSingleThreadScheduledExecutor();
-        this.f49533b = new SparseArray<>();
-        this.f49534c = new LinkedList<>();
-        this.f49535d = new f(this, null);
-        this.f49536e = new AtomicBoolean(false);
-        this.f49537f = false;
-        this.f49538g = false;
+        this.f49533a = Executors.newSingleThreadScheduledExecutor();
+        this.f49534b = new SparseArray<>();
+        this.f49535c = new LinkedList<>();
+        this.f49536d = new f(this, null);
+        this.f49537e = new AtomicBoolean(false);
+        this.f49538f = false;
+        this.f49539g = false;
         this.p = false;
         this.q = new a(2921391);
         this.r = new b(2001011);
-        this.s = new C1040c(2001371);
+        this.s = new C1041c(2001371);
         this.t = new d();
         this.u = new e();
         BdUniqueId gen = BdUniqueId.gen();
-        this.f49539h = gen;
+        this.f49540h = gen;
         d.b.h0.a.b0.d dVar = new d.b.h0.a.b0.d(gen);
         this.i = dVar;
         dVar.w(this.u);
-        d.b.h0.a.z.c cVar = new d.b.h0.a.z.c(this.f49539h);
+        d.b.h0.a.z.c cVar = new d.b.h0.a.z.c(this.f49540h);
         this.j = cVar;
         cVar.g(this.t);
-        this.k = new d.b.h0.a.a0.b(this.f49539h);
-        this.s.setTag(this.f49539h);
+        this.k = new d.b.h0.a.a0.b(this.f49540h);
+        this.s.setTag(this.f49540h);
         MessageManager.getInstance().registerListener(this.s);
-        this.r.setTag(this.f49539h);
+        this.r.setTag(this.f49540h);
         MessageManager.getInstance().registerListener(this.r);
         this.q.setPriority(Integer.MIN_VALUE);
-        this.q.setTag(this.f49539h);
+        this.q.setTag(this.f49540h);
         MessageManager.getInstance().registerListener(this.q);
         d.b.h0.r.c0.a.e().f();
-        p.c().d(this.f49539h);
+        p.c().d(this.f49540h);
         Q();
         if (B()) {
             new k(this, null).execute(new Void[0]);

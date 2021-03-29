@@ -17,30 +17,30 @@ import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.s.a.g.e;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements ILoginListener {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f56719h = null;
+    public static volatile a f56720h = null;
     public static boolean i = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56720e;
+    public boolean f56721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f56721f;
+    public b f56722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BroadcastReceiver f56722g = new C1332a();
+    public BroadcastReceiver f56723g = new C1333a();
 
     /* renamed from: d.b.i0.l1.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C1332a extends BroadcastReceiver {
+    /* loaded from: classes3.dex */
+    public class C1333a extends BroadcastReceiver {
 
         /* renamed from: d.b.i0.l1.i.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C1333a extends f0<Object> {
-            public C1333a() {
+        /* loaded from: classes3.dex */
+        public class C1334a extends f0<Object> {
+            public C1334a() {
             }
 
             @Override // d.b.h0.z0.f0
@@ -51,7 +51,7 @@ public class a implements ILoginListener {
             }
         }
 
-        public C1332a() {
+        public C1333a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -64,25 +64,25 @@ public class a implements ILoginListener {
             Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
             Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
             if (z) {
-                h0.b(new C1333a(), null);
+                h0.b(new C1334a(), null);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, String str);
     }
 
     public static a a() {
-        if (f56719h == null) {
+        if (f56720h == null) {
             synchronized (a.class) {
-                if (f56719h == null) {
-                    f56719h = new a();
+                if (f56720h == null) {
+                    f56720h = new a();
                 }
             }
         }
-        return f56719h;
+        return f56720h;
     }
 
     public static boolean c() {
@@ -97,11 +97,11 @@ public class a implements ILoginListener {
     public void b(Context context) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
         int i2 = 0;
-        this.f56720e = false;
+        this.f56721e = false;
         String version = TbConfig.getVersion();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-        LocalBroadcastManager.getInstance(context).registerReceiver(this.f56722g, intentFilter);
+        LocalBroadcastManager.getInstance(context).registerReceiver(this.f56723g, intentFilter);
         e.y(context, true);
         BIMManager.setProductLine(context, 3, version);
         String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
@@ -122,7 +122,7 @@ public class a implements ILoginListener {
 
     public void d(b bVar) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
-        this.f56721f = bVar;
+        this.f56722f = bVar;
         String from = TbConfig.getFrom();
         String currentFrom = TbConfig.getCurrentFrom();
         if (TbadkCoreApplication.isLogin()) {
@@ -150,17 +150,17 @@ public class a implements ILoginListener {
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i2, String str) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i2 + ", errMsg=" + str);
-        b bVar = this.f56721f;
+        b bVar = this.f56722f;
         if (bVar != null) {
             bVar.a(i2, str);
-            this.f56721f = null;
+            this.f56722f = null;
         }
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLogoutResult(int i2, String str, int i3) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i2 + ", errMsg=" + str + ", type=" + i3);
-        if (this.f56720e) {
+        if (this.f56721e) {
             return;
         }
         d(null);

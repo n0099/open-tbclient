@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class JsCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f39896a;
+    public WeakReference f39897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39897b;
+    public String f39898b;
 
     /* loaded from: classes7.dex */
     public class JsCallbackException extends Exception {
@@ -24,8 +24,8 @@ public class JsCallback {
     }
 
     public JsCallback(WebView webView, String str) {
-        this.f39896a = new WeakReference(webView);
-        this.f39897b = str;
+        this.f39897a = new WeakReference(webView);
+        this.f39898b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -44,7 +44,7 @@ public class JsCallback {
     }
 
     public void call(boolean z, JSONObject jSONObject, String str) {
-        final WebView webView = (WebView) this.f39896a.get();
+        final WebView webView = (WebView) this.f39897a.get();
         if (webView == null) {
             throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
         }
@@ -64,7 +64,7 @@ public class JsCallback {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        final String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39897b, jSONObject2.toString());
+        final String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39898b, jSONObject2.toString());
         if (AsyncTaskExecutor.isMainThread()) {
             webView.loadUrl(format);
         } else {

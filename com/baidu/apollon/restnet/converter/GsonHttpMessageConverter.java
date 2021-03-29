@@ -11,17 +11,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f3746a = Charset.forName("UTF-8");
+    public static final Charset f3747a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.apollon.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f3746a;
+        return f3747a;
     }
 
     @Override // com.baidu.apollon.restnet.converter.AbstractHttpMessageConverter

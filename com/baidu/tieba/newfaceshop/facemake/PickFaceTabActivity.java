@@ -26,7 +26,7 @@ import d.b.i0.x1.g.f;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public static final int ALBUM_TYPE = 3;
     public static final int COLLECT_TYPE = 2;
@@ -43,7 +43,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public int mChoosedNum = 0;
     public ViewPager.OnPageChangeListener mOnPageChangeListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -82,7 +82,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public b() {
         }
@@ -107,12 +107,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f13312c = fragment;
-        bVar.f13310a = i;
+        bVar.f13313c = fragment;
+        bVar.f13311a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f13311b = fragmentTabIndicator;
+        bVar.f13312b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

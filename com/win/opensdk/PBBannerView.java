@@ -8,19 +8,19 @@ import android.widget.FrameLayout;
 public class PBBannerView extends FrameLayout implements PBBannerListener, d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39746a;
+    public Context f39747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39747b;
+    public String f39748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C f39748c;
+    public C f39749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PBBannerListener f39749d;
+    public PBBannerListener f39750d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39750e;
+    public boolean f39751e;
 
     public PBBannerView(Context context) {
         this(context, null);
@@ -32,50 +32,50 @@ public class PBBannerView extends FrameLayout implements PBBannerListener, d {
 
     public PBBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f39746a = context;
+        this.f39747a = context;
     }
 
     public final void a(int i, int i2) {
         if (i == 0) {
             if ((i2 == 0) & hasWindowFocus()) {
-                this.f39750e = true;
+                this.f39751e = true;
                 return;
             }
         }
-        this.f39750e = false;
+        this.f39751e = false;
     }
 
     public void destroy() {
         try {
             removeAllViews();
-            if (this.f39748c != null) {
-                this.f39748c.c();
-                this.f39748c = null;
+            if (this.f39749c != null) {
+                this.f39749c.c();
+                this.f39749c = null;
             }
         } catch (Exception unused) {
         }
     }
 
     public String getPid() {
-        return this.f39747b;
+        return this.f39748b;
     }
 
     public boolean isVisible() {
-        return this.f39750e;
+        return this.f39751e;
     }
 
     public void load() {
-        if (this.f39748c == null) {
-            this.f39748c = new C(this.f39746a, this, this.f39747b);
+        if (this.f39749c == null) {
+            this.f39749c = new C(this.f39747a, this, this.f39748b);
         }
-        C c2 = this.f39748c;
-        c2.f39640g = this;
+        C c2 = this.f39749c;
+        c2.f39641g = this;
         c2.d();
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
-        PBBannerListener pBBannerListener = this.f39749d;
+        PBBannerListener pBBannerListener = this.f39750d;
         if (pBBannerListener != null) {
             pBBannerListener.onClicked();
         }
@@ -83,7 +83,7 @@ public class PBBannerView extends FrameLayout implements PBBannerListener, d {
 
     @Override // com.win.opensdk.PBBannerListener
     public void onClosed() {
-        PBBannerListener pBBannerListener = this.f39749d;
+        PBBannerListener pBBannerListener = this.f39750d;
         if (pBBannerListener != null) {
             pBBannerListener.onClosed();
         }
@@ -91,7 +91,7 @@ public class PBBannerView extends FrameLayout implements PBBannerListener, d {
 
     @Override // com.win.opensdk.PBListener
     public void onFail(PBError pBError) {
-        PBBannerListener pBBannerListener = this.f39749d;
+        PBBannerListener pBBannerListener = this.f39750d;
         if (pBBannerListener != null) {
             pBBannerListener.onFail(pBError);
         }
@@ -99,7 +99,7 @@ public class PBBannerView extends FrameLayout implements PBBannerListener, d {
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
-        PBBannerListener pBBannerListener = this.f39749d;
+        PBBannerListener pBBannerListener = this.f39750d;
         if (pBBannerListener != null) {
             pBBannerListener.onLoaded();
         }
@@ -124,12 +124,12 @@ public class PBBannerView extends FrameLayout implements PBBannerListener, d {
     }
 
     public PBBannerView setListener(PBBannerListener pBBannerListener) {
-        this.f39749d = pBBannerListener;
+        this.f39750d = pBBannerListener;
         return this;
     }
 
     public PBBannerView setPid(String str) {
-        this.f39747b = str;
+        this.f39748b = str;
         return this;
     }
 }

@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionAPSManager {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static final String EMOTION_DOWNLOAD_DIR_NAME = "download";
@@ -35,12 +35,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Holder {
         public static final EmotionAPSManager sINSTANCE = new EmotionAPSManager();
     }

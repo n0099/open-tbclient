@@ -10,31 +10,31 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.v1.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements a.j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.v1.a f46744a;
+        public final /* synthetic */ d.b.g0.a.v1.a f46745a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46745b;
+        public final /* synthetic */ CallbackHandler f46746b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46746c;
+        public final /* synthetic */ String f46747c;
 
         public a(i iVar, d.b.g0.a.v1.a aVar, CallbackHandler callbackHandler, String str) {
-            this.f46744a = aVar;
-            this.f46745b = callbackHandler;
-            this.f46746c = str;
+            this.f46745a = aVar;
+            this.f46746b = callbackHandler;
+            this.f46747c = str;
         }
 
         @Override // d.b.g0.a.v1.a.j
         public void a() {
-            this.f46744a.E(this);
-            d.b.g0.a.t.c.j.a.C(this.f46745b, this.f46746c);
+            this.f46745a.E(this);
+            d.b.g0.a.t.c.j.a.C(this.f46746b, this.f46747c);
         }
     }
 
@@ -48,7 +48,7 @@ public class i extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         } else if (eVar.Z()) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");

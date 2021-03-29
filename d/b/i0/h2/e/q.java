@@ -8,15 +8,15 @@ import tbclient.User;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55314a;
+    public int f55315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<User> f55315b;
+    public List<User> f55316b;
 
     public s1 a() {
         s1 s1Var = new s1();
-        s1Var.f50884h = false;
-        s1Var.A(this.f55315b);
+        s1Var.f50885h = false;
+        s1Var.A(this.f55316b);
         return s1Var;
     }
 
@@ -24,8 +24,8 @@ public class q {
         if (dataRes == null) {
             return;
         }
-        this.f55315b = dataRes.recom_user_list;
+        this.f55316b = dataRes.recom_user_list;
         dataRes.has_more.intValue();
-        this.f55314a = dataRes.current_page.intValue();
+        this.f55315a = dataRes.current_page.intValue();
     }
 }

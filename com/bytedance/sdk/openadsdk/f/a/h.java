@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29317a;
+    public l f29318a;
 
     public h(l lVar) {
-        this.f29317a = lVar;
+        this.f29318a = lVar;
     }
 
     public static h a(l lVar) {
@@ -24,7 +24,7 @@ public class h {
     public <T> T a(@NonNull String str, @NonNull Type type) throws JSONException {
         a(str);
         if (!type.equals(JSONObject.class) && (!(type instanceof Class) || !JSONObject.class.isAssignableFrom((Class) type))) {
-            return (T) this.f29317a.a(str, type);
+            return (T) this.f29318a.a(str, type);
         }
         return (T) new JSONObject(str);
     }
@@ -36,7 +36,7 @@ public class h {
             return StringUtil.EMPTY_ARRAY;
         }
         if (!(t instanceof JSONObject) && !(t instanceof JSONArray)) {
-            obj = this.f29317a.a(t);
+            obj = this.f29318a.a(t);
         } else {
             obj = t.toString();
         }

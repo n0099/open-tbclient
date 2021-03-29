@@ -10,7 +10,7 @@ import d.n.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);

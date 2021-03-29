@@ -9,7 +9,7 @@ import d.b.l.c.c;
 import d.b.l.c.e;
 import d.b.l.c.g;
 import d.b.l.c.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class CommonUrlParamManager {
     public static final String PARAM_APP_NAME = "appname";
     public static final String PARAM_BDVC = "bdvc";

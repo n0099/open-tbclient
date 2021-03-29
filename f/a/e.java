@@ -5,10 +5,10 @@ import io.reactivex.internal.subscribers.StrictSubscriber;
 public abstract class e<T> implements g.d.b<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f67451e = Math.max(1, Integer.getInteger("rx2.buffer-size", 128).intValue());
+    public static final int f67456e = Math.max(1, Integer.getInteger("rx2.buffer-size", 128).intValue());
 
     public static int a() {
-        return f67451e;
+        return f67456e;
     }
 
     public final void b(g<? super T> gVar) {

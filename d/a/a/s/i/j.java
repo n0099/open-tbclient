@@ -11,6 +11,6 @@ public class j extends n<d.a.a.s.b, d.a.a.s.b> {
     @Override // d.a.a.s.i.m
     /* renamed from: b */
     public d.a.a.q.b.n a() {
-        return new d.a.a.q.b.n(this.f41363a);
+        return new d.a.a.q.b.n(this.f41364a);
     }
 }

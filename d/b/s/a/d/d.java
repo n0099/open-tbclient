@@ -23,17 +23,17 @@ public class d {
                 long j = bVar.i;
                 if (j == 1) {
                     bVar.j = 0;
-                    bVar.f64604g = lcmResponse.getNextIntervalMs();
+                    bVar.f64605g = lcmResponse.getNextIntervalMs();
                 } else if (j == 2) {
                     bVar.j = -1;
                 } else if (j == 3) {
-                    bVar.f64604g = lcmResponse.getNextIntervalMs();
+                    bVar.f64605g = lcmResponse.getNextIntervalMs();
                 } else if (j == 4) {
                     d.b.s.a.g.d.a("PbProcessor", "parseLcmResponse notify");
                 }
             } else {
-                bVar.f64600c = lcmResponse.getErrorCode();
-                bVar.f64601d = lcmResponse.getErrorMsg();
+                bVar.f64601c = lcmResponse.getErrorCode();
+                bVar.f64602d = lcmResponse.getErrorMsg();
                 bVar.j = -1;
             }
         } else if (parseFrom.hasLcmNotify()) {
@@ -78,30 +78,30 @@ public class d {
             bArr2 = d(bArr2);
             d.b.s.a.g.d.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
         }
-        bVar.f64603f = bArr2;
+        bVar.f64604f = bArr2;
         if (parseFrom.hasNotify()) {
             RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-            bVar.f64600c = 0;
-            bVar.f64601d = "notify";
-            bVar.f64605h = notify.getServiceId();
+            bVar.f64601c = 0;
+            bVar.f64602d = "notify";
+            bVar.f64606h = notify.getServiceId();
             bVar.i = notify.getMethodId();
             bVar.n = notify.getLogId();
-            bVar.f64602e = true;
+            bVar.f64603e = true;
         } else if (parseFrom.hasResponse()) {
             RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-            bVar.f64600c = response.getErrorCode();
-            bVar.f64601d = response.getErrorText();
-            bVar.f64605h = response.getServiceId();
+            bVar.f64601c = response.getErrorCode();
+            bVar.f64602d = response.getErrorText();
+            bVar.f64606h = response.getServiceId();
             bVar.i = response.getMethodId();
             bVar.n = response.getLogId();
-            bVar.f64602e = false;
-            if (bVar.f64600c == 0 && bVar.f64605h == 1) {
+            bVar.f64603e = false;
+            if (bVar.f64601c == 0 && bVar.f64606h == 1) {
                 a(bVar, bArr2);
                 return bVar;
             }
         } else if (parseFrom.hasRequest()) {
             RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-            bVar.f64605h = request.getServiceId();
+            bVar.f64606h = request.getServiceId();
             bVar.i = request.getMethodId();
             d.b.s.a.g.d.a("PbProcessor", "parseRpcMeta requestMeta");
             a(bVar, bArr2);
@@ -109,7 +109,7 @@ public class d {
         return bVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

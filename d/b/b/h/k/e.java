@@ -16,10 +16,10 @@ import java.util.jar.JarFile;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f42316a = new Object();
+    public static Object f42317a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<byte[]> f42317b;
+    public static WeakReference<byte[]> f42318b;
 
     public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
         WeakReference<byte[]> weakReference;
@@ -29,10 +29,10 @@ public final class e {
         if (TextUtils.isEmpty(str) || aVar == null) {
             return null;
         }
-        synchronized (f42316a) {
-            weakReference = f42317b;
+        synchronized (f42317a) {
+            weakReference = f42318b;
             if (weakReference != null) {
-                f42317b = null;
+                f42318b = null;
                 bArr = weakReference.get();
             } else {
                 bArr = null;
@@ -44,7 +44,7 @@ public final class e {
         }
         try {
             JarFile jarFile = new JarFile(str);
-            aVar.f2239c = 1;
+            aVar.f2240c = 1;
             Enumeration<JarEntry> entries = jarFile.entries();
             Certificate[] certificateArr = null;
             loop0: while (true) {
@@ -58,19 +58,19 @@ public final class e {
                             sb.append(jarFile.getName());
                             sb.append("-JarEntry_");
                             sb.append(name);
-                            aVar.f2238b = sb.toString();
-                            aVar.f2239c = 2;
+                            aVar.f2239b = sb.toString();
+                            aVar.f2240c = 2;
                             try {
                                 b2 = b(jarFile, nextElement, bArr, aVar);
                             } catch (Exception e2) {
                                 sb.append("-Exception_");
                                 sb.append(e2.toString());
-                                aVar.f2238b = sb.toString();
+                                aVar.f2239b = sb.toString();
                                 b2 = b(jarFile, nextElement, bArr, aVar);
                             }
-                            aVar.f2239c = 5;
+                            aVar.f2240c = 5;
                             if (b2 == null) {
-                                aVar.f2239c = 6;
+                                aVar.f2240c = 6;
                                 BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
                                 jarFile.close();
                                 return null;
@@ -99,12 +99,12 @@ public final class e {
                         }
                     }
                 } else {
-                    aVar.f2239c = 8;
+                    aVar.f2240c = 8;
                     jarFile.close();
-                    synchronized (f42316a) {
-                        f42317b = weakReference;
+                    synchronized (f42317a) {
+                        f42318b = weakReference;
                     }
-                    aVar.f2239c = 9;
+                    aVar.f2240c = 9;
                     if (certificateArr != null && certificateArr.length > 0) {
                         int length = certificateArr.length;
                         Signature[] signatureArr = new Signature[certificateArr.length];
@@ -117,7 +117,7 @@ public final class e {
                     return null;
                 }
             }
-            aVar.f2239c = 7;
+            aVar.f2240c = 7;
             jarFile.close();
             return null;
         } catch (IOException e3) {
@@ -147,10 +147,10 @@ public final class e {
             e = e3;
         }
         try {
-            aVar.f2239c = 3;
+            aVar.f2240c = 3;
             while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
             }
-            aVar.f2239c = 4;
+            aVar.f2240c = 4;
             Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
             d.b.b.e.m.a.c(bufferedInputStream);
             return certificates;

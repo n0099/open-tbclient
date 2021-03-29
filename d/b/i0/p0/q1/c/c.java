@@ -9,51 +9,51 @@ import tbclient.PbContent;
 public class c implements n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static BdUniqueId f58356h = BdUniqueId.gen();
+    public static BdUniqueId f58357h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58357e;
+    public String f58358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbContent> f58358f;
+    public List<PbContent> f58359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58359g;
+    public boolean f58360g;
 
     public boolean a() {
-        return this.f58359g;
+        return this.f58360g;
     }
 
     public List<PbContent> e() {
-        return this.f58358f;
+        return this.f58359f;
     }
 
     public String f() {
-        return this.f58357e;
+        return this.f58358e;
     }
 
     public void g(ForumRule forumRule) {
         if (forumRule != null) {
-            this.f58357e = forumRule.title;
-            this.f58358f = forumRule.content;
-            this.f58359g = forumRule.status.intValue() == 1;
+            this.f58358e = forumRule.title;
+            this.f58359f = forumRule.content;
+            this.f58360g = forumRule.status.intValue() == 1;
         }
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f58356h;
+        return f58357h;
     }
 
     public void j(boolean z) {
-        this.f58359g = z;
+        this.f58360g = z;
     }
 
     public void k(List<PbContent> list) {
-        this.f58358f = list;
+        this.f58359f = list;
     }
 
     public void l(String str) {
-        this.f58357e = str;
+        this.f58358e = str;
     }
 }

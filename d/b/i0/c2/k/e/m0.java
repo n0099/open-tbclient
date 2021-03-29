@@ -10,13 +10,13 @@ import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f52730a;
+    public PbFragment f52731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.b0.e f52731b;
+    public d.b.i0.b0.e f52732b;
 
     public m0(PbFragment pbFragment) {
-        this.f52730a = pbFragment;
+        this.f52731a = pbFragment;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -24,7 +24,7 @@ public class m0 {
     }
 
     public void a() {
-        d.b.i0.b0.e eVar = this.f52731b;
+        d.b.i0.b0.e eVar = this.f52732b;
         if (eVar != null) {
             eVar.H();
         }

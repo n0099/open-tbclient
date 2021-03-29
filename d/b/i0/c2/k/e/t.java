@@ -23,13 +23,13 @@ import d.b.h0.r.s.a;
 public class t extends d.b.h0.w.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public VoiceData$VoiceModel f52834f;
+    public VoiceData$VoiceModel f52835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocationModel f52835g;
+    public LocationModel f52836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbEditorData.ThreadData f52836h;
+    public PbEditorData.ThreadData f52837h;
     public BaseActivity<?> i;
     public int j;
     public LocationModel.e k;
@@ -103,7 +103,7 @@ public class t extends d.b.h0.w.e {
         public void onClick(d.b.h0.r.s.a aVar) {
             if (d.b.b.e.p.j.z()) {
                 t.this.o(1, true, null);
-                t.this.f52835g.F();
+                t.this.f52836g.F();
             } else {
                 t.this.k.a();
             }
@@ -127,7 +127,7 @@ public class t extends d.b.h0.w.e {
     }
 
     public VoiceData$VoiceModel h() {
-        return this.f52834f;
+        return this.f52835f;
     }
 
     public void i() {
@@ -136,13 +136,13 @@ public class t extends d.b.h0.w.e {
 
     public void j(BaseActivity baseActivity) {
         LocationModel locationModel = new LocationModel(baseActivity.getPageContext());
-        this.f52835g = locationModel;
+        this.f52836g = locationModel;
         locationModel.I(this.k);
-        this.f52835g.J(this.l);
+        this.f52836g.J(this.l);
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
             a().A(new d.b.h0.w.a(2, 12, " "));
         }
-        if (this.f52835g.v() || a() == null) {
+        if (this.f52836g.v() || a() == null) {
             return;
         }
         a().A(new d.b.h0.w.a(20, 8, null));
@@ -168,13 +168,13 @@ public class t extends d.b.h0.w.e {
     }
 
     public void m() {
-        if (this.f52835g.v()) {
-            if (this.f52835g.z()) {
+        if (this.f52836g.v()) {
+            if (this.f52836g.z()) {
                 this.k.b(d.b.i0.c3.m0.b.a().b());
                 return;
             }
             if (d.b.b.e.p.l.C()) {
-                this.f52835g.D();
+                this.f52836g.D();
             }
             o(0, true, null);
             return;
@@ -183,13 +183,13 @@ public class t extends d.b.h0.w.e {
     }
 
     public void n() {
-        PbEditorData.ThreadData threadData = this.f52836h;
-        if (threadData == null || StringUtils.isNull(threadData.getAuthorName()) || this.f52836h.getAuthorId() <= 0) {
+        PbEditorData.ThreadData threadData = this.f52837h;
+        if (threadData == null || StringUtils.isNull(threadData.getAuthorName()) || this.f52837h.getAuthorId() <= 0) {
             return;
         }
-        String valueOf = String.valueOf(this.f52836h.getAuthorId());
+        String valueOf = String.valueOf(this.f52837h.getAuthorId());
         if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.i.getActivity(), this.f52836h.getAuthorId(), this.f52836h.getAuthorName(), this.f52836h.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, d.b.b.e.m.b.f(this.f52836h.getThreadId(), 0L), d.b.b.e.m.b.f(this.f52836h.getPostId(), 0L))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.i.getActivity(), this.f52837h.getAuthorId(), this.f52837h.getAuthorName(), this.f52837h.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, d.b.b.e.m.b.f(this.f52837h.getThreadId(), 0L), d.b.b.e.m.b.f(this.f52837h.getPostId(), 0L))));
             return;
         }
         d.b.b.e.p.l.K(this.i.getActivity(), R.string.can_not_send_gift_to_yourself);
@@ -207,11 +207,11 @@ public class t extends d.b.h0.w.e {
     }
 
     public void q(PbEditorData.ThreadData threadData) {
-        this.f52836h = threadData;
+        this.f52837h = threadData;
     }
 
     public void r(VoiceData$VoiceModel voiceData$VoiceModel) {
-        this.f52834f = voiceData$VoiceModel;
+        this.f52835f = voiceData$VoiceModel;
     }
 
     public final void s() {
@@ -225,12 +225,12 @@ public class t extends d.b.h0.w.e {
             this.i.showToast(R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             s();
-        } else if (this.f52835g.z()) {
+        } else if (this.f52836g.z()) {
             i();
         } else {
-            this.f52835g.H(false);
+            this.f52836g.H(false);
             o(1, true, null);
-            this.f52835g.D();
+            this.f52836g.D();
         }
     }
 }

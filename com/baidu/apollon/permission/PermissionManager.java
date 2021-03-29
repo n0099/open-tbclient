@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.apollon.NoProguard;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_CALL_PHONE = 2;
     public static final int REQUEST_CODE_READ_CONTRACT = 3;
@@ -15,10 +15,10 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3699a = 0;
+    public static final int f3700a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3700b;
+    public static int f3701b;
 
     @TargetApi(23)
     public static boolean checkCallingOrSelfPermission(Activity activity, String[] strArr, int i) {
@@ -61,13 +61,13 @@ public class PermissionManager implements NoProguard {
     }
 
     public static int getTargetSdkVersion(Context context) {
-        if (f3700b == 0) {
+        if (f3701b == 0) {
             try {
-                f3700b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                f3701b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
         }
-        return f3700b;
+        return f3701b;
     }
 }

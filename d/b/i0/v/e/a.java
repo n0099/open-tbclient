@@ -3,14 +3,14 @@ package d.b.i0.v.e;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f61954a = 1;
+    public static int f61955a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61955b = 2;
+    public static int f61956b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f61956c = 3;
+    public static int f61957c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f61957d = 4;
+    public static int f61958d = 4;
 }

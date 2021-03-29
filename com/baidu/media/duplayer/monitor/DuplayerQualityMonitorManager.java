@@ -13,44 +13,44 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DuplayerQualityMonitorManager {
 
     /* renamed from: c  reason: collision with root package name */
-    public static DuplayerQualityMonitorManager f7968c;
+    public static DuplayerQualityMonitorManager f7969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f7969d = {480, 540, PeerConnectionClient.HD_VIDEO_HEIGHT, 1080};
+    public static final int[] f7970d = {480, 540, PeerConnectionClient.HD_VIDEO_HEIGHT, 1080};
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f7970a = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Integer> f7971a = new ConcurrentHashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7971b = -1;
+    public int f7972b = -1;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7972e;
+        public final /* synthetic */ String f7973e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7973f;
+        public final /* synthetic */ int f7974f;
 
         public a(String str, int i) {
-            this.f7972e = str;
-            this.f7973f = i;
+            this.f7973e = str;
+            this.f7974f = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            DuplayerQualityMonitorManager.getInstance().e(this.f7972e, this.f7973f);
+            DuplayerQualityMonitorManager.getInstance().e(this.f7973e, this.f7974f);
         }
     }
 
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (f7968c == null) {
-                f7968c = new DuplayerQualityMonitorManager();
+            if (f7969c == null) {
+                f7969c = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = f7968c;
+            duplayerQualityMonitorManager = f7969c;
         }
         return duplayerQualityMonitorManager;
     }
@@ -79,13 +79,13 @@ public class DuplayerQualityMonitorManager {
         if (min <= 0) {
             return 540;
         }
-        for (int length = f7969d.length - 1; length >= 0; length--) {
-            int[] iArr = f7969d;
+        for (int length = f7970d.length - 1; length >= 0; length--) {
+            int[] iArr = f7970d;
             if (min >= iArr[length]) {
                 return iArr[length];
             }
         }
-        return f7969d[0];
+        return f7970d[0];
     }
 
     public final String c(String str, int i, int i2, int i3, Map<String, String> map) {
@@ -103,7 +103,7 @@ public class DuplayerQualityMonitorManager {
 
     public final void e(String str, int i) {
         CyberLog.i("DuplayerQualityMonitorManager", "onUpdateMonitorData key:" + str + " score:" + i);
-        ConcurrentHashMap<String, Integer> concurrentHashMap = this.f7970a;
+        ConcurrentHashMap<String, Integer> concurrentHashMap = this.f7971a;
         if (concurrentHashMap != null) {
             concurrentHashMap.put(str, Integer.valueOf(i));
         }
@@ -111,13 +111,13 @@ public class DuplayerQualityMonitorManager {
 
     public int getPlayQualityScore(String str, int i, int i2, int i3, Map<String, String> map) {
         String c2 = c(str, i, i2, i3, map);
-        Integer num = this.f7970a.get(c2);
+        Integer num = this.f7971a.get(c2);
         CyberLog.i("DuplayerQualityMonitorManager", "getPlayQualityScore key:" + c2 + " score:" + num);
-        return num != null ? num.intValue() : this.f7971b;
+        return num != null ? num.intValue() : this.f7972b;
     }
 
     public void init() {
-        this.f7971b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", -1);
+        this.f7972b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", -1);
         nativeInit();
     }
 }

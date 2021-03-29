@@ -3,10 +3,10 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GetRequest extends HttpRequest<GetRequestBuilder> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class GetRequestBuilder extends HttpRequestBuilder<GetRequestBuilder> {
         public GetRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

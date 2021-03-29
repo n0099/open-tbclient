@@ -26,22 +26,22 @@ public class d {
     public static class a implements i.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55070a;
+        public final /* synthetic */ TbPageContext f55071a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55071b;
+        public final /* synthetic */ g f55072b;
 
         public a(TbPageContext tbPageContext, g gVar) {
-            this.f55070a = tbPageContext;
-            this.f55071b = gVar;
+            this.f55071a = tbPageContext;
+            this.f55072b = gVar;
         }
 
         @Override // d.b.i0.h.i.h
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55071b.b(), this.f55071b.c());
+                d.e(jSONArray, this.f55072b.b(), this.f55072b.c());
             } else {
-                l.K(this.f55070a.getContext(), R.string.neterror);
+                l.K(this.f55071a.getContext(), R.string.neterror);
             }
         }
     }
@@ -50,22 +50,22 @@ public class d {
     public static class b implements f.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55072a;
+        public final /* synthetic */ TbPageContext f55073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55073b;
+        public final /* synthetic */ g f55074b;
 
         public b(TbPageContext tbPageContext, g gVar) {
-            this.f55072a = tbPageContext;
-            this.f55073b = gVar;
+            this.f55073a = tbPageContext;
+            this.f55074b = gVar;
         }
 
         @Override // d.b.i0.h.f.g
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55073b.b(), this.f55073b.c());
+                d.e(jSONArray, this.f55074b.b(), this.f55074b.c());
             } else {
-                l.K(this.f55072a.getContext(), R.string.neterror);
+                l.K(this.f55073a.getContext(), R.string.neterror);
             }
         }
     }

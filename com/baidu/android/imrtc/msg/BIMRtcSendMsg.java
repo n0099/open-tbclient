@@ -23,7 +23,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcSendMsg extends Message {
     public static final String TAG = "IMRtcSendMsg";
     public int mAction;

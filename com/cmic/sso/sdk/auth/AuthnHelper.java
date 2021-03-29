@@ -37,21 +37,21 @@ public class AuthnHelper {
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public com.cmic.sso.sdk.a f30568b;
+        public com.cmic.sso.sdk.a f30569b;
 
         public a(com.cmic.sso.sdk.a aVar) {
-            this.f30568b = aVar;
+            this.f30569b = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.a(AuthnHelper.this.mContext).a() && this.f30568b.b("doNetworkSwitch", false)) {
+            if (!t.a(AuthnHelper.this.mContext).a() && this.f30569b.b("doNetworkSwitch", false)) {
                 a2 = c.a("102508", "数据网络切换失败");
             } else {
                 a2 = c.a("200023", "登录超时");
             }
-            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30568b, a2);
+            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30569b, a2);
         }
     }
 

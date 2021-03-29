@@ -13,33 +13,33 @@ import d.b.i0.f0.a;
 public class v0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f58619a;
+    public ViewGroup f58620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f58620b;
+    public NavigationBar f58621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r f58621c;
+    public r f58622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f58622d;
+    public Context f58623d;
     public d.b.i0.f0.b j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58623e = 0;
+    public int f58624e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58624f = 0;
+    public int f58625f = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58626h = true;
+    public boolean f58627h = true;
     public boolean i = true;
     public final Handler.Callback k = new a();
     public final Handler l = new Handler(this.k);
     public a.b m = new b();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58625g = UtilHelper.canUseStyleImmersiveSticky();
+    public boolean f58626g = UtilHelper.canUseStyleImmersiveSticky();
 
     /* loaded from: classes4.dex */
     public class a implements Handler.Callback {
@@ -84,8 +84,8 @@ public class v0 {
                 v0.this.k(true);
                 v0.this.f();
             }
-            if (v0.this.f58621c != null) {
-                v0.this.f58621c.j1(false);
+            if (v0.this.f58622c != null) {
+                v0.this.f58622c.j1(false);
             }
         }
 
@@ -95,8 +95,8 @@ public class v0 {
                 v0.this.k(false);
                 v0.this.m();
             }
-            if (v0.this.f58621c != null) {
-                v0.this.f58621c.j1(true);
+            if (v0.this.f58622c != null) {
+                v0.this.f58622c.j1(true);
             }
         }
 
@@ -110,10 +110,10 @@ public class v0 {
     }
 
     public v0(Context context, r rVar, d.b.i0.p0.n2.h hVar) {
-        this.f58622d = context;
-        this.f58621c = rVar;
-        this.f58620b = rVar.c0();
-        this.f58619a = rVar.e0();
+        this.f58623d = context;
+        this.f58622c = rVar;
+        this.f58621b = rVar.c0();
+        this.f58620a = rVar.e0();
         c();
         d.b.i0.f0.b bVar = new d.b.i0.f0.b(context);
         this.j = bVar;
@@ -121,12 +121,12 @@ public class v0 {
     }
 
     public final void c() {
-        r rVar = this.f58621c;
+        r rVar = this.f58622c;
         if (rVar == null || rVar.k0() == null) {
             return;
         }
-        View k0 = this.f58621c.k0();
-        if (this.f58625g && k0.getLayoutParams() != null) {
+        View k0 = this.f58622c.k0();
+        if (this.f58626g && k0.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = k0.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             k0.setLayoutParams(layoutParams);
@@ -145,13 +145,13 @@ public class v0 {
     }
 
     public void f() {
-        if (this.f58626h && this.i && this.f58619a != null && this.f58623e >= this.f58624f) {
+        if (this.f58627h && this.i && this.f58620a != null && this.f58624e >= this.f58625f) {
             n();
         }
     }
 
     public boolean g() {
-        return h(this.f58619a);
+        return h(this.f58620a);
     }
 
     public final boolean h(View view) {
@@ -160,11 +160,11 @@ public class v0 {
     }
 
     public void i(boolean z) {
-        this.f58626h = z;
+        this.f58627h = z;
     }
 
     public final void j(boolean z, boolean z2) {
-        r rVar = this.f58621c;
+        r rVar = this.f58622c;
         if (rVar == null) {
             return;
         }
@@ -175,12 +175,12 @@ public class v0 {
     }
 
     public final void l(boolean z) {
-        r rVar = this.f58621c;
+        r rVar = this.f58622c;
         if (rVar == null || rVar.k0() == null) {
             return;
         }
-        View k0 = this.f58621c.k0();
-        if (this.f58625g && z && k0.getVisibility() != 0) {
+        View k0 = this.f58622c.k0();
+        if (this.f58626g && z && k0.getVisibility() != 0) {
             k0.setVisibility(0);
         } else if (z || k0.getVisibility() == 8) {
         } else {
@@ -189,7 +189,7 @@ public class v0 {
     }
 
     public void m() {
-        if (this.f58626h && this.i && this.f58619a != null) {
+        if (this.f58627h && this.i && this.f58620a != null) {
             o();
         }
     }
@@ -212,7 +212,7 @@ public class v0 {
 
     public void p(boolean z, boolean z2) {
         r rVar;
-        if (this.f58619a == null || (rVar = this.f58621c) == null || rVar.i0() == null || !this.f58621c.i0().d()) {
+        if (this.f58620a == null || (rVar = this.f58622c) == null || rVar.i0() == null || !this.f58622c.i0().d()) {
             return;
         }
         j(false, true);
@@ -228,7 +228,7 @@ public class v0 {
 
     public void s() {
         r rVar;
-        if (this.f58619a == null || (rVar = this.f58621c) == null || rVar.i0() == null || this.f58621c.i0().d()) {
+        if (this.f58620a == null || (rVar = this.f58622c) == null || rVar.i0() == null || this.f58622c.i0().d()) {
             return;
         }
         j(true, true);

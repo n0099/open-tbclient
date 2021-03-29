@@ -11,7 +11,7 @@ public abstract class BidirectionalStream {
     public static class Builder {
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
+        /* loaded from: classes5.dex */
         public @interface StreamPriority {
         }
     }

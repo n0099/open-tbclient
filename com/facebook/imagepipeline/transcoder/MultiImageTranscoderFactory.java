@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.transcoder;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     @Nullable
     public final Integer mImageTranscoderType;

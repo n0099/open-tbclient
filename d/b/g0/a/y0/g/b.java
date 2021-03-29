@@ -5,42 +5,42 @@ import android.util.Log;
 import d.b.g0.a.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47113e = k.f45050a;
+    public static final boolean f47114e = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47114a;
+    public String f47115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.i2.u0.b<b> f47115b;
+    public d.b.g0.a.i2.u0.b<b> f47116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<C0885b> f47116c = new ArrayList();
+    public final List<C0886b> f47117c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47117d = b.class.getPackage().getName();
+    public String f47118d = b.class.getPackage().getName();
 
     /* renamed from: d.b.g0.a.y0.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0885b {
+    /* loaded from: classes2.dex */
+    public class C0886b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f47118a;
+        public final List<String> f47119a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<String> f47119b;
+        public final List<String> f47120b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47120c;
+        public String f47121c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<StackTraceElement> f47121d;
+        public final List<StackTraceElement> f47122d;
 
-        public synchronized C0885b a(String str) {
-            List<String> list = this.f47118a;
+        public synchronized C0886b a(String str) {
+            List<String> list = this.f47119a;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -48,57 +48,57 @@ public final class b {
             return this;
         }
 
-        public C0885b b(String str) {
-            this.f47120c = str;
+        public C0886b b(String str) {
+            this.f47121c = str;
             return this;
         }
 
-        public synchronized C0885b c() {
-            d(this.f47121d.size());
+        public synchronized C0886b c() {
+            d(this.f47122d.size());
             return this;
         }
 
-        public synchronized C0885b d(int i) {
+        public synchronized C0886b d(int i) {
             if (i < 1) {
                 i = 1;
             }
-            if (i > this.f47121d.size()) {
-                i = this.f47121d.size();
+            if (i > this.f47122d.size()) {
+                i = this.f47122d.size();
             }
             for (int i2 = 0; i2 < i; i2++) {
                 b bVar = b.this;
-                bVar.e("[Trace]==> " + this.f47121d.get(i2).toString());
+                bVar.e("[Trace]==> " + this.f47122d.get(i2).toString());
             }
             return this;
         }
 
-        public synchronized C0885b e() {
+        public synchronized C0886b e() {
             d(1);
             return this;
         }
 
-        public C0885b() {
+        public C0886b() {
             StackTraceElement[] stackTrace;
-            this.f47118a = new ArrayList();
-            this.f47119b = new ArrayList();
-            this.f47121d = new ArrayList();
+            this.f47119a = new ArrayList();
+            this.f47120b = new ArrayList();
+            this.f47122d = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(b.this.f47117d)) {
-                    this.f47121d.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(b.this.f47118d)) {
+                    this.f47122d.add(stackTraceElement);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.i2.u0.b<b> {
         public c(b bVar) {
         }
 
         public final void a(String str, String str2) {
-            if (b.f47113e) {
+            if (b.f47114e) {
                 Log.i(str, str2);
             }
         }
@@ -107,11 +107,11 @@ public final class b {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: b */
         public void onCallback(b bVar) {
-            if (b.f47113e) {
-                for (C0885b c0885b : bVar.f47116c) {
-                    for (String str : c0885b.f47118a) {
+            if (b.f47114e) {
+                for (C0886b c0886b : bVar.f47117c) {
+                    for (String str : c0886b.f47119a) {
                         String h2 = bVar.h();
-                        String str2 = TextUtils.isEmpty(c0885b.f47120c) ? h2 : c0885b.f47120c;
+                        String str2 = TextUtils.isEmpty(c0886b.f47121c) ? h2 : c0886b.f47121c;
                         a(str2, h2 + " >>> " + str);
                     }
                 }
@@ -119,42 +119,42 @@ public final class b {
         }
     }
 
-    public synchronized C0885b d() {
-        C0885b c0885b;
-        c0885b = new C0885b();
-        this.f47116c.add(c0885b);
-        return c0885b;
+    public synchronized C0886b d() {
+        C0886b c0886b;
+        c0886b = new C0886b();
+        this.f47117c.add(c0886b);
+        return c0886b;
     }
 
-    public synchronized C0885b e(String str) {
-        C0885b d2;
+    public synchronized C0886b e(String str) {
+        C0886b d2;
         d2 = d();
         d2.a(str);
         return d2;
     }
 
-    public synchronized C0885b f(String str, String str2) {
-        C0885b e2;
+    public synchronized C0886b f(String str, String str2) {
+        C0886b e2;
         e2 = e(str2);
         e2.b(str);
         return e2;
     }
 
     public b g(String str) {
-        this.f47114a = str;
+        this.f47115a = str;
         return this;
     }
 
     public String h() {
-        return this.f47114a;
+        return this.f47115a;
     }
 
-    public synchronized List<C0885b> i() {
-        return new ArrayList(this.f47116c);
+    public synchronized List<C0886b> i() {
+        return new ArrayList(this.f47117c);
     }
 
     public synchronized b j() {
-        k(this.f47115b);
+        k(this.f47116b);
         return this;
     }
 
@@ -171,7 +171,7 @@ public final class b {
     }
 
     public b l(d.b.g0.a.i2.u0.b<b> bVar) {
-        this.f47115b = bVar;
+        this.f47116b = bVar;
         return this;
     }
 }

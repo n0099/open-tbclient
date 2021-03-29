@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message.chat;
 
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PersonalChatMessage extends ChatMessage {
     public PersonalChatMessage() {
         super(205001);

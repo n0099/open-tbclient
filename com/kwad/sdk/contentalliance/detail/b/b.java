@@ -11,23 +11,23 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<KsContentPage.SubShowItem> f32149a = new ArrayList();
+    public List<KsContentPage.SubShowItem> f32150a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, KsContentPage.SubShowItem> f32150b = new HashMap();
+    public Map<String, KsContentPage.SubShowItem> f32151b = new HashMap();
 
     public int a(AdTemplate adTemplate, int i) {
         if (adTemplate == null) {
             return 0;
         }
         String str = adTemplate.mUniqueId;
-        if (this.f32150b.containsKey(str)) {
+        if (this.f32151b.containsKey(str)) {
             return 3;
         }
         if (adTemplate.contentType == 3) {
             com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，开始尝试插入,position:" + i);
-            if (this.f32149a.size() > 0) {
-                this.f32150b.put(str, this.f32149a.remove(0));
+            if (this.f32150a.size() > 0) {
+                this.f32151b.put(str, this.f32150a.remove(0));
                 com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，插入成功,position:" + i);
                 return 3;
             } else if (adTemplate.adInfoList.size() > 0 && adTemplate.adInfoList.get(0) != null) {
@@ -43,14 +43,14 @@ public class b {
     }
 
     public KsContentPage.SubShowItem a(AdTemplate adTemplate) {
-        return this.f32150b.get(adTemplate.mUniqueId);
+        return this.f32151b.get(adTemplate.mUniqueId);
     }
 
     public void a(KsContentPage.SubShowItem subShowItem) {
-        if (this.f32149a.contains(subShowItem)) {
+        if (this.f32150a.contains(subShowItem)) {
             return;
         }
-        this.f32149a.add(subShowItem);
+        this.f32150a.add(subShowItem);
     }
 
     public void a(List<KsContentPage.SubShowItem> list) {

@@ -35,13 +35,13 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f30377a = "";
+    public static volatile String f30378a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30378b;
+    public static String f30379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30379c;
+    public static String f30380c;
 
     public static String a(int i) {
         switch (i) {
@@ -300,12 +300,12 @@ public class ak {
     public static synchronized String f() {
         String str;
         synchronized (ak.class) {
-            if (TextUtils.isEmpty(f30378b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+            if (TextUtils.isEmpty(f30379b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
                 PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
-                f30378b = String.valueOf(packageInfo.versionCode);
-                f30379c = packageInfo.versionName;
+                f30379b = String.valueOf(packageInfo.versionCode);
+                f30380c = packageInfo.versionName;
             }
-            str = f30378b;
+            str = f30379b;
         }
         return str;
     }
@@ -327,9 +327,7 @@ public class ak {
 
     public static int k() {
         try {
-            double freeMemory = Runtime.getRuntime().freeMemory();
-            Double.isNaN(freeMemory);
-            return (int) ((freeMemory * 1.0d) / 1048576.0d);
+            return (int) ((Runtime.getRuntime().freeMemory() * 1.0d) / 1048576.0d);
         } catch (Exception unused) {
             return -1;
         }
@@ -338,12 +336,12 @@ public class ak {
     public static synchronized String g() {
         String str;
         synchronized (ak.class) {
-            if (TextUtils.isEmpty(f30379c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+            if (TextUtils.isEmpty(f30380c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
                 PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
-                f30378b = String.valueOf(packageInfo.versionCode);
-                f30379c = packageInfo.versionName;
+                f30379b = String.valueOf(packageInfo.versionCode);
+                f30380c = packageInfo.versionName;
             }
-            str = f30379c;
+            str = f30380c;
         }
         return str;
     }
@@ -369,9 +367,7 @@ public class ak {
 
     public static int l() {
         try {
-            double d2 = Runtime.getRuntime().totalMemory();
-            Double.isNaN(d2);
-            return (int) ((d2 * 1.0d) / 1048576.0d);
+            return (int) ((Runtime.getRuntime().totalMemory() * 1.0d) / 1048576.0d);
         } catch (Exception unused) {
             return -1;
         }
@@ -411,44 +407,37 @@ public class ak {
                         th = th;
                         try {
                             th.printStackTrace();
-                            if (bufferedReader != null) {
+                            if (fileReader != null) {
                                 try {
-                                    bufferedReader.close();
+                                    fileReader.close();
                                 } catch (Exception unused) {
                                 }
                             }
-                            if (fileReader != null) {
-                                try {
-                                    fileReader.close();
-                                } catch (Exception unused2) {
-                                }
-                            }
                             return null;
-                        } catch (Throwable th2) {
+                        } finally {
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (Exception unused3) {
+                                } catch (Exception unused2) {
                                 }
                             }
                             if (fileReader != null) {
                                 try {
                                     fileReader.close();
-                                } catch (Exception unused4) {
+                                } catch (Exception unused3) {
                                 }
                             }
-                            throw th2;
                         }
                     }
                 } while (!readLine.contains(str));
                 if (readLine == null) {
                     try {
                         bufferedReader.close();
-                    } catch (Exception unused5) {
+                    } catch (Exception unused4) {
                     }
                     try {
                         fileReader.close();
-                    } catch (Exception unused6) {
+                    } catch (Exception unused5) {
                     }
                     return null;
                 }
@@ -457,19 +446,19 @@ public class ak {
                 String str2 = split[1];
                 try {
                     bufferedReader.close();
-                } catch (Exception unused7) {
+                } catch (Exception unused6) {
                 }
                 try {
                     fileReader.close();
-                } catch (Exception unused8) {
+                } catch (Exception unused7) {
                 }
                 return str2;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
                 bufferedReader = null;
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
             fileReader = null;
             bufferedReader = null;
         }
@@ -477,9 +466,7 @@ public class ak {
 
     public static int j() {
         try {
-            double maxMemory = Runtime.getRuntime().maxMemory();
-            Double.isNaN(maxMemory);
-            return (int) ((maxMemory * 1.0d) / 1048576.0d);
+            return (int) ((Runtime.getRuntime().maxMemory() * 1.0d) / 1048576.0d);
         } catch (Exception unused) {
             return -1;
         }
@@ -531,38 +518,38 @@ public class ak {
     }
 
     public static String b() {
-        if (!TextUtils.isEmpty(f30377a)) {
-            return f30377a;
+        if (!TextUtils.isEmpty(f30378a)) {
+            return f30378a;
         }
         try {
-            f30377a = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", 86400000L);
-            if (TextUtils.isEmpty(f30377a)) {
+            f30378a = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", 86400000L);
+            if (TextUtils.isEmpty(f30378a)) {
                 synchronized (TextUtils.class) {
-                    if (TextUtils.isEmpty(f30377a)) {
+                    if (TextUtils.isEmpty(f30378a)) {
                         if (Build.VERSION.SDK_INT < 17) {
                             if (Looper.myLooper() == Looper.getMainLooper()) {
-                                f30377a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                                f30378a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                             } else {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         try {
-                                            String unused = ak.f30377a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                                            String unused = ak.f30378a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                                         } catch (Exception unused2) {
                                         }
                                     }
                                 });
                             }
                         } else {
-                            f30377a = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.p.a());
+                            f30378a = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.p.a());
                         }
-                        com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", f30377a);
+                        com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", f30378a);
                     }
                 }
             }
         } catch (Exception unused) {
         }
-        return f30377a;
+        return f30378a;
     }
 
     public static boolean a() {

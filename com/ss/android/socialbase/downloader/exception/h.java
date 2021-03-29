@@ -3,14 +3,14 @@ package com.ss.android.socialbase.downloader.exception;
 public class h extends Throwable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38853a;
+    public String f38854a;
 
     public h(String str) {
         super(str);
-        this.f38853a = str;
+        this.f38854a = str;
     }
 
     public String a() {
-        return this.f38853a;
+        return this.f38854a;
     }
 }

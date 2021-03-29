@@ -4,26 +4,26 @@ import android.content.Context;
 import com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView;
 import com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView;
 import com.baidu.tieba.im.chat.officialBar.SingleImageTextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.e.k.b<MultiImageTextTopView> f53705a;
+    public d.b.b.e.k.b<MultiImageTextTopView> f53706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.e.k.b<MultiImageTextBottomView> f53706b;
+    public d.b.b.e.k.b<MultiImageTextBottomView> f53707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.b.e.k.b<SingleImageTextView> f53707c;
+    public d.b.b.e.k.b<SingleImageTextView> f53708c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.e.k.c<MultiImageTextTopView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f53708a;
+        public final /* synthetic */ Context f53709a;
 
         public a(c cVar, Context context) {
-            this.f53708a = context;
+            this.f53709a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -61,7 +61,7 @@ public class c {
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public MultiImageTextTopView d() {
-            return new MultiImageTextTopView(this.f53708a);
+            return new MultiImageTextTopView(this.f53709a);
         }
 
         public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
@@ -72,7 +72,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends d.b.b.e.k.b<MultiImageTextTopView> {
         public b(c cVar, d.b.b.e.k.c cVar2, int i, int i2) {
             super(cVar2, i, i2);
@@ -80,14 +80,14 @@ public class c {
     }
 
     /* renamed from: d.b.i0.d1.f.j.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1192c implements d.b.b.e.k.c<MultiImageTextBottomView> {
+    /* loaded from: classes3.dex */
+    public class C1193c implements d.b.b.e.k.c<MultiImageTextBottomView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f53709a;
+        public final /* synthetic */ Context f53710a;
 
-        public C1192c(c cVar, Context context) {
-            this.f53709a = context;
+        public C1193c(c cVar, Context context) {
+            this.f53710a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -125,7 +125,7 @@ public class c {
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public MultiImageTextBottomView d() {
-            return new MultiImageTextBottomView(this.f53709a);
+            return new MultiImageTextBottomView(this.f53710a);
         }
 
         public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
@@ -136,21 +136,21 @@ public class c {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.e.k.b<MultiImageTextBottomView> {
         public d(c cVar, d.b.b.e.k.c cVar2, int i, int i2) {
             super(cVar2, i, i2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements d.b.b.e.k.c<SingleImageTextView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f53710a;
+        public final /* synthetic */ Context f53711a;
 
         public e(c cVar, Context context) {
-            this.f53710a = context;
+            this.f53711a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -188,7 +188,7 @@ public class c {
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public SingleImageTextView d() {
-            return new SingleImageTextView(this.f53710a);
+            return new SingleImageTextView(this.f53711a);
         }
 
         public SingleImageTextView h(SingleImageTextView singleImageTextView) {
@@ -200,35 +200,35 @@ public class c {
     }
 
     public final void a(Context context) {
-        this.f53706b = new d(this, new C1192c(this, context), 9, 0);
+        this.f53707b = new d(this, new C1193c(this, context), 9, 0);
     }
 
     public final void b(Context context) {
-        this.f53707c = new d.b.b.e.k.b<>(new e(this, context), 1, 0);
+        this.f53708c = new d.b.b.e.k.b<>(new e(this, context), 1, 0);
     }
 
     public final void c(Context context) {
-        this.f53705a = new b(this, new a(this, context), 1, 0);
+        this.f53706a = new b(this, new a(this, context), 1, 0);
     }
 
     public d.b.b.e.k.b<MultiImageTextBottomView> d(Context context) {
-        if (this.f53706b == null) {
+        if (this.f53707b == null) {
             a(context);
         }
-        return this.f53706b;
+        return this.f53707b;
     }
 
     public d.b.b.e.k.b<SingleImageTextView> e(Context context) {
-        if (this.f53707c == null) {
+        if (this.f53708c == null) {
             b(context);
         }
-        return this.f53707c;
+        return this.f53708c;
     }
 
     public d.b.b.e.k.b<MultiImageTextTopView> f(Context context) {
-        if (this.f53705a == null) {
+        if (this.f53706a == null) {
             c(context);
         }
-        return this.f53705a;
+        return this.f53706a;
     }
 }

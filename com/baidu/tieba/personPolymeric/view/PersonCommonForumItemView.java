@@ -22,16 +22,16 @@ import d.b.i0.h2.e.f;
 public class PersonCommonForumItemView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BarImageView f20471e;
+    public BarImageView f20472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20472f;
+    public TextView f20473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20473g;
+    public TextView f20474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20474h;
+    public TextView f20475h;
     public TextView i;
     public int j;
     public Context k;
@@ -50,7 +50,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
             }
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
             TiebaStatic.log(new StatisticItem("c11594"));
-            String str = PersonCommonForumItemView.this.l.f55283f;
+            String str = PersonCommonForumItemView.this.l.f55284f;
             if (k.isForumName(str)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(PersonCommonForumItemView.this.k).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
             }
@@ -67,10 +67,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public final void c() {
-        this.f20471e = (BarImageView) findViewById(R.id.forum_avatar);
-        this.f20472f = (TextView) findViewById(R.id.forum_name);
-        this.f20473g = (TextView) findViewById(R.id.forum_post_thread);
-        this.f20474h = (TextView) findViewById(R.id.forum_thread_num);
+        this.f20472e = (BarImageView) findViewById(R.id.forum_avatar);
+        this.f20473f = (TextView) findViewById(R.id.forum_name);
+        this.f20474g = (TextView) findViewById(R.id.forum_post_thread);
+        this.f20475h = (TextView) findViewById(R.id.forum_thread_num);
         this.i = (TextView) findViewById(R.id.forum_thread_str);
     }
 
@@ -80,10 +80,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void e() {
         if (this.j != TbadkCoreApplication.getInst().getSkinType()) {
-            SkinManager.setViewTextColor(this.f20472f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f20473g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f20473f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f20474g, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f20474h, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f20475h, R.color.CAM_X0302);
             SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
         }
         this.j = TbadkCoreApplication.getInst().getSkinType();
@@ -91,11 +91,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void setData(f fVar) {
         this.l = fVar;
-        this.f20471e.W(fVar.f55284g, 10, false);
-        TextView textView = this.f20472f;
-        textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f55283f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
-        this.f20474h.setText(StringHelper.numberUniformFormat((long) fVar.f55285h));
-        this.f20473g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.i)));
+        this.f20472e.W(fVar.f55285g, 10, false);
+        TextView textView = this.f20473f;
+        textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f55284f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
+        this.f20475h.setText(StringHelper.numberUniformFormat((long) fVar.f55286h));
+        this.f20474g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.i)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.m);
         }

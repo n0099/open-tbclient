@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MultiLinkCardView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a0 extends h {
     public MultiLinkCardView l;
 

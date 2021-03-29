@@ -35,35 +35,35 @@ public class h0 {
     public String Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51173a;
+    public String f51174a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51174b;
+    public String f51175b;
     public String b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51175c;
+    public String f51176c;
     public String c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51176d;
+    public String f51177d;
     public String d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51177e;
+    public String f51178e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51178f;
+    public String f51179f;
     public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51179g;
+    public String f51180g;
     public String g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51180h;
+    public String f51181h;
     public String h0;
     public long i;
     public String i0;
@@ -159,7 +159,7 @@ public class h0 {
     }
 
     public String Q() {
-        return this.f51179g;
+        return this.f51180g;
     }
 
     public String R() {
@@ -191,17 +191,17 @@ public class h0 {
             return;
         }
         try {
-            this.f51173a = jSONObject.optString("drop_pic");
-            this.f51174b = jSONObject.optString("drop_pic_md5");
-            this.f51175c = jSONObject.optString("drop_pic_num");
-            this.f51176d = jSONObject.optString("drop_bg_color_day");
-            this.f51177e = jSONObject.optString("drop_bg_color_night");
-            this.f51178f = jSONObject.optString("apply_vip_live_room_pid");
+            this.f51174a = jSONObject.optString("drop_pic");
+            this.f51175b = jSONObject.optString("drop_pic_md5");
+            this.f51176c = jSONObject.optString("drop_pic_num");
+            this.f51177d = jSONObject.optString("drop_bg_color_day");
+            this.f51178e = jSONObject.optString("drop_bg_color_night");
+            this.f51179f = jSONObject.optString("apply_vip_live_room_pid");
             this.s = jSONObject.optString("max_cache");
             this.t = jSONObject.optString("frs_max_cache");
             this.u = jSONObject.optString("frs_pn");
-            this.f51179g = jSONObject.optString("tail_link");
-            this.f51180h = jSONObject.optString("bubble_link");
+            this.f51180g = jSONObject.optString("tail_link");
+            this.f51181h = jSONObject.optString("bubble_link");
             this.i = jSONObject.optLong("use_duration");
             this.j = jSONObject.optInt("xiaoying_time");
             this.k = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
@@ -396,7 +396,7 @@ public class h0 {
     }
 
     public String f() {
-        return this.f51178f;
+        return this.f51179f;
     }
 
     public long g() {
@@ -404,7 +404,7 @@ public class h0 {
     }
 
     public String h() {
-        return this.f51180h;
+        return this.f51181h;
     }
 
     public String i() {
@@ -420,23 +420,23 @@ public class h0 {
     }
 
     public String l() {
-        return this.f51176d;
+        return this.f51177d;
     }
 
     public String m() {
-        return this.f51177e;
+        return this.f51178e;
     }
 
     public String n() {
-        return this.f51173a;
+        return this.f51174a;
     }
 
     public String o() {
-        return this.f51174b;
+        return this.f51175b;
     }
 
     public String p() {
-        return this.f51175c;
+        return this.f51176c;
     }
 
     public int q() {

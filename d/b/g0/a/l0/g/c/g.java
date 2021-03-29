@@ -8,29 +8,29 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.v1.c.i.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45142e;
+        public final /* synthetic */ CallbackHandler f45143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45143f;
+        public final /* synthetic */ UnitedSchemeEntity f45144f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45144g;
+        public final /* synthetic */ JSONObject f45145g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f45145h;
+        public final /* synthetic */ Context f45146h;
 
         public a(g gVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            this.f45142e = callbackHandler;
-            this.f45143f = unitedSchemeEntity;
-            this.f45144g = jSONObject;
-            this.f45145h = context;
+            this.f45143e = callbackHandler;
+            this.f45144f = unitedSchemeEntity;
+            this.f45145g = jSONObject;
+            this.f45146h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,16 +38,16 @@ public class g extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.n(hVar, this.f45142e, this.f45143f);
+                d.b.g0.a.v1.c.c.n(hVar, this.f45143e, this.f45144f);
                 return;
             }
-            int optInt = this.f45144g.optInt("useExtension");
+            int optInt = this.f45145g.optInt("useExtension");
             if (!d.b.g0.a.l0.g.b.b().exists()) {
-                this.f45143f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f45145h.getResources().getString(d.b.g0.a.h.aiapps_debug_no_extension_core));
+                this.f45144f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f45146h.getResources().getString(d.b.g0.a.h.aiapps_debug_no_extension_core));
                 return;
             }
             d.b.g0.a.m1.a.a.P(d.b.g0.a.l0.g.a.b(optInt));
-            UnitedSchemeUtility.callCallback(this.f45142e, this.f45143f, UnitedSchemeUtility.wrapCallbackParams(0));
+            UnitedSchemeUtility.callCallback(this.f45143e, this.f45144f, UnitedSchemeUtility.wrapCallbackParams(0));
             d.b.g0.a.m1.a.a.T();
         }
     }

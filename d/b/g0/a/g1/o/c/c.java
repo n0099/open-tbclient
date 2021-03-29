@@ -3,14 +3,14 @@ package d.b.g0.a.g1.o.c;
 import android.util.Log;
 import d.b.g0.a.r1.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f44574a = "SwanAppPayCheckNode";
+    public final String f44575a = "SwanAppPayCheckNode";
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f44575b;
+    public final boolean f44576b;
 
     @Override // d.b.g0.a.g1.o.c.b
     public String a() {
@@ -19,15 +19,15 @@ public final class c extends b {
 
     @Override // d.b.g0.a.g1.o.c.b
     public void b() {
-        if (this.f44575b) {
-            Log.d(this.f44574a, "onFail: ");
+        if (this.f44576b) {
+            Log.d(this.f44575a, "onFail: ");
         }
     }
 
     @Override // d.b.g0.a.g1.o.c.b
     public void c() {
-        if (this.f44575b) {
-            Log.d(this.f44574a, "onFiltered: ");
+        if (this.f44576b) {
+            Log.d(this.f44575a, "onFiltered: ");
         }
     }
 
@@ -35,8 +35,8 @@ public final class c extends b {
     public void d(JSONObject jSONObject, String str) {
         e O;
         d.b.g0.a.v1.a R;
-        if (this.f44575b) {
-            Log.d(this.f44574a, "onUpdate: ");
+        if (this.f44576b) {
+            Log.d(this.f44575a, "onUpdate: ");
         }
         if (jSONObject == null || (O = e.O()) == null || (R = O.R()) == null) {
             return;

@@ -11,7 +11,7 @@ import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMessage.PushMsg;
 import protobuf.PushMsgInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PushResponseMessage extends ResponsePullMessage {
     public x0 notificationData;
 

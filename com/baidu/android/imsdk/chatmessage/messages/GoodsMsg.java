@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GoodsMsg extends NormalMsg {
     public static final Parcelable.Creator<GoodsMsg> CREATOR = new Parcelable.Creator<GoodsMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GoodsMsg.1
         /* JADX DEBUG: Method merged with bridge method */

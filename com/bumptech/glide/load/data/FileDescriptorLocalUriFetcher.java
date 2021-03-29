@@ -30,7 +30,7 @@ public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDes
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public ParcelFileDescriptor loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7663a);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7664a);
         if (openAssetFileDescriptor != null) {
             return openAssetFileDescriptor.getParcelFileDescriptor();
         }

@@ -13,10 +13,10 @@ import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f61903a;
+    public TbPageContext f61904a;
 
     public c(TbPageContext tbPageContext) {
-        this.f61903a = tbPageContext;
+        this.f61904a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
@@ -30,7 +30,7 @@ public class c {
         commitCardInfoReqMsg.resource_id = str;
         commitCardInfoReqMsg.card_type = i;
         commitCardInfoReqMsg.image_info = str2;
-        commitCardInfoReqMsg.setTag(this.f61903a.getUniqueId());
+        commitCardInfoReqMsg.setTag(this.f61904a.getUniqueId());
         MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
     }
 }

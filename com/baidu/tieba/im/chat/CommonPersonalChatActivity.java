@@ -15,7 +15,7 @@ import d.b.i0.d1.w.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     public boolean checkParam() {
         UserData user;

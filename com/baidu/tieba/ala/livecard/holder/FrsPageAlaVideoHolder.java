@@ -6,10 +6,10 @@ import d.b.i0.t.i.e.e;
 public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f15034a;
+    public e f15035a;
 
     public FrsPageAlaVideoHolder(e eVar) {
         super(eVar.m());
-        this.f15034a = eVar;
+        this.f15035a = eVar;
     }
 }

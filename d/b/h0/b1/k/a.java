@@ -12,33 +12,33 @@ import d.b.b.e.p.k;
 public class a implements d.a.a.b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f49937d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    public static final String f49938d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49938a;
+    public String f49939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalFileImageLoaderProc f49939b;
+    public LocalFileImageLoaderProc f49940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49940c = false;
+    public boolean f49941c = false;
 
     public static String b() {
-        return f49937d + "/" + TbConfig.getTempDirName() + "/animation/";
+        return f49938d + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     @Override // d.a.a.b
     public Bitmap a(g gVar) {
-        if (k.isEmpty(this.f49938a)) {
+        if (k.isEmpty(this.f49939a)) {
             return null;
         }
-        String str = this.f49938a + gVar.b().replace("/", "") + "/" + gVar.c();
+        String str = this.f49939a + gVar.b().replace("/", "") + "/" + gVar.c();
         d.b.b.j.d.a aVar = (d.b.b.j.d.a) d.h().n(str, 36, new Object[0]);
         if (aVar == null && c()) {
-            if (this.f49939b == null) {
-                this.f49939b = new LocalFileImageLoaderProc();
+            if (this.f49940b == null) {
+                this.f49940b = new LocalFileImageLoaderProc();
             }
-            aVar = this.f49939b.getBitmapFromFile(str, 0, 0);
+            aVar = this.f49940b.getBitmapFromFile(str, 0, 0);
         }
         if (aVar != null && aVar.p() != null) {
             Bitmap p = aVar.p();
@@ -54,14 +54,14 @@ public class a implements d.a.a.b {
     }
 
     public boolean c() {
-        return this.f49940c;
+        return this.f49941c;
     }
 
     public void d(boolean z) {
-        this.f49940c = z;
+        this.f49941c = z;
     }
 
     public void e(String str) {
-        this.f49938a = b() + str + "/";
+        this.f49939a = b() + str + "/";
     }
 }

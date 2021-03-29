@@ -100,19 +100,19 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public class a implements MessageQueue.IdleHandler {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f21135a;
+            public final /* synthetic */ long f21136a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f21136b;
+            public final /* synthetic */ long f21137b;
 
             public a(long j, long j2) {
-                this.f21135a = j;
-                this.f21136b = j2;
+                this.f21136a = j;
+                this.f21137b = j2;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {
-                SignAllForumActivity.this.logCostTimeLog(this.f21135a, this.f21136b);
+                SignAllForumActivity.this.logCostTimeLog(this.f21136a, this.f21137b);
                 return false;
             }
         }
@@ -226,23 +226,23 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f21140e;
+        public final /* synthetic */ String f21141e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f21141f;
+        public final /* synthetic */ String f21142f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f21142g;
+        public final /* synthetic */ boolean f21143g;
 
         public f(String str, String str2, boolean z) {
-            this.f21140e = str;
-            this.f21141f = str2;
-            this.f21142g = z;
+            this.f21141e = str;
+            this.f21142f = str2;
+            this.f21143g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SignAllForumActivity.this.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(SignAllForumActivity.this.getPageContext().getPageActivity(), this.f21140e, this.f21141f, Boolean.valueOf(this.f21142g))));
+            SignAllForumActivity.this.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(SignAllForumActivity.this.getPageContext().getPageActivity(), this.f21141e, this.f21142f, Boolean.valueOf(this.f21143g))));
         }
     }
 

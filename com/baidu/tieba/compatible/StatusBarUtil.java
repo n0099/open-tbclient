@@ -109,7 +109,7 @@ public final class StatusBarUtil {
             if (z) {
                 declaredField.set(attributes, Integer.valueOf(i2 | i));
             } else {
-                declaredField.set(attributes, Integer.valueOf((i ^ (-1)) & i2));
+                declaredField.set(attributes, Integer.valueOf((~i) & i2));
             }
             return true;
         } catch (Exception unused) {

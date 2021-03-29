@@ -17,25 +17,25 @@ import com.baidu.mapsdkplatform.comapi.util.f;
 public class a implements PermissionCheck.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7468a = "a";
+    public static final String f7469a = "a";
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f7469f = null;
+    public static a f7470f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7470g = -100;
+    public static int f7471g = -100;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f7471b;
+    public Context f7472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f7472c;
+    public Handler f7473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f7473d;
+    public e f7474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7474e;
+    public int f7475e;
 
     static {
         NativeLoader.getInstance().loadLibrary(VersionInfo.getKitName());
@@ -43,10 +43,10 @@ public class a implements PermissionCheck.c {
     }
 
     public static a a() {
-        if (f7469f == null) {
-            f7469f = new a();
+        if (f7470f == null) {
+            f7470f = new a();
         }
-        return f7469f;
+        return f7470f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,7 +54,7 @@ public class a implements PermissionCheck.c {
         Intent intent;
         if (message.what != 2012) {
             if (message.arg2 == 3) {
-                this.f7471b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+                this.f7472b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
             }
             int i = message.arg2;
             if (i != 2 && i != 404 && i != 5 && i != 8) {
@@ -69,7 +69,7 @@ public class a implements PermissionCheck.c {
             intent2.putExtra("error_message", (String) message.obj);
             intent = intent2;
         }
-        this.f7471b.sendBroadcast(intent);
+        this.f7472b.sendBroadcast(intent);
     }
 
     private void f() {
@@ -77,8 +77,8 @@ public class a implements PermissionCheck.c {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
-        Context context = this.f7471b;
-        if (context == null || (eVar = this.f7473d) == null) {
+        Context context = this.f7472b;
+        if (context == null || (eVar = this.f7474d) == null) {
             return;
         }
         context.registerReceiver(eVar, intentFilter);
@@ -86,15 +86,15 @@ public class a implements PermissionCheck.c {
 
     private void g() {
         Context context;
-        e eVar = this.f7473d;
-        if (eVar == null || (context = this.f7471b) == null) {
+        e eVar = this.f7474d;
+        if (eVar == null || (context = this.f7472b) == null) {
             return;
         }
         context.unregisterReceiver(eVar);
     }
 
     public void a(Context context) {
-        this.f7471b = context;
+        this.f7472b = context;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.PermissionCheck.c
@@ -103,42 +103,42 @@ public class a implements PermissionCheck.c {
         if (bVar == null) {
             return;
         }
-        if (bVar.f7860a == 0) {
-            f.z = bVar.f7864e;
-            f.a(bVar.f7861b, bVar.f7862c);
+        if (bVar.f7861a == 0) {
+            f.z = bVar.f7865e;
+            f.a(bVar.f7862b, bVar.f7863c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
         }
-        Handler handler = this.f7472c;
-        if (handler == null || (i = bVar.f7860a) == f7470g) {
+        Handler handler = this.f7473c;
+        if (handler == null || (i = bVar.f7861a) == f7471g) {
             return;
         }
-        f7470g = i;
+        f7471g = i;
         Message obtainMessage = handler.obtainMessage();
         obtainMessage.what = IMConstants.IM_MSG_TYPE_SHIELD_ME;
-        obtainMessage.arg1 = bVar.f7860a;
-        obtainMessage.obj = bVar.f7863d;
-        this.f7472c.sendMessage(obtainMessage);
+        obtainMessage.arg1 = bVar.f7861a;
+        obtainMessage.obj = bVar.f7864d;
+        this.f7473c.sendMessage(obtainMessage);
     }
 
     public void b() {
-        if (this.f7474e == 0) {
-            if (this.f7471b == null) {
+        if (this.f7475e == 0) {
+            if (this.f7472b == null) {
                 throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
-            this.f7473d = new e();
+            this.f7474d = new e();
             f();
-            SysUpdateObservable.getInstance().updateNetworkInfo(this.f7471b);
+            SysUpdateObservable.getInstance().updateNetworkInfo(this.f7472b);
         }
-        this.f7474e++;
+        this.f7475e++;
     }
 
     public boolean c() {
-        if (this.f7471b != null) {
-            this.f7472c = new b(this);
-            f.b(this.f7471b);
+        if (this.f7472b != null) {
+            this.f7473c = new b(this);
+            f.b(this.f7472b);
             f.f();
-            PermissionCheck.init(this.f7471b);
+            PermissionCheck.init(this.f7472b);
             PermissionCheck.setPermissionCheckResultListener(this);
             PermissionCheck.permissionCheck();
             return true;
@@ -147,8 +147,8 @@ public class a implements PermissionCheck.c {
     }
 
     public void d() {
-        int i = this.f7474e - 1;
-        this.f7474e = i;
+        int i = this.f7475e - 1;
+        this.f7475e = i;
         if (i == 0) {
             g();
             f.a();
@@ -156,7 +156,7 @@ public class a implements PermissionCheck.c {
     }
 
     public Context e() {
-        Context context = this.f7471b;
+        Context context = this.f7472b;
         if (context != null) {
             return context;
         }

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class o implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

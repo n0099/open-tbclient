@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 public class b extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ie f40987a;
+    public ie f40988a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<XMPushService> f917a;
@@ -20,7 +20,7 @@ public class b extends ai.a {
 
     public b(ie ieVar, WeakReference<XMPushService> weakReference, boolean z) {
         this.f918a = false;
-        this.f40987a = ieVar;
+        this.f40988a = ieVar;
         this.f917a = weakReference;
         this.f918a = z;
     }
@@ -35,15 +35,15 @@ public class b extends ai.a {
     public void run() {
         XMPushService xMPushService;
         WeakReference<XMPushService> weakReference = this.f917a;
-        if (weakReference == null || this.f40987a == null || (xMPushService = weakReference.get()) == null) {
+        if (weakReference == null || this.f40988a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.f40987a.a(at.a());
-        this.f40987a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f40987a.m446a());
+        this.f40988a.a(at.a());
+        this.f40988a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f40988a.m446a());
         try {
-            String c2 = this.f40987a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.f40987a.b(), this.f40987a, hf.Notification)), this.f918a);
+            String c2 = this.f40988a.c();
+            xMPushService.a(c2, ip.a(y.a(c2, this.f40988a.b(), this.f40988a, hf.Notification)), this.f918a);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }

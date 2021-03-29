@@ -62,7 +62,7 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     j.this.q.a(threadCardViewHolder.a(), z1Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -71,24 +71,24 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f55689a;
+        public final /* synthetic */ ViewGroup f55690a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f55690b;
+        public final /* synthetic */ View f55691b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f55691c;
+        public final /* synthetic */ int f55692c;
 
         public c(j jVar, ViewGroup viewGroup, View view, int i) {
-            this.f55689a = viewGroup;
-            this.f55690b = view;
-            this.f55691c = i;
+            this.f55690a = viewGroup;
+            this.f55691b = view;
+            this.f55692c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f55689a, this.f55690b, this.f55691c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f55690a, this.f55691b, this.f55692c));
             }
         }
     }
@@ -108,8 +108,8 @@ public class j extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         k0.b bVar = new k0.b(this.o.getPageActivity(), false);
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 22;
-        eVar.f50768h = 19;
+        eVar.f50763b = 22;
+        eVar.f50769h = 19;
         m0Var.v(eVar);
         m0Var.C(this.n);
         m0Var.w(18);

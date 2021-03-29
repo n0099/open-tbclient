@@ -17,10 +17,10 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class IMPushPb {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 4;
@@ -45,7 +45,7 @@ public final class IMPushPb {
         public Object type;
         public Object value;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -714,7 +714,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -743,7 +743,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static final int ACK_FIELD_NUMBER = 7;
         public static final int ACTION_TYPE_FIELD_NUMBER = 1;
@@ -774,7 +774,7 @@ public final class IMPushPb {
         public Request request;
         public Ui ui;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             public int bitField0;
             public ActionType actionType = ActionType.UI;
@@ -1627,7 +1627,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -1662,7 +1662,7 @@ public final class IMPushPb {
         boolean hasUi();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ActionType implements Internal.EnumLite {
         UI(0, 101),
         CRASH(1, 201),
@@ -1728,7 +1728,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
         public static final int APP_NAME_FIELD_NUMBER = 1;
@@ -1749,7 +1749,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             public int bitField0;
             public Object appName = "";
@@ -2312,7 +2312,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -2333,7 +2333,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static final int APP_INFO_FIELD_NUMBER = 21;
         public static final int DEVICE_ID_FIELD_NUMBER = 7;
@@ -2364,7 +2364,7 @@ public final class IMPushPb {
         public long timestamp;
         public long userTimestamp;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             public int bitField0;
             public long timestamp;
@@ -3251,7 +3251,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -3290,7 +3290,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int EXT_FIELD_NUMBER = 6;
@@ -3319,7 +3319,7 @@ public final class IMPushPb {
         public long startTime;
         public long stopTime;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -4044,7 +4044,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -4079,7 +4079,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
         public static final int EXCEPTION_FIELD_NUMBER = 1;
@@ -4102,7 +4102,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public long timestamp;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -4668,7 +4668,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -4691,7 +4691,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static final int ACTION_FIELD_NUMBER = 4;
         public static final int ALIAS_ID_FIELD_NUMBER = 9;
@@ -4724,7 +4724,7 @@ public final class IMPushPb {
         public long startTime;
         public Object table;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -5703,7 +5703,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -5752,7 +5752,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static final int CUID_FIELD_NUMBER = 4;
         public static final Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
@@ -5769,7 +5769,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             public int bitField0;
             public Object cuid = "";
@@ -6124,7 +6124,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -6133,7 +6133,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
         public static final int LOG_NAME_FIELD_NUMBER = 2;
@@ -6154,7 +6154,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public Object productName;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             public int bitField0;
             public int logModuleId = 7399;
@@ -6667,7 +6667,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -6686,7 +6686,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
         public static final int DURATION_FIELD_NUMBER = 3;
@@ -6715,7 +6715,7 @@ public final class IMPushPb {
         public Object roomId;
         public long startMsgid;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -7438,7 +7438,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -7473,7 +7473,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static final int NET_APN_FIELD_NUMBER = 2;
         public static final int NET_TYPE_FIELD_NUMBER = 1;
@@ -7492,7 +7492,7 @@ public final class IMPushPb {
         public Object netApn;
         public Object netType;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             public int bitField0;
             public Object netType = "";
@@ -7950,7 +7950,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -7965,7 +7965,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum OSType implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0, 0),
         IOS(1, 1),
@@ -8016,7 +8016,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static final int ACTIONS_FIELD_NUMBER = 132;
         public static final int COMMON_FIELD_NUMBER = 41;
@@ -8036,21 +8036,21 @@ public final class IMPushPb {
         public int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        public Common f2527common;
+        public Common f2528common;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
         public MetaData metadata;
         public Object sdkName;
         public long sdkVersion;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             public int bitField0;
             public long sdkVersion;
             public MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            public Common f2528common = Common.getDefaultInstance();
+            public Common f2529common = Common.getDefaultInstance();
             public Object sdkName = "";
             public List<Action> actions = Collections.emptyList();
 
@@ -8094,7 +8094,7 @@ public final class IMPushPb {
             }
 
             public Builder clearCommon() {
-                this.f2528common = Common.getDefaultInstance();
+                this.f2529common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }
@@ -8134,7 +8134,7 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f2528common;
+                return this.f2529common;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8195,10 +8195,10 @@ public final class IMPushPb {
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f2528common != Common.getDefaultInstance()) {
-                    this.f2528common = Common.newBuilder(this.f2528common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f2529common != Common.getDefaultInstance()) {
+                    this.f2529common = Common.newBuilder(this.f2529common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f2528common = common2;
+                    this.f2529common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
@@ -8231,7 +8231,7 @@ public final class IMPushPb {
 
             public Builder setCommon(Common common2) {
                 if (common2 != null) {
-                    this.f2528common = common2;
+                    this.f2529common = common2;
                     this.bitField0 |= 2;
                     return this;
                 }
@@ -8291,7 +8291,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f2527common = this.f2528common;
+                pushImClient.f2528common = this.f2529common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -8315,7 +8315,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f2528common = Common.getDefaultInstance();
+                this.f2529common = Common.getDefaultInstance();
                 int i = this.bitField0 & (-3);
                 this.bitField0 = i;
                 this.sdkName = "";
@@ -8381,7 +8381,7 @@ public final class IMPushPb {
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f2528common = builder.build();
+                this.f2529common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
@@ -8459,7 +8459,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f2527common = Common.getDefaultInstance();
+            this.f2528common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -8502,7 +8502,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f2527common;
+            return this.f2528common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8553,7 +8553,7 @@ public final class IMPushPb {
             }
             int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
             if ((this.bitField0 & 2) == 2) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2527common);
+                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2528common);
             }
             if ((this.bitField0 & 4) == 4) {
                 computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8617,7 +8617,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f2527common);
+                codedOutputStream.writeMessage(41, this.f2528common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8723,12 +8723,12 @@ public final class IMPushPb {
                                     }
                                     this.bitField0 |= 1;
                                 } else if (readTag == 330) {
-                                    builder = (this.bitField0 & 2) == 2 ? this.f2527common.toBuilder() : null;
+                                    builder = (this.bitField0 & 2) == 2 ? this.f2528common.toBuilder() : null;
                                     Common common2 = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
-                                    this.f2527common = common2;
+                                    this.f2528common = common2;
                                     if (builder != null) {
                                         builder.mergeFrom(common2);
-                                        this.f2527common = builder.buildPartial();
+                                        this.f2528common = builder.buildPartial();
                                     }
                                     this.bitField0 |= 2;
                                 } else if (readTag == 1042) {
@@ -8765,7 +8765,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i);
 
@@ -8792,7 +8792,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int ERROR_CODE_FIELD_NUMBER = 5;
@@ -8821,7 +8821,7 @@ public final class IMPushPb {
         public long responseTime;
         public long timestamp;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -9594,7 +9594,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -9631,7 +9631,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
         public static final int OS_FIELD_NUMBER = 1;
@@ -9660,7 +9660,7 @@ public final class IMPushPb {
         public int resolutionV;
         public Object terminalType;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             public int bitField0;
             public int ppi;
@@ -10441,7 +10441,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -10478,7 +10478,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int CATEGORY_FIELD_NUMBER = 1;
@@ -10507,7 +10507,7 @@ public final class IMPushPb {
         public Object page;
         public long startTime;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             public long aliasId;
             public int bitField0;
@@ -11280,7 +11280,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 

@@ -25,7 +25,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessVideoLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f5868a;
+    public LoadingDialog f5869a;
 
     private void a() {
         f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
@@ -33,11 +33,11 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void b() {
-        if (this.f5868a != null) {
-            if (isFinishing() && this.f5868a.isShowing()) {
+        if (this.f5869a != null) {
+            if (isFinishing() && this.f5869a.isShowing()) {
                 return;
             }
-            this.f5868a.dismiss();
+            this.f5869a.dismiss();
             finish();
         }
     }
@@ -58,7 +58,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.livenessRecogDTO.getSpno() + "");
             arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-            RimStatisticsUtil.onEventEndWithValues(d.f5977e, i2, arrayList);
+            RimStatisticsUtil.onEventEndWithValues(d.f5978e, i2, arrayList);
         }
         b();
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -126,15 +126,15 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void a(Context context) {
         LoadingDialog loadingDialog;
-        if (this.f5868a == null) {
+        if (this.f5869a == null) {
             LoadingDialog loadingDialog2 = new LoadingDialog(context);
-            this.f5868a = loadingDialog2;
+            this.f5869a = loadingDialog2;
             loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f5868a.setCancelable(false);
+            this.f5869a.setCancelable(false);
         }
-        if (((Activity) context).isFinishing() || (loadingDialog = this.f5868a) == null || loadingDialog.isShowing()) {
+        if (((Activity) context).isFinishing() || (loadingDialog = this.f5869a) == null || loadingDialog.isShowing()) {
             return;
         }
-        this.f5868a.show();
+        this.f5869a.show();
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.android.lbspay.presenter.JuheH5PayResultProcess;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSPayResult {
     public static String ACTION_EXIT = "com.baidu.android.lbspay.EXIT";
     public String mOrderInfo;

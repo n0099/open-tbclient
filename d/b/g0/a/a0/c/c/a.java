@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.camera.view.CameraPreview;
 import d.b.g0.a.a0.f.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.a0.b.a<CameraPreview, d.b.g0.a.x.e.a> {
     public a(@NonNull Context context, @NonNull d.b.g0.a.x.e.a aVar) {
         super(context, aVar);

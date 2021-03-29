@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.retrieve.util;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveUtil {
     public static final long RETRIEVE_PAUID_ONLINE = 17592197488700L;
     public static final long RETRIEVE_PAUID_TEST = 17592186068166L;

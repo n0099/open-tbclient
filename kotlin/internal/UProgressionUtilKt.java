@@ -33,9 +33,10 @@ public final class UProgressionUtilKt {
     @PublishedApi
     /* renamed from: getProgressionLastElement-7ftBX0g  reason: not valid java name */
     public static final long m1489getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
-        if (j3 > 0) {
+        int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+        if (i > 0) {
             return UnsignedKt.ulongCompare(j, j2) >= 0 ? j2 : ULong.m782constructorimpl(j2 - m1488differenceModulosambcqE(j2, j, ULong.m782constructorimpl(j3)));
-        } else if (j3 < 0) {
+        } else if (i < 0) {
             return UnsignedKt.ulongCompare(j, j2) <= 0 ? j2 : ULong.m782constructorimpl(j2 + m1488differenceModulosambcqE(j, j2, ULong.m782constructorimpl(-j3)));
         } else {
             throw new IllegalArgumentException("Step is zero.");

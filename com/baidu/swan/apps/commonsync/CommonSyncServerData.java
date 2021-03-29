@@ -5,12 +5,12 @@ import com.baidu.searchbox.NoProGuard;
 import d.g.c.a.c;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
     @c("items")
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class MetaData implements NoProGuard {
         @c("logo_url")
         public String logoUrl;
@@ -27,7 +27,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class MetaItemInfo implements NoProGuard {
         @c("meta")
         public MetaData metaData;
@@ -36,7 +36,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class OtherData implements NoProGuard {
         @c(b.f1858h)
         public String appKey;
@@ -47,7 +47,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class PlatConf implements NoProGuard {
         @c("h5")
         public PlatH5 platH5;
@@ -56,7 +56,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class PlatH5 implements NoProGuard {
         @c("url")
         public String url;

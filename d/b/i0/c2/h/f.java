@@ -27,28 +27,16 @@ public class f {
                 return x.s();
             }
             if (x.getHeight() * x.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double threadImageMaxWidth = TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth();
-                double height = x.getHeight() * x.getWidth();
-                Double.isNaN(threadImageMaxWidth);
-                Double.isNaN(height);
-                double sqrt = Math.sqrt(threadImageMaxWidth / height);
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (x.getHeight() * x.getWidth()));
                 sb.append(BigImageLoaderProc.NCDN_PER);
-                double width = x.getWidth();
-                Double.isNaN(width);
-                sb.append(String.valueOf((int) (width * sqrt)));
+                sb.append(String.valueOf((int) (x.getWidth() * sqrt)));
                 sb.append("&height=");
-                double height2 = x.getHeight();
-                Double.isNaN(height2);
-                sb.append(String.valueOf((int) (height2 * sqrt)));
+                sb.append(String.valueOf((int) (x.getHeight() * sqrt)));
             } else {
-                double threadImageMaxWidth2 = TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth();
-                double width2 = x.getWidth() / x.getHeight();
-                Double.isNaN(threadImageMaxWidth2);
-                Double.isNaN(width2);
-                double sqrt2 = Math.sqrt(threadImageMaxWidth2 / width2);
+                double width = x.getWidth() / x.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
                 sb.append(BigImageLoaderProc.NCDN_PER);
-                Double.isNaN(width2);
-                sb.append(String.valueOf((int) (width2 * sqrt2)));
+                sb.append(String.valueOf((int) (width * sqrt2)));
                 sb.append("&height=");
                 sb.append(String.valueOf((int) sqrt2));
             }
@@ -60,28 +48,28 @@ public class f {
     }
 
     public static void b(PostData postData, PbActivity.e eVar) {
-        if (postData == null || postData.J() == null || postData.J().u() == null || eVar == null || eVar.f19506a == null || eVar.f19507b == null || postData.J().u().size() == 0) {
+        if (postData == null || postData.J() == null || postData.J().u() == null || eVar == null || eVar.f19507a == null || eVar.f19508b == null || postData.J().u().size() == 0) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.f19506a, eVar.j);
+        String str = (String) ListUtils.getItem(eVar.f19507a, eVar.j);
         if (StringUtils.isNull(str)) {
             return;
         }
-        eVar.f19506a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f19507b;
-        eVar.f19507b = new ConcurrentHashMap<>();
+        eVar.f19507a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f19508b;
+        eVar.f19508b = new ConcurrentHashMap<>();
         Iterator<TbRichTextData> it = postData.J().u().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 8) {
                 String a2 = a(next);
                 if (!StringUtils.isNull(a2) && concurrentHashMap.get(a2) != null) {
-                    eVar.f19506a.add(a2);
-                    eVar.f19507b.put(a2, concurrentHashMap.get(a2));
+                    eVar.f19507a.add(a2);
+                    eVar.f19508b.put(a2, concurrentHashMap.get(a2));
                 }
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.f19506a, str);
+        eVar.j = ListUtils.getPosition(eVar.f19507a, str);
     }
 
     public static PostData c(e eVar, boolean z, int i) {

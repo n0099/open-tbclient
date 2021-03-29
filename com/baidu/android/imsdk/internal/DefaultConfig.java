@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DefaultConfig implements IIMConfig {
     public static final String TOKEN_SEPARATOR = ".";
     public boolean mRootComplete = true;

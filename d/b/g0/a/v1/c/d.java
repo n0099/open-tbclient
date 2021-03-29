@@ -2,16 +2,16 @@ package d.b.g0.a.v1.c;
 
 import android.os.AsyncTask;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f46763e;
+    public Exception f46764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.v1.c.b f46764f;
+    public d.b.g0.a.v1.c.b f46765f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -29,23 +29,23 @@ public abstract class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f46764f.m(d.this);
+            d.this.f46765f.m(d.this);
         }
     }
 
     public Exception b() {
-        return this.f46763e;
+        return this.f46764e;
     }
 
     public boolean c() {
-        return this.f46763e == null;
+        return this.f46764e == null;
     }
 
     public void d() {
@@ -53,7 +53,7 @@ public abstract class d {
     }
 
     public void e(@Nullable Exception exc) {
-        this.f46763e = exc;
+        this.f46764e = exc;
         c.k(new b());
     }
 
@@ -65,7 +65,7 @@ public abstract class d {
     }
 
     public d h(d.b.g0.a.v1.c.b bVar) {
-        this.f46764f = bVar;
+        this.f46765f = bVar;
         return this;
     }
 }

@@ -13,8 +13,8 @@ public class d extends d.b.h0.r.f0.q.c {
     @Override // d.b.h0.r.f0.q.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.f50556e != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f50556e.getUserId()));
+        if (this.f50557e != null) {
+            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f50557e.getUserId()));
         }
     }
 }

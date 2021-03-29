@@ -52,7 +52,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void f(ImageUrlData imageUrlData) {
-        this.f13720e = imageUrlData;
+        this.f13721e = imageUrlData;
         JSONArray jSONArray = null;
         if (imageUrlData != null) {
             try {
@@ -81,9 +81,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f13719h + AbsFloorImageTextView.i;
+                this.p = s + AbsFloorImageTextView.f13720h + AbsFloorImageTextView.i;
             } else {
-                this.p = r + AbsFloorImageTextView.f13719h + AbsFloorImageTextView.i;
+                this.p = r + AbsFloorImageTextView.f13720h + AbsFloorImageTextView.i;
             }
         } else {
             this.p = -2;
@@ -102,7 +102,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
         this.o = editorScrollView;
         editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.i);
-        this.o.setOnTouchListener(this.f13722g);
+        this.o.setOnTouchListener(this.f13723g);
         ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }
@@ -112,8 +112,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         int i = l.i(getContext());
         int k = l.k(getContext());
         double d2 = h2;
-        if (d2 != 3.0d || k < 1920 || i < 2049) {
-            if (d2 != 3.0d || k < 1080 || i < 2280) {
+        int i2 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
+        if (i2 != 0 || k < 1920 || i < 2049) {
+            if (i2 != 0 || k < 1080 || i < 2280) {
                 return d2 == 3.5d && i >= 2434;
             }
             return true;

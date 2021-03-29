@@ -11,19 +11,19 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f60094a;
+    public static List<String> f60095a;
 
     @TargetApi(23)
     public static void a(Context context) {
-        List<String> list = f60094a;
+        List<String> list = f60095a;
         if (list == null) {
-            f60094a = new ArrayList();
+            f60095a = new ArrayList();
         } else {
             list.clear();
         }
         if (context.checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) != 0) {
-            f60094a.add(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-            f60094a.add("android.permission.READ_EXTERNAL_STORAGE");
+            f60095a.add(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            f60095a.add("android.permission.READ_EXTERNAL_STORAGE");
         }
     }
 
@@ -52,7 +52,7 @@ public class a {
     public static void d(Context context) {
         if (!c(context)) {
             a(context);
-            List<String> list = f60094a;
+            List<String> list = f60095a;
             ((Activity) context).requestPermissions((String[]) list.toArray(new String[list.size()]), 102);
         } else if (context instanceof PermissionActivity) {
             ((Activity) context).finish();

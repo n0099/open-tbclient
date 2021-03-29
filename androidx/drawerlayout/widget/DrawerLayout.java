@@ -326,7 +326,8 @@ public class DrawerLayout extends ViewGroup {
             float drawerViewOffset = DrawerLayout.this.getDrawerViewOffset(view);
             int width = view.getWidth();
             if (DrawerLayout.this.checkDrawerViewAbsoluteGravity(view, 3)) {
-                i = (f2 > 0.0f || (f2 == 0.0f && drawerViewOffset > 0.5f)) ? 0 : -width;
+                int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                i = (i2 > 0 || (i2 == 0 && drawerViewOffset > 0.5f)) ? 0 : -width;
             } else {
                 int width2 = DrawerLayout.this.getWidth();
                 if (f2 < 0.0f || (f2 == 0.0f && drawerViewOffset > 0.5f)) {

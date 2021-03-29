@@ -8,82 +8,82 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<InterfaceC0258a> f25374a;
+    public final List<InterfaceC0259a> f25375a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0258a {
+    public interface InterfaceC0259a {
         boolean a(CharSequence charSequence);
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements InterfaceC0258a {
+    public static class b implements InterfaceC0259a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25376a = Pattern.compile("^[A-z0-9*]{1,50}$");
+        public static final Pattern f25377a = Pattern.compile("^[A-z0-9*]{1,50}$");
 
         public b() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
-        public boolean a(CharSequence charSequence) {
-            return f25376a.matcher(charSequence).matches();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements InterfaceC0258a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25377a = Pattern.compile("^[HM]\\d{8,10}$");
-
-        public c() {
-        }
-
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0259a
         public boolean a(CharSequence charSequence) {
             return f25377a.matcher(charSequence).matches();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements InterfaceC0258a {
+    public static class c implements InterfaceC0259a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25378a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+        public static final Pattern f25378a = Pattern.compile("^[HM]\\d{8,10}$");
 
-        public d() {
+        public c() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0259a
         public boolean a(CharSequence charSequence) {
             return f25378a.matcher(charSequence).matches();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements InterfaceC0258a {
+    public static class d implements InterfaceC0259a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final Pattern f25379a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+
+        public d() {
+        }
+
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0259a
+        public boolean a(CharSequence charSequence) {
+            return f25379a.matcher(charSequence).matches();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements InterfaceC0259a {
         public e() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0259a
         public boolean a(CharSequence charSequence) {
             return true;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class f implements InterfaceC0258a {
+    public static class f implements InterfaceC0259a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25379a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
+        public static final Pattern f25380a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
 
         public f() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0259a
         public boolean a(CharSequence charSequence) {
-            return f25379a.matcher(charSequence).matches();
+            return f25380a.matcher(charSequence).matches();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
         if (TextUtils.isEmpty(charSequence)) {
             return false;
         }
-        for (InterfaceC0258a interfaceC0258a : this.f25374a) {
-            if (interfaceC0258a.a(charSequence)) {
+        for (InterfaceC0259a interfaceC0259a : this.f25375a) {
+            if (interfaceC0259a.a(charSequence)) {
                 return true;
             }
         }
@@ -108,21 +108,21 @@ public class a {
     }
 
     public a(long j) {
-        this.f25374a = new ArrayList();
+        this.f25375a = new ArrayList();
         if (a(j, 2L)) {
-            this.f25374a.add(new d());
+            this.f25375a.add(new d());
         }
         if (a(j, 4L)) {
-            this.f25374a.add(new f());
+            this.f25375a.add(new f());
         }
         if (a(j, 8L)) {
-            this.f25374a.add(new c());
+            this.f25375a.add(new c());
         }
         if (a(j, 16L)) {
-            this.f25374a.add(new e());
+            this.f25375a.add(new e());
         }
         if (a(j, 1L)) {
-            this.f25374a.add(new b());
+            this.f25375a.add(new b());
         }
     }
 }

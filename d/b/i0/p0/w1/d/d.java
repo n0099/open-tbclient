@@ -8,16 +8,16 @@ public class d implements n {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58688e;
+    public String f58689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58689f;
+    public String f58690f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58690g;
+    public String f58691g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58691h;
+    public String f58692h;
     public String i;
     public String j;
     public boolean k;
@@ -26,11 +26,11 @@ public class d implements n {
         if (jSONObject == null) {
             return;
         }
-        this.f58688e = jSONObject.optString("id");
-        this.f58689f = jSONObject.optString("main_tower_id");
+        this.f58689e = jSONObject.optString("id");
+        this.f58690f = jSONObject.optString("main_tower_id");
         jSONObject.optString("forum_id");
-        this.f58690g = jSONObject.optString("user_id");
-        this.f58691h = jSONObject.optString("user_name");
+        this.f58691g = jSONObject.optString("user_id");
+        this.f58692h = jSONObject.optString("user_name");
         jSONObject.optString("create_time");
         this.i = jSONObject.optString("content");
         jSONObject.optString("reply_user_id");
@@ -43,7 +43,7 @@ public class d implements n {
             return true;
         }
         if (obj instanceof d) {
-            return this.f58688e.equals(((d) obj).f58688e);
+            return this.f58689e.equals(((d) obj).f58689e);
         }
         return false;
     }
@@ -54,6 +54,6 @@ public class d implements n {
     }
 
     public int hashCode() {
-        return (Integer.valueOf(this.f58688e).intValue() * 31) + 7;
+        return (Integer.valueOf(this.f58689e).intValue() * 31) + 7;
     }
 }

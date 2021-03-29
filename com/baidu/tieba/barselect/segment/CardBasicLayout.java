@@ -13,13 +13,13 @@ import java.util.List;
 public class CardBasicLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15192e;
+    public int f15193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f15193f;
+    public f f15194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f15194g;
+    public d f15195g;
 
     public CardBasicLayout(Context context) {
         this(context, null);
@@ -27,53 +27,53 @@ public class CardBasicLayout extends LinearLayout {
 
     public void setData(int i, f fVar) {
         e a2;
-        this.f15193f = fVar;
-        if (fVar == null || fVar.a() == null || (a2 = this.f15193f.a()) == null) {
+        this.f15194f = fVar;
+        if (fVar == null || fVar.a() == null || (a2 = this.f15194f.a()) == null) {
             return;
         }
         int g2 = a2.g();
-        if (g2 == d.b.i0.v.e.d.f61959b) {
+        if (g2 == d.b.i0.v.e.d.f61960b) {
             if (i == VoteCandidateCard.E) {
-                this.f15192e = a.f61957d;
-                this.f15194g = this.f15193f.f();
+                this.f15193e = a.f61958d;
+                this.f15195g = this.f15194f.f();
                 return;
             }
-            this.f15192e = a.f61954a;
-            List<d> b2 = this.f15193f.b();
+            this.f15193e = a.f61955a;
+            List<d> b2 = this.f15194f.b();
             if (b2 == null || b2.size() <= i) {
                 return;
             }
-            this.f15194g = b2.get(i);
-        } else if (g2 == d.b.i0.v.e.d.f61960c) {
+            this.f15195g = b2.get(i);
+        } else if (g2 == d.b.i0.v.e.d.f61961c) {
             if (i == VoteCandidateCard.E) {
-                this.f15192e = a.f61956c;
-                List<d> b3 = this.f15193f.b();
+                this.f15193e = a.f61957c;
+                List<d> b3 = this.f15194f.b();
                 if (b3 == null || b3.size() <= 0) {
                     return;
                 }
                 for (d dVar : b3) {
                     if (dVar.i() == 1) {
-                        this.f15194g = dVar;
+                        this.f15195g = dVar;
                         return;
                     }
                 }
                 return;
             }
-            this.f15192e = a.f61955b;
-            List<d> b4 = this.f15193f.b();
+            this.f15193e = a.f61956b;
+            List<d> b4 = this.f15194f.b();
             if (b4 == null || b4.size() <= i) {
                 return;
             }
             d dVar2 = b4.get(i);
-            this.f15194g = dVar2;
+            this.f15195g = dVar2;
             if (dVar2.i() == 1 && i == 0) {
-                this.f15192e = a.f61956c;
+                this.f15193e = a.f61957c;
             }
         }
     }
 
     public CardBasicLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15192e = -1;
+        this.f15193e = -1;
     }
 }

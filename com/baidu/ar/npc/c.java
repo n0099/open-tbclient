@@ -1,24 +1,24 @@
 package com.baidu.ar.npc;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ float f4171a;
+    public final /* synthetic */ float f4172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ float f4172b;
+    public final /* synthetic */ float f4173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4173c;
+    public final /* synthetic */ ArBridge f4174c;
 
     public c(ArBridge arBridge, float f2, float f3) {
-        this.f4173c = arBridge;
-        this.f4171a = f2;
-        this.f4172b = f3;
+        this.f4174c = arBridge;
+        this.f4172a = f2;
+        this.f4173b = f3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4173c.nativeSetFrustum(this.f4171a, this.f4172b);
+        this.f4174c.nativeSetFrustum(this.f4172a, this.f4173b);
     }
 }

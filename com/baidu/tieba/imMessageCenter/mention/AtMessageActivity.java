@@ -24,14 +24,14 @@ import d.b.h0.g0.c.b;
 import d.b.h0.r.f0.f;
 import d.b.i0.e1.b.d;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.b.h0.g0.c.a {
     public AtMeModelController atMeModelController;
     public d atMeViewController;
     public CustomMessageListener mMessageFromNotifyCenterListener = new a(2016321);
     public ViewEventCenter viewEventController;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -122,11 +122,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void hideNetRefreshView() {
         d dVar = this.atMeViewController;
         if (dVar != null) {
-            BdListView bdListView = dVar.f54370b;
+            BdListView bdListView = dVar.f54371b;
             if (bdListView != null) {
                 bdListView.setVisibility(0);
             }
-            hideNetRefreshView(this.atMeViewController.f54371c);
+            hideNetRefreshView(this.atMeViewController.f54372c);
         }
     }
 
@@ -213,11 +213,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f54370b;
+        BdListView bdListView = this.atMeViewController.f54371b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f54371c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f54372c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 

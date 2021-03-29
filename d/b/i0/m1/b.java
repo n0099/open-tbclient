@@ -23,33 +23,33 @@ public class b implements d.b.b.e.i.b {
     public static b n;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f56840b;
+    public Context f56841b;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationManager f56842d;
+    public LocationManager f56843d;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56846h;
+    public int f56847h;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f56839a = null;
+    public f f56840a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.d f56841c = null;
+    public a.d f56842c = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Address f56843e = null;
+    public Address f56844e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f56844f = 0;
+    public long f56845f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f56845g = null;
+    public Handler f56846g = null;
     public boolean i = false;
     public Runnable j = null;
     public Runnable k = null;
     public final LocationListener l = new a();
-    public final LocationListener m = new C1342b();
+    public final LocationListener m = new C1343b();
 
     /* loaded from: classes3.dex */
     public class a implements LocationListener {
@@ -58,17 +58,17 @@ public class b implements d.b.b.e.i.b {
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
-            if (b.this.f56845g.hasMessages(0)) {
-                b.this.f56845g.removeMessages(0);
+            if (b.this.f56846g.hasMessages(0)) {
+                b.this.f56846g.removeMessages(0);
             }
-            b.this.f56845g.removeCallbacks(b.this.k);
-            b.this.f56845g.removeCallbacks(b.this.j);
-            if (b.this.f56839a != null) {
+            b.this.f56846g.removeCallbacks(b.this.k);
+            b.this.f56846g.removeCallbacks(b.this.j);
+            if (b.this.f56840a != null) {
                 return;
             }
-            b.this.f56839a = new f(b.this, null);
-            b.this.f56839a.setSelfExecute(true);
-            b.this.f56839a.execute(location);
+            b.this.f56840a = new f(b.this, null);
+            b.this.f56840a.setSelfExecute(true);
+            b.this.f56840a.execute(location);
         }
 
         @Override // android.location.LocationListener
@@ -86,23 +86,23 @@ public class b implements d.b.b.e.i.b {
 
     /* renamed from: d.b.i0.m1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1342b implements LocationListener {
-        public C1342b() {
+    public class C1343b implements LocationListener {
+        public C1343b() {
         }
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
-            if (b.this.f56845g.hasMessages(0)) {
-                b.this.f56845g.removeMessages(0);
+            if (b.this.f56846g.hasMessages(0)) {
+                b.this.f56846g.removeMessages(0);
             }
-            b.this.f56845g.removeCallbacks(b.this.k);
-            b.this.f56845g.removeCallbacks(b.this.j);
-            if (b.this.f56839a != null) {
+            b.this.f56846g.removeCallbacks(b.this.k);
+            b.this.f56846g.removeCallbacks(b.this.j);
+            if (b.this.f56840a != null) {
                 return;
             }
-            b.this.f56839a = new f(b.this, null);
-            b.this.f56839a.setSelfExecute(true);
-            b.this.f56839a.execute(location);
+            b.this.f56840a = new f(b.this, null);
+            b.this.f56840a.setSelfExecute(true);
+            b.this.f56840a.execute(location);
         }
 
         @Override // android.location.LocationListener
@@ -125,11 +125,11 @@ public class b implements d.b.b.e.i.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f56842d == null || !PermissionUtil.checkLocationForGoogle(b.this.f56840b)) {
+            if (b.this.f56843d == null || !PermissionUtil.checkLocationForGoogle(b.this.f56841b)) {
                 return;
             }
             try {
-                b.this.f56842d.requestLocationUpdates("network", 10000L, 100.0f, b.this.l);
+                b.this.f56843d.requestLocationUpdates("network", 10000L, 100.0f, b.this.l);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -143,11 +143,11 @@ public class b implements d.b.b.e.i.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f56842d == null || !PermissionUtil.checkLocationForGoogle(b.this.f56840b)) {
+            if (b.this.f56843d == null || !PermissionUtil.checkLocationForGoogle(b.this.f56841b)) {
                 return;
             }
             try {
-                b.this.f56842d.requestLocationUpdates("gps", 10000L, 100.0f, b.this.m);
+                b.this.f56843d.requestLocationUpdates("gps", 10000L, 100.0f, b.this.m);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -165,7 +165,7 @@ public class b implements d.b.b.e.i.b {
                 return false;
             }
             b.this.c();
-            b.this.f56841c.a(b.this.f56846h, "", null, b.this.f56844f, b.this.i);
+            b.this.f56842c.a(b.this.f56847h, "", null, b.this.f56845f, b.this.i);
             return false;
         }
     }
@@ -180,7 +180,7 @@ public class b implements d.b.b.e.i.b {
         /* renamed from: b */
         public Address doInBackground(Location... locationArr) {
             List<Address> list;
-            Geocoder geocoder = new Geocoder(b.this.f56840b, Locale.getDefault());
+            Geocoder geocoder = new Geocoder(b.this.f56841b, Locale.getDefault());
             if (locationArr != null && locationArr.length >= 1) {
                 Location location = locationArr[0];
                 try {
@@ -208,12 +208,12 @@ public class b implements d.b.b.e.i.b {
         /* renamed from: c */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            b.this.f56839a = null;
+            b.this.f56840a = null;
             if (address != null) {
                 b.this.c();
-                b.this.f56844f = System.currentTimeMillis();
-                b.this.f56843e = address;
-                b.this.f56841c.a(0, "", b.this.f56843e, b.this.f56844f, b.this.i);
+                b.this.f56845f = System.currentTimeMillis();
+                b.this.f56844e = address;
+                b.this.f56842c.a(0, "", b.this.f56844e, b.this.f56845f, b.this.i);
                 d.b.i0.r2.a0.a.e().i(String.valueOf(address.getLatitude()));
                 d.b.i0.r2.a0.a.e().j(String.valueOf(address.getLongitude()));
                 d.b.i0.r2.a0.a.e().k(System.currentTimeMillis());
@@ -223,7 +223,7 @@ public class b implements d.b.b.e.i.b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            b.this.f56839a = null;
+            b.this.f56840a = null;
         }
 
         public /* synthetic */ f(b bVar, a aVar) {
@@ -245,10 +245,10 @@ public class b implements d.b.b.e.i.b {
     @Override // d.b.b.e.i.b
     public void a(a.d dVar) {
         Context context = TbadkCoreApplication.getInst().getContext();
-        this.f56840b = context;
-        this.f56841c = dVar;
+        this.f56841b = context;
+        this.f56842c = dVar;
         try {
-            this.f56842d = (LocationManager) context.getSystemService("location");
+            this.f56843d = (LocationManager) context.getSystemService("location");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -260,89 +260,89 @@ public class b implements d.b.b.e.i.b {
     @Override // d.b.b.e.i.b
     public void b(boolean z) {
         LocationManager locationManager;
-        if (this.f56841c == null || (locationManager = this.f56842d) == null) {
+        if (this.f56842c == null || (locationManager = this.f56843d) == null) {
             return;
         }
         try {
             try {
                 locationManager.removeUpdates(this.l);
-                this.f56846h = 4;
+                this.f56847h = 4;
                 this.i = z;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 c();
-                this.f56846h = 5;
+                this.f56847h = 5;
             }
-            if (PermissionUtil.checkLocationForGoogle(this.f56840b) && (this.f56842d.isProviderEnabled("gps") || this.f56842d.isProviderEnabled("network"))) {
-                if (PermissionUtil.checkLocationForGoogle(this.f56840b) && this.f56842d.isProviderEnabled("gps")) {
-                    this.f56845g.post(this.k);
+            if (PermissionUtil.checkLocationForGoogle(this.f56841b) && (this.f56843d.isProviderEnabled("gps") || this.f56843d.isProviderEnabled("network"))) {
+                if (PermissionUtil.checkLocationForGoogle(this.f56841b) && this.f56843d.isProviderEnabled("gps")) {
+                    this.f56846g.post(this.k);
                 } else {
-                    this.f56846h = 1;
+                    this.f56847h = 1;
                 }
                 if (!z) {
-                    if (PermissionUtil.checkLocationForGoogle(this.f56840b) && this.f56842d.isProviderEnabled("network")) {
-                        this.f56845g.post(this.j);
+                    if (PermissionUtil.checkLocationForGoogle(this.f56841b) && this.f56843d.isProviderEnabled("network")) {
+                        this.f56846g.post(this.j);
                     } else {
-                        this.f56846h = 2;
+                        this.f56847h = 2;
                     }
                 }
                 return;
             }
-            this.f56846h = 3;
-            this.f56845g.sendMessageDelayed(this.f56845g.obtainMessage(0), d.b.b.e.i.a.l().m());
+            this.f56847h = 3;
+            this.f56846g.sendMessageDelayed(this.f56846g.obtainMessage(0), d.b.b.e.i.a.l().m());
         } finally {
-            Handler handler = this.f56845g;
+            Handler handler = this.f56846g;
             handler.sendMessageDelayed(handler.obtainMessage(0), d.b.b.e.i.a.l().m());
         }
     }
 
     @Override // d.b.b.e.i.b
     public void c() {
-        if (this.f56845g.hasMessages(0)) {
-            this.f56845g.removeMessages(0);
+        if (this.f56846g.hasMessages(0)) {
+            this.f56846g.removeMessages(0);
         }
-        this.f56845g.removeCallbacks(this.k);
-        this.f56845g.removeCallbacks(this.j);
-        LocationManager locationManager = this.f56842d;
+        this.f56846g.removeCallbacks(this.k);
+        this.f56846g.removeCallbacks(this.j);
+        LocationManager locationManager = this.f56843d;
         if (locationManager != null) {
             try {
                 locationManager.removeUpdates(this.l);
-                this.f56842d.removeUpdates(this.m);
+                this.f56843d.removeUpdates(this.m);
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
         }
-        f fVar = this.f56839a;
+        f fVar = this.f56840a;
         if (fVar != null) {
             fVar.cancel();
-            this.f56839a = null;
+            this.f56840a = null;
         }
     }
 
     @Override // d.b.b.e.i.b
     public void destroy() {
-        if (this.f56845g.hasMessages(0)) {
-            this.f56845g.removeMessages(0);
+        if (this.f56846g.hasMessages(0)) {
+            this.f56846g.removeMessages(0);
         }
-        this.f56845g.removeCallbacks(this.k);
-        this.f56845g.removeCallbacks(this.j);
-        LocationManager locationManager = this.f56842d;
+        this.f56846g.removeCallbacks(this.k);
+        this.f56846g.removeCallbacks(this.j);
+        LocationManager locationManager = this.f56843d;
         if (locationManager != null) {
             try {
                 locationManager.removeUpdates(this.l);
-                this.f56842d.removeUpdates(this.m);
+                this.f56843d.removeUpdates(this.m);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
         }
-        f fVar = this.f56839a;
+        f fVar = this.f56840a;
         if (fVar != null) {
             fVar.cancel();
-            this.f56839a = null;
+            this.f56840a = null;
         }
     }
 
     public final void u() {
-        this.f56845g = new Handler(Looper.getMainLooper(), new e());
+        this.f56846g = new Handler(Looper.getMainLooper(), new e());
     }
 }

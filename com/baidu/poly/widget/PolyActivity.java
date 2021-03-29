@@ -87,9 +87,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.f42622a = bundle.getString("bduss");
-        d.f42623b = bundle.getString("tpOrderId");
-        d.f42626e = bundle.getString("nativeAppId");
+        d.f42623a = bundle.getString("bduss");
+        d.f42624b = bundle.getString("tpOrderId");
+        d.f42627e = bundle.getString("nativeAppId");
         bundle.putString("deviceType", "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");

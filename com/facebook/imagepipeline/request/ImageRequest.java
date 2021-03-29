@@ -16,7 +16,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ImageRequest {
     @Nullable
     public final BytesRange mBytesRange;

@@ -9,17 +9,17 @@ import d.b.g0.a.g;
 import d.b.g0.a.r1.e;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44940a;
+    public boolean f44941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44941b;
+    public boolean f44942b;
 
     public void a() {
-        this.f44940a = true;
+        this.f44941a = true;
     }
 
     public final ViewGroup b() {
@@ -32,12 +32,12 @@ public class b {
             return viewGroup2;
         }
         ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.O().n()).inflate(g.swan_app_startup_window, viewGroup);
-        this.f44941b = true;
+        this.f44942b = true;
         return viewGroup3;
     }
 
     public void c() {
-        if (this.f44941b) {
+        if (this.f44942b) {
             d();
         }
     }
@@ -51,11 +51,11 @@ public class b {
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
-        this.f44941b = false;
+        this.f44942b = false;
     }
 
     public void e() {
-        this.f44940a = false;
+        this.f44941a = false;
         c();
         k();
     }
@@ -78,7 +78,7 @@ public class b {
 
     public final void j(int i, long j, String str, String str2) {
         ViewGroup b2;
-        if (this.f44940a || (b2 = b()) == null) {
+        if (this.f44941a || (b2 = b()) == null) {
             return;
         }
         TextView textView = (TextView) b2.findViewById(i);
@@ -87,7 +87,7 @@ public class b {
     }
 
     public void k() {
-        if (this.f44941b) {
+        if (this.f44942b) {
             return;
         }
         b();
@@ -95,7 +95,7 @@ public class b {
 
     public void l(long j, long j2) {
         ViewGroup b2;
-        if (this.f44940a || (b2 = b()) == null) {
+        if (this.f44941a || (b2 = b()) == null) {
             return;
         }
         ((TextView) b2.findViewById(f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));

@@ -7,10 +7,10 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9825a = null;
+    public c f9826a = null;
 
     public int b() {
-        c cVar = this.f9825a;
+        c cVar = this.f9826a;
         if (cVar != null) {
             return cVar.b();
         }
@@ -18,7 +18,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     }
 
     public void c() {
-        c cVar = this.f9825a;
+        c cVar = this.f9826a;
         if (cVar != null) {
             cVar.c();
         }
@@ -35,16 +35,16 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f9825a = null;
+        this.f9826a = null;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.m.a
     public void a(c cVar) {
-        this.f9825a = cVar;
+        this.f9826a = cVar;
     }
 
     public void a() {
-        c cVar = this.f9825a;
+        c cVar = this.f9826a;
         if (cVar != null) {
             cVar.a();
         }
@@ -52,10 +52,10 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.f9894a == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.f9895a == com.baidu.platform.comapi.walknavi.b.a().r()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.f9895b == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.f9896b == com.baidu.platform.comapi.walknavi.b.a().r()) {
             if (i == 1) {
                 i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
                 return 1;
@@ -72,7 +72,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     }
 
     public int a(String str, boolean z) {
-        c cVar = this.f9825a;
+        c cVar = this.f9826a;
         if (cVar != null) {
             return cVar.a(str, z);
         }

@@ -3,34 +3,34 @@ package com.baidu.sofire;
 import android.content.Context;
 import android.os.FileObserver;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11712a;
+    public String f11713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11713b;
+    public String f11714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11714c;
+    public int f11715c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f11715d;
+    public Context f11716d;
 
     public d(Context context, int i, String str, String str2) {
         super(str, 4095);
         try {
-            this.f11712a = str;
-            this.f11713b = str2;
-            this.f11714c = i;
-            this.f11715d = context;
+            this.f11713a = str;
+            this.f11714b = str2;
+            this.f11715c = i;
+            this.f11716d = context;
             StringBuilder sb = new StringBuilder("f=");
-            sb.append(this.f11712a);
+            sb.append(this.f11713a);
             sb.append(", e=");
-            sb.append(new File(this.f11712a).exists());
+            sb.append(new File(this.f11713a).exists());
             sb.append(", b=");
-            sb.append(this.f11713b);
+            sb.append(this.f11714b);
             b.a();
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
@@ -48,15 +48,15 @@ public class d extends FileObserver {
                             super.run();
                             b.a();
                             synchronized (d.class) {
-                                if (!com.baidu.sofire.g.d.c(d.this.f11712a)) {
+                                if (!com.baidu.sofire.g.d.c(d.this.f11713a)) {
                                     b.a();
-                                    com.baidu.sofire.g.d.a(d.this.f11713b, d.this.f11712a);
-                                    com.baidu.sofire.g.d.a(d.this.f11712a, true);
-                                    c.a(new File(d.this.f11712a));
-                                    c.a(d.this.f11715d, d.this.f11714c, new File(d.this.f11712a), new File(d.this.f11713b));
-                                    new StringBuilder().append(d.this.f11712a.toString());
+                                    com.baidu.sofire.g.d.a(d.this.f11714b, d.this.f11713a);
+                                    com.baidu.sofire.g.d.a(d.this.f11713a, true);
+                                    c.a(new File(d.this.f11713a));
+                                    c.a(d.this.f11716d, d.this.f11715c, new File(d.this.f11713a), new File(d.this.f11714b));
+                                    new StringBuilder().append(d.this.f11713a.toString());
                                     b.a();
-                                    com.baidu.sofire.a.a.a(d.this.f11715d).b(d.this.f11714c, -1);
+                                    com.baidu.sofire.a.a.a(d.this.f11716d).b(d.this.f11715c, -1);
                                 }
                             }
                         } catch (Throwable unused) {
@@ -72,7 +72,7 @@ public class d extends FileObserver {
 
     public final boolean a() {
         try {
-            File file = new File(this.f11713b);
+            File file = new File(this.f11714b);
             if (file.exists()) {
                 return file.delete();
             }

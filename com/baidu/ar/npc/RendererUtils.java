@@ -8,35 +8,35 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RendererUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float[] f4146a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+    public static final float[] f4147a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f4147b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+    public static final float[] f4148b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4148a;
+        public int f4149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4149b;
+        public int f4150b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4150c;
+        public int f4151c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f4151d;
+        public int f4152d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FloatBuffer f4152e;
+        public FloatBuffer f4153e;
 
         /* renamed from: f  reason: collision with root package name */
-        public FloatBuffer f4153f;
+        public FloatBuffer f4154f;
     }
 
     public static int createFBO(int i, int i2, int i3, int i4) {
@@ -73,12 +73,12 @@ public class RendererUtils {
             }
         }
         a aVar = new a();
-        aVar.f4149b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
-        aVar.f4150c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
-        aVar.f4151d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.f4152e = createVerticesBuffer(f4146a);
-        aVar.f4153f = createVerticesBuffer(f4147b);
-        aVar.f4148a = glCreateProgram;
+        aVar.f4150b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
+        aVar.f4151c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
+        aVar.f4152d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
+        aVar.f4153e = createVerticesBuffer(f4147a);
+        aVar.f4154f = createVerticesBuffer(f4148b);
+        aVar.f4149a = glCreateProgram;
         return aVar;
     }
 
@@ -117,16 +117,16 @@ public class RendererUtils {
         GLES20.glViewport(0, 0, i2, i3);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.f4148a);
+        GLES20.glUseProgram(aVar.f4149a);
         GLES20.glDisable(2929);
         GLES20.glDisable(3042);
-        GLES20.glVertexAttribPointer(aVar.f4150c, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4152e);
-        GLES20.glEnableVertexAttribArray(aVar.f4150c);
-        GLES20.glVertexAttribPointer(aVar.f4151d, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4153f);
-        GLES20.glEnableVertexAttribArray(aVar.f4151d);
+        GLES20.glVertexAttribPointer(aVar.f4151c, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4153e);
+        GLES20.glEnableVertexAttribArray(aVar.f4151c);
+        GLES20.glVertexAttribPointer(aVar.f4152d, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4154f);
+        GLES20.glEnableVertexAttribArray(aVar.f4152d);
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(3553, i);
-        GLES20.glUniform1i(aVar.f4149b, 0);
+        GLES20.glUniform1i(aVar.f4150b, 0);
         GLES20.glDrawArrays(5, 0, 4);
     }
 

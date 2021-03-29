@@ -1,7 +1,7 @@
 package d.b.g0.a.b0;
 
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String a() {
         return "https://gamecenter.baidu.com";

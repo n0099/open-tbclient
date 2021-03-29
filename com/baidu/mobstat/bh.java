@@ -3,10 +3,10 @@ package com.baidu.mobstat;
 public class bh extends ba {
 
     /* renamed from: b  reason: collision with root package name */
-    public static bh f9091b = new bh();
+    public static bh f9092b = new bh();
 
     public static bh c() {
-        return f9091b;
+        return f9092b;
     }
 
     @Override // com.baidu.mobstat.ba

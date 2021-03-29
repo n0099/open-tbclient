@@ -26,16 +26,16 @@ public class c extends d.b.b.j.e.a<d.b.i0.p0.q1.c.c, ForumRuleDetailItemVH> {
     public class a implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f58344e;
+        public final /* synthetic */ int f58345e;
 
         public a(int i) {
-            this.f58344e = i;
+            this.f58345e = i;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             if (c.this.o != null) {
-                n nVar = (n) c.this.o.get(this.f58344e);
+                n nVar = (n) c.this.o.get(this.f58345e);
                 if (nVar instanceof d.b.i0.p0.q1.c.c) {
                     TbRichText S = TbRichTextView.S(c.this.m, ((d.b.i0.p0.q1.c.c) nVar).e(), false);
                     ClipboardManager clipboardManager = (ClipboardManager) c.this.m.getSystemService("clipboard");
@@ -76,26 +76,26 @@ public class c extends d.b.b.j.e.a<d.b.i0.p0.q1.c.c, ForumRuleDetailItemVH> {
             forumRuleDetailItemVH.d(cVar.a());
             if (!StringUtils.isNull(cVar.f())) {
                 z = true;
-                forumRuleDetailItemVH.f16276c.setVisibility(0);
-                forumRuleDetailItemVH.f16276c.setText(cVar.f());
+                forumRuleDetailItemVH.f16277c.setVisibility(0);
+                forumRuleDetailItemVH.f16277c.setText(cVar.f());
             } else {
-                forumRuleDetailItemVH.f16276c.setVisibility(8);
+                forumRuleDetailItemVH.f16277c.setVisibility(8);
                 z = false;
             }
             if (cVar.e() != null && !StringUtils.isNull(cVar.e().toString())) {
-                forumRuleDetailItemVH.f16277d.setVisibility(0);
+                forumRuleDetailItemVH.f16278d.setVisibility(0);
                 if (!z) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.f16277d.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.f16278d.getLayoutParams();
                     layoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-                    forumRuleDetailItemVH.f16277d.setLayoutParams(layoutParams);
+                    forumRuleDetailItemVH.f16278d.setLayoutParams(layoutParams);
                 }
                 TbRichText S = TbRichTextView.S(this.m, cVar.e(), false);
                 this.n = S;
-                forumRuleDetailItemVH.f16277d.setText(S);
+                forumRuleDetailItemVH.f16278d.setText(S);
             } else {
-                forumRuleDetailItemVH.f16277d.setVisibility(8);
+                forumRuleDetailItemVH.f16278d.setVisibility(8);
             }
-            forumRuleDetailItemVH.f16277d.setOnLongClickListener(new a(i));
+            forumRuleDetailItemVH.f16278d.setOnLongClickListener(new a(i));
         }
         return view;
     }

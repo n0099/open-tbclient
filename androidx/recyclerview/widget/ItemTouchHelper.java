@@ -224,7 +224,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             if (i4 == 0) {
                 return i;
             }
-            int i5 = i & (i4 ^ (-1));
+            int i5 = i & (~i4);
             if (i2 == 0) {
                 i3 = i4 << 2;
             } else {
@@ -308,7 +308,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             if (i4 == 0) {
                 return i;
             }
-            int i5 = i & (i4 ^ (-1));
+            int i5 = i & (~i4);
             if (i2 == 0) {
                 i3 = i4 >> 2;
             } else {

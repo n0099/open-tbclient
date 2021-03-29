@@ -2,7 +2,7 @@ package d.b.i0.i1.o.l;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface e<T extends ICardInfo> {
     void c(Object obj);
 

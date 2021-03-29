@@ -12,10 +12,10 @@ import d.b.g0.a.k;
 public class b implements d.b.g0.e.a.l.i.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f47597a = new a(this, Looper.getMainLooper());
+    public final Handler f47598a = new a(this, Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.g0.e.a.l.i.a f47598b;
+    public final d.b.g0.e.a.l.i.a f47599b;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -31,7 +31,7 @@ public class b implements d.b.g0.e.a.l.i.d {
             if (downloadInfo.getDownloadListener() == null) {
                 return;
             }
-            switch (C0930b.f47599a[SwanAdDownloadState.convert(status).ordinal()]) {
+            switch (C0931b.f47600a[SwanAdDownloadState.convert(status).ordinal()]) {
                 case 1:
                     downloadInfo.getDownloadListener().d(downloadInfo.getProgress(), downloadInfo.getSize());
                     return;
@@ -61,52 +61,52 @@ public class b implements d.b.g0.e.a.l.i.d {
 
     /* renamed from: d.b.g0.e.a.l.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0930b {
+    public static /* synthetic */ class C0931b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47599a;
+        public static final /* synthetic */ int[] f47600a;
 
         static {
             int[] iArr = new int[SwanAdDownloadState.values().length];
-            f47599a = iArr;
+            f47600a = iArr;
             try {
                 iArr[SwanAdDownloadState.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47599a[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+                f47600a[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47599a[SwanAdDownloadState.WAIT.ordinal()] = 3;
+                f47600a[SwanAdDownloadState.WAIT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47599a[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+                f47600a[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47599a[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
+                f47600a[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47599a[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                f47600a[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f47599a[SwanAdDownloadState.DELETED.ordinal()] = 7;
+                f47600a[SwanAdDownloadState.DELETED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
     public b(d.b.g0.e.a.l.i.a aVar) {
-        this.f47598b = aVar;
+        this.f47599b = aVar;
     }
 
     @Override // d.b.g0.e.a.l.i.d
     public void a(DownloadException downloadException) {
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.d("AdDownload", downloadException.getCode() + "异常");
         }
     }
@@ -114,9 +114,9 @@ public class b implements d.b.g0.e.a.l.i.d {
     @Override // d.b.g0.e.a.l.i.d
     public void b(DownloadInfo downloadInfo) {
         if (downloadInfo.getStatus() != SwanAdDownloadState.DELETED.value()) {
-            this.f47598b.a(downloadInfo);
+            this.f47599b.a(downloadInfo);
         }
-        Message obtainMessage = this.f47597a.obtainMessage(downloadInfo.getId().hashCode());
+        Message obtainMessage = this.f47598a.obtainMessage(downloadInfo.getId().hashCode());
         obtainMessage.obj = downloadInfo;
         obtainMessage.sendToTarget();
     }

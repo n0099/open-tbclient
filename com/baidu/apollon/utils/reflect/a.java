@@ -5,37 +5,37 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3998a = 7;
+    public static final int f3999a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f3999b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+    public static final Class<?>[] f4000b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f4000c = new HashMap();
+    public static final Map<Class<?>, Class<?>> f4001c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f4001d = new HashMap();
+    public static final Map<Class<?>, Class<?>> f4002d = new HashMap();
 
     static {
-        f4000c.put(Boolean.TYPE, Boolean.class);
-        f4000c.put(Byte.TYPE, Byte.class);
-        f4000c.put(Character.TYPE, Character.class);
-        f4000c.put(Short.TYPE, Short.class);
-        f4000c.put(Integer.TYPE, Integer.class);
-        f4000c.put(Long.TYPE, Long.class);
-        f4000c.put(Double.TYPE, Double.class);
-        f4000c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f4000c;
+        f4001c.put(Boolean.TYPE, Boolean.class);
+        f4001c.put(Byte.TYPE, Byte.class);
+        f4001c.put(Character.TYPE, Character.class);
+        f4001c.put(Short.TYPE, Short.class);
+        f4001c.put(Integer.TYPE, Integer.class);
+        f4001c.put(Long.TYPE, Long.class);
+        f4001c.put(Double.TYPE, Double.class);
+        f4001c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f4001c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f4000c.keySet()) {
-            Class<?> cls3 = f4000c.get(cls2);
+        for (Class<?> cls2 : f4001c.keySet()) {
+            Class<?> cls3 = f4001c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f4001d.put(cls3, cls2);
+                f4002d.put(cls3, cls2);
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
     }
 
     public static Class<?> b(Class<?> cls) {
-        return f4001d.get(cls);
+        return f4002d.get(cls);
     }
 
     public static float c(Class<?> cls, Class<?> cls2) {
@@ -62,7 +62,7 @@ public class a {
         }
         int i = 0;
         while (cls != cls2) {
-            Class<?>[] clsArr = f3999b;
+            Class<?>[] clsArr = f4000b;
             if (i >= clsArr.length) {
                 break;
             }
@@ -118,10 +118,10 @@ public class a {
     public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
         if (Utils.a(clsArr, clsArr2)) {
             if (clsArr == null) {
-                clsArr = Utils.f3995b;
+                clsArr = Utils.f3996b;
             }
             if (clsArr2 == null) {
-                clsArr2 = Utils.f3995b;
+                clsArr2 = Utils.f3996b;
             }
             for (int i = 0; i < clsArr.length; i++) {
                 if (!a(clsArr[i], clsArr2[i], z)) {
@@ -180,7 +180,7 @@ public class a {
     }
 
     public static Class<?> a(Class<?> cls) {
-        return (cls == null || !cls.isPrimitive()) ? cls : f4000c.get(cls);
+        return (cls == null || !cls.isPrimitive()) ? cls : f4001c.get(cls);
     }
 
     public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {

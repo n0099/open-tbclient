@@ -18,54 +18,54 @@ import d.b.g0.a.t1.k.p0.g;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.UUID;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f46476d = d.b.g0.a.w0.a.N().D();
+    public static final int f46477d = d.b.g0.a.w0.a.N().D();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f46477c;
+    public Context f46478c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46478a;
+        public final /* synthetic */ String f46479a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46479b;
+        public final /* synthetic */ d.b.g0.a.r1.e f46480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z0.f f46480c;
+        public final /* synthetic */ d.b.g0.a.z0.f f46481c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f46481d;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46482d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46482e;
+        public final /* synthetic */ UnitedSchemeEntity f46483e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46483f;
+        public final /* synthetic */ CallbackHandler f46484f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46484g;
+        public final /* synthetic */ String f46485g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46485h;
+        public final /* synthetic */ d.b.g0.a.e1.b f46486h;
         public final /* synthetic */ String i;
         public final /* synthetic */ b.c j;
         public final /* synthetic */ Context k;
 
         public a(String str, d.b.g0.a.r1.e eVar, d.b.g0.a.z0.f fVar, d.b.g0.a.e0.l.f fVar2, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str2, d.b.g0.a.e1.b bVar, String str3, b.c cVar, Context context) {
-            this.f46478a = str;
-            this.f46479b = eVar;
-            this.f46480c = fVar;
-            this.f46481d = fVar2;
-            this.f46482e = unitedSchemeEntity;
-            this.f46483f = callbackHandler;
-            this.f46484g = str2;
-            this.f46485h = bVar;
+            this.f46479a = str;
+            this.f46480b = eVar;
+            this.f46481c = fVar;
+            this.f46482d = fVar2;
+            this.f46483e = unitedSchemeEntity;
+            this.f46484f = callbackHandler;
+            this.f46485g = str2;
+            this.f46486h = bVar;
             this.i = str3;
             this.j = cVar;
             this.k = context;
@@ -73,65 +73,65 @@ public class e extends a0 {
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void a(String str) {
-            d.b.g0.a.j1.j.d(this.f46478a);
+            d.b.g0.a.j1.j.d(this.f46479a);
             d.b.g0.a.c0.c.g("navigateTo", "check pages success");
-            d.b.g0.a.z1.h.z(true, this.f46479b.L().S());
-            this.f46480c.C();
-            d.b.g0.a.t1.k.p0.a.k(this.f46482e, this.f46483f, this.f46479b, this.f46484g, this.f46485h.f44361a, d.b.g0.a.t1.k.p0.a.f(this.f46481d), this.i);
-            e.this.p(this.j, this.f46485h, this.f46481d, this.f46478a);
+            d.b.g0.a.z1.h.z(true, this.f46480b.L().S());
+            this.f46481c.C();
+            d.b.g0.a.t1.k.p0.a.k(this.f46483e, this.f46484f, this.f46480b, this.f46485g, this.f46486h.f44362a, d.b.g0.a.t1.k.p0.a.f(this.f46482d), this.i);
+            e.this.p(this.j, this.f46486h, this.f46482d, this.f46479a);
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void b(int i) {
             d.b.g0.a.c0.c.b("navigateTo", "check pages failed");
-            d.b.g0.a.z1.h.z(false, this.f46479b.L().S());
-            this.f46480c.C();
-            if (a0.f46287b) {
+            d.b.g0.a.z1.h.z(false, this.f46480b.L().S());
+            this.f46481c.C();
+            if (a0.f46288b) {
                 Context context = this.k;
                 d.b.g0.a.q1.b.f.d.f(context, this.k.getString(d.b.g0.a.h.aiapps_open_pages_failed) + i).C();
             }
-            d.b.g0.a.t1.k.p0.a.i(this.f46482e, this.f46483f, this.i);
+            d.b.g0.a.t1.k.p0.a.i(this.f46483e, this.f46484f, this.i);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.c f46486a;
+        public final /* synthetic */ b.c f46487a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46487b;
+        public final /* synthetic */ String f46488b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46488c;
+        public final /* synthetic */ d.b.g0.a.e1.b f46489c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f46489d;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46490d;
 
         public b(b.c cVar, String str, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar) {
-            this.f46486a = cVar;
-            this.f46487b = str;
-            this.f46488c = bVar;
-            this.f46489d = fVar;
+            this.f46487a = cVar;
+            this.f46488b = str;
+            this.f46489c = bVar;
+            this.f46490d = fVar;
         }
 
         @Override // d.b.g0.a.e0.v.b.d
         public void onReady() {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
             }
-            d.b.g0.a.j1.j.e(this.f46486a, this.f46487b);
-            e.this.o(this.f46486a.f44303a, this.f46488c, this.f46489d, this.f46487b);
-            if (a0.f46287b) {
+            d.b.g0.a.j1.j.e(this.f46487a, this.f46488b);
+            e.this.o(this.f46487a.f44304a, this.f46489c, this.f46490d, this.f46488b);
+            if (a0.f46288b) {
                 Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
             }
         }
     }
 
     static {
-        if (a0.f46287b) {
-            Log.d("NavigateToAction", "NavigateToAction max count: " + f46476d);
+        if (a0.f46288b) {
+            Log.d("NavigateToAction", "NavigateToAction max count: " + f46477d);
         }
     }
 
@@ -142,10 +142,10 @@ public class e extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         String str;
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("NavigateToAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        this.f46477c = context;
+        this.f46478c = context;
         String uuid = UUID.randomUUID().toString();
         d.b.g0.a.j1.j.b(uuid);
         String n = d.b.g0.a.t1.k.p0.a.n(unitedSchemeEntity, "params");
@@ -163,13 +163,13 @@ public class e extends a0 {
         }
         d.b.g0.a.e1.b c2 = d.b.g0.a.e1.b.c(n, V.h());
         if (!k0.d(V.I(), c2, false)) {
-            d.b.g0.a.c0.c.b("navigateTo", "page params error : path=" + c2.f44361a + " ; routePath=" + c2.f44364d);
+            d.b.g0.a.c0.c.b("navigateTo", "page params error : path=" + c2.f44362a + " ; routePath=" + c2.f44365d);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
         String m = d.b.g0.a.t1.k.p0.a.m(unitedSchemeEntity, "params", "initData");
-        if (!TextUtils.isEmpty(m) && c2 != null && !TextUtils.isEmpty(c2.f44364d) && d.b.g0.a.r1.e.y() != null) {
-            d.b.g0.a.r1.e.y().r0(m, c2.f44364d);
+        if (!TextUtils.isEmpty(m) && c2 != null && !TextUtils.isEmpty(c2.f44365d) && d.b.g0.a.r1.e.y() != null) {
+            d.b.g0.a.r1.e.y().r0(m, c2.f44365d);
         }
         String m2 = d.b.g0.a.t1.k.p0.a.m(unitedSchemeEntity, "params", "startTime");
         if (TextUtils.isEmpty(m2)) {
@@ -181,12 +181,12 @@ public class e extends a0 {
             ubcFlowEvent.h(Long.valueOf(m2).longValue());
             p.A(ubcFlowEvent);
         }
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("NavigateToAction", "PreloadSlaveManager start.");
         }
         b.c d2 = d.b.g0.a.e0.v.b.d(V.getActivity());
-        String c3 = d2.f44303a.c();
-        if (a0.f46287b) {
+        String c3 = d2.f44304a.c();
+        if (a0.f46288b) {
             Log.d("NavigateToAction", "slave webView id: " + c3);
         }
         String optString = v.b(unitedSchemeEntity.getParam("params")).optString("cb");
@@ -214,11 +214,11 @@ public class e extends a0 {
             return;
         }
         d.b.g0.a.t1.k.p0.a.d(bVar, bVar2, str);
-        if (fVar.k() < f46476d) {
+        if (fVar.k() < f46477d) {
             f.b i = fVar.i("navigateTo");
-            i.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+            i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
             i.k("normal", bVar2).b();
-            d.b.g0.a.i2.f.c(fVar, this.f46477c);
+            d.b.g0.a.i2.f.c(fVar, this.f46478c);
             d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).A(new UbcFlowEvent("na_push_page_end"));
             d.b.g0.a.j1.j.c(0, str);
             d.b.g0.a.j1.j.a(str);
@@ -228,15 +228,15 @@ public class e extends a0 {
     }
 
     public final void p(b.c cVar, d.b.g0.a.e1.b bVar, d.b.g0.a.e0.l.f fVar, String str) {
-        boolean z = cVar != null && cVar.f44304b;
+        boolean z = cVar != null && cVar.f44305b;
         HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
         p.A(new UbcFlowEvent("na_pre_load_slave_check"));
         p.y("preload", z ? "1" : "0");
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + z);
         }
         d.b.g0.a.e0.v.b.j(cVar, new b(cVar, str, bVar, fVar));
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("NavigateToAction", "tryToExecutePageRoute end.");
         }
     }

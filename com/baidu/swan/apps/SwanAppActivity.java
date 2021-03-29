@@ -41,8 +41,8 @@ import d.b.g0.a.r1.i;
 import d.b.g0.a.y0.e.b;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
-public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, a.InterfaceC0764a, d.b.g0.a.c2.f.c, ServiceConnection {
+/* loaded from: classes2.dex */
+public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, a.InterfaceC0765a, d.b.g0.a.c2.f.c, ServiceConnection {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final int FROM_BACK_PRESS = 2;
     public static final int FROM_LOADING_BACK_PRESS = 4;
@@ -65,7 +65,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public d.b.g0.a.i2.d mSlideHelper;
     @Nullable
     public d.b.g0.a.i2.b mTaskManager;
-    public static final boolean DEBUG = d.b.g0.a.k.f45050a;
+    public static final boolean DEBUG = d.b.g0.a.k.f45051a;
     public static final String COMPONENT_NAME = SwanAppActivity.class.getName();
     public static final long DELAY_TIME_FOR_LAUNCH_FAIL = TimeUnit.SECONDS.toMillis(1);
     public FrameLifeState mLifeStatus = FrameLifeState.INACTIVATED;
@@ -74,7 +74,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public final d.b.g0.a.r1.b mEventSubscriber = new d.b.g0.a.r1.b();
     public boolean restoreFromSaveInstance = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<i.a> {
         public a() {
         }
@@ -87,7 +87,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.i2.u0.c<i.a, Boolean> {
         public b() {
         }
@@ -100,7 +100,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -111,7 +111,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -122,7 +122,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -134,10 +134,10 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements Runnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a extends OrientationEventListener {
             public a(f fVar, Context context, int i) {
                 super(context, i);
@@ -145,7 +145,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
             @Override // android.view.OrientationEventListener
             public void onOrientationChanged(int i) {
-                d.b.g0.a.r1.d.e().f45729g = i;
+                d.b.g0.a.r1.d.e().f45730g = i;
             }
         }
 
@@ -164,7 +164,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g implements Runnable {
         public g() {
         }
@@ -181,7 +181,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class h implements d.b.g0.a.i2.u0.b<i.a> {
         public h() {
         }
@@ -194,7 +194,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i implements d.b.g0.a.i2.u0.b<i.a> {
         public i() {
         }
@@ -207,7 +207,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class j implements d.b.g0.a.i2.u0.b<i.a> {
         public j() {
         }
@@ -220,7 +220,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class k implements d.b.g0.a.i2.u0.b<i.a> {
         public k() {
         }
@@ -233,7 +233,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class l implements d.b.g0.a.i2.u0.b<i.a> {
         public l() {
         }
@@ -246,7 +246,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class m implements d.b.g0.a.i2.u0.b<i.a> {
         public m() {
         }
@@ -328,7 +328,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (s != null) {
             String U = s.L().U();
             d.b.g0.a.y0.g.a d2 = d.b.g0.a.y0.g.a.d(s.L().U());
-            d2.f("appId: " + s.f45739f + "  launchId: " + U).e();
+            d2.f("appId: " + s.f45740f + "  launchId: " + U).e();
             d2.h();
         }
     }
@@ -352,7 +352,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             aVar.j(5L);
             aVar.h(11L);
             aVar.c("can not buildFramework");
-            d.b.g0.a.y0.d.a.d(this, aVar, eVar.h(), eVar.f45739f);
+            d.b.g0.a.y0.d.a.d(this, aVar, eVar.h(), eVar.f45740f);
             tryFinishAndRemoveTask();
             return false;
         }
@@ -463,7 +463,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return cVar == null ? "" : cVar.n;
     }
 
-    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0764a
+    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0765a
     @NonNull
     public d.b.g0.a.q1.b.c.a getFloatLayer() {
         if (this.mFloatLayer == null) {

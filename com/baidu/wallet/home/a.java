@@ -10,29 +10,29 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24517a;
+    public String f24518a;
 
     /* renamed from: com.baidu.wallet.home.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0247a {
+    public static class C0248a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24520a = new a();
+        public static a f24521a = new a();
     }
 
     public a() {
-        this.f24517a = "";
+        this.f24518a = "";
     }
 
     public static a a() {
-        return C0247a.f24520a;
+        return C0248a.f24521a;
     }
 
     public void a(String str) {
         if (str == null) {
             str = "";
         }
-        this.f24517a = str;
+        this.f24518a = str;
     }
 
     public void a(Context context, String str, String str2, String str3, boolean z, String str4) {
@@ -45,8 +45,8 @@ public class a {
         SDKJumpManager.getInstance().doSDKJump(context, str, str2, str3, z, new SDKJumpManager.OnJumpListener() { // from class: com.baidu.wallet.home.a.1
             @Override // com.baidu.wallet.base.widget.SDKJumpManager.OnJumpListener
             public void beforeJump(Context context2, String str6, String str7, String str8, boolean z2) {
-                DXMSdkSAUtils.onEventWithValues(str5, Arrays.asList(str6, str7, str8, a.this.f24517a));
-                PayStatisticsUtil.onEventWithValues(str5, Arrays.asList(str6, str7, str8, a.this.f24517a));
+                DXMSdkSAUtils.onEventWithValues(str5, Arrays.asList(str6, str7, str8, a.this.f24518a));
+                PayStatisticsUtil.onEventWithValues(str5, Arrays.asList(str6, str7, str8, a.this.f24518a));
             }
         });
     }

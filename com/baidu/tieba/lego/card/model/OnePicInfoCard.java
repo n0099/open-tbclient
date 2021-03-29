@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     public final String desc;
     public final List<b> iconList;
@@ -29,10 +29,10 @@ public class OnePicInfoCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f55939c = optJSONObject.optInt("type");
-                bVar.f55937a = optJSONObject.optString("url");
-                bVar.f55938b = optJSONObject.optString("urlNight");
-                bVar.f55940d = optJSONObject.optString("content", "");
+                bVar.f55940c = optJSONObject.optInt("type");
+                bVar.f55938a = optJSONObject.optString("url");
+                bVar.f55939b = optJSONObject.optString("urlNight");
+                bVar.f55941d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

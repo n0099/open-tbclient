@@ -1,5 +1,5 @@
 package com.bytedance.sdk.adnet.err;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends VAdError {
     public c(int i) {
         super(i);

@@ -10,33 +10,33 @@ import d.b.i0.z0.i.e.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<a2> f63281a = new ArrayList();
+    public final List<a2> f63282a = new ArrayList();
 
     public c a(boolean z, d.b.i0.z0.i.e.a aVar) {
         c cVar = new c();
-        cVar.f63278c = aVar.i();
-        cVar.f63279d = aVar.a();
-        cVar.f63280e = aVar.c();
+        cVar.f63279c = aVar.i();
+        cVar.f63280d = aVar.a();
+        cVar.f63281e = aVar.c();
         ArrayList<a2> h2 = aVar.h();
         if (z) {
             if (!ListUtils.isEmpty(h2)) {
-                this.f63281a.clear();
-                this.f63281a.addAll(h2);
+                this.f63282a.clear();
+                this.f63282a.addAll(h2);
             }
         } else if (!ListUtils.isEmpty(h2)) {
-            this.f63281a.addAll(h2);
+            this.f63282a.addAll(h2);
         }
         ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.f63281a);
+        arrayList.addAll(this.f63282a);
         d(arrayList, aVar.e());
         d(arrayList, aVar.f());
         d(arrayList, aVar.d());
         d(arrayList, aVar.g());
-        cVar.f63276a = b(arrayList);
+        cVar.f63277a = b(arrayList);
         return cVar;
     }
 
@@ -53,7 +53,7 @@ public class a {
                     z1 z1Var = new z1();
                     z1Var.w = a2Var;
                     z1Var.position = i;
-                    z1Var.f50953e = true;
+                    z1Var.f50954e = true;
                     arrayList2.add(z1Var);
                     z1 z1Var2 = new z1();
                     z1Var2.w = a2Var;
@@ -61,13 +61,13 @@ public class a {
                     if (a2Var.P1()) {
                         z1Var2.j = true;
                     } else if (a2Var.V2() == 1) {
-                        z1Var2.f50956h = true;
+                        z1Var2.f50957h = true;
                         z1Var2.x = p0[0];
                         z1Var2.y = p0[1];
                     } else if (a2Var.V2() >= 2) {
                         z1Var2.i = true;
                     } else {
-                        z1Var2.f50954f = true;
+                        z1Var2.f50955f = true;
                     }
                     arrayList2.add(z1Var2);
                     if (a2Var.y0() != null) {
@@ -102,7 +102,7 @@ public class a {
                     z1 z1Var7 = new z1();
                     z1Var7.w = a2Var;
                     z1Var7.position = i;
-                    z1Var7.f50953e = true;
+                    z1Var7.f50954e = true;
                     arrayList2.add(z1Var7);
                     z1 z1Var8 = new z1();
                     z1Var8.w = a2Var;
@@ -152,7 +152,7 @@ public class a {
     }
 
     public boolean c() {
-        List<a2> list = this.f63281a;
+        List<a2> list = this.f63282a;
         if (list == null) {
             return false;
         }

@@ -17,20 +17,20 @@ public class h extends d.b.b.j.e.a<d.b.i0.t.j.d.k, CardViewHolder<d.b.i0.t.j.h.a
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.k f60832e;
+        public final /* synthetic */ d.b.i0.t.j.d.k f60833e;
 
         public a(d.b.i0.t.j.d.k kVar) {
-            this.f60832e = kVar;
+            this.f60833e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            h.this.j0(this.f60832e);
+            h.this.j0(this.f60833e);
         }
     }
 
     public h(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.k.f60869f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.k.f60870f);
         this.m = tbPageContext;
     }
 
@@ -39,7 +39,7 @@ public class h extends d.b.b.j.e.a<d.b.i0.t.j.d.k, CardViewHolder<d.b.i0.t.j.h.a
             return;
         }
         aVar.z(8);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_live_my_love_family));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_my_love_family));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -47,7 +47,7 @@ public class h extends d.b.b.j.e.a<d.b.i0.t.j.d.k, CardViewHolder<d.b.i0.t.j.h.a
         if (kVar == null || kVar.g() == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f42357e, kVar.g().b().user_id)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f42358e, kVar.g().b().user_id)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

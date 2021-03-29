@@ -8,7 +8,7 @@ import d.b.h0.r.q.v0;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.PkModule;
 import tbclient.TopicModule;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i0.x.e0.b {
     public static final BdUniqueId c0 = BdUniqueId.gen();
     public static final BdUniqueId d0 = BdUniqueId.gen();
@@ -40,8 +40,8 @@ public class a extends d.b.i0.x.e0.b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             b bVar = new b();
             this.Y = bVar;
-            bVar.f63352a = this.T;
-            bVar.f63357f = 1;
+            bVar.f63353a = this.T;
+            bVar.f63358f = 1;
             bVar.b(newTopicList.pk_module);
         }
         if (newTopicList.top_agree_post != null) {
@@ -65,8 +65,8 @@ public class a extends d.b.i0.x.e0.b {
         }
         b bVar = new b();
         this.Y = bVar;
-        bVar.f63352a = this.T;
-        bVar.f63357f = 3;
+        bVar.f63353a = this.T;
+        bVar.f63358f = 3;
         bVar.c(topicModule.pk_module);
     }
 

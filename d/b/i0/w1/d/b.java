@@ -14,46 +14,46 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
 import d.b.i0.w1.e.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<c, a> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f62100a;
+        public int f62101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f62101b;
+        public TextView f62102b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f62102c;
+        public View f62103c;
 
         public a(View view, TextView textView, View view2) {
             super(view);
-            this.f62100a = 3;
-            this.f62101b = textView;
-            this.f62102c = view2;
+            this.f62101a = 3;
+            this.f62102b = textView;
+            this.f62103c = view2;
         }
 
         public void b(c cVar) {
             if (cVar != null) {
-                this.f62101b.setText(cVar.f62147e);
-                this.f62102c.setVisibility(cVar.f62148f ? 0 : 8);
+                this.f62102b.setText(cVar.f62148e);
+                this.f62103c.setVisibility(cVar.f62149f ? 0 : 8);
             }
         }
 
         public void c(int i) {
-            if (this.f62100a != i) {
-                SkinManager.setViewTextColor(this.f62101b, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f62102c, R.color.CAM_X0204);
-                this.f62100a = i;
+            if (this.f62101a != i) {
+                SkinManager.setViewTextColor(this.f62102b, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.f62103c, R.color.CAM_X0204);
+                this.f62101a = i;
             }
         }
     }
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.w1.e.a.f62142b);
+        super(tbPageContext.getPageActivity(), d.b.i0.w1.e.a.f62143b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

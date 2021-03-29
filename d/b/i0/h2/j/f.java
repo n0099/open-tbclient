@@ -28,10 +28,10 @@ public class f extends d.b.i0.x.b<d.b.i0.h2.e.h> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e == i) {
+        if (this.f62180e == i) {
             return;
         }
-        this.f62179e = i;
+        this.f62180e = i;
         SkinManager.setImageResource(this.m, R.drawable.icon_mine_more);
         SkinManager.setBackgroundResource(this.n, R.drawable.btn_look_more_selector);
     }
@@ -50,14 +50,14 @@ public class f extends d.b.i0.x.b<d.b.i0.h2.e.h> {
         ViewGroup.LayoutParams layoutParams = this.o.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
-                layoutParams.width = hVar.f55291e;
+                layoutParams.width = hVar.f55292e;
             }
             if (layoutParams.height > 0) {
-                layoutParams.height = hVar.f55292f;
+                layoutParams.height = hVar.f55293f;
             }
         }
         this.o.setLayoutParams(layoutParams);
         this.n.setVisibility(0);
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -12,10 +12,10 @@ import d.b.g0.a.i2.h0;
 public class ClearableEditText extends AppCompatEditText {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f12972f = h0.f(10.0f);
+    public static final int f12973f = h0.f(10.0f);
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f12973e;
+    public Drawable f12974e;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -23,11 +23,11 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f12973e : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f12974e : null, getCompoundDrawables()[3]);
     }
 
     public final void a() {
-        this.f12973e = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.f12974e = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -45,7 +45,7 @@ public class ClearableEditText extends AppCompatEditText {
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         Drawable drawable;
-        if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f12972f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f12972f) {
+        if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f12973f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f12973f) {
             setText("");
         }
         return super.onTouchEvent(motionEvent);

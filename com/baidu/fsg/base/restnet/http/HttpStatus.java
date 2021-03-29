@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.response.StatusCodeException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -72,7 +72,7 @@ public enum HttpStatus {
     public final String reasonPhrase;
     public final int value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

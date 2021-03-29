@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import d.b.i0.h3.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomeExtraStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<c.a> {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

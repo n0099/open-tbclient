@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupIdTypeData implements Serializable {
     public static final long serialVersionUID = 8219037456828991840L;
     public long groupId;

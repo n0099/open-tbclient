@@ -8,7 +8,7 @@ import d.b.h0.r.k;
 import d.b.h0.z0.w;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public long id;
 

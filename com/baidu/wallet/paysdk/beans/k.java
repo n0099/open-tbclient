@@ -13,18 +13,18 @@ import java.util.List;
 public class k extends BaseBean<CardListResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25518a;
+    public SourceFlag f25519a;
 
     public k(Context context) {
         super(context);
-        this.f25518a = SourceFlag.SDK;
+        this.f25519a = SourceFlag.SDK;
     }
 
     public void a(SourceFlag sourceFlag) {
         if (sourceFlag == null) {
             sourceFlag = SourceFlag.SDK;
         }
-        this.f25518a = sourceFlag;
+        this.f25519a = sourceFlag;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -35,7 +35,7 @@ public class k extends BaseBean<CardListResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("source_flag", this.f25518a.value()));
+        arrayList.add(new RestNameValuePair("source_flag", this.f25519a.value()));
         arrayList.add(new RestNameValuePair("is_from_sdk", "1"));
         arrayList.add(new RestNameValuePair("ea_bank_code", "0"));
         arrayList.add(new RestNameValuePair("need_balance", "1"));

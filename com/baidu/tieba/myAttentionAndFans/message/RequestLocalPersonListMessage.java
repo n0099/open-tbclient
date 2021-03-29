@@ -1,7 +1,7 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestLocalPersonListMessage extends CustomMessage<Object> {
     public boolean isFollow;
     public String uid;

@@ -22,10 +22,10 @@ import java.util.Set;
 public class t extends d.b.h0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f56610e = new ArrayList<>();
+    public ArrayList<String> f56611e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f56611f = new HashSet();
+    public Set<String> f56612f = new HashSet();
 
     public t() {
         v();
@@ -33,19 +33,19 @@ public class t extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public String b(int i) {
-        if (i >= this.f56610e.size()) {
+        if (i >= this.f56611e.size()) {
             return null;
         }
-        return this.f56610e.get(i);
+        return this.f56611e.get(i);
     }
 
     @Override // d.b.h0.w.p.c
     public int c() {
-        ArrayList<String> arrayList = this.f56610e;
+        ArrayList<String> arrayList = this.f56611e;
         if (arrayList == null || arrayList.size() == 0) {
             return 1;
         }
-        return this.f56610e.size();
+        return this.f56611e.size();
     }
 
     @Override // d.b.h0.w.p.c
@@ -85,7 +85,7 @@ public class t extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public boolean m(String str) {
-        return this.f56611f.contains(str);
+        return this.f56612f.contains(str);
     }
 
     @Override // d.b.h0.w.p.c
@@ -152,7 +152,7 @@ public class t extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public d.b.b.j.d.a o(String str) {
-        if (d.b.h0.a0.d.f49682d.equals(str)) {
+        if (d.b.h0.a0.d.f49683d.equals(str)) {
             return new d.b.b.j.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
         }
         Bitmap image = FileHelper.getImage(t(str).getAbsolutePath());
@@ -175,8 +175,8 @@ public class t extends d.b.h0.w.p.c {
     }
 
     public boolean u(String str) {
-        if (this.f56610e != null && !TextUtils.isEmpty(str)) {
-            Iterator<String> it = this.f56610e.iterator();
+        if (this.f56611e != null && !TextUtils.isEmpty(str)) {
+            Iterator<String> it = this.f56611e.iterator();
             while (it.hasNext()) {
                 if (it.next().contains(str)) {
                     return true;
@@ -197,11 +197,11 @@ public class t extends d.b.h0.w.p.c {
 
     public void w() {
         List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-        this.f56610e.clear();
-        this.f56611f.clear();
+        this.f56611e.clear();
+        this.f56612f.clear();
         for (CollectEmotionData collectEmotionData : n) {
-            this.f56610e.add(collectEmotionData.sharpText);
-            this.f56611f.add(collectEmotionData.sharpText);
+            this.f56611e.add(collectEmotionData.sharpText);
+            this.f56612f.add(collectEmotionData.sharpText);
         }
     }
 }

@@ -25,7 +25,7 @@ public class a {
 
     /* renamed from: d.b.i0.r2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1503a implements Comparator<m0> {
+    public static class C1504a implements Comparator<m0> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -61,9 +61,9 @@ public class a {
                 if ((nVar instanceof m0) && (d2 = ((m0) nVar).d()) != null && d2.Y3 == null) {
                     d.b.h0.r.q.d dVar = new d.b.h0.r.q.d();
                     d2.Y3 = dVar;
-                    dVar.f50748a = str;
-                    dVar.f50749b = i;
-                    dVar.f50755h = d2.T3;
+                    dVar.f50749a = str;
+                    dVar.f50750b = i;
+                    dVar.f50756h = d2.T3;
                     dVar.i = false;
                     hashSet.add(d2);
                 }
@@ -362,7 +362,7 @@ public class a {
     }
 
     public static void r(List<m0> list) {
-        Collections.sort(list, new C1503a());
+        Collections.sort(list, new C1504a());
     }
 
     public static void s(List<d.b.b.j.e.n> list) {

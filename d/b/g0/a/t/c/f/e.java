@@ -19,33 +19,33 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends d.b.g0.a.t.b.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.q1.b.b.h f46017d;
+    public d.b.g0.a.q1.b.b.h f46018d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46018e;
+        public final /* synthetic */ String f46019e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f46019f;
+        public final /* synthetic */ Date f46020f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f46020g;
+        public final /* synthetic */ Date f46021g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f46021h;
+        public final /* synthetic */ Date f46022h;
         public final /* synthetic */ boolean i;
         public final /* synthetic */ String j;
 
         /* renamed from: d.b.g0.a.t.c.f.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class DialogInterface$OnCancelListenerC0809a implements DialogInterface.OnCancelListener {
-            public DialogInterface$OnCancelListenerC0809a() {
+        /* loaded from: classes2.dex */
+        public class DialogInterface$OnCancelListenerC0810a implements DialogInterface.OnCancelListener {
+            public DialogInterface$OnCancelListenerC0810a() {
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
@@ -56,7 +56,7 @@ public class e extends d.b.g0.a.t.b.d {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class b implements DialogInterface.OnClickListener {
             public b() {
             }
@@ -69,7 +69,7 @@ public class e extends d.b.g0.a.t.b.d {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class c implements DialogInterface.OnClickListener {
             public c() {
             }
@@ -82,12 +82,12 @@ public class e extends d.b.g0.a.t.b.d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("value", format);
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         Log.d("Api-Base", "handleShowDatePicker params = " + jSONObject.toString());
                     }
                     e.this.c(a.this.j, new d.b.g0.a.t.e.b(0, jSONObject));
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         e2.printStackTrace();
                     }
                 }
@@ -95,10 +95,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public a(String str, Date date, Date date2, Date date3, boolean z, String str2) {
-            this.f46018e = str;
-            this.f46019f = date;
-            this.f46020g = date2;
-            this.f46021h = date3;
+            this.f46019e = str;
+            this.f46020f = date;
+            this.f46021g = date2;
+            this.f46022h = date3;
             this.i = z;
             this.j = str2;
         }
@@ -106,39 +106,39 @@ public class e extends d.b.g0.a.t.b.d {
         @Override // java.lang.Runnable
         public void run() {
             i.a aVar = new i.a(e.this.h());
-            if (!TextUtils.isEmpty(this.f46018e)) {
-                aVar.m(this.f46018e);
+            if (!TextUtils.isEmpty(this.f46019e)) {
+                aVar.m(this.f46019e);
             }
-            aVar.o(this.f46019f);
-            aVar.l(this.f46020g);
-            aVar.n(this.f46021h);
+            aVar.o(this.f46020f);
+            aVar.l(this.f46021g);
+            aVar.n(this.f46022h);
             aVar.k(this.i);
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
             aVar.d(d.b.g0.a.h.aiapps_cancel, new b());
-            aVar.f(new DialogInterface$OnCancelListenerC0809a());
+            aVar.f(new DialogInterface$OnCancelListenerC0810a());
             aVar.j();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46025e;
+        public final /* synthetic */ String f46026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f46026f;
+        public final /* synthetic */ Date f46027f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f46027g;
+        public final /* synthetic */ Date f46028g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f46028h;
+        public final /* synthetic */ Date f46029h;
         public final /* synthetic */ boolean i;
         public final /* synthetic */ String j;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements DialogInterface.OnCancelListener {
             public a() {
             }
@@ -152,9 +152,9 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         /* renamed from: d.b.g0.a.t.c.f.e$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class DialogInterface$OnClickListenerC0810b implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0810b() {
+        /* loaded from: classes2.dex */
+        public class DialogInterface$OnClickListenerC0811b implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0811b() {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -165,7 +165,7 @@ public class e extends d.b.g0.a.t.b.d {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class c implements DialogInterface.OnClickListener {
             public c() {
             }
@@ -178,12 +178,12 @@ public class e extends d.b.g0.a.t.b.d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("value", h2);
-                        if (d.b.g0.a.t.b.d.f45928c) {
+                        if (d.b.g0.a.t.b.d.f45929c) {
                             Log.d("Api-Base", "handleShowDatePicker params = " + jSONObject.toString());
                         }
                         e.this.c(b.this.j, new d.b.g0.a.t.e.b(0, jSONObject));
                     } catch (JSONException e2) {
-                        if (d.b.g0.a.t.b.d.f45928c) {
+                        if (d.b.g0.a.t.b.d.f45929c) {
                             e2.printStackTrace();
                         }
                         b bVar = b.this;
@@ -194,10 +194,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public b(String str, Date date, Date date2, Date date3, boolean z, String str2) {
-            this.f46025e = str;
-            this.f46026f = date;
-            this.f46027g = date2;
-            this.f46028h = date3;
+            this.f46026e = str;
+            this.f46027f = date;
+            this.f46028g = date2;
+            this.f46029h = date3;
             this.i = z;
             this.j = str2;
         }
@@ -205,64 +205,64 @@ public class e extends d.b.g0.a.t.b.d {
         @Override // java.lang.Runnable
         public void run() {
             d.a aVar = new d.a(e.this.h());
-            if (!TextUtils.isEmpty(this.f46025e)) {
-                aVar.m(this.f46025e);
+            if (!TextUtils.isEmpty(this.f46026e)) {
+                aVar.m(this.f46026e);
             }
-            aVar.o(this.f46026f);
-            aVar.l(this.f46027g);
-            aVar.n(this.f46028h);
+            aVar.o(this.f46027f);
+            aVar.l(this.f46028g);
+            aVar.n(this.f46029h);
             aVar.k(this.i);
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
-            aVar.d(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0810b());
+            aVar.d(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0811b());
             aVar.f(new a());
             aVar.j();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f46032e;
+        public final /* synthetic */ int f46033e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46033f;
+        public final /* synthetic */ JSONArray f46034f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46034g;
+        public final /* synthetic */ int f46035g;
 
         public c(int i, JSONArray jSONArray, int i2) {
-            this.f46032e = i;
-            this.f46033f = jSONArray;
-            this.f46034g = i2;
+            this.f46033e = i;
+            this.f46034f = jSONArray;
+            this.f46035g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f46017d != null) {
-                ((d.b.g0.a.q1.b.b.e) e.this.f46017d).k(this.f46032e, this.f46033f, this.f46034g);
+            if (e.this.f46018d != null) {
+                ((d.b.g0.a.q1.b.b.e) e.this.f46018d).k(this.f46033e, this.f46034f, this.f46035g);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46036e;
+        public final /* synthetic */ JSONArray f46037e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46037f;
+        public final /* synthetic */ JSONArray f46038f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f46038g;
+        public final /* synthetic */ boolean f46039g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46039h;
+        public final /* synthetic */ JSONObject f46040h;
         public final /* synthetic */ String i;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements DialogInterface.OnCancelListener {
             public a() {
             }
@@ -270,11 +270,11 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 d dVar = d.this;
-                e.this.D(dialogInterface, dVar.f46038g, dVar.i);
+                e.this.D(dialogInterface, dVar.f46039g, dVar.i);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class b implements DialogInterface.OnClickListener {
             public b() {
             }
@@ -282,11 +282,11 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 d dVar = d.this;
-                e.this.D(dialogInterface, dVar.f46038g, dVar.i);
+                e.this.D(dialogInterface, dVar.f46039g, dVar.i);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class c implements DialogInterface.OnClickListener {
             public c() {
             }
@@ -294,12 +294,12 @@ public class e extends d.b.g0.a.t.b.d {
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                e.this.f46017d = null;
+                e.this.f46018d = null;
                 try {
                     JSONArray f2 = ((d.b.g0.a.q1.b.b.e) dialogInterface).f();
                     JSONObject jSONObject = new JSONObject();
                     if (f2 != null && f2.length() > 0) {
-                        if (d.this.f46038g) {
+                        if (d.this.f46039g) {
                             jSONObject.put("value", f2.optInt(0));
                         } else {
                             jSONObject.put("value", f2);
@@ -307,11 +307,11 @@ public class e extends d.b.g0.a.t.b.d {
                         }
                     }
                     e.this.c(d.this.i, new d.b.g0.a.t.e.b(0, jSONObject));
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         Log.i("Api-Base", "handleOpenMultiPicker: output params = " + jSONObject.toString());
                     }
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         e2.printStackTrace();
                     }
                 }
@@ -319,22 +319,22 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         /* renamed from: d.b.g0.a.t.c.f.e$d$d  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0811d implements BdMultiPicker.b {
-            public C0811d() {
+        /* loaded from: classes2.dex */
+        public class C0812d implements BdMultiPicker.b {
+            public C0812d() {
             }
 
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
-                if (d.b.g0.a.t.b.d.f45928c) {
-                    Log.i("Api-Base", "onMultiSelectedChanged: params=" + d.this.f46039h);
+                if (d.b.g0.a.t.b.d.f45929c) {
+                    Log.i("Api-Base", "onMultiSelectedChanged: params=" + d.this.f46040h);
                 }
                 try {
                     JSONObject jSONObject2 = new JSONObject(jSONObject.toString());
                     jSONObject2.put("type", "columnChange");
                     e.this.c(d.this.i, new d.b.g0.a.t.e.b(0, jSONObject2));
                 } catch (JSONException e2) {
-                    if (d.b.g0.a.t.b.d.f45928c) {
+                    if (d.b.g0.a.t.b.d.f45929c) {
                         e2.printStackTrace();
                     }
                     d dVar = d.this;
@@ -344,10 +344,10 @@ public class e extends d.b.g0.a.t.b.d {
         }
 
         public d(JSONArray jSONArray, JSONArray jSONArray2, boolean z, JSONObject jSONObject, String str) {
-            this.f46036e = jSONArray;
-            this.f46037f = jSONArray2;
-            this.f46038g = z;
-            this.f46039h = jSONObject;
+            this.f46037e = jSONArray;
+            this.f46038f = jSONArray2;
+            this.f46039g = z;
+            this.f46040h = jSONObject;
             this.i = str;
         }
 
@@ -355,15 +355,15 @@ public class e extends d.b.g0.a.t.b.d {
         public void run() {
             e.a aVar = new e.a(e.this.h());
             e eVar = e.this;
-            aVar.k(this.f46036e);
-            aVar.l(this.f46037f);
-            aVar.n(this.f46038g);
-            aVar.m(new C0811d());
+            aVar.k(this.f46037e);
+            aVar.l(this.f46038f);
+            aVar.n(this.f46039g);
+            aVar.m(new C0812d());
             aVar.c(true);
             aVar.g(d.b.g0.a.h.aiapps_ok, new c());
             aVar.d(d.b.g0.a.h.aiapps_cancel, new b());
             aVar.f(new a());
-            eVar.f46017d = aVar.j();
+            eVar.f46018d = aVar.j();
         }
     }
 
@@ -432,7 +432,7 @@ public class e extends d.b.g0.a.t.b.d {
             } catch (NumberFormatException e2) {
                 e = e2;
                 date = date2;
-                if (d.b.g0.a.t.b.d.f45928c) {
+                if (d.b.g0.a.t.b.d.f45929c) {
                     e.printStackTrace();
                     return date;
                 }
@@ -445,7 +445,7 @@ public class e extends d.b.g0.a.t.b.d {
 
     public final void D(DialogInterface dialogInterface, boolean z, String str) {
         dialogInterface.dismiss();
-        this.f46017d = null;
+        this.f46018d = null;
         if (z) {
             c(str, new d.b.g0.a.t.e.b(0));
             return;
@@ -455,7 +455,7 @@ public class e extends d.b.g0.a.t.b.d {
             jSONObject.put("type", QueryResponse.Options.CANCEL);
             c(str, new d.b.g0.a.t.e.b(0, jSONObject));
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 e2.printStackTrace();
             }
             c(str, new d.b.g0.a.t.e.b(202));
@@ -503,7 +503,7 @@ public class e extends d.b.g0.a.t.b.d {
         if (TextUtils.isEmpty(str)) {
             return new d.b.g0.a.t.e.b(202);
         }
-        if (this.f46017d == null) {
+        if (this.f46018d == null) {
             return new d.b.g0.a.t.e.b(1001);
         }
         try {
@@ -522,7 +522,7 @@ public class e extends d.b.g0.a.t.b.d {
             }
             return new d.b.g0.a.t.e.b(0);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 e2.printStackTrace();
             }
             return new d.b.g0.a.t.e.b(202);
@@ -561,10 +561,10 @@ public class e extends d.b.g0.a.t.b.d {
     }
 
     public final d.b.g0.a.t.e.b x(JSONObject jSONObject, boolean z) {
-        if (this.f46017d != null) {
+        if (this.f46018d != null) {
             return new d.b.g0.a.t.e.b(1001);
         }
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.i("Api-Base", "handleOpenMultiPicker: input params=" + jSONObject);
         }
         JSONArray jSONArray = new JSONArray();

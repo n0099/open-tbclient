@@ -5,21 +5,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements c {
 
         /* renamed from: com.baidu.sofire.i.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0156a implements c {
+        /* loaded from: classes2.dex */
+        public static class C0157a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f11815a;
+            public IBinder f11816a;
 
-            public C0156a(IBinder iBinder) {
-                this.f11815a = iBinder;
+            public C0157a(IBinder iBinder) {
+                this.f11816a = iBinder;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -28,7 +28,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f11815a.transact(1, obtain, obtain2, 0);
+                    this.f11816a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -39,7 +39,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f11815a;
+                return this.f11816a;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f11815a.transact(2, obtain, obtain2, 0);
+                    this.f11816a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -63,7 +63,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0156a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0157a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

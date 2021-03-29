@@ -11,15 +11,15 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f44553a = true;
+    public static boolean f44554a = true;
 
     public static Map<String, String> a(String str, String str2) {
         HashMap hashMap = new HashMap();
-        if (f44553a) {
+        if (f44554a) {
             if (str == null) {
                 str = "";
             }
@@ -35,7 +35,7 @@ public class c implements Interceptor {
     }
 
     public static HttpRequest e(HttpRequest httpRequest, String str, String str2) {
-        if (f44553a && httpRequest != null) {
+        if (f44554a && httpRequest != null) {
             if (str == null) {
                 str = "";
             }
@@ -48,7 +48,7 @@ public class c implements Interceptor {
     }
 
     public static Request f(Request request, String str, String str2) {
-        if (f44553a && request != null) {
+        if (f44554a && request != null) {
             if (str == null) {
                 str = "";
             }
@@ -86,7 +86,7 @@ public class c implements Interceptor {
     public Response intercept(Interceptor.Chain chain) throws IOException {
         HttpUrl resolve;
         Request request = chain.request();
-        if (!f44553a) {
+        if (!f44554a) {
             return chain.proceed(request);
         }
         if (!c(request)) {

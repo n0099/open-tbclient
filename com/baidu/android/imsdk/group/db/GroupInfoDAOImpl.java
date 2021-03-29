@@ -21,12 +21,12 @@ import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GroupInfoDAOImpl {
     public static final String TAG = "GroupInfoDAOImpl";
     public static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         public GroupInfoParse() {
         }

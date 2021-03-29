@@ -1,7 +1,7 @@
 package com.baidu.down.loopj.android.http;
 
 import android.os.Message;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AsyncHttpResponseHandler {
     public static final int DOWNLOAD_MESSAGE = 4;
     public static final int FAILURE_MESSAGE = 1;

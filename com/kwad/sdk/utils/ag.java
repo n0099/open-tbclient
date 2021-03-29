@@ -13,36 +13,28 @@ import java.util.Locale;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SimpleDateFormat f36700a = new SimpleDateFormat("MM/dd", Locale.US);
+    public static final SimpleDateFormat f36701a = new SimpleDateFormat("MM/dd", Locale.US);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f36701b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat f36702b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f36702c = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat f36703c = new SimpleDateFormat("MM月dd日", Locale.US);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f36703d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat f36704d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f36704e = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat f36705e = new SimpleDateFormat("HH:mm", Locale.US);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f36705f = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat f36706f = new SimpleDateFormat("MM-dd", Locale.US);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f36706g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+    public static final SimpleDateFormat f36707g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
     public static String a(long j) {
-        if (j <= 9999) {
-            return String.valueOf(j);
-        }
-        if (j < 10000000) {
-            double d2 = j;
-            Double.isNaN(d2);
-            return String.format("%.1fw", Double.valueOf(new BigDecimal(String.valueOf(d2 / 10000.0d)).setScale(1, 1).doubleValue()));
-        }
-        return "999.9w";
+        return j <= 9999 ? String.valueOf(j) : j < 10000000 ? String.format("%.1fw", Double.valueOf(new BigDecimal(String.valueOf(j / 10000.0d)).setScale(1, 1).doubleValue())) : "999.9w";
     }
 
     public static String a(long j, String str) {
@@ -80,12 +72,7 @@ public class ag {
         }
         int i = (j > 100000000L ? 1 : (j == 100000000L ? 0 : -1));
         double d2 = j;
-        if (i < 0) {
-            Double.isNaN(d2);
-            return String.format("%.1fw", Double.valueOf(new BigDecimal(String.valueOf(d2 / 10000.0d)).setScale(1, 1).doubleValue()));
-        }
-        Double.isNaN(d2);
-        return String.format("%.1f亿", Double.valueOf(new BigDecimal(String.valueOf(d2 / 1.0E8d)).setScale(1, 1).doubleValue()));
+        return i < 0 ? String.format("%.1fw", Double.valueOf(new BigDecimal(String.valueOf(d2 / 10000.0d)).setScale(1, 1).doubleValue())) : String.format("%.1f亿", Double.valueOf(new BigDecimal(String.valueOf(d2 / 1.0E8d)).setScale(1, 1).doubleValue()));
     }
 
     public static boolean b(String str) {
@@ -97,8 +84,8 @@ public class ag {
 
     public static String c(long j) {
         String format;
-        synchronized (f36704e) {
-            format = f36704e.format(new Date(j));
+        synchronized (f36705e) {
+            format = f36705e.format(new Date(j));
         }
         return format;
     }
@@ -109,16 +96,16 @@ public class ag {
 
     public static String d(long j) {
         String format;
-        synchronized (f36705f) {
-            format = f36705f.format(new Date(j));
+        synchronized (f36706f) {
+            format = f36706f.format(new Date(j));
         }
         return format;
     }
 
     public static String e(long j) {
         String format;
-        synchronized (f36706g) {
-            format = f36706g.format(new Date(j));
+        synchronized (f36707g) {
+            format = f36707g.format(new Date(j));
         }
         return format;
     }

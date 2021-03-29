@@ -28,16 +28,16 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f61984b;
+    public static b f61985b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f61985a = false;
+    public volatile boolean f61986a = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(b bVar, int i, int i2) {
             super(i, i2);
@@ -60,9 +60,9 @@ public class b {
     }
 
     /* renamed from: d.b.i0.v1.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1637b implements Comparator<Calendar> {
-        public C1637b(b bVar) {
+    /* loaded from: classes3.dex */
+    public class C1638b implements Comparator<Calendar> {
+        public C1638b(b bVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,14 +84,14 @@ public class b {
     }
 
     public static b b() {
-        if (f61984b == null) {
+        if (f61985b == null) {
             synchronized (b.class) {
-                if (f61984b == null) {
-                    f61984b = new b();
+                if (f61985b == null) {
+                    f61985b = new b();
                 }
             }
         }
-        return f61984b;
+        return f61985b;
     }
 
     public boolean a() {
@@ -135,7 +135,7 @@ public class b {
         if (arrayList.isEmpty()) {
             return null;
         }
-        Collections.sort(arrayList, new C1637b(this));
+        Collections.sort(arrayList, new C1638b(this));
         Calendar calendar3 = (Calendar) arrayList.get(0);
         Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
         if (arrayList.size() == 1 || calendar3.after(calendar) || calendar4.before(calendar)) {
@@ -158,14 +158,14 @@ public class b {
     }
 
     public void e(boolean z) {
-        if (this.f61985a) {
+        if (this.f61986a) {
             z = false;
         }
         d.b.h0.r.d0.b.i().s("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
     }
 
     public void f(boolean z) {
-        this.f61985a = z;
+        this.f61986a = z;
     }
 
     public void g() {

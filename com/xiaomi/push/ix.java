@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 public class ix extends jb {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final jg f40856a = new jg();
+    public static final jg f40857a = new jg();
 
     /* renamed from: a  reason: collision with other field name */
     public int f800a;
@@ -18,43 +18,43 @@ public class ix extends jb {
     public byte[] f802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40857b;
+    public boolean f40858b;
 
     /* renamed from: b  reason: collision with other field name */
     public byte[] f803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40858c;
+    public boolean f40859c;
 
     /* renamed from: c  reason: collision with other field name */
     public byte[] f804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f40859d;
+    public byte[] f40860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f40860e;
+    public byte[] f40861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f40861f;
+    public byte[] f40862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f40862g;
+    public byte[] f40863g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f40863h;
+    public byte[] f40864h;
 
     /* loaded from: classes7.dex */
     public static class a implements jd {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40864a;
+        public int f40865a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f40865b;
+        public boolean f40866b;
 
         public a() {
             this(false, true);
@@ -66,16 +66,16 @@ public class ix extends jb {
 
         public a(boolean z, boolean z2, int i) {
             this.f805a = false;
-            this.f40865b = true;
+            this.f40866b = true;
             this.f805a = z;
-            this.f40865b = z2;
-            this.f40864a = i;
+            this.f40866b = z2;
+            this.f40865a = i;
         }
 
         @Override // com.xiaomi.push.jd
         public jb a(jl jlVar) {
-            ix ixVar = new ix(jlVar, this.f805a, this.f40865b);
-            int i = this.f40864a;
+            ix ixVar = new ix(jlVar, this.f805a, this.f40866b);
+            int i = this.f40865a;
             if (i != 0) {
                 ixVar.b(i);
             }
@@ -86,33 +86,33 @@ public class ix extends jb {
     public ix(jl jlVar, boolean z, boolean z2) {
         super(jlVar);
         this.f801a = false;
-        this.f40857b = true;
-        this.f40858c = false;
+        this.f40858b = true;
+        this.f40859c = false;
         this.f802a = new byte[1];
         this.f803b = new byte[2];
         this.f804c = new byte[4];
-        this.f40859d = new byte[8];
-        this.f40860e = new byte[1];
-        this.f40861f = new byte[2];
-        this.f40862g = new byte[4];
-        this.f40863h = new byte[8];
+        this.f40860d = new byte[8];
+        this.f40861e = new byte[1];
+        this.f40862f = new byte[2];
+        this.f40863g = new byte[4];
+        this.f40864h = new byte[8];
         this.f801a = z;
-        this.f40857b = z2;
+        this.f40858b = z2;
     }
 
     private int a(byte[] bArr, int i, int i2) {
         c(i2);
-        return ((jb) this).f40873a.b(bArr, i, i2);
+        return ((jb) this).f40874a.b(bArr, i, i2);
     }
 
     @Override // com.xiaomi.push.jb
     public byte a() {
-        if (((jb) this).f40873a.b() < 1) {
-            a(this.f40860e, 0, 1);
-            return this.f40860e[0];
+        if (((jb) this).f40874a.b() < 1) {
+            a(this.f40861e, 0, 1);
+            return this.f40861e[0];
         }
-        byte b2 = ((jb) this).f40873a.m512a()[((jb) this).f40873a.a()];
-        ((jb) this).f40873a.a(1);
+        byte b2 = ((jb) this).f40874a.m512a()[((jb) this).f40874a.a()];
+        ((jb) this).f40874a.a(1);
         return b2;
     }
 
@@ -123,28 +123,28 @@ public class ix extends jb {
 
     @Override // com.xiaomi.push.jb
     public int a() {
-        byte[] bArr = this.f40862g;
+        byte[] bArr = this.f40863g;
         int i = 0;
-        if (((jb) this).f40873a.b() >= 4) {
-            bArr = ((jb) this).f40873a.m512a();
-            i = ((jb) this).f40873a.a();
-            ((jb) this).f40873a.a(4);
+        if (((jb) this).f40874a.b() >= 4) {
+            bArr = ((jb) this).f40874a.m512a();
+            i = ((jb) this).f40874a.a();
+            ((jb) this).f40874a.a(4);
         } else {
-            a(this.f40862g, 0, 4);
+            a(this.f40863g, 0, 4);
         }
         return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 
     @Override // com.xiaomi.push.jb
     public long a() {
-        byte[] bArr = this.f40863h;
+        byte[] bArr = this.f40864h;
         int i = 0;
-        if (((jb) this).f40873a.b() >= 8) {
-            bArr = ((jb) this).f40873a.m512a();
-            i = ((jb) this).f40873a.a();
-            ((jb) this).f40873a.a(8);
+        if (((jb) this).f40874a.b() >= 8) {
+            bArr = ((jb) this).f40874a.m512a();
+            i = ((jb) this).f40874a.a();
+            ((jb) this).f40874a.a(8);
         } else {
-            a(this.f40863h, 0, 8);
+            a(this.f40864h, 0, 8);
         }
         return (bArr[i + 7] & 255) | ((bArr[i] & 255) << 56) | ((bArr[i + 1] & 255) << 48) | ((bArr[i + 2] & 255) << 40) | ((bArr[i + 3] & 255) << 32) | ((bArr[i + 4] & 255) << 24) | ((bArr[i + 5] & 255) << 16) | ((bArr[i + 6] & 255) << 8);
     }
@@ -172,16 +172,16 @@ public class ix extends jb {
 
     @Override // com.xiaomi.push.jb
     public jg a() {
-        return f40856a;
+        return f40857a;
     }
 
     @Override // com.xiaomi.push.jb
     public String a() {
         int a2 = a();
-        if (((jb) this).f40873a.b() >= a2) {
+        if (((jb) this).f40874a.b() >= a2) {
             try {
-                String str = new String(((jb) this).f40873a.m512a(), ((jb) this).f40873a.a(), a2, "UTF-8");
-                ((jb) this).f40873a.a(a2);
+                String str = new String(((jb) this).f40874a.m512a(), ((jb) this).f40874a.a(), a2, "UTF-8");
+                ((jb) this).f40874a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException unused) {
                 throw new iv("JVM DOES NOT SUPPORT UTF-8");
@@ -195,7 +195,7 @@ public class ix extends jb {
         try {
             c(i);
             byte[] bArr = new byte[i];
-            ((jb) this).f40873a.b(bArr, 0, i);
+            ((jb) this).f40874a.b(bArr, 0, i);
             return new String(bArr, "UTF-8");
         } catch (UnsupportedEncodingException unused) {
             throw new iv("JVM DOES NOT SUPPORT UTF-8");
@@ -206,26 +206,26 @@ public class ix extends jb {
     public ByteBuffer a() {
         int a2 = a();
         c(a2);
-        if (((jb) this).f40873a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f40873a.m512a(), ((jb) this).f40873a.a(), a2);
-            ((jb) this).f40873a.a(a2);
+        if (((jb) this).f40874a.b() >= a2) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f40874a.m512a(), ((jb) this).f40874a.a(), a2);
+            ((jb) this).f40874a.a(a2);
             return wrap;
         }
         byte[] bArr = new byte[a2];
-        ((jb) this).f40873a.b(bArr, 0, a2);
+        ((jb) this).f40874a.b(bArr, 0, a2);
         return ByteBuffer.wrap(bArr);
     }
 
     @Override // com.xiaomi.push.jb
     public short a() {
-        byte[] bArr = this.f40861f;
+        byte[] bArr = this.f40862f;
         int i = 0;
-        if (((jb) this).f40873a.b() >= 2) {
-            bArr = ((jb) this).f40873a.m512a();
-            i = ((jb) this).f40873a.a();
-            ((jb) this).f40873a.a(2);
+        if (((jb) this).f40874a.b() >= 2) {
+            bArr = ((jb) this).f40874a.m512a();
+            i = ((jb) this).f40874a.a();
+            ((jb) this).f40874a.a(2);
         } else {
-            a(this.f40861f, 0, 2);
+            a(this.f40862f, 0, 2);
         }
         return (short) ((bArr[i + 1] & 255) | ((bArr[i] & 255) << 8));
     }
@@ -238,7 +238,7 @@ public class ix extends jb {
     public void a(byte b2) {
         byte[] bArr = this.f802a;
         bArr[0] = b2;
-        ((jb) this).f40873a.m511a(bArr, 0, 1);
+        ((jb) this).f40874a.m511a(bArr, 0, 1);
     }
 
     @Override // com.xiaomi.push.jb
@@ -248,12 +248,12 @@ public class ix extends jb {
         bArr[1] = (byte) ((i >> 16) & 255);
         bArr[2] = (byte) ((i >> 8) & 255);
         bArr[3] = (byte) (i & 255);
-        ((jb) this).f40873a.m511a(bArr, 0, 4);
+        ((jb) this).f40874a.m511a(bArr, 0, 4);
     }
 
     @Override // com.xiaomi.push.jb
     public void a(long j) {
-        byte[] bArr = this.f40859d;
+        byte[] bArr = this.f40860d;
         bArr[0] = (byte) ((j >> 56) & 255);
         bArr[1] = (byte) ((j >> 48) & 255);
         bArr[2] = (byte) ((j >> 40) & 255);
@@ -262,25 +262,25 @@ public class ix extends jb {
         bArr[5] = (byte) ((j >> 16) & 255);
         bArr[6] = (byte) ((j >> 8) & 255);
         bArr[7] = (byte) (j & 255);
-        ((jb) this).f40873a.m511a(bArr, 0, 8);
+        ((jb) this).f40874a.m511a(bArr, 0, 8);
     }
 
     @Override // com.xiaomi.push.jb
     public void a(iy iyVar) {
-        a(iyVar.f40866a);
+        a(iyVar.f40867a);
         a(iyVar.f807a);
     }
 
     @Override // com.xiaomi.push.jb
     public void a(iz izVar) {
-        a(izVar.f40867a);
+        a(izVar.f40868a);
         a(izVar.f808a);
     }
 
     @Override // com.xiaomi.push.jb
     public void a(ja jaVar) {
-        a(jaVar.f40871a);
-        a(jaVar.f40872b);
+        a(jaVar.f40872a);
+        a(jaVar.f40873b);
         a(jaVar.f811a);
     }
 
@@ -293,7 +293,7 @@ public class ix extends jb {
         try {
             byte[] bytes = str.getBytes("UTF-8");
             a(bytes.length);
-            ((jb) this).f40873a.m511a(bytes, 0, bytes.length);
+            ((jb) this).f40874a.m511a(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException unused) {
             throw new iv("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -303,7 +303,7 @@ public class ix extends jb {
     public void a(ByteBuffer byteBuffer) {
         int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
         a(limit);
-        ((jb) this).f40873a.m511a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        ((jb) this).f40874a.m511a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
     }
 
     @Override // com.xiaomi.push.jb
@@ -311,7 +311,7 @@ public class ix extends jb {
         byte[] bArr = this.f803b;
         bArr[0] = (byte) ((s >> 8) & 255);
         bArr[1] = (byte) (s & 255);
-        ((jb) this).f40873a.m511a(bArr, 0, 2);
+        ((jb) this).f40874a.m511a(bArr, 0, 2);
     }
 
     @Override // com.xiaomi.push.jb
@@ -330,7 +330,7 @@ public class ix extends jb {
 
     public void b(int i) {
         this.f800a = i;
-        this.f40858c = true;
+        this.f40859c = true;
     }
 
     @Override // com.xiaomi.push.jb
@@ -341,7 +341,7 @@ public class ix extends jb {
     public void c(int i) {
         if (i < 0) {
             throw new iv("Negative length: " + i);
-        } else if (this.f40858c) {
+        } else if (this.f40859c) {
             int i2 = this.f800a - i;
             this.f800a = i2;
             if (i2 >= 0) {

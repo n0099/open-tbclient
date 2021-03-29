@@ -11,23 +11,23 @@ public class e {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SharedPreferences f64669e;
+        public final /* synthetic */ SharedPreferences f64670e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64670f;
+        public final /* synthetic */ String f64671f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f64671g;
+        public final /* synthetic */ Object f64672g;
 
         public a(SharedPreferences sharedPreferences, String str, Object obj) {
-            this.f64669e = sharedPreferences;
-            this.f64670f = str;
-            this.f64671g = obj;
+            this.f64670e = sharedPreferences;
+            this.f64671f = str;
+            this.f64672g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.D(this.f64669e, this.f64670f, this.f64671g);
+            e.D(this.f64670e, this.f64671f, this.f64672g);
         }
     }
 

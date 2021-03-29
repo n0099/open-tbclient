@@ -22,19 +22,19 @@ import java.util.regex.Pattern;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f57207a = new HashMap<>();
+    public static HashMap<String, Integer> f57208a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f57208b = new HashMap<>();
+    public static HashMap<String, Integer> f57209b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f57209c = new HashMap<>();
+    public static HashMap<String, String> f57210c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f57210d = new HashMap<>();
+    public static HashMap<String, String> f57211d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f57211e;
+    public static final Pattern f57212e;
 
     static {
         a("application/andrew-inset", "ez", 5);
@@ -355,17 +355,17 @@ public final class a {
         a("audio/aac", "aac", 1);
         a("application/vnd.rn-realmedia", "rm", 0);
         a("message/rfc822", "mht", 11);
-        f57211e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f57212e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i) {
-        f57207a.put(str2, Integer.valueOf(i));
-        f57208b.put(str, Integer.valueOf(i));
-        f57209c.put(str2, str);
-        if (f57210d.containsKey(str)) {
+        f57208a.put(str2, Integer.valueOf(i));
+        f57209b.put(str, Integer.valueOf(i));
+        f57210c.put(str2, str);
+        if (f57211d.containsKey(str)) {
             return;
         }
-        f57210d.put(str, str2);
+        f57211d.put(str, str2);
     }
 
     public static int b(String str, String str2) {
@@ -373,8 +373,8 @@ public final class a {
     }
 
     public static int c(String str, String str2, boolean z) {
-        Integer num = f57208b.get(str2);
-        if (num != null ? !(!z || num.intValue() != 8) : !((num = f57207a.get(str)) != null && (!z || num.intValue() != 8))) {
+        Integer num = f57209b.get(str2);
+        if (num != null ? !(!z || num.intValue() != 8) : !((num = f57208a.get(str)) != null && (!z || num.intValue() != 8))) {
             num = 5;
         }
         return num.intValue();
@@ -404,7 +404,7 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f57210d.get(str);
+        return f57211d.get(str);
     }
 
     public static String g(String str, String str2, String str3) {
@@ -503,12 +503,12 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f57209c.get(str);
+        return f57210c.get(str);
     }
 
     public static String i(String str) {
         try {
-            Matcher matcher = f57211e.matcher(str);
+            Matcher matcher = f57212e.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

@@ -2,7 +2,7 @@ package d.b.g0.a.e0.k;
 
 import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 

@@ -23,21 +23,21 @@ public class c {
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f51307a = null;
+        public NetWork f51308a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f51308b;
+        public final String f51309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f51309c;
+        public final String f51310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f51310d;
+        public final String f51311d;
 
         public a(String str, String str2, String str3) {
-            this.f51308b = str;
-            this.f51309c = str2;
-            this.f51310d = str3;
+            this.f51309b = str;
+            this.f51310c = str2;
+            this.f51311d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,15 +45,15 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = Boolean.FALSE;
             try {
-                NetWork netWork = new NetWork(this.f51308b);
-                this.f51307a = netWork;
-                bool = Boolean.valueOf(netWork.downloadFile(this.f51309c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                NetWork netWork = new NetWork(this.f51309b);
+                this.f51308a = netWork;
+                bool = Boolean.valueOf(netWork.downloadFile(this.f51310c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(FileHelper.renameTo(null, this.f51309c + ".tmp", null, this.f51309c)) && !TextUtils.isEmpty(this.f51308b) && !this.f51308b.equals(this.f51310d)) {
-                        FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f51310d));
+                    if (!StringUtils.isNull(FileHelper.renameTo(null, this.f51310c + ".tmp", null, this.f51310c)) && !TextUtils.isEmpty(this.f51309b) && !this.f51309b.equals(this.f51311d)) {
+                        FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f51311d));
                     }
                 } else {
-                    FileHelper.DelFile(this.f51309c + ".tmp");
+                    FileHelper.DelFile(this.f51310c + ".tmp");
                 }
             } catch (Exception unused) {
             }

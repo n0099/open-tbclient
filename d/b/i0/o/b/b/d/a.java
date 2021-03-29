@@ -16,36 +16,36 @@ import java.io.File;
 public class a extends d.b.i0.o.c.e.a<b, AdDownloadData> {
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f57178c;
+    public PermissionJudgePolicy f57179c;
 
     /* renamed from: d.b.i0.o.b.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1361a {
+    public static /* synthetic */ class C1362a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f57179a;
+        public static final /* synthetic */ int[] f57180a;
 
         static {
             int[] iArr = new int[DownloadStatus.values().length];
-            f57179a = iArr;
+            f57180a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f57179a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
+                f57180a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f57179a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
+                f57180a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f57179a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
+                f57180a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f57179a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
+                f57180a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -59,12 +59,12 @@ public class a extends d.b.i0.o.c.e.a<b, AdDownloadData> {
         if (c() == null || !(c().getRealView().getContext() instanceof Activity) || d.b.i0.a.e().f()) {
             return true;
         }
-        if (this.f57178c == null) {
-            this.f57178c = new PermissionJudgePolicy();
+        if (this.f57179c == null) {
+            this.f57179c = new PermissionJudgePolicy();
         }
-        this.f57178c.clearRequestPermissionList();
-        this.f57178c.appendRequestPermission((Activity) c().getRealView().getContext(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        return !this.f57178c.startRequestPermission((Activity) c().getRealView().getContext());
+        this.f57179c.clearRequestPermissionList();
+        this.f57179c.appendRequestPermission((Activity) c().getRealView().getContext(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        return !this.f57179c.startRequestPermission((Activity) c().getRealView().getContext());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class a extends d.b.i0.o.c.e.a<b, AdDownloadData> {
         }
         DownloadStatus currentState = adDownloadData.getCurrentState();
         DownloadCacheKey g2 = d.c().g(adDownloadData.adId());
-        int i = C1361a.f57179a[currentState.ordinal()];
+        int i = C1362a.f57180a[currentState.ordinal()];
         if (i == 1) {
             if (g2 != null && j()) {
                 d.c().l(g2, null);

@@ -10,17 +10,17 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59825a = 0;
+    public int f59826a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f59826b;
+    public final Context f59827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f59827c;
+    public final ViewGroup f59828c;
 
     public d(Context context, ViewGroup viewGroup) {
-        this.f59826b = context;
-        this.f59827c = viewGroup;
+        this.f59827b = context;
+        this.f59828c = viewGroup;
     }
 
     public final boolean a(String str, String str2) {
@@ -35,22 +35,22 @@ public class d {
 
     public e b(AdCard.g gVar, e eVar) {
         String str;
-        if (gVar == null || (str = gVar.f20717a) == null) {
+        if (gVar == null || (str = gVar.f20718a) == null) {
             return eVar;
         }
-        if (eVar == null || !a(str, eVar.f59828a)) {
-            ViewGroup viewGroup = this.f59827c;
+        if (eVar == null || !a(str, eVar.f59829a)) {
+            ViewGroup viewGroup = this.f59828c;
             if (viewGroup == null) {
                 return null;
             }
             viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.f20717a)) {
-                if (this.f59825a == 1) {
-                    return new c(LayoutInflater.from(this.f59826b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f59827c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.f20718a)) {
+                if (this.f59826a == 1) {
+                    return new c(LayoutInflater.from(this.f59827b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f59828c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 }
-                return new b(LayoutInflater.from(this.f59826b).inflate(R.layout.tail_frame_ad_jump, this.f59827c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if ("apk_download".equals(gVar.f20717a)) {
-                return new a(LayoutInflater.from(this.f59826b).inflate(R.layout.tail_frame_ad_download, this.f59827c, true), "apk_download");
+                return new b(LayoutInflater.from(this.f59827b).inflate(R.layout.tail_frame_ad_jump, this.f59828c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+            } else if ("apk_download".equals(gVar.f20718a)) {
+                return new a(LayoutInflater.from(this.f59827b).inflate(R.layout.tail_frame_ad_download, this.f59828c, true), "apk_download");
             } else {
                 return null;
             }

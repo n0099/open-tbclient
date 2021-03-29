@@ -3,13 +3,13 @@ package com.ss.android.socialbase.downloader.exception;
 public class a extends BaseException {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38846a;
+    public String f38847a;
 
     public a(String str) {
-        this.f38846a = str;
+        this.f38847a = str;
     }
 
     public String a() {
-        return this.f38846a;
+        return this.f38847a;
     }
 }

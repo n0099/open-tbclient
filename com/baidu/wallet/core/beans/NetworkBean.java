@@ -67,17 +67,17 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f24241a = new SessionCache();
+            public static final SessionCache f24242a = new SessionCache();
         }
 
         public static SessionCache getInstance() {
-            return a.f24241a;
+            return a.f24242a;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
             synchronized (SessionCache.class) {
                 if (sessionCache != null) {
-                    a.f24241a.mCache = sessionCache.mCache;
+                    a.f24242a.mCache = sessionCache.mCache;
                 }
             }
         }

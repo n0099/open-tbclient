@@ -9,21 +9,21 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, List<VeloceIpcResult.a>> f49348a = new HashMap<>();
+    public static HashMap<String, List<VeloceIpcResult.a>> f49349a = new HashMap<>();
 
     public static synchronized Bundle a(String str, Bundle bundle) {
         synchronized (c.class) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            List<VeloceIpcResult.a> list = f49348a.get(str);
+            List<VeloceIpcResult.a> list = f49349a.get(str);
             if (list == null) {
                 return null;
             }
             for (VeloceIpcResult.a aVar : list) {
                 aVar.a(VeloceIpcResult.a(0, bundle));
             }
-            f49348a.remove(list);
+            f49349a.remove(list);
             return b(0);
         }
     }

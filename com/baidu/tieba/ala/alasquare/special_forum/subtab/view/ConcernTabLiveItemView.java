@@ -33,28 +33,28 @@ public class ConcernTabLiveItemView extends b<f> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public ConcernTabLiveItemView f14913a;
+        public ConcernTabLiveItemView f14914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14914b;
+        public View f14915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f14915c;
+        public TbImageView f14916c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f14916d;
+        public TextView f14917d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f14917e;
+        public TextView f14918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f14918f;
+        public TextView f14919f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f14919g;
+        public TextView f14920g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f14920h;
+        public TextView f14921h;
         public View i;
         public View.OnClickListener j;
 
@@ -72,8 +72,8 @@ public class ConcernTabLiveItemView extends b<f> {
                     }
                     UserData userData = (UserData) view.getTag();
                     AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                    ConcernTabLiveItemView.this.m.f14919g.setVisibility(8);
-                    ConcernTabLiveItemView.this.m.f14920h.setVisibility(0);
+                    ConcernTabLiveItemView.this.m.f14920g.setVisibility(8);
+                    ConcernTabLiveItemView.this.m.f14921h.setVisibility(0);
                     TiebaStatic.log(new StatisticItem("c12897"));
                 }
             }
@@ -82,25 +82,25 @@ public class ConcernTabLiveItemView extends b<f> {
         public ViewHolder(ConcernTabLiveItemView concernTabLiveItemView) {
             super(concernTabLiveItemView.m());
             this.j = new a();
-            this.f14913a = concernTabLiveItemView;
+            this.f14914a = concernTabLiveItemView;
             View m = concernTabLiveItemView.m();
-            this.f14914b = m;
+            this.f14915b = m;
             TbImageView tbImageView = (TbImageView) m.findViewById(R.id.protrait);
-            this.f14915c = tbImageView;
+            this.f14916c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            this.f14915c.setIsRound(true);
-            this.f14915c.setAutoChangeStyle(false);
-            this.f14915c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f14916d = (TextView) this.f14914b.findViewById(R.id.live_title);
-            this.f14917e = (TextView) this.f14914b.findViewById(R.id.living_tag);
-            this.i = this.f14914b.findViewById(R.id.devider_line);
-            Drawable drawable = SkinManager.getDrawable(ConcernTabLiveItemView.this.f62181g.getResources(), R.drawable.icon_living_seeding);
-            drawable.setBounds(0, 0, ConcernTabLiveItemView.this.f62181g.getResources().getDimensionPixelOffset(R.dimen.tbds8), ConcernTabLiveItemView.this.f62181g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.f14917e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f14918f = (TextView) this.f14914b.findViewById(R.id.user_name);
-            this.f14919g = (TextView) this.f14914b.findViewById(R.id.follow_btn);
-            this.f14920h = (TextView) this.f14914b.findViewById(R.id.followed_btn);
-            this.f14919g.setOnClickListener(this.j);
+            this.f14916c.setIsRound(true);
+            this.f14916c.setAutoChangeStyle(false);
+            this.f14916c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f14917d = (TextView) this.f14915b.findViewById(R.id.live_title);
+            this.f14918e = (TextView) this.f14915b.findViewById(R.id.living_tag);
+            this.i = this.f14915b.findViewById(R.id.devider_line);
+            Drawable drawable = SkinManager.getDrawable(ConcernTabLiveItemView.this.f62182g.getResources(), R.drawable.icon_living_seeding);
+            drawable.setBounds(0, 0, ConcernTabLiveItemView.this.f62182g.getResources().getDimensionPixelOffset(R.dimen.tbds8), ConcernTabLiveItemView.this.f62182g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.f14918e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f14919f = (TextView) this.f14915b.findViewById(R.id.user_name);
+            this.f14920g = (TextView) this.f14915b.findViewById(R.id.follow_btn);
+            this.f14921h = (TextView) this.f14915b.findViewById(R.id.followed_btn);
+            this.f14920g.setOnClickListener(this.j);
         }
     }
 
@@ -118,13 +118,13 @@ public class ConcernTabLiveItemView extends b<f> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        SkinManager.setViewTextColor(this.m.f14916d, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.m.f14918f, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.m.f14920h, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.m.f14919g, R.color.common_color_10140);
-        SkinManager.setViewTextColor(this.m.f14917e, R.color.CAM_X0109);
-        SkinManager.getDrawable(this.f62181g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f62181g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f62181g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        this.m.f14917e.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f62181g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+        SkinManager.setViewTextColor(this.m.f14917d, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.m.f14919f, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m.f14921h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m.f14920g, R.color.common_color_10140);
+        SkinManager.setViewTextColor(this.m.f14918e, R.color.CAM_X0109);
+        SkinManager.getDrawable(this.f62182g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f62182g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f62182g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        this.m.f14918e.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f62182g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
         SkinManager.setBackgroundColor(this.m.i, R.color.CAM_X0204);
     }
 
@@ -136,49 +136,49 @@ public class ConcernTabLiveItemView extends b<f> {
     @Override // d.b.i0.x.b
     /* renamed from: w */
     public void n(f fVar) {
-        UserData userData = fVar.f60540e;
+        UserData userData = fVar.f60541e;
         if (userData != null) {
             if (!StringUtils.isNull(userData.getPortrait())) {
-                this.m.f14915c.W(fVar.f60540e.getPortrait(), 12, false);
+                this.m.f14916c.W(fVar.f60541e.getPortrait(), 12, false);
             }
-            if (!StringUtils.isNull(fVar.f60540e.getName_show())) {
-                this.m.f14916d.setText(fVar.f60540e.getName_show());
+            if (!StringUtils.isNull(fVar.f60541e.getName_show())) {
+                this.m.f14917d.setText(fVar.f60541e.getName_show());
             }
-            if (fVar.f60542g) {
-                if (fVar.f60540e.hadConcerned()) {
-                    this.m.f14919g.setVisibility(8);
-                    this.m.f14920h.setVisibility(0);
+            if (fVar.f60543g) {
+                if (fVar.f60541e.hadConcerned()) {
+                    this.m.f14920g.setVisibility(8);
+                    this.m.f14921h.setVisibility(0);
                 } else {
-                    this.m.f14919g.setVisibility(0);
-                    this.m.f14920h.setVisibility(8);
+                    this.m.f14920g.setVisibility(0);
+                    this.m.f14921h.setVisibility(8);
                 }
             } else {
-                this.m.f14919g.setVisibility(8);
-                this.m.f14920h.setVisibility(8);
+                this.m.f14920g.setVisibility(8);
+                this.m.f14921h.setVisibility(8);
             }
-            this.m.f14919g.setTag(fVar.f60540e);
+            this.m.f14920g.setTag(fVar.f60541e);
         }
-        AlaInfoData alaInfoData = fVar.f60541f;
+        AlaInfoData alaInfoData = fVar.f60542f;
         if (alaInfoData != null) {
-            this.m.f14914b.setTag(alaInfoData);
-            if (!StringUtils.isNull(fVar.f60541f.description)) {
-                String str = fVar.f60541f.description;
+            this.m.f14915b.setTag(alaInfoData);
+            if (!StringUtils.isNull(fVar.f60542f.description)) {
+                String str = fVar.f60542f.description;
                 int i = this.o;
-                if (fVar.f60542g) {
+                if (fVar.f60543g) {
                     i -= 9;
                 }
                 if (k.byteLength(str) > i) {
                     str = StringHelper.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE);
                 }
-                this.m.f14918f.setText(str);
+                this.m.f14919f.setText(str);
             }
         }
-        if (fVar.f60542g) {
+        if (fVar.f60543g) {
             TiebaStatic.log(new StatisticItem("c12895"));
         } else {
             TiebaStatic.log(new StatisticItem("c12893"));
         }
-        this.m.f14919g.setTag(fVar.f60540e);
+        this.m.f14920g.setTag(fVar.f60541e);
         o(l(), TbadkCoreApplication.getInst().getSkinType());
     }
 }

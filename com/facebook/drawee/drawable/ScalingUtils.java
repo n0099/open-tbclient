@@ -5,7 +5,7 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ScalingUtils {
 
     /* loaded from: classes6.dex */
@@ -19,7 +19,7 @@ public class ScalingUtils {
         public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface ScaleType {
         public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
         public static final ScaleType FIT_START = ScaleTypeFitStart.INSTANCE;
@@ -199,7 +199,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface StatefulScaleType {
         Object getState();
     }
@@ -228,7 +228,7 @@ public class ScalingUtils {
         return null;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
         @Nullable
         public final Rect mBoundsFrom;

@@ -77,12 +77,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.mAppealInfo = cVar;
             AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
             if (appealInfo != null) {
-                cVar.f52413a = appealInfo.source;
-                cVar.f52415c = appealInfo.appeal_url;
+                cVar.f52414a = appealInfo.source;
+                cVar.f52416c = appealInfo.appeal_url;
             }
             SimpleForum simpleForum = pbPageResIdl.data.forum;
             if (simpleForum != null) {
-                this.mAppealInfo.f52414b = simpleForum.name;
+                this.mAppealInfo.f52415b = simpleForum.name;
                 return;
             }
             return;

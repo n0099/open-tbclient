@@ -14,16 +14,16 @@ import com.baidu.tieba.recapp.lego.view.form.FormCardView;
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20823e;
+    public Context f20824e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Resources f20824f;
+    public Resources f20825f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20825g;
+    public int f20826g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20826h;
+    public int f20827h;
     public int i;
     public int j;
     public int k;
@@ -50,17 +50,17 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f20827a;
+        public static final /* synthetic */ int[] f20828a;
 
         static {
             int[] iArr = new int[DrawableType.values().length];
-            f20827a = iArr;
+            f20828a = iArr;
             try {
                 iArr[DrawableType.ERROR_FRAME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f20827a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
+                f20828a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -68,10 +68,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public FormItemBaseView(Context context) {
         super(context);
-        this.f20823e = null;
-        this.f20824f = null;
-        this.f20825g = 0;
-        this.f20826h = 0;
+        this.f20824e = null;
+        this.f20825f = null;
+        this.f20826g = 0;
+        this.f20827h = 0;
         this.i = 0;
         this.j = 0;
         this.k = 0;
@@ -95,7 +95,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public void c(View view, DrawableType drawableType) {
         this.t = view;
-        int i = a.f20827a[drawableType.ordinal()];
+        int i = a.f20828a[drawableType.ordinal()];
         if (i == 1) {
             this.t.setBackgroundResource(R.drawable.form_frame_red);
         } else if (i != 2) {
@@ -106,17 +106,17 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     public final void d(Context context) {
-        this.f20823e = context;
+        this.f20824e = context;
         this.v = (Activity) context;
         Resources resources = context.getApplicationContext().getResources();
-        this.f20824f = resources;
+        this.f20825f = resources;
         this.m = resources.getColor(R.color.form_font_color);
-        this.q = this.f20824f.getColor(R.color.form_button_font_color);
-        this.r = this.f20824f.getColor(R.color.form_button_grey_bg_color);
+        this.q = this.f20825f.getColor(R.color.form_button_font_color);
+        this.r = this.f20825f.getColor(R.color.form_button_grey_bg_color);
         this.s = -1;
         this.l = -1;
-        this.f20824f.getDrawable(R.drawable.form_frame_white);
-        this.f20824f.getDrawable(R.drawable.form_frame_red);
+        this.f20825f.getDrawable(R.drawable.form_frame_white);
+        this.f20825f.getDrawable(R.drawable.form_frame_red);
     }
 
     public void e() {
@@ -124,26 +124,26 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public void f(float f2) {
         this.w = f2;
-        this.f20824f.getDimension(R.dimen.form_size90);
-        float dimension = this.f20824f.getDimension(R.dimen.form_font_size28);
-        float dimension2 = this.f20824f.getDimension(R.dimen.form_font_size20);
-        float dimension3 = this.f20824f.getDimension(R.dimen.form_font_size36);
+        this.f20825f.getDimension(R.dimen.form_size90);
+        float dimension = this.f20825f.getDimension(R.dimen.form_font_size28);
+        float dimension2 = this.f20825f.getDimension(R.dimen.form_font_size20);
+        float dimension3 = this.f20825f.getDimension(R.dimen.form_font_size36);
         float f3 = this.w;
-        this.f20825g = (int) (((int) this.f20824f.getDimension(R.dimen.form_size20)) * f3);
-        this.f20826h = (int) (((int) this.f20824f.getDimension(R.dimen.form_size40)) * f3);
-        this.i = (int) (((int) this.f20824f.getDimension(R.dimen.form_size50)) * f3);
-        this.j = (int) (((int) this.f20824f.getDimension(R.dimen.form_size80)) * f3);
-        this.k = (int) (((int) this.f20824f.getDimension(R.dimen.form_size240)) * f3);
+        this.f20826g = (int) (((int) this.f20825f.getDimension(R.dimen.form_size20)) * f3);
+        this.f20827h = (int) (((int) this.f20825f.getDimension(R.dimen.form_size40)) * f3);
+        this.i = (int) (((int) this.f20825f.getDimension(R.dimen.form_size50)) * f3);
+        this.j = (int) (((int) this.f20825f.getDimension(R.dimen.form_size80)) * f3);
+        this.k = (int) (((int) this.f20825f.getDimension(R.dimen.form_size240)) * f3);
         this.n = (int) (dimension * f3);
         this.o = (int) (dimension2 * f3);
         this.p = (int) (dimension3 * f3);
     }
 
     public boolean g(FormCard.b bVar) {
-        if (bVar != null && bVar.f20730a != -1 && !TextUtils.isEmpty(bVar.f20731b)) {
+        if (bVar != null && bVar.f20731a != -1 && !TextUtils.isEmpty(bVar.f20732b)) {
             setVisibility(0);
             e();
-            this.u = bVar.f20732c;
+            this.u = bVar.f20733c;
             return true;
         }
         setVisibility(8);
@@ -169,10 +169,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public FormItemBaseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20823e = null;
-        this.f20824f = null;
-        this.f20825g = 0;
-        this.f20826h = 0;
+        this.f20824e = null;
+        this.f20825f = null;
+        this.f20826g = 0;
+        this.f20827h = 0;
         this.i = 0;
         this.j = 0;
         this.k = 0;
@@ -192,10 +192,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public FormItemBaseView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20823e = null;
-        this.f20824f = null;
-        this.f20825g = 0;
-        this.f20826h = 0;
+        this.f20824e = null;
+        this.f20825f = null;
+        this.f20826g = 0;
+        this.f20827h = 0;
         this.i = 0;
         this.j = 0;
         this.k = 0;

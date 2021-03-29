@@ -324,16 +324,16 @@ public class i extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
     }
 
     /* loaded from: classes4.dex */
-    public class f implements a.InterfaceC1115a {
+    public class f implements a.InterfaceC1116a {
         public f() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, i.this.f42357e, 3, (Rect) null, aVar.n().i0());
+            ThreadCardUtils.jumpToPB(aVar.n().r1, i.this.f42358e, 3, (Rect) null, aVar.n().i0());
         }
     }
 
@@ -352,7 +352,7 @@ public class i extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     i.this.D.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), i.this.B, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -395,7 +395,7 @@ public class i extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         } else {
             f0Var.x(true);
         }
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds33));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds33));
         bVar.n(f0Var);
         d.b.i.o oVar = new d.b.i.o(this.w.getPageActivity());
         oVar.x("frs");
@@ -419,8 +419,8 @@ public class i extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(3);

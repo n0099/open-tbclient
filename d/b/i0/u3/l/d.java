@@ -15,25 +15,25 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f61598g;
+    public static d f61599g;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f61600b;
+    public BroadcastReceiver f61601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ContentObserver f61601c;
+    public ContentObserver f61602c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f61599a = new Handler(Looper.getMainLooper());
+    public Handler f61600a = new Handler(Looper.getMainLooper());
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<InterfaceC1615d> f61602d = new ArrayList<>();
+    public ArrayList<InterfaceC1616d> f61603d = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f61603e = new Handler();
+    public Handler f61604e = new Handler();
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f61604f = new a();
+    public Runnable f61605f = new a();
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -65,49 +65,49 @@ public class d {
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
-            d.this.f61603e.removeCallbacks(d.this.f61604f);
-            d.this.f61603e.postDelayed(d.this.f61604f, 2000L);
+            d.this.f61604e.removeCallbacks(d.this.f61605f);
+            d.this.f61604e.postDelayed(d.this.f61605f, 2000L);
         }
     }
 
     /* renamed from: d.b.i0.u3.l.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1615d {
+    public interface InterfaceC1616d {
         void z(boolean z);
     }
 
     public static d f() {
-        if (f61598g == null) {
+        if (f61599g == null) {
             synchronized (d.class) {
-                if (f61598g == null) {
+                if (f61599g == null) {
                     d dVar = new d();
-                    f61598g = dVar;
+                    f61599g = dVar;
                     dVar.g(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return f61598g;
+        return f61599g;
     }
 
-    public void d(InterfaceC1615d interfaceC1615d) {
-        if (interfaceC1615d == null || this.f61602d.contains(interfaceC1615d)) {
+    public void d(InterfaceC1616d interfaceC1616d) {
+        if (interfaceC1616d == null || this.f61603d.contains(interfaceC1616d)) {
             return;
         }
-        this.f61602d.add(interfaceC1615d);
+        this.f61603d.add(interfaceC1616d);
     }
 
     public void e() {
         j();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        inst.unregisterReceiver(this.f61600b);
-        inst.getContentResolver().unregisterContentObserver(this.f61601c);
-        this.f61603e.removeCallbacks(this.f61604f);
-        f61598g = null;
+        inst.unregisterReceiver(this.f61601b);
+        inst.getContentResolver().unregisterContentObserver(this.f61602c);
+        this.f61604e.removeCallbacks(this.f61605f);
+        f61599g = null;
     }
 
     public final void g(Context context) {
-        this.f61600b = new b();
-        this.f61601c = new c(this.f61599a);
+        this.f61601b = new b();
+        this.f61602c = new c(this.f61600a);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -115,12 +115,12 @@ public class d {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.f61600b, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f61601c);
+        context.registerReceiver(this.f61601b, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f61602c);
     }
 
     public void h(boolean z) {
-        Iterator<InterfaceC1615d> it = this.f61602d.iterator();
+        Iterator<InterfaceC1616d> it = this.f61603d.iterator();
         while (it.hasNext()) {
             it.next().z(z);
         }
@@ -131,17 +131,17 @@ public class d {
             h(true);
             return;
         }
-        this.f61603e.removeCallbacks(this.f61604f);
-        this.f61603e.postDelayed(this.f61604f, 2000L);
+        this.f61604e.removeCallbacks(this.f61605f);
+        this.f61604e.postDelayed(this.f61605f, 2000L);
     }
 
     public void j() {
-        this.f61602d.clear();
+        this.f61603d.clear();
     }
 
-    public void k(InterfaceC1615d interfaceC1615d) {
-        if (this.f61602d.contains(interfaceC1615d)) {
-            this.f61602d.remove(interfaceC1615d);
+    public void k(InterfaceC1616d interfaceC1616d) {
+        if (this.f61603d.contains(interfaceC1616d)) {
+            this.f61603d.remove(interfaceC1616d);
         }
     }
 }

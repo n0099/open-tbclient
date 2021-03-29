@@ -16,49 +16,49 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends g<Long, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Long, SoftReference<c>> f38662a;
+    public final Map<Long, SoftReference<c>> f38663a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements c.a<Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f38663a;
+        public final /* synthetic */ long f38664a;
 
         public a(long j) {
-            this.f38663a = j;
+            this.f38664a = j;
         }
 
         @Override // d.o.a.d.n.c.a
         public Object a(Object obj) {
-            SoftReference softReference = (SoftReference) d.this.f38662a.remove(Long.valueOf(this.f38663a));
+            SoftReference softReference = (SoftReference) d.this.f38663a.remove(Long.valueOf(this.f38664a));
             if (softReference == null || softReference.get() == null) {
                 return null;
             }
-            ((c) softReference.get()).a(d.this.get(Long.valueOf(this.f38663a)));
+            ((c) softReference.get()).a(d.this.get(Long.valueOf(this.f38664a)));
             return null;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements c.a<Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f38665a;
+        public final /* synthetic */ String f38666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f38666b;
+        public final /* synthetic */ long f38667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f38667c;
+        public final /* synthetic */ long f38668c;
 
         public b(String str, long j, long j2) {
-            this.f38665a = str;
-            this.f38666b = j;
-            this.f38667c = j2;
+            this.f38666a = str;
+            this.f38667b = j;
+            this.f38668c = j2;
         }
 
         @Override // d.o.a.d.n.c.a
@@ -67,7 +67,7 @@ public class d extends g<Long, Bitmap> {
             Throwable th;
             k x;
             try {
-                x = d.o.a.e.b.g.d.x(true, 0, this.f38665a, null);
+                x = d.o.a.e.b.g.d.x(true, 0, this.f38666a, null);
             } catch (Exception e2) {
                 e = e2;
                 bufferedInputStream = null;
@@ -104,8 +104,8 @@ public class d extends g<Long, Bitmap> {
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
-                    j.c.a().s("ttd_pref_monitor", jSONObject, this.f38666b);
-                    d.this.put(Long.valueOf(this.f38667c), decodeStream);
+                    j.c.a().s("ttd_pref_monitor", jSONObject, this.f38667b);
+                    d.this.put(Long.valueOf(this.f38668c), decodeStream);
                     e.C(bufferedInputStream);
                 } catch (Exception e4) {
                     e = e4;
@@ -122,17 +122,17 @@ public class d extends g<Long, Bitmap> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(Bitmap bitmap);
     }
 
     /* renamed from: com.ss.android.downloadlib.addownload.compliance.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0476d {
+    /* loaded from: classes7.dex */
+    public static class C0477d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f38669a = new d(null);
+        public static d f38670a = new d(null);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -148,24 +148,24 @@ public class d extends g<Long, Bitmap> {
 
     public d() {
         super(8, 8);
-        this.f38662a = new HashMap();
+        this.f38663a = new HashMap();
     }
 
     public static d a() {
-        return C0476d.f38669a;
+        return C0477d.f38670a;
     }
 
     public void a(long j, @NonNull c cVar) {
         if (get(Long.valueOf(j)) != null) {
             cVar.a(get(Long.valueOf(j)));
         } else {
-            this.f38662a.put(Long.valueOf(j), new SoftReference<>(cVar));
+            this.f38663a.put(Long.valueOf(j), new SoftReference<>(cVar));
         }
     }
 
     public void a(long j, long j2, String str) {
         if (get(Long.valueOf(j)) != null) {
-            SoftReference<c> remove = this.f38662a.remove(Long.valueOf(j));
+            SoftReference<c> remove = this.f38663a.remove(Long.valueOf(j));
             if (remove == null || remove.get() == null) {
                 return;
             }

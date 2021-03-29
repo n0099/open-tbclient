@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     public List<BDEmotionBagVerticalLayout> mDatas;
 

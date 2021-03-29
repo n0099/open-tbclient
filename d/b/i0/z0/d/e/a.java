@@ -13,7 +13,7 @@ import d.b.h0.r.q.a2;
 import d.b.i0.p0.l;
 import d.b.i0.x.e0.b;
 import d.b.i0.x.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static boolean a(a2 a2Var) {
         if (a2Var == null || a2Var.s1) {
@@ -71,7 +71,7 @@ public class a {
 
     public static void d(b bVar, int i) {
         StatisticItem I;
-        if (bVar == null || bVar.n() == null || !d.b.i0.x.e0.l.d0(bVar.f62196e) || (I = bVar.I("c13494", true)) == null) {
+        if (bVar == null || bVar.n() == null || !d.b.i0.x.e0.l.d0(bVar.f62197e) || (I = bVar.I("c13494", true)) == null) {
             return;
         }
         I.param("obj_type", i);
@@ -80,7 +80,7 @@ public class a {
 
     public static void e(b bVar, int i) {
         StatisticItem I;
-        if (bVar == null || !d.b.i0.x.e0.l.d0(bVar.f62196e) || (I = bVar.I("c13495", true)) == null) {
+        if (bVar == null || !d.b.i0.x.e0.l.d0(bVar.f62197e) || (I = bVar.I("c13495", true)) == null) {
             return;
         }
         I.param("obj_type", i);

@@ -12,39 +12,39 @@ import java.util.concurrent.TimeUnit;
 public final class r {
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f65542c;
+    public Runnable f65543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f65543d;
+    public ExecutorService f65544d;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65540a = 64;
+    public int f65541a = 64;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65541b = 5;
+    public int f65542b = 5;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Deque<z.a> f65544e = new ArrayDeque();
+    public final Deque<z.a> f65545e = new ArrayDeque();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Deque<z.a> f65545f = new ArrayDeque();
+    public final Deque<z.a> f65546f = new ArrayDeque();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Deque<z> f65546g = new ArrayDeque();
+    public final Deque<z> f65547g = new ArrayDeque();
 
     public synchronized ExecutorService a() {
-        if (this.f65543d == null) {
-            this.f65543d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), d.c.c.a.b.a.e.o("OkHttp Dispatcher", false));
+        if (this.f65544d == null) {
+            this.f65544d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), d.c.c.a.b.a.e.o("OkHttp Dispatcher", false));
         }
-        return this.f65543d;
+        return this.f65544d;
     }
 
     public void b(z.a aVar) {
-        d(this.f65545f, aVar, true);
+        d(this.f65546f, aVar, true);
     }
 
     public synchronized void c(z zVar) {
-        this.f65546g.add(zVar);
+        this.f65547g.add(zVar);
     }
 
     public final <T> void d(Deque<T> deque, T t, boolean z) {
@@ -56,7 +56,7 @@ public final class r {
                     h();
                 }
                 e2 = e();
-                runnable = this.f65542c;
+                runnable = this.f65543c;
             } else {
                 throw new AssertionError("Call wasn't in-flight!");
             }
@@ -68,12 +68,12 @@ public final class r {
     }
 
     public synchronized int e() {
-        return this.f65545f.size() + this.f65546g.size();
+        return this.f65546f.size() + this.f65547g.size();
     }
 
     public final int f(z.a aVar) {
         int i = 0;
-        for (z.a aVar2 : this.f65545f) {
+        for (z.a aVar2 : this.f65546f) {
             if (aVar2.j().equals(aVar.j())) {
                 i++;
             }
@@ -82,20 +82,20 @@ public final class r {
     }
 
     public void g(z zVar) {
-        d(this.f65546g, zVar, false);
+        d(this.f65547g, zVar, false);
     }
 
     public final void h() {
-        if (this.f65545f.size() < this.f65540a && !this.f65544e.isEmpty()) {
-            Iterator<z.a> it = this.f65544e.iterator();
+        if (this.f65546f.size() < this.f65541a && !this.f65545e.isEmpty()) {
+            Iterator<z.a> it = this.f65545e.iterator();
             while (it.hasNext()) {
                 z.a next = it.next();
-                if (f(next) < this.f65541b) {
+                if (f(next) < this.f65542b) {
                     it.remove();
-                    this.f65545f.add(next);
+                    this.f65546f.add(next);
                     a().execute(next);
                 }
-                if (this.f65545f.size() >= this.f65540a) {
+                if (this.f65546f.size() >= this.f65541a) {
                     return;
                 }
             }

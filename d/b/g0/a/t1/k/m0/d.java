@@ -9,7 +9,7 @@ import d.b.g0.a.e0.l.f;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a0 {
     public d(j jVar) {
         super(jVar, "/swanAPI/showNavigationBarLoading");
@@ -17,11 +17,11 @@ public class d extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (eVar != null && eVar.Z()) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");

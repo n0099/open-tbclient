@@ -27,7 +27,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ResponseDataProcess {
     public List<RequestParams.Channel> mChannelList;
     public Map<String, PackageInfo> mLocalMap;

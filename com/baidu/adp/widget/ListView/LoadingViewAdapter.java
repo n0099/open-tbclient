@@ -23,7 +23,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public g f2352a;
+        public g f2353a;
 
         public TabLoadingViewHolder(View view) {
             super(view);
@@ -31,7 +31,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f42444e);
+        super(tbPageContext.getPageActivity(), t.f42445e);
         this.m = new LinkedList<>();
         this.n = h0(R.dimen.tbds304);
         this.o = h0(R.dimen.tbds198);
@@ -52,13 +52,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public TabLoadingViewHolder R(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.f42357e);
+        RelativeLayout relativeLayout = new RelativeLayout(this.f42358e);
         ViewGroup.LayoutParams u = u(viewGroup);
         u.width = -1;
         u.height = -1;
         relativeLayout.setLayoutParams(u);
         relativeLayout.setGravity(1);
-        g gVar = new g(this.f42357e, 0);
+        g gVar = new g(this.f42358e, 0);
         gVar.attachView(relativeLayout);
         gVar.q(this.n);
         gVar.o(this.o);
@@ -70,13 +70,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         view.setLayoutParams(layoutParams);
         this.m.add(new Pair<>(relativeLayout, gVar));
         TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-        tabLoadingViewHolder.f2352a = gVar;
+        tabLoadingViewHolder.f2353a = gVar;
         return tabLoadingViewHolder;
     }
 
     public View j0(int i, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
         g gVar;
-        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2352a) != null) {
+        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2353a) != null) {
             gVar.l(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

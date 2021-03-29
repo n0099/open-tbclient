@@ -7,12 +7,12 @@ import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 import d.b.g0.a.e;
 import d.b.g0.a.q1.b.d.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
     public ImageView w;
     public int x;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.x1.a {
         public a() {
         }

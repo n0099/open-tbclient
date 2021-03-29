@@ -6,21 +6,15 @@ import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes5.dex */
 public class a {
     public static int a(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return (int) ((d2 * 9.0d) / 16.0d);
+        return (int) ((i * 9.0d) / 16.0d);
     }
 
     public static int b(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return (int) ((d2 * 16.0d) / 9.0d);
+        return (int) ((i * 16.0d) / 9.0d);
     }
 
     public static int c(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return (int) ((d2 * 9.0d) / 16.0d);
+        return (int) ((i * 9.0d) / 16.0d);
     }
 
     public static String d(String str, String str2, float f2, TextPaint textPaint) {

@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ConversationManagerImpl {
     public static final String TAG = "ConversationManagerImpl";
     public static Context mContext;

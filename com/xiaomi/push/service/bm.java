@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class bm {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41007a;
+    public static String f41008a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f937a;
@@ -28,7 +28,7 @@ public class bm {
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f937a = simpleDateFormat;
-        f41007a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f41008a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ie a(String str, String str2, hi hiVar) {
@@ -39,9 +39,9 @@ public class bm {
         String str;
         synchronized (bm.class) {
             String format = f937a.format(Long.valueOf(System.currentTimeMillis()));
-            if (!TextUtils.equals(f41007a, format)) {
+            if (!TextUtils.equals(f41008a, format)) {
                 f938a.set(0L);
-                f41007a = format;
+                f41008a = format;
             }
             str = format + "-" + f938a.incrementAndGet();
         }

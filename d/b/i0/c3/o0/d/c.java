@@ -22,31 +22,31 @@ import java.io.RandomAccessFile;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f53538a;
+    public NetWork f53539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53539b = false;
+    public boolean f53540b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f53540c;
+    public final String f53541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f53541d;
+    public final int f53542d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f53542e;
+    public final int f53543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f53543f;
+    public e f53544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f53544g;
+    public g f53545g;
 
     public c(String str, int i, int i2, g gVar) {
-        this.f53540c = str;
-        this.f53542e = i;
-        this.f53541d = i2 / i;
-        this.f53544g = gVar;
+        this.f53541c = str;
+        this.f53543e = i;
+        this.f53542d = i2 / i;
+        this.f53545g = gVar;
     }
 
     @Override // d.b.i0.c3.o0.d.b
@@ -68,13 +68,13 @@ public class c implements b {
             }
             String str4 = b2;
             d.b.i0.c3.o0.c c2 = d.b.i0.c3.o0.b.c(str4);
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7663a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7664a);
             long length = file.length();
-            int d2 = d(length, this.f53542e);
-            int d3 = d(d2, this.f53541d);
-            String str5 = c2 != null ? c2.f53531a : null;
-            int i3 = c2 != null ? c2.f53532b : 0;
-            if (i3 < d2 && randomAccessFile.skipBytes(this.f53542e * i3) < this.f53542e * i3) {
+            int d2 = d(length, this.f53543e);
+            int d3 = d(d2, this.f53542d);
+            String str5 = c2 != null ? c2.f53532a : null;
+            int i3 = c2 != null ? c2.f53533b : 0;
+            if (i3 < d2 && randomAccessFile.skipBytes(this.f53543e * i3) < this.f53543e * i3) {
                 randomAccessFile.close();
                 return null;
             }
@@ -94,11 +94,11 @@ public class c implements b {
                 } else {
                     f(i6, d2, 40);
                     j = length;
-                    this.f53538a = e(str4, length, d3, str6);
+                    this.f53539a = e(str4, length, d3, str6);
                     f(i6, d2, 55);
                     if (i5 == d2) {
                         i2 = j(c3, i5, d3, d2);
-                    } else if (i5 % this.f53541d == 0) {
+                    } else if (i5 % this.f53542d == 0) {
                         VideoBlockUploadResult h2 = h(c3, i5, d3, d2);
                         str2 = h2.upload_id;
                         videoBlockUploadResult = h2;
@@ -106,7 +106,7 @@ public class c implements b {
                         if (videoBlockUploadResult == null && !videoBlockUploadResult.isSuccess()) {
                             videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
                             videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
-                            g gVar = this.f53544g;
+                            g gVar = this.f53545g;
                             if (gVar != null) {
                                 gVar.d(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
                             }
@@ -144,7 +144,7 @@ public class c implements b {
             d.b.i0.c3.o0.b.b(str4);
             videoFinishResult.setVideoMd5(str4);
             randomAccessFile.close();
-            g gVar2 = this.f53544g;
+            g gVar2 = this.f53545g;
             if (gVar2 != null) {
                 gVar2.j();
             }
@@ -155,16 +155,16 @@ public class c implements b {
 
     @Override // d.b.i0.c3.o0.d.b
     public void b(e eVar) {
-        this.f53543f = eVar;
+        this.f53544f = eVar;
     }
 
     public final byte[] c(RandomAccessFile randomAccessFile, int i, int i2, long j) {
         int i3;
         if (randomAccessFile != null && i >= 0) {
             if (i == i2 - 1) {
-                i3 = (int) (j - (i * this.f53542e));
+                i3 = (int) (j - (i * this.f53543e));
             } else {
-                i3 = this.f53542e;
+                i3 = this.f53543e;
             }
             byte[] bArr = new byte[i3];
             boolean z = false;
@@ -181,8 +181,8 @@ public class c implements b {
 
     @Override // d.b.i0.c3.o0.d.b
     public void cancel() {
-        this.f53539b = true;
-        NetWork netWork = this.f53538a;
+        this.f53540b = true;
+        NetWork netWork = this.f53539a;
         if (netWork != null) {
             netWork.cancelNetConnect();
         }
@@ -201,7 +201,7 @@ public class c implements b {
 
     public final NetWork e(String str, long j, int i, String str2) {
         NetWork netWork = new NetWork();
-        netWork.addPostData("forum_id", this.f53540c);
+        netWork.addPostData("forum_id", this.f53541c);
         netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
         netWork.addPostData("total_length", String.valueOf(j));
         netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, str);
@@ -211,7 +211,7 @@ public class c implements b {
     }
 
     public final void f(int i, int i2, int i3) {
-        e eVar = this.f53543f;
+        e eVar = this.f53544f;
         if (eVar != null) {
             eVar.onProgressUpdate((i + (i3 / 100.0f)) / i2);
         }
@@ -221,7 +221,7 @@ public class c implements b {
         int netErrorCode;
         String errMsg;
         VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
-        if (this.f53539b) {
+        if (this.f53540b) {
             netErrorCode = netWork.getServerErrorCode();
             errMsg = netWork.getErrorString();
         } else {
@@ -254,33 +254,33 @@ public class c implements b {
     }
 
     public final VideoBlockUploadResult h(byte[] bArr, int i, int i2, int i3) {
-        int i4 = this.f53541d;
+        int i4 = this.f53542d;
         int i5 = i / i4;
-        k(this.f53538a, i4, bArr.length, i5 == i2 ? i3 - ((i5 - 1) * i4) : i4, i5, bArr);
-        NetWork netWork = this.f53538a;
+        k(this.f53539a, i4, bArr.length, i5 == i2 ? i3 - ((i5 - 1) * i4) : i4, i5, bArr);
+        NetWork netWork = this.f53539a;
         netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
-        return g(this.f53538a);
+        return g(this.f53539a);
     }
 
     public final VideoBlockUploadResult i(int i, byte[] bArr, int i2, int i3) {
-        int i4 = this.f53541d;
+        int i4 = this.f53542d;
         int i5 = i % i4;
         int length = bArr.length;
         int i6 = (i / i4) + 1;
         if (i6 == i2) {
             i4 = i3 - ((i6 - 1) * i4);
         }
-        k(this.f53538a, i5, length, i4, i6, bArr);
-        NetWork netWork = this.f53538a;
+        k(this.f53539a, i5, length, i4, i6, bArr);
+        NetWork netWork = this.f53539a;
         netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
-        return g(this.f53538a);
+        return g(this.f53539a);
     }
 
     public final VideoBlockUploadResult j(byte[] bArr, int i, int i2, int i3) {
         int i4;
         int i5;
         int length = bArr.length;
-        int i6 = this.f53541d;
+        int i6 = this.f53542d;
         if (i % i6 == 0) {
             i4 = i / i6;
         } else {
@@ -288,14 +288,14 @@ public class c implements b {
         }
         int i7 = i4;
         if (i7 == i2) {
-            i5 = i3 - ((i7 - 1) * this.f53541d);
+            i5 = i3 - ((i7 - 1) * this.f53542d);
         } else {
-            i5 = this.f53541d;
+            i5 = this.f53542d;
         }
-        k(this.f53538a, i5, length, i5, i7, bArr);
-        NetWork netWork = this.f53538a;
+        k(this.f53539a, i5, length, i5, i7, bArr);
+        NetWork netWork = this.f53539a;
         netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
-        return g(this.f53538a);
+        return g(this.f53539a);
     }
 
     public final void k(NetWork netWork, int i, long j, int i2, int i3, byte[] bArr) {

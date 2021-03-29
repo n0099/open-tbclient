@@ -35,16 +35,16 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
     public final CustomMessageListener B;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f61634e;
+    public BaseFragmentActivity f61635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61635f;
+    public String f61636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61636g;
+    public String f61637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61637h;
+    public String f61638h;
     public String i;
     public VideoFileInfo j;
     public String k;
@@ -87,8 +87,8 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.FINISH_SELF, true);
-                j.this.f61634e.setResult(-1, intent);
-                j.this.f61634e.finish();
+                j.this.f61635e.setResult(-1, intent);
+                j.this.f61635e.finish();
             }
         }
     }
@@ -104,10 +104,10 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
             gVar.e();
         }
         this.B = new b(2001374);
-        this.f61634e = baseFragmentActivity;
-        this.f61635f = str;
-        this.f61636g = str2;
-        this.f61637h = str3;
+        this.f61635e = baseFragmentActivity;
+        this.f61636f = str;
+        this.f61637g = str2;
+        this.f61638h = str3;
         VideoConvertUtil videoConvertUtil = new VideoConvertUtil(baseFragmentActivity);
         this.p = videoConvertUtil;
         videoConvertUtil.t(this);
@@ -187,7 +187,7 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
         videoInfo.setVideoLength(new File(e2.videoPath).length());
         videoInfo.setVideoType(2);
         videoInfo.setIsCompressedVideo(z);
-        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.f61634e, this.i, this.f61635f, this.f61636g, this.f61637h, videoInfo);
+        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.f61635e, this.i, this.f61636f, this.f61637g, this.f61638h, videoInfo);
         editVideoActivityConfig.setProZone(this.z);
         editVideoActivityConfig.setStatisticFrom(this.A);
         editVideoActivityConfig.setFrsTabInfo(this.t);
@@ -206,7 +206,7 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
         this.j = videoFileInfo;
         this.i = str;
         this.u = str2;
-        if (videoFileInfo == null || this.f61634e == null) {
+        if (videoFileInfo == null || this.f61635e == null) {
             return;
         }
         if (videoFileInfo.videoDuration > 600000) {
@@ -217,11 +217,11 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
         if (videoConvertUtil == null || !videoConvertUtil.r()) {
             String str3 = this.j.videoPath;
             if (TextUtils.isEmpty(str3)) {
-                l.K(this.f61634e, R.string.mv_local_video_video_not_exist);
+                l.K(this.f61635e, R.string.mv_local_video_video_not_exist);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                 n(107);
             } else if (!new File(str3).exists()) {
-                l.K(this.f61634e, R.string.mv_local_video_video_not_exist);
+                l.K(this.f61635e, R.string.mv_local_video_video_not_exist);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                 n(106);
             } else if (XiaoyingUtil.isXiaoyingInstalled() && !XiaoyingUtil.isXiaoyingForbidden()) {
@@ -264,7 +264,7 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
     }
 
     public final void h() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.f61634e.findViewById(R.id.parent);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f61635e.findViewById(R.id.parent);
         if (relativeLayout == null || this.o.getParent() == null) {
             return;
         }
@@ -285,7 +285,7 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
             handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
         } else if (i == 2) {
             if (!this.n) {
-                l.K(this.f61634e, R.string.mv_local_video_compress_failed);
+                l.K(this.f61635e, R.string.mv_local_video_compress_failed);
                 n(103);
             }
             this.s = false;
@@ -314,7 +314,7 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
             n(104);
         } else if (i == 5) {
             this.s = false;
-            l.K(this.f61634e, R.string.mv_local_video_compress_failed);
+            l.K(this.f61635e, R.string.mv_local_video_compress_failed);
             VideoConvertUtil videoConvertUtil = this.p;
             if (videoConvertUtil != null && videoConvertUtil.r()) {
                 d();
@@ -413,10 +413,10 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
     }
 
     public final void s() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.f61634e.findViewById(R.id.parent);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f61635e.findViewById(R.id.parent);
         if (relativeLayout != null) {
             if (this.o == null) {
-                this.o = new AlbumVideoCompressingDialogView(this.f61634e);
+                this.o = new AlbumVideoCompressingDialogView(this.f61635e);
             }
             if (this.o.getParent() != null) {
                 return;
@@ -433,8 +433,8 @@ public class j implements d.b.i0.p3.d, Handler.Callback {
     }
 
     public final void t() {
-        d.b.h0.r.s.a positiveButton = new d.b.h0.r.s.a(this.f61634e).setTitle(R.string.mv_local_video_too_long).setPositiveButton(R.string.group_create_private_isee, new a(this));
-        positiveButton.create(this.f61634e.getPageContext());
+        d.b.h0.r.s.a positiveButton = new d.b.h0.r.s.a(this.f61635e).setTitle(R.string.mv_local_video_too_long).setPositiveButton(R.string.group_create_private_isee, new a(this));
+        positiveButton.create(this.f61635e.getPageContext());
         positiveButton.setCanceledOnTouchOutside(false);
         positiveButton.show();
     }

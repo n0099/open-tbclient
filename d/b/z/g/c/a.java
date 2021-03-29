@@ -22,11 +22,11 @@ import org.xmlpull.v1.XmlPullParserException;
 public class a extends Resources {
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f64922a;
+    public Resources f64923a;
 
     public a(AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration, Resources resources) {
         super(assetManager, displayMetrics, configuration);
-        this.f64922a = resources;
+        this.f64923a = resources;
     }
 
     @Override // android.content.res.Resources
@@ -34,7 +34,7 @@ public class a extends Resources {
         try {
             return super.getAnimation(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getAnimation(i);
+            return this.f64923a.getAnimation(i);
         }
     }
 
@@ -43,7 +43,7 @@ public class a extends Resources {
         try {
             return super.getBoolean(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getBoolean(i);
+            return this.f64923a.getBoolean(i);
         }
     }
 
@@ -52,7 +52,7 @@ public class a extends Resources {
         try {
             return super.getColor(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getColor(i);
+            return this.f64923a.getColor(i);
         }
     }
 
@@ -61,7 +61,7 @@ public class a extends Resources {
         try {
             return super.getColorStateList(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getColorStateList(i);
+            return this.f64923a.getColorStateList(i);
         }
     }
 
@@ -70,7 +70,7 @@ public class a extends Resources {
         try {
             return super.getConfiguration();
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getConfiguration();
+            return this.f64923a.getConfiguration();
         }
     }
 
@@ -79,7 +79,7 @@ public class a extends Resources {
         try {
             return super.getDimension(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDimension(i);
+            return this.f64923a.getDimension(i);
         }
     }
 
@@ -88,7 +88,7 @@ public class a extends Resources {
         try {
             return super.getDimensionPixelOffset(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDimensionPixelOffset(i);
+            return this.f64923a.getDimensionPixelOffset(i);
         }
     }
 
@@ -97,7 +97,7 @@ public class a extends Resources {
         try {
             return super.getDimensionPixelSize(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDimensionPixelSize(i);
+            return this.f64923a.getDimensionPixelSize(i);
         }
     }
 
@@ -106,7 +106,7 @@ public class a extends Resources {
         try {
             return super.getDisplayMetrics();
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDisplayMetrics();
+            return this.f64923a.getDisplayMetrics();
         }
     }
 
@@ -115,7 +115,7 @@ public class a extends Resources {
         try {
             return super.getDrawable(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDrawable(i);
+            return this.f64923a.getDrawable(i);
         }
     }
 
@@ -124,7 +124,7 @@ public class a extends Resources {
         try {
             return super.getDrawableForDensity(i, i2);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDrawableForDensity(i, i2);
+            return this.f64923a.getDrawableForDensity(i, i2);
         }
     }
 
@@ -134,7 +134,7 @@ public class a extends Resources {
         try {
             return super.getFont(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getFont(i);
+            return this.f64923a.getFont(i);
         }
     }
 
@@ -143,7 +143,7 @@ public class a extends Resources {
         try {
             return super.getFraction(i, i2, i3);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getFraction(i, i2, i3);
+            return this.f64923a.getFraction(i, i2, i3);
         }
     }
 
@@ -152,7 +152,7 @@ public class a extends Resources {
         try {
             return super.getIdentifier(str, str2, str3);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getIdentifier(str, str2, str3);
+            return this.f64923a.getIdentifier(str, str2, str3);
         }
     }
 
@@ -161,7 +161,7 @@ public class a extends Resources {
         try {
             return super.getIntArray(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getIntArray(i);
+            return this.f64923a.getIntArray(i);
         }
     }
 
@@ -170,7 +170,7 @@ public class a extends Resources {
         try {
             return super.getInteger(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getInteger(i);
+            return this.f64923a.getInteger(i);
         }
     }
 
@@ -179,7 +179,7 @@ public class a extends Resources {
         try {
             return super.getLayout(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getLayout(i);
+            return this.f64923a.getLayout(i);
         }
     }
 
@@ -188,7 +188,7 @@ public class a extends Resources {
         try {
             return super.getMovie(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getMovie(i);
+            return this.f64923a.getMovie(i);
         }
     }
 
@@ -197,7 +197,7 @@ public class a extends Resources {
         try {
             return super.getQuantityString(i, i2, objArr);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getQuantityString(i, i2, objArr);
+            return this.f64923a.getQuantityString(i, i2, objArr);
         }
     }
 
@@ -206,7 +206,7 @@ public class a extends Resources {
         try {
             return super.getQuantityText(i, i2);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getQuantityText(i, i2);
+            return this.f64923a.getQuantityText(i, i2);
         }
     }
 
@@ -215,7 +215,7 @@ public class a extends Resources {
         try {
             return super.getResourceEntryName(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getResourceEntryName(i);
+            return this.f64923a.getResourceEntryName(i);
         }
     }
 
@@ -224,7 +224,7 @@ public class a extends Resources {
         try {
             return super.getResourceName(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getResourceName(i);
+            return this.f64923a.getResourceName(i);
         }
     }
 
@@ -233,7 +233,7 @@ public class a extends Resources {
         try {
             return super.getResourcePackageName(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getResourcePackageName(i);
+            return this.f64923a.getResourcePackageName(i);
         }
     }
 
@@ -242,7 +242,7 @@ public class a extends Resources {
         try {
             return super.getResourceTypeName(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getResourceTypeName(i);
+            return this.f64923a.getResourceTypeName(i);
         }
     }
 
@@ -251,7 +251,7 @@ public class a extends Resources {
         try {
             return super.getString(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getString(i);
+            return this.f64923a.getString(i);
         }
     }
 
@@ -260,7 +260,7 @@ public class a extends Resources {
         try {
             return super.getStringArray(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getStringArray(i);
+            return this.f64923a.getStringArray(i);
         }
     }
 
@@ -269,7 +269,7 @@ public class a extends Resources {
         try {
             return super.getText(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getText(i);
+            return this.f64923a.getText(i);
         }
     }
 
@@ -278,7 +278,7 @@ public class a extends Resources {
         try {
             return super.getTextArray(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getTextArray(i);
+            return this.f64923a.getTextArray(i);
         }
     }
 
@@ -287,7 +287,7 @@ public class a extends Resources {
         try {
             super.getValue(str, typedValue, z);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.getValue(str, typedValue, z);
+            this.f64923a.getValue(str, typedValue, z);
         }
     }
 
@@ -296,7 +296,7 @@ public class a extends Resources {
         try {
             super.getValueForDensity(i, i2, typedValue, z);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.getValueForDensity(i, i2, typedValue, z);
+            this.f64923a.getValueForDensity(i, i2, typedValue, z);
         }
     }
 
@@ -305,7 +305,7 @@ public class a extends Resources {
         try {
             return super.getXml(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getXml(i);
+            return this.f64923a.getXml(i);
         }
     }
 
@@ -314,7 +314,7 @@ public class a extends Resources {
         try {
             return super.obtainAttributes(attributeSet, iArr);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.obtainAttributes(attributeSet, iArr);
+            return this.f64923a.obtainAttributes(attributeSet, iArr);
         }
     }
 
@@ -323,7 +323,7 @@ public class a extends Resources {
         try {
             return super.obtainTypedArray(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.obtainTypedArray(i);
+            return this.f64923a.obtainTypedArray(i);
         }
     }
 
@@ -332,7 +332,7 @@ public class a extends Resources {
         try {
             return super.openRawResource(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.openRawResource(i);
+            return this.f64923a.openRawResource(i);
         }
     }
 
@@ -341,7 +341,7 @@ public class a extends Resources {
         try {
             return super.openRawResourceFd(i);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.openRawResourceFd(i);
+            return this.f64923a.openRawResourceFd(i);
         }
     }
 
@@ -350,7 +350,7 @@ public class a extends Resources {
         try {
             super.parseBundleExtra(str, attributeSet, bundle);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.parseBundleExtra(str, attributeSet, bundle);
+            this.f64923a.parseBundleExtra(str, attributeSet, bundle);
         }
     }
 
@@ -359,7 +359,7 @@ public class a extends Resources {
         try {
             super.parseBundleExtras(xmlResourceParser, bundle);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.parseBundleExtras(xmlResourceParser, bundle);
+            this.f64923a.parseBundleExtras(xmlResourceParser, bundle);
         }
     }
 
@@ -368,7 +368,7 @@ public class a extends Resources {
         try {
             super.updateConfiguration(configuration, displayMetrics);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.updateConfiguration(configuration, displayMetrics);
+            this.f64923a.updateConfiguration(configuration, displayMetrics);
         }
     }
 
@@ -378,7 +378,7 @@ public class a extends Resources {
         try {
             return super.getColor(i, theme);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getColor(i, theme);
+            return this.f64923a.getColor(i, theme);
         }
     }
 
@@ -388,7 +388,7 @@ public class a extends Resources {
         try {
             return super.getColorStateList(i, theme);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getColorStateList(i, theme);
+            return this.f64923a.getColorStateList(i, theme);
         }
     }
 
@@ -398,7 +398,7 @@ public class a extends Resources {
         try {
             return super.getDrawable(i, theme);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDrawable(i, theme);
+            return this.f64923a.getDrawable(i, theme);
         }
     }
 
@@ -408,7 +408,7 @@ public class a extends Resources {
         try {
             return super.getDrawableForDensity(i, i2, theme);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getDrawableForDensity(i, i2, theme);
+            return this.f64923a.getDrawableForDensity(i, i2, theme);
         }
     }
 
@@ -417,7 +417,7 @@ public class a extends Resources {
         try {
             return super.getQuantityString(i, i2);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getQuantityString(i, i2);
+            return this.f64923a.getQuantityString(i, i2);
         }
     }
 
@@ -426,7 +426,7 @@ public class a extends Resources {
         try {
             return super.getString(i, objArr);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getString(i, objArr);
+            return this.f64923a.getString(i, objArr);
         }
     }
 
@@ -435,7 +435,7 @@ public class a extends Resources {
         try {
             return super.getText(i, charSequence);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.getText(i, charSequence);
+            return this.f64923a.getText(i, charSequence);
         }
     }
 
@@ -444,7 +444,7 @@ public class a extends Resources {
         try {
             super.getValue(i, typedValue, z);
         } catch (Resources.NotFoundException unused) {
-            this.f64922a.getValue(i, typedValue, z);
+            this.f64923a.getValue(i, typedValue, z);
         }
     }
 
@@ -453,7 +453,7 @@ public class a extends Resources {
         try {
             return super.openRawResource(i, typedValue);
         } catch (Resources.NotFoundException unused) {
-            return this.f64922a.openRawResource(i, typedValue);
+            return this.f64923a.openRawResource(i, typedValue);
         }
     }
 }

@@ -22,10 +22,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DeviceUtils implements IDevices {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -43,7 +43,7 @@ public class DeviceUtils implements IDevices {
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0064 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0070 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x0019 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0019 */
         /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: java.io.RandomAccessFile */
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r3v11 */
@@ -60,7 +60,7 @@ public class DeviceUtils implements IDevices {
                     RandomAccessFile randomAccessFile2 = null;
                     try {
                         try {
-                            randomAccessFile = new RandomAccessFile(file, r.f7663a);
+                            randomAccessFile = new RandomAccessFile(file, r.f7664a);
                         } catch (Throwable th) {
                             th = th;
                         }
@@ -236,7 +236,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class OSInfo {
         public static String getOS() {
             return "Android";
@@ -344,7 +344,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ScreenInfo {
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
         public static int originDensityDip;

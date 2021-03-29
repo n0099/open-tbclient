@@ -20,16 +20,16 @@ import d.b.b.e.p.l;
 public class SubPbView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BlankView f19947e;
+    public BlankView f19948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19948f;
+    public View f19949f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f19949g;
+    public LinearLayout f19950g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f19950h;
+    public BdTypeListView f19951h;
     public RelativeLayout i;
     public float j;
     public float k;
@@ -78,7 +78,7 @@ public class SubPbView extends LinearLayout {
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.f19947e != null && this.r) {
+        if (this.f19948e != null && this.r) {
             if (this.n.isRunning()) {
                 this.n.end();
                 return true;
@@ -92,8 +92,8 @@ public class SubPbView extends LinearLayout {
                         this.q = 1.0f - ((rawY - this.j) / l.i(getContext()));
                     }
                 }
-                z = this.k > this.j && this.f19948f.getTop() == 0 && this.f19950h.getFirstVisiblePosition() == 0;
-                boolean z2 = this.k - this.j > ((float) this.p) && this.f19948f.getTop() == 0 && this.f19950h.getFirstVisiblePosition() == 0;
+                z = this.k > this.j && this.f19949f.getTop() == 0 && this.f19951h.getFirstVisiblePosition() == 0;
+                boolean z2 = this.k - this.j > ((float) this.p) && this.f19949f.getTop() == 0 && this.f19951h.getFirstVisiblePosition() == 0;
                 this.m = z2;
                 if (z2) {
                     this.n.setIntValues((int) (this.k - this.j), l.i(getContext()));
@@ -104,7 +104,7 @@ public class SubPbView extends LinearLayout {
                     this.k = 0.0f;
                     requestLayout();
                 }
-                if (this.k <= this.j && this.f19948f.getTop() == 0 && this.f19950h.getFirstVisiblePosition() == 0) {
+                if (this.k <= this.j && this.f19949f.getTop() == 0 && this.f19951h.getFirstVisiblePosition() == 0) {
                     this.l = true;
                     requestLayout();
                     return true;
@@ -154,7 +154,7 @@ public class SubPbView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         float f2 = this.q;
-        if (f2 >= 0.0f && this.f19947e != null) {
+        if (f2 >= 0.0f && this.f19948e != null) {
             canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
@@ -162,7 +162,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.f19947e == null) {
+        if (this.f19948e == null) {
             super.onLayout(z, i, i2, i3, i4);
             return;
         }
@@ -172,20 +172,20 @@ public class SubPbView extends LinearLayout {
             float f2 = this.k;
             float f3 = this.j;
             if (f2 > f3) {
-                LinearLayout linearLayout = this.f19949g;
+                LinearLayout linearLayout = this.f19950g;
                 linearLayout.layout(i, (int) (f2 - f3), i3, ((int) (f2 - f3)) + linearLayout.getHeight());
-                this.i.layout(i, ((int) (this.k - this.j)) + this.f19949g.getHeight(), i3, i4);
+                this.i.layout(i, ((int) (this.k - this.j)) + this.f19950g.getHeight(), i3, i4);
                 return;
             }
             return;
         }
-        LinearLayout linearLayout2 = this.f19949g;
+        LinearLayout linearLayout2 = this.f19950g;
         linearLayout2.layout(i, i5, i3, linearLayout2.getMeasuredHeight() + i5);
-        this.i.layout(i, this.o + this.f19949g.getMeasuredHeight(), i3, i4);
+        this.i.layout(i, this.o + this.f19950g.getMeasuredHeight(), i3, i4);
     }
 
     public void setBlankView(BlankView blankView) {
-        this.f19947e = blankView;
+        this.f19948e = blankView;
     }
 
     public void setContentView(RelativeLayout relativeLayout) {
@@ -197,15 +197,15 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setListView(BdTypeListView bdTypeListView) {
-        this.f19950h = bdTypeListView;
+        this.f19951h = bdTypeListView;
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
-        this.f19949g = linearLayout;
+        this.f19950g = linearLayout;
     }
 
     public void setTopView(View view) {
-        this.f19948f = view;
+        this.f19949f = view;
     }
 
     public SubPbView(Context context, AttributeSet attributeSet) {

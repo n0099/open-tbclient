@@ -22,17 +22,17 @@ public class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f58976a;
+        public int f58977a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58977b;
+        public int f58978b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58978c;
+        public int f58979c;
 
         public a(int i, int i2) {
-            this.f58976a = i;
-            this.f58977b = i2;
+            this.f58977a = i;
+            this.f58978b = i2;
         }
     }
 
@@ -44,8 +44,8 @@ public class c {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            int i = next.f58976a;
-            int i2 = next.f58977b;
+            int i = next.f58977a;
+            int i2 = next.f58978b;
             if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
                 return false;
             }
@@ -53,7 +53,7 @@ public class c {
             if (sparseArray.get(pixel) != null) {
                 return false;
             }
-            next.f58978c = pixel;
+            next.f58979c = pixel;
             sparseArray.put(pixel, next);
         }
         return true;

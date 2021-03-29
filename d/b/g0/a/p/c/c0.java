@@ -3,7 +3,7 @@ package d.b.g0.a.p.c;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface c0 {
     void a();
 

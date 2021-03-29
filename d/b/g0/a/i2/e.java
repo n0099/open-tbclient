@@ -13,7 +13,7 @@ import android.widget.Toast;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44681a = d.b.g0.a.k.f45050a;
+    public static final boolean f44682a = d.b.g0.a.k.f45051a;
 
     public static void a(Activity activity) {
         if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
@@ -21,8 +21,8 @@ public final class e {
         }
         Window window = activity.getWindow();
         window.clearFlags(1024);
-        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (c() ^ (-1));
-        if (d.b.g0.a.q1.b.a.f45538b) {
+        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
+        if (d.b.g0.a.q1.b.a.f45539b) {
             systemUiVisibility |= 5120;
         }
         window.getDecorView().setSystemUiVisibility(systemUiVisibility);
@@ -77,7 +77,7 @@ public final class e {
             if (z2) {
                 Toast.makeText(context, d.b.g0.a.h.activity_not_found, 0).show();
             }
-            if (f44681a) {
+            if (f44682a) {
                 Log.e("ActivityUtils", "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
                 return false;
             }
@@ -86,7 +86,7 @@ public final class e {
     }
 
     public static void i(Activity activity) {
-        if (f44681a) {
+        if (f44682a) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
         if (activity == null || activity.isDestroyed()) {

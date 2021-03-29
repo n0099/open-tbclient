@@ -2,11 +2,11 @@ package d.b.f0.k;
 
 import android.annotation.TargetApi;
 @TargetApi(9)
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class c implements a<c> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43003e;
+    public int f43004e;
 
     public c() {
         this(5);
@@ -16,7 +16,7 @@ public abstract class c implements a<c> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(c cVar) {
-        return cVar.f43003e - this.f43003e;
+        return cVar.f43004e - this.f43004e;
     }
 
     public abstract void b();
@@ -27,6 +27,6 @@ public abstract class c implements a<c> {
     }
 
     public c(int i) {
-        this.f43003e = i;
+        this.f43004e = i;
     }
 }

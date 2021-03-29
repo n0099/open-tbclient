@@ -17,7 +17,7 @@ import java.util.Date;
 public final class TimeTypeAdapter extends TypeAdapter<Time> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30975b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
+    public static final TypeAdapterFactory f30976b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
             if (aVar.c() == Time.class) {
@@ -28,7 +28,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final DateFormat f30976a = new SimpleDateFormat("hh:mm:ss a");
+    public final DateFormat f30977a = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
@@ -39,7 +39,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
             return null;
         }
         try {
-            return new Time(this.f30976a.parse(aVar.K()).getTime());
+            return new Time(this.f30977a.parse(aVar.K()).getTime());
         } catch (ParseException e2) {
             throw new JsonSyntaxException(e2);
         }
@@ -49,6 +49,6 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: b */
     public synchronized void write(b bVar, Time time) throws IOException {
-        bVar.O(time == null ? null : this.f30976a.format((Date) time));
+        bVar.O(time == null ? null : this.f30977a.format((Date) time));
     }
 }

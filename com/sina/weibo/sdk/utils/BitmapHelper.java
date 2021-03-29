@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class BitmapHelper {
     public static int getSampleSizeAutoFitToScreen(int i, int i2, int i3, int i4) {
         if (i2 == 0 || i == 0) {
@@ -18,13 +18,9 @@ public final class BitmapHelper {
     }
 
     public static int getSampleSizeOfNotTooLarge(Rect rect) {
-        double width = rect.width();
-        double height = rect.height();
-        Double.isNaN(width);
-        Double.isNaN(height);
-        double d2 = ((width * height) * 2.0d) / 5242880.0d;
-        if (d2 >= 1.0d) {
-            return (int) d2;
+        double width = ((rect.width() * rect.height()) * 2.0d) / 5242880.0d;
+        if (width >= 1.0d) {
+            return (int) width;
         }
         return 1;
     }

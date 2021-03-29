@@ -21,7 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44725a = d.b.g0.a.k.f45050a;
+    public static final boolean f44726a = d.b.g0.a.k.f45051a;
 
     @NonNull
     @CheckResult
@@ -31,7 +31,7 @@ public class n {
             cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
             return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
         } catch (Exception e2) {
-            if (f44725a) {
+            if (f44726a) {
                 Log.e("SwanAppEncryptUtils", "aesEncrypt", e2);
                 return "";
             }
@@ -63,21 +63,21 @@ public class n {
                     }
                 } catch (FileNotFoundException e3) {
                     e = e3;
-                    if (f44725a) {
+                    if (f44726a) {
                         e.printStackTrace();
                     }
                     d.b.g0.p.d.a(fileInputStream);
                     return null;
                 } catch (IOException e4) {
                     e = e4;
-                    if (f44725a) {
+                    if (f44726a) {
                         e.printStackTrace();
                     }
                     d.b.g0.p.d.a(fileInputStream);
                     return null;
                 } catch (NoSuchAlgorithmException e5) {
                     e = e5;
-                    if (f44725a) {
+                    if (f44726a) {
                         e.printStackTrace();
                     }
                     d.b.g0.p.d.a(fileInputStream);
@@ -125,7 +125,7 @@ public class n {
             cipher.init(1, generatePublic);
             return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
         } catch (Exception e2) {
-            if (f44725a) {
+            if (f44726a) {
                 Log.e("SwanAppEncryptUtils", "rsaEncrypt", e2);
                 return "";
             }

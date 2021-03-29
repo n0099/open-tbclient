@@ -7,28 +7,28 @@ import android.view.View;
 public class an {
 
     /* renamed from: d  reason: collision with root package name */
-    public View f36753d;
+    public View f36754d;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f36752c = new Point();
+    public Point f36753c = new Point();
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f36750a = new Rect();
+    public Rect f36751a = new Rect();
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f36751b = new Rect();
+    public Rect f36752b = new Rect();
 
     public an(View view) {
-        this.f36753d = view;
+        this.f36754d = view;
     }
 
     public boolean a() {
-        boolean globalVisibleRect = this.f36753d.getGlobalVisibleRect(this.f36750a, this.f36752c);
-        Point point = this.f36752c;
-        if (point.x == 0 && point.y == 0 && this.f36750a.height() == this.f36753d.getHeight() && this.f36751b.height() != 0 && Math.abs(this.f36750a.top - this.f36751b.top) > this.f36753d.getHeight() / 2) {
-            this.f36750a.set(this.f36751b);
+        boolean globalVisibleRect = this.f36754d.getGlobalVisibleRect(this.f36751a, this.f36753c);
+        Point point = this.f36753c;
+        if (point.x == 0 && point.y == 0 && this.f36751a.height() == this.f36754d.getHeight() && this.f36752b.height() != 0 && Math.abs(this.f36751a.top - this.f36752b.top) > this.f36754d.getHeight() / 2) {
+            this.f36751a.set(this.f36752b);
         }
-        this.f36751b.set(this.f36750a);
+        this.f36752b.set(this.f36751a);
         return globalVisibleRect;
     }
 }

@@ -28,28 +28,28 @@ import java.util.List;
 public class a extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61717a;
+    public int f61718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueAnimator f61718b;
+    public ValueAnimator f61719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f61719c;
+    public ValueAnimator f61720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BaseFragmentActivity f61720d;
+    public BaseFragmentActivity f61721d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f61721e;
+    public View f61722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListView f61722f;
+    public ListView f61723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f61723g;
+    public ViewGroup f61724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.u3.l.b f61724h;
+    public d.b.i0.u3.l.b f61725h;
     public int i;
     public f j;
     public final AdapterView.OnItemClickListener k;
@@ -57,13 +57,13 @@ public class a extends PopupWindow {
 
     /* renamed from: d.b.i0.u3.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1620a implements AdapterView.OnItemClickListener {
-        public C1620a() {
+    public class C1621a implements AdapterView.OnItemClickListener {
+        public C1621a() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d.b.h0.e.a item = a.this.f61724h.getItem(i);
+            d.b.h0.e.a item = a.this.f61725h.getItem(i);
             if (a.this.j != null) {
                 a.this.j.onItemClick(i, item);
             }
@@ -90,9 +90,9 @@ public class a extends PopupWindow {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            ViewGroup.LayoutParams layoutParams = a.this.f61722f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = a.this.f61723f.getLayoutParams();
             layoutParams.height = intValue;
-            a.this.f61722f.setLayoutParams(layoutParams);
+            a.this.f61723f.setLayoutParams(layoutParams);
         }
     }
 
@@ -104,9 +104,9 @@ public class a extends PopupWindow {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            ViewGroup.LayoutParams layoutParams = a.this.f61722f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = a.this.f61723f.getLayoutParams();
             layoutParams.height = intValue;
-            a.this.f61722f.setLayoutParams(layoutParams);
+            a.this.f61723f.setLayoutParams(layoutParams);
         }
     }
 
@@ -136,12 +136,12 @@ public class a extends PopupWindow {
 
     public a(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext().getPageActivity());
-        this.k = new C1620a();
+        this.k = new C1621a();
         this.l = new b();
-        this.f61720d = baseFragmentActivity;
+        this.f61721d = baseFragmentActivity;
         setWidth(-1);
         setHeight(-1);
-        setContentView(g(new ArrayList(), d.b.h0.e.a.f50119f));
+        setContentView(g(new ArrayList(), d.b.h0.e.a.f50120f));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -168,11 +168,11 @@ public class a extends PopupWindow {
     }
 
     public void f() {
-        ListView listView = this.f61722f;
+        ListView listView = this.f61723f;
         if (listView != null) {
             listView.clearAnimation();
         }
-        ViewGroup viewGroup = this.f61723g;
+        ViewGroup viewGroup = this.f61724g;
         if (viewGroup != null) {
             viewGroup.clearAnimation();
         }
@@ -180,26 +180,26 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     public final View g(List<d.b.h0.e.a> list, String str) {
-        BdListView bdListView = new BdListView(this.f61720d.getPageContext().getPageActivity());
-        this.f61722f = bdListView;
-        bdListView.setCacheColorHint(this.f61720d.getResources().getColor(17170445));
+        BdListView bdListView = new BdListView(this.f61721d.getPageContext().getPageActivity());
+        this.f61723f = bdListView;
+        bdListView.setCacheColorHint(this.f61721d.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        d.b.i0.u3.l.b bVar = new d.b.i0.u3.l.b(this.f61720d);
-        this.f61724h = bVar;
+        d.b.i0.u3.l.b bVar = new d.b.i0.u3.l.b(this.f61721d);
+        this.f61725h = bVar;
         bVar.b(list, str);
-        bdListView.setAdapter((ListAdapter) this.f61724h);
-        FrameLayout frameLayout = new FrameLayout(this.f61720d.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.f61720d.getPageContext().getPageActivity());
-        this.f61723g = frameLayout2;
+        bdListView.setAdapter((ListAdapter) this.f61725h);
+        FrameLayout frameLayout = new FrameLayout(this.f61721d.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.f61721d.getPageContext().getPageActivity());
+        this.f61724g = frameLayout2;
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
-        this.f61722f.setOnItemClickListener(this.k);
+        this.f61723f.setOnItemClickListener(this.k);
         frameLayout.setOnClickListener(this.l);
-        SkinManager.setBackgroundColor(this.f61721e, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f61722f, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f61723g, R.color.black_alpha70);
+        SkinManager.setBackgroundColor(this.f61722e, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f61723f, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f61724g, R.color.black_alpha70);
         return frameLayout;
     }
 
@@ -208,18 +208,18 @@ public class a extends PopupWindow {
     }
 
     public final void i() {
-        if (this.f61719c == null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(this.f61722f.getHeight(), 0);
-            this.f61719c = ofInt;
+        if (this.f61720c == null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(this.f61723f.getHeight(), 0);
+            this.f61720c = ofInt;
             ofInt.addUpdateListener(new d());
-            this.f61719c.setDuration(350L);
+            this.f61720c.setDuration(350L);
         }
-        this.f61719c.start();
+        this.f61720c.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         alphaAnimation.setAnimationListener(new e());
-        this.f61723g.startAnimation(alphaAnimation);
+        this.f61724g.startAnimation(alphaAnimation);
     }
 
     public void j() {
@@ -231,22 +231,22 @@ public class a extends PopupWindow {
             return;
         }
         this.i = e(list, str);
-        this.f61717a = -2;
+        this.f61718a = -2;
         if (list.size() > 5) {
-            this.f61717a = this.f61720d.getResources().getDimensionPixelSize(R.dimen.ds618);
+            this.f61718a = this.f61721d.getResources().getDimensionPixelSize(R.dimen.ds618);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f61722f.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f61723f.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.f61717a);
+            layoutParams = new FrameLayout.LayoutParams(-1, this.f61718a);
         } else {
-            layoutParams.height = this.f61717a;
+            layoutParams.height = this.f61718a;
         }
-        this.f61722f.setLayoutParams(layoutParams);
-        if (this.f61717a < 0) {
-            this.f61717a = l.g(this.f61720d, R.dimen.tbds168) * list.size();
+        this.f61723f.setLayoutParams(layoutParams);
+        if (this.f61718a < 0) {
+            this.f61718a = l.g(this.f61721d, R.dimen.tbds168) * list.size();
         }
-        this.f61724h.b(list, str);
-        this.f61724h.notifyDataSetChanged();
+        this.f61725h.b(list, str);
+        this.f61725h.notifyDataSetChanged();
     }
 
     public void l(f fVar) {
@@ -254,21 +254,21 @@ public class a extends PopupWindow {
     }
 
     public final void m() {
-        if (this.f61718b == null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(0, this.f61717a);
-            this.f61718b = ofInt;
+        if (this.f61719b == null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(0, this.f61718a);
+            this.f61719b = ofInt;
             ofInt.addUpdateListener(new c());
-            this.f61718b.setDuration(350L);
+            this.f61719b.setDuration(350L);
         }
-        this.f61718b.start();
+        this.f61719b.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.f61723g.startAnimation(alphaAnimation);
+        this.f61724g.startAnimation(alphaAnimation);
     }
 
     public void n(View view) {
-        this.f61722f.setSelection(this.i);
+        this.f61723f.setSelection(this.i);
         if (Build.VERSION.SDK_INT < 24) {
             if (g.k(this, view)) {
                 m();
@@ -280,8 +280,8 @@ public class a extends PopupWindow {
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
         int height = (iArr[1] + view.getHeight()) - statusBarHeight;
-        ((FrameLayout.LayoutParams) this.f61722f.getLayoutParams()).topMargin = height;
-        ((FrameLayout.LayoutParams) this.f61723g.getLayoutParams()).topMargin = height;
+        ((FrameLayout.LayoutParams) this.f61723f.getLayoutParams()).topMargin = height;
+        ((FrameLayout.LayoutParams) this.f61724g.getLayoutParams()).topMargin = height;
         if (g.m(this, view, 0, 0, 0)) {
             m();
         }

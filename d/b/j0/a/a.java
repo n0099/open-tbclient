@@ -2,7 +2,7 @@ package d.b.j0.a;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static void a(String str, String str2) {
         b(str, str2, new Object[0]);

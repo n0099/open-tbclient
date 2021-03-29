@@ -5,28 +5,28 @@ import java.security.InvalidParameterException;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41725d;
+    public String f41726d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41726e;
+    public a f41727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41727f;
+    public int f41728f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41722a = 0;
+    public int f41723a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f41723b = null;
+    public String[] f41724b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41724c = 0;
+    public int f41725c = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f41728g = null;
+    public String[] f41729g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41729h = false;
+    public boolean f41730h = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -34,64 +34,64 @@ public class b {
     }
 
     public b(String str, int i, a aVar) {
-        this.f41725d = null;
-        this.f41726e = null;
-        this.f41727f = 0;
+        this.f41726d = null;
+        this.f41727e = null;
+        this.f41728f = 0;
         if (str != null) {
-            this.f41725d = str;
-            this.f41726e = aVar;
-            this.f41727f = i;
+            this.f41726d = str;
+            this.f41727e = aVar;
+            this.f41728f = i;
             return;
         }
         throw new InvalidParameterException("SwitchData name is null");
     }
 
     public void a(int i, boolean z) {
-        a aVar = this.f41726e;
+        a aVar = this.f41727e;
         if (aVar != null) {
-            aVar.a(this.f41725d, i, z);
+            aVar.a(this.f41726d, i, z);
         }
     }
 
     public int b() {
-        return this.f41727f;
+        return this.f41728f;
     }
 
     public String[] c() {
-        return this.f41723b;
+        return this.f41724b;
     }
 
     public int d() {
-        return this.f41722a;
+        return this.f41723a;
     }
 
     public String e() {
-        return this.f41725d;
+        return this.f41726d;
     }
 
     public int f() {
-        return this.f41724c;
+        return this.f41725c;
     }
 
     public String[] g() {
-        return this.f41728g;
+        return this.f41729g;
     }
 
     public boolean h() {
-        return this.f41729h;
+        return this.f41730h;
     }
 
     public void i(int i, String[] strArr, int i2) {
-        this.f41722a = i;
-        this.f41723b = strArr;
-        this.f41724c = i2;
+        this.f41723a = i;
+        this.f41724b = strArr;
+        this.f41725c = i2;
     }
 
     public void j(boolean z) {
-        this.f41729h = z;
+        this.f41730h = z;
     }
 
     public void k(String[] strArr) {
-        this.f41728g = strArr;
+        this.f41729g = strArr;
     }
 }

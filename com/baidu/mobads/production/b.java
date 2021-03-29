@@ -7,21 +7,21 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class b implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f8441a;
+    public final /* synthetic */ a f8442a;
 
     public b(a aVar) {
-        this.f8441a = aVar;
+        this.f8442a = aVar;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
-        this.f8441a.k();
+        this.f8442a.k();
         if ("URLLoader.Load.Complete".equals(iOAdEvent.getType())) {
-            this.f8441a.a(iOAdEvent, "");
+            this.f8442a.a(iOAdEvent, "");
             return;
         }
         String message = iOAdEvent.getMessage();
         XAdSDKFoundationFacade.getInstance().getErrorCode().printErrorMessage("", message, "");
-        this.f8441a.c(message);
+        this.f8442a.c(message);
     }
 }

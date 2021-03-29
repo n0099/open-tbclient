@@ -30,7 +30,7 @@ import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8Engine implements JSRuntime {
     public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
     public static final String ACTION_NATIVE_INIT = "v8_native_init";
@@ -94,13 +94,13 @@ public class V8Engine implements JSRuntime {
     public WorkerFactory mWorkerFactoryDelegate = null;
     public boolean mIsWorker = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
     @NotProguard
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MemoryInfo {
         @V8JavascriptField
         public int dalvikPrivateDirty;
@@ -134,7 +134,7 @@ public class V8Engine implements JSRuntime {
         public int totalPss;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -149,7 +149,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -158,7 +158,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }

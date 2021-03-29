@@ -3,13 +3,13 @@ package com.baidu.searchbox.v8engine.thread;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public Thread jsThread = null;
     public Handler mHandler;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class V8EngineRunnable implements Runnable {
         public V8EngineRunnable() {
         }

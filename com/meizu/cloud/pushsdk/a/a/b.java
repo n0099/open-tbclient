@@ -23,19 +23,19 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37396a = "b";
+    public static final String f37397a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f37397b = new Object();
+    public static final Object f37398b = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f37398c;
+    public static b f37399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f37399d;
+    public Context f37400d;
 
     public b(Context context) {
-        this.f37399d = context;
+        this.f37400d = context;
         try {
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         } catch (Exception e2) {
@@ -45,14 +45,14 @@ public class b {
     }
 
     public static b a(Context context) {
-        if (f37398c == null) {
-            synchronized (f37397b) {
-                if (f37398c == null) {
-                    f37398c = new b(context);
+        if (f37399c == null) {
+            synchronized (f37398b) {
+                if (f37399c == null) {
+                    f37399c = new b(context);
                 }
             }
         }
-        return f37398c;
+        return f37399c;
     }
 
     private Map<String, String> a(Map<String, String> map) {
@@ -64,13 +64,13 @@ public class b {
             byte[] b2 = a.a().b();
             if (b2 != null && b2.length > 0) {
                 String str = new String(a.a().b());
-                String str2 = f37396a;
+                String str2 = f37397a;
                 d.j.a.a.a.a(str2, "attach x_a_key: " + str);
                 map.put("X-A-Key", str);
             }
         } else {
             String str3 = new String(c2);
-            String str4 = f37396a;
+            String str4 = f37397a;
             d.j.a.a.a.a(str4, "attach x_s_key: " + str3);
             map.put("X-S-Key", str3);
         }
@@ -107,7 +107,7 @@ public class b {
     private void a(URLConnection uRLConnection) {
         try {
             String headerField = uRLConnection.getHeaderField("X-S-Key");
-            String str = f37396a;
+            String str = f37397a;
             d.j.a.a.a.a(str, "get x_s_key = " + headerField);
             if (TextUtils.isEmpty(headerField)) {
                 return;
@@ -117,6 +117,7 @@ public class b {
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     private byte[] a(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
@@ -126,20 +127,14 @@ public class b {
                     break;
                 }
                 byteArrayOutputStream.write(read);
-            } catch (Throwable th) {
+            } finally {
                 try {
                     byteArrayOutputStream.close();
                 } catch (IOException unused) {
                 }
-                throw th;
             }
         }
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        try {
-            byteArrayOutputStream.close();
-        } catch (IOException unused2) {
-        }
-        return byteArray;
+        return byteArrayOutputStream.toByteArray();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.InputStream */
@@ -207,7 +202,7 @@ public class b {
                                 }
                                 a(httpURLConnection, str3.getBytes());
                                 int responseCode = httpURLConnection.getResponseCode();
-                                d.j.a.a.a.a(f37396a, "code = " + responseCode);
+                                d.j.a.a.a.a(f37397a, "code = " + responseCode);
                                 a(httpURLConnection);
                                 b(httpURLConnection);
                                 inputStream = httpURLConnection.getInputStream();
@@ -216,7 +211,7 @@ public class b {
                                         a2 = a(inputStream);
                                         if (a2 != null) {
                                             String str4 = new String(a2);
-                                            d.j.a.a.a.a(f37396a, "body = " + str4);
+                                            d.j.a.a.a.a(f37397a, "body = " + str4);
                                             try {
                                                 new JSONObject(str4).getInt("code");
                                             } catch (JSONException e2) {
@@ -225,7 +220,7 @@ public class b {
                                         }
                                     } catch (Exception e3) {
                                         e = e3;
-                                        d.j.a.a.a.b(f37396a, "realStringPartRequest error " + e.getMessage());
+                                        d.j.a.a.a.b(f37397a, "realStringPartRequest error " + e.getMessage());
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
@@ -247,7 +242,7 @@ public class b {
                         }
                         a(httpURLConnection, str3.getBytes());
                         int responseCode2 = httpURLConnection.getResponseCode();
-                        d.j.a.a.a.a(f37396a, "code = " + responseCode2);
+                        d.j.a.a.a.a(f37397a, "code = " + responseCode2);
                         a(httpURLConnection);
                         b(httpURLConnection);
                         inputStream = httpURLConnection.getInputStream();
@@ -292,7 +287,7 @@ public class b {
     private void b(URLConnection uRLConnection) {
         try {
             String headerField = uRLConnection.getHeaderField("Key-Timeout");
-            String str = f37396a;
+            String str = f37397a;
             d.j.a.a.a.a(str, "get keyTimeout = " + headerField);
         } catch (NullPointerException unused) {
         }

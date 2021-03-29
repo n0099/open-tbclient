@@ -7,18 +7,18 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import d.b.g0.a.p.c.u0;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class z implements u0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final z f45441a = new z();
+        public static final z f45442a = new z();
     }
 
     public static z c() {
-        return b.f45441a;
+        return b.f45442a;
     }
 
     @Override // d.b.g0.a.p.c.u0

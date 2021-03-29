@@ -21,7 +21,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMQueryMemberRequest";
     public long mAppid;
@@ -30,7 +30,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public String mKey;
     public int mSaveToDB;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

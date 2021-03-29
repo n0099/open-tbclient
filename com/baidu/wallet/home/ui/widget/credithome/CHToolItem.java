@@ -14,19 +14,19 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHToolItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24692a;
+    public NetImageView f24693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24693b;
+    public MaskTextView f24694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24694c;
+    public NetImageView f24695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24695d;
+    public MaskTextView f24696d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24696e;
+    public MaskTextView f24697e;
 
     public CHToolItem(Context context) {
         super(context);
@@ -35,38 +35,38 @@ public class CHToolItem extends BaseItemView {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
         boolean isShowRedDot = isShowRedDot();
-        this.f24694c.setVisibility(isShowRedDot ? 0 : 8);
-        this.f24694c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+        this.f24695c.setVisibility(isShowRedDot ? 0 : 8);
+        this.f24695c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
         return isShowRedDot;
     }
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tool_item_view"), this);
-        this.f24692a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_icon"));
-        this.f24693b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_title"));
-        this.f24694c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_star"));
-        this.f24695d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_corner"));
-        this.f24696e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_money"));
+        this.f24693a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_icon"));
+        this.f24694b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_title"));
+        this.f24695c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_star"));
+        this.f24696d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_corner"));
+        this.f24697e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_money"));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24692a, getData().getPicAddr());
-        this.f24693b.setMaskText(getData().name);
+        setNetImageViewUrl(this.f24693a, getData().getPicAddr());
+        this.f24694b.setMaskText(getData().name);
         if (!handlePoint() && !TextUtils.isEmpty(getData().desc)) {
-            this.f24695d.setVisibility(0);
-            this.f24695d.setMaskText(getData().desc);
+            this.f24696d.setVisibility(0);
+            this.f24696d.setMaskText(getData().desc);
         } else {
-            this.f24695d.setVisibility(8);
+            this.f24696d.setVisibility(8);
         }
         if (!TextUtils.isEmpty(getData().value1)) {
-            this.f24696e.setVisibility(0);
-            this.f24696e.setMaskText(getData().value1);
+            this.f24697e.setVisibility(0);
+            this.f24697e.setMaskText(getData().value1);
             return;
         }
-        this.f24696e.setVisibility(8);
+        this.f24697e.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

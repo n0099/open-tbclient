@@ -39,84 +39,84 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public static final class b<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f30916a;
+        public g<K, V> f30917a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30917b;
+        public int f30918b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30918c;
+        public int f30919c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f30919d;
+        public int f30920d;
 
         public void a(g<K, V> gVar) {
-            gVar.f30929g = null;
-            gVar.f30927e = null;
-            gVar.f30928f = null;
+            gVar.f30930g = null;
+            gVar.f30928e = null;
+            gVar.f30929f = null;
             gVar.m = 1;
-            int i = this.f30917b;
+            int i = this.f30918b;
             if (i > 0) {
-                int i2 = this.f30919d;
+                int i2 = this.f30920d;
                 if ((i2 & 1) == 0) {
-                    this.f30919d = i2 + 1;
-                    this.f30917b = i - 1;
-                    this.f30918c++;
+                    this.f30920d = i2 + 1;
+                    this.f30918b = i - 1;
+                    this.f30919c++;
                 }
             }
-            gVar.f30927e = this.f30916a;
-            this.f30916a = gVar;
-            int i3 = this.f30919d + 1;
-            this.f30919d = i3;
-            int i4 = this.f30917b;
+            gVar.f30928e = this.f30917a;
+            this.f30917a = gVar;
+            int i3 = this.f30920d + 1;
+            this.f30920d = i3;
+            int i4 = this.f30918b;
             if (i4 > 0 && (i3 & 1) == 0) {
-                this.f30919d = i3 + 1;
-                this.f30917b = i4 - 1;
-                this.f30918c++;
+                this.f30920d = i3 + 1;
+                this.f30918b = i4 - 1;
+                this.f30919c++;
             }
             int i5 = 4;
             while (true) {
                 int i6 = i5 - 1;
-                if ((this.f30919d & i6) != i6) {
+                if ((this.f30920d & i6) != i6) {
                     return;
                 }
-                int i7 = this.f30918c;
+                int i7 = this.f30919c;
                 if (i7 == 0) {
-                    g<K, V> gVar2 = this.f30916a;
-                    g<K, V> gVar3 = gVar2.f30927e;
-                    g<K, V> gVar4 = gVar3.f30927e;
-                    gVar3.f30927e = gVar4.f30927e;
-                    this.f30916a = gVar3;
-                    gVar3.f30928f = gVar4;
-                    gVar3.f30929g = gVar2;
+                    g<K, V> gVar2 = this.f30917a;
+                    g<K, V> gVar3 = gVar2.f30928e;
+                    g<K, V> gVar4 = gVar3.f30928e;
+                    gVar3.f30928e = gVar4.f30928e;
+                    this.f30917a = gVar3;
+                    gVar3.f30929f = gVar4;
+                    gVar3.f30930g = gVar2;
                     gVar3.m = gVar2.m + 1;
-                    gVar4.f30927e = gVar3;
-                    gVar2.f30927e = gVar3;
+                    gVar4.f30928e = gVar3;
+                    gVar2.f30928e = gVar3;
                 } else if (i7 == 1) {
-                    g<K, V> gVar5 = this.f30916a;
-                    g<K, V> gVar6 = gVar5.f30927e;
-                    this.f30916a = gVar6;
-                    gVar6.f30929g = gVar5;
+                    g<K, V> gVar5 = this.f30917a;
+                    g<K, V> gVar6 = gVar5.f30928e;
+                    this.f30917a = gVar6;
+                    gVar6.f30930g = gVar5;
                     gVar6.m = gVar5.m + 1;
-                    gVar5.f30927e = gVar6;
-                    this.f30918c = 0;
+                    gVar5.f30928e = gVar6;
+                    this.f30919c = 0;
                 } else if (i7 == 2) {
-                    this.f30918c = 0;
+                    this.f30919c = 0;
                 }
                 i5 *= 2;
             }
         }
 
         public void b(int i) {
-            this.f30917b = ((Integer.highestOneBit(i) * 2) - 1) - i;
-            this.f30919d = 0;
-            this.f30918c = 0;
-            this.f30916a = null;
+            this.f30918b = ((Integer.highestOneBit(i) * 2) - 1) - i;
+            this.f30920d = 0;
+            this.f30919c = 0;
+            this.f30917a = null;
         }
 
         public g<K, V> c() {
-            g<K, V> gVar = this.f30916a;
-            if (gVar.f30927e == null) {
+            g<K, V> gVar = this.f30917a;
+            if (gVar.f30928e == null) {
                 return gVar;
             }
             throw new IllegalStateException();
@@ -127,24 +127,24 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public static class c<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f30920a;
+        public g<K, V> f30921a;
 
         public g<K, V> a() {
-            g<K, V> gVar = this.f30920a;
+            g<K, V> gVar = this.f30921a;
             if (gVar == null) {
                 return null;
             }
-            g<K, V> gVar2 = gVar.f30927e;
-            gVar.f30927e = null;
-            g<K, V> gVar3 = gVar.f30929g;
+            g<K, V> gVar2 = gVar.f30928e;
+            gVar.f30928e = null;
+            g<K, V> gVar3 = gVar.f30930g;
             while (true) {
                 g<K, V> gVar4 = gVar2;
                 gVar2 = gVar3;
                 if (gVar2 != null) {
-                    gVar2.f30927e = gVar4;
-                    gVar3 = gVar2.f30928f;
+                    gVar2.f30928e = gVar4;
+                    gVar3 = gVar2.f30929f;
                 } else {
-                    this.f30920a = gVar4;
+                    this.f30921a = gVar4;
                     return gVar;
                 }
             }
@@ -153,11 +153,11 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         public void b(g<K, V> gVar) {
             g<K, V> gVar2 = null;
             while (gVar != null) {
-                gVar.f30927e = gVar2;
+                gVar.f30928e = gVar2;
                 gVar2 = gVar;
-                gVar = gVar.f30928f;
+                gVar = gVar.f30929f;
             }
-            this.f30920a = gVar2;
+            this.f30921a = gVar2;
         }
     }
 
@@ -260,28 +260,28 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public abstract class f<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public g<K, V> f30923e;
+        public g<K, V> f30924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f30924f;
+        public g<K, V> f30925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30925g;
+        public int f30926g;
 
         public f() {
             LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
-            this.f30923e = linkedHashTreeMap.header.f30930h;
-            this.f30924f = null;
-            this.f30925g = linkedHashTreeMap.modCount;
+            this.f30924e = linkedHashTreeMap.header.f30931h;
+            this.f30925f = null;
+            this.f30926g = linkedHashTreeMap.modCount;
         }
 
         public final g<K, V> a() {
-            g<K, V> gVar = this.f30923e;
+            g<K, V> gVar = this.f30924e;
             LinkedHashTreeMap linkedHashTreeMap = LinkedHashTreeMap.this;
             if (gVar != linkedHashTreeMap.header) {
-                if (linkedHashTreeMap.modCount == this.f30925g) {
-                    this.f30923e = gVar.f30930h;
-                    this.f30924f = gVar;
+                if (linkedHashTreeMap.modCount == this.f30926g) {
+                    this.f30924e = gVar.f30931h;
+                    this.f30925f = gVar;
                     return gVar;
                 }
                 throw new ConcurrentModificationException();
@@ -291,16 +291,16 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.f30923e != LinkedHashTreeMap.this.header;
+            return this.f30924e != LinkedHashTreeMap.this.header;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
-            g<K, V> gVar = this.f30924f;
+            g<K, V> gVar = this.f30925f;
             if (gVar != null) {
                 LinkedHashTreeMap.this.removeInternal(gVar, true);
-                this.f30924f = null;
-                this.f30925g = LinkedHashTreeMap.this.modCount;
+                this.f30925f = null;
+                this.f30926g = LinkedHashTreeMap.this.modCount;
                 return;
             }
             throw new IllegalStateException();
@@ -323,14 +323,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     private void rebalance(g<K, V> gVar, boolean z) {
         while (gVar != null) {
-            g<K, V> gVar2 = gVar.f30928f;
-            g<K, V> gVar3 = gVar.f30929g;
+            g<K, V> gVar2 = gVar.f30929f;
+            g<K, V> gVar3 = gVar.f30930g;
             int i = gVar2 != null ? gVar2.m : 0;
             int i2 = gVar3 != null ? gVar3.m : 0;
             int i3 = i - i2;
             if (i3 == -2) {
-                g<K, V> gVar4 = gVar3.f30928f;
-                g<K, V> gVar5 = gVar3.f30929g;
+                g<K, V> gVar4 = gVar3.f30929f;
+                g<K, V> gVar5 = gVar3.f30930g;
                 int i4 = (gVar4 != null ? gVar4.m : 0) - (gVar5 != null ? gVar5.m : 0);
                 if (i4 != -1 && (i4 != 0 || z)) {
                     rotateRight(gVar3);
@@ -342,8 +342,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                     return;
                 }
             } else if (i3 == 2) {
-                g<K, V> gVar6 = gVar2.f30928f;
-                g<K, V> gVar7 = gVar2.f30929g;
+                g<K, V> gVar6 = gVar2.f30929f;
+                g<K, V> gVar7 = gVar2.f30930g;
                 int i5 = (gVar6 != null ? gVar6.m : 0) - (gVar7 != null ? gVar7.m : 0);
                 if (i5 != 1 && (i5 != 0 || z)) {
                     rotateLeft(gVar2);
@@ -365,22 +365,22 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                     return;
                 }
             }
-            gVar = gVar.f30927e;
+            gVar = gVar.f30928e;
         }
     }
 
     private void replaceInParent(g<K, V> gVar, g<K, V> gVar2) {
-        g<K, V> gVar3 = gVar.f30927e;
-        gVar.f30927e = null;
+        g<K, V> gVar3 = gVar.f30928e;
+        gVar.f30928e = null;
         if (gVar2 != null) {
-            gVar2.f30927e = gVar3;
+            gVar2.f30928e = gVar3;
         }
         if (gVar3 != null) {
-            if (gVar3.f30928f == gVar) {
-                gVar3.f30928f = gVar2;
+            if (gVar3.f30929f == gVar) {
+                gVar3.f30929f = gVar2;
                 return;
             } else {
-                gVar3.f30929g = gVar2;
+                gVar3.f30930g = gVar2;
                 return;
             }
         }
@@ -390,34 +390,34 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     private void rotateLeft(g<K, V> gVar) {
-        g<K, V> gVar2 = gVar.f30928f;
-        g<K, V> gVar3 = gVar.f30929g;
-        g<K, V> gVar4 = gVar3.f30928f;
-        g<K, V> gVar5 = gVar3.f30929g;
-        gVar.f30929g = gVar4;
+        g<K, V> gVar2 = gVar.f30929f;
+        g<K, V> gVar3 = gVar.f30930g;
+        g<K, V> gVar4 = gVar3.f30929f;
+        g<K, V> gVar5 = gVar3.f30930g;
+        gVar.f30930g = gVar4;
         if (gVar4 != null) {
-            gVar4.f30927e = gVar;
+            gVar4.f30928e = gVar;
         }
         replaceInParent(gVar, gVar3);
-        gVar3.f30928f = gVar;
-        gVar.f30927e = gVar3;
+        gVar3.f30929f = gVar;
+        gVar.f30928e = gVar3;
         int max = Math.max(gVar2 != null ? gVar2.m : 0, gVar4 != null ? gVar4.m : 0) + 1;
         gVar.m = max;
         gVar3.m = Math.max(max, gVar5 != null ? gVar5.m : 0) + 1;
     }
 
     private void rotateRight(g<K, V> gVar) {
-        g<K, V> gVar2 = gVar.f30928f;
-        g<K, V> gVar3 = gVar.f30929g;
-        g<K, V> gVar4 = gVar2.f30928f;
-        g<K, V> gVar5 = gVar2.f30929g;
-        gVar.f30928f = gVar5;
+        g<K, V> gVar2 = gVar.f30929f;
+        g<K, V> gVar3 = gVar.f30930g;
+        g<K, V> gVar4 = gVar2.f30929f;
+        g<K, V> gVar5 = gVar2.f30930g;
+        gVar.f30929f = gVar5;
         if (gVar5 != null) {
-            gVar5.f30927e = gVar;
+            gVar5.f30928e = gVar;
         }
         replaceInParent(gVar, gVar2);
-        gVar2.f30929g = gVar;
-        gVar.f30927e = gVar2;
+        gVar2.f30930g = gVar;
+        gVar.f30928e = gVar2;
         int max = Math.max(gVar3 != null ? gVar3.m : 0, gVar5 != null ? gVar5.m : 0) + 1;
         gVar.m = max;
         gVar2.m = Math.max(max, gVar4 != null ? gVar4.m : 0) + 1;
@@ -438,15 +438,15 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         this.size = 0;
         this.modCount++;
         g<K, V> gVar = this.header;
-        g<K, V> gVar2 = gVar.f30930h;
+        g<K, V> gVar2 = gVar.f30931h;
         while (gVar2 != gVar) {
-            g<K, V> gVar3 = gVar2.f30930h;
+            g<K, V> gVar3 = gVar2.f30931h;
             gVar2.i = null;
-            gVar2.f30930h = null;
+            gVar2.f30931h = null;
             gVar2 = gVar3;
         }
         gVar.i = gVar;
-        gVar.f30930h = gVar;
+        gVar.f30931h = gVar;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -487,7 +487,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 if (compare == 0) {
                     return gVar3;
                 }
-                g<K, V> gVar4 = compare < 0 ? gVar3.f30928f : gVar3.f30929g;
+                g<K, V> gVar4 = compare < 0 ? gVar3.f30929f : gVar3.f30930g;
                 if (gVar4 == null) {
                     gVar = gVar3;
                     i = compare;
@@ -510,9 +510,9 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             } else {
                 gVar2 = new g<>(gVar, k, secondaryHash, gVar5, gVar5.i);
                 if (i < 0) {
-                    gVar.f30928f = gVar2;
+                    gVar.f30929f = gVar2;
                 } else {
-                    gVar.f30929g = gVar2;
+                    gVar.f30930g = gVar2;
                 }
                 rebalance(gVar, true);
             }
@@ -592,33 +592,33 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         int i;
         if (z) {
             g<K, V> gVar2 = gVar.i;
-            gVar2.f30930h = gVar.f30930h;
-            gVar.f30930h.i = gVar2;
+            gVar2.f30931h = gVar.f30931h;
+            gVar.f30931h.i = gVar2;
             gVar.i = null;
-            gVar.f30930h = null;
+            gVar.f30931h = null;
         }
-        g<K, V> gVar3 = gVar.f30928f;
-        g<K, V> gVar4 = gVar.f30929g;
-        g<K, V> gVar5 = gVar.f30927e;
+        g<K, V> gVar3 = gVar.f30929f;
+        g<K, V> gVar4 = gVar.f30930g;
+        g<K, V> gVar5 = gVar.f30928e;
         int i2 = 0;
         if (gVar3 != null && gVar4 != null) {
             g<K, V> b2 = gVar3.m > gVar4.m ? gVar3.b() : gVar4.a();
             removeInternal(b2, false);
-            g<K, V> gVar6 = gVar.f30928f;
+            g<K, V> gVar6 = gVar.f30929f;
             if (gVar6 != null) {
                 i = gVar6.m;
-                b2.f30928f = gVar6;
-                gVar6.f30927e = b2;
-                gVar.f30928f = null;
+                b2.f30929f = gVar6;
+                gVar6.f30928e = b2;
+                gVar.f30929f = null;
             } else {
                 i = 0;
             }
-            g<K, V> gVar7 = gVar.f30929g;
+            g<K, V> gVar7 = gVar.f30930g;
             if (gVar7 != null) {
                 i2 = gVar7.m;
-                b2.f30929g = gVar7;
-                gVar7.f30927e = b2;
-                gVar.f30929g = null;
+                b2.f30930g = gVar7;
+                gVar7.f30928e = b2;
+                gVar.f30930g = null;
             }
             b2.m = Math.max(i, i2) + 1;
             replaceInParent(gVar, b2);
@@ -626,10 +626,10 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
         if (gVar3 != null) {
             replaceInParent(gVar, gVar3);
-            gVar.f30928f = null;
+            gVar.f30929f = null;
         } else if (gVar4 != null) {
             replaceInParent(gVar, gVar4);
-            gVar.f30929g = null;
+            gVar.f30930g = null;
         } else {
             replaceInParent(gVar, null);
         }
@@ -707,16 +707,16 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public static final class g<K, V> implements Map.Entry<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public g<K, V> f30927e;
+        public g<K, V> f30928e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f30928f;
+        public g<K, V> f30929f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f30929g;
+        public g<K, V> f30930g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f30930h;
+        public g<K, V> f30931h;
         public g<K, V> i;
         public final K j;
         public final int k;
@@ -727,12 +727,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             this.j = null;
             this.k = -1;
             this.i = this;
-            this.f30930h = this;
+            this.f30931h = this;
         }
 
         public g<K, V> a() {
             g<K, V> gVar = this;
-            for (g<K, V> gVar2 = this.f30928f; gVar2 != null; gVar2 = gVar2.f30928f) {
+            for (g<K, V> gVar2 = this.f30929f; gVar2 != null; gVar2 = gVar2.f30929f) {
                 gVar = gVar2;
             }
             return gVar;
@@ -740,7 +740,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
         public g<K, V> b() {
             g<K, V> gVar = this;
-            for (g<K, V> gVar2 = this.f30929g; gVar2 != null; gVar2 = gVar2.f30929g) {
+            for (g<K, V> gVar2 = this.f30930g; gVar2 != null; gVar2 = gVar2.f30930g) {
                 gVar = gVar2;
             }
             return gVar;
@@ -801,13 +801,13 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
 
         public g(g<K, V> gVar, K k, int i, g<K, V> gVar2, g<K, V> gVar3) {
-            this.f30927e = gVar;
+            this.f30928e = gVar;
             this.j = k;
             this.k = i;
             this.m = 1;
-            this.f30930h = gVar2;
+            this.f30931h = gVar2;
             this.i = gVar3;
-            gVar3.f30930h = this;
+            gVar3.f30931h = this;
             gVar2.i = this;
         }
     }

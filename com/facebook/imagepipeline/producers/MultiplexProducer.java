@@ -25,7 +25,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     public final Map<K, MultiplexProducer<K, T>.Multiplexer> mMultiplexers = new HashMap();
 
     @VisibleForTesting
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class Multiplexer {
         public final CopyOnWriteArraySet<Pair<Consumer<T>, ProducerContext>> mConsumerContextPairs = Sets.newCopyOnWriteArraySet();
         @GuardedBy("Multiplexer.this")

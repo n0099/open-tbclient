@@ -21,7 +21,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResourceManager {
     public static final String DRAWABLE = "drawable";
     public static final String TAG = "com.sina.weibo.sdk.utils.ResourceManager";
@@ -58,9 +58,7 @@ public class ResourceManager {
     }
 
     public static int dp2px(Context context, int i) {
-        double d2 = i * context.getResources().getDisplayMetrics().density;
-        Double.isNaN(d2);
-        return (int) (d2 + 0.5d);
+        return (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5d);
     }
 
     public static Drawable extractDrawable(Context context, String str) throws Exception {

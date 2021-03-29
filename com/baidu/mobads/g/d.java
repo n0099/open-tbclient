@@ -5,20 +5,20 @@ import com.baidu.mobads.g.o;
 public class d implements o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f8269a;
+    public final /* synthetic */ c f8270a;
 
     public d(c cVar) {
-        this.f8269a = cVar;
+        this.f8270a = cVar;
     }
 
     @Override // com.baidu.mobads.g.o.a
     public void a(e eVar) {
-        this.f8269a.a("OK", eVar, "download apk successfully, downloader exit");
-        c unused = c.f8261f = null;
+        this.f8270a.a("OK", eVar, "download apk successfully, downloader exit");
+        c unused = c.f8262f = null;
     }
 
     @Override // com.baidu.mobads.g.o.a
     public void b(e eVar) {
-        this.f8269a.a("ERROR", eVar, "downloadApk failed");
+        this.f8270a.a("ERROR", eVar, "downloadApk failed");
     }
 }

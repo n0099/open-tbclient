@@ -58,63 +58,63 @@ public class AdCardMultiPicView extends AdCardBaseView {
         d1(this.q0, dimensionPixelSize, max);
         d1(this.t0, dimensionPixelSize, max);
         if (length == 1) {
-            this.n0.W(dVarArr[0].f20706a, 30, false);
+            this.n0.W(dVarArr[0].f20707a, 30, false);
             this.n0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20708c);
-            if (StringUtils.isNull(dVarArr[0].f20707b, true)) {
+            Y0(this.n0, dVarArr[0].f20709c);
+            if (StringUtils.isNull(dVarArr[0].f20708b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20707b);
+                this.o0.setText(dVarArr[0].f20708b);
             }
             e1(this.m0, 4);
         } else if (length == 2) {
-            this.n0.W(dVarArr[0].f20706a, 30, false);
+            this.n0.W(dVarArr[0].f20707a, 30, false);
             this.n0.setVisibility(0);
             this.q0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20708c);
-            if (StringUtils.isNull(dVarArr[0].f20707b, true)) {
+            Y0(this.n0, dVarArr[0].f20709c);
+            if (StringUtils.isNull(dVarArr[0].f20708b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20707b);
+                this.o0.setText(dVarArr[0].f20708b);
             }
-            this.q0.W(dVarArr[1].f20706a, 30, false);
-            Y0(this.q0, dVarArr[1].f20708c);
-            if (StringUtils.isNull(dVarArr[1].f20707b, true)) {
+            this.q0.W(dVarArr[1].f20707a, 30, false);
+            Y0(this.q0, dVarArr[1].f20709c);
+            if (StringUtils.isNull(dVarArr[1].f20708b, true)) {
                 this.r0.setVisibility(8);
             } else {
                 this.r0.setVisibility(0);
-                this.r0.setText(dVarArr[1].f20707b);
+                this.r0.setText(dVarArr[1].f20708b);
             }
             e1(this.p0, 3);
         } else if (length >= 3) {
-            this.n0.W(dVarArr[0].f20706a, 30, false);
+            this.n0.W(dVarArr[0].f20707a, 30, false);
             this.n0.setVisibility(0);
             this.q0.setVisibility(0);
             this.t0.setVisibility(0);
-            Y0(this.n0, dVarArr[0].f20708c);
-            if (StringUtils.isNull(dVarArr[0].f20707b, true)) {
+            Y0(this.n0, dVarArr[0].f20709c);
+            if (StringUtils.isNull(dVarArr[0].f20708b, true)) {
                 this.o0.setVisibility(8);
             } else {
                 this.o0.setVisibility(0);
-                this.o0.setText(dVarArr[0].f20707b);
+                this.o0.setText(dVarArr[0].f20708b);
             }
-            this.q0.W(dVarArr[1].f20706a, 30, false);
-            Y0(this.q0, dVarArr[1].f20708c);
-            if (StringUtils.isNull(dVarArr[1].f20707b, true)) {
+            this.q0.W(dVarArr[1].f20707a, 30, false);
+            Y0(this.q0, dVarArr[1].f20709c);
+            if (StringUtils.isNull(dVarArr[1].f20708b, true)) {
                 this.r0.setVisibility(8);
             } else {
                 this.r0.setVisibility(0);
-                this.r0.setText(dVarArr[1].f20707b);
+                this.r0.setText(dVarArr[1].f20708b);
             }
-            this.t0.W(dVarArr[2].f20706a, 30, false);
-            Y0(this.t0, dVarArr[2].f20708c);
-            if (StringUtils.isNull(dVarArr[2].f20707b, true)) {
+            this.t0.W(dVarArr[2].f20707a, 30, false);
+            Y0(this.t0, dVarArr[2].f20709c);
+            if (StringUtils.isNull(dVarArr[2].f20708b, true)) {
                 this.u0.setVisibility(8);
             } else {
                 this.u0.setVisibility(0);
-                this.u0.setText(dVarArr[2].f20707b);
+                this.u0.setText(dVarArr[2].f20708b);
             }
         }
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();

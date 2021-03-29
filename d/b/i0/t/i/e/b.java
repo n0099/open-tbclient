@@ -71,7 +71,7 @@ public class b extends d.b.i0.x.b<a2> implements z {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.t, R.drawable.ala_live_card_start_live_selector);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0201);
@@ -81,7 +81,7 @@ public class b extends d.b.i0.x.b<a2> implements z {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
-            this.f62179e = i;
+            this.f62180e = i;
         }
     }
 

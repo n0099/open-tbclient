@@ -12,29 +12,29 @@ import org.json.JSONObject;
 public class AdSettings {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8068c;
+    public static String f8069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f8069d;
+    public static String f8070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8070e;
+    public static String f8071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f8071f;
+    public static String f8072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f8072g;
+    public static String f8073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f8073h;
+    public static String f8074h;
     public static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashSet<String> f8066a = new HashSet<>();
+    public static HashSet<String> f8067a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONArray f8067b = new JSONArray();
+    public static JSONArray f8068b = new JSONArray();
     public static String j = b.HTTPS_PROTOCOL_TYPE.a() + "";
     public static HashSet<String> k = new HashSet<>();
     public static JSONArray l = new JSONArray();
@@ -53,14 +53,14 @@ public class AdSettings {
         
 
         /* renamed from: h  reason: collision with root package name */
-        public int f8081h;
+        public int f8082h;
 
         a(int i2) {
-            this.f8081h = i2;
+            this.f8082h = i2;
         }
 
         public int a() {
-            return this.f8081h;
+            return this.f8082h;
         }
     }
 
@@ -73,14 +73,14 @@ public class AdSettings {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f8086d;
+        public int f8087d;
 
         b(int i) {
-            this.f8086d = i;
+            this.f8087d = i;
         }
 
         public String a() {
-            return this.f8086d + "";
+            return this.f8087d + "";
         }
     }
 
@@ -120,26 +120,26 @@ public class AdSettings {
         
 
         /* renamed from: c  reason: collision with root package name */
-        public int f8098c;
+        public int f8099c;
 
         d(int i) {
-            this.f8098c = i;
+            this.f8099c = i;
         }
 
         public int a() {
-            return this.f8098c;
+            return this.f8099c;
         }
     }
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f8066a.iterator();
-        f8067b = new JSONArray();
+        Iterator<String> it = f8067a.iterator();
+        f8068b = new JSONArray();
         while (it.hasNext()) {
-            f8067b.put(it.next());
+            f8068b.put(it.next());
         }
         try {
-            jSONObject.putOpt("KEY", f8067b);
+            jSONObject.putOpt("KEY", f8068b);
             jSONObject.putOpt("RPT", j);
         } catch (Exception unused) {
         }
@@ -162,22 +162,22 @@ public class AdSettings {
         int i2 = calendar.get(1);
         int i3 = calendar.get(2) + 1;
         int i4 = calendar.get(5);
-        f8069d = i2 + "";
+        f8070d = i2 + "";
         if (i3 > 0 && i3 < 10) {
-            f8069d += "0" + i3;
+            f8070d += "0" + i3;
         } else {
-            f8069d += i3;
+            f8070d += i3;
         }
         if (i4 > 0 && i4 < 10) {
-            f8069d += "0" + i4;
+            f8070d += "0" + i4;
             return;
         }
-        f8069d += i4;
+        f8070d += i4;
     }
 
     @Deprecated
     public static void setCity(String str) {
-        f8070e = str;
+        f8071e = str;
     }
 
     @Deprecated
@@ -185,7 +185,7 @@ public class AdSettings {
         if (aVar == null) {
             return;
         }
-        f8073h = aVar.a() + "";
+        f8074h = aVar.a() + "";
     }
 
     @Deprecated
@@ -197,13 +197,13 @@ public class AdSettings {
 
     @Deprecated
     public static void setJob(String str) {
-        f8072g = str;
+        f8073g = str;
     }
 
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            f8066a.add(str);
+            f8067a.add(str);
         }
     }
 
@@ -220,7 +220,7 @@ public class AdSettings {
         if (dVar == null) {
             return;
         }
-        f8068c = dVar.a() + "";
+        f8069c = dVar.a() + "";
     }
 
     public static void setSupportHttps(boolean z) {
@@ -241,7 +241,7 @@ public class AdSettings {
 
     @Deprecated
     public static void setZip(String str) {
-        f8071f = str;
+        f8072f = str;
     }
 
     @Deprecated
@@ -251,6 +251,6 @@ public class AdSettings {
 
     @Deprecated
     public static void setKey(List<String> list) {
-        f8066a.addAll(list);
+        f8067a.addAll(list);
     }
 }

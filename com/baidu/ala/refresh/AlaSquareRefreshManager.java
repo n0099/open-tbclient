@@ -1,7 +1,7 @@
 package com.baidu.ala.refresh;
 
 import android.os.Handler;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaSquareRefreshManager {
     public long[] mCurRefreshTimes;
     public Handler mHandler;
@@ -88,7 +88,7 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class RefreshRunnable implements Runnable {
         public int mIndex;
         public long mInterval;

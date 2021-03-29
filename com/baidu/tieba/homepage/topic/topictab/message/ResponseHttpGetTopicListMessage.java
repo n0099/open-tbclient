@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public List<n> mTopicDataList;
 
@@ -48,13 +48,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f63366e = R.dimen.tbds1;
-                cVar.f63367f = R.color.CAM_X0203;
+                cVar.f63367e = R.dimen.tbds1;
+                cVar.f63368f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i2++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f63366e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f63367e = 0;
     }
 }

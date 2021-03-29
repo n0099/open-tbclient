@@ -10,74 +10,74 @@ import com.baidu.platform.comjni.jninative.EngineCommonConfig;
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JNIEngineManager f9909a = null;
+    public JNIEngineManager f9910a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9910b = 0;
+    public long f9911b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9911c = 0;
+    public long f9912c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9912d = 0;
+    public long f9913d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.c.a f9913e = null;
+    public com.baidu.platform.comapi.walknavi.c.a f9914e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9914f = 0;
+    public int f9915f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f9915g = new c(this);
+    public Handler f9916g = new c(this);
 
     /* loaded from: classes2.dex */
     public class a extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        public EngineCommonConfig f9917b;
+        public EngineCommonConfig f9918b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f9918c;
+        public long f9919c;
 
         public a(long j, EngineCommonConfig engineCommonConfig) {
-            this.f9918c = j;
-            this.f9917b = engineCommonConfig;
+            this.f9919c = j;
+            this.f9918b = engineCommonConfig;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             long[] jArr = {0};
-            int initBaseManager = b.this.f9909a.initBaseManager(this.f9917b, this.f9918c, jArr);
+            int initBaseManager = b.this.f9910a.initBaseManager(this.f9918b, this.f9919c, jArr);
             Log.d("ret====", "ret：" + initBaseManager);
             if (initBaseManager != 0) {
-                Message.obtain(b.this.f9915g, 1).sendToTarget();
+                Message.obtain(b.this.f9916g, 1).sendToTarget();
                 return;
             }
-            b.this.f9910b = jArr[0];
-            Message.obtain(b.this.f9915g, 16).sendToTarget();
+            b.this.f9911b = jArr[0];
+            Message.obtain(b.this.f9916g, 16).sendToTarget();
         }
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0120b extends Thread {
+    public class C0121b extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f9920b;
+        public Context f9921b;
 
-        public C0120b(Context context) {
-            this.f9920b = context;
+        public C0121b(Context context) {
+            this.f9921b = context;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            if (com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f9920b)) {
-                Message.obtain(b.this.f9915g, 32).sendToTarget();
+            if (com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f9921b)) {
+                Message.obtain(b.this.f9916g, 32).sendToTarget();
                 return;
             }
             com.baidu.platform.comapi.wnplatform.d.a.a("InitResourceThread  error");
             Log.d("InitResourceThread", "InitResourceThread  error");
-            Message.obtain(b.this.f9915g, 1).sendToTarget();
+            Message.obtain(b.this.f9916g, 1).sendToTarget();
         }
     }
 
@@ -89,42 +89,42 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public synchronized void release() {
         d();
-        this.f9909a = null;
-        this.f9911c = 0L;
-        this.f9912d = 0L;
-        this.f9914f = 0;
-        this.f9910b = 0L;
-        this.f9913e = null;
+        this.f9910a = null;
+        this.f9912c = 0L;
+        this.f9913d = 0L;
+        this.f9915f = 0;
+        this.f9911b = 0L;
+        this.f9914e = null;
     }
 
     private synchronized void d() {
-        if (this.f9909a != null) {
-            this.f9909a.uninitBaseManager(this.f9910b);
-            this.f9911c = 0L;
+        if (this.f9910a != null) {
+            this.f9910a.uninitBaseManager(this.f9911b);
+            this.f9912c = 0L;
         }
     }
 
     public long b() {
-        if (this.f9911c == 0) {
-            this.f9911c = a(0);
+        if (this.f9912c == 0) {
+            this.f9912c = a(0);
         }
-        return this.f9911c;
+        return this.f9912c;
     }
 
     public long c() {
-        if (this.f9912d == 0) {
-            this.f9912d = a(1);
+        if (this.f9913d == 0) {
+            this.f9913d = a(1);
         }
-        return this.f9912d;
+        return this.f9913d;
     }
 
     public int a() {
-        return this.f9914f;
+        return this.f9915f;
     }
 
     public void a(Context context, long j, com.baidu.platform.comapi.walknavi.c.a aVar) {
-        this.f9913e = aVar;
-        if (this.f9914f == 48) {
+        this.f9914e = aVar;
+        if (this.f9915f == 48) {
             if (aVar != null) {
                 aVar.a();
                 return;
@@ -137,15 +137,15 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
         engineCommonConfig.mStreetPicHeight = (min * 3) / 5;
         engineCommonConfig.mStreetPicQuality = 80;
         engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().e();
-        this.f9909a = new JNIEngineManager();
+        this.f9910a = new JNIEngineManager();
         new a(j, engineCommonConfig).start();
-        new C0120b(context).start();
+        new C0121b(context).start();
     }
 
     private long a(int i) {
-        JNIEngineManager jNIEngineManager = this.f9909a;
+        JNIEngineManager jNIEngineManager = this.f9910a;
         if (jNIEngineManager != null) {
-            long j = this.f9910b;
+            long j = this.f9911b;
             if (j != 0) {
                 long[] jArr = {0};
                 try {

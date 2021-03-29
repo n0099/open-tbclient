@@ -17,18 +17,18 @@ public class TransferResultAdapter extends PayResultAdapter {
     public String getExpectedTime() {
         TransferRequest transferRequest = (TransferRequest) PayRequestCache.getInstance().getBeanRequestFromCache("request_id_transfer");
         if (transferRequest != null && transferRequest.mTransferType == 1) {
-            PayResultContent payResultContent = this.f25669c;
+            PayResultContent payResultContent = this.f25670c;
             if (payResultContent != null && !TextUtils.isEmpty(payResultContent.expected_time)) {
-                return this.f25669c.expected_time;
+                return this.f25670c.expected_time;
             }
         } else if (transferRequest != null && transferRequest.mTransferType == 2) {
             if (!"3".equals(transferRequest.mPayee_type) && !"2".equals(transferRequest.mPayee_type)) {
-                PayResultContent payResultContent2 = this.f25669c;
+                PayResultContent payResultContent2 = this.f25670c;
                 if (payResultContent2 != null && !TextUtils.isEmpty(payResultContent2.expected_time)) {
-                    return this.f25669c.expected_time;
+                    return this.f25670c.expected_time;
                 }
             } else {
-                return ResUtils.getString(this.f25667a.get(), "ebpay_none_passid_tips");
+                return ResUtils.getString(this.f25668a.get(), "ebpay_none_passid_tips");
             }
         }
         return "";

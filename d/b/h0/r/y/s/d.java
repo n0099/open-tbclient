@@ -14,11 +14,11 @@ import org.json.JSONObject;
 public class d extends n {
 
     /* renamed from: c  reason: collision with root package name */
-    public l f51119c;
+    public l f51120c;
 
     public d(l lVar) {
         super(lVar);
-        this.f51119c = lVar;
+        this.f51120c = lVar;
     }
 
     @Override // d.b.h0.r.y.n
@@ -44,7 +44,7 @@ public class d extends n {
             shareItem.v = Uri.parse(optString3);
         }
         shareItem.t = optString4;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f51119c.f(), shareItem, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f51120c.f(), shareItem, true);
         shareDialogConfig.setIsSupportNightMode(true);
         shareDialogConfig.setIsCopyLink(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

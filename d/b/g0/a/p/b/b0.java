@@ -2,7 +2,7 @@ package d.b.g0.a.p.b;
 
 import android.content.Context;
 import d.b.g0.a.p.c.y0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b0 implements y0 {
     @Override // d.b.g0.a.p.c.y0
     public void a(Context context, d.b.g0.a.i2.u0.b<Boolean> bVar) {

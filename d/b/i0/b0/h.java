@@ -44,16 +44,16 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class h implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f51995e;
+    public NavigationBarCoverTip f51996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f51996f;
+    public ShadowLinearLayout f51997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51997g;
+    public TextView f51998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51998h;
+    public TextView f51999h;
     public TBSpecificationBtn i;
     public d.b.h0.r.f0.a j;
     public long k;
@@ -87,7 +87,7 @@ public class h implements View.OnClickListener {
     public h(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.n = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f51995e = navigationBarCoverTip;
+        this.f51996e = navigationBarCoverTip;
         this.r.setTag(tbPageContext.getUniqueId());
         this.r.getHttpMessageListener().setSelfListener(true);
         this.r.getSocketMessageListener().setSelfListener(true);
@@ -151,7 +151,7 @@ public class h implements View.OnClickListener {
     }
 
     public void i() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f51995e;
+        NavigationBarCoverTip navigationBarCoverTip = this.f51996e;
         if (navigationBarCoverTip != null) {
             navigationBarCoverTip.i();
         }
@@ -204,7 +204,7 @@ public class h implements View.OnClickListener {
         shareItem.I = valueOf;
         shareItem.p = i0;
         shareItem.J = w1;
-        shareItem.f13716f = true;
+        shareItem.f13717f = true;
         shareItem.D = d();
         shareItem.L = e(this.m);
         if (parse != null) {
@@ -225,7 +225,7 @@ public class h implements View.OnClickListener {
     }
 
     public void m(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || this.f51995e == null) {
+        if (postWriteCallBackData == null || this.f51996e == null) {
             return;
         }
         this.k = d.b.b.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
@@ -235,24 +235,24 @@ public class h implements View.OnClickListener {
             return;
         }
         this.q = false;
-        if (this.f51996f == null) {
+        if (this.f51997f == null) {
             ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f51996f = shadowLinearLayout;
-            this.f51997g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f51998h = (TextView) this.f51996f.findViewById(R.id.tb_top_toast_content);
-            this.i = (TBSpecificationBtn) this.f51996f.findViewById(R.id.tb_top_toast_btn);
-            this.f51997g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f51998h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
+            this.f51997f = shadowLinearLayout;
+            this.f51998g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            this.f51999h = (TextView) this.f51997f.findViewById(R.id.tb_top_toast_content);
+            this.i = (TBSpecificationBtn) this.f51997f.findViewById(R.id.tb_top_toast_btn);
+            this.f51998g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
+            this.f51999h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
             this.i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
             this.i.setConfig(new d.b.h0.r.f0.m.a());
         }
-        SkinManager.setViewTextColor(this.f51997g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f51998h, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f51998g, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f51999h, R.color.CAM_X0302);
         this.i.k();
-        this.f51996f.b();
+        this.f51997f.b();
         this.i.setOnClickListener(this);
-        this.f51995e.setBackgroundColor(0);
-        this.f51995e.m(this.n, this.f51996f, 5000);
+        this.f51996e.setBackgroundColor(0);
+        this.f51996e.m(this.n, this.f51997f, 5000);
     }
 
     @Override // android.view.View.OnClickListener
@@ -263,7 +263,7 @@ public class h implements View.OnClickListener {
         this.q = true;
         if (!j.z()) {
             this.o.showToast(R.string.neterror);
-            this.f51995e.e();
+            this.f51996e.e();
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
@@ -275,7 +275,7 @@ public class h implements View.OnClickListener {
         requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i, f2, i2);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         k();
-        this.f51995e.e();
+        this.f51996e.e();
         j();
     }
 }

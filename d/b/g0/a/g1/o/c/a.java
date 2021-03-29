@@ -12,19 +12,19 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.g1.o.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44564a = k.f45050a;
+    public static final boolean f44565a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile ArrayMap<String, e> f44565b;
+    public static volatile ArrayMap<String, e> f44566b;
 
     /* renamed from: d.b.g0.a.g1.o.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0695a implements Runnable {
-        public RunnableC0695a(a aVar) {
+    /* loaded from: classes2.dex */
+    public class RunnableC0696a implements Runnable {
+        public RunnableC0696a(a aVar) {
         }
 
         @Override // java.lang.Runnable
@@ -33,94 +33,94 @@ public class a extends d.b.g0.a.g1.o.c.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements d.b.g0.a.g1.o.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44566a;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44567a;
 
         /* renamed from: d.b.g0.a.g1.o.c.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0696a implements d.b.g0.a.g1.o.b.a {
-            public C0696a() {
+        /* loaded from: classes2.dex */
+        public class C0697a implements d.b.g0.a.g1.o.b.a {
+            public C0697a() {
             }
 
             @Override // d.b.g0.a.g1.o.b.a
             public void a() {
-                if (a.f44564a) {
+                if (a.f44565a) {
                     Log.d("SwanAppUpdateManager", "has scope set");
                 }
-                b.this.f44566a.onCallback(a.g(true));
+                b.this.f44567a.onCallback(a.g(true));
             }
         }
 
         public b(d.b.g0.a.i2.u0.b bVar) {
-            this.f44566a = bVar;
+            this.f44567a = bVar;
         }
 
         @Override // d.b.g0.a.g1.o.b.a
         public void a() {
             Map<String, e> g2 = a.g(true);
             if (g2.size() <= 0) {
-                if (a.f44564a) {
+                if (a.f44565a) {
                     Log.d("SwanAppUpdateManager", "has not scope set，required request from server");
                 }
-                d.b.g0.a.g1.o.a.h().B(new C0696a());
+                d.b.g0.a.g1.o.a.h().B(new C0697a());
                 return;
             }
-            this.f44566a.onCallback(g2);
-            if (a.f44564a) {
+            this.f44567a.onCallback(g2);
+            if (a.f44565a) {
                 Log.d("SwanAppUpdateManager", "callback scope set");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements d.b.g0.a.g1.o.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44568a;
+        public final /* synthetic */ String f44569a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44569b;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44570b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44570c;
+        public final /* synthetic */ String f44571c;
 
         public c(String str, d.b.g0.a.i2.u0.b bVar, String str2) {
-            this.f44568a = str;
-            this.f44569b = bVar;
-            this.f44570c = str2;
+            this.f44569a = str;
+            this.f44570b = bVar;
+            this.f44571c = str2;
         }
 
         @Override // d.b.g0.a.g1.o.b.a
         public void a() {
-            a.j(this.f44568a, this.f44569b, this.f44570c);
+            a.j(this.f44569a, this.f44570b, this.f44571c);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class d implements d.b.g0.a.g1.o.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44571a;
+        public final /* synthetic */ String f44572a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44572b;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44573b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44573c;
+        public final /* synthetic */ String f44574c;
 
         public d(String str, d.b.g0.a.i2.u0.b bVar, String str2) {
-            this.f44571a = str;
-            this.f44572b = bVar;
-            this.f44573c = str2;
+            this.f44572a = str;
+            this.f44573b = bVar;
+            this.f44574c = str2;
         }
 
         @Override // d.b.g0.a.g1.o.b.a
         public void a() {
-            d.b.g0.a.g1.o.d.b.f().d(this.f44571a);
-            this.f44572b.onCallback(a.g(true).get(this.f44573c));
+            d.b.g0.a.g1.o.d.b.f().d(this.f44572a);
+            this.f44573b.onCallback(a.g(true).get(this.f44574c));
         }
     }
 
@@ -141,9 +141,9 @@ public class a extends d.b.g0.a.g1.o.c.b {
     public static Map<String, e> g(boolean z) {
         JSONObject optJSONObject;
         long currentTimeMillis = System.currentTimeMillis();
-        ArrayMap<String, e> arrayMap = f44565b;
+        ArrayMap<String, e> arrayMap = f44566b;
         if (arrayMap != null && z) {
-            if (f44564a) {
+            if (f44565a) {
                 Log.d("SwanAppUpdateManager", "getAccreditListData from cache, size = " + arrayMap.size());
             }
             return arrayMap;
@@ -173,14 +173,14 @@ public class a extends d.b.g0.a.g1.o.c.b {
                     arrayMap2.put(next, e.d(next, optJSONObject));
                 }
             }
-            f44565b = arrayMap2;
-            if (f44564a) {
+            f44566b = arrayMap2;
+            if (f44565a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 StringBuilder sb = new StringBuilder();
                 sb.append("getAccreditListData cost = ");
                 sb.append(currentTimeMillis2 - currentTimeMillis);
                 sb.append(" ; size = ");
-                sb.append(f44565b == null ? 0 : f44565b.size());
+                sb.append(f44566b == null ? 0 : f44566b.size());
                 Log.d("SwanAppUpdateManager", sb.toString());
             }
             d.b.g0.a.c0.c.h("SwanAppUpdateManager", "getAccreditListData - from json");
@@ -192,7 +192,7 @@ public class a extends d.b.g0.a.g1.o.c.b {
     }
 
     public static void h(@NonNull d.b.g0.a.i2.u0.b<Map<String, e>> bVar) {
-        if (f44564a) {
+        if (f44565a) {
             Log.d("SwanAppUpdateManager", "API get scope set");
         }
         d.b.g0.a.g1.o.a.h().z(new b(bVar));
@@ -201,7 +201,7 @@ public class a extends d.b.g0.a.g1.o.c.b {
     public static void i(String str, @NonNull d.b.g0.a.i2.u0.b<e> bVar) {
         String b2 = d.b.g0.a.g1.o.d.b.f().b(str);
         boolean i = d.b.g0.a.j1.m.c.i();
-        if (f44564a) {
+        if (f44565a) {
             Log.d("SwanAppUpdateManager", "API get scope info, scopeId = " + str + " ; isUpdateAsyncAb = " + i);
         }
         if (i) {
@@ -216,13 +216,13 @@ public class a extends d.b.g0.a.g1.o.c.b {
         if (eVar != null) {
             d.b.g0.a.g1.o.d.b.f().d(str2);
             bVar.onCallback(eVar);
-            if (f44564a) {
+            if (f44565a) {
                 Log.d("SwanAppUpdateManager", "callback scope node");
                 return;
             }
             return;
         }
-        if (f44564a) {
+        if (f44565a) {
             Log.d("SwanAppUpdateManager", "has not scope node，required request from server");
         }
         d.b.g0.a.g1.o.a.h().B(new d(str2, bVar, str));
@@ -230,7 +230,7 @@ public class a extends d.b.g0.a.g1.o.c.b {
 
     @Nullable
     public static e k(String str) {
-        if (f44564a) {
+        if (f44565a) {
             Log.d("SwanAppUpdateManager", "getAccreditListDataFromLocalCache, scope = " + str);
         }
         return g(true).get(str);
@@ -238,7 +238,7 @@ public class a extends d.b.g0.a.g1.o.c.b {
 
     public static void l() {
         d.b.g0.a.c0.c.h("SwanAppUpdateManager", "resetCache");
-        f44565b = null;
+        f44566b = null;
     }
 
     @Override // d.b.g0.a.g1.o.c.b
@@ -274,7 +274,7 @@ public class a extends d.b.g0.a.g1.o.c.b {
         y.R().A("node_data_accredit_list", jSONObject2);
         y.R().A("cur_request_id", str);
         if (d.b.g0.a.j1.m.c.i()) {
-            p.k(new RunnableC0695a(this), "updateInfoReload");
+            p.k(new RunnableC0696a(this), "updateInfoReload");
         } else {
             l();
         }

@@ -3,22 +3,22 @@ package com.kwad.sdk.pngencrypt;
 public abstract class ChunkReader implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ChunkReaderMode f36081a;
+    public final ChunkReaderMode f36082a;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.chunk.d f36084d;
+    public final com.kwad.sdk.pngencrypt.chunk.d f36085d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36086f;
+    public boolean f36087f;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36082b = 0;
+    public int f36083b = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36085e = 0;
+    public int f36086e = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public ErrorBehaviour f36083c = ErrorBehaviour.STRICT;
+    public ErrorBehaviour f36084c = ErrorBehaviour.STRICT;
 
     /* loaded from: classes6.dex */
     public enum ChunkReaderMode {
@@ -31,11 +31,11 @@ public abstract class ChunkReader implements f {
         if (chunkReaderMode == null || str.length() != 4 || i < 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk paramenters: " + chunkReaderMode));
         }
-        this.f36081a = chunkReaderMode;
+        this.f36082a = chunkReaderMode;
         com.kwad.sdk.pngencrypt.chunk.d dVar = new com.kwad.sdk.pngencrypt.chunk.d(i, str, chunkReaderMode == ChunkReaderMode.BUFFER);
-        this.f36084d = dVar;
+        this.f36085d = dVar;
         dVar.a(j);
-        this.f36086f = chunkReaderMode != ChunkReaderMode.SKIP;
+        this.f36087f = chunkReaderMode != ChunkReaderMode.SKIP;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -47,50 +47,50 @@ public abstract class ChunkReader implements f {
         if (i2 < 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("negative length??"));
         }
-        if (this.f36082b == 0 && this.f36085e == 0 && this.f36086f) {
-            com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36084d;
-            dVar.a(dVar.f36140b, 0, 4);
+        if (this.f36083b == 0 && this.f36086e == 0 && this.f36087f) {
+            com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36085d;
+            dVar.a(dVar.f36141b, 0, 4);
         }
-        int i4 = this.f36084d.f36139a - this.f36082b;
+        int i4 = this.f36085d.f36140a - this.f36083b;
         if (i4 > i2) {
             i4 = i2;
         }
-        if (i4 > 0 || this.f36085e == 0) {
-            if (this.f36086f && this.f36081a != ChunkReaderMode.BUFFER && i4 > 0) {
-                this.f36084d.a(bArr, i, i4);
+        if (i4 > 0 || this.f36086e == 0) {
+            if (this.f36087f && this.f36082a != ChunkReaderMode.BUFFER && i4 > 0) {
+                this.f36085d.a(bArr, i, i4);
             }
-            ChunkReaderMode chunkReaderMode = this.f36081a;
+            ChunkReaderMode chunkReaderMode = this.f36082a;
             if (chunkReaderMode == ChunkReaderMode.BUFFER) {
-                byte[] bArr2 = this.f36084d.f36142d;
+                byte[] bArr2 = this.f36085d.f36143d;
                 if (bArr2 != bArr && i4 > 0) {
-                    System.arraycopy(bArr, i, bArr2, this.f36082b, i4);
+                    System.arraycopy(bArr, i, bArr2, this.f36083b, i4);
                 }
             } else if (chunkReaderMode == ChunkReaderMode.PROCESS) {
-                a(this.f36082b, bArr, i, i4);
+                a(this.f36083b, bArr, i, i4);
             }
-            this.f36082b += i4;
+            this.f36083b += i4;
             i += i4;
             i2 -= i4;
         }
-        if (this.f36082b == this.f36084d.f36139a) {
-            int i5 = 4 - this.f36085e;
+        if (this.f36083b == this.f36085d.f36140a) {
+            int i5 = 4 - this.f36086e;
             if (i5 <= i2) {
                 i2 = i5;
             }
             if (i2 > 0) {
-                byte[] bArr3 = this.f36084d.f36143e;
+                byte[] bArr3 = this.f36085d.f36144e;
                 if (bArr != bArr3) {
-                    System.arraycopy(bArr, i, bArr3, this.f36085e, i2);
+                    System.arraycopy(bArr, i, bArr3, this.f36086e, i2);
                 }
-                int i6 = this.f36085e + i2;
-                this.f36085e = i6;
+                int i6 = this.f36086e + i2;
+                this.f36086e = i6;
                 if (i6 == 4) {
-                    if (this.f36086f) {
-                        if (this.f36081a == ChunkReaderMode.BUFFER) {
-                            com.kwad.sdk.pngencrypt.chunk.d dVar2 = this.f36084d;
-                            dVar2.a(dVar2.f36142d, 0, dVar2.f36139a);
+                    if (this.f36087f) {
+                        if (this.f36082a == ChunkReaderMode.BUFFER) {
+                            com.kwad.sdk.pngencrypt.chunk.d dVar2 = this.f36085d;
+                            dVar2.a(dVar2.f36143d, 0, dVar2.f36140a);
                         }
-                        this.f36084d.a(this.f36083c == ErrorBehaviour.STRICT);
+                        this.f36085d.a(this.f36084c == ErrorBehaviour.STRICT);
                     }
                     com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "Chunk done");
                     c();
@@ -105,21 +105,21 @@ public abstract class ChunkReader implements f {
     }
 
     public com.kwad.sdk.pngencrypt.chunk.d a() {
-        return this.f36084d;
+        return this.f36085d;
     }
 
     public abstract void a(int i, byte[] bArr, int i2, int i3);
 
     public void a(boolean z) {
-        if (this.f36082b != 0 && z && !this.f36086f) {
+        if (this.f36083b != 0 && z && !this.f36087f) {
             com.kwad.sdk.core.d.a.a(new PngjException("too late!"));
         }
-        this.f36086f = z;
+        this.f36087f = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
     public final boolean b() {
-        return this.f36085e == 4;
+        return this.f36086e == 4;
     }
 
     public abstract void c();
@@ -129,8 +129,8 @@ public abstract class ChunkReader implements f {
             return true;
         }
         if (obj != null && getClass() == obj.getClass()) {
-            com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36084d;
-            com.kwad.sdk.pngencrypt.chunk.d dVar2 = ((ChunkReader) obj).f36084d;
+            com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36085d;
+            com.kwad.sdk.pngencrypt.chunk.d dVar2 = ((ChunkReader) obj).f36085d;
             if (dVar == null) {
                 if (dVar2 != null) {
                     return false;
@@ -144,11 +144,11 @@ public abstract class ChunkReader implements f {
     }
 
     public int hashCode() {
-        com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36084d;
+        com.kwad.sdk.pngencrypt.chunk.d dVar = this.f36085d;
         return 31 + (dVar == null ? 0 : dVar.hashCode());
     }
 
     public String toString() {
-        return this.f36084d.toString();
+        return this.f36085d.toString();
     }
 }

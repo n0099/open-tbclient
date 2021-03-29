@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends b {
     public ViewStub n;
     public ViewStub o;
@@ -77,7 +77,7 @@ public class e extends b {
         if (cVar == null) {
             return;
         }
-        this.p.setText(cVar.f51921a);
+        this.p.setText(cVar.f51922a);
         f(cVar.a());
     }
 

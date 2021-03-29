@@ -33,43 +33,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f64549c;
+    public static Handler f64550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final HandlerThread f64550d;
+    public static final HandlerThread f64551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f64551e;
+    public static volatile boolean f64552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile Map<Long, Message> f64552f;
+    public static volatile Map<Long, Message> f64553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f64553g;
+    public static volatile a f64554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Context f64554h;
+    public static Context f64555h;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicInteger f64555a = new AtomicInteger();
+    public AtomicInteger f64556a = new AtomicInteger();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.s.a.b.d.b f64556b = new b(this);
+    public d.b.s.a.b.d.b f64557b = new b(this);
 
     /* renamed from: d.b.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC1763a implements Runnable {
+    public class RunnableC1764a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f64557e;
+        public final /* synthetic */ Intent f64558e;
 
-        public RunnableC1763a(Intent intent) {
-            this.f64557e = intent;
+        public RunnableC1764a(Intent intent) {
+            this.f64558e = intent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.g(this.f64557e);
+            a.this.g(this.f64558e);
         }
     }
 
@@ -82,10 +82,10 @@ public class a {
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
             if (i != 0) {
-                synchronized (a.f64552f) {
-                    if (a.f64552f != null && a.f64552f.containsKey(Long.valueOf(j3))) {
-                        ((Message) a.f64552f.get(Long.valueOf(j3))).handleMessageResult(a.f64554h, null, i, str);
-                        a.f64552f.remove(Long.valueOf(j3));
+                synchronized (a.f64553f) {
+                    if (a.f64553f != null && a.f64553f.containsKey(Long.valueOf(j3))) {
+                        ((Message) a.f64553f.get(Long.valueOf(j3))).handleMessageResult(a.f64555h, null, i, str);
+                        a.f64553f.remove(Long.valueOf(j3));
                     }
                 }
                 return;
@@ -95,30 +95,30 @@ public class a {
                 int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                 String optString = jSONObject.optString("msg", "");
                 if (j2 == 96) {
-                    NotifyMessageHandler.handleDeliverMessage(a.f64554h.getApplicationContext(), jSONObject);
+                    NotifyMessageHandler.handleDeliverMessage(a.f64555h.getApplicationContext(), jSONObject);
                 } else if (j2 == 196) {
-                    NotifyMessageHandler.handleMcastMessage(a.f64554h.getApplicationContext(), jSONObject);
+                    NotifyMessageHandler.handleMcastMessage(a.f64555h.getApplicationContext(), jSONObject);
                 } else if (j2 == 197) {
-                    NotifyMessageHandler.handleConfigMessage(a.f64554h.getApplicationContext(), jSONObject);
+                    NotifyMessageHandler.handleConfigMessage(a.f64555h.getApplicationContext(), jSONObject);
                 } else if (j2 == 226) {
-                    NotifyMessageHandler.handleMediaNotifyMessage(a.f64554h.getApplicationContext(), jSONObject);
+                    NotifyMessageHandler.handleMediaNotifyMessage(a.f64555h.getApplicationContext(), jSONObject);
                 } else if (j2 == 231) {
-                    NotifyMessageHandler.handleRtcNotifyMessage(a.f64554h, jSONObject);
+                    NotifyMessageHandler.handleRtcNotifyMessage(a.f64555h, jSONObject);
                 } else {
                     LogUtils.d("IMServiceImpl", "key :" + j3 + "response :" + jSONObject.toString());
-                    synchronized (a.f64552f) {
-                        if (a.f64552f != null && a.f64552f.containsKey(Long.valueOf(j3))) {
-                            ((Message) a.f64552f.get(Long.valueOf(j3))).handleMessageResult(a.f64554h, jSONObject, optInt, optString);
-                            a.f64552f.remove(Long.valueOf(j3));
+                    synchronized (a.f64553f) {
+                        if (a.f64553f != null && a.f64553f.containsKey(Long.valueOf(j3))) {
+                            ((Message) a.f64553f.get(Long.valueOf(j3))).handleMessageResult(a.f64555h, jSONObject, optInt, optString);
+                            a.f64553f.remove(Long.valueOf(j3));
                         }
                     }
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMServiceImpl", "handle response e :", e2);
-                synchronized (a.f64552f) {
-                    if (a.f64552f != null && a.f64552f.containsKey(Long.valueOf(j3))) {
-                        ((Message) a.f64552f.get(Long.valueOf(j3))).handleMessageResult(a.f64554h, null, -1, "");
-                        a.f64552f.remove(Long.valueOf(j3));
+                synchronized (a.f64553f) {
+                    if (a.f64553f != null && a.f64553f.containsKey(Long.valueOf(j3))) {
+                        ((Message) a.f64553f.get(Long.valueOf(j3))).handleMessageResult(a.f64555h, null, -1, "");
+                        a.f64553f.remove(Long.valueOf(j3));
                     }
                 }
             }
@@ -127,11 +127,11 @@ public class a {
 
     static {
         HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
-        f64550d = handlerThread;
+        f64551d = handlerThread;
         handlerThread.start();
-        f64549c = new Handler(f64550d.getLooper());
-        f64551e = true;
-        f64552f = new LinkedHashMap();
+        f64550c = new Handler(f64551d.getLooper());
+        f64552e = true;
+        f64553f = new LinkedHashMap();
     }
 
     public a() {
@@ -139,11 +139,11 @@ public class a {
     }
 
     public static void c(Context context) {
-        synchronized (f64552f) {
-            if (f64552f == null) {
+        synchronized (f64553f) {
+            if (f64553f == null) {
                 return;
             }
-            for (Message message : f64552f.values()) {
+            for (Message message : f64553f.values()) {
                 if (message != null) {
                     message.handleMessageResult(context, null, -1, "");
                 }
@@ -152,42 +152,42 @@ public class a {
     }
 
     public static a e(Context context) {
-        if (f64553g == null) {
+        if (f64554g == null) {
             synchronized (a.class) {
-                if (f64553g == null) {
-                    f64554h = context.getApplicationContext();
-                    f64553g = new a();
+                if (f64554g == null) {
+                    f64555h = context.getApplicationContext();
+                    f64554g = new a();
                 }
             }
         }
-        return f64553g;
+        return f64554g;
     }
 
     public void d(Context context, Intent intent) {
         LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
-        TaskManager.getInstance(context).submitForNetWork(new RunnableC1763a(intent));
+        TaskManager.getInstance(context).submitForNetWork(new RunnableC1764a(intent));
     }
 
     public final void f() {
         try {
-            LogUtils.d("IMServiceImpl", "isSmallFlow :" + f64551e);
-            IMManager.init(f64554h.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(f64554h.getApplicationContext()));
-            if (f64551e) {
+            LogUtils.d("IMServiceImpl", "isSmallFlow :" + f64552e);
+            IMManager.init(f64555h.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(f64555h.getApplicationContext()));
+            if (f64552e) {
                 h();
-            } else if (!IMSDK.getInstance(f64554h.getApplicationContext()).init()) {
-                IMConnection.getInstance(f64554h).disconnectedByPeer();
+            } else if (!IMSDK.getInstance(f64555h.getApplicationContext()).init()) {
+                IMConnection.getInstance(f64555h).disconnectedByPeer();
             }
         } catch (Exception unused) {
         }
     }
 
     public void g(@NonNull Intent intent) {
-        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + f64551e);
+        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + f64552e);
         if (intent == null) {
             intent = new Intent();
             LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
         }
-        if (f64551e) {
+        if (f64552e) {
             try {
                 int intExtra = intent.getIntExtra("method", -1);
                 int intExtra2 = intent.getIntExtra("service_id", -1);
@@ -195,20 +195,20 @@ public class a {
                     if (intExtra == 50 || intExtra == 201) {
                         h();
                     }
-                    Message createNewMessage = MessageFactory.getInstance().createNewMessage(f64554h, intExtra, intent);
+                    Message createNewMessage = MessageFactory.getInstance().createNewMessage(f64555h, intExtra, intent);
                     if (createNewMessage != null) {
                         if (intExtra == 50) {
                             boolean z = false;
-                            synchronized (f64552f) {
-                                LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f64552f.keySet());
-                                Iterator<Long> it = f64552f.keySet().iterator();
+                            synchronized (f64553f) {
+                                LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f64553f.keySet());
+                                Iterator<Long> it = f64553f.keySet().iterator();
                                 while (it.hasNext()) {
                                     if (it.next().longValue() % 100 == 50) {
                                         z = true;
                                     }
                                 }
                             }
-                            if (z || LoginManager.getInstance(f64554h.getApplicationContext()).isIMLogined()) {
+                            if (z || LoginManager.getInstance(f64555h.getApplicationContext()).isIMLogined()) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("cur state is ");
                                 sb.append(z ? "logining" : "loggined");
@@ -219,27 +219,27 @@ public class a {
                         }
                         createNewMessage.isSending(true);
                         BLCPRequest bLCPRequest = new BLCPRequest();
-                        bLCPRequest.f6377a = intExtra2;
+                        bLCPRequest.f6378a = intExtra2;
                         long type = createNewMessage.getType();
-                        bLCPRequest.f6378b = type;
+                        bLCPRequest.f6379b = type;
                         if (intExtra2 == 3 && type == 55) {
-                            bLCPRequest.f6378b = 185L;
+                            bLCPRequest.f6379b = 185L;
                         }
-                        bLCPRequest.f6379c = createNewMessage.getBody().getBytes();
-                        bLCPRequest.f6381e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                        long j = (bLCPRequest.f6377a * 1000000000000000L) + bLCPRequest.f6378b;
+                        bLCPRequest.f6380c = createNewMessage.getBody().getBytes();
+                        bLCPRequest.f6382e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        long j = (bLCPRequest.f6378a * 1000000000000000L) + bLCPRequest.f6379b;
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6));
-                        sb2.append(this.f64555a.incrementAndGet());
-                        bLCPRequest.f6380d = j + (Long.valueOf(sb2.toString()).longValue() * 1000);
-                        synchronized (f64552f) {
-                            f64552f.put(Long.valueOf(bLCPRequest.f6380d), createNewMessage);
-                            LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.f6380d + ". msg :" + f64552f.keySet().toString());
+                        sb2.append(this.f64556a.incrementAndGet());
+                        bLCPRequest.f6381d = j + (Long.valueOf(sb2.toString()).longValue() * 1000);
+                        synchronized (f64553f) {
+                            f64553f.put(Long.valueOf(bLCPRequest.f6381d), createNewMessage);
+                            LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.f6381d + ". msg :" + f64553f.keySet().toString());
                         }
                         if (intExtra == 50) {
-                            new IMTrack.RequestBuilder(f64554h.getApplicationContext()).method("send").requestId("2").errorCode(50L).ext("" + bLCPRequest.f6380d).aliasId(501112L).build();
+                            new IMTrack.RequestBuilder(f64555h.getApplicationContext()).method("send").requestId("2").errorCode(50L).ext("" + bLCPRequest.f6381d).aliasId(501112L).build();
                         }
-                        d.b.s.a.b.a.c(bLCPRequest, this.f64556b);
+                        d.b.s.a.b.a.c(bLCPRequest, this.f64557b);
                         return;
                     }
                     return;
@@ -251,16 +251,16 @@ public class a {
             }
         }
         try {
-            if (IMSDK.getInstance(f64554h.getApplicationContext()).handleOnStart(intent)) {
+            if (IMSDK.getInstance(f64555h.getApplicationContext()).handleOnStart(intent)) {
                 return;
             }
-            IMConnection.getInstance(f64554h).disconnectedByPeer();
+            IMConnection.getInstance(f64555h).disconnectedByPeer();
         } catch (Exception e3) {
             LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
             if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
                 IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                 if (removeListener instanceof ILoginListener) {
-                    ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(f64554h));
+                    ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(f64555h));
                 }
             } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                 ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
@@ -278,8 +278,8 @@ public class a {
 
     public final void i(int i, int i2) {
         d.b.s.a.b.d.a aVar = new d.b.s.a.b.d.a();
-        aVar.f6377a = i;
-        aVar.f6378b = i2;
-        d.b.s.a.b.a.c(aVar, this.f64556b);
+        aVar.f6378a = i;
+        aVar.f6379b = i2;
+        d.b.s.a.b.a.c(aVar, this.f64557b);
     }
 }

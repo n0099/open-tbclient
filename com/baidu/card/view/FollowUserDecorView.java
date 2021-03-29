@@ -12,7 +12,7 @@ import com.baidu.tieba.view.FollowUserButton;
 import d.b.h0.r.f0.m.b;
 import d.b.h0.r.f0.q.c;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public BdUniqueId v;
     public c w;

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class BaseProducerContext implements ProducerContext {
     public final Object mCallerContext;
     public final String mId;

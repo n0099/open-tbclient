@@ -18,28 +18,28 @@ public class SplashAd {
     public static final String KEY_LIMIT_REGION_CLICK = "region_click";
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.production.f.a f8150a;
+    public com.baidu.mobads.production.f.a f8151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8151b;
+    public int f8152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8152c;
+    public boolean f8153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile String f8153d;
+    public volatile String f8154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f8154e;
+    public Context f8155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public XAdView f8155f;
+    public XAdView f8156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8156g;
+    public String f8157g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RequestParameters f8157h;
+    public RequestParameters f8158h;
     public ViewGroup i;
     public HashMap<String, String> j;
     public SplashAdListener k;
@@ -68,7 +68,7 @@ public class SplashAd {
     }
 
     public void destroy() {
-        com.baidu.mobads.production.f.a aVar = this.f8150a;
+        com.baidu.mobads.production.f.a aVar = this.f8151a;
         if (aVar != null) {
             aVar.p();
         }
@@ -77,50 +77,50 @@ public class SplashAd {
 
     public HashMap getExtData() {
         HashMap hashMap = new HashMap();
-        HashMap r = this.f8150a.r();
+        HashMap r = this.f8151a.r();
         return r != null ? r : hashMap;
     }
 
     public final void load() {
-        this.f8155f = new XAdView(this.f8154e);
-        this.f8155f.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        com.baidu.mobads.production.f.a aVar = this.f8150a;
+        this.f8156f = new XAdView(this.f8155e);
+        this.f8156f.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        com.baidu.mobads.production.f.a aVar = this.f8151a;
         if (aVar != null) {
             aVar.removeAllListeners();
-            this.f8150a = null;
+            this.f8151a = null;
         }
-        float screenDensity = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.f8154e);
-        Rect screenRect = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenRect(this.f8154e);
+        float screenDensity = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.f8155e);
+        Rect screenRect = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenRect(this.f8155e);
         int width = screenRect.width();
         int height = screenRect.height();
-        RequestParameters requestParameters = this.f8157h;
+        RequestParameters requestParameters = this.f8158h;
         if (requestParameters != null && requestParameters.isCustomSize()) {
-            if (this.f8157h.getWidth() > 0) {
-                width = (int) (this.f8157h.getWidth() * screenDensity);
+            if (this.f8158h.getWidth() > 0) {
+                width = (int) (this.f8158h.getWidth() * screenDensity);
             }
-            if (this.f8157h.getHeight() > 0) {
-                height = (int) (this.f8157h.getHeight() * screenDensity);
+            if (this.f8158h.getHeight() > 0) {
+                height = (int) (this.f8158h.getHeight() * screenDensity);
             }
         }
         int i = height;
         int i2 = width;
         if (i2 >= 200.0f * screenDensity && i >= screenDensity * 150.0f) {
-            com.baidu.mobads.production.f.a aVar2 = new com.baidu.mobads.production.f.a(this.f8154e, this.f8155f, this.f8156g, true, i2, i, this.f8151b, this.mTimeout);
-            this.f8150a = aVar2;
+            com.baidu.mobads.production.f.a aVar2 = new com.baidu.mobads.production.f.a(this.f8155e, this.f8156f, this.f8157g, true, i2, i, this.f8152b, this.mTimeout);
+            this.f8151a = aVar2;
             aVar2.a(this.j);
-            com.baidu.mobads.production.f.a aVar3 = this.f8150a;
+            com.baidu.mobads.production.f.a aVar3 = this.f8151a;
             aVar3.A = true;
-            RequestParameters requestParameters2 = this.f8157h;
+            RequestParameters requestParameters2 = this.f8158h;
             if (requestParameters2 != null) {
                 aVar3.a(requestParameters2);
             }
-            this.f8150a.addEventListener("AdUserClick", this.l);
-            this.f8150a.addEventListener(IXAdEvent.AD_LOADED, this.l);
-            this.f8150a.addEventListener(IXAdEvent.AD_STARTED, this.l);
-            this.f8150a.addEventListener(IXAdEvent.AD_STOPPED, this.l);
-            this.f8150a.addEventListener(IXAdEvent.AD_ERROR, this.l);
-            this.f8152c = true;
-            this.f8150a.request();
+            this.f8151a.addEventListener("AdUserClick", this.l);
+            this.f8151a.addEventListener(IXAdEvent.AD_LOADED, this.l);
+            this.f8151a.addEventListener(IXAdEvent.AD_STARTED, this.l);
+            this.f8151a.addEventListener(IXAdEvent.AD_STOPPED, this.l);
+            this.f8151a.addEventListener(IXAdEvent.AD_ERROR, this.l);
+            this.f8153c = true;
+            this.f8151a.request();
             return;
         }
         XAdSDKFoundationFacade.getInstance().getAdLogger().e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.SHOW_STANDARD_UNFIT, "开屏显示区域太小,宽度至少200dp,高度至少150dp"));
@@ -129,17 +129,17 @@ public class SplashAd {
 
     public final void show() {
         XAdView xAdView;
-        if (this.i != null && (xAdView = this.f8155f) != null && this.f8150a != null) {
+        if (this.i != null && (xAdView = this.f8156f) != null && this.f8151a != null) {
             if (xAdView.getParent() != null) {
-                this.f8150a.removeAllListeners();
+                this.f8151a.removeAllListeners();
                 a("展现失败，请重新load");
                 return;
             }
-            this.f8155f.setListener(new w(this));
-            this.i.addView(this.f8155f);
+            this.f8156f.setListener(new w(this));
+            this.i.addView(this.f8156f);
             return;
         }
-        com.baidu.mobads.production.f.a aVar = this.f8150a;
+        com.baidu.mobads.production.f.a aVar = this.f8151a;
         if (aVar != null) {
             aVar.removeAllListeners();
         }
@@ -175,23 +175,23 @@ public class SplashAd {
     }
 
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, RequestParameters requestParameters, int i, boolean z2, boolean z3) {
-        this.f8151b = 4;
-        this.f8152c = false;
-        this.f8153d = "init";
+        this.f8152b = 4;
+        this.f8153c = false;
+        this.f8154d = "init";
         this.j = new HashMap<>();
         this.k = new s(this);
         this.l = new t(this);
         try {
             j.a().a(context.getApplicationContext());
             j.a().a(1001);
-            this.f8154e = context;
-            this.f8156g = str;
-            this.f8157h = requestParameters;
+            this.f8155e = context;
+            this.f8157g = str;
+            this.f8158h = requestParameters;
             this.mTimeout = i;
             this.i = viewGroup;
             this.j.put("Display_Down_Info", String.valueOf(z3));
-            if (this.f8157h != null) {
-                this.j.put("limitRegionClick", this.f8157h.getExtras().get(KEY_LIMIT_REGION_CLICK));
+            if (this.f8158h != null) {
+                this.j.put("limitRegionClick", this.f8158h.getExtras().get(KEY_LIMIT_REGION_CLICK));
             }
             com.baidu.mobads.constants.a.l = System.currentTimeMillis();
             com.baidu.mobads.constants.a.m = 0L;

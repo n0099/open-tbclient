@@ -3,15 +3,15 @@ package d.b.i0.p0;
 public class h implements d.b.h0.r.w.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57556a;
+    public String f57557a;
 
     public h(String str) {
-        this.f57556a = str;
+        this.f57557a = str;
     }
 
     @Override // d.b.h0.r.w.b.a
     public String a() {
-        return this.f57556a;
+        return this.f57557a;
     }
 
     @Override // d.b.h0.r.w.b.a

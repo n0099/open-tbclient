@@ -6,44 +6,44 @@ import com.baidu.down.manage.DownloadConstants;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54112a;
+    public int f54113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f54113b;
+    public byte[] f54114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54114c;
+    public int f54115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54115d;
+    public int f54116d;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f54117f = new int[256];
+    public int[] f54118f = new int[256];
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f54118g = new int[256];
+    public int[] f54119g = new int[256];
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f54119h = new int[256];
+    public int[] f54120h = new int[256];
     public int[] i = new int[32];
 
     /* renamed from: e  reason: collision with root package name */
-    public int[][] f54116e = new int[256];
+    public int[][] f54117e = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.f54113b = bArr;
-        this.f54114c = i;
-        this.f54115d = i2;
+        this.f54114b = bArr;
+        this.f54115c = i;
+        this.f54116d = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            int[][] iArr = this.f54116e;
+            int[][] iArr = this.f54117e;
             iArr[i3] = new int[4];
             int[] iArr2 = iArr[i3];
             int i4 = (i3 << 12) / 256;
             iArr2[2] = i4;
             iArr2[1] = i4;
             iArr2[0] = i4;
-            this.f54119h[i3] = 256;
-            this.f54118g[i3] = 0;
+            this.f54120h[i3] = 256;
+            this.f54119g[i3] = 0;
         }
     }
 
@@ -64,7 +64,7 @@ public class c {
             int i15 = this.i[i13];
             if (i11 < i10) {
                 i6 = i11 + 1;
-                int[] iArr = this.f54116e[i11];
+                int[] iArr = this.f54117e[i11];
                 try {
                     iArr[0] = iArr[0] - (((iArr[0] - i3) * i15) / 262144);
                     iArr[1] = iArr[1] - (((iArr[1] - i4) * i15) / 262144);
@@ -77,7 +77,7 @@ public class c {
             }
             if (i12 > i8) {
                 int i16 = i12 - 1;
-                int[] iArr2 = this.f54116e[i12];
+                int[] iArr2 = this.f54117e[i12];
                 try {
                     iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i15) / 262144);
                     iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i15) / 262144);
@@ -95,7 +95,7 @@ public class c {
     }
 
     public void b(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.f54116e[i2];
+        int[] iArr = this.f54117e[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - ((i * (iArr[2] - i5)) / 1024);
@@ -105,14 +105,14 @@ public class c {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.f54116e[i][3]] = i;
+            iArr[this.f54117e[i][3]] = i;
         }
         int i2 = 0;
         int i3 = 0;
         while (i2 < 256) {
             int i4 = iArr[i2];
             int i5 = i3 + 1;
-            int[][] iArr2 = this.f54116e;
+            int[][] iArr2 = this.f54117e;
             bArr[i3] = (byte) iArr2[i4][0];
             int i6 = i5 + 1;
             bArr[i5] = (byte) iArr2[i4][1];
@@ -129,7 +129,7 @@ public class c {
         int i6 = -1;
         int i7 = -1;
         for (int i8 = 0; i8 < 256; i8++) {
-            int[] iArr = this.f54116e[i8];
+            int[] iArr = this.f54117e[i8];
             int i9 = iArr[0] - i;
             if (i9 < 0) {
                 i9 = -i9;
@@ -148,20 +148,20 @@ public class c {
                 i6 = i8;
                 i4 = i13;
             }
-            int i14 = i13 - (this.f54118g[i8] >> 12);
+            int i14 = i13 - (this.f54119g[i8] >> 12);
             if (i14 < i5) {
                 i7 = i8;
                 i5 = i14;
             }
-            int[] iArr2 = this.f54119h;
+            int[] iArr2 = this.f54120h;
             int i15 = iArr2[i8] >> 10;
             iArr2[i8] = iArr2[i8] - i15;
-            int[] iArr3 = this.f54118g;
+            int[] iArr3 = this.f54119g;
             iArr3[i8] = iArr3[i8] + (i15 << 10);
         }
-        int[] iArr4 = this.f54119h;
+        int[] iArr4 = this.f54120h;
         iArr4[i6] = iArr4[i6] + 64;
-        int[] iArr5 = this.f54118g;
+        int[] iArr5 = this.f54119g;
         iArr5[i6] = iArr5[i6] - 65536;
         return i7;
     }
@@ -171,18 +171,18 @@ public class c {
         int i2 = 0;
         int i3 = 0;
         while (i < 256) {
-            int[] iArr = this.f54116e[i];
+            int[] iArr = this.f54117e[i];
             int i4 = iArr[1];
             int i5 = i + 1;
             int i6 = i;
             for (int i7 = i5; i7 < 256; i7++) {
-                int[] iArr2 = this.f54116e[i7];
+                int[] iArr2 = this.f54117e[i7];
                 if (iArr2[1] < i4) {
                     i4 = iArr2[1];
                     i6 = i7;
                 }
             }
-            int[] iArr3 = this.f54116e[i6];
+            int[] iArr3 = this.f54117e[i6];
             if (i != i6) {
                 int i8 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -198,40 +198,40 @@ public class c {
                 iArr[3] = i11;
             }
             if (i4 != i2) {
-                this.f54117f[i2] = (i3 + i) >> 1;
+                this.f54118f[i2] = (i3 + i) >> 1;
                 while (true) {
                     i2++;
                     if (i2 >= i4) {
                         break;
                     }
-                    this.f54117f[i2] = i;
+                    this.f54118f[i2] = i;
                 }
                 i3 = i;
                 i2 = i4;
             }
             i = i5;
         }
-        this.f54117f[i2] = (i3 + 255) >> 1;
+        this.f54118f[i2] = (i3 + 255) >> 1;
         for (int i12 = i2 + 1; i12 < 256; i12++) {
-            this.f54117f[i12] = 255;
+            this.f54118f[i12] = 255;
         }
     }
 
     public void f() {
         int i;
-        if (this.f54114c < 1509) {
-            this.f54115d = 1;
+        if (this.f54115c < 1509) {
+            this.f54116d = 1;
         }
-        int i2 = this.f54115d;
-        this.f54112a = ((i2 - 1) / 3) + 30;
-        byte[] bArr = this.f54113b;
-        int i3 = this.f54114c;
+        int i2 = this.f54116d;
+        this.f54113a = ((i2 - 1) / 3) + 30;
+        byte[] bArr = this.f54114b;
+        int i3 = this.f54115c;
         int i4 = i3 / (i2 * 3);
         int i5 = i4 / 100;
         for (int i6 = 0; i6 < 32; i6++) {
             this.i[i6] = 1024 * (((1024 - (i6 * i6)) * 256) / 1024);
         }
-        int i7 = this.f54114c;
+        int i7 = this.f54115c;
         if (i7 < 1509) {
             i = 3;
         } else if (i7 % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
@@ -259,7 +259,7 @@ public class c {
             }
             int i18 = i13 + i;
             if (i18 >= i3) {
-                i18 -= this.f54114c;
+                i18 -= this.f54115c;
             }
             i13 = i18;
             i9 = i17 + 1;
@@ -267,7 +267,7 @@ public class c {
                 i8 = 1;
             }
             if (i9 % i8 == 0) {
-                i12 -= i12 / this.f54112a;
+                i12 -= i12 / this.f54113a;
                 i10 -= i10 / 30;
                 int i19 = i10 >> 6;
                 i11 = i19 <= 1 ? 0 : i19;
@@ -280,7 +280,7 @@ public class c {
     }
 
     public int g(int i, int i2, int i3) {
-        int i4 = this.f54117f[i2];
+        int i4 = this.f54118f[i2];
         int i5 = i4 - 1;
         int i6 = 1000;
         int i7 = -1;
@@ -289,7 +289,7 @@ public class c {
                 return i7;
             }
             if (i4 < 256) {
-                int[] iArr = this.f54116e[i4];
+                int[] iArr = this.f54117e[i4];
                 int i8 = iArr[1] - i2;
                 if (i8 >= i6) {
                     i4 = 256;
@@ -317,7 +317,7 @@ public class c {
                 }
             }
             if (i5 >= 0) {
-                int[] iArr2 = this.f54116e[i5];
+                int[] iArr2 = this.f54117e[i5];
                 int i13 = i2 - iArr2[1];
                 if (i13 >= i6) {
                     i5 = -1;
@@ -356,7 +356,7 @@ public class c {
 
     public void i() {
         for (int i = 0; i < 256; i++) {
-            int[][] iArr = this.f54116e;
+            int[][] iArr = this.f54117e;
             int[] iArr2 = iArr[i];
             iArr2[0] = iArr2[0] >> 4;
             int[] iArr3 = iArr[i];

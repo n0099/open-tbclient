@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaStringHelper {
     public static String formatLowercasekDou(long j) {
         if (j < 100) {
@@ -18,9 +18,7 @@ public class AlaStringHelper {
         }
         DecimalFormat decimalFormat = new DecimalFormat("0.0k");
         decimalFormat.setRoundingMode(RoundingMode.FLOOR);
-        double d2 = j;
-        Double.isNaN(d2);
-        return decimalFormat.format(d2 / 1000.0d);
+        return decimalFormat.format(j / 1000.0d);
     }
 
     public static String formatTosepara(long j) {
@@ -30,9 +28,7 @@ public class AlaStringHelper {
     public static String formatkDou(long j) {
         DecimalFormat decimalFormat = new DecimalFormat("0.0K");
         decimalFormat.setRoundingMode(RoundingMode.FLOOR);
-        double d2 = j;
-        Double.isNaN(d2);
-        return decimalFormat.format(d2 / 1000.0d);
+        return decimalFormat.format(j / 1000.0d);
     }
 
     public static String getCountDownTime(Long l) {
@@ -112,21 +108,22 @@ public class AlaStringHelper {
         }
         if (j >= 100000) {
             return String.valueOf(j / 10000) + "w";
-        } else if (j <= 10000) {
-            if (j == 10000) {
+        }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i <= 0) {
+            if (i == 0) {
                 return "1w";
             }
             if (j < 0) {
                 return "--";
             }
             return "" + j;
-        } else {
-            String format = String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
-            if (StringUtils.isNull(format) || !format.endsWith(".0w") || format.indexOf(".0w") <= 0 || format.indexOf(".0w") >= format.length()) {
-                return format;
-            }
-            return format.substring(0, format.indexOf(".0w")) + "w";
         }
+        String format = String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
+        if (StringUtils.isNull(format) || !format.endsWith(".0w") || format.indexOf(".0w") <= 0 || format.indexOf(".0w") >= format.length()) {
+            return format;
+        }
+        return format.substring(0, format.indexOf(".0w")) + "w";
     }
 
     public static String numFormatOver10Wan(long j) {
@@ -145,17 +142,18 @@ public class AlaStringHelper {
         }
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + "w";
-        } else if (j > 10000) {
-            return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
-        } else {
-            if (j == 10000) {
-                return "1w";
-            }
-            if (j < 0) {
-                return "--";
-            }
-            return "" + j;
         }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i > 0) {
+            return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
+        }
+        if (i == 0) {
+            return "1w";
+        }
+        if (j < 0) {
+            return "--";
+        }
+        return "" + j;
     }
 
     public static String numFormatOverWanNaForAudienceNum(long j) {
@@ -164,16 +162,17 @@ public class AlaStringHelper {
         }
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
-        } else if (j > 10000) {
+        }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i > 0) {
             return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan));
+        }
+        if (i == 0) {
+            return "1" + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+        } else if (j < 0) {
+            return "--";
         } else {
-            if (j == 10000) {
-                return "1" + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
-            } else if (j < 0) {
-                return "--";
-            } else {
-                return "" + j;
-            }
+            return "" + j;
         }
     }
 

@@ -19,25 +19,25 @@ import java.util.HashSet;
 public class c {
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f52249g;
+    public static c f52250g;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<HashSet<String>> f52252c;
+    public SparseArray<HashSet<String>> f52253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C1135c f52253d;
+    public C1136c f52254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f52254e = new a(this, Looper.getMainLooper());
+    public Handler f52255e = new a(this, Looper.getMainLooper());
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f52255f = new b(2005016);
+    public CustomMessageListener f52256f = new b(2005016);
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52251b = d.b.h0.r.d0.b.i().j("card_show_statistic_max_count", 200);
+    public int f52252b = d.b.h0.r.d0.b.i().j("card_show_statistic_max_count", 200);
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.i0.b3.b f52250a = new d.b.i0.b3.b();
+    public final d.b.i0.b3.b f52251a = new d.b.i0.b3.b();
 
     /* loaded from: classes5.dex */
     public class a extends Handler {
@@ -47,18 +47,18 @@ public class c {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            C1135c c1135c;
+            C1136c c1136c;
             super.handleMessage(message);
             if (message.what != 5) {
                 return;
             }
             Object obj = message.obj;
-            if (!(obj instanceof C1135c) || (c1135c = (C1135c) obj) == null) {
+            if (!(obj instanceof C1136c) || (c1136c = (C1136c) obj) == null) {
                 return;
             }
-            c1135c.f52260d = false;
-            c1135c.f52257a = false;
-            c1135c.f52258b = 0;
+            c1136c.f52261d = false;
+            c1136c.f52258a = false;
+            c1136c.f52259b = 0;
         }
     }
 
@@ -74,30 +74,30 @@ public class c {
             if (customResponsedMessage == null) {
                 return;
             }
-            if (c.this.f52252c != null) {
-                c.this.f52252c.clear();
+            if (c.this.f52253c != null) {
+                c.this.f52253c.clear();
             }
-            c.this.f52250a.g();
+            c.this.f52251a.g();
         }
     }
 
     public c() {
-        MessageManager.getInstance().registerListener(this.f52255f);
+        MessageManager.getInstance().registerListener(this.f52256f);
     }
 
     public static c g() {
-        if (f52249g == null) {
+        if (f52250g == null) {
             synchronized (c.class) {
-                if (f52249g == null) {
-                    f52249g = new c();
+                if (f52250g == null) {
+                    f52250g = new c();
                 }
             }
         }
-        return f52249g;
+        return f52250g;
     }
 
     public void c(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
-        this.f52250a.d(bdUniqueId, true);
+        this.f52251a.d(bdUniqueId, true);
         TiebaStatic.log(statisticItem);
     }
 
@@ -106,74 +106,74 @@ public class c {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (!this.f52250a.c(bdUniqueId)) {
+        if (!this.f52251a.c(bdUniqueId)) {
             BdLog.e("error, bdUniqueId not register");
             return;
         }
         if (TextUtils.isEmpty(str)) {
             BdLog.e("id is null, statistic key is=" + statisticItem.getKey());
         }
-        if (this.f52252c == null) {
-            this.f52252c = new SparseArray<>();
+        if (this.f52253c == null) {
+            this.f52253c = new SparseArray<>();
         }
-        HashSet<String> hashSet = this.f52252c.get(bdUniqueId.getId());
+        HashSet<String> hashSet = this.f52253c.get(bdUniqueId.getId());
         if (hashSet == null) {
             hashSet = new HashSet<>();
-            this.f52252c.put(bdUniqueId.getId(), hashSet);
+            this.f52253c.put(bdUniqueId.getId(), hashSet);
         }
         String str2 = statisticItem.getKey() + "_" + str;
         if (hashSet.contains(str2) || e()) {
             return;
         }
         hashSet.add(str2);
-        this.f52250a.a(bdUniqueId, statisticItem);
+        this.f52251a.a(bdUniqueId, statisticItem);
         if (BdLog.isDebugMode()) {
             BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     public final boolean e() {
-        if (this.f52253d == null) {
-            this.f52253d = new C1135c(this, null);
+        if (this.f52254d == null) {
+            this.f52254d = new C1136c(this, null);
         }
-        if (this.f52253d.f52260d) {
+        if (this.f52254d.f52261d) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        C1135c c1135c = this.f52253d;
-        if (c1135c.f52257a) {
-            int i = c1135c.f52258b + 1;
-            c1135c.f52258b = i;
-            if (currentTimeMillis - c1135c.f52259c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (i >= this.f52251b) {
-                    c1135c.f52260d = true;
-                    f(c1135c);
+        C1136c c1136c = this.f52254d;
+        if (c1136c.f52258a) {
+            int i = c1136c.f52259b + 1;
+            c1136c.f52259b = i;
+            if (currentTimeMillis - c1136c.f52260c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                if (i >= this.f52252b) {
+                    c1136c.f52261d = true;
+                    f(c1136c);
                     return true;
                 }
             } else {
-                c1135c.f52257a = false;
-                c1135c.f52258b = 0;
+                c1136c.f52258a = false;
+                c1136c.f52259b = 0;
             }
         } else {
-            c1135c.f52257a = true;
-            c1135c.f52259c = currentTimeMillis;
+            c1136c.f52258a = true;
+            c1136c.f52260c = currentTimeMillis;
         }
         return false;
     }
 
-    public final void f(C1135c c1135c) {
-        Message obtainMessage = this.f52254e.obtainMessage();
+    public final void f(C1136c c1136c) {
+        Message obtainMessage = this.f52255e.obtainMessage();
         obtainMessage.what = 5;
-        obtainMessage.obj = c1135c;
-        this.f52254e.removeMessages(5);
-        this.f52254e.sendMessageDelayed(obtainMessage, 300000L);
+        obtainMessage.obj = c1136c;
+        this.f52255e.removeMessages(5);
+        this.f52255e.sendMessageDelayed(obtainMessage, 300000L);
     }
 
     public void h(BdUniqueId bdUniqueId, boolean z) {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.f52250a.d(bdUniqueId, z);
+        this.f52251a.d(bdUniqueId, z);
     }
 
     public void i(BdUniqueId bdUniqueId) {
@@ -181,11 +181,11 @@ public class c {
         if (bdUniqueId == null) {
             return;
         }
-        this.f52250a.f(bdUniqueId);
+        this.f52251a.f(bdUniqueId);
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        SparseArray<HashSet<String>> sparseArray = this.f52252c;
+        SparseArray<HashSet<String>> sparseArray = this.f52253c;
         if (sparseArray != null) {
             sparseArray.remove(bdUniqueId.getId());
         }
@@ -196,34 +196,34 @@ public class c {
         if (bdUniqueId == null) {
             return;
         }
-        this.f52250a.h(bdUniqueId);
+        this.f52251a.h(bdUniqueId);
         j(bdUniqueId);
     }
 
     /* renamed from: d.b.i0.b3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1135c {
+    public class C1136c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f52257a;
+        public boolean f52258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52258b;
+        public int f52259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f52259c;
+        public long f52260c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f52260d;
+        public boolean f52261d;
 
-        public C1135c(c cVar) {
-            this.f52257a = false;
-            this.f52258b = 0;
-            this.f52259c = 0L;
-            this.f52260d = false;
+        public C1136c(c cVar) {
+            this.f52258a = false;
+            this.f52259b = 0;
+            this.f52260c = 0L;
+            this.f52261d = false;
         }
 
-        public /* synthetic */ C1135c(c cVar, a aVar) {
+        public /* synthetic */ C1136c(c cVar, a aVar) {
             this(cVar);
         }
     }

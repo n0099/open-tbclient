@@ -10,29 +10,29 @@ import java.util.concurrent.CopyOnWriteArraySet;
 public abstract class a extends ValueAnimator {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<ValueAnimator.AnimatorUpdateListener> f41437e = new CopyOnWriteArraySet();
+    public final Set<ValueAnimator.AnimatorUpdateListener> f41438e = new CopyOnWriteArraySet();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<Animator.AnimatorListener> f41438f = new CopyOnWriteArraySet();
+    public final Set<Animator.AnimatorListener> f41439f = new CopyOnWriteArraySet();
 
     @Override // android.animation.Animator
     public void addListener(Animator.AnimatorListener animatorListener) {
-        this.f41438f.add(animatorListener);
+        this.f41439f.add(animatorListener);
     }
 
     @Override // android.animation.ValueAnimator
     public void addUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.f41437e.add(animatorUpdateListener);
+        this.f41438e.add(animatorUpdateListener);
     }
 
     public void b() {
-        for (Animator.AnimatorListener animatorListener : this.f41438f) {
+        for (Animator.AnimatorListener animatorListener : this.f41439f) {
             animatorListener.onAnimationCancel(this);
         }
     }
 
     public void c(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.f41438f) {
+        for (Animator.AnimatorListener animatorListener : this.f41439f) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationEnd(this, z);
             } else {
@@ -42,13 +42,13 @@ public abstract class a extends ValueAnimator {
     }
 
     public void d() {
-        for (Animator.AnimatorListener animatorListener : this.f41438f) {
+        for (Animator.AnimatorListener animatorListener : this.f41439f) {
             animatorListener.onAnimationRepeat(this);
         }
     }
 
     public void e(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.f41438f) {
+        for (Animator.AnimatorListener animatorListener : this.f41439f) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationStart(this, z);
             } else {
@@ -58,7 +58,7 @@ public abstract class a extends ValueAnimator {
     }
 
     public void f() {
-        for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.f41437e) {
+        for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.f41438e) {
             animatorUpdateListener.onAnimationUpdate(this);
         }
     }
@@ -70,22 +70,22 @@ public abstract class a extends ValueAnimator {
 
     @Override // android.animation.Animator
     public void removeAllListeners() {
-        this.f41438f.clear();
+        this.f41439f.clear();
     }
 
     @Override // android.animation.ValueAnimator
     public void removeAllUpdateListeners() {
-        this.f41437e.clear();
+        this.f41438e.clear();
     }
 
     @Override // android.animation.Animator
     public void removeListener(Animator.AnimatorListener animatorListener) {
-        this.f41438f.remove(animatorListener);
+        this.f41439f.remove(animatorListener);
     }
 
     @Override // android.animation.ValueAnimator
     public void removeUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.f41437e.remove(animatorUpdateListener);
+        this.f41438e.remove(animatorUpdateListener);
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator

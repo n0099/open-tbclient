@@ -17,18 +17,18 @@ import d.b.g0.a.y0.e.b;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends m {
-    public static final boolean x = d.b.g0.a.k.f45050a;
+    public static final boolean x = d.b.g0.a.k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f45739f;
+    public final String f45740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f45740g;
+    public final boolean f45741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SwanAppConfigData f45741h;
+    public SwanAppConfigData f45742h;
     public d.b.g0.g.z.a.a i;
     public d.b.g0.a.a2.c j;
     public d.b.g0.a.a2.f.c k;
@@ -52,13 +52,13 @@ public class e extends m {
         boolean z = false;
         this.w = false;
         str = str == null ? "" : str;
-        this.f45739f = str;
-        z = (!TextUtils.isEmpty(str) || TextUtils.equals(this.f45739f, "swan_id_unknown")) ? true : true;
-        this.f45740g = z;
+        this.f45740f = str;
+        z = (!TextUtils.isEmpty(str) || TextUtils.equals(this.f45740f, "swan_id_unknown")) ? true : true;
+        this.f45741g = z;
         if (z) {
             d.b.g0.a.s1.a.a aVar = new d.b.g0.a.s1.a.a();
             this.p = aVar;
-            aVar.e(this.f45739f);
+            aVar.e(this.f45740f);
         }
     }
 
@@ -97,14 +97,14 @@ public class e extends m {
     }
 
     public SwanAppConfigData D() {
-        return this.f45741h;
+        return this.f45742h;
     }
 
     public String E(String str) {
         SwanAppConfigData.i iVar;
         HashMap<String, String> hashMap;
-        SwanAppConfigData swanAppConfigData = this.f45741h;
-        if (swanAppConfigData == null || (iVar = swanAppConfigData.f12614c) == null || (hashMap = iVar.f12636a) == null) {
+        SwanAppConfigData swanAppConfigData = this.f45742h;
+        if (swanAppConfigData == null || (iVar = swanAppConfigData.f12615c) == null || (hashMap = iVar.f12637a) == null) {
             return null;
         }
         return hashMap.get(str);
@@ -112,7 +112,7 @@ public class e extends m {
 
     public final Bundle F() {
         Bundle bundle = new Bundle();
-        bundle.putString("mAppId", this.f45739f);
+        bundle.putString("mAppId", this.f45740f);
         return bundle;
     }
 
@@ -166,15 +166,15 @@ public class e extends m {
 
     public String P(String str) {
         SwanAppConfigData.h hVar;
-        SwanAppConfigData swanAppConfigData = this.f45741h;
-        if (swanAppConfigData == null || (hVar = swanAppConfigData.f12613b) == null || hVar.f12634c == null) {
+        SwanAppConfigData swanAppConfigData = this.f45742h;
+        if (swanAppConfigData == null || (hVar = swanAppConfigData.f12614b) == null || hVar.f12635c == null) {
             return null;
         }
-        return this.f45741h.f12613b.f12634c.get(d.b.g0.a.t1.k.p0.j.b(str));
+        return this.f45742h.f12614b.f12635c.get(d.b.g0.a.t1.k.p0.j.b(str));
     }
 
     public String Q(String str) {
-        SwanAppConfigData swanAppConfigData = this.f45741h;
+        SwanAppConfigData swanAppConfigData = this.f45742h;
         return swanAppConfigData != null ? swanAppConfigData.g(str) : "";
     }
 
@@ -256,20 +256,20 @@ public class e extends m {
 
     public boolean c0(String str) {
         SwanAppConfigData swanAppConfigData;
-        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45741h) == null) {
+        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45742h) == null) {
             return false;
         }
         return swanAppConfigData.n(str);
     }
 
     public boolean d() {
-        return this.f45740g && this.u.U() && h() > -1;
+        return this.f45741g && this.u.U() && h() > -1;
     }
 
     public boolean d0(String str) {
         SwanAppConfigData swanAppConfigData;
         SwanAppConfigData.a aVar;
-        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45741h) == null || (aVar = swanAppConfigData.f12612a) == null) {
+        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45742h) == null || (aVar = swanAppConfigData.f12613a) == null) {
             return false;
         }
         return aVar.c(str);
@@ -293,13 +293,13 @@ public class e extends m {
         SwanAppConfigData swanAppConfigData;
         SwanAppConfigData.h hVar;
         HashMap<String, Boolean> hashMap;
-        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45741h) == null || (hVar = swanAppConfigData.f12613b) == null || (hashMap = hVar.f12633b) == null || !hashMap.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45742h) == null || (hVar = swanAppConfigData.f12614b) == null || (hashMap = hVar.f12634b) == null || !hashMap.containsKey(str)) {
             return false;
         }
         if (x) {
             Log.i("SwanApp", "内存中查询分包是否存在信息");
         }
-        return this.f45741h.f12613b.f12633b.get(str).booleanValue();
+        return this.f45742h.f12614b.f12634b.get(str).booleanValue();
     }
 
     public final String g(int i) {
@@ -324,12 +324,12 @@ public class e extends m {
 
     @Override // d.b.g0.a.r1.m, d.b.g0.a.r1.h
     public String getAppId() {
-        return this.f45739f;
+        return this.f45740f;
     }
 
     @Override // d.b.g0.a.r1.m, d.b.g0.a.r1.h
     public int h() {
-        if (this.f45740g) {
+        if (this.f45741g) {
             return J().F();
         }
         return -1;
@@ -339,7 +339,7 @@ public class e extends m {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return d.b.g0.l.i.a.h().m(this.f45739f, W(), str);
+        return d.b.g0.l.i.a.h().m(this.f45740f, W(), str);
     }
 
     public boolean i0() {
@@ -360,7 +360,7 @@ public class e extends m {
 
     public String k0(String... strArr) {
         if (x) {
-            Log.d("SwanApp", "——> release client Id " + this.f45739f);
+            Log.d("SwanApp", "——> release client Id " + this.f45740f);
         }
         SwanAppActivity n = n();
         if (n != null && !n.isDestroyed() && !n.isFinishing() && n.hasActivedFrame()) {
@@ -371,7 +371,7 @@ public class e extends m {
         if (gVar != null) {
             gVar.g();
         }
-        d.b.g0.p.d.g(d.b.g0.a.a2.b.h(this.f45739f));
+        d.b.g0.p.d.g(d.b.g0.a.a2.b.h(this.f45740f));
         d.b.g0.a.b1.c.c cVar = this.q;
         if (cVar != null) {
             cVar.D();
@@ -388,7 +388,7 @@ public class e extends m {
         this.l = null;
         this.o = null;
         this.w = false;
-        return this.f45739f;
+        return this.f45740f;
     }
 
     @Override // d.b.g0.a.r1.m, d.b.g0.a.r1.h
@@ -424,7 +424,7 @@ public class e extends m {
         if (z) {
             r("event_on_app_occupied");
         }
-        if (this.f45740g && !this.u.U() && !this.u.T()) {
+        if (this.f45741g && !this.u.U() && !this.u.T()) {
             UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("swan_app_maintain_start");
             ubcFlowEvent3.a(true);
             o.A(ubcFlowEvent3);
@@ -449,7 +449,7 @@ public class e extends m {
     }
 
     public void o0(SwanAppConfigData swanAppConfigData) {
-        this.f45741h = swanAppConfigData;
+        this.f45742h = swanAppConfigData;
     }
 
     public void p0(d.b.g0.g.z.a.a aVar) {
@@ -488,13 +488,13 @@ public class e extends m {
     public void s0(String str, boolean z) {
         SwanAppConfigData swanAppConfigData;
         SwanAppConfigData.h hVar;
-        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45741h) == null || (hVar = swanAppConfigData.f12613b) == null || hVar.f12633b == null) {
+        if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f45742h) == null || (hVar = swanAppConfigData.f12614b) == null || hVar.f12634b == null) {
             return;
         }
         if (x) {
             Log.i("SwanApp", "更新内存缓存信息: " + str + ": " + z);
         }
-        this.f45741h.f12613b.f12633b.put(str, Boolean.valueOf(z));
+        this.f45742h.f12614b.f12634b.put(str, Boolean.valueOf(z));
     }
 
     @Override // d.b.g0.a.r1.m, d.b.g0.a.r1.h
@@ -510,7 +510,7 @@ public class e extends m {
 
     @Override // d.b.g0.a.r1.m, d.b.g0.a.r1.h
     public boolean x() {
-        return this.f45740g;
+        return this.f45741g;
     }
 
     public d.b.g0.a.m.b z() {

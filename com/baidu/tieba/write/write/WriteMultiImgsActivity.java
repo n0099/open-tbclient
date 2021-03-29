@@ -116,7 +116,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (jVar != null) {
             jVar.h(i);
         }
-        this.mControler.f61823c.notifyDataSetChanged();
+        this.mControler.f61824c.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -151,11 +151,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onSaveInstanceState(Bundle bundle) {
         MultiImagePagerAdapter multiImagePagerAdapter;
         k kVar = this.mControler;
-        if (kVar != null && (multiImagePagerAdapter = kVar.f61823c) != null) {
+        if (kVar != null && (multiImagePagerAdapter = kVar.f61824c) != null) {
             bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
             bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
             bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-            this.mControler.f61823c.g(true);
+            this.mControler.f61824c.g(true);
             if (this.mControler.w() != null) {
                 bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
             }

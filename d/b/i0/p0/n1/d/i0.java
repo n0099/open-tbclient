@@ -20,10 +20,10 @@ public class i0 extends d.b.i0.p0.k<d.b.i0.c3.q, FrsVideoActivityViewHolder> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.c3.q f57995e;
+        public final /* synthetic */ d.b.i0.c3.q f57996e;
 
         public a(d.b.i0.c3.q qVar) {
-            this.f57995e = qVar;
+            this.f57996e = qVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -31,11 +31,11 @@ public class i0 extends d.b.i0.p0.k<d.b.i0.c3.q, FrsVideoActivityViewHolder> {
             TiebaStatic.log(new StatisticItem("c12587").param("fid", i0.this.w));
             d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
             i.v("frs_video_activity_tip" + i0.this.w, System.currentTimeMillis());
-            d.b.i0.c3.q qVar = this.f57995e;
-            if (qVar == null || StringUtils.isNull(qVar.f53573f)) {
+            d.b.i0.c3.q qVar = this.f57996e;
+            if (qVar == null || StringUtils.isNull(qVar.f53574f)) {
                 return;
             }
-            d.b.h0.l.a.k(i0.this.f42357e, this.f57995e.f53573f);
+            d.b.h0.l.a.k(i0.this.f42358e, this.f57996e.f53574f);
         }
     }
 
@@ -62,14 +62,14 @@ public class i0 extends d.b.i0.p0.k<d.b.i0.c3.q, FrsVideoActivityViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: w0 */
     public FrsVideoActivityViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
-        SkinManager.setViewTextColor(frsVideoActivityViewHolder.f16219a, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(frsVideoActivityViewHolder.f16221c, R.color.CAM_X0301);
-        SkinManager.setImageResource(frsVideoActivityViewHolder.f16220b, R.drawable.icon_news_list_prompt);
-        SkinManager.setImageResource(frsVideoActivityViewHolder.f16222d, R.drawable.icon_index_category_arrow_r);
-        SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f16223e, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f16224f, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(frsVideoActivityViewHolder.f16220a, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(frsVideoActivityViewHolder.f16222c, R.color.CAM_X0301);
+        SkinManager.setImageResource(frsVideoActivityViewHolder.f16221b, R.drawable.icon_news_list_prompt);
+        SkinManager.setImageResource(frsVideoActivityViewHolder.f16223d, R.drawable.icon_index_category_arrow_r);
+        SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f16224e, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f16225f, R.color.CAM_X0204);
         SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
         return frsVideoActivityViewHolder;
     }
@@ -82,12 +82,12 @@ public class i0 extends d.b.i0.p0.k<d.b.i0.c3.q, FrsVideoActivityViewHolder> {
             return null;
         }
         view.setOnClickListener(new a(qVar));
-        frsVideoActivityViewHolder.f16219a.setText(qVar != null ? qVar.f53572e : "");
+        frsVideoActivityViewHolder.f16220a.setText(qVar != null ? qVar.f53573e : "");
         d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
         if (v0(i2.k("frs_video_activity_tip" + this.w, 0L))) {
-            frsVideoActivityViewHolder.f16220b.setVisibility(0);
+            frsVideoActivityViewHolder.f16221b.setVisibility(0);
         } else {
-            frsVideoActivityViewHolder.f16220b.setVisibility(8);
+            frsVideoActivityViewHolder.f16221b.setVisibility(8);
         }
         return frsVideoActivityViewHolder.a();
     }

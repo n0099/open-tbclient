@@ -16,19 +16,19 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import d.b.b.e.p.j;
 import d.b.b.j.e.n;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.z0.j.a.a f17376e;
+    public d.b.i0.z0.j.a.a f17377e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.z0.j.a.c.a f17377f;
+    public d.b.i0.z0.j.a.c.a f17378f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f17378g;
+    public d.b.b.c.g.a f17379g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -56,14 +56,14 @@ public class TopicDetailModel extends BdBaseModel {
             if (j2 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                 j2 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
             }
-            if (j2 == 0 || TopicDetailModel.this.f17377f == null || TopicDetailModel.this.f17377f.f63307e == null || TopicDetailModel.this.f17377f.f63307e.f63315e == null || TopicDetailModel.this.f17377f.f63307e.f63315e.f63353b != j2) {
+            if (j2 == 0 || TopicDetailModel.this.f17378f == null || TopicDetailModel.this.f17378f.f63308e == null || TopicDetailModel.this.f17378f.f63308e.f63316e == null || TopicDetailModel.this.f17378f.f63308e.f63316e.f63354b != j2) {
                 return;
             }
-            TopicDetailModel.this.f17377f.f63307e.f63315e.f63354c = j;
+            TopicDetailModel.this.f17378f.f63308e.f63316e.f63355c = j;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends d.b.b.c.g.a {
         public b(int i, int i2) {
             super(i, i2);
@@ -71,20 +71,20 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f17376e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f17377e == null) {
                 return;
             }
             if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                TopicDetailModel.this.f17377f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f17378f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                TopicDetailModel.this.f17377f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f17378f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            TopicDetailModel.this.f17376e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f17377f);
+            TopicDetailModel.this.f17377e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f17378f);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends d.b.b.c.g.a {
         public c(int i, int i2) {
             super(i, i2);
@@ -92,7 +92,7 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f17376e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f17377e == null) {
                 return;
             }
             List<n> list = null;
@@ -109,16 +109,16 @@ public class TopicDetailModel extends BdBaseModel {
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            TopicDetailModel.this.f17376e.netThreadCallback(responsedMessage.getError(), z, list);
+            TopicDetailModel.this.f17377e.netThreadCallback(responsedMessage.getError(), z, list);
         }
     }
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f17378g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        this.f17379g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
         registerListener(new b(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629));
         registerListener(new c(CmdConfigHttp.CMD_TOPIC_THREAD, 309631));
-        registerListener(this.f17378g);
+        registerListener(this.f17379g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -134,7 +134,7 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void x(long j) {
         if (!j.A()) {
-            d.b.i0.z0.j.a.a aVar = this.f17376e;
+            d.b.i0.z0.j.a.a aVar = this.f17377e;
             if (aVar != null) {
                 aVar.netCallback(-1, null);
                 return;
@@ -150,7 +150,7 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void y(long j, long j2, long j3) {
         if (!j.A()) {
-            d.b.i0.z0.j.a.a aVar = this.f17376e;
+            d.b.i0.z0.j.a.a aVar = this.f17377e;
             if (aVar != null) {
                 aVar.netThreadCallback(-1, false, null);
                 return;
@@ -167,6 +167,6 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     public void z(d.b.i0.z0.j.a.a aVar) {
-        this.f17376e = aVar;
+        this.f17377e = aVar;
     }
 }

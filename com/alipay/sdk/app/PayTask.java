@@ -214,10 +214,10 @@ public class PayTask {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x00de, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x00dc, code lost:
         if (r9.startsWith("http://" + r16.f1791e) != false) goto L90;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x017d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0179, code lost:
         if (r9.startsWith("http://" + r16.f1792f) != false) goto L81;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x003f, code lost:
@@ -556,7 +556,7 @@ public class PayTask {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0092, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x008e, code lost:
         r0 = r6.c();
         r10 = com.alipay.sdk.app.j.a(java.lang.Integer.valueOf(r0[1]).intValue(), r0[0], com.alipay.sdk.util.n.e(r0[2]));
      */

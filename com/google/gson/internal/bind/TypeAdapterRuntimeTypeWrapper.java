@@ -12,18 +12,18 @@ import java.lang.reflect.TypeVariable;
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Gson f30989a;
+    public final Gson f30990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TypeAdapter<T> f30990b;
+    public final TypeAdapter<T> f30991b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Type f30991c;
+    public final Type f30992c;
 
     public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.f30989a = gson;
-        this.f30990b = typeAdapter;
-        this.f30991c = type;
+        this.f30990a = gson;
+        this.f30991b = typeAdapter;
+        this.f30992c = type;
     }
 
     public final Type a(Type type, Object obj) {
@@ -32,17 +32,17 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
 
     @Override // com.google.gson.TypeAdapter
     public T read(a aVar) throws IOException {
-        return this.f30990b.read(aVar);
+        return this.f30991b.read(aVar);
     }
 
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, T t) throws IOException {
-        TypeAdapter<T> typeAdapter = this.f30990b;
-        Type a2 = a(this.f30991c, t);
-        if (a2 != this.f30991c) {
-            typeAdapter = this.f30989a.getAdapter(d.g.c.c.a.b(a2));
+        TypeAdapter<T> typeAdapter = this.f30991b;
+        Type a2 = a(this.f30992c, t);
+        if (a2 != this.f30992c) {
+            typeAdapter = this.f30990a.getAdapter(d.g.c.c.a.b(a2));
             if (typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) {
-                TypeAdapter<T> typeAdapter2 = this.f30990b;
+                TypeAdapter<T> typeAdapter2 = this.f30991b;
                 if (!(typeAdapter2 instanceof ReflectiveTypeAdapterFactory.Adapter)) {
                     typeAdapter = typeAdapter2;
                 }

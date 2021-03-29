@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<i0> f16866e;
+    public ArrayList<i0> f16867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16867f;
+    public b f16868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f16868g;
+    public d.b.b.c.g.a f16869g;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.b.c.g.a {
@@ -35,15 +35,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 int i = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    CategoryGiftListModel.this.f16866e = categoryGiftListHttpResponseMessage.getGiftList();
+                    CategoryGiftListModel.this.f16867e = categoryGiftListHttpResponseMessage.getGiftList();
                     i = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    CategoryGiftListModel.this.f16866e = categoryGiftListSocketResponseMessage.getGiftList();
+                    CategoryGiftListModel.this.f16867e = categoryGiftListSocketResponseMessage.getGiftList();
                     i = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (CategoryGiftListModel.this.f16867f != null) {
-                    CategoryGiftListModel.this.f16867f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i, CategoryGiftListModel.this.f16866e);
+                if (CategoryGiftListModel.this.f16868f != null) {
+                    CategoryGiftListModel.this.f16868f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i, CategoryGiftListModel.this.f16867e);
                 }
             }
         }
@@ -56,7 +56,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     public CategoryGiftListModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16868g = new a(CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f16869g = new a(CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
@@ -72,7 +72,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public final void registerListener() {
-        registerListener(this.f16868g);
+        registerListener(this.f16869g);
     }
 
     public final void registerTask() {
@@ -87,6 +87,6 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void w(b bVar) {
-        this.f16867f = bVar;
+        this.f16868f = bVar;
     }
 }

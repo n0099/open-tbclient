@@ -3,7 +3,7 @@ package org.webrtc;
 import com.baidu.android.common.others.lang.StringUtil;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public interface VideoEncoder {
 
     /* loaded from: classes7.dex */
@@ -58,7 +58,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class ScalingSettings {
         public static final ScalingSettings OFF = new ScalingSettings();
         @Nullable

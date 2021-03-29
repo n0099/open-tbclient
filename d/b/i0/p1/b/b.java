@@ -19,7 +19,7 @@ import java.net.URLEncoder;
 public class b implements AccountManagerService {
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountManagerService.AccountStatusChangedListener f58787a;
+    public AccountManagerService.AccountStatusChangedListener f58788a;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -30,10 +30,10 @@ public class b implements AccountManagerService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || b.this.f58787a == null) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || b.this.f58788a == null) {
                 return;
             }
-            b.this.f58787a.onAccountStatusChanged(false);
+            b.this.f58788a.onAccountStatusChanged(false);
         }
     }
 
@@ -43,7 +43,7 @@ public class b implements AccountManagerService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
     public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        this.f58787a = accountStatusChangedListener;
+        this.f58788a = accountStatusChangedListener;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
@@ -107,6 +107,6 @@ public class b implements AccountManagerService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
     public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        this.f58787a = null;
+        this.f58788a = null;
     }
 }

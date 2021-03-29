@@ -4,21 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Hottopic.TopicInfo;
 import tbclient.VideoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements d.b.b.j.e.n {
     public static final BdUniqueId s = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52110e;
+    public String f52111e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52111f;
+    public String f52112f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52112g;
+    public String f52113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f52113h;
+    public long f52114h;
     public String i;
     public String j;
     public String k;
@@ -34,10 +34,10 @@ public class f implements d.b.b.j.e.n {
         if (topicInfo == null) {
             return;
         }
-        this.f52110e = String.valueOf(topicInfo.topic_id);
-        this.f52111f = topicInfo.topic_name;
-        this.f52112g = topicInfo.desc;
-        this.f52113h = topicInfo.total_post_num.longValue();
+        this.f52111e = String.valueOf(topicInfo.topic_id);
+        this.f52112f = topicInfo.topic_name;
+        this.f52113g = topicInfo.desc;
+        this.f52114h = topicInfo.total_post_num.longValue();
         this.i = topicInfo.head_photo_url;
         this.j = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
         this.k = topicInfo.share_pic;

@@ -1,5 +1,5 @@
 package d.b.j.d.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface i {
     int a(int i);
 

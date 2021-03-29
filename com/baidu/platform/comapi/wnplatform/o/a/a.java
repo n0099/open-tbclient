@@ -36,28 +36,28 @@ import org.xmlpull.v1.XmlPullParserException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10335a = VersionInfo.getApiVersion();
+    public static final String f10336a = VersionInfo.getApiVersion();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10336b = "BaiduBikeNavi_Resource_v" + f10335a + ".jar";
+    public static final String f10337b = "BaiduBikeNavi_Resource_v" + f10336a + ".jar";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10337c = "BaiduBikeNavi_Resource_v" + f10335a + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+    public static final String f10338c = "BaiduBikeNavi_Resource_v" + f10336a + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f10338d;
+    public static String f10339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f10339e;
+    public static String f10340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AssetManager f10340f;
+    public static AssetManager f10341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Resources f10341g;
+    public static Resources f10342g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Resources f10342h;
+    public static Resources f10343h;
     public static Resources.Theme i;
     public static Resources.Theme j;
     public static Field k;
@@ -68,11 +68,11 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.wnplatform.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0131a implements FilenameFilter {
+    public static class C0132a implements FilenameFilter {
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
             StringBuilder sb = new StringBuilder();
-            sb.append(a.f10335a);
+            sb.append(a.f10336a);
             sb.append(".jar");
             return str.startsWith("BaiduBikeNavi_Resource_v") && !str.endsWith(sb.toString());
         }
@@ -82,11 +82,11 @@ public class a {
         StringBuilder sb = new StringBuilder();
         sb.append(Environment.getExternalStorageDirectory());
         sb.append("/");
-        f10338d = sb.toString();
-        f10339e = f10338d + f10336b;
-        f10340f = null;
-        f10341g = null;
-        f10342h = null;
+        f10339d = sb.toString();
+        f10340e = f10339d + f10337b;
+        f10341f = null;
+        f10342g = null;
+        f10343h = null;
         i = null;
         j = null;
         k = null;
@@ -101,7 +101,7 @@ public class a {
             return false;
         }
         o = context;
-        if (com.baidu.platform.comapi.bikenavi.a.a.f9824a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f9825a) {
             try {
                 boolean b2 = b(context);
                 Log.d("tryret", "tryret" + b2);
@@ -115,14 +115,14 @@ public class a {
     }
 
     public static Resources b() {
-        if (f10341g == null) {
-            f10341g = o.getResources();
+        if (f10342g == null) {
+            f10342g = o.getResources();
         }
-        return f10341g;
+        return f10342g;
     }
 
     public static void d() {
-        File[] listFiles = new File(f10338d).listFiles(new C0131a());
+        File[] listFiles = new File(f10339d).listFiles(new C0132a());
         if (listFiles == null || listFiles.length <= 0) {
             return;
         }
@@ -133,10 +133,10 @@ public class a {
 
     public static Resources.Theme e() {
         if (i == null) {
-            if (f10340f == null) {
-                f10340f = b(f10339e);
+            if (f10341f == null) {
+                f10341f = b(f10340e);
             }
-            i = f10341g.newTheme();
+            i = f10342g.newTheme();
             i.applyStyle(a("com.android.internal.R.style.Theme"), true);
         }
         return i;
@@ -194,8 +194,8 @@ public class a {
     }
 
     public static void d(Context context) {
-        f10338d = context.getFilesDir().getAbsolutePath();
-        f10339e = f10338d + "/" + f10336b;
+        f10339d = context.getFilesDir().getAbsolutePath();
+        f10340e = f10339d + "/" + f10337b;
     }
 
     public static void a() {
@@ -232,7 +232,7 @@ public class a {
         if (!n) {
             return LayoutInflater.from(activity).inflate(b().getXml(i2), viewGroup);
         }
-        XmlResourceParser xml = f10341g.getXml(i2);
+        XmlResourceParser xml = f10342g.getXml(i2);
         View view = null;
         try {
             boolean a2 = a(activity);
@@ -250,11 +250,11 @@ public class a {
     }
 
     public static void b(Activity activity) {
-        if (f10342h == null) {
+        if (f10343h == null) {
             return;
         }
         try {
-            m.set(activity.getBaseContext(), f10342h);
+            m.set(activity.getBaseContext(), f10343h);
             k.set(activity, j);
         } finally {
             try {
@@ -266,8 +266,8 @@ public class a {
     public static boolean c(Context context) {
         d(context);
         try {
-            InputStream open = context.getResources().getAssets().open(f10337c);
-            File file = new File(f10339e);
+            InputStream open = context.getResources().getAssets().open(f10338c);
+            File file = new File(f10340e);
             long length = file.length();
             int available = open.available();
             if (file.exists() && length == available) {
@@ -275,7 +275,7 @@ public class a {
                 return true;
             }
             d();
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(f10338d, f10336b));
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(f10339d, f10337b));
             byte[] bArr = new byte[1024];
             while (true) {
                 int read = open.read(bArr);
@@ -295,9 +295,9 @@ public class a {
     public static boolean b(Context context) {
         if (c(context)) {
             n = true;
-            AssetManager b2 = b(f10339e);
-            f10340f = b2;
-            f10341g = a(context, b2);
+            AssetManager b2 = b(f10340e);
+            f10341f = b2;
+            f10342g = a(context, b2);
             return true;
         }
         return false;
@@ -334,7 +334,7 @@ public class a {
     }
 
     public static boolean a(Activity activity) {
-        if (f10342h != null) {
+        if (f10343h != null) {
             return false;
         }
         try {
@@ -348,9 +348,9 @@ public class a {
                 i = e();
             }
             Context baseContext = activity.getBaseContext();
-            f10342h = (Resources) m.get(baseContext);
+            f10343h = (Resources) m.get(baseContext);
             j = (Resources.Theme) k.get(activity);
-            m.set(baseContext, f10341g);
+            m.set(baseContext, f10342g);
             k.set(activity, i);
             return true;
         } catch (Throwable th) {

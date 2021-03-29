@@ -14,13 +14,13 @@ import java.util.TreeMap;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f48098c = k.f45050a;
+    public static final boolean f48099c = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f48099a;
+    public Map<String, Object> f48100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Integer> f48100b;
+    public Map<String, Integer> f48101b;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -104,7 +104,7 @@ public class c {
 
     public static c F(JsObject jsObject) {
         if (jsObject == null) {
-            if (f48098c) {
+            if (f48099c) {
                 Log.e("JSObjectMap", "parseFromJSObject object is null.");
                 return null;
             }
@@ -155,7 +155,7 @@ public class c {
 
     public JsObject[] A(String str, JsObject[] jsObjectArr) {
         d d2 = a.d(f().get(str));
-        return d2 != null ? d2.f48102b.toObjectArray(d2.f48101a) : jsObjectArr;
+        return d2 != null ? d2.f48103b.toObjectArray(d2.f48102a) : jsObjectArr;
     }
 
     public String B(String str) {
@@ -173,7 +173,7 @@ public class c {
 
     public String[] E(String str, String[] strArr) {
         d d2 = a.d(f().get(str));
-        return d2 != null ? d2.f48102b.toStringArray(d2.f48101a) : strArr;
+        return d2 != null ? d2.f48103b.toStringArray(d2.f48102a) : strArr;
     }
 
     public void G(String str, Object obj) {
@@ -210,16 +210,16 @@ public class c {
     public JsObject[] e(String str) throws JSTypeMismatchException {
         d d2 = a.d(f().get(str));
         if (d2 != null) {
-            return d2.f48102b.toObjectArray(d2.f48101a);
+            return d2.f48103b.toObjectArray(d2.f48102a);
         }
         throw a.j(this, str, 6);
     }
 
     public final Map<String, Object> f() {
-        if (this.f48099a == null) {
-            this.f48099a = new TreeMap();
+        if (this.f48100a == null) {
+            this.f48100a = new TreeMap();
         }
-        return this.f48099a;
+        return this.f48100a;
     }
 
     public String g(String str) throws JSTypeMismatchException {
@@ -233,7 +233,7 @@ public class c {
     public String[] h(String str) throws JSTypeMismatchException {
         d d2 = a.d(f().get(str));
         if (d2 != null) {
-            return d2.f48102b.toStringArray(d2.f48101a);
+            return d2.f48103b.toStringArray(d2.f48102a);
         }
         throw a.j(this, str, 6);
     }
@@ -247,10 +247,10 @@ public class c {
     }
 
     public final Map<String, Integer> j() {
-        if (this.f48100b == null) {
-            this.f48100b = new TreeMap();
+        if (this.f48101b == null) {
+            this.f48101b = new TreeMap();
         }
-        return this.f48100b;
+        return this.f48101b;
     }
 
     public Set<String> k() {
@@ -281,7 +281,7 @@ public class c {
 
     public double[] q(String str, double[] dArr) {
         d d2 = a.d(f().get(str));
-        return d2 != null ? d2.f48102b.toDoubleArray(d2.f48101a) : dArr;
+        return d2 != null ? d2.f48103b.toDoubleArray(d2.f48102a) : dArr;
     }
 
     public int r(String str) {

@@ -22,25 +22,25 @@ public class i implements h {
     public long C;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60155a;
+    public int f60156a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60157c;
+    public String f60158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60158d;
+    public String f60159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60159e;
+    public String f60160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60160f;
+    public String f60161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60161g;
+    public String f60162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60162h;
+    public int f60163h;
     public int i;
     public long o;
     public long p;
@@ -57,7 +57,7 @@ public class i implements h {
     public boolean E = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60156b = UUID.randomUUID().toString();
+    public String f60157b = UUID.randomUUID().toString();
     public Map<String, Long> k = new HashMap();
     public List<d.b.i0.k2.b> j = new ArrayList();
     public long l = 0;
@@ -107,11 +107,11 @@ public class i implements h {
     }
 
     public i(String str, String str2, String str3) {
-        this.f60155a = 0;
-        this.f60155a = 0;
-        this.f60157c = str;
-        this.f60158d = str2;
-        this.f60161g = str3;
+        this.f60156a = 0;
+        this.f60156a = 0;
+        this.f60158c = str;
+        this.f60159d = str2;
+        this.f60162g = str3;
         B();
     }
 
@@ -135,14 +135,14 @@ public class i implements h {
 
     @Override // d.b.i0.s1.h
     public void a() {
-        int i = this.f60155a;
+        int i = this.f60156a;
         if (i == 4 || i == 3) {
             if (this.m != 0) {
                 this.n += System.currentTimeMillis() - this.m;
                 this.m = 0L;
             }
             this.j.add(new d.b.i0.k2.a(203));
-            this.f60155a = 5;
+            this.f60156a = 5;
         }
     }
 
@@ -150,7 +150,7 @@ public class i implements h {
     public void b(boolean z) {
         this.r = z;
         this.j.add(new d.b.i0.k2.a(1));
-        this.f60155a = 1;
+        this.f60156a = 1;
     }
 
     @Override // d.b.i0.s1.h
@@ -168,15 +168,15 @@ public class i implements h {
 
     @Override // d.b.i0.s1.h
     public void e(int i) {
-        int i2 = this.f60155a;
+        int i2 = this.f60156a;
         if (i2 == 5) {
             z();
         } else if (i2 != 3) {
         } else {
-            this.f60162h = i;
+            this.f60163h = i;
             this.m = System.currentTimeMillis();
             this.j.add(new d.b.i0.k2.a(200));
-            this.f60155a = 4;
+            this.f60156a = 4;
         }
     }
 
@@ -189,78 +189,78 @@ public class i implements h {
 
     @Override // d.b.i0.s1.h
     public boolean g(String str, String str2) {
-        int i = this.f60155a;
+        int i = this.f60156a;
         if (i == 8 || i == 7 || i == 6 || i == -1 || i == 1) {
             return false;
         }
-        this.f60159e = VideoPlatformStatic.a(str);
-        this.f60160f = str2;
+        this.f60160e = VideoPlatformStatic.a(str);
+        this.f60161f = str2;
         y();
         this.j.add(new d.b.i0.k2.a(207));
-        this.f60155a = 7;
+        this.f60156a = 7;
         A();
         return true;
     }
 
     @Override // d.b.i0.s1.h
     public String h(String str, String str2) {
-        int i = this.f60155a;
+        int i = this.f60156a;
         if (i != 8 && i != 7 && i != 6 && i != -1) {
-            this.f60159e = VideoPlatformStatic.a(str);
-            this.f60160f = str2;
+            this.f60160e = VideoPlatformStatic.a(str);
+            this.f60161f = str2;
             y();
             this.k.put("stallDuration", Long.valueOf(this.p));
             this.j.add(new d.b.i0.k2.a(206));
-            this.f60155a = 6;
+            this.f60156a = 6;
             A();
-            return this.f60156b;
+            return this.f60157b;
         }
-        return this.f60156b;
+        return this.f60157b;
     }
 
     @Override // d.b.i0.s1.h
     public void i(int i) {
-        int i2 = this.f60155a;
+        int i2 = this.f60156a;
         if (i2 == 4 || i2 == 5 || i2 == 7 || i2 == 8) {
             return;
         }
-        this.f60162h = i;
+        this.f60163h = i;
         this.s = true;
         this.t = true;
         this.k.put("loadingTime", 1L);
         this.l = 0L;
         this.j.add(new d.b.i0.k2.a(103));
-        this.f60155a = 3;
+        this.f60156a = 3;
     }
 
     @Override // d.b.i0.s1.h
     public void j() {
         this.l = System.currentTimeMillis();
         this.j.add(new d.b.i0.k2.a(3));
-        this.f60155a = 0;
+        this.f60156a = 0;
     }
 
     @Override // d.b.i0.s1.h
     public void k(String str, String str2) {
-        int i = this.f60155a;
+        int i = this.f60156a;
         if (i == 8 || i == 7 || i == 6 || i == -1) {
             return;
         }
-        this.f60159e = VideoPlatformStatic.a(str);
-        this.f60160f = str2;
+        this.f60160e = VideoPlatformStatic.a(str);
+        this.f60161f = str2;
         y();
         this.j.add(new d.b.i0.k2.a(205));
-        this.f60155a = 8;
+        this.f60156a = 8;
         A();
     }
 
     @Override // d.b.i0.s1.h
     public void l(int i) {
-        int i2 = this.f60155a;
+        int i2 = this.f60156a;
         if (i2 == 4 || i2 == 5 || i2 == 7 || i2 == 8) {
             return;
         }
-        this.f60162h = i;
+        this.f60163h = i;
         this.s = true;
         long currentTimeMillis = System.currentTimeMillis() - this.l;
         if (currentTimeMillis > 86400000) {
@@ -269,7 +269,7 @@ public class i implements h {
         this.k.put("loadingTime", Long.valueOf(currentTimeMillis));
         this.l = 0L;
         this.j.add(new d.b.i0.k2.a(102));
-        this.f60155a = 3;
+        this.f60156a = 3;
     }
 
     public final JSONObject s() {
@@ -291,14 +291,14 @@ public class i implements h {
     public final JSONObject t() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("uuid", this.f60156b);
-            if (!StringUtils.isNull(this.f60161g)) {
-                jSONObject.put("parentUuid", this.f60161g);
+            jSONObject.put("uuid", this.f60157b);
+            if (!StringUtils.isNull(this.f60162g)) {
+                jSONObject.put("parentUuid", this.f60162g);
             }
-            jSONObject.put("tid", this.f60157c);
-            jSONObject.put("videoUrl", this.f60158d);
-            jSONObject.put("source", this.f60159e);
-            jSONObject.put("playerType", VideoPlatformStatic.b(this.f60162h));
+            jSONObject.put("tid", this.f60158c);
+            jSONObject.put("videoUrl", this.f60159d);
+            jSONObject.put("source", this.f60160e);
+            jSONObject.put("playerType", VideoPlatformStatic.b(this.f60163h));
             jSONObject.put("urlType", this.i);
             jSONObject.put("sub_error", this.z);
             jSONObject.put("current_pid", Process.myPid());
@@ -404,7 +404,7 @@ public class i implements h {
             a2.c(objArr);
             a2.c("hit_cache", Boolean.valueOf(this.r));
             a2.c("direct_play", Integer.valueOf(this.t ? 1 : 0));
-            a2.b("page_code", this.f60160f);
+            a2.b("page_code", this.f60161f);
             a2.b("nettype", d.b.b.e.n.d.a(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("video", a2);
         }
@@ -428,11 +428,11 @@ public class i implements h {
     }
 
     public void z() {
-        if (this.f60155a != 5) {
+        if (this.f60156a != 5) {
             return;
         }
         this.m = System.currentTimeMillis();
         this.j.add(new d.b.i0.k2.a(204));
-        this.f60155a = 4;
+        this.f60156a = 4;
     }
 }

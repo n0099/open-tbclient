@@ -45,7 +45,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> implements d.b.b.e.q.f {
     public d.b.h0.w.b mActionListener;
     public d.b.i0.d1.f.f mAdapter;
@@ -80,7 +80,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
     public TextView personal_lbs_title_time;
     public View personalchat_lbs_title;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DraftContent extends OrmObject implements Serializable {
         public String input_draft;
         public String input_status;
@@ -102,7 +102,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.w.b {
         public a() {
         }
@@ -112,9 +112,9 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f51523a;
+            int i = aVar.f51524a;
             if (i == 24) {
-                Object obj = aVar.f51525c;
+                Object obj = aVar.f51526c;
                 if (obj == null || !(obj instanceof t)) {
                     return;
                 }
@@ -133,7 +133,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
                     AbsMsglistView.this.mContext.openImageView();
                 }
             } else {
-                Object obj2 = aVar.f51525c;
+                Object obj2 = aVar.f51526c;
                 if (obj2 == null || !(obj2 instanceof String)) {
                     return;
                 }
@@ -142,7 +142,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         public b() {
         }
@@ -159,14 +159,14 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements AbsListView.OnScrollListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f17742e;
+        public final /* synthetic */ MsglistActivity f17743e;
 
         public c(MsglistActivity msglistActivity) {
-            this.f17742e = msglistActivity;
+            this.f17743e = msglistActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -175,7 +175,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            l.w(this.f17742e.getActivity(), this.f17742e.getActivity().getCurrentFocus());
+            l.w(this.f17743e.getActivity(), this.f17743e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();
@@ -183,19 +183,19 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f17744e;
+        public final /* synthetic */ MsglistActivity f17745e;
 
         public d(MsglistActivity msglistActivity) {
-            this.f17744e = msglistActivity;
+            this.f17745e = msglistActivity;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            l.w(this.f17744e.getActivity(), this.f17744e.getActivity().getCurrentFocus());
+            l.w(this.f17745e.getActivity(), this.f17745e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();
@@ -205,7 +205,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements AbsListView.RecyclerListener {
         public e(AbsMsglistView absMsglistView) {
         }
@@ -224,7 +224,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a(VoiceData$VoiceModel voiceData$VoiceModel);
 

@@ -29,7 +29,7 @@ import java.util.Map;
 public class b extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public c f48890b = new c();
+    public c f48891b = new c();
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0029 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -41,8 +41,8 @@ public class b extends a {
         ?? r0 = 0;
         try {
             try {
-                d.b.g0.l.i.c.b<T> a2 = this.f48890b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(cls), null, str, strArr, str2);
+                d.b.g0.l.i.c.b<T> a2 = this.f48891b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         List<T> e2 = a2.e(cursor);
@@ -50,7 +50,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -84,25 +84,25 @@ public class b extends a {
     public boolean b(d.b.g0.l.k.f fVar, List<g> list, d dVar, d.b.g0.l.k.b bVar, PMSAppInfo pMSAppInfo) {
         ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
         if (fVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f48890b.b(d.b.g0.l.k.f.class)).withValues(this.f48890b.a(d.b.g0.l.k.f.class).c(fVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f48891b.b(d.b.g0.l.k.f.class)).withValues(this.f48891b.a(d.b.g0.l.k.f.class).c(fVar)).build());
         }
         if (list != null && !list.isEmpty()) {
-            d.b.g0.l.i.c.b a2 = this.f48890b.a(g.class);
+            d.b.g0.l.i.c.b a2 = this.f48891b.a(g.class);
             for (g gVar : list) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f48890b.b(g.class)).withValues(a2.c(gVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f48891b.b(g.class)).withValues(a2.c(gVar)).build());
             }
         }
         if (dVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f48890b.b(d.class)).withValues(this.f48890b.a(d.class).c(dVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f48891b.b(d.class)).withValues(this.f48891b.a(d.class).c(dVar)).build());
         }
         if (bVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f48890b.b(d.b.g0.l.k.b.class)).withValues(this.f48890b.a(d.b.g0.l.k.b.class).c(bVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f48891b.b(d.b.g0.l.k.b.class)).withValues(this.f48891b.a(d.b.g0.l.k.b.class).c(bVar)).build());
         }
         if (pMSAppInfo != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f48890b.b(PMSAppInfo.class)).withValues(this.f48890b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f48891b.b(PMSAppInfo.class)).withValues(this.f48891b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
         }
         try {
-            ContentProviderResult[] applyBatch = AppRuntime.getAppContext().getContentResolver().applyBatch(d.b.g0.l.i.e.b.f48897b, arrayList);
+            ContentProviderResult[] applyBatch = AppRuntime.getAppContext().getContentResolver().applyBatch(d.b.g0.l.i.e.b.f48898b, arrayList);
             if (applyBatch == null) {
                 return false;
             }
@@ -113,7 +113,7 @@ public class b extends a {
             }
             return true;
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
             return false;
@@ -126,9 +126,9 @@ public class b extends a {
             return;
         }
         try {
-            AppRuntime.getAppContext().getContentResolver().delete(this.f48890b.b(g.class), "app_id=?", new String[]{str});
+            AppRuntime.getAppContext().getContentResolver().delete(this.f48891b.b(g.class), "app_id=?", new String[]{str});
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
@@ -140,9 +140,9 @@ public class b extends a {
             return;
         }
         try {
-            AppRuntime.getAppContext().getContentResolver().delete(this.f48890b.b(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
+            AppRuntime.getAppContext().getContentResolver().delete(this.f48891b.b(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
@@ -152,33 +152,33 @@ public class b extends a {
     public <T extends e> boolean e(Class<T> cls, String str) {
         try {
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().delete(this.f48890b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().delete(this.f48891b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
     }
 
     @Override // d.b.g0.l.i.a
     public boolean f(h hVar) {
         try {
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().delete(this.f48890b.b(hVar.getClass()), "bundle_id = ?  and version_name =? ", new String[]{hVar.f48922g, hVar.j}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().delete(this.f48891b.b(hVar.getClass()), "bundle_id = ?  and version_name =? ", new String[]{hVar.f48923g, hVar.j}) > 0;
     }
 
     @Override // d.b.g0.l.i.a
     public boolean g(String str) {
         try {
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().delete(this.f48890b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().delete(this.f48891b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
     }
 
     @Override // d.b.g0.l.i.a
@@ -188,12 +188,12 @@ public class b extends a {
         int i = -1;
         try {
             try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
                 if (cursor != null && cursor.moveToFirst()) {
                     i = cursor.getInt(0);
                 }
             } catch (Exception e2) {
-                if (f.f48888a) {
+                if (f.f48889a) {
                     e2.printStackTrace();
                 }
             }
@@ -224,8 +224,8 @@ public class b extends a {
             } else {
                 str2 = "app_id=? and version_code>?";
             }
-            Uri b2 = this.f48890b.b(g.class);
-            d.b.g0.l.i.c.b a2 = this.f48890b.a(g.class);
+            Uri b2 = this.f48891b.b(g.class);
+            d.b.g0.l.i.c.b a2 = this.f48891b.a(g.class);
             Cursor query = AppRuntime.getAppContext().getContentResolver().query(b2, null, str2, new String[]{str, String.valueOf(i)}, null);
             if (query != null && a2 != null) {
                 try {
@@ -234,7 +234,7 @@ public class b extends a {
                     cursor = query;
                     e = e2;
                     try {
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -266,13 +266,13 @@ public class b extends a {
     @Override // d.b.g0.l.i.a
     public boolean k(PMSAppInfo pMSAppInfo) {
         try {
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f48890b.b(pMSAppInfo.getClass()), this.f48890b.a(pMSAppInfo.getClass()).c(pMSAppInfo));
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f48891b.b(pMSAppInfo.getClass()), this.f48891b.a(pMSAppInfo.getClass()).c(pMSAppInfo));
             if (insert != null) {
                 return ContentUris.parseId(insert) > 0;
             }
             return false;
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -290,14 +290,14 @@ public class b extends a {
         Cursor cursor = null;
         try {
             try {
-                Uri b2 = this.f48890b.b(g.class);
-                d.b.g0.l.i.c.b a2 = this.f48890b.a(g.class);
+                Uri b2 = this.f48891b.b(g.class);
+                d.b.g0.l.i.c.b a2 = this.f48891b.a(g.class);
                 cursor = AppRuntime.getAppContext().getContentResolver().query(b2, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
                 if (cursor != null) {
                     return a2.d(cursor) != null;
                 }
             } catch (Exception e2) {
-                if (f.f48888a) {
+                if (f.f48889a) {
                     e2.printStackTrace();
                 }
             }
@@ -319,7 +319,7 @@ public class b extends a {
         if (A != null && A.size() > 0) {
             for (d.b.g0.l.k.f fVar : A) {
                 if (fVar != null) {
-                    hashMap.put(fVar.f48922g, fVar);
+                    hashMap.put(fVar.f48923g, fVar);
                 }
             }
         }
@@ -337,8 +337,8 @@ public class b extends a {
         ?? r1 = 0;
         try {
             try {
-                d.b.g0.l.i.c.b a2 = this.f48890b.a(h.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(h.class), null, "bundle_id = ?  and version_name =? ", new String[]{str, str2}, null);
+                d.b.g0.l.i.c.b a2 = this.f48891b.a(h.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(h.class), null, "bundle_id = ?  and version_name =? ", new String[]{str, str2}, null);
                 if (cursor != null) {
                     try {
                         h hVar = (h) a2.d(cursor);
@@ -346,7 +346,7 @@ public class b extends a {
                         return hVar;
                     } catch (Exception e2) {
                         e = e2;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -383,8 +383,8 @@ public class b extends a {
         ?? r1 = 0;
         try {
             try {
-                d.b.g0.l.i.c.b a2 = this.f48890b.a(i.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
+                d.b.g0.l.i.c.b a2 = this.f48891b.a(i.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         i iVar = (i) a2.d(cursor);
@@ -392,7 +392,7 @@ public class b extends a {
                         return iVar;
                     } catch (Exception e2) {
                         e = e2;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -440,22 +440,22 @@ public class b extends a {
     public boolean t(h hVar) {
         try {
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().update(this.f48890b.b(hVar.getClass()), this.f48890b.a(hVar.getClass()).c(hVar), "bundle_id = ?  and version_name =? ", new String[]{hVar.f48922g, hVar.j}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().update(this.f48891b.b(hVar.getClass()), this.f48891b.a(hVar.getClass()).c(hVar), "bundle_id = ?  and version_name =? ", new String[]{hVar.f48923g, hVar.j}) > 0;
     }
 
     @Override // d.b.g0.l.i.a
     public boolean u(PMSAppInfo pMSAppInfo) {
         try {
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().update(this.f48890b.b(pMSAppInfo.getClass()), this.f48890b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().update(this.f48891b.b(pMSAppInfo.getClass()), this.f48891b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
     }
 
     @Override // d.b.g0.l.i.a
@@ -466,11 +466,11 @@ public class b extends a {
             return false;
         }
         try {
-            b2 = this.f48890b.b(PMSAppInfo.class);
+            b2 = this.f48891b.b(PMSAppInfo.class);
             contentValues = new ContentValues();
             contentValues.put("pending_err_code", Integer.valueOf(i));
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
         }
@@ -479,13 +479,13 @@ public class b extends a {
 
     public final <T extends e> boolean w(T t) {
         try {
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f48890b.b(t.getClass()), this.f48890b.a(t.getClass()).c(t));
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f48891b.b(t.getClass()), this.f48891b.a(t.getClass()).c(t));
             if (insert != null) {
                 return ContentUris.parseId(insert) > 0;
             }
             return false;
         } catch (Exception e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -502,8 +502,8 @@ public class b extends a {
         Cursor cursor;
         try {
             try {
-                d.b.g0.l.i.c.b a2 = this.f48890b.a(PMSAppInfo.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
+                d.b.g0.l.i.c.b a2 = this.f48891b.a(PMSAppInfo.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         PMSAppInfo pMSAppInfo = (PMSAppInfo) a2.d(cursor);
@@ -511,7 +511,7 @@ public class b extends a {
                         return pMSAppInfo;
                     } catch (Exception e2) {
                         e = e2;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -546,8 +546,8 @@ public class b extends a {
         ?? r0 = 0;
         try {
             try {
-                d.b.g0.l.i.c.b<T> a2 = this.f48890b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(cls), null, str, strArr, str2);
+                d.b.g0.l.i.c.b<T> a2 = this.f48891b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         List<T> e2 = a2.e(cursor);
@@ -555,7 +555,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);
@@ -584,8 +584,8 @@ public class b extends a {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            d.b.g0.l.i.c.b<T> a2 = this.f48890b.a(cls);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48890b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
+            d.b.g0.l.i.c.b<T> a2 = this.f48891b.a(cls);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f48891b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
             if (cursor != null) {
                 try {
                     try {
@@ -594,7 +594,7 @@ public class b extends a {
                         return d2;
                     } catch (Exception e2) {
                         e = e2;
-                        if (f.f48888a) {
+                        if (f.f48889a) {
                             e.printStackTrace();
                         }
                         d.b.g0.l.r.c.a(cursor);

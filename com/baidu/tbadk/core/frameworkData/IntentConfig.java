@@ -31,7 +31,7 @@ import d.b.b.h.j.g.d;
 import d.b.h0.i0.c;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class IntentConfig extends OrmObject {
     public static final String AB_TAG = "ab_tag";
     public static final String CALL_FROM = "call_from";

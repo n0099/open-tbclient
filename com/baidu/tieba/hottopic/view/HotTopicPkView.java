@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import d.b.i0.b1.c.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicPkView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17637e;
+    public int f17638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17638f;
+    public int f17639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17639g;
+    public int f17640g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17640h;
+    public int f17641h;
     public int i;
     public int j;
     public Drawable k;
@@ -45,7 +45,7 @@ public class HotTopicPkView extends View {
     public boolean w;
     public boolean x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -75,29 +75,25 @@ public class HotTopicPkView extends View {
         int i;
         int i2;
         i iVar = this.u;
-        if (iVar.f52120h == 0 && iVar.j == 0) {
-            double d2 = this.f17640h;
-            Double.isNaN(d2);
-            double d3 = this.n;
-            Double.isNaN(d3);
-            this.i = (int) ((d2 * 0.5d) + d3 + 50.0d);
+        if (iVar.f52121h == 0 && iVar.j == 0) {
+            this.i = (int) ((this.f17641h * 0.5d) + this.n + 50.0d);
         } else {
             i iVar2 = this.u;
-            long j = iVar2.f52120h;
-            this.i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17640h) + this.n + 50.0f);
+            long j = iVar2.f52121h;
+            this.i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17641h) + this.n + 50.0f);
         }
         if (this.u.k == 2) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
         }
-        canvas.drawRect(this.n / 2.0f, this.j, this.i, this.f17637e - i, this.t);
+        canvas.drawRect(this.n / 2.0f, this.j, this.i, this.f17638e - i, this.t);
         if (this.u.k == 1) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
-        canvas.drawRect(this.i, this.j, this.f17639g - (this.n / 2.0f), this.f17637e - i2, this.t);
+        canvas.drawRect(this.i, this.j, this.f17640g - (this.n / 2.0f), this.f17638e - i2, this.t);
     }
 
     public final void c(Canvas canvas) {
@@ -132,7 +128,7 @@ public class HotTopicPkView extends View {
         this.k.setBounds(0, 0, this.n, this.o);
         this.k.draw(canvas);
         Drawable drawable = this.l;
-        int i = this.f17639g;
+        int i = this.f17640g;
         drawable.setBounds(i - this.n, 0, i, this.o);
         this.l.draw(canvas);
     }
@@ -145,13 +141,13 @@ public class HotTopicPkView extends View {
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
         }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.f52120h), this.n, this.f17637e + dimensionPixelSize, this.t);
+        canvas.drawText(StringHelper.numberUniformFormat(this.u.f52121h), this.n, this.f17638e + dimensionPixelSize, this.t);
         if (this.u.k == 1) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17639g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17637e + dimensionPixelSize, this.t);
+        canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17640g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17638e + dimensionPixelSize, this.t);
     }
 
     public final void f(Context context) {
@@ -160,7 +156,7 @@ public class HotTopicPkView extends View {
         paint.setAntiAlias(true);
         this.t.setDither(true);
         this.t.setFilterBitmap(true);
-        this.f17638f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
+        this.f17639f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
         g();
         this.m = SkinManager.getDrawable(R.drawable.icon_pic_vs);
         this.n = this.k.getIntrinsicWidth();
@@ -203,14 +199,14 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f17637e = this.o;
+        this.f17638e = this.o;
         int size = View.MeasureSpec.getSize(i);
-        this.f17639g = size;
-        setMeasuredDimension(size, this.f17637e + this.f17638f);
-        this.f17640h = (this.f17639g - (this.n * 2)) - 100;
+        this.f17640g = size;
+        setMeasuredDimension(size, this.f17638e + this.f17639f);
+        this.f17641h = (this.f17640g - (this.n * 2)) - 100;
         if (this.s == null) {
-            int i3 = this.f17639g;
-            this.s = new RectF(i3 - this.n, 0.0f, i3, this.f17637e);
+            int i3 = this.f17640g;
+            this.s = new RectF(i3 - this.n, 0.0f, i3, this.f17638e);
         }
     }
 
@@ -224,7 +220,7 @@ public class HotTopicPkView extends View {
         }
         if (this.r.contains(motionEvent.getX(), motionEvent.getY())) {
             i iVar = this.u;
-            iVar.f52120h++;
+            iVar.f52121h++;
             iVar.k = 1;
         } else if (this.s.contains(motionEvent.getX(), motionEvent.getY())) {
             i iVar2 = this.u;
@@ -234,7 +230,7 @@ public class HotTopicPkView extends View {
         g();
         i iVar3 = this.u;
         if (iVar3.k != 0) {
-            if (iVar3.f52120h + iVar3.j > 50) {
+            if (iVar3.f52121h + iVar3.j > 50) {
                 this.w = true;
                 new Thread(new a()).start();
             } else {

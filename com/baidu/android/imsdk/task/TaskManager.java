@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TaskManager {
     public static final int CORE_POOL_SIZE;
     public static final int CPU_COUNT;
@@ -20,7 +20,7 @@ public class TaskManager {
     public ThreadPoolExecutor service;
     public ExecutorService singleThreadService;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Task implements Runnable {
         public String mAction;
         public String mJson;

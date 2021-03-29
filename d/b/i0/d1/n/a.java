@@ -16,42 +16,42 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.mygroup.PersonalGroupFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonalGroupFragment f53930e;
+    public PersonalGroupFragment f53931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GroupInfoData> f53931f = new ArrayList();
+    public List<GroupInfoData> f53932f = new ArrayList();
 
     /* renamed from: d.b.i0.d1.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1204a {
+    /* loaded from: classes3.dex */
+    public static class C1205a {
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f53932a;
+        public LinearLayout f53933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GroupImageView f53933b;
+        public GroupImageView f53934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f53934c;
+        public TextView f53935c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f53935d;
+        public TextView f53936d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f53936e;
+        public TextView f53937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f53937f;
+        public TextView f53938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f53938g;
+        public ImageView f53939g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f53939h;
+        public ImageView f53940h;
         public ImageView i;
         public ImageView j;
         public ImageView k;
@@ -60,7 +60,7 @@ public class a extends BaseAdapter {
     }
 
     public a(PersonalGroupFragment personalGroupFragment) {
-        this.f53930e = personalGroupFragment;
+        this.f53931e = personalGroupFragment;
     }
 
     public final void a(ImageView[] imageViewArr, int i) {
@@ -84,19 +84,19 @@ public class a extends BaseAdapter {
     /* renamed from: b */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.f53931f.size()) {
+        if (itemId < 0 || itemId >= this.f53932f.size()) {
             return null;
         }
-        return this.f53931f.get(itemId);
+        return this.f53932f.get(itemId);
     }
 
     public void c(List<GroupInfoData> list) {
-        this.f53931f = list;
+        this.f53932f = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f53931f.size();
+        return this.f53932f.size();
     }
 
     @Override // android.widget.Adapter
@@ -106,66 +106,66 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1204a c1204a;
-        if (view != null && view.getTag() != null && (view.getTag() instanceof C1204a)) {
-            c1204a = (C1204a) view.getTag();
+        C1205a c1205a;
+        if (view != null && view.getTag() != null && (view.getTag() instanceof C1205a)) {
+            c1205a = (C1205a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f53930e.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c1204a = new C1204a();
-            c1204a.f53932a = (LinearLayout) view.findViewById(R.id.click_head);
-            c1204a.f53938g = (ImageView) view.findViewById(R.id.diver_top);
-            c1204a.f53939h = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c1204a.i = (ImageView) view.findViewById(R.id.diver_top_px);
-            c1204a.f53933b = (GroupImageView) view.findViewById(R.id.item_head);
-            c1204a.f53934c = (TextView) view.findViewById(R.id.item_group_name);
-            c1204a.f53935d = (TextView) view.findViewById(R.id.item_group_num);
-            c1204a.f53936e = (TextView) view.findViewById(R.id.item_introduce);
-            c1204a.f53937f = (TextView) view.findViewById(R.id.isCreator);
-            c1204a.j = (ImageView) view.findViewById(R.id.item_grade1);
-            c1204a.k = (ImageView) view.findViewById(R.id.item_grade2);
+            view = LayoutInflater.from(this.f53931e.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
+            c1205a = new C1205a();
+            c1205a.f53933a = (LinearLayout) view.findViewById(R.id.click_head);
+            c1205a.f53939g = (ImageView) view.findViewById(R.id.diver_top);
+            c1205a.f53940h = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c1205a.i = (ImageView) view.findViewById(R.id.diver_top_px);
+            c1205a.f53934b = (GroupImageView) view.findViewById(R.id.item_head);
+            c1205a.f53935c = (TextView) view.findViewById(R.id.item_group_name);
+            c1205a.f53936d = (TextView) view.findViewById(R.id.item_group_num);
+            c1205a.f53937e = (TextView) view.findViewById(R.id.item_introduce);
+            c1205a.f53938f = (TextView) view.findViewById(R.id.isCreator);
+            c1205a.j = (ImageView) view.findViewById(R.id.item_grade1);
+            c1205a.k = (ImageView) view.findViewById(R.id.item_grade2);
             ImageView imageView = (ImageView) view.findViewById(R.id.item_grade3);
-            c1204a.l = imageView;
+            c1205a.l = imageView;
             ImageView[] imageViewArr = new ImageView[4];
-            c1204a.m = imageViewArr;
-            imageViewArr[1] = c1204a.j;
-            imageViewArr[2] = c1204a.k;
+            c1205a.m = imageViewArr;
+            imageViewArr[1] = c1205a.j;
+            imageViewArr[2] = c1205a.k;
             imageViewArr[3] = imageView;
-            view.setTag(c1204a);
+            view.setTag(c1205a);
         }
-        GroupInfoData groupInfoData = this.f53931f.get(i);
-        c1204a.f53933b.setTag(null);
-        c1204a.f53933b.setDrawBorder(true);
-        c1204a.f53933b.setPlaceHolder(1);
+        GroupInfoData groupInfoData = this.f53932f.get(i);
+        c1205a.f53934b.setTag(null);
+        c1205a.f53934b.setDrawBorder(true);
+        c1205a.f53934b.setPlaceHolder(1);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c1204a.f53933b.W(portrait, 10, false);
+                c1205a.f53934b.W(portrait, 10, false);
             } else {
-                c1204a.f53933b.W("", 10, false);
+                c1205a.f53934b.W("", 10, false);
             }
-            c1204a.f53932a.setOnClickListener(this.f53930e);
-            c1204a.f53932a.setTag(groupInfoData);
-            c1204a.f53938g.setVisibility(8);
-            c1204a.i.setVisibility(8);
-            c1204a.f53939h.setVisibility(0);
-            c1204a.f53934c.setText(groupInfoData.getName());
-            TextView textView = c1204a.f53935d;
+            c1205a.f53933a.setOnClickListener(this.f53931e);
+            c1205a.f53933a.setTag(groupInfoData);
+            c1205a.f53939g.setVisibility(8);
+            c1205a.i.setVisibility(8);
+            c1205a.f53940h.setVisibility(0);
+            c1205a.f53935c.setText(groupInfoData.getName());
+            TextView textView = c1205a.f53936d;
             textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c1204a.f53936e.setText(groupInfoData.getIntro());
+            c1205a.f53937e.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c1204a.f53937f.setVisibility(0);
+                c1205a.f53938f.setVisibility(0);
             } else {
-                c1204a.f53937f.setVisibility(8);
+                c1205a.f53938f.setVisibility(8);
             }
-            a(c1204a.m, groupInfoData.getGrade());
+            a(c1205a.m, groupInfoData.getGrade());
         }
-        this.f53930e.getBaseFragmentActivity().getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f53930e.getBaseFragmentActivity().getLayoutMode().j(view);
+        this.f53931e.getBaseFragmentActivity().getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.f53931e.getBaseFragmentActivity().getLayoutMode().j(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            SkinManager.setViewTextColor(c1204a.f53934c, R.color.common_color_10009, 1);
-            SkinManager.setImageResource(c1204a.j, R.drawable.icon_vip_grade_big_small_s);
-            SkinManager.setImageResource(c1204a.k, R.drawable.icon_vip_grade_big_small_s);
-            SkinManager.setImageResource(c1204a.l, R.drawable.icon_vip_grade_big_small_s);
+            SkinManager.setViewTextColor(c1205a.f53935c, R.color.common_color_10009, 1);
+            SkinManager.setImageResource(c1205a.j, R.drawable.icon_vip_grade_big_small_s);
+            SkinManager.setImageResource(c1205a.k, R.drawable.icon_vip_grade_big_small_s);
+            SkinManager.setImageResource(c1205a.l, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }

@@ -14,7 +14,7 @@ import com.baidu.searchbox.pms.utils.DownloadUtils;
 import com.baidu.searchbox.pms.utils.StatisticUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadCallbackWrap implements InnerCallback {
     public DownloadCallback mCallback;
     public List<PackageInfo> mList;

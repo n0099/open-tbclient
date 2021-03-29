@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Photo extends Message {
     public static final String DEFAULT_BIGURL = "";
     public static final String DEFAULT_PICID = "";

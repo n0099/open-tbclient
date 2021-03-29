@@ -11,27 +11,27 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
 
     /* renamed from: d.b.g0.a.l0.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0719a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0720a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45082e;
+        public final /* synthetic */ Context f45083e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45083f;
+        public final /* synthetic */ String f45084f;
 
-        public RunnableC0719a(a aVar, Context context, String str) {
-            this.f45082e = context;
-            this.f45083f = str;
+        public RunnableC0720a(a aVar, Context context, String str) {
+            this.f45083e = context;
+            this.f45084f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Toast.makeText(this.f45082e, this.f45083f, 1).show();
+            Toast.makeText(this.f45083e, this.f45084f, 1).show();
         }
     }
 
@@ -41,7 +41,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("ExtCore-PublishThread", "handle: publishThread");
         }
         JSONObject a2 = a0.a(unitedSchemeEntity, "params");
@@ -49,7 +49,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        k0.X(new RunnableC0719a(this, context, a2.optString("data", "")));
+        k0.X(new RunnableC0720a(this, context, a2.optString("data", "")));
         return true;
     }
 }

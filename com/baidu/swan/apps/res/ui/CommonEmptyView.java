@@ -17,25 +17,25 @@ import d.b.g0.a.d;
 import d.b.g0.a.e;
 import d.b.g0.a.f;
 import d.b.g0.a.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonEmptyView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12441e;
+    public ImageView f12442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12442f;
+    public TextView f12443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12443g;
+    public TextView f12444g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12444h;
+    public TextView f12445h;
     public TextView i;
     public FrameLayout j;
     public TextView k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.x1.a {
         public a() {
         }
@@ -48,10 +48,10 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.aiapps_common_empty_view, (ViewGroup) this, true);
         setBackground(context.getResources().getDrawable(c.aiapps_empty_layout_backgroud));
-        this.f12441e = (ImageView) findViewById(f.emptyview_image);
-        this.f12442f = (TextView) findViewById(f.emptyview_title);
-        this.f12443g = (TextView) findViewById(f.emptyview_subtitle);
-        this.f12444h = (TextView) findViewById(f.emptyview_link);
+        this.f12442e = (ImageView) findViewById(f.emptyview_image);
+        this.f12443f = (TextView) findViewById(f.emptyview_title);
+        this.f12444g = (TextView) findViewById(f.emptyview_subtitle);
+        this.f12445h = (TextView) findViewById(f.emptyview_link);
         this.i = (TextView) findViewById(f.emptyview_btn);
         this.j = (FrameLayout) findViewById(f.emptyview_bottom_layout);
         this.k = (TextView) findViewById(f.emptyview_problem_feedback);
@@ -96,21 +96,21 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setIcon(Drawable drawable) {
-        this.f12441e.setImageDrawable(drawable);
+        this.f12442e.setImageDrawable(drawable);
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
-        this.f12444h.setVisibility(0);
-        this.f12444h.setOnClickListener(onClickListener);
+        this.f12445h.setVisibility(0);
+        this.f12445h.setOnClickListener(onClickListener);
     }
 
     public void setPageResources() {
         setBackgroundColor(getResources().getColor(c.aiapps_white));
-        TextView textView = this.f12442f;
+        TextView textView = this.f12443f;
         if (textView != null) {
             textView.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
         }
-        TextView textView2 = this.f12444h;
+        TextView textView2 = this.f12445h;
         if (textView2 != null) {
             textView2.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
@@ -119,16 +119,16 @@ public class CommonEmptyView extends RelativeLayout {
             textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
             this.i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
         }
-        TextView textView4 = this.f12443g;
+        TextView textView4 = this.f12444g;
         if (textView4 != null) {
             textView4.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setSubTitle(String str) {
-        this.f12443g.setVisibility(0);
-        this.f12443g.setText(str);
-        this.f12443g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        this.f12444g.setVisibility(0);
+        this.f12444g.setText(str);
+        this.f12444g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
@@ -137,11 +137,11 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setTitle(String str) {
-        this.f12442f.setText(str);
+        this.f12443f.setText(str);
     }
 
     public void setTitleColor(int i) {
-        this.f12442f.setTextColor(i);
+        this.f12443f.setTextColor(i);
     }
 
     public CommonEmptyView(Context context, AttributeSet attributeSet) {
@@ -153,11 +153,11 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setIcon(int i) {
-        this.f12441e.setImageDrawable(getResources().getDrawable(i));
+        this.f12442e.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setTitle(int i) {
-        this.f12442f.setText(i);
+        this.f12443f.setText(i);
     }
 
     public CommonEmptyView(Context context, AttributeSet attributeSet, int i) {
@@ -166,8 +166,8 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setSubTitle(int i) {
-        this.f12443g.setVisibility(0);
-        this.f12443g.setText(i);
-        this.f12443g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        this.f12444g.setVisibility(0);
+        this.f12444g.setText(i);
+        this.f12444g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
     }
 }

@@ -19,28 +19,28 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import d.b.i0.d1.l.c.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53738a;
+    public TbPageContext f53739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f53739b;
+    public d f53740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53740c;
+    public String f53741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f53741d = new a(0);
+    public CustomMessageListener f53742d = new a(0);
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f53742e = new b();
+    public Runnable f53743e = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.c.g.a f53743f = new c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
+    public d.b.b.c.g.a f53744f = new c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -55,13 +55,13 @@ public class g {
             if (customResponsedMessage.getCmd() == 2001147) {
                 g.this.g(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2012123) {
-                d.b.b.e.m.e.a().removeCallbacks(g.this.f53742e);
-                d.b.b.e.m.e.a().postDelayed(g.this.f53742e, 1000L);
+                d.b.b.e.m.e.a().removeCallbacks(g.this.f53743e);
+                d.b.b.e.m.e.a().postDelayed(g.this.f53743e, 1000L);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -69,11 +69,11 @@ public class g {
         @Override // java.lang.Runnable
         public void run() {
             g gVar = g.this;
-            gVar.f(gVar.f53740c);
+            gVar.f(gVar.f53741c);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends d.b.b.c.g.a {
         public c(int i, int i2) {
             super(i, i2);
@@ -102,14 +102,14 @@ public class g {
                     longSparseArray.put(bVar.b(), bVar);
                 }
             }
-            if (g.this.f53739b == null || longSparseArray == null) {
+            if (g.this.f53740b == null || longSparseArray == null) {
                 return;
             }
-            g.this.f53739b.onReadCountLoad(longSparseArray);
+            g.this.f53740b.onReadCountLoad(longSparseArray);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(List<d.b.i0.d1.l.c.b> list);
 
@@ -117,22 +117,22 @@ public class g {
     }
 
     public g(TbPageContext tbPageContext) {
-        this.f53738a = tbPageContext;
-        tbPageContext.registerListener(2001147, this.f53741d);
-        tbPageContext.registerListener(2012123, this.f53741d);
-        tbPageContext.registerListener(this.f53743f);
+        this.f53739a = tbPageContext;
+        tbPageContext.registerListener(2001147, this.f53742d);
+        tbPageContext.registerListener(2012123, this.f53742d);
+        tbPageContext.registerListener(this.f53744f);
     }
 
     public void e() {
-        d.b.b.e.m.e.a().removeCallbacks(this.f53742e);
+        d.b.b.e.m.e.a().removeCallbacks(this.f53743e);
     }
 
     public void f(String str) {
-        this.f53740c = str;
+        this.f53741c = str;
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f18041c = 150;
-        aVar.f18042d = str;
-        this.f53738a.sendMessage(new LoadOfficialHistoryMessage(aVar));
+        aVar.f18042c = 150;
+        aVar.f18043d = str;
+        this.f53739a.sendMessage(new LoadOfficialHistoryMessage(aVar));
     }
 
     public final void g(CustomResponsedMessage<?> customResponsedMessage) {
@@ -141,17 +141,17 @@ public class g {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18044b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18045b;
             ArrayList arrayList = new ArrayList();
             for (ChatMessage chatMessage : list) {
-                List<a.C1202a> b2 = d.b.i0.d1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1203a> b2 = d.b.i0.d1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i = 0;
                     while (i < b2.size()) {
-                        a.C1202a c1202a = b2.get(i);
-                        d.b.i0.d1.l.c.b b3 = d.b.i0.d1.l.c.b.b(chatMessage, c1202a);
-                        if (b3 != null && b3.f() != null && !StringUtils.isNull(b3.f().f53906a)) {
-                            b3.j(i == 0 && !StringUtils.isNull(c1202a.f53908c));
+                        a.C1203a c1203a = b2.get(i);
+                        d.b.i0.d1.l.c.b b3 = d.b.i0.d1.l.c.b.b(chatMessage, c1203a);
+                        if (b3 != null && b3.f() != null && !StringUtils.isNull(b3.f().f53907a)) {
+                            b3.j(i == 0 && !StringUtils.isNull(c1203a.f53909c));
                             arrayList.add(b3);
                         }
                         i++;
@@ -159,7 +159,7 @@ public class g {
                 }
             }
             h(arrayList);
-            d dVar = this.f53739b;
+            d dVar = this.f53740b;
             if (dVar != null) {
                 dVar.a(arrayList);
             }
@@ -173,16 +173,16 @@ public class g {
         ArrayList arrayList = new ArrayList(list.size());
         for (d.b.i0.d1.l.c.b bVar : list) {
             if (bVar.h()) {
-                arrayList.add(Long.valueOf(bVar.f().f53913h));
+                arrayList.add(Long.valueOf(bVar.f().f53914h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
         broadcastMajorHistoryRequestMessage.queryType = 2;
         broadcastMajorHistoryRequestMessage.bcastIds = arrayList;
-        this.f53738a.sendMessage(broadcastMajorHistoryRequestMessage);
+        this.f53739a.sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
     public void i(d dVar) {
-        this.f53739b = dVar;
+        this.f53740b = dVar;
     }
 }

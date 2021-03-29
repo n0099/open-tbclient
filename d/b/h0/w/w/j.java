@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51606a;
+    public String f51607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51607b;
+    public String f51608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SpanGroupManager f51608c;
+    public SpanGroupManager f51609c;
 }

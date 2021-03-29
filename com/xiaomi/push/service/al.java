@@ -19,7 +19,7 @@ import java.util.Map;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f40944a = new al();
+    public static al f40945a = new al();
 
     /* loaded from: classes7.dex */
     public class a {
@@ -28,11 +28,11 @@ public class al {
         public List<b> f885a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f40946b;
+        public List<b> f40947b;
 
         public a() {
             this.f885a = new ArrayList();
-            this.f40946b = new ArrayList();
+            this.f40947b = new ArrayList();
         }
     }
 
@@ -40,18 +40,18 @@ public class al {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40947a;
+        public int f40948a;
 
         /* renamed from: a  reason: collision with other field name */
         public Notification f886a;
 
         public b(int i, Notification notification) {
-            this.f40947a = i;
+            this.f40948a = i;
             this.f886a = notification;
         }
 
         public String toString() {
-            return "id:" + this.f40947a;
+            return "id:" + this.f40948a;
         }
     }
 
@@ -60,7 +60,7 @@ public class al {
     }
 
     public static al a() {
-        return f40944a;
+        return f40945a;
     }
 
     private String a(Notification notification) {
@@ -99,10 +99,10 @@ public class al {
                     if (!TextUtils.isEmpty(key)) {
                         a value = entry.getValue();
                         if (z && key.equals(b2) && !m568b(notification)) {
-                            (m567a(notification) ? value.f40946b : value.f885a).add(new b(i, notification));
+                            (m567a(notification) ? value.f40947b : value.f885a).add(new b(i, notification));
                         }
                         int size = value.f885a.size();
-                        if (value.f40946b.size() <= 0) {
+                        if (value.f40947b.size() <= 0) {
                             if (z && size >= 2) {
                                 a(context, a2, key, value.f885a.get(0).f886a);
                             }
@@ -166,7 +166,7 @@ public class al {
             aVar = new a();
             map.put(b2, aVar);
         }
-        (m567a(statusBarNotification.getNotification()) ? aVar.f40946b : aVar.f885a).add(new b(statusBarNotification.getId(), statusBarNotification.getNotification()));
+        (m567a(statusBarNotification.getNotification()) ? aVar.f40947b : aVar.f885a).add(new b(statusBarNotification.getId(), statusBarNotification.getNotification()));
     }
 
     /* renamed from: a  reason: collision with other method in class */

@@ -10,11 +10,11 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64028a = false;
+    public static boolean f64029a = false;
 
     public static SampleResult a(String str) {
-        if (f64028a) {
-            return c.a.f64049a.f(str);
+        if (f64029a) {
+            return c.a.f64050a.f(str);
         }
         return SampleResult.OTHERE;
     }
@@ -27,24 +27,24 @@ public class a {
     }
 
     public static void c(String str, String str2, String str3, Map<String, String> map) {
-        if (f64028a && str != null) {
+        if (f64029a && str != null) {
             j.a(str, str2, str3, map);
         }
     }
 
     public static void d(String str) {
-        if (f64028a) {
+        if (f64029a) {
             e.a().b(str);
         }
     }
 
     public static void e(String str) {
-        if (f64028a) {
+        if (f64029a) {
             e.a().c(str);
         }
     }
 
     public static void f(boolean z) {
-        f64028a = z;
+        f64029a = z;
     }
 }

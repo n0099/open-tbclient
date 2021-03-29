@@ -11,16 +11,16 @@ import tbclient.PbContent;
 public class TbRichTextImageInfo extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14292e;
+    public String f14293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14293f;
+    public String f14294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14294g;
+    public String f14295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14295h;
+    public int f14296h;
     public int i;
     public boolean j;
     public boolean k;
@@ -32,10 +32,10 @@ public class TbRichTextImageInfo extends OrmObject {
     public String q;
 
     public TbRichTextImageInfo() {
-        this.f14292e = null;
-        this.f14293f = null;
-        this.f14294g = null;
-        this.f14295h = 1;
+        this.f14293e = null;
+        this.f14294f = null;
+        this.f14295g = null;
+        this.f14296h = 1;
         this.i = 1;
         this.j = false;
         this.k = false;
@@ -63,7 +63,7 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public void E(String str) {
-        this.f14292e = str;
+        this.f14293e = str;
     }
 
     public int getHeight() {
@@ -75,11 +75,11 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public int getWidth() {
-        return this.f14295h;
+        return this.f14296h;
     }
 
     public String s() {
-        return this.f14294g;
+        return this.f14295g;
     }
 
     public void setHeight(int i) {
@@ -87,7 +87,7 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public void setWidth(int i) {
-        this.f14295h = i;
+        this.f14296h = i;
     }
 
     public String t() {
@@ -95,7 +95,7 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public String u() {
-        return this.f14293f;
+        return this.f14294f;
     }
 
     public String v() {
@@ -107,7 +107,7 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public String x() {
-        return this.f14292e;
+        return this.f14293e;
     }
 
     public boolean y() {
@@ -119,10 +119,10 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
-        this.f14292e = null;
-        this.f14293f = null;
-        this.f14294g = null;
-        this.f14295h = 1;
+        this.f14293e = null;
+        this.f14294f = null;
+        this.f14295g = null;
+        this.f14296h = 1;
         this.i = 1;
         this.j = false;
         this.k = false;
@@ -134,35 +134,35 @@ public class TbRichTextImageInfo extends OrmObject {
         if (pbContent == null) {
             return;
         }
-        this.f14292e = pbContent.src;
+        this.f14293e = pbContent.src;
         String str = pbContent.cdn_src;
-        this.f14293f = str;
+        this.f14294f = str;
         if (str == null || str.length() == 0) {
-            this.f14293f = this.f14292e;
+            this.f14294f = this.f14293e;
         }
         String str2 = pbContent.big_cdn_src;
-        this.f14294g = str2;
+        this.f14295g = str2;
         this.q = pbContent.big_src;
         if (StringUtils.isNull(str2)) {
-            this.f14294g = this.q;
+            this.f14295g = this.q;
         }
         String str3 = pbContent.bsize;
         if (str3 != null) {
             try {
                 String[] split = str3.split(",");
-                this.f14295h = Integer.valueOf(split[0]).intValue();
+                this.f14296h = Integer.valueOf(split[0]).intValue();
                 this.i = Integer.valueOf(split[1]).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f14295h <= 0) {
-            this.f14295h = 1;
+        if (this.f14296h <= 0) {
+            this.f14296h = 1;
         }
         if (this.i <= 0) {
             this.i = 1;
         }
-        String str4 = this.f14293f;
+        String str4 = this.f14294f;
         if (str4 != null && str4.indexOf(Domains.BAIDU) != -1) {
             this.j = true;
         }
@@ -174,10 +174,10 @@ public class TbRichTextImageInfo extends OrmObject {
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
-        this.f14292e = null;
-        this.f14293f = null;
-        this.f14294g = null;
-        this.f14295h = 1;
+        this.f14293e = null;
+        this.f14294f = null;
+        this.f14295g = null;
+        this.f14296h = 1;
         this.i = 1;
         this.j = false;
         this.k = false;
@@ -189,27 +189,27 @@ public class TbRichTextImageInfo extends OrmObject {
         if (jSONObject == null) {
             return;
         }
-        this.f14292e = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+        this.f14293e = jSONObject.optString(UserAccountActionItem.KEY_SRC);
         String optString = jSONObject.optString("cdn_src", "");
-        this.f14293f = optString;
+        this.f14294f = optString;
         if (optString == null || optString.length() == 0) {
-            this.f14293f = this.f14292e;
+            this.f14294f = this.f14293e;
         }
-        this.f14294g = jSONObject.optString("big_cdn_src", null);
+        this.f14295g = jSONObject.optString("big_cdn_src", null);
         try {
             String[] split = jSONObject.optString("bsize").split(",");
-            this.f14295h = Integer.valueOf(split[0]).intValue();
+            this.f14296h = Integer.valueOf(split[0]).intValue();
             this.i = Integer.valueOf(split[1]).intValue();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.f14295h <= 0) {
-            this.f14295h = 1;
+        if (this.f14296h <= 0) {
+            this.f14296h = 1;
         }
         if (this.i <= 0) {
             this.i = 1;
         }
-        String str = this.f14293f;
+        String str = this.f14294f;
         if (str == null || str.indexOf(Domains.BAIDU) == -1) {
             return;
         }

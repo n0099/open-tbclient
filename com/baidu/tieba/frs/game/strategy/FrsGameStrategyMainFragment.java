@@ -26,16 +26,16 @@ import java.util.List;
 public class FrsGameStrategyMainFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, r0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16305e;
+    public String f16306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16306f;
+    public String f16307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16307g;
+    public String f16308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.p0.s1.a.e.d f16308h;
+    public d.b.i0.p0.s1.a.e.d f16309h;
     public d.b.i0.p0.s1.a.c.b i;
     public boolean j;
     public d.b.i0.p0.s1.a.d.b k = new a();
@@ -52,13 +52,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         @Override // d.b.i0.p0.s1.a.d.b
         public void a(int i, int i2, List<n> list, List<e> list2, boolean z, boolean z2, int i3) {
             if (i != 0 || i2 != 0 || !ListUtils.isEmpty(list2)) {
-                if (FrsGameStrategyMainFragment.this.f16308h != null) {
+                if (FrsGameStrategyMainFragment.this.f16309h != null) {
                     FrsGameStrategyMainFragment.this.j = false;
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment = FrsGameStrategyMainFragment.this;
-                    frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f16308h.f());
-                    FrsGameStrategyMainFragment.this.f16308h.c(i, i2, list, list2, z, z2, i3);
+                    frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f16309h.f());
+                    FrsGameStrategyMainFragment.this.f16309h.c(i, i2, list, list2, z, z2, i3);
                     if (i == 0 && i2 == 0) {
-                        FrsGameStrategyMainFragment.this.f16308h.l(list2, z2);
+                        FrsGameStrategyMainFragment.this.f16309h.l(list2, z2);
                         return;
                     }
                     return;
@@ -66,7 +66,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 return;
             }
             FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = FrsGameStrategyMainFragment.this;
-            frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f16308h.f(), FrsGameStrategyMainFragment.this.getResources().getString(R.string.no_data_text), false);
+            frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f16309h.f(), FrsGameStrategyMainFragment.this.getResources().getString(R.string.no_data_text), false);
             FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = FrsGameStrategyMainFragment.this;
             frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.ds240));
         }
@@ -74,17 +74,17 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         @Override // d.b.i0.p0.s1.a.d.b
         public void b(int i, int i2, String str) {
             if (i != 0 || i2 != 0) {
-                if (FrsGameStrategyMainFragment.this.f16308h != null) {
+                if (FrsGameStrategyMainFragment.this.f16309h != null) {
                     FrsGameStrategyMainFragment.this.j = false;
                     FrsGameStrategyMainFragment frsGameStrategyMainFragment = FrsGameStrategyMainFragment.this;
-                    frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f16308h.f());
-                    FrsGameStrategyMainFragment.this.f16308h.m(i, i2, str);
+                    frsGameStrategyMainFragment.hideLoadingView(frsGameStrategyMainFragment.f16309h.f());
+                    FrsGameStrategyMainFragment.this.f16309h.m(i, i2, str);
                     return;
                 }
                 return;
             }
             FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = FrsGameStrategyMainFragment.this;
-            frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f16308h.f(), str, false);
+            frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.f16309h.f(), str, false);
             FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = FrsGameStrategyMainFragment.this;
             frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.ds240));
         }
@@ -166,22 +166,22 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001617) {
-                if (FrsGameStrategyMainFragment.this.f16308h == null || FrsGameStrategyMainFragment.this.f16308h.e() == null || FrsGameStrategyMainFragment.this.f16308h.e().getNavBarIsShow()) {
+                if (FrsGameStrategyMainFragment.this.f16309h == null || FrsGameStrategyMainFragment.this.f16309h.e() == null || FrsGameStrategyMainFragment.this.f16309h.e().getNavBarIsShow()) {
                     return;
                 }
-                FrsGameStrategyMainFragment.this.f16308h.e().showNavigationBarWithAnimation();
-            } else if (customResponsedMessage.getCmd() != 2001618 || FrsGameStrategyMainFragment.this.f16308h == null || FrsGameStrategyMainFragment.this.f16308h.e() == null || !FrsGameStrategyMainFragment.this.f16308h.e().getNavBarIsShow()) {
+                FrsGameStrategyMainFragment.this.f16309h.e().showNavigationBarWithAnimation();
+            } else if (customResponsedMessage.getCmd() != 2001618 || FrsGameStrategyMainFragment.this.f16309h == null || FrsGameStrategyMainFragment.this.f16309h.e() == null || !FrsGameStrategyMainFragment.this.f16309h.e().getNavBarIsShow()) {
             } else {
-                FrsGameStrategyMainFragment.this.f16308h.e().hideNavigationBarWithAnimation();
+                FrsGameStrategyMainFragment.this.f16309h.e().hideNavigationBarWithAnimation();
             }
         }
     }
 
     public final void E() {
-        if (this.j || this.f16308h == null || !j.z()) {
+        if (this.j || this.f16309h == null || !j.z()) {
             return;
         }
-        this.f16308h.d();
+        this.f16309h.d();
     }
 
     public final void K0() {
@@ -191,7 +191,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         }
         bVar.b(0, 0);
         this.n = false;
-        d.b.i0.p0.s1.a.e.d dVar = this.f16308h;
+        d.b.i0.p0.s1.a.e.d dVar = this.f16309h;
         if (dVar != null) {
             this.j = true;
             showLoadingView(dVar.f());
@@ -200,7 +200,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
 
     @Override // d.b.i0.p0.r0
     public NavigationBar Q() {
-        d.b.i0.p0.s1.a.e.d dVar = this.f16308h;
+        d.b.i0.p0.s1.a.e.d dVar = this.f16309h;
         if (dVar != null) {
             return dVar.e();
         }
@@ -208,7 +208,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     public String V() {
-        return this.f16305e;
+        return this.f16306e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -223,7 +223,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.p0.s1.a.e.d dVar = this.f16308h;
+        d.b.i0.p0.s1.a.e.d dVar = this.f16309h;
         if (dVar != null) {
             dVar.h(i);
         }
@@ -233,15 +233,15 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.f16305e = bundle.getString("fid");
-            this.f16306f = bundle.getString("name");
-            this.f16307g = bundle.getString("key_from");
+            this.f16306e = bundle.getString("fid");
+            this.f16307f = bundle.getString("name");
+            this.f16308g = bundle.getString("key_from");
         } else if (getArguments() != null) {
-            this.f16305e = getArguments().getString("fid");
-            this.f16306f = getArguments().getString("name");
-            this.f16307g = getArguments().getString("key_from");
+            this.f16306e = getArguments().getString("fid");
+            this.f16307f = getArguments().getString("name");
+            this.f16308g = getArguments().getString("key_from");
         }
-        d.b.i0.p0.s1.a.c.b bVar = new d.b.i0.p0.s1.a.c.b(getActivity(), getUniqueId(), d.b.b.e.m.b.f(this.f16305e, 0L), this.f16306f);
+        d.b.i0.p0.s1.a.c.b bVar = new d.b.i0.p0.s1.a.c.b(getActivity(), getUniqueId(), d.b.b.e.m.b.f(this.f16306e, 0L), this.f16307f);
         this.i = bVar;
         bVar.u(this.k);
     }
@@ -250,13 +250,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_game_strategy_layout, (ViewGroup) null);
         d.b.i0.p0.s1.a.e.d dVar = new d.b.i0.p0.s1.a.e.d(this, inflate);
-        this.f16308h = dVar;
-        dVar.j(this.f16307g);
-        this.f16308h.k(this.l);
-        this.f16308h.h(TbadkCoreApplication.getInst().getSkinType());
-        if ("from_single_act".equals(this.f16307g)) {
+        this.f16309h = dVar;
+        dVar.j(this.f16308g);
+        this.f16309h.k(this.l);
+        this.f16309h.h(TbadkCoreApplication.getInst().getSkinType());
+        if ("from_single_act".equals(this.f16308g)) {
             K0();
-            Q().setCenterTextTitle(this.f16306f);
+            Q().setCenterTextTitle(this.f16307f);
         }
         return inflate;
     }
@@ -268,7 +268,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         if (bVar != null) {
             bVar.r();
         }
-        d.b.i0.p0.s1.a.e.d dVar = this.f16308h;
+        d.b.i0.p0.s1.a.e.d dVar = this.f16309h;
         if (dVar != null) {
             dVar.i();
         }
@@ -280,11 +280,11 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         if (bVar != null) {
             bVar.b(0, 0);
         }
-        d.b.i0.p0.s1.a.e.d dVar = this.f16308h;
+        d.b.i0.p0.s1.a.e.d dVar = this.f16309h;
         if (dVar != null) {
             hideNetRefreshView(dVar.f());
             this.j = true;
-            showLoadingView(this.f16308h.f());
+            showLoadingView(this.f16309h.f());
         }
     }
 
@@ -315,8 +315,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("fid", this.f16305e);
-        bundle.putString("name", this.f16306f);
-        bundle.putString("key_from", this.f16307g);
+        bundle.putString("fid", this.f16306e);
+        bundle.putString("name", this.f16307f);
+        bundle.putString("key_from", this.f16308g);
     }
 }

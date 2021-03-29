@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class b implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f58682f = BdUniqueId.gen();
+    public static final BdUniqueId f58683f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58683e;
+    public String f58684e;
 
     public b(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
         jSONObject.optString("id");
-        this.f58683e = jSONObject.optString("user_id");
+        this.f58684e = jSONObject.optString("user_id");
         jSONObject.optString("forum_id");
         jSONObject.optString("score");
         jSONObject.optString("create_time");
@@ -31,6 +31,6 @@ public class b implements n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f58682f;
+        return f58683f;
     }
 }

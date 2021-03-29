@@ -6,27 +6,27 @@ import androidx.annotation.NonNull;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f65786b;
+    public static volatile f f65787b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f65787a;
+    public final c f65788a;
 
     public f(@NonNull Context context) {
-        this.f65787a = new c(context);
+        this.f65788a = new c(context);
     }
 
     public static f a(Context context) {
-        if (f65786b == null) {
+        if (f65787b == null) {
             synchronized (f.class) {
-                if (f65786b == null) {
-                    f65786b = new f(context);
+                if (f65787b == null) {
+                    f65787b = new f(context);
                 }
             }
         }
-        return f65786b;
+        return f65787b;
     }
 
     public void b() {
-        this.f65787a.c();
+        this.f65788a.c();
     }
 }

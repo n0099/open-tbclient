@@ -20,7 +20,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        b bVar = this.mDelegate.f63441d;
+        b bVar = this.mDelegate.f63442d;
         if (bVar != null) {
             bVar.a(i);
         }
@@ -32,7 +32,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         a aVar = new a(this, getPageContext());
         this.mDelegate = aVar;
         aVar.j(getIntent());
-        setContentView(this.mDelegate.f63441d.d());
+        setContentView(this.mDelegate.f63442d.d());
         this.mDelegate.m();
     }
 

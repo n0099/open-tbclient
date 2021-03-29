@@ -5,17 +5,17 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50776a;
+    public String f50777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50777b;
+    public String f50778b;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
         jSONObject.optInt("label_id");
-        this.f50776a = jSONObject.optString("label_name");
-        this.f50777b = jSONObject.optString("label_rgb");
+        this.f50777a = jSONObject.optString("label_name");
+        this.f50778b = jSONObject.optString("label_rgb");
     }
 }

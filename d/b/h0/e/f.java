@@ -25,25 +25,25 @@ import java.util.List;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public c f50141b;
+    public c f50142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f50142c;
+    public final Context f50143c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f50140a = TbConfig.getTempDirName();
+    public final String f50141a = TbConfig.getTempDirName();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50143d = 0;
+    public int f50144d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f50144e = {"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    public String[] f50145e = {"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f50145f = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    public String[] f50146f = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, d.b.h0.e.a> f50146g = new HashMap<>();
+    public HashMap<String, d.b.h0.e.a> f50147g = new HashMap<>();
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<MediaFileInfo> {
@@ -54,11 +54,11 @@ public class f {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
-            long sortTime = mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime();
-            if (sortTime == 0) {
+            int i = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
+            if (i == 0) {
                 return 0;
             }
-            return sortTime > 0 ? 1 : -1;
+            return i > 0 ? 1 : -1;
         }
     }
 
@@ -71,17 +71,17 @@ public class f {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(d.b.h0.e.a aVar, d.b.h0.e.a aVar2) {
-            if (f.this.f50140a.equals(aVar.g())) {
+            if (f.this.f50141a.equals(aVar.g())) {
                 return -1;
             }
-            if (f.this.f50140a.equals(aVar2.g())) {
+            if (f.this.f50141a.equals(aVar2.g())) {
                 return 1;
             }
-            long sortTime = aVar2.e().getSortTime() - aVar.e().getSortTime();
-            if (sortTime == 0) {
+            int i = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
+            if (i == 0) {
                 return 0;
             }
-            return sortTime > 0 ? 1 : -1;
+            return i > 0 ? 1 : -1;
         }
     }
 
@@ -89,10 +89,10 @@ public class f {
     public class c extends BdAsyncTask<Object, Integer, g> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final e f50148a;
+        public final e f50149a;
 
         public c(e eVar) {
-            this.f50148a = eVar;
+            this.f50149a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,7 +107,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            e eVar = this.f50148a;
+            e eVar = this.f50149a;
             if (eVar != null) {
                 eVar.a(gVar);
             }
@@ -116,7 +116,7 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            e eVar = this.f50148a;
+            e eVar = this.f50149a;
             if (eVar != null) {
                 eVar.onPreLoad();
             }
@@ -124,22 +124,22 @@ public class f {
     }
 
     public f(Context context) {
-        this.f50142c = context;
+        this.f50143c = context;
     }
 
     public void c() {
-        c cVar = this.f50141b;
+        c cVar = this.f50142b;
         if (cVar != null) {
             cVar.cancel();
-            this.f50141b = null;
+            this.f50142b = null;
         }
     }
 
     public final g d() {
-        this.f50146g.clear();
+        this.f50147g.clear();
         g gVar = new g();
         List<ImageFileInfo> e2 = e();
-        List<VideoFileInfo> g2 = this.f50143d != 2 ? g() : null;
+        List<VideoFileInfo> g2 = this.f50144d != 2 ? g() : null;
         ArrayList arrayList = new ArrayList();
         if (!ListUtils.isEmpty(e2)) {
             arrayList.addAll(e2);
@@ -150,13 +150,13 @@ public class f {
         if (!ListUtils.isEmpty(arrayList)) {
             Collections.sort(arrayList, new a(this));
         }
-        ArrayList arrayList2 = new ArrayList(this.f50146g.values());
+        ArrayList arrayList2 = new ArrayList(this.f50147g.values());
         if (!ListUtils.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new b());
         }
-        gVar.f50150a = arrayList2;
-        gVar.f50152c = g2;
-        gVar.f50151b = arrayList;
+        gVar.f50151a = arrayList2;
+        gVar.f50153c = g2;
+        gVar.f50152b = arrayList;
         return gVar;
     }
 
@@ -176,12 +176,12 @@ public class f {
     public final List<ImageFileInfo> f(Uri uri) {
         Cursor cursor;
         String str = null;
-        if (this.f50142c == null) {
+        if (this.f50143c == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         try {
-            Cursor query = this.f50142c.getContentResolver().query(uri, this.f50144e, "mime_type like 'image/%'", null, "date_added DESC");
+            Cursor query = this.f50143c.getContentResolver().query(uri, this.f50145e, "mime_type like 'image/%'", null, "date_added DESC");
             if (query != null) {
                 try {
                     try {
@@ -209,10 +209,10 @@ public class f {
                                         imageFileInfo.setSortTime(j);
                                         arrayList = arrayList2;
                                         arrayList.add(imageFileInfo);
-                                        d.b.h0.e.a aVar = this.f50146g.get(string);
+                                        d.b.h0.e.a aVar = this.f50147g.get(string);
                                         if (aVar == null) {
                                             aVar = new d.b.h0.e.a();
-                                            this.f50146g.put(string, aVar);
+                                            this.f50147g.put(string, aVar);
                                         }
                                         aVar.h(string);
                                         aVar.l(string2);
@@ -274,7 +274,7 @@ public class f {
         Cursor cursor;
         Cursor cursor2;
         ArrayList arrayList = new ArrayList();
-        Context context = this.f50142c;
+        Context context = this.f50143c;
         if (context == null) {
             return arrayList;
         }
@@ -282,7 +282,7 @@ public class f {
         HashSet hashSet = new HashSet();
         try {
             Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            Cursor query = contentResolver.query(uri, this.f50145f, null, null, "date_added DESC");
+            Cursor query = contentResolver.query(uri, this.f50146f, null, null, "date_added DESC");
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -347,11 +347,11 @@ public class f {
             return false;
         }
         c();
-        this.f50143d = i;
+        this.f50144d = i;
         c cVar = new c(eVar);
-        this.f50141b = cVar;
+        this.f50142b = cVar;
         cVar.setPriority(3);
-        this.f50141b.execute(new Object[0]);
+        this.f50142b.execute(new Object[0]);
         return true;
     }
 }

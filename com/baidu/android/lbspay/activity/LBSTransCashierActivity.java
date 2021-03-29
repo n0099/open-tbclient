@@ -26,7 +26,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSTransCashierActivity extends LBSBaseActivity {
     public static final String BEAN_TAG = "LBSTransCashierActivity";
     public Context mAct;

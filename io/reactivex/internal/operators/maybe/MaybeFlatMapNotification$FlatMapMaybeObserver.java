@@ -14,7 +14,7 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
     public final i<? super R> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68040d;
+    public b f68045d;
     public final Callable<? extends j<? extends R>> onCompleteSupplier;
     public final h<? super Throwable, ? extends j<? extends R>> onErrorMapper;
     public final h<? super T, ? extends j<? extends R>> onSuccessMapper;
@@ -55,7 +55,7 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
     @Override // f.a.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
-        this.f68040d.dispose();
+        this.f68045d.dispose();
     }
 
     @Override // f.a.t.b
@@ -89,8 +89,8 @@ public final class MaybeFlatMapNotification$FlatMapMaybeObserver<T, R> extends A
 
     @Override // f.a.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68040d, bVar)) {
-            this.f68040d = bVar;
+        if (DisposableHelper.validate(this.f68045d, bVar)) {
+            this.f68045d = bVar;
             this.actual.onSubscribe(this);
         }
     }

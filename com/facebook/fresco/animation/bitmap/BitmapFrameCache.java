@@ -3,7 +3,7 @@ package com.facebook.fresco.animation.bitmap;
 import android.graphics.Bitmap;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public interface BitmapFrameCache {
 
     /* loaded from: classes6.dex */

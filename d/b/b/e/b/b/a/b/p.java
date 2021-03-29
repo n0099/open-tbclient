@@ -3,15 +3,15 @@ package d.b.b.e.b.b.a.b;
 public class p implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public short f41624a;
+    public short f41625a;
 
     public p(short s) {
-        this.f41624a = s;
+        this.f41625a = s;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object a(d.b.b.e.b.b.a.e.c cVar) {
-        return Short.valueOf(this.f41624a);
+        return Short.valueOf(this.f41625a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -21,21 +21,21 @@ public class p implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return Short.valueOf(this.f41624a);
+        return Short.valueOf(this.f41625a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return Short.valueOf(this.f41624a);
+        return Short.valueOf(this.f41625a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
-        return Short.valueOf(this.f41624a);
+        return Short.valueOf(this.f41625a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f41624a);
+        return Integer.valueOf(this.f41625a);
     }
 }

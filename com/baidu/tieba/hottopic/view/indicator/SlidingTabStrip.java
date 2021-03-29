@@ -9,20 +9,20 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SlidingTabStrip extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f17706e;
+    public final int f17707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f17707f;
+    public final Paint f17708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f17708g;
+    public final Paint f17709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17709h;
+    public int f17710h;
     public int i;
     public int j;
 
@@ -56,15 +56,15 @@ public class SlidingTabStrip extends LinearLayout {
 
     public final void c(Canvas canvas, int i) {
         int i2;
-        if (this.j <= 0 && (i2 = this.f17709h) >= 0 && i2 < getChildCount()) {
-            this.j = getChildAt(this.f17709h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.j <= 0 && (i2 = this.f17710h) >= 0 && i2 < getChildCount()) {
+            this.j = getChildAt(this.f17710h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.i, i - this.f17706e, this.j, i), 10.0f, 10.0f, this.f17707f);
+        canvas.drawRoundRect(new RectF(this.i, i - this.f17707e, this.j, i), 10.0f, 10.0f, this.f17708f);
     }
 
     public void d(int i) {
-        this.f17707f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
-        this.f17708g.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f17708f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
+        this.f17709g.setColor(SkinManager.getColor(R.color.CAM_X0204));
         invalidate();
         int childCount = getChildCount();
         if (childCount <= 0) {
@@ -75,7 +75,7 @@ public class SlidingTabStrip extends LinearLayout {
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView = (TabItemView) childAt;
                 tabItemView.a();
-                if (i2 == this.f17709h) {
+                if (i2 == this.f17710h) {
                     SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0105, 1);
                 } else {
                     SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0107, 1);
@@ -87,10 +87,10 @@ public class SlidingTabStrip extends LinearLayout {
     public void e(int i, float f2) {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds14);
         View childAt = getChildAt(i);
-        View childAt2 = getChildAt(this.f17709h);
+        View childAt2 = getChildAt(this.f17710h);
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f2;
-        if (this.f17709h == 0) {
+        if (this.f17710h == 0) {
             this.i = (int) (left + left2);
         } else {
             this.i = (int) (left + left2 + dimensionPixelSize);
@@ -103,7 +103,7 @@ public class SlidingTabStrip extends LinearLayout {
         if (i == i2) {
             return;
         }
-        this.f17709h = i;
+        this.f17710h = i;
         int childCount = getChildCount();
         if (i >= 0 && i < childCount) {
             View childAt = getChildAt(i);
@@ -136,12 +136,12 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.f17706e = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.f17707e = getResources().getDimensionPixelSize(R.dimen.ds5);
         Paint paint = new Paint();
-        this.f17707f = paint;
+        this.f17708f = paint;
         paint.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
         Paint paint2 = new Paint();
-        this.f17708g = paint2;
+        this.f17709g = paint2;
         paint2.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 }

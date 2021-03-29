@@ -19,24 +19,24 @@ public class AccountToolsActivity extends Activity {
     public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f10914a = new AccountToolsResult();
+    public AccountToolsResult f10915a = new AccountToolsResult();
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f10915b;
+    public AccountToolsCallback f10916b;
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-        this.f10915b = CoreViewRouter.getInstance().getAccountToolsCallback();
+        this.f10916b = CoreViewRouter.getInstance().getAccountToolsCallback();
         AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
         accountCenterDTO.accountToolsUrl = a(intExtra);
         accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f10914a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f10914a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f10915a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f10915a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -48,7 +48,7 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f10915b.onFinish(this.f10914a);
+        this.f10916b.onFinish(this.f10915a);
         finish();
     }
 

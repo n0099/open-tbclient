@@ -207,8 +207,8 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
 
     /* renamed from: d.b.i0.h2.c.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1265c extends b0<d.b.i0.x.e0.f> {
-        public C1265c(c cVar) {
+    public class C1266c extends b0<d.b.i0.x.e0.f> {
+        public C1266c(c cVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -221,7 +221,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
             int id = view.getId();
             if (id == R.id.thread_card_root) {
                 StatisticItem G = fVar.G("c13543");
-                G.param("obj_type", fVar.Z(fVar.f62196e));
+                G.param("obj_type", fVar.Z(fVar.f62197e));
                 TiebaStatic.log(G);
                 d.b.i0.h2.a.a(view, fVar, 2);
             } else if (view instanceof TbImageView) {
@@ -251,7 +251,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
                     c.this.v.a(threadCardViewHolder.a(), fVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) fVar, view.getContext(), 4, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -263,7 +263,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
         this.r = 0;
         this.t = new d.b.b.e.k.b<>(new a(), 12, 0);
         this.u = new d.b.b.e.k.b<>(new b(), 20, 0);
-        this.v = new C1265c(this);
+        this.v = new C1266c(this);
         this.n = tbPageContext;
         j0();
     }
@@ -293,14 +293,14 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
         oVar.z(4);
         oVar.C(this.t, this.u);
         oVar.y(this.p);
-        oVar.r(l.g(this.f42357e, R.dimen.tbds20));
+        oVar.r(l.g(this.f42358e, R.dimen.tbds20));
         oVar.w(1);
         bVar.h(oVar);
         bVar.h(new d.b.i.k(this.n.getPageActivity()));
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 3;
-        eVar.f50768h = 3;
+        eVar.f50763b = 3;
+        eVar.f50769h = 3;
         m0Var.v(eVar);
         m0Var.w(8);
         m0Var.A(6);
@@ -319,7 +319,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.x.e0.f, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.f fVar, ThreadCardViewHolder<d.b.i0.x.e0.f> threadCardViewHolder) {
-        if (fVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || fVar.f62196e == null) {
+        if (fVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || fVar.f62197e == null) {
             return null;
         }
         fVar.U(fVar.position + 1);

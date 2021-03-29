@@ -2,7 +2,7 @@ package com.baidu.sofire.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CallArgs implements Parcelable {
     public static final Parcelable.Creator<CallArgs> CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -19,22 +19,22 @@ public class CallArgs implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11643a;
+    public int f11644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11644b;
+    public int f11645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11645c;
+    public String f11646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f11646d;
+    public Object[] f11647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f11647e;
+    public Object[] f11648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f11648f;
+    public Object f11649f;
 
     public CallArgs() {
     }
@@ -46,20 +46,20 @@ public class CallArgs implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11643a);
-        parcel.writeInt(this.f11644b);
-        parcel.writeString(this.f11645c);
-        parcel.writeArray(this.f11647e);
-        parcel.writeArray(this.f11646d);
-        parcel.writeValue(this.f11648f);
+        parcel.writeInt(this.f11644a);
+        parcel.writeInt(this.f11645b);
+        parcel.writeString(this.f11646c);
+        parcel.writeArray(this.f11648e);
+        parcel.writeArray(this.f11647d);
+        parcel.writeValue(this.f11649f);
     }
 
     public CallArgs(Parcel parcel) {
-        this.f11643a = parcel.readInt();
-        this.f11644b = parcel.readInt();
-        this.f11645c = parcel.readString();
-        this.f11647e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f11646d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f11648f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f11644a = parcel.readInt();
+        this.f11645b = parcel.readInt();
+        this.f11646c = parcel.readString();
+        this.f11648e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f11647d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f11649f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

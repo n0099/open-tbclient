@@ -340,9 +340,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         writer.write("Crash address: ");
         writer.write(stackTrace != null ? stackTrace[0].toString() : "Unkown");
         writer.write("\n");
-        double d2 = this.mCrashTime - APPROXIMATE_START_TIME;
-        Double.isNaN(d2);
-        writer.write(String.format("Process uptime: %s H\n\n", String.valueOf(d2 / 3600000.0d)));
+        writer.write(String.format("Process uptime: %s H\n\n", String.valueOf((this.mCrashTime - APPROXIMATE_START_TIME) / 3600000.0d)));
         writer.write(String.format("Thread %d:%s (crashed)\n", Long.valueOf(this.mCrashThread.getId()), this.mCrashThread.getName()));
         this.mCrash.printStackTrace(new PrintWriter(writer));
     }

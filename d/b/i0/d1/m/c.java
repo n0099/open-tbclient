@@ -6,7 +6,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import d.b.b.c.f.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends k {
     public c() {
         super(202003);

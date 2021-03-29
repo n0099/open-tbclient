@@ -1,11 +1,11 @@
 package d.b.g0.a.r.a;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f45698a = new h();
+    public static final h f45699a = new h();
 
     public final void a(int i, JSONObject jSONObject) {
         if (i == 0) {

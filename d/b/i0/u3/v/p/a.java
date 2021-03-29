@@ -18,30 +18,30 @@ import java.util.Calendar;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<WriteActivity> f61864a;
+    public TbPageContext<WriteActivity> f61865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f61865b;
+    public RelativeLayout f61866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VoteView f61866c;
+    public VoteView f61867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WriteVoteData f61867d;
+    public WriteVoteData f61868d;
 
     /* renamed from: d.b.i0.u3.v.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1627a implements View.OnClickListener {
+    public class View$OnClickListenerC1628a implements View.OnClickListener {
 
         /* renamed from: d.b.i0.u3.v.p.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1628a implements a.e {
-            public C1628a() {
+        public class C1629a implements a.e {
+            public C1629a() {
             }
 
             @Override // d.b.h0.r.s.a.e
             public void onClick(d.b.h0.r.s.a aVar) {
-                a.this.f61867d = null;
+                a.this.f61868d = null;
                 a.this.h(false);
                 aVar.dismiss();
             }
@@ -50,7 +50,7 @@ public class a {
         /* renamed from: d.b.i0.u3.v.p.a$a$b */
         /* loaded from: classes5.dex */
         public class b implements a.e {
-            public b(View$OnClickListenerC1627a view$OnClickListenerC1627a) {
+            public b(View$OnClickListenerC1628a view$OnClickListenerC1628a) {
             }
 
             @Override // d.b.h0.r.s.a.e
@@ -59,44 +59,44 @@ public class a {
             }
         }
 
-        public View$OnClickListenerC1627a() {
+        public View$OnClickListenerC1628a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(a.this.f61864a.getPageActivity());
-            aVar.setTitle(a.this.f61864a.getString(R.string.vote_delete_dialog_title));
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(a.this.f61865a.getPageActivity());
+            aVar.setTitle(a.this.f61865a.getString(R.string.vote_delete_dialog_title));
             aVar.setTitleShowCenter(true);
-            aVar.setMessage(a.this.f61864a.getString(R.string.vote_delete_dialog_message));
+            aVar.setMessage(a.this.f61865a.getString(R.string.vote_delete_dialog_message));
             aVar.setMessageShowCenter(true);
-            aVar.setPositiveButton(R.string.delete, new C1628a());
+            aVar.setPositiveButton(R.string.delete, new C1629a());
             aVar.setNegativeButton(R.string.cancel, new b(this));
-            aVar.create(a.this.f61864a).show();
+            aVar.create(a.this.f61865a).show();
         }
     }
 
     public a(TbPageContext<WriteActivity> tbPageContext, RelativeLayout relativeLayout) {
-        this.f61864a = tbPageContext;
-        this.f61865b = relativeLayout;
-        VoteView voteView = new VoteView(this.f61864a.getPageActivity());
-        this.f61866c = voteView;
-        voteView.setPageContext(this.f61864a);
-        this.f61866c.setDeleteOnClickListener(new View$OnClickListenerC1627a());
-        this.f61866c.setVoteViewDeleteVisibility(0);
-        this.f61865b.addView(this.f61866c);
+        this.f61865a = tbPageContext;
+        this.f61866b = relativeLayout;
+        VoteView voteView = new VoteView(this.f61865a.getPageActivity());
+        this.f61867c = voteView;
+        voteView.setPageContext(this.f61865a);
+        this.f61867c.setDeleteOnClickListener(new View$OnClickListenerC1628a());
+        this.f61867c.setVoteViewDeleteVisibility(0);
+        this.f61866b.addView(this.f61867c);
         h(false);
     }
 
     public WriteVoteData c() {
-        return this.f61867d;
+        return this.f61868d;
     }
 
     public void d(int i) {
-        this.f61866c.C(i);
+        this.f61867c.C(i);
     }
 
     public void e(View.OnClickListener onClickListener) {
-        VoteView voteView = this.f61866c;
+        VoteView voteView = this.f61867c;
         if (voteView == null || onClickListener == null) {
             return;
         }
@@ -104,7 +104,7 @@ public class a {
     }
 
     public void f(View.OnClickListener onClickListener) {
-        VoteView voteView = this.f61866c;
+        VoteView voteView = this.f61867c;
         if (voteView == null || onClickListener == null) {
             return;
         }
@@ -116,35 +116,35 @@ public class a {
         TbPageContext<WriteActivity> tbPageContext;
         int i;
         String str;
-        if (writeVoteData == null || (voteView = this.f61866c) == null) {
+        if (writeVoteData == null || (voteView = this.f61867c) == null) {
             return;
         }
-        this.f61867d = writeVoteData;
+        this.f61868d = writeVoteData;
         voteView.setVoteTitle(writeVoteData.getTitle());
-        if (this.f61867d.getIs_multi() == 1) {
-            tbPageContext = this.f61864a;
+        if (this.f61868d.getIs_multi() == 1) {
+            tbPageContext = this.f61865a;
             i = R.string.vote_type_multiple;
         } else {
-            tbPageContext = this.f61864a;
+            tbPageContext = this.f61865a;
             i = R.string.vote_type_single;
         }
         String string = tbPageContext.getString(i);
-        int expire_type = this.f61867d.getExpire_type();
+        int expire_type = this.f61868d.getExpire_type();
         if (expire_type > 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(6, expire_type);
-            str = String.format(this.f61864a.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+            str = String.format(this.f61865a.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
         } else {
             str = "";
         }
         if (StringUtils.isNull(str)) {
-            this.f61866c.setVoteSubContent(string);
+            this.f61867c.setVoteSubContent(string);
         } else {
-            VoteView voteView2 = this.f61866c;
+            VoteView voteView2 = this.f61867c;
             voteView2.setVoteSubContent(string + " · " + str);
         }
         ArrayList arrayList = new ArrayList();
-        for (WriteVoteItemData writeVoteItemData : this.f61867d.getOptions()) {
+        for (WriteVoteItemData writeVoteItemData : this.f61868d.getOptions()) {
             PollOptionData pollOptionData = new PollOptionData();
             pollOptionData.setId(writeVoteItemData.getId());
             pollOptionData.setText(writeVoteItemData.getText());
@@ -154,13 +154,13 @@ public class a {
             return;
         }
         if (arrayList.size() > 3) {
-            this.f61866c.setData(arrayList.subList(0, 3));
+            this.f61867c.setData(arrayList.subList(0, 3));
         } else {
-            this.f61866c.setData(arrayList);
+            this.f61867c.setData(arrayList);
         }
     }
 
     public void h(boolean z) {
-        this.f61865b.setVisibility(z ? 0 : 8);
+        this.f61866b.setVisibility(z ? 0 : 8);
     }
 }

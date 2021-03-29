@@ -55,19 +55,19 @@ public class ScanBoxView extends View {
     public Bitmap d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20666e;
+    public Bitmap f20667e;
     public Bitmap e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20667f;
+    public Bitmap f20668f;
     public float f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20668g;
+    public Bitmap f20669g;
     public StaticLayout g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20669h;
+    public Bitmap f20670h;
     public int h0;
     public int i;
     public boolean i0;
@@ -223,10 +223,10 @@ public class ScanBoxView extends View {
     public final void d(Canvas canvas) {
         this.n.reset();
         this.n.setAntiAlias(false);
-        canvas.drawBitmap(this.f20666e, getMainFrameLeft(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20667f, getMainFrameRight() - this.f20666e.getWidth(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20668g, getMainFrameLeft(), getMainFrameBottom() - this.f20666e.getHeight(), this.n);
-        canvas.drawBitmap(this.f20669h, getMainFrameRight() - this.f20666e.getWidth(), getMainFrameBottom() - this.f20666e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20667e, getMainFrameLeft(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20668f, getMainFrameRight() - this.f20667e.getWidth(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20669g, getMainFrameLeft(), getMainFrameBottom() - this.f20667e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20670h, getMainFrameRight() - this.f20667e.getWidth(), getMainFrameBottom() - this.f20667e.getHeight(), this.n);
     }
 
     public final void e(Canvas canvas) {
@@ -497,17 +497,17 @@ public class ScanBoxView extends View {
         int i = this.q;
         options.outWidth = i;
         options.outHeight = i;
-        this.f20666e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
+        this.f20667e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        Bitmap bitmap = this.f20666e;
-        this.f20667f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20666e.getHeight(), matrix, false);
+        Bitmap bitmap = this.f20667e;
+        this.f20668f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20667e.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        Bitmap bitmap2 = this.f20666e;
-        this.f20668g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20666e.getHeight(), matrix, false);
+        Bitmap bitmap2 = this.f20667e;
+        this.f20669g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20667e.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        Bitmap bitmap3 = this.f20666e;
-        this.f20669h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20666e.getHeight(), matrix, false);
+        Bitmap bitmap3 = this.f20667e;
+        this.f20670h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20667e.getHeight(), matrix, false);
     }
 
     public final void j(int i, TypedArray typedArray) {

@@ -17,25 +17,25 @@ import java.util.regex.Pattern;
 public class l {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f53392f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+    public static final Pattern f53393f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f53393g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    public static final Pattern f53394g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53396c;
+    public String f53397c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53394a = 0;
+    public int f53395a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53395b = null;
+    public String f53396b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53397d = null;
+    public String f53398d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f53398e = null;
+    public SpannableStringBuilder f53399e = null;
 
     /* loaded from: classes5.dex */
     public class a extends d.b.h0.z0.r {
@@ -45,7 +45,7 @@ public class l {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            c(l.this.f53395b);
+            c(l.this.f53396b);
         }
     }
 
@@ -57,7 +57,7 @@ public class l {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            Matcher matcher = l.f53392f.matcher(l.this.f53397d);
+            Matcher matcher = l.f53393f.matcher(l.this.f53398d);
             if (matcher.find()) {
                 try {
                     String group = matcher.group();
@@ -67,7 +67,7 @@ public class l {
                     e2.printStackTrace();
                 }
             }
-            Matcher matcher2 = l.f53393g.matcher(l.this.f53397d);
+            Matcher matcher2 = l.f53394g.matcher(l.this.f53398d);
             if (matcher2.find()) {
                 try {
                     String group2 = matcher2.group();
@@ -77,7 +77,7 @@ public class l {
                     e3.printStackTrace();
                 }
             }
-            c(l.this.f53397d);
+            c(l.this.f53398d);
         }
     }
 
@@ -89,10 +89,10 @@ public class l {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (l.this.f53395b != null) {
-                l.this.f53395b.replace("@", "").replace(" ", "");
+            if (l.this.f53396b != null) {
+                l.this.f53396b.replace("@", "").replace(" ", "");
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(a()).createNormalConfig(d.b.b.e.m.b.f(l.this.f53397d, 0L), false, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(a()).createNormalConfig(d.b.b.e.m.b.f(l.this.f53398d, 0L), false, false)));
         }
     }
 
@@ -101,76 +101,76 @@ public class l {
     }
 
     public SpannableStringBuilder e(SpannableString spannableString) {
-        if (this.f53398e == null) {
-            this.f53398e = new SpannableStringBuilder();
+        if (this.f53399e == null) {
+            this.f53399e = new SpannableStringBuilder();
         }
-        this.f53398e.append((CharSequence) spannableString);
-        return this.f53398e;
+        this.f53399e.append((CharSequence) spannableString);
+        return this.f53399e;
     }
 
     public String f() {
-        return this.f53396c;
+        return this.f53397c;
     }
 
     public String g() {
-        return this.f53397d;
+        return this.f53398d;
     }
 
     public SpannableString h(Context context) {
-        int i = this.f53394a;
+        int i = this.f53395a;
         if (i != 0) {
             if (i == 1) {
-                if (!this.f53395b.endsWith(" ")) {
-                    this.f53395b += " ";
+                if (!this.f53396b.endsWith(" ")) {
+                    this.f53396b += " ";
                 }
-                SpannableString spannableString = new SpannableString(this.f53395b);
-                spannableString.setSpan(new b(context), 0, this.f53395b.length() - 1, 33);
+                SpannableString spannableString = new SpannableString(this.f53396b);
+                spannableString.setSpan(new b(context), 0, this.f53396b.length() - 1, 33);
                 return spannableString;
             } else if (i == 2) {
-                SpannableString spannableString2 = new SpannableString(this.f53395b + " ");
-                d.b.b.j.d.a face = TbadkCoreApplication.getInst().getFace(this.f53395b);
+                SpannableString spannableString2 = new SpannableString(this.f53396b + " ");
+                d.b.b.j.d.a face = TbadkCoreApplication.getInst().getFace(this.f53396b);
                 if (face != null) {
                     BitmapDrawable j = face.j();
                     j.setBounds(0, 0, face.r(), face.m());
-                    spannableString2.setSpan(new ImageSpan(j, 1), 0, this.f53395b.length(), 33);
+                    spannableString2.setSpan(new ImageSpan(j, 1), 0, this.f53396b.length(), 33);
                 }
                 return spannableString2;
             } else if (i == 4) {
-                if (!this.f53395b.endsWith(" ")) {
-                    this.f53395b += " ";
+                if (!this.f53396b.endsWith(" ")) {
+                    this.f53396b += " ";
                 }
-                SpannableString spannableString3 = new SpannableString(this.f53395b);
-                spannableString3.setSpan(new c(context), 0, this.f53395b.length() - 1, 33);
+                SpannableString spannableString3 = new SpannableString(this.f53396b);
+                spannableString3.setSpan(new c(context), 0, this.f53396b.length() - 1, 33);
                 return spannableString3;
             } else if (i != 5) {
                 return null;
             } else {
-                if (!this.f53395b.endsWith(" ")) {
-                    this.f53395b += " ";
+                if (!this.f53396b.endsWith(" ")) {
+                    this.f53396b += " ";
                 }
                 String string = context.getString(R.string.video);
-                String str = string + this.f53395b;
+                String str = string + this.f53396b;
                 SpannableString spannableString4 = new SpannableString(str);
                 spannableString4.setSpan(new a(context), string.length(), str.length() - 1, 33);
                 return spannableString4;
             }
         }
-        return new SpannableString(this.f53395b);
+        return new SpannableString(this.f53396b);
     }
 
     public String i() {
-        return this.f53395b;
+        return this.f53396b;
     }
 
     public int j() {
-        return this.f53394a;
+        return this.f53395a;
     }
 
     public SpannableStringBuilder k() {
-        return this.f53398e;
+        return this.f53399e;
     }
 
     public void m(int i) {
-        this.f53394a = i;
+        this.f53395a = i;
     }
 }

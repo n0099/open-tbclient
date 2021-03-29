@@ -6,16 +6,16 @@ import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 public class q extends d.b.h0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f56595e;
+    public final String f56596e;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f56596a;
+        public final /* synthetic */ b f56597a;
 
         public a(b bVar) {
-            this.f56596a = bVar;
+            this.f56597a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class q extends d.b.h0.w.p.c {
                 q.this.q(aVar);
                 q.this.r(aVar);
                 if (q.this.t()) {
-                    this.f56596a.a(q.this);
+                    this.f56597a.a(q.this);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class q extends d.b.h0.w.p.c {
     }
 
     public q(d.b.i0.k0.c.b bVar) {
-        this.f56595e = bVar.getGroupId();
+        this.f56596e = bVar.getGroupId();
         s(1);
         p(4);
     }
@@ -60,7 +60,7 @@ public class q extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public String f() {
-        return this.f56595e;
+        return this.f56596e;
     }
 
     @Override // d.b.h0.w.p.c

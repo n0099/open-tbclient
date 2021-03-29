@@ -33,7 +33,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static String mForumName = "armcv";
     public static TbadkApplication sApp;

@@ -6,14 +6,14 @@ import android.content.SharedPreferences;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f9984a;
+    public final Context f9985a;
 
     public g(Context context) {
-        this.f9984a = context;
+        this.f9985a = context;
     }
 
     private SharedPreferences c() {
-        return this.f9984a.getSharedPreferences("ar_so_info", 0);
+        return this.f9985a.getSharedPreferences("ar_so_info", 0);
     }
 
     public String a() {

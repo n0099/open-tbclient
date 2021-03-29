@@ -21,42 +21,42 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public TailData f59492c;
+    public TailData f59493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TailData f59493d;
+    public TailData f59494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f59494e;
+    public TbPageContext<?> f59495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.q1.h.f.a<Integer> f59495f;
+    public d.b.i0.q1.h.f.a<Integer> f59496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.q1.h.f.a<Integer> f59496g;
+    public d.b.i0.q1.h.f.a<Integer> f59497g;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59490a = false;
+    public boolean f59491a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59491b = false;
+    public boolean f59492b = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f59497h = new C1485a(CmdConfigHttp.CMD_TAIL_ADD, 305101);
+    public d.b.b.c.g.a f59498h = new C1486a(CmdConfigHttp.CMD_TAIL_ADD, 305101);
     public d.b.b.c.g.a i = new b(CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
 
     /* renamed from: d.b.i0.q1.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1485a extends d.b.b.c.g.a {
-        public C1485a(int i, int i2) {
+    public class C1486a extends d.b.b.c.g.a {
+        public C1486a(int i, int i2) {
             super(i, i2);
         }
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d.b.i0.q1.h.a.b resultData;
-            a.this.f59490a = false;
-            if (a.this.f59495f != null) {
+            a.this.f59491a = false;
+            if (a.this.f59496f != null) {
                 Integer num = null;
                 if (responsedMessage instanceof AddTailHttpResponseMessage) {
                     resultData = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
@@ -65,11 +65,11 @@ public class a {
                 }
                 if (resultData != null) {
                     num = Integer.valueOf(resultData.a());
-                    if (a.this.f59491b) {
+                    if (a.this.f59492b) {
                         a.this.p(num.intValue());
                     }
                 }
-                a.this.f59495f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+                a.this.f59496f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
             }
         }
     }
@@ -83,23 +83,23 @@ public class a {
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             g resultData;
-            a.this.f59490a = false;
-            if (a.this.f59496g != null) {
+            a.this.f59491a = false;
+            if (a.this.f59497g != null) {
                 if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
                     resultData = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
                 } else {
                     resultData = responsedMessage instanceof UpdateTailSocketResponseMessage ? ((UpdateTailSocketResponseMessage) responsedMessage).getResultData() : null;
                 }
-                a.this.f59496g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
+                a.this.f59497g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
             }
         }
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        this.f59494e = tbPageContext;
-        tbPageContext.registerListener(this.f59497h);
-        this.f59494e.registerListener(this.i);
-        this.f59493d = new TailData();
+        this.f59495e = tbPageContext;
+        tbPageContext.registerListener(this.f59498h);
+        this.f59495e.registerListener(this.i);
+        this.f59494d = new TailData();
     }
 
     public int e(String str) {
@@ -111,7 +111,7 @@ public class a {
     }
 
     public String g() {
-        return this.f59493d.getFontColor();
+        return this.f59494d.getFontColor();
     }
 
     public String h(String str) {
@@ -122,37 +122,37 @@ public class a {
     }
 
     public TailData i() {
-        return this.f59493d;
+        return this.f59494d;
     }
 
     public void j(int i, String str, String str2, boolean z) {
         TailData tailData = new TailData();
-        this.f59493d = tailData;
+        this.f59494d = tailData;
         if (i != 0) {
             TailData tailData2 = new TailData();
-            this.f59492c = tailData2;
+            this.f59493c = tailData2;
             tailData2.setId(i);
-            this.f59492c.setContent(str);
-            this.f59492c.setFontColor(str2);
-            this.f59493d.setId(i);
-            this.f59493d.setContent(str);
-            this.f59493d.setFontColor(str2);
+            this.f59493c.setContent(str);
+            this.f59493c.setFontColor(str2);
+            this.f59494d.setId(i);
+            this.f59494d.setContent(str);
+            this.f59494d.setFontColor(str2);
             return;
         }
         tailData.setContent("");
-        this.f59493d.setFontColor("7a7c80");
-        this.f59491b = z;
+        this.f59494d.setFontColor("7a7c80");
+        this.f59492b = z;
     }
 
     public boolean k() {
-        TailData tailData = this.f59493d;
+        TailData tailData = this.f59494d;
         if (tailData != null && tailData.getFontColor() != null) {
-            TailData tailData2 = this.f59492c;
+            TailData tailData2 = this.f59493c;
             if (tailData2 == null) {
-                if (!StringUtils.isNull(this.f59493d.getContent()) || !this.f59493d.getFontColor().equals("7a7c80")) {
+                if (!StringUtils.isNull(this.f59494d.getContent()) || !this.f59494d.getFontColor().equals("7a7c80")) {
                     return true;
                 }
-            } else if (tailData2.getContent() != null && this.f59492c.getFontColor() != null && (!this.f59492c.getContent().equals(this.f59493d.getContent()) || !this.f59492c.getFontColor().equals(this.f59493d.getFontColor()))) {
+            } else if (tailData2.getContent() != null && this.f59493c.getFontColor() != null && (!this.f59493c.getContent().equals(this.f59494d.getContent()) || !this.f59493c.getFontColor().equals(this.f59494d.getFontColor()))) {
                 return true;
             }
         }
@@ -168,11 +168,11 @@ public class a {
     }
 
     public void n(d.b.i0.q1.h.f.a<Integer> aVar) {
-        this.f59495f = aVar;
+        this.f59496f = aVar;
     }
 
     public void o(String str) {
-        this.f59493d.setFontColor(str);
+        this.f59494d.setFontColor(str);
     }
 
     public void p(int i) {
@@ -180,30 +180,30 @@ public class a {
     }
 
     public void q(d.b.i0.q1.h.f.a<Integer> aVar) {
-        this.f59496g = aVar;
+        this.f59497g = aVar;
     }
 
     public void r(String str) {
-        if (this.f59490a) {
+        if (this.f59491a) {
             return;
         }
         String f2 = d.f(str);
         if (!StringUtils.isNull(f2)) {
-            this.f59494e.showToast(f2);
+            this.f59495e.showToast(f2);
             return;
         }
         String b2 = d.b(str);
-        this.f59493d.setContent(b2);
-        this.f59490a = true;
-        TailData tailData = this.f59492c;
+        this.f59494d.setContent(b2);
+        this.f59491a = true;
+        TailData tailData = this.f59493c;
         if (tailData != null && tailData.getId() > 0) {
-            this.f59494e.sendMessage(new UpdateTailNetMessage(this.f59492c.getId(), b2, this.f59493d.getFontColor(), this.f59494e.getString(R.string.tail_default_font)));
+            this.f59495e.sendMessage(new UpdateTailNetMessage(this.f59493c.getId(), b2, this.f59494d.getFontColor(), this.f59495e.getString(R.string.tail_default_font)));
         } else {
-            this.f59494e.sendMessage(new AddTailNetMessage(b2, this.f59493d.getFontColor(), this.f59494e.getString(R.string.tail_default_font)));
+            this.f59495e.sendMessage(new AddTailNetMessage(b2, this.f59494d.getFontColor(), this.f59495e.getString(R.string.tail_default_font)));
         }
     }
 
     public boolean s() {
-        return !StringUtils.isNull(this.f59493d.getContent()) && k() && StringUtils.isNull(d.f(this.f59493d.getContent()));
+        return !StringUtils.isNull(this.f59494d.getContent()) && k() && StringUtils.isNull(d.f(this.f59494d.getContent()));
     }
 }

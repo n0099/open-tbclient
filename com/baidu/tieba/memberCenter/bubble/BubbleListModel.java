@@ -19,16 +19,16 @@ import java.util.List;
 public class BubbleListModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f18886e;
+    public c f18887e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f18887f;
+    public d f18888f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18888g;
+    public int f18889g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18889h;
+    public int f18890h;
     public final HttpMessageListener i;
     public final HttpMessageListener j;
 
@@ -41,22 +41,22 @@ public class BubbleListModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001500 || BubbleListModel.this.f18886e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001500 || BubbleListModel.this.f18887e == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
-                BubbleListModel.this.f18886e.a(null);
+                BubbleListModel.this.f18887e.a(null);
                 return;
             }
             ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
             if (statusCode != 200 || error != 0) {
-                BubbleListModel.this.f18886e.a(responseBubbleListMessage.getBubbleListData());
+                BubbleListModel.this.f18887e.a(responseBubbleListMessage.getBubbleListData());
             } else if (responseBubbleListMessage.getBubbleListData() == null) {
-                BubbleListModel.this.f18886e.a(responseBubbleListMessage.getBubbleListData());
+                BubbleListModel.this.f18887e.a(responseBubbleListMessage.getBubbleListData());
             } else {
-                BubbleListModel.this.f18886e.b(responseBubbleListMessage.getBubbleListData());
+                BubbleListModel.this.f18887e.b(responseBubbleListMessage.getBubbleListData());
             }
         }
     }
@@ -70,22 +70,22 @@ public class BubbleListModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001501 || BubbleListModel.this.f18887f == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001501 || BubbleListModel.this.f18888f == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (!(httpResponsedMessage instanceof ResponseSetBubbleMessage)) {
-                BubbleListModel.this.f18887f.b(null);
+                BubbleListModel.this.f18888f.b(null);
                 return;
             }
             ResponseSetBubbleMessage responseSetBubbleMessage = (ResponseSetBubbleMessage) httpResponsedMessage;
             if (statusCode != 200 || error != 0) {
-                BubbleListModel.this.f18887f.b(responseSetBubbleMessage.getSetBubbleResultData());
+                BubbleListModel.this.f18888f.b(responseSetBubbleMessage.getSetBubbleResultData());
             } else if (responseSetBubbleMessage.getSetBubbleResultData() == null) {
-                BubbleListModel.this.f18887f.b(responseSetBubbleMessage.getSetBubbleResultData());
+                BubbleListModel.this.f18888f.b(responseSetBubbleMessage.getSetBubbleResultData());
             } else {
-                BubbleListModel.this.f18887f.a(responseSetBubbleMessage.getSetBubbleResultData());
+                BubbleListModel.this.f18888f.a(responseSetBubbleMessage.getSetBubbleResultData());
             }
         }
     }
@@ -141,19 +141,19 @@ public class BubbleListModel extends BdBaseModel {
     }
 
     public void C(int i) {
-        this.f18888g = i;
+        this.f18889g = i;
     }
 
     public void D(int i) {
-        this.f18889h = i;
+        this.f18890h = i;
     }
 
     public void E(c cVar) {
-        this.f18886e = cVar;
+        this.f18887e = cVar;
     }
 
     public void F(d dVar) {
-        this.f18887f = dVar;
+        this.f18888f = dVar;
     }
 
     public void G(CustomMessageListener customMessageListener) {
@@ -177,11 +177,11 @@ public class BubbleListModel extends BdBaseModel {
     }
 
     public int v() {
-        return this.f18888g;
+        return this.f18889g;
     }
 
     public int w() {
-        return this.f18889h;
+        return this.f18890h;
     }
 
     public void x() {

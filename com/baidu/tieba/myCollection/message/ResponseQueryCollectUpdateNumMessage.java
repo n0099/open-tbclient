@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.QueryCollectUpdateNum.DataRes;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage {
     public int mCollectUpdateNum;
 

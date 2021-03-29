@@ -6,24 +6,24 @@ import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends BdAsyncTask<String, Integer, Download> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientUpdateInfo f55143a;
+    public ClientUpdateInfo f55144a;
 
     public b(ClientUpdateInfo clientUpdateInfo) {
-        this.f55143a = clientUpdateInfo;
+        this.f55144a = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public Download doInBackground(String... strArr) throws IOException {
-        if (this.f55143a == null) {
+        if (this.f55144a == null) {
             return null;
         }
-        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f55143a, null);
+        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f55144a, null);
         return null;
     }
 }

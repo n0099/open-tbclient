@@ -4,7 +4,7 @@ import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Route {
     public final Address address;
     public final InetSocketAddress inetSocketAddress;

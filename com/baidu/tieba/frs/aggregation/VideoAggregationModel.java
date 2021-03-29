@@ -24,16 +24,16 @@ import org.json.JSONObject;
 public class VideoAggregationModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16159e;
+    public int f16160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16160f;
+    public String f16161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16161g;
+    public String f16162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16162h;
+    public String f16163h;
     public String i;
     public boolean j;
     public c k;
@@ -88,7 +88,7 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f16159e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f16160e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
             VideoAggregationModel.v(VideoAggregationModel.this);
@@ -116,7 +116,7 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f16159e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f16160e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
             VideoAggregationModel.v(VideoAggregationModel.this);
@@ -150,29 +150,29 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int v(VideoAggregationModel videoAggregationModel) {
-        int i = videoAggregationModel.f16159e;
-        videoAggregationModel.f16159e = i - 1;
+        int i = videoAggregationModel.f16160e;
+        videoAggregationModel.f16160e = i - 1;
         return i;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         HttpMessage httpMessage;
-        if (TextUtils.isEmpty(this.f16160f) || this.j) {
+        if (TextUtils.isEmpty(this.f16161f) || this.j) {
             return false;
         }
         this.j = true;
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f16161g)) {
+        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f16162g)) {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_AGGREGATION);
-            httpMessage.addParam("fid", this.f16160f);
+            httpMessage.addParam("fid", this.f16161f);
         } else {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-            httpMessage.addParam("tid", this.f16160f);
-            httpMessage.addParam("st_type", this.f16162h);
+            httpMessage.addParam("tid", this.f16161f);
+            httpMessage.addParam("st_type", this.f16163h);
             httpMessage.addParam("yuelaou_locate", this.i);
         }
-        int i = this.f16159e + 1;
-        this.f16159e = i;
+        int i = this.f16160e + 1;
+        this.f16160e = i;
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         sendMessage(httpMessage);
         return true;
@@ -195,16 +195,16 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public void setFrom(String str) {
-        this.f16161g = str;
+        this.f16162g = str;
     }
 
     public void w() {
-        this.f16159e = 0;
+        this.f16160e = 0;
         LoadData();
     }
 
     public void x(String str) {
-        this.f16160f = str;
+        this.f16161f = str;
     }
 
     public void y(String str) {
@@ -212,6 +212,6 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public void z(String str) {
-        this.f16162h = str;
+        this.f16163h = str;
     }
 }

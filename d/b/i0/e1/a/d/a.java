@@ -12,73 +12,73 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54342e;
+    public Context f54343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.b.h0.s.f.a> f54343f;
+    public List<d.b.h0.s.f.a> f54344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54344g = R.color.CAM_X0105;
+    public int f54345g = R.color.CAM_X0105;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54345h = R.color.CAM_X0108;
+    public int f54346h = R.color.CAM_X0108;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f54346a;
+        public HeadImageView f54347a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f54347b;
+        public TextView f54348b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f54348c;
+        public View f54349c;
 
         public b(a aVar) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f54349a;
+        public TextView f54350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f54350b;
+        public View f54351b;
 
         public c(a aVar) {
         }
     }
 
     public a(Context context) {
-        this.f54342e = context;
+        this.f54343e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.b.h0.s.f.a getItem(int i) {
-        List<d.b.h0.s.f.a> list = this.f54343f;
+        List<d.b.h0.s.f.a> list = this.f54344f;
         if (list == null || i < 0 || i >= list.size()) {
             return null;
         }
-        return this.f54343f.get(i);
+        return this.f54344f.get(i);
     }
 
     public void b(List<d.b.h0.s.f.a> list) {
-        this.f54343f = list;
+        this.f54344f = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.b.h0.s.f.a> list = this.f54343f;
+        List<d.b.h0.s.f.a> list = this.f54344f;
         if (list == null) {
             return 0;
         }
@@ -112,35 +112,35 @@ public class a extends BaseAdapter {
             if (view != null && view.getTag() != null && (view.getTag() instanceof c)) {
                 cVar = (c) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f54342e).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f54343e).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 cVar = new c();
-                cVar.f54349a = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                cVar.f54350b = view.findViewById(R.id.addresslist_group_item_divider);
+                cVar.f54350a = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                cVar.f54351b = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(cVar);
             }
             if (item.a() != null) {
-                cVar.f54349a.setText(item.a());
+                cVar.f54350a.setText(item.a());
             }
-            SkinManager.setViewTextColor(cVar.f54349a, this.f54345h, 1);
-            SkinManager.setBackgroundColor(cVar.f54350b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(cVar.f54350a, this.f54346h, 1);
+            SkinManager.setBackgroundColor(cVar.f54351b, R.color.CAM_X0204);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
                 bVar = new b();
-                view = LayoutInflater.from(this.f54342e).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                bVar.f54346a = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                bVar.f54347b = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                bVar.f54348c = view.findViewById(R.id.addresslist_child_item_divider);
+                view = LayoutInflater.from(this.f54343e).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
+                bVar.f54347a = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                bVar.f54348b = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                bVar.f54349c = view.findViewById(R.id.addresslist_child_item_divider);
                 view.setTag(bVar);
             }
             if (item.f() != null) {
-                bVar.f54347b.setText(item.f());
-                bVar.f54346a.W(item.h(), 12, false);
+                bVar.f54348b.setText(item.f());
+                bVar.f54347a.W(item.h(), 12, false);
             }
-            SkinManager.setViewTextColor(bVar.f54347b, this.f54344g, 1);
-            SkinManager.setBackgroundResource(bVar.f54348c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.f54348b, this.f54345g, 1);
+            SkinManager.setBackgroundResource(bVar.f54349c, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {

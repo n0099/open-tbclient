@@ -14,16 +14,16 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHLifeGridItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24678a;
+    public NetImageView f24679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24679b;
+    public MaskTextView f24680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f24680c;
+    public NetImageView f24681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24681d;
+    public MaskTextView f24682d;
 
     public CHLifeGridItem(Context context) {
         super(context);
@@ -32,17 +32,17 @@ public class CHLifeGridItem extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_item_view"), this);
-        this.f24678a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
-        this.f24679b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
-        this.f24680c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
-        this.f24681d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
+        this.f24679a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
+        this.f24680b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
+        this.f24681c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
+        this.f24682d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
         boolean isShowRedDot = isShowRedDot();
-        this.f24680c.setVisibility(isShowRedDot ? 0 : 8);
-        this.f24680c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+        this.f24681c.setVisibility(isShowRedDot ? 0 : 8);
+        this.f24681c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
         return isShowRedDot;
     }
 
@@ -50,14 +50,14 @@ public class CHLifeGridItem extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        this.f24679b.setMaskText(getData().name);
-        setNetImageViewUrl(this.f24678a, getData().getPicAddr());
+        this.f24680b.setMaskText(getData().name);
+        setNetImageViewUrl(this.f24679a, getData().getPicAddr());
         if (!handlePoint() && !TextUtils.isEmpty(getData().desc)) {
-            this.f24681d.setVisibility(0);
-            this.f24681d.setMaskText(getData().desc);
+            this.f24682d.setVisibility(0);
+            this.f24682d.setMaskText(getData().desc);
             return;
         }
-        this.f24681d.setVisibility(8);
+        this.f24682d.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

@@ -8,13 +8,13 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebSettings implements INoProGuard {
     public static boolean lastNightModeEnabled = false;
     public static BdJsCheckPolicy sDefaultJsCheckPolicy;
     public WebSettings mWebSettings;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         public static final String ENABLE_LOG_RECORD = "enable_log_record";
 
@@ -221,7 +221,7 @@ public class BdSailorWebSettings implements INoProGuard {
             BdSailorWebSettings.this.mWebSettings.setMagicFilterEnabledExt(z);
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:27:0x006d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x006b, code lost:
             if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L30;
          */
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt

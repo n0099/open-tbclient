@@ -41,7 +41,7 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
         CloseableReference<Bitmap> getCachedBitmap(int i);
 

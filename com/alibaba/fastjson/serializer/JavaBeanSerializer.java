@@ -238,15 +238,15 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     /* JADX WARN: Code restructure failed: missing block: B:68:0x00ea, code lost:
         if (r10.fieldTransient != false) goto L57;
      */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x0353 A[Catch: Exception -> 0x0397, all -> 0x03d0, TryCatch #0 {all -> 0x03d0, blocks: (B:64:0x00de, B:67:0x00e8, B:75:0x00f8, B:77:0x00fe, B:80:0x0108, B:82:0x010e, B:84:0x0118, B:87:0x0120, B:91:0x0127, B:271:0x037b, B:94:0x0130, B:98:0x013a, B:101:0x0147, B:102:0x014d, B:107:0x0170, B:109:0x017e, B:113:0x0187, B:115:0x0195, B:118:0x019c, B:120:0x01a4, B:122:0x01b2, B:125:0x01b8, B:127:0x01c0, B:129:0x01ce, B:132:0x01d4, B:134:0x01d8, B:138:0x01e5, B:140:0x01e9, B:142:0x01f2, B:144:0x01fd, B:146:0x0203, B:148:0x0207, B:151:0x0212, B:153:0x0216, B:155:0x021a, B:158:0x0225, B:160:0x0229, B:162:0x022d, B:165:0x0238, B:167:0x023c, B:169:0x0240, B:172:0x024e, B:174:0x0252, B:176:0x0256, B:179:0x0263, B:181:0x0267, B:183:0x026b, B:186:0x0279, B:188:0x027d, B:190:0x0281, B:194:0x028d, B:196:0x0291, B:198:0x0295, B:201:0x02a2, B:203:0x02ad, B:207:0x02b6, B:209:0x02bc, B:250:0x0341, B:252:0x0345, B:254:0x0349, B:257:0x0353, B:259:0x035b, B:260:0x0363, B:262:0x0369, B:214:0x02c7, B:215:0x02ca, B:217:0x02d0, B:220:0x02d6, B:224:0x02e8, B:227:0x02f0, B:230:0x02fa, B:232:0x0303, B:235:0x030d, B:236:0x0311, B:237:0x0317, B:239:0x031e, B:240:0x0322, B:241:0x0326, B:243:0x032a, B:245:0x032e, B:248:0x033a, B:249:0x033e, B:221:0x02e0, B:281:0x03ae, B:283:0x03b6, B:285:0x03be, B:287:0x03c6), top: B:314:0x00de }] */
-    /* JADX WARN: Removed duplicated region for block: B:270:0x0378  */
-    /* JADX WARN: Removed duplicated region for block: B:280:0x03ac  */
-    /* JADX WARN: Removed duplicated region for block: B:287:0x03c6 A[Catch: all -> 0x03d0, Exception -> 0x03d4, TRY_LEAVE, TryCatch #0 {all -> 0x03d0, blocks: (B:64:0x00de, B:67:0x00e8, B:75:0x00f8, B:77:0x00fe, B:80:0x0108, B:82:0x010e, B:84:0x0118, B:87:0x0120, B:91:0x0127, B:271:0x037b, B:94:0x0130, B:98:0x013a, B:101:0x0147, B:102:0x014d, B:107:0x0170, B:109:0x017e, B:113:0x0187, B:115:0x0195, B:118:0x019c, B:120:0x01a4, B:122:0x01b2, B:125:0x01b8, B:127:0x01c0, B:129:0x01ce, B:132:0x01d4, B:134:0x01d8, B:138:0x01e5, B:140:0x01e9, B:142:0x01f2, B:144:0x01fd, B:146:0x0203, B:148:0x0207, B:151:0x0212, B:153:0x0216, B:155:0x021a, B:158:0x0225, B:160:0x0229, B:162:0x022d, B:165:0x0238, B:167:0x023c, B:169:0x0240, B:172:0x024e, B:174:0x0252, B:176:0x0256, B:179:0x0263, B:181:0x0267, B:183:0x026b, B:186:0x0279, B:188:0x027d, B:190:0x0281, B:194:0x028d, B:196:0x0291, B:198:0x0295, B:201:0x02a2, B:203:0x02ad, B:207:0x02b6, B:209:0x02bc, B:250:0x0341, B:252:0x0345, B:254:0x0349, B:257:0x0353, B:259:0x035b, B:260:0x0363, B:262:0x0369, B:214:0x02c7, B:215:0x02ca, B:217:0x02d0, B:220:0x02d6, B:224:0x02e8, B:227:0x02f0, B:230:0x02fa, B:232:0x0303, B:235:0x030d, B:236:0x0311, B:237:0x0317, B:239:0x031e, B:240:0x0322, B:241:0x0326, B:243:0x032a, B:245:0x032e, B:248:0x033a, B:249:0x033e, B:221:0x02e0, B:281:0x03ae, B:283:0x03b6, B:285:0x03be, B:287:0x03c6), top: B:314:0x00de }] */
-    /* JADX WARN: Removed duplicated region for block: B:304:0x0403 A[Catch: all -> 0x043b, TryCatch #7 {all -> 0x043b, blocks: (B:301:0x03e3, B:304:0x0403, B:305:0x0417, B:307:0x041d, B:308:0x0435, B:309:0x043a), top: B:324:0x03e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:307:0x041d A[Catch: all -> 0x043b, TryCatch #7 {all -> 0x043b, blocks: (B:301:0x03e3, B:304:0x0403, B:305:0x0417, B:307:0x041d, B:308:0x0435, B:309:0x043a), top: B:324:0x03e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:319:0x00d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x03e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:333:0x0384 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:257:0x0352 A[Catch: Exception -> 0x0396, all -> 0x03cf, TryCatch #6 {Exception -> 0x0396, blocks: (B:64:0x00de, B:75:0x00f8, B:77:0x00fe, B:80:0x0108, B:91:0x0127, B:271:0x037a, B:94:0x0130, B:102:0x014c, B:107:0x016f, B:109:0x017d, B:113:0x0186, B:115:0x0194, B:118:0x019b, B:120:0x01a3, B:122:0x01b1, B:125:0x01b7, B:127:0x01bf, B:129:0x01cd, B:132:0x01d3, B:134:0x01d7, B:138:0x01e4, B:140:0x01e8, B:142:0x01f1, B:144:0x01fc, B:146:0x0202, B:148:0x0206, B:151:0x0211, B:153:0x0215, B:155:0x0219, B:158:0x0224, B:160:0x0228, B:162:0x022c, B:165:0x0237, B:167:0x023b, B:169:0x023f, B:172:0x024d, B:174:0x0251, B:176:0x0255, B:179:0x0262, B:181:0x0266, B:183:0x026a, B:186:0x0278, B:188:0x027c, B:190:0x0280, B:194:0x028c, B:196:0x0290, B:198:0x0294, B:201:0x02a1, B:203:0x02ac, B:207:0x02b5, B:209:0x02bb, B:250:0x0340, B:252:0x0344, B:254:0x0348, B:257:0x0352, B:259:0x035a, B:260:0x0362, B:262:0x0368, B:214:0x02c6, B:215:0x02c9, B:217:0x02cf, B:220:0x02d5, B:224:0x02e7, B:227:0x02ef, B:230:0x02f9, B:232:0x0302, B:235:0x030c, B:236:0x0310, B:237:0x0316, B:239:0x031d, B:240:0x0321, B:241:0x0325, B:243:0x0329, B:245:0x032d, B:248:0x0339, B:249:0x033d, B:221:0x02df), top: B:323:0x00de }] */
+    /* JADX WARN: Removed duplicated region for block: B:270:0x0377  */
+    /* JADX WARN: Removed duplicated region for block: B:280:0x03ab  */
+    /* JADX WARN: Removed duplicated region for block: B:287:0x03c5 A[Catch: all -> 0x03cf, Exception -> 0x03d3, TRY_LEAVE, TryCatch #7 {Exception -> 0x03d3, blocks: (B:281:0x03ad, B:283:0x03b5, B:285:0x03bd, B:287:0x03c5), top: B:325:0x03ad }] */
+    /* JADX WARN: Removed duplicated region for block: B:304:0x0401 A[Catch: all -> 0x0439, TryCatch #5 {all -> 0x0439, blocks: (B:301:0x03e1, B:304:0x0401, B:305:0x0415, B:307:0x041b, B:308:0x0433, B:309:0x0438), top: B:321:0x03e1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:307:0x041b A[Catch: all -> 0x0439, TryCatch #5 {all -> 0x0439, blocks: (B:301:0x03e1, B:304:0x0401, B:305:0x0415, B:307:0x041b, B:308:0x0433, B:309:0x0438), top: B:321:0x03e1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:317:0x00d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:321:0x03e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:332:0x0383 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:47:0x00a8  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00ab  */
     /* JADX WARN: Removed duplicated region for block: B:57:0x00bf  */
@@ -580,15 +580,15 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
                                         serialContext3 = serialContext2;
                                         fieldSerializerArr3 = fieldSerializerArr4;
                                         c5 = c2;
-                                    } catch (Throwable th3) {
-                                        th = th3;
-                                        serialContext = serialContext2;
-                                        jSONSerializer.context = serialContext;
-                                        throw th;
+                                    } catch (Exception e5) {
+                                        e = e5;
+                                        obj3 = obj;
                                     }
-                                } catch (Exception e5) {
-                                    e = e5;
-                                    obj3 = obj;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    serialContext = serialContext2;
+                                    jSONSerializer.context = serialContext;
+                                    throw th;
                                 }
                             } catch (Exception e6) {
                                 e = e6;

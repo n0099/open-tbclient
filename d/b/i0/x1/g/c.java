@@ -8,17 +8,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f62377a = d.b.i0.x1.c.f62338c + "draft/";
+    public static final String f62378a = d.b.i0.x1.c.f62339c + "draft/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62378b = f62377a + "upload_draft";
+    public static final String f62379b = f62378a + "upload_draft";
 
     public static void a() {
-        File file = new File(f62378b);
+        File file = new File(f62379b);
         if (file.exists()) {
             file.delete();
         }
@@ -32,7 +32,7 @@ public class c {
     public static FaceGroupDraft b() {
         FaceGroupDraft faceGroupDraft;
         ObjectInputStream objectInputStream;
-        File file = new File(f62378b);
+        File file = new File(f62379b);
         ?? r2 = 0;
         r2 = null;
         r2 = null;
@@ -104,12 +104,12 @@ public class c {
         ObjectOutputStream objectOutputStream = null;
         try {
             try {
-                File file = new File(f62377a);
+                File file = new File(f62378a);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
                 a();
-                ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(f62378b));
+                ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(f62379b));
                 try {
                     objectOutputStream2.writeObject(faceGroupDraft);
                     d.b.b.e.m.a.d(objectOutputStream2);

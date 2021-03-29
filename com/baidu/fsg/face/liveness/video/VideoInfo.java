@@ -27,40 +27,40 @@ public class VideoInfo implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5986a;
+    public String f5987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5987b;
+    public int f5988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5988c;
+    public int f5989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5989d;
+    public int f5990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f5990e;
+    public long f5991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5991f;
+    public int f5992f;
 
     public VideoInfo() {
     }
 
     public String a() {
-        return this.f5986a;
+        return this.f5987a;
     }
 
     public int b() {
-        return this.f5987b;
+        return this.f5988b;
     }
 
     public int c() {
-        return this.f5988c;
+        return this.f5989c;
     }
 
     public long d() {
-        return this.f5990e;
+        return this.f5991e;
     }
 
     @Override // android.os.Parcelable
@@ -69,71 +69,71 @@ public class VideoInfo implements Parcelable {
     }
 
     public int e() {
-        return this.f5989d;
+        return this.f5990d;
     }
 
     public int f() {
-        return this.f5991f;
+        return this.f5992f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: g */
     public VideoInfo clone() {
         VideoInfo videoInfo = new VideoInfo();
-        videoInfo.f5991f = this.f5991f;
-        videoInfo.f5989d = this.f5989d;
-        videoInfo.f5990e = this.f5990e;
-        videoInfo.f5988c = this.f5988c;
-        videoInfo.f5987b = this.f5987b;
-        videoInfo.f5986a = this.f5986a;
+        videoInfo.f5992f = this.f5992f;
+        videoInfo.f5990d = this.f5990d;
+        videoInfo.f5991e = this.f5991e;
+        videoInfo.f5989c = this.f5989c;
+        videoInfo.f5988b = this.f5988b;
+        videoInfo.f5987a = this.f5987a;
         return videoInfo;
     }
 
     public String toString() {
-        return "VideoInfo{videoPath='" + this.f5986a + "', videoWidth=" + this.f5987b + ", videoHeight=" + this.f5988c + ", frameRate=" + this.f5989d + ", duration=" + this.f5990e + ", videoRotation=" + this.f5991f + '}';
+        return "VideoInfo{videoPath='" + this.f5987a + "', videoWidth=" + this.f5988b + ", videoHeight=" + this.f5989c + ", frameRate=" + this.f5990d + ", duration=" + this.f5991e + ", videoRotation=" + this.f5992f + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f5986a);
-        parcel.writeInt(this.f5987b);
-        parcel.writeInt(this.f5988c);
-        parcel.writeLong(this.f5990e);
-        parcel.writeFloat(this.f5989d);
-        parcel.writeInt(this.f5991f);
+        parcel.writeString(this.f5987a);
+        parcel.writeInt(this.f5988b);
+        parcel.writeInt(this.f5989c);
+        parcel.writeLong(this.f5991e);
+        parcel.writeFloat(this.f5990d);
+        parcel.writeInt(this.f5992f);
     }
 
     public VideoInfo(Parcel parcel) {
-        this.f5986a = parcel.readString();
-        this.f5987b = parcel.readInt();
-        this.f5988c = parcel.readInt();
-        this.f5990e = parcel.readLong();
-        this.f5989d = parcel.readInt();
-        this.f5991f = parcel.readInt();
+        this.f5987a = parcel.readString();
+        this.f5988b = parcel.readInt();
+        this.f5989c = parcel.readInt();
+        this.f5991e = parcel.readLong();
+        this.f5990d = parcel.readInt();
+        this.f5992f = parcel.readInt();
     }
 
     public void a(String str) {
-        this.f5986a = str;
+        this.f5987a = str;
     }
 
     public void b(int i) {
-        this.f5988c = i;
+        this.f5989c = i;
     }
 
     public void c(int i) {
-        this.f5989d = i;
+        this.f5990d = i;
     }
 
     public void d(int i) {
-        this.f5991f = i;
+        this.f5992f = i;
     }
 
     public void a(int i) {
-        this.f5987b = i;
+        this.f5988b = i;
     }
 
     public void a(long j) {
-        this.f5990e = j;
+        this.f5991e = j;
     }
 
     public static void a(String str, VideoInfo videoInfo) {

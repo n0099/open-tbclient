@@ -26,38 +26,38 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f61079a;
+    public static Method f61080a;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class a implements FileFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f61080a;
+        public final /* synthetic */ String f61081a;
 
         public a(String str) {
-            this.f61080a = str;
+            this.f61081a = str;
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
-            return !file.getName().startsWith(this.f61080a);
+            return !file.getName().startsWith(this.f61081a);
         }
     }
 
     static {
         try {
-            f61079a = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            f61080a = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException unused) {
-            f61079a = null;
+            f61080a = null;
         }
     }
 
     public static void a(SharedPreferences.Editor editor) {
-        Method method = f61079a;
+        Method method = f61080a;
         if (method != null) {
             try {
                 method.invoke(editor, new Object[0]);
@@ -136,8 +136,8 @@ public final class b {
                 list = i(context, file2, file);
             } catch (IOException e2) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e2);
-                if (context instanceof c.InterfaceC1585c) {
-                    ((c.InterfaceC1585c) context).getSplash().j();
+                if (context instanceof c.InterfaceC1586c) {
+                    ((c.InterfaceC1586c) context).getSplash().j();
                 }
                 k = k(file2, file);
                 m(context, e(file2), f2, k.size() + 1);
@@ -146,8 +146,8 @@ public final class b {
             return list;
         }
         Log.i("MultiDex", "Detected that extraction must be performed.");
-        if (context instanceof c.InterfaceC1585c) {
-            ((c.InterfaceC1585c) context).getSplash().j();
+        if (context instanceof c.InterfaceC1586c) {
+            ((c.InterfaceC1586c) context).getSplash().j();
         }
         k = k(file2, file);
         m(context, e(file2), f2, k.size() + 1);
@@ -190,7 +190,7 @@ public final class b {
         throw new IOException("Failed to create cache directory " + file.getPath());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x011f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x011e, code lost:
         throw new java.io.IOException("Could not create zip file " + r9.getAbsolutePath() + " for secondary dex (" + r14 + com.baidu.tbadk.core.data.SmallTailInfo.EMOTION_SUFFIX);
      */
     /*

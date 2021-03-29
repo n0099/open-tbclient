@@ -130,11 +130,11 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f51523a;
+            int i = aVar.f51524a;
             if (i == 24) {
-                TailEditActivity.this.addEmotion(aVar.f51525c);
+                TailEditActivity.this.addEmotion(aVar.f51526c);
             } else if (i == 26) {
-                TailEditActivity.this.changeColor(aVar.f51525c);
+                TailEditActivity.this.changeColor(aVar.f51526c);
             } else if (i == 3) {
                 TailEditActivity.this.mView.e();
             }
@@ -145,15 +145,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19002e;
+        public final /* synthetic */ d.b.h0.r.s.a f19003e;
 
         public h(d.b.h0.r.s.a aVar) {
-            this.f19002e = aVar;
+            this.f19003e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f19002e.dismiss();
+            this.f19003e.dismiss();
         }
     }
 
@@ -161,15 +161,15 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f19004e;
+        public final /* synthetic */ d.b.h0.r.s.a f19005e;
 
         public i(d.b.h0.r.s.a aVar) {
-            this.f19004e = aVar;
+            this.f19005e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f19004e.dismiss();
+            this.f19005e.dismiss();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             TailEditActivity.this.finish();
         }
@@ -251,7 +251,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             tailData.setFontColor(this.mModel.g());
             d.b.i0.q1.h.a.e eVar = new d.b.i0.q1.h.a.e(1, tailData);
             if (!z) {
-                eVar.f59486a = 2;
+                eVar.f59487a = 2;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
             finish();

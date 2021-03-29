@@ -14,7 +14,7 @@ import d.b.h0.b.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f61699a = false;
+    public static boolean f61700a = false;
 
     public static boolean a(ImageFileInfo imageFileInfo) {
         String filePath;
@@ -53,14 +53,14 @@ public class b {
     }
 
     public static void f() {
-        f61699a = true;
+        f61700a = true;
     }
 
     public static void g(TitleTipView titleTipView) {
         if (titleTipView == null) {
             return;
         }
-        if (c() && !f61699a && b() <= 0) {
+        if (c() && !f61700a && b() <= 0) {
             titleTipView.d();
             f();
             StatisticItem.make("c13996").eventStat();

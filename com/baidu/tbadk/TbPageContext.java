@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import d.b.b.a.f;
 import d.b.b.c.g.a;
 import d.b.h0.r.c;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public interface TbPageContext<T> extends f<T> {
     @Override // d.b.b.a.f
     /* synthetic */ Context getContext();

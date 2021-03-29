@@ -11,7 +11,7 @@ import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
 import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcClient {
     public static void answer(@NonNull Context context, @NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
         BIMRtcManager.getInstance(context).answer(bIMAnswerRtcInfo, iStatusListener);

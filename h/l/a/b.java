@@ -5,10 +5,10 @@ import h.g;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f67689a = new b();
+    public static final b f67694a = new b();
 
     public static b a() {
-        return f67689a;
+        return f67694a;
     }
 
     public g b() {

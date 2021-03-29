@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class SimpleImageTranscoder implements ImageTranscoder {
     public static final String TAG = "SimpleImageTranscoder";
     public final int mMaxBitmapSize;

@@ -18,7 +18,7 @@ import com.baidu.android.util.io.ActionJsonData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static Intent a(Context context, String str) {
         Intent intent;

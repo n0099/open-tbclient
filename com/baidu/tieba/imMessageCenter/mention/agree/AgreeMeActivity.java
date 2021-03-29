@@ -24,7 +24,7 @@ import d.b.b.j.e.w;
 import d.b.i0.e1.b.o.a;
 import d.b.i0.e1.b.o.b;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     public d.b.i0.e1.b.o.a mMainView;
     public d.b.i0.e1.b.o.b mModel;
@@ -33,7 +33,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     public b.c mModelCallback = new b();
     public w mItemClickListener = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.e {
         public a() {
         }
@@ -53,7 +53,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements b.c {
         public b() {
         }
@@ -61,13 +61,13 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         @Override // d.b.i0.e1.b.o.b.c
         public void d(ArrayList<n> arrayList) {
             if (AgreeMeActivity.this.mMainView != null) {
-                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54474f, arrayList);
+                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54475f, arrayList);
                 AgreeMeActivity agreeMeActivity = AgreeMeActivity.this;
                 agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.hideNetRefreshView(agreeMeActivity2.mMainView.f());
-                if (AgreeMeActivity.this.mMainView.f54463f != null) {
-                    AgreeMeActivity.this.mMainView.f54463f.setVisibility(0);
+                if (AgreeMeActivity.this.mMainView.f54464f != null) {
+                    AgreeMeActivity.this.mMainView.f54464f.setVisibility(0);
                 }
             }
         }
@@ -85,8 +85,8 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
                 AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                if (AgreeMeActivity.this.mMainView.f54463f != null) {
-                    AgreeMeActivity.this.mMainView.f54463f.setVisibility(8);
+                if (AgreeMeActivity.this.mMainView.f54464f != null) {
+                    AgreeMeActivity.this.mMainView.f54464f.setVisibility(8);
                     return;
                 }
                 return;
@@ -97,7 +97,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }

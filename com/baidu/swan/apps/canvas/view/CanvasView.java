@@ -16,20 +16,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CanvasView extends AbsCanvasView {
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f12118f;
+    public List<b> f12119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DrawFilter f12119g;
+    public final DrawFilter f12120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12120h;
+    public int f12121h;
     public HashMap<String, Bitmap> i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -40,14 +40,14 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.b.g0.a.y.a.j.a> f12122a;
+        public List<d.b.g0.a.y.a.j.a> f12123a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.g0.a.y.a.j.b f12123b;
+        public d.b.g0.a.y.a.j.b f12124b;
 
         public b() {
         }
@@ -57,7 +57,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a();
     }
@@ -67,34 +67,34 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public void c(List<d.b.g0.a.y.a.j.a> list, boolean z) {
-        if (list == null || this.f12118f.contains(list)) {
+        if (list == null || this.f12119f.contains(list)) {
             return;
         }
         if (!z) {
-            this.f12118f.clear();
+            this.f12119f.clear();
         }
-        int size = this.f12118f.size();
+        int size = this.f12119f.size();
         boolean z2 = z && size > 0;
         b bVar = new b(null);
         if (z2) {
-            b bVar2 = this.f12118f.get(size - 1);
-            bVar.f12123b = bVar2.f12123b;
-            List<d.b.g0.a.y.a.j.a> list2 = bVar2.f12122a;
-            bVar.f12122a = list2;
+            b bVar2 = this.f12119f.get(size - 1);
+            bVar.f12124b = bVar2.f12124b;
+            List<d.b.g0.a.y.a.j.a> list2 = bVar2.f12123a;
+            bVar.f12123a = list2;
             list2.addAll(list);
         } else {
-            bVar.f12123b = new d.b.g0.a.y.a.j.b(this);
-            bVar.f12122a = list;
+            bVar.f12124b = new d.b.g0.a.y.a.j.b(this);
+            bVar.f12123a = list;
         }
-        this.f12118f.add(bVar);
+        this.f12119f.add(bVar);
         k0.X(new a());
     }
 
     public final void d() {
-        int i = this.f12120h;
-        if (this.f12118f.size() > 0) {
-            for (b bVar : this.f12118f) {
-                Iterator<d.b.g0.a.y.a.j.a> it = bVar.f12122a.iterator();
+        int i = this.f12121h;
+        if (this.f12119f.size() > 0) {
+            for (b bVar : this.f12119f) {
+                Iterator<d.b.g0.a.y.a.j.a> it = bVar.f12123a.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         d.b.g0.a.y.a.j.a next = it.next();
@@ -125,9 +125,9 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public d.b.g0.a.y.a.j.b getCanvasContext() {
-        if (this.f12118f.size() > 0) {
-            List<b> list = this.f12118f;
-            return list.get(list.size() - 1).f12123b;
+        if (this.f12119f.size() > 0) {
+            List<b> list = this.f12119f;
+            return list.get(list.size() - 1).f12124b;
         }
         return null;
     }
@@ -135,12 +135,12 @@ public class CanvasView extends AbsCanvasView {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f12118f.size() > 0) {
+        if (this.f12119f.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.f12119g);
-            for (b bVar : this.f12118f) {
-                List<d.b.g0.a.y.a.j.a> list = bVar.f12122a;
-                d.b.g0.a.y.a.j.b bVar2 = bVar.f12123b;
+            canvas.setDrawFilter(this.f12120g);
+            for (b bVar : this.f12119f) {
+                List<d.b.g0.a.y.a.j.a> list = bVar.f12123a;
+                d.b.g0.a.y.a.j.b bVar2 = bVar.f12124b;
                 bVar2.e();
                 for (d.b.g0.a.y.a.j.a aVar : list) {
                     aVar.a(bVar2, canvas);
@@ -167,10 +167,10 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12118f = new ArrayList();
-        this.f12119g = new PaintFlagsDrawFilter(0, 3);
-        this.f12120h = 0;
+        this.f12119f = new ArrayList();
+        this.f12120g = new PaintFlagsDrawFilter(0, 3);
+        this.f12121h = 0;
         this.i = new HashMap<>();
-        this.f12120h = getLayerType();
+        this.f12121h = getLayerType();
     }
 }

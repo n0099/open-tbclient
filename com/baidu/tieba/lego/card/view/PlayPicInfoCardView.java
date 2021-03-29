@@ -30,7 +30,7 @@ import d.b.i0.x.t;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     public TextView A;
     public TbImageView B;
@@ -46,49 +46,49 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     public TbImageView y;
     public RelativeLayout z;
 
-    /* loaded from: classes4.dex */
-    public class a implements b.a<d.b.h0.r.f0.r.d.a, a.C1307a> {
+    /* loaded from: classes3.dex */
+    public class a implements b.a<d.b.h0.r.f0.r.d.a, a.C1308a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PlayPicInfoCard f18661a;
+        public final /* synthetic */ PlayPicInfoCard f18662a;
 
         public a(PlayPicInfoCard playPicInfoCard) {
-            this.f18661a = playPicInfoCard;
+            this.f18662a = playPicInfoCard;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.r.f0.r.b.a
         /* renamed from: b */
-        public void a(a.C1307a c1307a, d.b.h0.r.f0.r.d.a aVar) {
+        public void a(a.C1308a c1308a, d.b.h0.r.f0.r.d.a aVar) {
             if (aVar.e() instanceof PlayPicInfoCard.b) {
                 PlayPicInfoCard.b bVar = (PlayPicInfoCard.b) aVar.e();
-                if (TextUtils.isEmpty(bVar.f18626c)) {
+                if (TextUtils.isEmpty(bVar.f18627c)) {
                     return;
                 }
                 t.b().d(true);
-                d.b.i0.i1.e f2 = i.f(bVar.i, bVar.f18630g, this.f18661a.getCardType(), this.f18661a.getItemId());
-                f2.a("obj_id", bVar.f18624a);
-                f2.a(TiebaStatic.Params.OBJ_URL, bVar.f18626c);
+                d.b.i0.i1.e f2 = i.f(bVar.i, bVar.f18631g, this.f18662a.getCardType(), this.f18662a.getItemId());
+                f2.a("obj_id", bVar.f18625a);
+                f2.a(TiebaStatic.Params.OBJ_URL, bVar.f18627c);
                 f2.c("obj_locate", PlayPicInfoCardView.this.getStatPosition());
-                f2.b(this.f18661a);
-                v.c(PlayPicInfoCardView.this.m, bVar.f18626c);
+                f2.b(this.f18662a);
+                v.c(PlayPicInfoCardView.this.m, bVar.f18627c);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements BannerFlowView.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PlayPicInfoCard f18663a;
+        public final /* synthetic */ PlayPicInfoCard f18664a;
 
         public b(PlayPicInfoCard playPicInfoCard) {
-            this.f18663a = playPicInfoCard;
+            this.f18664a = playPicInfoCard;
         }
 
         @Override // d.b.i0.i1.o.l.l
         public void a(int i) {
-            if (this.f18663a.getDescOnPic() == 1) {
+            if (this.f18664a.getDescOnPic() == 1) {
                 return;
             }
             PlayPicInfoCardView.this.x.setCount(i);
@@ -96,7 +96,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
 
         @Override // d.b.i0.i1.o.l.l
         public void b(float f2) {
-            if (this.f18663a.getDescOnPic() == 1) {
+            if (this.f18664a.getDescOnPic() == 1) {
                 return;
             }
             PlayPicInfoCardView.this.x.setPosition(f2);
@@ -104,22 +104,22 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
 
         @Override // com.baidu.tieba.lego.view.BannerFlowView.c
         public void onPageSelected(int i) {
-            List<PlayPicInfoCard.b> imageResList = this.f18663a.getImageResList();
+            List<PlayPicInfoCard.b> imageResList = this.f18664a.getImageResList();
             if (imageResList == null || imageResList.size() <= i) {
                 return;
             }
-            if (this.f18663a.getDescOnPic() != 1) {
+            if (this.f18664a.getDescOnPic() != 1) {
                 PlayPicInfoCardView.this.w.setVisibility(8);
-                if (!TextUtils.isEmpty(imageResList.get(i).f18627d)) {
-                    PlayPicInfoCardView.this.v.setText(imageResList.get(i).f18627d);
+                if (!TextUtils.isEmpty(imageResList.get(i).f18628d)) {
+                    PlayPicInfoCardView.this.v.setText(imageResList.get(i).f18628d);
                     return;
                 } else {
                     PlayPicInfoCardView.this.u.setVisibility(8);
                     return;
                 }
             }
-            if (!TextUtils.isEmpty(imageResList.get(i).f18627d)) {
-                PlayPicInfoCardView.this.w.setText(imageResList.get(i).f18627d);
+            if (!TextUtils.isEmpty(imageResList.get(i).f18628d)) {
+                PlayPicInfoCardView.this.w.setText(imageResList.get(i).f18628d);
                 PlayPicInfoCardView.this.P(imageResList.get(i));
                 PlayPicInfoCardView.this.w.setVisibility(0);
             } else {
@@ -127,99 +127,99 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             }
             BannerFlowView bannerFlowView = PlayPicInfoCardView.this.r;
             if (bannerFlowView != null) {
-                bannerFlowView.setDescOnPic(true, !TextUtils.isEmpty(imageResList.get(i).f18627d));
+                bannerFlowView.setDescOnPic(true, !TextUtils.isEmpty(imageResList.get(i).f18628d));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PlayPicInfoCard f18665e;
+        public final /* synthetic */ PlayPicInfoCard f18666e;
 
         public c(PlayPicInfoCard playPicInfoCard) {
-            this.f18665e = playPicInfoCard;
+            this.f18666e = playPicInfoCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f18665e.getImageResList().get(0) != null) {
-                v.c(PlayPicInfoCardView.this.m, this.f18665e.getImageResList().get(0).f18626c);
+            if (this.f18666e.getImageResList().get(0) != null) {
+                v.c(PlayPicInfoCardView.this.m, this.f18666e.getImageResList().get(0).f18627c);
                 t.b().d(true);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PlayPicInfoCard.a f18667e;
+        public final /* synthetic */ PlayPicInfoCard.a f18668e;
 
         public d(PlayPicInfoCard.a aVar) {
-            this.f18667e = aVar;
+            this.f18668e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18667e.f18621b)) {
+            if (TextUtils.isEmpty(this.f18668e.f18622b)) {
                 return;
             }
-            v.c(PlayPicInfoCardView.this.m, this.f18667e.f18621b);
+            v.c(PlayPicInfoCardView.this.m, this.f18668e.f18622b);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PlayPicInfoCard.a f18669e;
+        public final /* synthetic */ PlayPicInfoCard.a f18670e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.i1.o.j.a f18670f;
+        public final /* synthetic */ d.b.i0.i1.o.j.a f18671f;
 
         public e(PlayPicInfoCard.a aVar, d.b.i0.i1.o.j.a aVar2) {
-            this.f18669e = aVar;
-            this.f18670f = aVar2;
+            this.f18670e = aVar;
+            this.f18671f = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(PlayPicInfoCardView.this.m.getPageActivity())) {
                 d.b.i0.i1.m.b a2 = d.b.i0.i1.m.b.a();
-                d.b.i0.i1.o.j.a aVar = this.f18669e.f18623d;
+                d.b.i0.i1.o.j.a aVar = this.f18670e.f18624d;
                 a2.d(aVar, aVar.b());
-                ((CommonImageButton) view).b(this.f18670f);
+                ((CommonImageButton) view).b(this.f18671f);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends d.b.h0.r.f0.r.d.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18672f;
+        public String f18673f;
 
         /* renamed from: g  reason: collision with root package name */
-        public PlayPicInfoCard.b f18673g;
+        public PlayPicInfoCard.b f18674g;
 
         public f() {
         }
 
         @Override // d.b.h0.r.f0.r.d.a
         public String a() {
-            return this.f18672f;
+            return this.f18673f;
         }
 
         @Override // d.b.h0.r.f0.r.d.a
         public Object e() {
-            return this.f18673g;
+            return this.f18674g;
         }
 
         public void f(PlayPicInfoCard.b bVar) {
-            this.f18672f = bVar.f18625b;
-            this.f18673g = bVar;
+            this.f18673f = bVar.f18626b;
+            this.f18674g = bVar;
         }
     }
 
@@ -250,7 +250,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         if (bVar == null) {
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0101);
         } else {
-            F(this.w, bVar.f18628e, bVar.f18629f, R.color.CAM_X0101);
+            F(this.w, bVar.f18629e, bVar.f18630f, R.color.CAM_X0101);
         }
     }
 
@@ -268,16 +268,16 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     }
 
     public final void R(TextView textView, TbImageView tbImageView, d.b.i0.i1.o.j.b bVar) {
-        String str = w() ? bVar.f55938b : bVar.f55937a;
+        String str = w() ? bVar.f55939b : bVar.f55938a;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);
             tbImageView.W(str, 10, false);
         } else {
             tbImageView.setVisibility(8);
-            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(d.b.i0.i1.o.f.a(bVar.f55939c)), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(d.b.i0.i1.o.f.a(bVar.f55940c)), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        textView.setText(bVar.f55940d);
+        textView.setText(bVar.f55941d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -303,12 +303,9 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         this.t.setMaxLines(playPicInfoCard.getMaxLineForToptitle());
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
         if (playPicInfoCard.getRatio() > 0.0d) {
-            double ratio = playPicInfoCard.getRatio();
-            double k = l.k(getContext());
-            Double.isNaN(k);
-            int i = (int) (ratio * k);
-            if (Math.abs(i - layoutParams.height) > 10) {
-                layoutParams.height = i;
+            int ratio = (int) (playPicInfoCard.getRatio() * l.k(getContext()));
+            if (Math.abs(ratio - layoutParams.height) > 10) {
+                layoutParams.height = ratio;
                 this.r.setLayoutParams(layoutParams);
             }
         } else {
@@ -316,7 +313,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             this.r.setLayoutParams(layoutParams);
         }
         if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 0) {
-            this.r.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, !TextUtils.isEmpty(playPicInfoCard.getImageResList().get(0).f18627d));
+            this.r.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, !TextUtils.isEmpty(playPicInfoCard.getImageResList().get(0).f18628d));
         } else {
             this.r.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, false);
         }
@@ -330,7 +327,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             this.w.setVisibility(8);
             if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 1) {
                 this.v.setMaxWidth(((l.k(getContext()) - l.g(getContext(), R.dimen.ds24)) - l.g(getContext(), R.dimen.ds20)) - (l.g(getContext(), R.dimen.ds24) * playPicInfoCard.getImageResList().size()));
-                this.v.setText(playPicInfoCard.getImageResList().get(0).f18627d);
+                this.v.setText(playPicInfoCard.getImageResList().get(0).f18628d);
                 this.x.setVisibility(0);
                 this.x.setCount(playPicInfoCard.getImageResList().size());
                 setIndicatorViewPosition(playPicInfoCard);
@@ -338,13 +335,13 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 this.t.setVisibility(8);
             } else if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() == 1) {
                 if (playPicInfoCard.getDescOnPic() == 2) {
-                    this.t.setText(playPicInfoCard.getImageResList().get(0).f18627d);
+                    this.t.setText(playPicInfoCard.getImageResList().get(0).f18628d);
                     this.t.setVisibility(0);
                     this.u.setVisibility(8);
                 } else {
                     this.u.setVisibility(0);
                     this.v.setMaxWidth(l.k(getContext()) - l.g(getContext(), R.dimen.ds24));
-                    this.v.setText(playPicInfoCard.getImageResList().get(0).f18627d);
+                    this.v.setText(playPicInfoCard.getImageResList().get(0).f18628d);
                     this.t.setVisibility(8);
                     this.x.setVisibility(8);
                 }
@@ -357,7 +354,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 } else {
                     this.w.setMaxWidth(l.k(getContext()) - l.g(getContext(), R.dimen.ds24));
                 }
-                this.w.setText(playPicInfoCard.getImageResList().get(0).f18627d);
+                this.w.setText(playPicInfoCard.getImageResList().get(0).f18628d);
                 P(playPicInfoCard.getImageResList().get(0));
             } else {
                 this.w.setVisibility(8);
@@ -381,21 +378,21 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         PlayPicInfoCard.a bottomInfo = playPicInfoCard.getBottomInfo();
         if (bottomInfo != null && bottomInfo.b()) {
             this.z.setVisibility(0);
-            if (TextUtils.isEmpty(bottomInfo.f18620a)) {
+            if (TextUtils.isEmpty(bottomInfo.f18621a)) {
                 this.A.setVisibility(8);
             } else {
                 this.A.setVisibility(0);
-                this.A.setText(bottomInfo.f18620a);
+                this.A.setText(bottomInfo.f18621a);
                 this.A.setOnClickListener(new d(bottomInfo));
             }
-            d.b.i0.i1.o.j.b bVar = bottomInfo.f18622c;
+            d.b.i0.i1.o.j.b bVar = bottomInfo.f18623c;
             if (bVar != null) {
                 R(this.C, this.B, bVar);
             }
-            if (bottomInfo.f18623d != null) {
+            if (bottomInfo.f18624d != null) {
                 this.D.setVisibility(0);
                 l.c(this.m.getPageActivity(), this.D, 20, 20, 20, 20);
-                d.b.i0.i1.o.j.a aVar = bottomInfo.f18623d;
+                d.b.i0.i1.o.j.a aVar = bottomInfo.f18624d;
                 this.D.b(aVar);
                 this.D.setOnClickListener(new e(bottomInfo, aVar));
                 return;
@@ -413,8 +410,8 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             return;
         }
         this.y.setVisibility(0);
-        String str = w() ? waterMark.f18633b : waterMark.f18632a;
-        ((RelativeLayout.LayoutParams) this.y.getLayoutParams()).setMargins(l.e(this.m.getPageActivity(), waterMark.f18634c), l.e(this.m.getPageActivity(), waterMark.f18635d), 0, 0);
+        String str = w() ? waterMark.f18634b : waterMark.f18633a;
+        ((RelativeLayout.LayoutParams) this.y.getLayoutParams()).setMargins(l.e(this.m.getPageActivity(), waterMark.f18635c), l.e(this.m.getPageActivity(), waterMark.f18636d), 0, 0);
         this.y.W(str, 10, false);
     }
 

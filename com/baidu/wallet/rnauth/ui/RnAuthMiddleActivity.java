@@ -23,28 +23,28 @@ import java.util.HashMap;
 public class RnAuthMiddleActivity extends BaseActionBarActivity {
 
     /* renamed from: f  reason: collision with root package name */
-    public static RNAuthCallBack f26795f;
+    public static RNAuthCallBack f26796f;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f26796a;
+    public TextView f26797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26797b;
+    public TextView f26798b;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f26799d;
+    public HashMap<String, String> f26800d;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f26798c = RnAuthMiddleActivity.class.getSimpleName();
+    public final String f26799c = RnAuthMiddleActivity.class.getSimpleName();
     public final int AUTH_STATE_PROCESS = 1;
     public final int AUTH_STATE_UNAUTH = 2;
     public final int AUTH_STATE_UPDATE = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26800e = 0;
+    public int f26801e = 0;
 
     public static void clearRnAuthCallBack() {
-        f26795f = null;
+        f26796f = null;
     }
 
     public static Intent getStartIntent(Context context, HashMap<String, String> hashMap) {
@@ -55,7 +55,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
     }
 
     public static void setRnAuthCallBack(RNAuthCallBack rNAuthCallBack) {
-        f26795f = rNAuthCallBack;
+        f26796f = rNAuthCallBack;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
@@ -85,22 +85,22 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         getErrorViewDelegate().showContentView();
         if (i == 48) {
             RnAuthQueryBeanResponse rnAuthQueryBeanResponse = (RnAuthQueryBeanResponse) obj;
-            this.f26797b.setText(rnAuthQueryBeanResponse.button_msg);
-            this.f26796a.setText(rnAuthQueryBeanResponse.display_msg);
+            this.f26798b.setText(rnAuthQueryBeanResponse.button_msg);
+            this.f26797a.setText(rnAuthQueryBeanResponse.display_msg);
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActionBarActivity
     public void init(View view) {
         TextView textView = (TextView) findViewByIdExt(ResUtils.id(getApplicationContext(), "wallet_rn_auth_text_des"));
-        this.f26796a = textView;
+        this.f26797a = textView;
         textView.setText("");
         TextView textView2 = (TextView) findViewByIdExt(ResUtils.id(getApplicationContext(), "wallet_rn_auth_text_action"));
-        this.f26797b = textView2;
+        this.f26798b = textView2;
         textView2.setText("");
         c();
         getBdActionBar().setTitle(ResUtils.string(getApplicationContext(), "bd_wallet_pay_security_auth"));
-        this.f26799d = (HashMap) getIntent().getSerializableExtra("params");
+        this.f26800d = (HashMap) getIntent().getSerializableExtra("params");
         b();
         EventBus.getInstance().register(this, BeanConstants.EV_EXIT_MIDDLE_AUTH_PAGE, 0, EventBus.ThreadMode.MainThread);
     }
@@ -108,10 +108,10 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        RNAuthCallBack rNAuthCallBack = f26795f;
+        RNAuthCallBack rNAuthCallBack = f26796f;
         if (rNAuthCallBack != null) {
             rNAuthCallBack.onRNAuthResult(2, "实名认证取消");
-            f26795f = null;
+            f26796f = null;
         }
     }
 
@@ -123,8 +123,8 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        LogUtil.e(this.f26798c, MissionEvent.MESSAGE_DESTROY, null);
-        BeanManager.getInstance().removeAllBeans(this.f26798c);
+        LogUtil.e(this.f26799c, MissionEvent.MESSAGE_DESTROY, null);
+        BeanManager.getInstance().removeAllBeans(this.f26799c);
         EventBus.getInstance().unregister(this);
     }
 
@@ -133,30 +133,30 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
             return;
         }
         finishWithoutAnim();
-        LogUtil.e(this.f26798c, "onModuleEvent finishWithoutAnim", null);
+        LogUtil.e(this.f26799c, "onModuleEvent finishWithoutAnim", null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         showLoadingDialog();
-        GetRnAuthQueryBean getRnAuthQueryBean = (GetRnAuthQueryBean) PayBeanFactory.getInstance().getBean((Context) this, 48, this.f26798c);
+        GetRnAuthQueryBean getRnAuthQueryBean = (GetRnAuthQueryBean) PayBeanFactory.getInstance().getBean((Context) this, 48, this.f26799c);
         getRnAuthQueryBean.setResponseCallback(this);
         getRnAuthQueryBean.setParams(1);
         getRnAuthQueryBean.execBean();
     }
 
     private void c() {
-        this.f26797b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1
+        this.f26798b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaiduPayDelegate.getInstance().doRNAuth(RnAuthMiddleActivity.this.getActivity(), RnAuthMiddleActivity.this.f26799d, new RNAuthCallBack() { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1.1
+                BaiduPayDelegate.getInstance().doRNAuth(RnAuthMiddleActivity.this.getActivity(), RnAuthMiddleActivity.this.f26800d, new RNAuthCallBack() { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1.1
                     @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                     public void onRNAuthResult(int i, String str) {
-                        if (RnAuthMiddleActivity.f26795f != null) {
-                            RnAuthMiddleActivity.f26795f.onRNAuthResult(i, str);
-                            RNAuthCallBack unused = RnAuthMiddleActivity.f26795f = null;
+                        if (RnAuthMiddleActivity.f26796f != null) {
+                            RnAuthMiddleActivity.f26796f.onRNAuthResult(i, str);
+                            RNAuthCallBack unused = RnAuthMiddleActivity.f26796f = null;
                             RnAuthMiddleActivity.this.finishWithoutAnim();
-                            LogUtil.e(RnAuthMiddleActivity.this.f26798c, "onRNAuthResult finishWithoutAnim", null);
+                            LogUtil.e(RnAuthMiddleActivity.this.f26799c, "onRNAuthResult finishWithoutAnim", null);
                         }
                     }
                 });

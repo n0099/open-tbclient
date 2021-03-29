@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import d.b.b.e.f.a;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RichTextGifViewSwitch extends a {
     public static final int DEFAULT_TYPE_OPEN = 1;
     public static final String KEY = "android_gif_autoplay";

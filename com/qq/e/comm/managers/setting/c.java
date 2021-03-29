@@ -11,7 +11,7 @@ public final class c extends e {
     }
 
     public final Object a(String str, String str2) {
-        JSONObject optJSONObject = this.f38325a.optJSONObject(str2);
+        JSONObject optJSONObject = this.f38326a.optJSONObject(str2);
         if (optJSONObject != null) {
             return optJSONObject.opt(str);
         }

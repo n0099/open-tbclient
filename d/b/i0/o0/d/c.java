@@ -15,10 +15,10 @@ public class c extends d.b.i0.x.b<d.b.i0.o0.c.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.n = 3;
-        NoDataView a2 = NoDataViewFactory.a(this.f62180f.getPageActivity(), m(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f62180f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
+        NoDataView a2 = NoDataViewFactory.a(this.f62181f.getPageActivity(), m(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f62181f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
         this.m = a2;
         a2.setVisibility(0);
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.b.i0.x.b
@@ -33,7 +33,7 @@ public class c extends d.b.i0.x.b<d.b.i0.o0.c.a> {
         }
         NoDataView noDataView = this.m;
         if (noDataView != null) {
-            noDataView.f(this.f62180f, i);
+            noDataView.f(this.f62181f, i);
         }
         this.n = i;
     }
@@ -46,6 +46,6 @@ public class c extends d.b.i0.x.b<d.b.i0.o0.c.a> {
     @Override // d.b.i0.x.b
     /* renamed from: u */
     public void n(d.b.i0.o0.c.a aVar) {
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

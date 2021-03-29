@@ -6,14 +6,14 @@ import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 public abstract class BaseSearchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6755a;
+    public String f6756a;
     public String ak;
     public int geoTableId;
     public String sn;
 
     public String a() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f6755a);
+        sb.append(this.f6756a);
         sb.append("?");
         String str = this.ak;
         if (str != null && !str.equals("") && this.ak.length() <= 50) {

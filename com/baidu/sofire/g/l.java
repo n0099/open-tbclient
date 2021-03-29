@@ -36,48 +36,48 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class l {
 
     /* renamed from: h  reason: collision with root package name */
-    public static SSLSocketFactory f11773h;
+    public static SSLSocketFactory f11774h;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11774a;
+    public Context f11775a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11776c;
+    public String f11777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11777d;
+    public String f11778d;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f11775b = new byte[8192];
+    public byte[] f11776b = new byte[8192];
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11778e = 120000;
+    public int f11779e = 120000;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11779f = 120000;
+    public int f11780f = 120000;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11780g = false;
+    public boolean f11781g = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements X509TrustManager {
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f11782b;
+        public X509TrustManager f11783b;
 
         public a(X509TrustManager x509TrustManager) {
-            this.f11782b = null;
-            this.f11782b = x509TrustManager;
+            this.f11783b = null;
+            this.f11783b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
-            this.f11782b.checkClientTrusted(x509CertificateArr, str);
+            this.f11783b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -85,7 +85,7 @@ public final class l {
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.f11782b.checkServerTrusted(x509CertificateArr, str);
+                this.f11783b.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (Throwable th) {
                 d.a();
@@ -93,7 +93,7 @@ public final class l {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        d.a(l.this.f11774a.getApplicationContext(), "1003121", (Map<String, Object>) hashMap, true);
+                        d.a(l.this.f11775a.getApplicationContext(), "1003121", (Map<String, Object>) hashMap, true);
                         return;
                     }
                 }
@@ -107,17 +107,17 @@ public final class l {
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
             com.baidu.sofire.b.a();
-            return this.f11782b.getAcceptedIssuers();
+            return this.f11783b.getAcceptedIssuers();
         }
     }
 
     public l(Context context) {
-        this.f11774a = context;
+        this.f11775a = context;
     }
 
     private void a(String str, String str2) {
-        this.f11776c = str;
-        this.f11777d = str2;
+        this.f11777c = str;
+        this.f11778d = str2;
     }
 
     public static byte[] b(InputStream inputStream) throws IOException, InterruptedException {
@@ -138,13 +138,13 @@ public final class l {
     private HttpURLConnection a() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
-        if (!TextUtils.isEmpty(this.f11776c) && !TextUtils.isEmpty(this.f11777d)) {
-            if (!this.f11776c.equals("POST") && !this.f11776c.equals("GET")) {
-                this.f11776c = "POST";
+        if (!TextUtils.isEmpty(this.f11777c) && !TextUtils.isEmpty(this.f11778d)) {
+            if (!this.f11777c.equals("POST") && !this.f11777c.equals("GET")) {
+                this.f11777c = "POST";
             }
-            URL url = new URL(this.f11777d);
+            URL url = new URL(this.f11778d);
             int i = -1;
-            if (d.f(this.f11774a)) {
+            if (d.f(this.f11775a)) {
                 str = null;
                 i = 0;
             } else if (Build.VERSION.SDK_INT >= 13) {
@@ -157,8 +157,8 @@ public final class l {
                     }
                 }
             } else {
-                str = Proxy.getHost(this.f11774a);
-                i = Proxy.getPort(this.f11774a);
+                str = Proxy.getHost(this.f11775a);
+                i = Proxy.getPort(this.f11775a);
             }
             if (str != null && i > 0) {
                 httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
@@ -168,9 +168,9 @@ public final class l {
             if ("https".equals(url.getProtocol())) {
                 HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
                 try {
-                    if (f11773h != null) {
+                    if (f11774h != null) {
                         httpsURLConnection.setHostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                        httpsURLConnection.setSSLSocketFactory(f11773h);
+                        httpsURLConnection.setSSLSocketFactory(f11774h);
                     } else {
                         SSLContext sSLContext = SSLContext.getInstance("TLS");
                         TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -178,9 +178,9 @@ public final class l {
                         TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
                         if (trustManagers.length > 0 && (trustManagers[0] instanceof X509TrustManager)) {
                             sSLContext.init(null, new TrustManager[]{new a((X509TrustManager) trustManagers[0])}, new SecureRandom());
-                            f11773h = sSLContext.getSocketFactory();
+                            f11774h = sSLContext.getSocketFactory();
                             httpsURLConnection.setHostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                            httpsURLConnection.setSSLSocketFactory(f11773h);
+                            httpsURLConnection.setSSLSocketFactory(f11774h);
                         } else {
                             throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
                         }
@@ -189,21 +189,21 @@ public final class l {
                     d.a();
                 }
             }
-            httpURLConnection.setRequestMethod(this.f11776c);
+            httpURLConnection.setRequestMethod(this.f11777c);
             httpURLConnection.setDoInput(true);
-            if ("POST".equals(this.f11776c)) {
+            if ("POST".equals(this.f11777c)) {
                 httpURLConnection.setDoOutput(true);
             }
             httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setConnectTimeout(this.f11778e);
-            httpURLConnection.setReadTimeout(this.f11779f);
-            httpURLConnection.setRequestProperty("User-Agent", "eos/" + d.h(this.f11774a)[0] + "/" + v.a(this.f11774a) + "/3.5.7.3");
+            httpURLConnection.setConnectTimeout(this.f11779e);
+            httpURLConnection.setReadTimeout(this.f11780f);
+            httpURLConnection.setRequestProperty("User-Agent", "eos/" + d.h(this.f11775a)[0] + "/" + v.a(this.f11775a) + "/3.5.7.3");
             httpURLConnection.setRequestProperty("Pragma", "no-cache");
             httpURLConnection.setRequestProperty("Accept", "*/*");
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
             httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry());
-            httpURLConnection.setRequestProperty("x-device-id", n.a(f.b(this.f11774a)));
+            httpURLConnection.setRequestProperty("x-device-id", n.a(f.b(this.f11775a)));
             return httpURLConnection;
         }
         throw new IllegalArgumentException();
@@ -221,9 +221,9 @@ public final class l {
                     if (responseCode == 200) {
                         String contentEncoding = httpURLConnection.getContentEncoding();
                         if (!TextUtils.isEmpty(contentEncoding) && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(contentEncoding)) {
-                            this.f11780g = true;
+                            this.f11781g = true;
                         } else {
-                            this.f11780g = false;
+                            this.f11781g = false;
                         }
                         return httpURLConnection.getInputStream();
                     }
@@ -236,9 +236,9 @@ public final class l {
                     int responseCode2 = httpURLConnection.getResponseCode();
                     if (responseCode2 == 200) {
                         if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                            this.f11780g = true;
+                            this.f11781g = true;
                         } else {
-                            this.f11780g = false;
+                            this.f11781g = false;
                         }
                         InputStream inputStream = httpURLConnection.getInputStream();
                         try {
@@ -274,12 +274,12 @@ public final class l {
     }
 
     private InputStream a(HttpURLConnection httpURLConnection) {
-        if (d.g(this.f11774a) && httpURLConnection != null && httpURLConnection != null) {
+        if (d.g(this.f11775a) && httpURLConnection != null && httpURLConnection != null) {
             try {
                 if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                    this.f11780g = true;
+                    this.f11781g = true;
                 } else {
-                    this.f11780g = false;
+                    this.f11781g = false;
                 }
                 return httpURLConnection.getInputStream();
             } catch (IOException unused) {
@@ -293,7 +293,7 @@ public final class l {
         if (inputStream != null) {
             byte[] b2 = b(inputStream);
             if (b2 != null) {
-                if (this.f11780g) {
+                if (this.f11781g) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b2);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     i.b(byteArrayInputStream, byteArrayOutputStream);
@@ -317,7 +317,7 @@ public final class l {
         HttpURLConnection httpURLConnection;
         u.a();
         try {
-            if (r.m(this.f11774a)) {
+            if (r.m(this.f11775a)) {
                 a("POST", str);
                 InputStream inputStream = null;
                 try {
@@ -359,11 +359,11 @@ public final class l {
         u.a();
         try {
             com.baidu.sofire.b.a();
-            if (d.g(this.f11774a)) {
+            if (d.g(this.f11775a)) {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                if (r.m(this.f11774a)) {
+                if (r.m(this.f11775a)) {
                     new StringBuilder("f= ").append(file);
                     com.baidu.sofire.b.a();
                     InputStream inputStream = null;
@@ -404,7 +404,7 @@ public final class l {
 
     private boolean a(InputStream inputStream, File file) {
         BufferedOutputStream bufferedOutputStream;
-        if (this.f11780g) {
+        if (this.f11781g) {
             try {
                 inputStream = new GZIPInputStream(inputStream);
             } catch (IOException unused) {

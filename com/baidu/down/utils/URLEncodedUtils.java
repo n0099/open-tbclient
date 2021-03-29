@@ -6,7 +6,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class URLEncodedUtils {
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
     public static String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";

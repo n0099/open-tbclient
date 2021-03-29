@@ -13,32 +13,32 @@ import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43620a = k.f45050a;
+    public static final boolean f43621a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f43621b;
+    public static d f43622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d.b.g0.a.z1.a f43622c;
+    public static d.b.g0.a.z1.a f43623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f43623d;
+    public static Timer f43624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f43624e;
+    public static boolean f43625e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends TimerTask {
         public a() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            if (d.f43620a) {
+            if (d.f43621a) {
                 Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
             }
             d.this.e();
@@ -46,7 +46,7 @@ public abstract class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b extends d {
         public b() {
             super(null);
@@ -57,7 +57,7 @@ public abstract class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            if (d.f43620a) {
+            if (d.f43621a) {
                 Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
             }
             char c2 = 65535;
@@ -75,15 +75,15 @@ public abstract class d {
             }
             if (c2 == 0) {
                 p(true);
-                d.b.g0.a.z1.b.d(d.f43622c, str, f());
+                d.b.g0.a.z1.b.d(d.f43623c, str, f());
             } else if (c2 == 1) {
-                d.b.g0.a.z1.a aVar = d.f43622c;
+                d.b.g0.a.z1.a aVar = d.f43623c;
                 if (aVar != null) {
                     d.b.g0.a.z1.b.b(aVar);
                 }
                 n();
             } else if (c2 != 2) {
-                d.b.g0.a.z1.a aVar2 = d.f43622c;
+                d.b.g0.a.z1.a aVar2 = d.f43623c;
                 if (aVar2 != null) {
                     d.b.g0.a.z1.b.d(aVar2, str, f());
                 }
@@ -98,7 +98,7 @@ public abstract class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c extends d {
         public c() {
             super(null);
@@ -110,7 +110,7 @@ public abstract class d {
             if (TextUtils.isEmpty(str) || e.c()) {
                 return;
             }
-            if (d.f43620a) {
+            if (d.f43621a) {
                 Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
             }
             char c2 = 65535;
@@ -125,14 +125,14 @@ public abstract class d {
             }
             if (c2 != 0) {
                 if (c2 != 1) {
-                    d.b.g0.a.z1.a aVar = d.f43622c;
+                    d.b.g0.a.z1.a aVar = d.f43623c;
                     if (aVar != null) {
                         d.b.g0.a.z1.b.d(aVar, str, f());
                         return;
                     }
                     return;
                 }
-                d.b.g0.a.z1.a aVar2 = d.f43622c;
+                d.b.g0.a.z1.a aVar2 = d.f43623c;
                 if (aVar2 != null) {
                     d.b.g0.a.z1.b.d(aVar2, str, f());
                     e();
@@ -146,18 +146,18 @@ public abstract class d {
             }
             p(z);
             if (!z) {
-                if (d.f43624e) {
-                    d.b.g0.a.z1.a aVar3 = d.f43622c;
+                if (d.f43625e) {
+                    d.b.g0.a.z1.a aVar3 = d.f43623c;
                     d.b.g0.a.z1.b.d(aVar3, str + "-preload", f());
-                    boolean unused = d.f43624e = false;
+                    boolean unused = d.f43625e = false;
                     return;
                 }
-                d.b.g0.a.z1.b.d(d.f43622c, str, f());
+                d.b.g0.a.z1.b.d(d.f43623c, str, f());
                 return;
             }
-            d.b.g0.a.z1.a aVar4 = d.f43622c;
+            d.b.g0.a.z1.a aVar4 = d.f43623c;
             d.b.g0.a.z1.b.d(aVar4, str + "-destroy", f());
-            boolean unused2 = d.f43624e = false;
+            boolean unused2 = d.f43625e = false;
         }
 
         public /* synthetic */ c(a aVar) {
@@ -171,26 +171,26 @@ public abstract class d {
 
     public static void d() {
         f fVar = new f();
-        fVar.f47250a = "swan";
-        fVar.f47251b = Config.LAUNCH;
-        fVar.f47252c = "remote-debug";
-        fVar.f47253d = "appready";
+        fVar.f47251a = "swan";
+        fVar.f47252b = Config.LAUNCH;
+        fVar.f47253c = "remote-debug";
+        fVar.f47254d = "appready";
         h.onEvent(fVar);
     }
 
     public static d g() {
-        if (f43621b == null) {
+        if (f43622b == null) {
             synchronized (d.b.g0.a.z0.f.class) {
-                if (f43621b == null) {
+                if (f43622b == null) {
                     if (d.b.d0.b.a.a.g()) {
-                        f43621b = new b(null);
+                        f43622b = new b(null);
                     } else {
-                        f43621b = new c(null);
+                        f43622b = new c(null);
                     }
                 }
             }
         }
-        return f43621b;
+        return f43622b;
     }
 
     public static void i(JSONArray jSONArray) {
@@ -200,7 +200,7 @@ public abstract class d {
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
         String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
-        if (TextUtils.isEmpty(optString) || (dVar = f43621b) == null) {
+        if (TextUtils.isEmpty(optString) || (dVar = f43622b) == null) {
             return;
         }
         dVar.h(optString);
@@ -212,13 +212,13 @@ public abstract class d {
         cVar.n0().putString("aiapp_extra_pkg_downloading", "0");
         cVar.n0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
         f fVar = new f();
-        fVar.f47250a = h.n(cVar.F());
+        fVar.f47251a = h.n(cVar.F());
         fVar.j(cVar);
-        fVar.f47251b = Config.LAUNCH;
+        fVar.f47252b = Config.LAUNCH;
         fVar.n = "1";
         fVar.p = "0";
         fVar.o = "0";
-        fVar.f47252c = "remote-debug";
+        fVar.f47253c = "remote-debug";
         JSONObject l = h.l(cVar.V());
         fVar.d(cVar.n0().getString(UBCCloudControlProcessor.UBC_KEY));
         fVar.b(l);
@@ -227,34 +227,34 @@ public abstract class d {
 
     public static void k() {
         f fVar = new f();
-        fVar.f47250a = "swan";
-        fVar.f47251b = Config.LAUNCH;
-        fVar.f47252c = "remote-debug";
-        fVar.f47253d = "loadmaster";
+        fVar.f47251a = "swan";
+        fVar.f47252b = Config.LAUNCH;
+        fVar.f47253c = "remote-debug";
+        fVar.f47254d = "loadmaster";
         h.onEvent(fVar);
     }
 
     public static void l() {
         f fVar = new f();
-        fVar.f47250a = "swan";
-        fVar.f47251b = Config.LAUNCH;
-        fVar.f47252c = "remote-debug";
-        fVar.f47253d = "downloadstart";
+        fVar.f47251a = "swan";
+        fVar.f47252b = Config.LAUNCH;
+        fVar.f47253c = "remote-debug";
+        fVar.f47254d = "downloadstart";
         h.onEvent(fVar);
     }
 
     public static void m(d.b.g0.a.y0.e.c cVar) {
         f fVar = new f();
         fVar.j(cVar);
-        fVar.f47250a = h.n(cVar.F());
-        fVar.f47251b = Config.LAUNCH;
-        fVar.f47252c = "remote-debug";
-        fVar.f47253d = "downloadsuccess";
+        fVar.f47251a = h.n(cVar.F());
+        fVar.f47252b = Config.LAUNCH;
+        fVar.f47253c = "remote-debug";
+        fVar.f47254d = "downloadsuccess";
         h.onEvent(fVar);
     }
 
     public void e() {
-        if (f43622c == null) {
+        if (f43623c == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -266,12 +266,12 @@ public abstract class d {
             jSONObject.putOpt("from", "swan");
             jSONObject.putOpt("ext", jSONObject2);
         } catch (JSONException unused) {
-            if (f43620a) {
+            if (f43621a) {
                 Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
             }
         }
-        d.b.g0.a.z1.b.f(f43622c, jSONObject.toString());
-        d.b.g0.a.z1.b.c(f43622c);
+        d.b.g0.a.z1.b.f(f43623c, jSONObject.toString());
+        d.b.g0.a.z1.b.c(f43623c);
     }
 
     public String f() {
@@ -279,7 +279,7 @@ public abstract class d {
         try {
             jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
         } catch (JSONException e2) {
-            if (f43620a) {
+            if (f43621a) {
                 Log.d("RemoteDebugStatistic", "add event content fail", e2);
             }
         }
@@ -289,31 +289,31 @@ public abstract class d {
     public abstract void h(String str);
 
     public void n() {
-        Timer timer = f43623d;
+        Timer timer = f43624d;
         if (timer != null) {
             timer.cancel();
-            f43623d = null;
+            f43624d = null;
         }
-        f43621b = null;
-        f43622c = null;
+        f43622b = null;
+        f43623c = null;
     }
 
     public void o() {
-        f43624e = true;
+        f43625e = true;
     }
 
     public void p(boolean z) {
-        if (f43622c != null) {
+        if (f43623c != null) {
             return;
         }
         d.b.g0.a.z1.a e2 = h.e("1153");
-        f43622c = e2;
+        f43623c = e2;
         if (!z) {
             d.b.g0.a.z1.b.d(e2, "downloadstart", f());
-            d.b.g0.a.z1.b.d(f43622c, "downloadsuccess", f());
+            d.b.g0.a.z1.b.d(f43623c, "downloadsuccess", f());
         }
         Timer timer = new Timer();
-        f43623d = timer;
+        f43624d = timer;
         timer.schedule(new a(), 40000L);
     }
 

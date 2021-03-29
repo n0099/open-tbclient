@@ -8,22 +8,22 @@ import d.b.u.b.d.b;
 public class a extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public Surface f64679d;
+    public Surface f64680d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64680e;
+    public boolean f64681e;
 
     public a(d.b.u.b.d.a aVar, Surface surface, boolean z) {
         super(aVar);
         a(surface);
-        this.f64679d = surface;
-        this.f64680e = z;
+        this.f64680d = surface;
+        this.f64681e = z;
     }
 
     public void f(d.b.u.b.d.a aVar) {
-        Surface surface = this.f64679d;
+        Surface surface = this.f64680d;
         if (surface != null) {
-            this.f64686a = aVar;
+            this.f64687a = aVar;
             a(surface);
             return;
         }
@@ -32,12 +32,12 @@ public class a extends b {
 
     public void g() {
         c();
-        Surface surface = this.f64679d;
+        Surface surface = this.f64680d;
         if (surface != null) {
-            if (this.f64680e) {
+            if (this.f64681e) {
                 surface.release();
             }
-            this.f64679d = null;
+            this.f64680d = null;
         }
     }
 

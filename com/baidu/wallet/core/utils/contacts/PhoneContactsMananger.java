@@ -16,46 +16,46 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PhoneContactsMananger {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24331a = "PhoneContactsMananger";
+    public static final String f24332a = "PhoneContactsMananger";
 
     /* renamed from: b  reason: collision with root package name */
-    public static PhoneContactsMananger f24332b;
+    public static PhoneContactsMananger f24333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24333c;
+    public Context f24334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f24334d = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, ContractInfo> f24335d = new ConcurrentHashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f24335e = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, ContractInfo> f24336e = new ConcurrentHashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<ContractInfo> f24336f = new ArrayList<>();
+    public ArrayList<ContractInfo> f24337f = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public b f24337g = null;
+    public b f24338g = null;
 
     /* renamed from: com.baidu.wallet.core.utils.contacts.PhoneContactsMananger$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f24338a;
+        public static final /* synthetic */ int[] f24339a;
 
         static {
             int[] iArr = new int[ContactStatus.values().length];
-            f24338a = iArr;
+            f24339a = iArr;
             try {
                 iArr[ContactStatus.unload.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f24338a[ContactStatus.loading.ordinal()] = 2;
+                f24339a[ContactStatus.loading.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f24338a[ContactStatus.complited.ordinal()] = 3;
+                f24339a[ContactStatus.complited.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -89,24 +89,24 @@ public class PhoneContactsMananger {
     public class a extends AsyncTask<String, String, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f24340b;
+        public int f24341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<ContactSelectModel.AllContact> f24341c = new ArrayList<>();
+        public ArrayList<ContactSelectModel.AllContact> f24342c = new ArrayList<>();
 
         /* renamed from: d  reason: collision with root package name */
-        public LoadAllContactListener f24342d;
+        public LoadAllContactListener f24343d;
 
         public a() {
         }
 
         public int a() {
-            return this.f24340b;
+            return this.f24341b;
         }
 
         public void a(int i, LoadAllContactListener loadAllContactListener) {
-            this.f24340b = i;
-            this.f24342d = loadAllContactListener;
+            this.f24341b = i;
+            this.f24343d = loadAllContactListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,7 +114,7 @@ public class PhoneContactsMananger {
         /* renamed from: a */
         public String doInBackground(String... strArr) {
             try {
-                List<ContractInfo> allPhone = AddressUtils.getAllPhone(PhoneContactsMananger.this.f24333c);
+                List<ContractInfo> allPhone = AddressUtils.getAllPhone(PhoneContactsMananger.this.f24334c);
                 ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
                 for (int i = 0; i < allPhone.size(); i++) {
                     String name = allPhone.get(i).getName();
@@ -148,11 +148,11 @@ public class PhoneContactsMananger {
                     }
                 }
                 for (Map.Entry entry : concurrentHashMap.entrySet()) {
-                    this.f24341c.add((ContactSelectModel.AllContact) entry.getValue());
+                    this.f24342c.add((ContactSelectModel.AllContact) entry.getValue());
                 }
                 return null;
             } catch (Throwable th) {
-                LogUtil.d(PhoneContactsMananger.f24331a, th.getMessage());
+                LogUtil.d(PhoneContactsMananger.f24332a, th.getMessage());
                 return null;
             }
         }
@@ -161,15 +161,15 @@ public class PhoneContactsMananger {
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public void onPostExecute(String str) {
-            if (this.f24342d != null) {
-                int size = this.f24341c.size();
-                int i = this.f24340b;
+            if (this.f24343d != null) {
+                int size = this.f24342c.size();
+                int i = this.f24341b;
                 if (size > i) {
-                    this.f24342d.onLoadSuccess(this.f24341c.subList(0, i), this.f24340b);
+                    this.f24343d.onLoadSuccess(this.f24342c.subList(0, i), this.f24341b);
                 } else {
-                    this.f24342d.onLoadSuccess(this.f24341c, i);
+                    this.f24343d.onLoadSuccess(this.f24342c, i);
                 }
-                this.f24342d = null;
+                this.f24343d = null;
             }
             super.onPostExecute(str);
         }
@@ -179,45 +179,45 @@ public class PhoneContactsMananger {
     public class b extends AsyncTask<String, String, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        public ContactStatus f24344b = ContactStatus.unload;
+        public ContactStatus f24345b = ContactStatus.unload;
 
         /* renamed from: c  reason: collision with root package name */
-        public LoadAddressInfoComplitedListener f24345c;
+        public LoadAddressInfoComplitedListener f24346c;
 
         public b() {
         }
 
         public void a(LoadAddressInfoComplitedListener loadAddressInfoComplitedListener) {
-            this.f24345c = loadAddressInfoComplitedListener;
+            this.f24346c = loadAddressInfoComplitedListener;
         }
 
         public ContactStatus a() {
-            return this.f24344b;
+            return this.f24345b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(String... strArr) {
-            this.f24344b = ContactStatus.loading;
-            if (PhoneContactsMananger.this.f24334d.size() == 0) {
+            this.f24345b = ContactStatus.loading;
+            if (PhoneContactsMananger.this.f24335d.size() == 0) {
                 PhoneContactsMananger phoneContactsMananger = PhoneContactsMananger.this;
-                phoneContactsMananger.f24334d = AddressUtils.getPhoneContracts(phoneContactsMananger.f24333c);
+                phoneContactsMananger.f24335d = AddressUtils.getPhoneContracts(phoneContactsMananger.f24334c);
             }
-            String str = PhoneContactsMananger.f24331a;
-            LogUtil.d(str, "手机里面的通讯：" + PhoneContactsMananger.this.f24334d.toString());
-            if (PhoneContactsMananger.this.f24335e.size() == 0) {
+            String str = PhoneContactsMananger.f24332a;
+            LogUtil.d(str, "手机里面的通讯：" + PhoneContactsMananger.this.f24335d.toString());
+            if (PhoneContactsMananger.this.f24336e.size() == 0) {
                 PhoneContactsMananger phoneContactsMananger2 = PhoneContactsMananger.this;
-                phoneContactsMananger2.f24335e = AddressUtils.getSimContracts(phoneContactsMananger2.f24333c);
+                phoneContactsMananger2.f24336e = AddressUtils.getSimContracts(phoneContactsMananger2.f24334c);
             }
-            String str2 = PhoneContactsMananger.f24331a;
-            LogUtil.d(str2, "Sim里面的通讯：" + PhoneContactsMananger.this.f24335e.toString());
-            if (PhoneContactsMananger.this.f24336f == null || PhoneContactsMananger.this.f24336f.size() == 0) {
+            String str2 = PhoneContactsMananger.f24332a;
+            LogUtil.d(str2, "Sim里面的通讯：" + PhoneContactsMananger.this.f24336e.toString());
+            if (PhoneContactsMananger.this.f24337f == null || PhoneContactsMananger.this.f24337f.size() == 0) {
                 PhoneContactsMananger.this.b();
             }
-            String str3 = PhoneContactsMananger.f24331a;
-            LogUtil.d(str3, "本地所有的通讯录信息：" + PhoneContactsMananger.this.f24336f.toString());
-            this.f24344b = ContactStatus.complited;
+            String str3 = PhoneContactsMananger.f24332a;
+            LogUtil.d(str3, "本地所有的通讯录信息：" + PhoneContactsMananger.this.f24337f.toString());
+            this.f24345b = ContactStatus.complited;
             return null;
         }
 
@@ -225,13 +225,13 @@ public class PhoneContactsMananger {
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public void onPostExecute(String str) {
-            if (PhoneContactsMananger.this.f24336f.isEmpty()) {
-                this.f24344b = ContactStatus.unload;
+            if (PhoneContactsMananger.this.f24337f.isEmpty()) {
+                this.f24345b = ContactStatus.unload;
             }
-            LoadAddressInfoComplitedListener loadAddressInfoComplitedListener = this.f24345c;
+            LoadAddressInfoComplitedListener loadAddressInfoComplitedListener = this.f24346c;
             if (loadAddressInfoComplitedListener != null) {
-                loadAddressInfoComplitedListener.onLoadContractsComplited(PhoneContactsMananger.this.f24336f);
-                this.f24345c = null;
+                loadAddressInfoComplitedListener.onLoadContractsComplited(PhoneContactsMananger.this.f24337f);
+                this.f24346c = null;
             }
             super.onPostExecute(str);
         }
@@ -239,28 +239,28 @@ public class PhoneContactsMananger {
 
     public PhoneContactsMananger(Context context) {
         if (context != null) {
-            this.f24333c = context.getApplicationContext();
+            this.f24334c = context.getApplicationContext();
         }
     }
 
     public static synchronized PhoneContactsMananger getInstance(Context context) {
         PhoneContactsMananger phoneContactsMananger;
         synchronized (PhoneContactsMananger.class) {
-            if (f24332b == null) {
-                f24332b = new PhoneContactsMananger(context);
+            if (f24333b == null) {
+                f24333b = new PhoneContactsMananger(context);
             }
-            phoneContactsMananger = f24332b;
+            phoneContactsMananger = f24333b;
         }
         return phoneContactsMananger;
     }
 
     public String getPayphoneInfo(String str) {
         String str2;
-        ContractInfo contractInfo = this.f24334d.get(str);
+        ContractInfo contractInfo = this.f24335d.get(str);
         if (contractInfo == null) {
-            contractInfo = this.f24335e.get(str);
+            contractInfo = this.f24336e.get(str);
         }
-        String str3 = f24331a;
+        String str3 = f24332a;
         StringBuilder sb = new StringBuilder();
         sb.append("手机号：");
         sb.append(str);
@@ -285,21 +285,21 @@ public class PhoneContactsMananger {
         ContractInfo contractInfo;
         char[] charArray;
         if (z) {
-            contractInfo = this.f24334d.get(str);
+            contractInfo = this.f24335d.get(str);
             if (contractInfo == null) {
-                contractInfo = this.f24335e.get(str);
+                contractInfo = this.f24336e.get(str);
             }
         } else {
             String formatPhoneNumber = StringUtils.formatPhoneNumber(str);
             if (TextUtils.isEmpty(formatPhoneNumber)) {
                 contractInfo = null;
             } else {
-                ContractInfo contractInfo2 = this.f24334d.get(formatPhoneNumber);
-                contractInfo = contractInfo2 == null ? this.f24335e.get(formatPhoneNumber) : contractInfo2;
+                ContractInfo contractInfo2 = this.f24335d.get(formatPhoneNumber);
+                contractInfo = contractInfo2 == null ? this.f24336e.get(formatPhoneNumber) : contractInfo2;
             }
         }
         if (contractInfo != null) {
-            String str2 = f24331a;
+            String str2 = f24332a;
             LogUtil.d(str2, "该手机号：" + str + " 是通讯录里面的号码");
             if (loadAddressInfoListener != null) {
                 loadAddressInfoListener.onFixPhoneList(str, new ArrayList<>());
@@ -309,32 +309,32 @@ public class PhoneContactsMananger {
         }
         List<ContractInfo> arrayList = new ArrayList<>();
         char[] charArray2 = str.toCharArray();
-        for (int i2 = 0; i2 < this.f24336f.size(); i2++) {
-            if (this.f24336f.get(i2) != null && !TextUtils.isEmpty(this.f24336f.get(i2).getMobile())) {
-                String mobile = this.f24336f.get(i2).getMobile();
+        for (int i2 = 0; i2 < this.f24337f.size(); i2++) {
+            if (this.f24337f.get(i2) != null && !TextUtils.isEmpty(this.f24337f.get(i2).getMobile())) {
+                String mobile = this.f24337f.get(i2).getMobile();
                 if (z) {
                     charArray = mobile.toCharArray();
                 } else {
                     charArray = mobile.replace(" ", "").toCharArray();
                 }
-                this.f24336f.get(i2).setErrordigit(-1);
+                this.f24337f.get(i2).setErrordigit(-1);
                 int i3 = 0;
                 for (int i4 = 0; i4 < charArray.length; i4++) {
                     if (charArray2[i4] != charArray[i4] && (i3 = i3 + 1) == 1) {
-                        this.f24336f.get(i2).setErrordigit(i4);
+                        this.f24337f.get(i2).setErrordigit(i4);
                     }
                     if (i3 > i) {
                         break;
                     }
                 }
                 if (i3 > 0 && i3 <= i) {
-                    arrayList.add(this.f24336f.get(i2));
+                    arrayList.add(this.f24337f.get(i2));
                 } else {
-                    this.f24336f.get(i2).setErrordigit(-1);
+                    this.f24337f.get(i2).setErrordigit(-1);
                 }
             }
         }
-        String str3 = f24331a;
+        String str3 = f24332a;
         LogUtil.d(str3, "与手机号：" + str + " 是通讯录里面最多有" + i + "位不一样的号码是：" + arrayList.toString());
         if (loadAddressInfoListener != null) {
             loadAddressInfoListener.onFixPhoneList(str, arrayList);
@@ -343,19 +343,19 @@ public class PhoneContactsMananger {
 
     public void loadPayphoneInfo(String str, LoadAddressInfoListener loadAddressInfoListener) {
         String str2;
-        ContractInfo contractInfo = this.f24334d.get(str);
+        ContractInfo contractInfo = this.f24335d.get(str);
         if (contractInfo == null) {
-            contractInfo = this.f24335e.get(str);
+            contractInfo = this.f24336e.get(str);
         }
-        if (contractInfo == null && this.f24336f.size() == 0) {
-            LogUtil.d(f24331a, "通讯录为空，视为没有权限为关闭");
+        if (contractInfo == null && this.f24337f.size() == 0) {
+            LogUtil.d(f24332a, "通讯录为空，视为没有权限为关闭");
             if (loadAddressInfoListener != null) {
                 loadAddressInfoListener.onLoadFastPayPhoneInfo(str, new ContractInfo());
                 return;
             }
             return;
         }
-        String str3 = f24331a;
+        String str3 = f24332a;
         StringBuilder sb = new StringBuilder();
         sb.append("手机号：");
         sb.append(str);
@@ -373,38 +373,38 @@ public class PhoneContactsMananger {
     }
 
     public void loadPhoneContacts(LoadAddressInfoComplitedListener loadAddressInfoComplitedListener) {
-        if (this.f24337g == null || this.f24336f.isEmpty()) {
-            this.f24337g = new b();
+        if (this.f24338g == null || this.f24337f.isEmpty()) {
+            this.f24338g = new b();
         }
-        int i = AnonymousClass1.f24338a[this.f24337g.a().ordinal()];
+        int i = AnonymousClass1.f24339a[this.f24338g.a().ordinal()];
         if (i != 1) {
             if (i == 3 && loadAddressInfoComplitedListener != null) {
-                loadAddressInfoComplitedListener.onLoadContractsComplited(this.f24336f);
+                loadAddressInfoComplitedListener.onLoadContractsComplited(this.f24337f);
                 return;
             }
             return;
         }
         try {
-            this.f24337g.a(loadAddressInfoComplitedListener);
-            this.f24337g.execute("");
+            this.f24338g.a(loadAddressInfoComplitedListener);
+            this.f24338g.execute("");
         } catch (IllegalStateException e2) {
             LogUtil.d(PhoneContactsMananger.class.toString(), e2.toString());
         }
     }
 
     public void reset() {
-        if (this.f24337g != null) {
-            this.f24337g = null;
+        if (this.f24338g != null) {
+            this.f24338g = null;
         }
-        ConcurrentHashMap<String, ContractInfo> concurrentHashMap = this.f24334d;
+        ConcurrentHashMap<String, ContractInfo> concurrentHashMap = this.f24335d;
         if (concurrentHashMap != null) {
             concurrentHashMap.clear();
         }
-        ConcurrentHashMap<String, ContractInfo> concurrentHashMap2 = this.f24335e;
+        ConcurrentHashMap<String, ContractInfo> concurrentHashMap2 = this.f24336e;
         if (concurrentHashMap2 != null) {
             concurrentHashMap2.clear();
         }
-        ArrayList<ContractInfo> arrayList = this.f24336f;
+        ArrayList<ContractInfo> arrayList = this.f24337f;
         if (arrayList != null) {
             arrayList.clear();
         }
@@ -412,14 +412,14 @@ public class PhoneContactsMananger {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        for (String str : this.f24334d.keySet()) {
-            if (!this.f24336f.contains(this.f24334d.get(str))) {
-                this.f24336f.add(this.f24334d.get(str));
+        for (String str : this.f24335d.keySet()) {
+            if (!this.f24337f.contains(this.f24335d.get(str))) {
+                this.f24337f.add(this.f24335d.get(str));
             }
         }
-        for (String str2 : this.f24335e.keySet()) {
-            if (!this.f24336f.contains(this.f24335e.get(str2))) {
-                this.f24336f.add(this.f24335e.get(str2));
+        for (String str2 : this.f24336e.keySet()) {
+            if (!this.f24337f.contains(this.f24336e.get(str2))) {
+                this.f24337f.add(this.f24336e.get(str2));
             }
         }
     }

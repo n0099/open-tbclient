@@ -6,15 +6,15 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4710a = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcNo7OFl4AMWXHXHQ/Uyr5Qwmi1EJXbxtkWHQPiT3tBxAgCApZyZXI8Sc0L+g2e3csrK+Mi/uD0W7AFmxdqSunmbiCEP4N8o5+X8NyREPRofM8cfFtIY/kHemCWR65V69FLv++/tPp5DlJQaHERWIvWL5aJXNGhUNzqUQMjRzEPwIDAQAB";
+    public static String f4711a = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcNo7OFl4AMWXHXHQ/Uyr5Qwmi1EJXbxtkWHQPiT3tBxAgCApZyZXI8Sc0L+g2e3csrK+Mi/uD0W7AFmxdqSunmbiCEP4N8o5+X8NyREPRofM8cfFtIY/kHemCWR65V69FLv++/tPp5DlJQaHERWIvWL5aJXNGhUNzqUQMjRzEPwIDAQAB";
 
     public static String a(String str) {
         byte[] bytes = str.getBytes();
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decode(f4710a, 0));
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decode(f4711a, 0));
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         a.d(keyFactory.getProvider().toString());
         PublicKey generatePublic = keyFactory.generatePublic(x509EncodedKeySpec);

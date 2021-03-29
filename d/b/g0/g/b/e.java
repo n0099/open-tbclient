@@ -11,40 +11,9 @@ public class e {
     public static class a extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f47903a;
-
-        public a(c cVar) {
-            this.f47903a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject b2 = e.b(str, this.f47903a);
-                if (b2 == null) {
-                    return;
-                }
-                this.f47903a.onSuccess(g.a(b2));
-                return;
-            }
-            this.f47903a.onFail("response is null");
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            this.f47903a.onFail(exc.getMessage());
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends StringResponseCallback {
-
-        /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ c f47904a;
 
-        public b(c cVar) {
+        public a(c cVar) {
             this.f47904a = cVar;
         }
 
@@ -57,7 +26,7 @@ public class e {
                 if (b2 == null) {
                     return;
                 }
-                this.f47904a.onSuccess(f.a(b2));
+                this.f47904a.onSuccess(g.a(b2));
                 return;
             }
             this.f47904a.onFail("response is null");
@@ -66,6 +35,37 @@ public class e {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             this.f47904a.onFail(exc.getMessage());
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends StringResponseCallback {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ c f47905a;
+
+        public b(c cVar) {
+            this.f47905a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject b2 = e.b(str, this.f47905a);
+                if (b2 == null) {
+                    return;
+                }
+                this.f47905a.onSuccess(f.a(b2));
+                return;
+            }
+            this.f47905a.onFail("response is null");
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            this.f47905a.onFail(exc.getMessage());
         }
     }
 

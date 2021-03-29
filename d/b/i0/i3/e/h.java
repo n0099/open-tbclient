@@ -12,48 +12,48 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f56283a;
+    public TbPageContext<?> f56284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56284b;
+    public View f56285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f56285c;
+    public TextView f56286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f56286d;
+    public TbImageView f56287d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f56287e;
+    public TextView f56288e;
 
     public h(TbPageContext<?> tbPageContext) {
-        this.f56283a = tbPageContext;
+        this.f56284a = tbPageContext;
         b();
     }
 
     public View a() {
-        return this.f56284b;
+        return this.f56285b;
     }
 
     public final void b() {
-        View inflate = LayoutInflater.from(this.f56283a.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
-        this.f56284b = inflate;
-        this.f56285c = (TextView) inflate.findViewById(R.id.text_bg_name);
-        this.f56286d = (TbImageView) this.f56284b.findViewById(R.id.bg_permission_icon);
-        this.f56287e = (TextView) this.f56284b.findViewById(R.id.text_bg_description);
+        View inflate = LayoutInflater.from(this.f56284a.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
+        this.f56285b = inflate;
+        this.f56286c = (TextView) inflate.findViewById(R.id.text_bg_name);
+        this.f56287d = (TbImageView) this.f56285b.findViewById(R.id.bg_permission_icon);
+        this.f56288e = (TextView) this.f56285b.findViewById(R.id.text_bg_description);
         c();
     }
 
     public void c() {
-        d.b.h0.s0.a.a(this.f56283a, this.f56284b);
+        d.b.h0.s0.a.a(this.f56284a, this.f56285b);
     }
 
     public void d(DressItemData dressItemData) {
         if (dressItemData == null) {
             return;
         }
-        this.f56285c.setText(dressItemData.getTitle());
-        this.f56286d.W(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f56287e.setText(dressItemData.getDescription());
+        this.f56286c.setText(dressItemData.getTitle());
+        this.f56287d.W(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f56288e.setText(dressItemData.getDescription());
     }
 }

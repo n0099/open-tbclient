@@ -21,20 +21,20 @@ import d.b.i0.z0.e.a.e.d;
 import d.b.i0.z0.e.a.g.a;
 import tbclient.HotThreadList.DataRes;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicHeaderView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17155e;
+    public int f17156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f17156f;
+    public RelativeLayout f17157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HotTopicTabRankListLayout f17157g;
+    public HotTopicTabRankListLayout f17158g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f17158h;
+    public EMTextView f17159h;
     public EMTextView i;
     public EMTextView j;
     public a k;
@@ -44,7 +44,7 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public HotTopicHeaderView(Context context) {
         super(context);
-        this.f17155e = 3;
+        this.f17156e = 3;
         b();
     }
 
@@ -54,7 +54,7 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public final void b() {
         setOrientation(1);
-        this.f17156f = new RelativeLayout(getContext());
+        this.f17157f = new RelativeLayout(getContext());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
@@ -62,28 +62,28 @@ public class HotTopicHeaderView extends LinearLayout {
         int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
         int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         EMTextView eMTextView = new EMTextView(getContext());
-        this.f17158h = eMTextView;
+        this.f17159h = eMTextView;
         eMTextView.setId(R.id.title_id);
-        c a2 = c.a(this.f17158h);
+        c a2 = c.a(this.f17159h);
         a2.n(R.color.CAM_X0105);
         a2.r(R.dimen.T_X07);
         a2.s(R.string.F_X02);
-        this.f17158h.setText(a(R.string.hot_topic_tab_rank_list_title));
-        this.f17158h.setMaxLines(1);
-        this.f17158h.setEllipsize(TextUtils.TruncateAt.END);
-        this.f17158h.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
-        this.f17156f.addView(this.f17158h, new RelativeLayout.LayoutParams(-1, -2));
-        this.f17157g = new HotTopicTabRankListLayout(getContext());
+        this.f17159h.setText(a(R.string.hot_topic_tab_rank_list_title));
+        this.f17159h.setMaxLines(1);
+        this.f17159h.setEllipsize(TextUtils.TruncateAt.END);
+        this.f17159h.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
+        this.f17157f.addView(this.f17159h, new RelativeLayout.LayoutParams(-1, -2));
+        this.f17158g = new HotTopicTabRankListLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(3, R.id.title_id);
-        this.f17156f.addView(this.f17157g, layoutParams);
-        c a3 = c.a(this.f17156f);
+        this.f17157f.addView(this.f17158g, layoutParams);
+        c a3 = c.a(this.f17157f);
         a3.h(R.string.J_X06);
         a3.c(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.f17156f.setPadding(0, 0, 0, dimenPixelSize6);
-        addView(this.f17156f, layoutParams2);
+        this.f17157f.setPadding(0, 0, 0, dimenPixelSize6);
+        addView(this.f17157f, layoutParams2);
         p pVar = new p(getContext());
         this.l = pVar;
         pVar.setFrom("from_hottop");
@@ -130,17 +130,17 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     public void c(int i) {
-        if (this.f17155e == i) {
+        if (this.f17156e == i) {
             return;
         }
-        this.f17155e = i;
-        SkinManager.setViewTextColor(this.f17158h, R.color.CAM_X0105);
+        this.f17156e = i;
+        SkinManager.setViewTextColor(this.f17159h, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0109);
-        c a2 = c.a(this.f17156f);
+        c a2 = c.a(this.f17157f);
         a2.h(R.string.J_X06);
         a2.c(R.color.CAM_X0205);
-        HotTopicTabRankListLayout hotTopicTabRankListLayout = this.f17157g;
+        HotTopicTabRankListLayout hotTopicTabRankListLayout = this.f17158g;
         if (hotTopicTabRankListLayout != null) {
             hotTopicTabRankListLayout.d(i);
         }
@@ -158,13 +158,13 @@ public class HotTopicHeaderView extends LinearLayout {
         DataRes dataRes;
         DataRes dataRes2;
         if (hotThreadListResIdl != null && (dataRes2 = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes2.topic_list)) {
-            this.f17158h.setVisibility(0);
-            this.f17157g.setVisibility(0);
-            this.f17157g.setOnItemCoverListener(this.m);
-            this.f17157g.b(new d(hotThreadListResIdl.data.topic_list));
+            this.f17159h.setVisibility(0);
+            this.f17158g.setVisibility(0);
+            this.f17158g.setOnItemCoverListener(this.m);
+            this.f17158g.b(new d(hotThreadListResIdl.data.topic_list));
         } else {
-            this.f17158h.setVisibility(8);
-            this.f17157g.setVisibility(8);
+            this.f17159h.setVisibility(8);
+            this.f17158g.setVisibility(8);
         }
         p pVar = this.l;
         if (pVar != null) {
@@ -186,13 +186,13 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public HotTopicHeaderView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17155e = 3;
+        this.f17156e = 3;
         b();
     }
 
     public HotTopicHeaderView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17155e = 3;
+        this.f17156e = 3;
         b();
     }
 }

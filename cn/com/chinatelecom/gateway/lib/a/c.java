@@ -24,7 +24,7 @@ public class c {
     }
 
     private int a(int i, int i2, int i3) {
-        return ((i ^ (-1)) & i3) | (i2 & i);
+        return ((~i) & i3) | (i2 & i);
     }
 
     private int a(byte[] bArr, int i) {

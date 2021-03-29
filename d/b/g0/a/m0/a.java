@@ -2,7 +2,7 @@ package d.b.g0.a.m0;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static Map<String, String> a(String str, String str2, String str3) {
         HashMap hashMap = new HashMap();

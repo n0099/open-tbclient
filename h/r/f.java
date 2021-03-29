@@ -8,25 +8,25 @@ import java.util.concurrent.atomic.AtomicReference;
 public class f {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final f f67992f = new f();
+    public static final f f67997f = new f();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h.r.b f67993g = new a();
+    public static final h.r.b f67998g = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicReference<h.r.b> f67994a = new AtomicReference<>();
+    public final AtomicReference<h.r.b> f67999a = new AtomicReference<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicReference<d> f67995b = new AtomicReference<>();
+    public final AtomicReference<d> f68000b = new AtomicReference<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicReference<h> f67996c = new AtomicReference<>();
+    public final AtomicReference<h> f68001c = new AtomicReference<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<h.r.a> f67997d = new AtomicReference<>();
+    public final AtomicReference<h.r.a> f68002d = new AtomicReference<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<g> f67998e = new AtomicReference<>();
+    public final AtomicReference<g> f68003e = new AtomicReference<>();
 
     /* loaded from: classes7.dex */
     public static class a extends h.r.b {
@@ -40,7 +40,7 @@ public class f {
 
     @Deprecated
     public static f c() {
-        return f67992f;
+        return f67997f;
     }
 
     public static Object e(Class<?> cls, Properties properties) {
@@ -82,62 +82,62 @@ public class f {
     }
 
     public h.r.a a() {
-        if (this.f67997d.get() == null) {
+        if (this.f68002d.get() == null) {
             Object e2 = e(h.r.a.class, System.getProperties());
             if (e2 == null) {
-                this.f67997d.compareAndSet(null, new b(this));
+                this.f68002d.compareAndSet(null, new b(this));
             } else {
-                this.f67997d.compareAndSet(null, (h.r.a) e2);
+                this.f68002d.compareAndSet(null, (h.r.a) e2);
             }
         }
-        return this.f67997d.get();
+        return this.f68002d.get();
     }
 
     public h.r.b b() {
-        if (this.f67994a.get() == null) {
+        if (this.f67999a.get() == null) {
             Object e2 = e(h.r.b.class, System.getProperties());
             if (e2 == null) {
-                this.f67994a.compareAndSet(null, f67993g);
+                this.f67999a.compareAndSet(null, f67998g);
             } else {
-                this.f67994a.compareAndSet(null, (h.r.b) e2);
+                this.f67999a.compareAndSet(null, (h.r.b) e2);
             }
         }
-        return this.f67994a.get();
+        return this.f67999a.get();
     }
 
     public d d() {
-        if (this.f67995b.get() == null) {
+        if (this.f68000b.get() == null) {
             Object e2 = e(d.class, System.getProperties());
             if (e2 == null) {
-                this.f67995b.compareAndSet(null, e.f());
+                this.f68000b.compareAndSet(null, e.f());
             } else {
-                this.f67995b.compareAndSet(null, (d) e2);
+                this.f68000b.compareAndSet(null, (d) e2);
             }
         }
-        return this.f67995b.get();
+        return this.f68000b.get();
     }
 
     public g f() {
-        if (this.f67998e.get() == null) {
+        if (this.f68003e.get() == null) {
             Object e2 = e(g.class, System.getProperties());
             if (e2 == null) {
-                this.f67998e.compareAndSet(null, g.h());
+                this.f68003e.compareAndSet(null, g.h());
             } else {
-                this.f67998e.compareAndSet(null, (g) e2);
+                this.f68003e.compareAndSet(null, (g) e2);
             }
         }
-        return this.f67998e.get();
+        return this.f68003e.get();
     }
 
     public h g() {
-        if (this.f67996c.get() == null) {
+        if (this.f68001c.get() == null) {
             Object e2 = e(h.class, System.getProperties());
             if (e2 == null) {
-                this.f67996c.compareAndSet(null, i.e());
+                this.f68001c.compareAndSet(null, i.e());
             } else {
-                this.f67996c.compareAndSet(null, (h) e2);
+                this.f68001c.compareAndSet(null, (h) e2);
             }
         }
-        return this.f67996c.get();
+        return this.f68001c.get();
     }
 }

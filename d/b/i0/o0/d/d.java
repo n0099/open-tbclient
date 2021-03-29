@@ -74,9 +74,9 @@ public class d extends d.b.i0.x.b<d.b.i0.o0.c.b> {
         this.r = bVar;
         this.m.W(bVar.g(), 10, false);
         this.n.setText(v(bVar.o(), bVar.u()));
-        this.o.setText(String.format(this.f62180f.getString(R.string.concern), bVar.j()));
-        this.p.setText(String.format(this.f62180f.getString(R.string.search_bar_thread), bVar.t()));
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        this.o.setText(String.format(this.f62181f.getString(R.string.concern), bVar.j()));
+        this.p.setText(String.format(this.f62181f.getString(R.string.search_bar_thread), bVar.t()));
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SpannableStringBuilder v(String str, String str2) {

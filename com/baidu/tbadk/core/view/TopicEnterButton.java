@@ -19,16 +19,16 @@ import d.b.h0.r.u.c;
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f13550f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+    public static final int f13551f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f13551g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+    public static final int f13552g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f13552h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f13550f) - f13551g;
+    public static final int f13553h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f13551f) - f13552g;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f13553e;
+    public RecommendTopicData.RecommendTopicListData f13554e;
 
     public TopicEnterButton(Context context) {
         super(context);
@@ -45,23 +45,23 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
         a2.f(R.dimen.L_X02);
         a2.e(R.color.CAM_X0304);
         Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-        setCompoundDrawablePadding(f13550f);
+        setCompoundDrawablePadding(f13551f);
         if (maskDrawable != null) {
-            int i = f13551g;
+            int i = f13552g;
             maskDrawable.setBounds(0, 0, i, i);
         }
         setCompoundDrawables(maskDrawable, null, null, null);
     }
 
     public void f(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
-        this.f13553e = recommendTopicListData;
+        this.f13554e = recommendTopicListData;
         if (recommendTopicListData != null) {
             String topicName = recommendTopicListData.getTopicName();
             if (k.isEmpty(topicName)) {
                 setVisibility(8);
                 return;
             }
-            setText(TextUtils.ellipsize(topicName, getPaint(), f13552h, TextUtils.TruncateAt.END));
+            setText(TextUtils.ellipsize(topicName, getPaint(), f13553h, TextUtils.TruncateAt.END));
             setVisibility(0);
             a();
             return;
@@ -80,11 +80,11 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f13553e;
+        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f13554e;
         if (recommendTopicListData == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f13553e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f13554e.getTopicName(), "2").start();
     }
 
     public TopicEnterButton(Context context, @Nullable AttributeSet attributeSet) {

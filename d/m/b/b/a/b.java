@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final FileFilter f66292a = new a();
+    public static final FileFilter f66293a = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements FileFilter {
@@ -146,7 +146,7 @@ public class b {
 
     public static int e() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(f66292a).length;
+            return new File("/sys/devices/system/cpu/").listFiles(f66293a).length;
         } catch (Throwable unused) {
             return -1;
         }

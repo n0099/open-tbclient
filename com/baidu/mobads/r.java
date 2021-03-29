@@ -8,17 +8,17 @@ import java.lang.reflect.Method;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.mobads.utils.q f8506a = com.baidu.mobads.utils.q.a();
+    public static com.baidu.mobads.utils.q f8507a = com.baidu.mobads.utils.q.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f8507b = "com.baidu.mobads.r";
+    public static final String f8508b = "com.baidu.mobads.r";
 
     public static Class<?> a(String str, ClassLoader classLoader) {
         if (classLoader != null) {
             try {
                 return classLoader.loadClass(str);
             } catch (Exception e2) {
-                f8506a.d(f8507b, Log.getStackTraceString(e2));
+                f8507a.d(f8508b, Log.getStackTraceString(e2));
             }
         }
         return null;
@@ -33,7 +33,7 @@ public class r {
             }
             return null;
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -42,7 +42,7 @@ public class r {
         try {
             return cls.getDeclaredMethod(str, clsArr) != null;
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return false;
         }
     }
@@ -51,7 +51,7 @@ public class r {
         try {
             return a(obj.getClass(), obj, str, clsArr, objArr);
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -63,7 +63,7 @@ public class r {
             }
             return null;
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -76,7 +76,7 @@ public class r {
             }
             return null;
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -91,7 +91,7 @@ public class r {
             declaredMethod.setAccessible(true);
             return declaredMethod.invoke(obj, objArr);
         } catch (Exception e2) {
-            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            f8507a.i(f8508b, Log.getStackTraceString(e2));
             return null;
         }
     }

@@ -8,7 +8,7 @@ import d.b.g0.g.k0.d;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f48243a = d.b.g0.a.w0.a.N().w();
+    public static int f48244a = d.b.g0.a.w0.a.N().w();
 
     public static boolean a(View view, d.b.g0.a.e1.d.a.a aVar) {
         d X = f.V().X();
@@ -24,11 +24,11 @@ public class c {
     }
 
     public static boolean d() {
-        return f48243a == 2;
+        return f48244a == 2;
     }
 
     public static boolean e() {
-        return f48243a == 3;
+        return f48244a == 3;
     }
 
     public static boolean f() {

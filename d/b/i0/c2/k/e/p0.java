@@ -22,13 +22,13 @@ import java.util.Random;
 public class p0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f52750a = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    public static final int[] f52751a = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     /* renamed from: b  reason: collision with root package name */
-    public static TextView f52751b;
+    public static TextView f52752b;
 
     public static int a() {
-        return f52750a[new Random().nextInt(f52750a.length)];
+        return f52751a[new Random().nextInt(f52751a.length)];
     }
 
     public static SpannableString b(a2 a2Var) {
@@ -88,10 +88,10 @@ public class p0 {
         int k = d.b.b.e.p.l.k(context) - (d.b.b.e.p.l.g(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (f52751b == null) {
-                f52751b = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (f52752b == null) {
+                f52752b = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = f52751b;
+            TextView textView = f52752b;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

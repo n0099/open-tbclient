@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     public c officialBarMenuDatas;
 

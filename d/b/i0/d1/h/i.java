@@ -15,25 +15,25 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.kwai.video.player.KsMediaMeta;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static i f53800c = null;
+    public static i f53801c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f53801d = -1;
+    public static long f53802d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f53802e;
+    public static int f53803e;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f53803a = new b(null);
+    public b f53804a = new b(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public c f53804b = null;
+    public c f53805b = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -44,16 +44,16 @@ public class i {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    i.this.f53803a.sendMessageDelayed(i.this.f53803a.obtainMessage(1), StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+                    i.this.f53804a.sendMessageDelayed(i.this.f53804a.obtainMessage(1), StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
                     return;
                 }
-                i.this.f53803a.removeMessages(1);
+                i.this.f53804a.removeMessages(1);
                 i.this.j();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Handler {
         public b() {
         }
@@ -64,7 +64,7 @@ public class i {
             if (message.what != 1) {
                 return;
             }
-            i.i().f53803a.removeMessages(1);
+            i.i().f53804a.removeMessages(1);
             i.i().h();
         }
 
@@ -73,7 +73,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends BdAsyncTask<String, Object, Boolean> {
         public c(i iVar) {
         }
@@ -87,23 +87,23 @@ public class i {
         public Boolean doInBackground(String... strArr) {
             LinkedList<ImMessageCenterPojo> h2 = j.f().h();
             if (h2 != null && h2.size() != 0) {
-                if (i.f53801d < 0) {
+                if (i.f53802d < 0) {
                     try {
                         StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                        long unused = i.f53801d = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                        if (i.f53801d > KsMediaMeta.AV_CH_WIDE_LEFT) {
-                            int unused2 = i.f53802e = 5000;
-                        } else if (i.f53801d > KsMediaMeta.AV_CH_STEREO_RIGHT) {
-                            int unused3 = i.f53802e = 3000;
+                        long unused = i.f53802d = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                        if (i.f53802d > KsMediaMeta.AV_CH_WIDE_LEFT) {
+                            int unused2 = i.f53803e = 5000;
+                        } else if (i.f53802d > KsMediaMeta.AV_CH_STEREO_RIGHT) {
+                            int unused3 = i.f53803e = 3000;
                         } else {
-                            int unused4 = i.f53802e = 1000;
+                            int unused4 = i.f53803e = 1000;
                         }
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
                 }
-                if (i.f53802e < 1000) {
-                    int unused5 = i.f53802e = 1000;
+                if (i.f53803e < 1000) {
+                    int unused5 = i.f53803e = 1000;
                 }
                 try {
                     try {
@@ -113,13 +113,13 @@ public class i {
                                 h.e().c();
                                 return Boolean.FALSE;
                             } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                d.b.i0.d1.h.c.h().n(imMessageCenterPojo.getGid(), i.f53802e);
+                                d.b.i0.d1.h.c.h().n(imMessageCenterPojo.getGid(), i.f53803e);
                             } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                                m.t().q(imMessageCenterPojo.getGid(), i.f53802e);
+                                m.t().q(imMessageCenterPojo.getGid(), i.f53803e);
                             } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                                l.t().q(imMessageCenterPojo.getGid(), i.f53802e);
+                                l.t().q(imMessageCenterPojo.getGid(), i.f53803e);
                             } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                                d.f().l(imMessageCenterPojo.getGid(), i.f53802e);
+                                d.f().l(imMessageCenterPojo.getGid(), i.f53803e);
                             }
                         }
                     } catch (Exception e3) {
@@ -140,34 +140,34 @@ public class i {
     }
 
     public static i i() {
-        if (f53800c == null) {
+        if (f53801c == null) {
             synchronized (i.class) {
-                if (f53800c == null) {
-                    f53800c = new i();
+                if (f53801c == null) {
+                    f53801c = new i();
                 }
             }
         }
-        return f53800c;
+        return f53801c;
     }
 
     public final void h() {
-        c cVar = this.f53804b;
+        c cVar = this.f53805b;
         if (cVar != null) {
             cVar.cancel();
-            this.f53804b = null;
+            this.f53805b = null;
         }
         c cVar2 = new c(this, null);
-        this.f53804b = cVar2;
+        this.f53805b = cVar2;
         cVar2.setParallel(TiebaIMConfig.getParallel());
-        this.f53804b.setPriority(4);
-        this.f53804b.execute(new String[0]);
+        this.f53805b.setPriority(4);
+        this.f53805b.execute(new String[0]);
     }
 
     public final void j() {
-        c cVar = this.f53804b;
+        c cVar = this.f53805b;
         if (cVar != null) {
             cVar.cancel();
-            this.f53804b = null;
+            this.f53805b = null;
         }
     }
 }

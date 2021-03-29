@@ -3,20 +3,20 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LoadHistoryResponsedMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18043a;
+        public String f18044a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f18044b;
+        public List<ChatMessage> f18045b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f18045c;
+        public boolean f18046c;
     }
 
     public LoadHistoryResponsedMessage(int i) {

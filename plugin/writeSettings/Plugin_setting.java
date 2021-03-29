@@ -2,7 +2,7 @@ package plugin.writeSettings;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Plugin_setting extends Message {
     public static final String DEFAULT_ABANDON_APK_PATH = "";
     public static final String DEFAULT_APK_PATH = "";

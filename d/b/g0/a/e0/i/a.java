@@ -8,40 +8,40 @@ import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import d.b.g0.a.k;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43905a = k.f45050a;
+    public static final boolean f43906a = k.f45051a;
 
     /* renamed from: d.b.g0.a.e0.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0648a {
+    /* loaded from: classes2.dex */
+    public static class C0649a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43906a;
+        public int f43907a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43907b;
+        public int f43908b;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f43908a = k.f45050a;
+        public static final boolean f43909a = k.f45051a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f43909b = -1;
+        public static int f43910b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f43910c = -1;
+        public static int f43911c = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f43911d = -1;
+        public static int f43912d = -1;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f43912e = -1;
+        public static int f43913e = -1;
 
         public static boolean a(int i) {
             if (i != 0) {
@@ -53,30 +53,30 @@ public final class a {
             return f();
         }
 
-        public static C0648a b() {
-            C0648a c0648a = new C0648a();
-            c0648a.f43906a = c();
-            c0648a.f43907b = d();
-            if (f43908a) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0648a.f43906a + " ,sizeLimit: " + c0648a.f43907b);
+        public static C0649a b() {
+            C0649a c0649a = new C0649a();
+            c0649a.f43907a = c();
+            c0649a.f43908b = d();
+            if (f43909a) {
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0649a.f43907a + " ,sizeLimit: " + c0649a.f43908b);
             }
-            return c0648a;
+            return c0649a;
         }
 
         public static int c() {
-            if (f43911d < 0) {
+            if (f43912d < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_code_cache_max_count", 5);
-                f43911d = 5;
+                f43912d = 5;
             }
-            return f43911d;
+            return f43912d;
         }
 
         public static int d() {
-            if (f43912e < 0) {
+            if (f43913e < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_code_cache_size_limit", 100);
-                f43912e = 100;
+                f43913e = 100;
             }
-            return f43912e * 1024;
+            return f43913e * 1024;
         }
 
         public static String e() {
@@ -86,43 +86,43 @@ public final class a {
         public static boolean f() {
             boolean S = d.b.g0.a.m1.a.a.S();
             if (S) {
-                f43909b = 1;
+                f43910b = 1;
             }
-            if (f43909b < 0) {
+            if (f43910b < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_app_v8_code_cache", 1);
-                f43909b = 1;
+                f43910b = 1;
             }
-            if (f43908a) {
+            if (f43909a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("getSwanAppCodeCacheAbSwitch() switcher: ");
-                sb.append(f43909b);
+                sb.append(f43910b);
                 sb.append(S ? " forceAb" : "");
                 Log.d("CodeCacheSwitcher", sb.toString());
             }
-            return f43909b == 1;
+            return f43910b == 1;
         }
 
         public static boolean g() {
             boolean S = d.b.g0.a.m1.a.a.S();
             if (S) {
-                f43910c = 1;
+                f43911c = 1;
             }
-            if (f43910c < 0) {
+            if (f43911c < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_game_v8_code_cache", 2);
-                f43910c = 2;
+                f43911c = 2;
             }
-            if (f43908a) {
+            if (f43909a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("getSwanGameCodeCacheAbSwitch() switcher: ");
-                sb.append(f43910c);
+                sb.append(f43911c);
                 sb.append(S ? " forceAb" : "");
                 Log.d("CodeCacheSwitcher", sb.toString());
             }
-            return f43910c == 1;
+            return f43911c == 1;
         }
 
         public static boolean h(int i) {
-            if (f43908a) {
+            if (f43909a) {
                 String e2 = e();
                 char c2 = 65535;
                 int hashCode = e2.hashCode();
@@ -162,11 +162,11 @@ public final class a {
             codeCacheSetting.maxCount = 5;
             codeCacheSetting.sizeLimit = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
         } else {
-            C0648a b2 = b.b();
-            codeCacheSetting.maxCount = b2.f43906a;
-            codeCacheSetting.sizeLimit = b2.f43907b;
+            C0649a b2 = b.b();
+            codeCacheSetting.maxCount = b2.f43907a;
+            codeCacheSetting.sizeLimit = b2.f43908b;
         }
-        if (f43905a) {
+        if (f43906a) {
             Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

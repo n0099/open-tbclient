@@ -17,31 +17,31 @@ import d.b.b.e.p.j;
 public class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity f56966e;
+    public final BaseActivity f56967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f56967f;
+    public b f56968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountSafeModel f56968g;
+    public AccountSafeModel f56969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f56969h;
+    public d.b.b.c.g.a f56970h;
 
     /* renamed from: d.b.i0.n.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1350a extends d.b.b.c.g.a {
-        public C1350a(int i, int i2) {
+    public class C1351a extends d.b.b.c.g.a {
+        public C1351a(int i, int i2) {
             super(i, i2);
         }
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.f56968g != null) {
-                a.this.f56968g.A(false);
+            if (a.this.f56969g != null) {
+                a.this.f56969g.A(false);
             }
-            a.this.f56966e.closeLoadingDialog();
+            a.this.f56967e.closeLoadingDialog();
             if (responsedMessage == null) {
                 return;
             }
@@ -50,67 +50,67 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.f56968g != null) {
-                    a.this.f56968g.z(privacyData);
+                if (a.this.f56969g != null) {
+                    a.this.f56969g.z(privacyData);
                 }
-                if (a.this.f56967f == null || a.this.f56968g == null || a.this.f56968g.t() == null) {
+                if (a.this.f56968f == null || a.this.f56969g == null || a.this.f56969g.t() == null) {
                     return;
                 }
-                a.this.f56967f.d(a.this.f56968g.t().f());
+                a.this.f56968f.d(a.this.f56969g.t().f());
                 return;
             }
             if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                errorString = a.this.f56966e.getString(R.string.neterror);
+                errorString = a.this.f56967e.getString(R.string.neterror);
             } else {
                 errorString = responsedMessage.getErrorString();
             }
-            a.this.f56966e.showToast(errorString);
+            a.this.f56967e.showToast(errorString);
         }
     }
 
     public a(BaseActivity baseActivity) {
-        C1350a c1350a = new C1350a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.f56969h = c1350a;
-        this.f56966e = baseActivity;
-        baseActivity.registerListener(c1350a);
-        this.f56967f = new b(this.f56966e, this);
-        this.f56968g = new AccountSafeModel(this.f56966e);
+        C1351a c1351a = new C1351a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.f56970h = c1351a;
+        this.f56967e = baseActivity;
+        baseActivity.registerListener(c1351a);
+        this.f56968f = new b(this.f56967e, this);
+        this.f56969g = new AccountSafeModel(this.f56967e);
         if (j.z()) {
             h();
         } else {
-            this.f56966e.showToast(R.string.neterror);
+            this.f56967e.showToast(R.string.neterror);
         }
     }
 
     public View d() {
-        return this.f56967f.a();
+        return this.f56968f.a();
     }
 
     public void e(int i) {
-        b bVar = this.f56967f;
+        b bVar = this.f56968f;
         if (bVar != null) {
             bVar.e(i);
         }
     }
 
     public void f() {
-        this.f56966e.closeLoadingDialog();
-        AccountSafeModel accountSafeModel = this.f56968g;
+        this.f56967e.closeLoadingDialog();
+        AccountSafeModel accountSafeModel = this.f56969g;
         if (accountSafeModel != null) {
             accountSafeModel.cancelLoadData();
         }
-        b bVar = this.f56967f;
+        b bVar = this.f56968f;
         if (bVar != null) {
             bVar.c();
         }
     }
 
     public final void h() {
-        AccountSafeModel accountSafeModel = this.f56968g;
+        AccountSafeModel accountSafeModel = this.f56969g;
         if (accountSafeModel == null || accountSafeModel.w()) {
             return;
         }
-        this.f56968g.y();
+        this.f56969g.y();
     }
 
     @Override // android.view.View.OnClickListener
@@ -118,13 +118,13 @@ public class a implements View.OnClickListener {
         if (view.getId() == R.id.bar_record) {
             TiebaStatic.log("c10013");
             if (!j.z()) {
-                this.f56966e.showToast(R.string.neterror);
+                this.f56967e.showToast(R.string.neterror);
             } else {
-                UrlManager.getInstance().dealOneLink(this.f56966e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                UrlManager.getInstance().dealOneLink(this.f56967e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AccountSafeModel accountSafeModel = this.f56968g;
-            AntiHelper.p(this.f56966e, accountSafeModel != null ? accountSafeModel.u() : "");
+            AccountSafeModel accountSafeModel = this.f56969g;
+            AntiHelper.p(this.f56967e, accountSafeModel != null ? accountSafeModel.u() : "");
         }
     }
 }

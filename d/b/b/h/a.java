@@ -7,12 +7,12 @@ import dalvik.system.DexClassLoader;
 public class a extends DexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public ClassLoader f42188a;
+    public ClassLoader f42189a;
 
     public a(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
         super(str, str2, str3, classLoader);
-        this.f42188a = null;
-        this.f42188a = classLoader2;
+        this.f42189a = null;
+        this.f42189a = classLoader2;
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
@@ -20,7 +20,7 @@ public class a extends DexClassLoader {
         try {
             return super.findClass(str);
         } catch (Exception unused) {
-            ClassLoader classLoader = this.f42188a;
+            ClassLoader classLoader = this.f42189a;
             if (classLoader != null) {
                 Class<?> loadClass = classLoader.loadClass(str);
                 if (BdBaseApplication.getInst().isDebugMode()) {

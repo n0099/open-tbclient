@@ -6,17 +6,17 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f56786a;
+    public final List<String> f56787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f56787b;
+    public final String f56788b;
 
     public d(List<String> list, String str) {
         if (list != null) {
-            this.f56786a = new ArrayList(list);
+            this.f56787a = new ArrayList(list);
         } else {
-            this.f56786a = new ArrayList();
+            this.f56787a = new ArrayList();
         }
-        this.f56787b = str;
+        this.f56788b = str;
     }
 }

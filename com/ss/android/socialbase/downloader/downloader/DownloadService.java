@@ -11,46 +11,46 @@ import java.util.concurrent.ExecutorService;
 public class DownloadService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38837b = DownloadService.class.getSimpleName();
+    public static final String f38838b = DownloadService.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public o f38838a;
+    public o f38839a;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f38839e;
+        public final /* synthetic */ Intent f38840e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f38840f;
+        public final /* synthetic */ int f38841f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38841g;
+        public final /* synthetic */ int f38842g;
 
         public a(Intent intent, int i, int i2) {
-            this.f38839e = intent;
-            this.f38840f = i;
-            this.f38841g = i2;
+            this.f38840e = intent;
+            this.f38841f = i;
+            this.f38842g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            o oVar = DownloadService.this.f38838a;
+            o oVar = DownloadService.this.f38839a;
             if (oVar != null) {
-                oVar.a(this.f38839e, this.f38840f, this.f38841g);
+                oVar.a(this.f38840e, this.f38841f, this.f38842g);
             }
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        String str = f38837b;
+        String str = f38838b;
         StringBuilder sb = new StringBuilder();
         sb.append("onBind downloadServiceHandler != null:");
-        sb.append(this.f38838a != null);
+        sb.append(this.f38839a != null);
         d.o.a.e.b.c.a.g(str, sb.toString());
-        o oVar = this.f38838a;
+        o oVar = this.f38839a;
         if (oVar != null) {
             return oVar.a(intent);
         }
@@ -62,19 +62,19 @@ public class DownloadService extends Service {
         super.onCreate();
         d.y(this);
         o J0 = d.J0();
-        this.f38838a = J0;
+        this.f38839a = J0;
         J0.c(new WeakReference(this));
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f38837b, "Service onDestroy");
+            d.o.a.e.b.c.a.g(f38838b, "Service onDestroy");
         }
-        o oVar = this.f38838a;
+        o oVar = this.f38839a;
         if (oVar != null) {
             oVar.d();
-            this.f38838a = null;
+            this.f38839a = null;
         }
         super.onDestroy();
     }
@@ -82,9 +82,9 @@ public class DownloadService extends Service {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f38837b, "DownloadService onStartCommand");
+            d.o.a.e.b.c.a.g(f38838b, "DownloadService onStartCommand");
         }
-        this.f38838a.c();
+        this.f38839a.c();
         ExecutorService w0 = d.w0();
         if (w0 != null) {
             w0.execute(new a(intent, i, i2));

@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ValidateModel {
     public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo == null) {

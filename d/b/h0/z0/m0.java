@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51726a = false;
+    public static boolean f51727a = false;
 
     public static boolean a(int i) {
         if (i == 2) {
@@ -37,7 +37,7 @@ public class m0 {
     }
 
     public static boolean c() {
-        return f51726a;
+        return f51727a;
     }
 
     public static boolean d() {
@@ -66,6 +66,6 @@ public class m0 {
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        f51726a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+        f51727a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

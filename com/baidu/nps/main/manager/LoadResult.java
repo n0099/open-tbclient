@@ -1,5 +1,5 @@
 package com.baidu.nps.main.manager;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LoadResult {
     public String errMsg;
     public Class retClass;

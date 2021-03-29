@@ -10,7 +10,7 @@ public final class AtomicThrowable extends AtomicReference<Throwable> {
     }
 
     public boolean isTerminated() {
-        return get() == ExceptionHelper.f68092a;
+        return get() == ExceptionHelper.f68097a;
     }
 
     public Throwable terminate() {

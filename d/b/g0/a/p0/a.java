@@ -8,48 +8,48 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import d.b.g0.a.t.b.d;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.p0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f45458a;
+        public String f45459a;
 
         @Override // d.b.g0.a.p0.b
         public void a(@Nullable JSONObject jSONObject) {
-            a.this.c(this.f45458a, jSONObject == null ? new d.b.g0.a.t.e.b(0) : new d.b.g0.a.t.e.b(0, jSONObject));
+            a.this.c(this.f45459a, jSONObject == null ? new d.b.g0.a.t.e.b(0) : new d.b.g0.a.t.e.b(0, jSONObject));
         }
 
         @Override // d.b.g0.a.p0.b
         public void onFail(int i, @Nullable String str) {
-            if (d.f45928c && i == 0) {
+            if (d.f45929c && i == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.c(this.f45458a, str == null ? new d.b.g0.a.t.e.b(i) : new d.b.g0.a.t.e.b(i, str));
+            a.this.c(this.f45459a, str == null ? new d.b.g0.a.t.e.b(i) : new d.b.g0.a.t.e.b(i, str));
         }
 
         public b(String str) {
-            this.f45458a = str;
+            this.f45459a = str;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.p0.b {
         public c(a aVar) {
         }
 
         @Override // d.b.g0.a.p0.b
         public void a(@Nullable JSONObject jSONObject) {
-            if (d.f45928c) {
+            if (d.f45929c) {
                 Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onSuccess could not be invoked.");
             }
         }
 
         @Override // d.b.g0.a.p0.b
         public void onFail(int i, @Nullable String str) {
-            if (d.f45928c) {
+            if (d.f45929c) {
                 Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onFail could not be invoked.");
             }
         }
@@ -60,7 +60,7 @@ public class a extends d {
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.f45928c) {
+        if (d.f45929c) {
             Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GameCenterApi", str);
@@ -79,7 +79,7 @@ public class a extends d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.f45928c) {
+        if (d.f45929c) {
             Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GameCenterApi", str);

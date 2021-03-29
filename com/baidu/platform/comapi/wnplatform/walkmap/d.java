@@ -15,21 +15,21 @@ import java.lang.ref.SoftReference;
 public class d extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public e f10390b;
+    public e f10391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f10391c = null;
+    public a f10392c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public SoftReference<View> f10389a = null;
+    public SoftReference<View> f10390a = null;
 
     public d() {
-        this.f10390b = null;
-        this.f10390b = new e();
+        this.f10391b = null;
+        this.f10391b = new e();
     }
 
     public MapView a() {
-        SoftReference<View> softReference = this.f10389a;
+        SoftReference<View> softReference = this.f10390a;
         if (softReference == null) {
             return null;
         }
@@ -37,7 +37,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void b() {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.b();
         }
@@ -47,7 +47,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean c() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.b();
         }
@@ -55,7 +55,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean d() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.c();
         }
@@ -63,7 +63,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean e() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.d();
         }
@@ -71,7 +71,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean f() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.e();
         }
@@ -79,7 +79,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean g() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.f();
         }
@@ -87,7 +87,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public float h() {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.g();
         }
@@ -95,7 +95,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public MapStatus i() {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             return aVar.c();
         }
@@ -116,7 +116,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public float k() {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             return aVar.d();
         }
@@ -124,7 +124,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void l() {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.e();
         }
@@ -139,31 +139,31 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         a(0);
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             eVar.a();
-            this.f10390b = null;
+            this.f10391b = null;
         }
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.a();
-            this.f10391c = null;
+            this.f10392c = null;
         }
     }
 
     public void a(Context context, MapView mapView) {
-        this.f10389a = new SoftReference<>(mapView);
-        a aVar = this.f10391c;
+        this.f10390a = new SoftReference<>(mapView);
+        a aVar = this.f10392c;
         if (aVar == null) {
-            this.f10391c = new a(mapView);
+            this.f10392c = new a(mapView);
         } else {
             aVar.a(mapView);
         }
-        this.f10391c.a(false);
+        this.f10392c.a(false);
     }
 
     public boolean b(int[] iArr, int[] iArr2) {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.b(iArr, iArr2);
         }
@@ -171,7 +171,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean a(boolean z) {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.a(z);
         }
@@ -179,32 +179,32 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(int i) {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar == null) {
             return;
         }
         if (i == 0) {
             eVar.b(0);
-            this.f10390b.b(1);
-            this.f10390b.b(2);
-            this.f10390b.b(3);
-            this.f10390b.b(4);
+            this.f10391b.b(1);
+            this.f10391b.b(2);
+            this.f10391b.b(3);
+            this.f10391b.b(4);
         } else if (i != 1) {
         } else {
             eVar.a(0);
-            this.f10390b.a(1);
-            this.f10390b.a(2);
+            this.f10391b.a(1);
+            this.f10391b.a(2);
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-                this.f10390b.b(3);
+                this.f10391b.b(3);
             } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-                this.f10390b.a(3);
+                this.f10391b.a(3);
             }
-            this.f10390b.a(4);
+            this.f10391b.a(4);
         }
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        e eVar = this.f10390b;
+        e eVar = this.f10391b;
         if (eVar != null) {
             return eVar.a(iArr, iArr2);
         }
@@ -212,21 +212,21 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(MapStatus mapStatus) {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.a(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus));
         }
     }
 
     public void a(MapStatus mapStatus, int i) {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.a(mapStatus, i);
         }
     }
 
     public void a(int i, int i2) {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.a(i, i2);
         }
@@ -238,7 +238,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         bundle.putInt(TipsConfigItem.TipConfigData.BOTTOM, mapBound.ptLB.getmPty());
         bundle.putInt("right", mapBound.ptRT.getmPtx());
         bundle.putInt("top", mapBound.ptRT.getmPty());
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             return aVar.a(bundle, i, i2);
         }
@@ -246,7 +246,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(f fVar) {
-        a aVar = this.f10391c;
+        a aVar = this.f10392c;
         if (aVar != null) {
             aVar.a(fVar);
         }

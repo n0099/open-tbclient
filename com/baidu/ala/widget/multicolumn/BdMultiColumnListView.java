@@ -21,7 +21,7 @@ import d.b.b.j.e.o;
 import d.b.b.j.e.q;
 import d.b.b.j.f.a;
 import java.security.InvalidParameterException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdMultiColumnListView extends MultiColumnListView {
     public static final int REFRESH_DELAY = 100;
     public BdSimplePreLoadListAdapter mBdListAdpter;
@@ -52,42 +52,42 @@ public class BdMultiColumnListView extends MultiColumnListView {
     public Runnable preLoadRunnable;
     public Runnable refreshRunnable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnFooterClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnHeaderClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnItemWillVisibleListener {
         void onItemWillVisible(int i, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnScrollStopDelayedListener {
         void onScrollStop(int i, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnScrollToBottomListener {
         void onScrollToBottom();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnScrollToPullListener {
         void onScrollToPull(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnScrollToTopListener {
         void onScrollToTop();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class PullRefresh {
         public static final int DEFAULT_REFRESH_DURATION_TIME = 800;
         public static final int DONE = 3;

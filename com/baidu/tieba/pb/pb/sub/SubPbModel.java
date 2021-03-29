@@ -59,16 +59,16 @@ public class SubPbModel extends DataModel {
     public d.b.b.c.g.a T;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19942e;
+    public int f19943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19943f;
+    public String f19944f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19944g;
+    public String f19945g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19945h;
+    public String f19946h;
     public boolean i;
     public String j;
     public String k;
@@ -216,14 +216,14 @@ public class SubPbModel extends DataModel {
                         }
                     }
                     if (qVar2.i() != null) {
-                        SubPbModel.this.f19944g = qVar2.i().D();
+                        SubPbModel.this.f19945g = qVar2.i().D();
                     }
                     if (qVar2.l() != null) {
-                        SubPbModel.this.f19943f = qVar2.l().o0();
+                        SubPbModel.this.f19944f = qVar2.l().o0();
                         SubPbModel.this.q = qVar2.f();
                         SubPbModel.this.s = qVar2.l().J0();
                     }
-                    if (SubPbModel.this.s != null && SubPbModel.this.f19944g != null && SubPbModel.this.s.equals(SubPbModel.this.f19944g)) {
+                    if (SubPbModel.this.s != null && SubPbModel.this.f19945g != null && SubPbModel.this.s.equals(SubPbModel.this.f19945g)) {
                         SubPbModel.this.q = true;
                     }
                     if (SubPbModel.this.F) {
@@ -246,10 +246,10 @@ public class SubPbModel extends DataModel {
 
     public SubPbModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f19942e = 0;
-        this.f19943f = null;
-        this.f19944g = null;
-        this.f19945h = null;
+        this.f19943e = 0;
+        this.f19944f = null;
+        this.f19945g = null;
+        this.f19946h = null;
         this.i = false;
         this.j = null;
         this.k = null;
@@ -317,18 +317,18 @@ public class SubPbModel extends DataModel {
         float f3 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int k = l.k(TbadkCoreApplication.getInst().getApp());
         int i3 = l.i(TbadkCoreApplication.getInst().getApp());
-        if (1 != this.f19942e) {
-            j2 = d.b.b.e.m.b.f(this.f19944g, 0L);
+        if (1 != this.f19943e) {
+            j2 = d.b.b.e.m.b.f(this.f19945g, 0L);
             j = 0;
         } else if (!k.isEmpty(this.M)) {
-            long f4 = d.b.b.e.m.b.f(this.f19944g, 0L);
+            long f4 = d.b.b.e.m.b.f(this.f19945g, 0L);
             j = d.b.b.e.m.b.f(this.k, 0L);
             j2 = f4;
         } else {
             if (!TextUtils.isEmpty(this.k)) {
                 f2 = d.b.b.e.m.b.f(this.k, 0L);
             } else {
-                f2 = d.b.b.e.m.b.f(this.f19944g, 0L);
+                f2 = d.b.b.e.m.b.f(this.f19945g, 0L);
             }
             j = f2;
             j2 = 0;
@@ -338,14 +338,14 @@ public class SubPbModel extends DataModel {
         } else {
             intValue = num.intValue();
         }
-        if (this.F && this.f19942e == 0) {
+        if (this.F && this.f19943e == 0) {
             i = 1;
             i2 = 1;
         } else {
             i = intValue;
             i2 = 0;
         }
-        SubPbRequestMessage subPbRequestMessage = new SubPbRequestMessage(this.t.getPageActivity(), Long.parseLong(this.f19943f), j2, j, i, k, i3, f3, this.f19945h, i2);
+        SubPbRequestMessage subPbRequestMessage = new SubPbRequestMessage(this.t.getPageActivity(), Long.parseLong(this.f19944f), j2, j, i, k, i3, f3, this.f19946h, i2);
         subPbRequestMessage.setOriUgcNid(this.M);
         subPbRequestMessage.setOriUgcTid(this.N);
         subPbRequestMessage.setOriUgcType(this.O);
@@ -418,11 +418,11 @@ public class SubPbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19943f);
+        markData.setThreadId(this.f19944f);
         markData.setPostId(postData.D());
         markData.setTime(date.getTime());
         markData.setHostMode(false);
-        markData.setId(this.f19943f);
+        markData.setId(this.f19944f);
         markData.setFloor(postData.z());
         return markData;
     }
@@ -448,12 +448,12 @@ public class SubPbModel extends DataModel {
     }
 
     public String b0() {
-        return this.f19943f;
+        return this.f19944f;
     }
 
     public String c0() {
-        if (!StringUtils.isNull(this.f19943f) && !"0".equals(this.f19943f)) {
-            return this.f19943f;
+        if (!StringUtils.isNull(this.f19944f) && !"0".equals(this.f19944f)) {
+            return this.f19944f;
         }
         return this.M;
     }
@@ -496,7 +496,7 @@ public class SubPbModel extends DataModel {
     }
 
     public String getStType() {
-        return this.f19945h;
+        return this.f19946h;
     }
 
     public boolean h0() {
@@ -512,9 +512,9 @@ public class SubPbModel extends DataModel {
             return;
         }
         this.pageFromType = bundle.getInt(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-        this.f19943f = bundle.getString("thread_id");
-        this.f19944g = bundle.getString("post_id");
-        this.f19945h = bundle.getString("st_type");
+        this.f19944f = bundle.getString("thread_id");
+        this.f19945g = bundle.getString("post_id");
+        this.f19946h = bundle.getString("st_type");
         this.n = bundle.getString("from_forum_id");
         this.o = bundle.getString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
         this.i = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
@@ -566,9 +566,9 @@ public class SubPbModel extends DataModel {
             return;
         }
         this.pageFromType = intent.getIntExtra(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-        this.f19943f = intent.getStringExtra("thread_id");
-        this.f19944g = intent.getStringExtra("post_id");
-        this.f19945h = intent.getStringExtra("st_type");
+        this.f19944f = intent.getStringExtra("thread_id");
+        this.f19945g = intent.getStringExtra("post_id");
+        this.f19946h = intent.getStringExtra("st_type");
         this.n = intent.getStringExtra("from_forum_id");
         this.o = intent.getStringExtra(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
         this.i = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
@@ -655,7 +655,7 @@ public class SubPbModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public String s() {
-        return this.f19944g;
+        return this.f19945g;
     }
 
     public boolean s0(int i) {
@@ -663,9 +663,9 @@ public class SubPbModel extends DataModel {
             return false;
         }
         cancelMessage();
-        if (this.f19943f != null && this.f19944g != null) {
+        if (this.f19944f != null && this.f19945g != null) {
             P();
-            this.f19942e = i;
+            this.f19943e = i;
             SubPbRequestMessage N = N();
             this.S = N;
             sendMessage(N);
@@ -708,7 +708,7 @@ public class SubPbModel extends DataModel {
     }
 
     public final void u0(q qVar) {
-        int i = this.f19942e;
+        int i = this.f19943e;
         if (i == 1) {
             this.u = qVar;
             qVar.H();
@@ -726,7 +726,7 @@ public class SubPbModel extends DataModel {
         if (k == null || k.size() == 0) {
             qVar.z(this.u.b());
         }
-        int i = this.f19942e;
+        int i = this.f19943e;
         if (i == 1) {
             this.u = qVar;
         } else if (i == 2) {
@@ -742,12 +742,12 @@ public class SubPbModel extends DataModel {
         int i;
         int j;
         int b2 = this.u.b();
-        if (b2 == 0 || (i = this.f19942e) == 0 || (i == 2 && this.u.k().size() != 0 && this.u.k().size() % this.u.g() == 0)) {
+        if (b2 == 0 || (i = this.f19943e) == 0 || (i == 2 && this.u.k().size() != 0 && this.u.k().size() % this.u.g() == 0)) {
             return b2 + 1;
         }
-        if (this.f19942e == 3 && this.F) {
+        if (this.f19943e == 3 && this.F) {
             j = this.u.h();
-        } else if (this.f19942e != 3 || b2 <= 0) {
+        } else if (this.f19943e != 3 || b2 <= 0) {
             return b2;
         } else {
             j = this.u.j();
@@ -759,9 +759,9 @@ public class SubPbModel extends DataModel {
         if (bundle == null) {
             return;
         }
-        bundle.putString("thread_id", this.f19943f);
-        bundle.putString("post_id", this.f19944g);
-        bundle.putString("st_type", this.f19945h);
+        bundle.putString("thread_id", this.f19944f);
+        bundle.putString("post_id", this.f19945g);
+        bundle.putString("st_type", this.f19946h);
         bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.i);
         bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.j);
         bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.k);

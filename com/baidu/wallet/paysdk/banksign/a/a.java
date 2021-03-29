@@ -12,28 +12,28 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f25448a = Pattern.compile("(.*)(selected_card_no=[^&]+)(.*)");
+    public static Pattern f25449a = Pattern.compile("(.*)(selected_card_no=[^&]+)(.*)");
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25449b;
+    public String f25450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25450c;
+    public String f25451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25451d;
+    public String f25452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25452e;
+    public String f25453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25453f;
+    public String f25454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f25454g;
+    public byte[] f25455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25455h;
+    public boolean f25456h;
     public String i;
     public j j;
     public PayTypeActivity k;
@@ -41,14 +41,14 @@ public class a {
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0264a {
+    public static class C0265a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25456a = new a();
+        public static a f25457a = new a();
     }
 
     public static a a() {
-        return C0264a.f25456a;
+        return C0265a.f25457a;
     }
 
     public String b() {
@@ -68,42 +68,42 @@ public class a {
     }
 
     public boolean f() {
-        return this.f25455h;
+        return this.f25456h;
     }
 
     public String g() {
-        return this.f25451d;
+        return this.f25452d;
     }
 
     public String h() {
-        return this.f25450c;
+        return this.f25451c;
     }
 
     public String i() {
-        return this.f25452e;
+        return this.f25453e;
     }
 
     public String j() {
-        return this.f25453f;
+        return this.f25454f;
     }
 
     public byte[] k() {
-        return this.f25454g;
+        return this.f25455g;
     }
 
     public String l() {
-        return this.f25449b;
+        return this.f25450b;
     }
 
     public void m() {
-        this.f25454g = null;
+        this.f25455g = null;
         this.j = null;
         this.l = null;
         this.k = null;
     }
 
     public a() {
-        this.f25455h = false;
+        this.f25456h = false;
     }
 
     public void a(String str) {
@@ -111,23 +111,23 @@ public class a {
     }
 
     public void b(String str) {
-        this.f25451d = str;
+        this.f25452d = str;
     }
 
     public void c(String str) {
-        this.f25450c = str;
+        this.f25451c = str;
     }
 
     public void d(String str) {
-        this.f25452e = str;
+        this.f25453e = str;
     }
 
     public void e(String str) {
-        this.f25453f = str;
+        this.f25454f = str;
     }
 
     public void f(String str) {
-        this.f25449b = str;
+        this.f25450b = str;
     }
 
     public String g(String str) {
@@ -137,7 +137,7 @@ public class a {
         if (TextUtils.isEmpty(orderExtraInfo)) {
             return null;
         }
-        Matcher matcher = f25448a.matcher(orderExtraInfo);
+        Matcher matcher = f25449a.matcher(orderExtraInfo);
         if (!matcher.matches() || 3 != matcher.groupCount() || (group = matcher.group(2)) == null || str == null) {
             return orderExtraInfo;
         }
@@ -158,10 +158,10 @@ public class a {
     }
 
     public void a(boolean z) {
-        this.f25455h = z;
+        this.f25456h = z;
     }
 
     public void a(byte[] bArr) {
-        this.f25454g = bArr;
+        this.f25455g = bArr;
     }
 }

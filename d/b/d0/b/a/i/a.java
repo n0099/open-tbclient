@@ -21,31 +21,31 @@ import java.util.ArrayList;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentProvider f42726a;
+    public ContentProvider f42727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f42727b;
+    public final int f42728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f42728c;
+    public final int f42729c;
 
     public a(int i, int i2) {
-        this.f42727b = i;
-        this.f42728c = i2;
+        this.f42728b = i;
+        this.f42729c = i2;
     }
 
     public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.f42726a, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.f42727a, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }
 
     public void b(ContentProvider contentProvider) {
-        if (this.f42726a == null) {
-            this.f42726a = contentProvider;
+        if (this.f42727a == null) {
+            this.f42727a = contentProvider;
         }
     }
 
@@ -80,11 +80,11 @@ public abstract class a {
     public abstract Uri j(int i, Uri uri, ContentValues contentValues);
 
     public final int k() {
-        return this.f42728c;
+        return this.f42729c;
     }
 
     public final int l() {
-        return this.f42727b;
+        return this.f42728b;
     }
 
     public void m(Configuration configuration) {

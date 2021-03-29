@@ -29,7 +29,7 @@ public class d extends d.b.i0.x.b<k> {
         this.o.addView(this.m.h());
         this.o.addView(view, new LinearLayout.LayoutParams(l().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
         this.o.addView(this.n.h());
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.b.i0.x.b
@@ -54,9 +54,9 @@ public class d extends d.b.i0.x.b<k> {
     /* renamed from: u */
     public void n(k kVar) {
         if (kVar != null) {
-            this.m.i(kVar.f60342e);
-            this.n.i(kVar.f60343f);
-            if (kVar.f60344g) {
+            this.m.i(kVar.f60343e);
+            this.n.i(kVar.f60344f);
+            if (kVar.f60345g) {
                 this.q.setVisibility(0);
             } else {
                 this.q.setVisibility(8);

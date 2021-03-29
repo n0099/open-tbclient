@@ -6,10 +6,10 @@ import d.b.b.j.e.n;
 public class c implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f61688e = BdUniqueId.gen();
+    public static final BdUniqueId f61689e = BdUniqueId.gen();
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f61688e;
+        return f61689e;
     }
 }

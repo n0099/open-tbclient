@@ -20,7 +20,7 @@ import d.b.i.m0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -28,7 +28,7 @@ public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
     public s q;
     public b0<a2> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -54,9 +54,9 @@ public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
     }
 
     /* renamed from: d.b.i0.w1.d.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1647b implements w {
-        public C1647b() {
+    /* loaded from: classes3.dex */
+    public class C1648b implements w {
+        public C1648b() {
         }
 
         @Override // d.b.b.j.e.w
@@ -77,7 +77,7 @@ public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
             d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) nVar;
             eVar.k = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), 17, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
         }
     }
 
@@ -94,8 +94,8 @@ public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
         bVar.h(new d.b.i.k(this.o.getPageActivity()));
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.A(3);
@@ -105,7 +105,7 @@ public class b extends d.b.i0.w1.d.c.a<a2, ThreadCardViewHolder<a2>> {
         k.r(17);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
         threadCardViewHolder.k(this.n);
-        c0(new C1647b());
+        c0(new C1648b());
         return threadCardViewHolder;
     }
 

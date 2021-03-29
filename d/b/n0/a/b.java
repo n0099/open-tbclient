@@ -8,11 +8,11 @@ public class b {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64152a;
+        public static final /* synthetic */ int[] f64153a;
 
         static {
             int[] iArr = new int[EncryptAlgorithm.values().length];
-            f64152a = iArr;
+            f64153a = iArr;
             try {
                 iArr[EncryptAlgorithm.RSA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -21,7 +21,7 @@ public class b {
     }
 
     public static d.b.n0.a.a a(d.b.n0.a.d.a aVar) throws Exception {
-        if (a.f64152a[aVar.a().ordinal()] != 1) {
+        if (a.f64153a[aVar.a().ordinal()] != 1) {
             return null;
         }
         return new c(aVar.b());

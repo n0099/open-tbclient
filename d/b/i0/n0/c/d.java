@@ -33,16 +33,16 @@ import tbclient.User;
 public class d implements p0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f57025e;
+    public BdUniqueId f57026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57026f;
+    public String f57027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57027g;
+    public String f57028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public w f57028h;
+    public w f57029h;
     public List<MemberGroupInfo> i;
     public MemberGodInfo j;
     public ManagerApplyInfo k;
@@ -55,7 +55,7 @@ public class d implements p0 {
     public d.b.b.c.g.a r = new a(CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004);
     public CustomMessageListener s = new b(2003009);
     public CustomMessageListener t = new c(2001266);
-    public CustomMessageListener u = new C1352d(2001222);
+    public CustomMessageListener u = new C1353d(2001222);
 
     /* loaded from: classes4.dex */
     public class a extends d.b.b.c.g.a {
@@ -73,7 +73,7 @@ public class d implements p0 {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         ForumMemberHttpResponseMessage forumMemberHttpResponseMessage = (ForumMemberHttpResponseMessage) responsedMessage;
-                        d.this.f57028h = forumMemberHttpResponseMessage.getUserInfo();
+                        d.this.f57029h = forumMemberHttpResponseMessage.getUserInfo();
                         d.this.i = forumMemberHttpResponseMessage.getMemberGroupInfoList();
                         d.this.j = forumMemberHttpResponseMessage.getMemberGodInfo();
                         d.this.k = forumMemberHttpResponseMessage.getManagerApplyInfo();
@@ -82,7 +82,7 @@ public class d implements p0 {
                         d.this.n = forumMemberHttpResponseMessage.getPrivateMgrApplyInfo();
                     } else if (responsedMessage instanceof ForumMemberSocketResponseMessage) {
                         ForumMemberSocketResponseMessage forumMemberSocketResponseMessage = (ForumMemberSocketResponseMessage) responsedMessage;
-                        d.this.f57028h = forumMemberSocketResponseMessage.getUserInfo();
+                        d.this.f57029h = forumMemberSocketResponseMessage.getUserInfo();
                         d.this.i = forumMemberSocketResponseMessage.getMemberGroupInfoList();
                         d.this.j = forumMemberSocketResponseMessage.getMemberGodInfo();
                         d.this.k = forumMemberSocketResponseMessage.getManagerApplyInfo();
@@ -92,21 +92,21 @@ public class d implements p0 {
                     }
                 }
                 d.this.p = false;
-                d.this.q.f57362e = responsedMessage.getError();
-                d.this.q.f57363f = responsedMessage.getErrorString();
-                d.this.q.f57364g = false;
+                d.this.q.f57363e = responsedMessage.getError();
+                d.this.q.f57364f = responsedMessage.getErrorString();
+                d.this.q.f57365g = false;
                 d.this.q.i = false;
-                d.this.q.f57365h = false;
-                d.this.q.f58779b = d.this.f57026f;
-                d.this.q.f58778a = d.this.f57027g;
-                d.this.q.f58780c = 1;
+                d.this.q.f57366h = false;
+                d.this.q.f58780b = d.this.f57027f;
+                d.this.q.f58779a = d.this.f57028g;
+                d.this.q.f58781c = 1;
                 if (d.this.o != null) {
                     t0 t0Var = d.this.o;
                     c1 c1Var = d.this.q;
                     d dVar = d.this;
-                    t0Var.a(3, 0, c1Var, dVar.A(dVar.f57028h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n));
+                    t0Var.a(3, 0, c1Var, dVar.A(dVar.f57029h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, d.this.f57028h));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, d.this.f57029h));
             }
         }
     }
@@ -123,7 +123,7 @@ public class d implements p0 {
             if (customResponsedMessage instanceof ForumMemberReadCacheResponseMessage) {
                 ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = (ForumMemberReadCacheResponseMessage) customResponsedMessage;
                 if (customResponsedMessage.getError() == 0) {
-                    d.this.f57028h = forumMemberReadCacheResponseMessage.getUserInfo();
+                    d.this.f57029h = forumMemberReadCacheResponseMessage.getUserInfo();
                     d.this.i = forumMemberReadCacheResponseMessage.getMemberGroupInfoList();
                     d.this.j = forumMemberReadCacheResponseMessage.getMemberGodInfo();
                     d.this.k = forumMemberReadCacheResponseMessage.getManagerApplyInfo();
@@ -131,17 +131,17 @@ public class d implements p0 {
                     d.this.l = forumMemberReadCacheResponseMessage.isPrivateForum();
                     d.this.n = forumMemberReadCacheResponseMessage.getPrivateMgrApplyInfo();
                 }
-                d.this.q.f57362e = customResponsedMessage.getError();
-                d.this.q.f57363f = customResponsedMessage.getErrorString();
-                d.this.q.f57364g = false;
+                d.this.q.f57363e = customResponsedMessage.getError();
+                d.this.q.f57364f = customResponsedMessage.getErrorString();
+                d.this.q.f57365g = false;
                 d.this.q.i = false;
-                d.this.q.f57365h = false;
-                d.this.q.f58779b = d.this.f57026f;
-                d.this.q.f58778a = d.this.f57027g;
-                d.this.q.f58780c = 1;
+                d.this.q.f57366h = false;
+                d.this.q.f58780b = d.this.f57027f;
+                d.this.q.f58779a = d.this.f57028g;
+                d.this.q.f58781c = 1;
                 if (d.this.o != null) {
                     d dVar = d.this;
-                    ArrayList<d.b.b.j.e.n> A = dVar.A(dVar.f57028h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n);
+                    ArrayList<d.b.b.j.e.n> A = dVar.A(dVar.f57029h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n);
                     if (A == null || A.size() <= 0) {
                         if (!d.this.p) {
                             d.this.o.a(3, 0, d.this.q, A);
@@ -152,7 +152,7 @@ public class d implements p0 {
                 }
                 if (d.this.p) {
                     d dVar2 = d.this;
-                    dVar2.z(d.b.b.e.m.b.f(dVar2.f57026f, 0L), d.this.f57027g);
+                    dVar2.z(d.b.b.e.m.b.f(dVar2.f57027f, 0L), d.this.f57028g);
                 }
             }
         }
@@ -170,33 +170,33 @@ public class d implements p0 {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof w)) {
                 return;
             }
-            d.this.q.f57362e = customResponsedMessage.getError();
-            d.this.q.f57363f = customResponsedMessage.getErrorString();
-            d.this.q.f57364g = false;
+            d.this.q.f57363e = customResponsedMessage.getError();
+            d.this.q.f57364f = customResponsedMessage.getErrorString();
+            d.this.q.f57365g = false;
             d.this.q.i = false;
-            d.this.q.f57365h = false;
-            d.this.q.f58779b = d.this.f57026f;
-            d.this.q.f58778a = d.this.f57027g;
-            d.this.q.f58780c = 1;
+            d.this.q.f57366h = false;
+            d.this.q.f58780b = d.this.f57027f;
+            d.this.q.f58779a = d.this.f57028g;
+            d.this.q.f58781c = 1;
             w wVar = (w) customResponsedMessage.getData();
-            if (wVar != null && wVar.l() == 0 && d.this.f57028h != null) {
-                wVar.r(d.this.f57028h.c());
-                wVar.u(d.this.f57028h.i());
+            if (wVar != null && wVar.l() == 0 && d.this.f57029h != null) {
+                wVar.r(d.this.f57029h.c());
+                wVar.u(d.this.f57029h.i());
             }
-            d.this.f57028h = wVar;
+            d.this.f57029h = wVar;
             if (d.this.o != null) {
                 t0 t0Var = d.this.o;
                 c1 c1Var = d.this.q;
                 d dVar = d.this;
-                t0Var.a(3, 0, c1Var, dVar.A(dVar.f57028h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n));
+                t0Var.a(3, 0, c1Var, dVar.A(dVar.f57029h, d.this.i, d.this.j, d.this.k, d.this.m, d.this.l, d.this.n));
             }
         }
     }
 
     /* renamed from: d.b.i0.n0.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1352d extends CustomMessageListener {
-        public C1352d(int i) {
+    public class C1353d extends CustomMessageListener {
+        public C1353d(int i) {
             super(i);
         }
 
@@ -207,7 +207,7 @@ public class d implements p0 {
                 return;
             }
             d dVar = d.this;
-            dVar.z(d.b.b.e.m.b.f(dVar.f57026f, 0L), d.this.f57027g);
+            dVar.z(d.b.b.e.m.b.f(dVar.f57027f, 0L), d.this.f57028g);
         }
     }
 
@@ -219,8 +219,8 @@ public class d implements p0 {
         if (wVar.l() == 1) {
             h hVar = new h();
             hVar.k(wVar);
-            hVar.g(this.f57026f);
-            hVar.j(this.f57027g);
+            hVar.g(this.f57027f);
+            hVar.j(this.f57028g);
             arrayList.add(hVar);
         }
         if (list != null && list.size() > 0) {
@@ -228,8 +228,8 @@ public class d implements p0 {
             for (int i = 0; i < size; i++) {
                 if (list.get(i) != null && list.get(i).member_group_num != null && list.get(i).member_group_num.intValue() > 0 && ListUtils.getCount(list.get(i).member_group_list) > 0) {
                     j jVar = new j();
-                    jVar.f(this.f57026f);
-                    jVar.g(this.f57027g);
+                    jVar.f(this.f57027f);
+                    jVar.g(this.f57028g);
                     jVar.j(list.get(i));
                     if (i == size - 1) {
                         jVar.k(true);
@@ -259,8 +259,8 @@ public class d implements p0 {
             }
             arrayList.add(lVar);
             d.b.i0.n0.c.b bVar = new d.b.i0.n0.c.b();
-            bVar.f57022e = R.string.complaint_bar_lord;
-            bVar.f57023f = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.f57026f;
+            bVar.f57023e = R.string.complaint_bar_lord;
+            bVar.f57024f = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.f57027f;
             arrayList.add(bVar);
         }
         B(memberGodInfo, arrayList);
@@ -303,16 +303,16 @@ public class d implements p0 {
 
     public final void C() {
         c1 c1Var = this.q;
-        c1Var.f57362e = 0;
-        c1Var.f57364g = false;
+        c1Var.f57363e = 0;
+        c1Var.f57365g = false;
         c1Var.i = false;
-        c1Var.f57365h = false;
-        c1Var.f58779b = this.f57026f;
-        c1Var.f58778a = this.f57027g;
-        c1Var.f58780c = 1;
+        c1Var.f57366h = false;
+        c1Var.f58780b = this.f57027f;
+        c1Var.f58779a = this.f57028g;
+        c1Var.f58781c = 1;
         t0 t0Var = this.o;
         if (t0Var != null) {
-            t0Var.a(3, 0, c1Var, A(this.f57028h, this.i, this.j, this.k, this.m, this.l, this.n));
+            t0Var.a(3, 0, c1Var, A(this.f57029h, this.i, this.j, this.k, this.m, this.l, this.n));
         }
     }
 
@@ -326,7 +326,7 @@ public class d implements p0 {
         if (bdUniqueId == null) {
             return;
         }
-        this.f57025e = bdUniqueId;
+        this.f57026e = bdUniqueId;
     }
 
     @Override // d.b.i0.p0.p0
@@ -334,14 +334,14 @@ public class d implements p0 {
         if (i != 3 || z0Var == null) {
             return;
         }
-        String str = z0Var.f58779b;
-        this.f57026f = str;
-        String str2 = z0Var.f58778a;
-        this.f57027g = str2;
+        String str = z0Var.f58780b;
+        this.f57027f = str;
+        String str2 = z0Var.f58779a;
+        this.f57028g = str2;
         if (this.p) {
             y(str2);
-        } else if (z0Var.f58780c == -1) {
-            z(d.b.b.e.m.b.f(str, 0L), z0Var.f58778a);
+        } else if (z0Var.f58781c == -1) {
+            z(d.b.b.e.m.b.f(str, 0L), z0Var.f58779a);
         } else {
             C();
         }
@@ -350,10 +350,10 @@ public class d implements p0 {
     @Override // d.b.i0.p0.p0
     public void init() {
         D();
-        BdUniqueId bdUniqueId = this.f57025e;
+        BdUniqueId bdUniqueId = this.f57026e;
         if (bdUniqueId != null) {
             this.s.setTag(bdUniqueId);
-            this.r.setTag(this.f57025e);
+            this.r.setTag(this.f57026e);
             this.s.setSelfListener(true);
             if (this.r.getHttpMessageListener() != null) {
                 this.r.getHttpMessageListener().setSelfListener(true);
@@ -405,7 +405,7 @@ public class d implements p0 {
 
     public void y(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-        BdUniqueId bdUniqueId = this.f57025e;
+        BdUniqueId bdUniqueId = this.f57026e;
         if (bdUniqueId != null) {
             forumMemberReadCacheRequestMessage.setTag(bdUniqueId);
         }
@@ -418,7 +418,7 @@ public class d implements p0 {
             return;
         }
         ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-        BdUniqueId bdUniqueId = this.f57025e;
+        BdUniqueId bdUniqueId = this.f57026e;
         if (bdUniqueId != null) {
             forumMemberRequestMessage.setTag(bdUniqueId);
         }

@@ -19,6 +19,6 @@ public class BusCardPayResultAdapter extends PayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         super.onCreateCheckInvalide(bundle);
-        return this.f25669c != null;
+        return this.f25670c != null;
     }
 }

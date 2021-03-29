@@ -9,28 +9,28 @@ import d.b.g0.a.k;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f47489b = "a";
+    public static final String f47490b = "a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47490c = k.f45050a;
+    public static final boolean f47491c = k.f45051a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SharedPreferences f47491d = null;
+    public static SharedPreferences f47492d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47492a;
+    public Context f47493a;
 
     public a(Context context) {
-        this.f47492a = null;
-        this.f47492a = context;
+        this.f47493a = null;
+        this.f47493a = context;
     }
 
     public static int a(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
-            if (f47490c) {
-                String str = f47489b;
+            if (f47491c) {
+                String str = f47490b;
                 Log.e(str, "error:" + e2.getMessage());
                 return -1;
             }
@@ -39,10 +39,10 @@ public class a {
     }
 
     public static SharedPreferences c(Context context) {
-        if (f47491d == null) {
-            f47491d = context.getSharedPreferences("downgradefile", 0);
+        if (f47492d == null) {
+            f47492d = context.getSharedPreferences("downgradefile", 0);
         }
-        return f47491d;
+        return f47492d;
     }
 
     public static a d(Context context) {
@@ -50,8 +50,8 @@ public class a {
     }
 
     public static void j(Context context, int i) {
-        if (f47490c) {
-            String str = f47489b;
+        if (f47491c) {
+            String str = f47490b;
             Log.d(str, "set last version code:" + i);
         }
         SharedPreferences.Editor edit = c(context).edit();
@@ -61,8 +61,8 @@ public class a {
 
     public final int b(Context context) {
         int i = c(context).getInt("old_versioncode_key", 0);
-        if (f47490c) {
-            String str = f47489b;
+        if (f47491c) {
+            String str = f47490b;
             Log.d(str, "get old versioncode:" + i);
         }
         return i;
@@ -76,9 +76,9 @@ public class a {
     }
 
     public final void g() {
-        if (f47490c) {
-            String str = f47489b;
-            Log.d(str, "新旧版本一样:" + b(this.f47492a));
+        if (f47491c) {
+            String str = f47490b;
+            Log.d(str, "新旧版本一样:" + b(this.f47493a));
         }
     }
 
@@ -88,32 +88,32 @@ public class a {
     }
 
     public void i() {
-        int a2 = a(this.f47492a);
-        int b2 = b(this.f47492a);
-        if (f47490c) {
-            String str = f47489b;
+        int a2 = a(this.f47493a);
+        int b2 = b(this.f47493a);
+        if (f47491c) {
+            String str = f47490b;
             Log.d(str, "处理升级逻辑：newVersionCode=" + a2 + " /oldVersionCode=" + b2);
         }
         if (b2 == 0) {
             f(a2);
-            k(this.f47492a, a2);
-            j(this.f47492a, b2);
+            k(this.f47493a, a2);
+            j(this.f47493a, b2);
         } else if (a2 > b2) {
             h(a2, b2);
-            k(this.f47492a, a2);
-            j(this.f47492a, b2);
+            k(this.f47493a, a2);
+            j(this.f47493a, b2);
         } else if (a2 < b2) {
             e(a2, b2);
-            k(this.f47492a, a2);
-            j(this.f47492a, b2);
+            k(this.f47493a, a2);
+            j(this.f47493a, b2);
         } else {
             g();
         }
     }
 
     public final void k(Context context, int i) {
-        if (f47490c) {
-            String str = f47489b;
+        if (f47491c) {
+            String str = f47490b;
             Log.d(str, "set new versioncode:" + i);
         }
         SharedPreferences.Editor edit = c(context).edit();

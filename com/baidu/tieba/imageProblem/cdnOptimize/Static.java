@@ -13,37 +13,37 @@ import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageTask f18390a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    public static CustomMessageTask f18391a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             if (customMessage != null) {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data != null && data.f18394a != null && data.f18394a.f18406e != null) {
+                    if (data != null && data.f18395a != null && data.f18395a.f18407e != null) {
                         String str = "";
                         boolean z = false;
-                        if (data.f18401h == null) {
-                            if (data.f18395b < data.f18394a.f18406e.size()) {
-                                ArrayList<String> arrayList = data.f18394a.f18406e.get(data.f18395b);
+                        if (data.f18402h == null) {
+                            if (data.f18396b < data.f18395a.f18407e.size()) {
+                                ArrayList<String> arrayList = data.f18395a.f18407e.get(data.f18396b);
                                 if (arrayList.size() > 0) {
                                     str = arrayList.get(0);
                                 }
                             }
-                        } else if (data.f18401h.length() > 0) {
-                            str = data.f18401h;
+                        } else if (data.f18402h.length() > 0) {
+                            str = data.f18402h;
                             z = true;
                         }
                         if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                            data.f18396c = data.f18399f.getTestImageData(data.f18394a.f18404c, str, data.f18394a.f18408g, data.f18394a.f18405d, data.f18400g);
-                            data.f18397d = System.currentTimeMillis() - currentTimeMillis;
-                            data.f18398e = str;
+                            data.f18397c = data.f18400f.getTestImageData(data.f18395a.f18405c, str, data.f18395a.f18409g, data.f18395a.f18406d, data.f18401g);
+                            data.f18398d = System.currentTimeMillis() - currentTimeMillis;
+                            data.f18399e = str;
                             if (z) {
-                                data.f18401h = str;
+                                data.f18402h = str;
                             }
                             return new CustomResponsedMessage<>(2017000, data);
                         }
@@ -70,7 +70,7 @@ public class Static {
                 return new CustomResponsedMessage<>(2016102, CDNIPDirectConnect.getInstance());
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        f18390a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        f18390a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        f18391a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        f18391a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
     }
 }

@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.helper.NetUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDVideoPlayerUbcHelper {
     public static float sPlayerCurrentSpreed = 1.0f;
 

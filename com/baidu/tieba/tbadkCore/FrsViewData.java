@@ -278,7 +278,7 @@ public class FrsViewData extends m implements a, Serializable {
                     i++;
                 }
             }
-            if (this.threadList.size() - i > 7 && (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) != null && ListUtils.getCount(recomTopicData.f62223h) >= 4) {
+            if (this.threadList.size() - i > 7 && (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) != null && ListUtils.getCount(recomTopicData.f62224h) >= 4) {
                 this.threadList.add(i + 6, recomTopicData);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 return true;
@@ -294,7 +294,7 @@ public class FrsViewData extends m implements a, Serializable {
         }
         ArrayList<n> threadList = getThreadList();
         removeTopSameClassDataFromList(g.class, threadList);
-        threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.f53353f, threadList.size()), frsInsertLiveData);
+        threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.f53354f, threadList.size()), frsInsertLiveData);
     }
 
     public void addMyNewThread(w0 w0Var) {
@@ -418,7 +418,7 @@ public class FrsViewData extends m implements a, Serializable {
         }
         ArrayList<n> threadList = getThreadList();
         removeTopSameClassDataFromList(h.class, threadList);
-        if (ListUtils.isEmpty(frsStageLiveData.f53364e)) {
+        if (ListUtils.isEmpty(frsStageLiveData.f53365e)) {
             return;
         }
         threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
@@ -483,7 +483,7 @@ public class FrsViewData extends m implements a, Serializable {
                 break;
             }
             n next = it.next();
-            if (next != null && next.getType() == q.f53571g) {
+            if (next != null && next.getType() == q.f53572g) {
                 this.threadList.remove(next);
                 break;
             }
@@ -976,10 +976,10 @@ public class FrsViewData extends m implements a, Serializable {
         }
         w wVar = new w();
         wVar.v(1);
-        wVar.w(dVar.f53328a);
-        wVar.t(dVar.f53329b);
-        wVar.r(dVar.f53330c);
-        wVar.u(dVar.f53331d);
+        wVar.w(dVar.f53329a);
+        wVar.t(dVar.f53330b);
+        wVar.r(dVar.f53331c);
+        wVar.u(dVar.f53332d);
         updateLikeData(wVar);
     }
 

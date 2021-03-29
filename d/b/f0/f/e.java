@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import android.util.Base64;
 import d.b.f0.l.f;
 import d.b.f0.l.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42959b;
+    public static String f42960b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42960a = d.b.f0.b.b.f42826a;
+    public String f42961a = d.b.f0.b.b.f42827a;
 
     public e(Context context) {
     }
@@ -26,8 +26,8 @@ public class e {
     }
 
     public String b(String str, String str2) {
-        String str3 = d.b.f0.a.f42808b;
-        String str4 = d.b.f0.a.f42809c;
+        String str3 = d.b.f0.a.f42809b;
+        String str4 = d.b.f0.a.f42810c;
         String str5 = "";
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return "";
@@ -65,7 +65,7 @@ public class e {
 
     public final void d() {
         try {
-            f42959b = new String(d.b.f0.l.e.e(Base64.decode(this.f42960a, 0), "30212102dicudiab".getBytes("utf-8")));
+            f42960b = new String(d.b.f0.l.e.e(Base64.decode(this.f42961a, 0), "30212102dicudiab".getBytes("utf-8")));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }
@@ -83,9 +83,9 @@ public class e {
     }
 
     public final String f() {
-        if (TextUtils.isEmpty(f42959b)) {
+        if (TextUtils.isEmpty(f42960b)) {
             d();
         }
-        return f42959b;
+        return f42960b;
     }
 }

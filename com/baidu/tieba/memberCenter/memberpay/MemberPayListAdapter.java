@@ -7,7 +7,7 @@ import java.util.List;
 public class MemberPayListAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<MemberPayFragment> f18978a;
+    public List<MemberPayFragment> f18979a;
 
     public MemberPayListAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -15,7 +15,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        List<MemberPayFragment> list = this.f18978a;
+        List<MemberPayFragment> list = this.f18979a;
         if (list != null) {
             return list.size();
         }
@@ -26,13 +26,13 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
     @Override // androidx.fragment.app.FragmentPagerAdapter
     /* renamed from: i */
     public MemberPayFragment getItem(int i) {
-        if (this.f18978a.size() > i) {
-            return this.f18978a.get(i);
+        if (this.f18979a.size() > i) {
+            return this.f18979a.get(i);
         }
         return null;
     }
 
     public void j(List<MemberPayFragment> list) {
-        this.f18978a = list;
+        this.f18979a = list;
     }
 }

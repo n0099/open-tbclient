@@ -17,70 +17,70 @@ import org.json.JSONObject;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f9065a;
+    public static volatile int f9066a;
     public static final bf k = new bf();
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f9066b;
+    public WeakReference<Activity> f9067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9067c;
+    public int f9068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9068d;
+    public boolean f9069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f9069e;
+    public JSONObject f9070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9070f;
+    public boolean f9071f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f9072h;
+    public final Handler f9073h;
     public a i;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f9071g = new Handler(Looper.getMainLooper());
+    public final Handler f9072g = new Handler(Looper.getMainLooper());
     public be j = new be();
 
     /* loaded from: classes2.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
 
         /* renamed from: c  reason: collision with root package name */
-        public final WeakReference<View> f9075c;
+        public final WeakReference<View> f9076c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final bk f9076d;
+        public final bk f9077d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f9077e;
+        public final Handler f9078e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f9078f;
+        public final Handler f9079f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f9079g;
+        public JSONObject f9080g;
 
         /* renamed from: h  reason: collision with root package name */
-        public WeakReference<Activity> f9080h;
+        public WeakReference<Activity> f9081h;
         public boolean i;
         public boolean j;
         public boolean k;
         public Runnable l = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f9074b = true;
+        public boolean f9075b = true;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f9073a = false;
+        public volatile boolean f9074a = false;
 
         public a(Activity activity, View view, bk bkVar, Handler handler, Handler handler2, JSONObject jSONObject, boolean z, boolean z2, boolean z3) {
-            this.f9080h = new WeakReference<>(activity);
-            this.f9079g = jSONObject;
-            this.f9076d = bkVar;
-            this.f9075c = new WeakReference<>(view);
-            this.f9077e = handler;
-            this.f9078f = handler2;
+            this.f9081h = new WeakReference<>(activity);
+            this.f9080g = jSONObject;
+            this.f9077d = bkVar;
+            this.f9076c = new WeakReference<>(view);
+            this.f9078e = handler;
+            this.f9079f = handler2;
             this.i = z;
             this.j = z2;
             this.k = z3;
@@ -93,8 +93,8 @@ public class bf {
 
         @SuppressLint({"NewApi"})
         private void b() {
-            if (this.f9074b) {
-                View view = this.f9075c.get();
+            if (this.f9075b) {
+                View view = this.f9076c.get();
                 if (view != null) {
                     ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
                     if (viewTreeObserver.isAlive()) {
@@ -105,9 +105,9 @@ public class bf {
                         }
                     }
                 }
-                a(this.f9076d, this.f9078f);
+                a(this.f9077d, this.f9079f);
             }
-            this.f9074b = false;
+            this.f9075b = false;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -117,8 +117,8 @@ public class bf {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f9074b) {
-                if (this.f9075c.get() != null && !this.f9073a) {
+            if (this.f9075b) {
+                if (this.f9076c.get() != null && !this.f9074a) {
                     if (bd.c().b() && this.k) {
                         bd.c().a("onGlobalLayout");
                     }
@@ -127,10 +127,10 @@ public class bf {
                     }
                     if (af.b()) {
                         if (az.c()) {
-                            Activity activity = this.f9080h.get();
+                            Activity activity = this.f9081h.get();
                             if (activity != null) {
                                 bf.b(activity, this.i, this.k);
-                                a(this.f9080h, this.f9079g, this.f9076d, this.f9078f, this.j);
+                                a(this.f9081h, this.f9080g, this.f9077d, this.f9079f, this.j);
                             }
                         } else {
                             if (bd.c().b() && this.k) {
@@ -141,7 +141,7 @@ public class bf {
                             }
                         }
                     }
-                    this.f9077e.removeCallbacks(this);
+                    this.f9078e.removeCallbacks(this);
                     return;
                 }
                 b();
@@ -149,11 +149,11 @@ public class bf {
         }
 
         public void a() {
-            if (this.f9073a) {
+            if (this.f9074a) {
                 return;
             }
-            this.f9073a = true;
-            this.f9077e.post(this);
+            this.f9074a = true;
+            this.f9078e.post(this);
         }
 
         private void a(final WeakReference<Activity> weakReference, final JSONObject jSONObject, final bk bkVar, Handler handler, final boolean z) {
@@ -207,16 +207,16 @@ public class bf {
     public bf() {
         HandlerThread handlerThread = new HandlerThread("visitorThread");
         handlerThread.start();
-        this.f9072h = new Handler(handlerThread.getLooper());
+        this.f9073h = new Handler(handlerThread.getLooper());
     }
 
     public static void b() {
-        f9065a = 0;
+        f9066a = 0;
     }
 
     public static /* synthetic */ int c() {
-        int i = f9065a + 1;
-        f9065a = i;
+        int i = f9066a + 1;
+        f9066a = i;
         return i;
     }
 
@@ -237,23 +237,23 @@ public class bf {
     public void a(Activity activity, boolean z, JSONObject jSONObject, boolean z2) {
         a aVar;
         ar.a(activity, !z);
-        if (!this.f9068d) {
-            this.f9068d = z2;
+        if (!this.f9069d) {
+            this.f9069d = z2;
         }
         if (z) {
-            this.f9070f = z;
-            this.f9069e = jSONObject;
+            this.f9071f = z;
+            this.f9070e = jSONObject;
         }
         if (a(activity, 1)) {
             return;
         }
-        if (this.f9066b != null && (aVar = this.i) != null) {
+        if (this.f9067b != null && (aVar = this.i) != null) {
             aVar.a();
         }
         WeakReference<Activity> weakReference = new WeakReference<>(activity);
-        this.f9066b = weakReference;
-        this.f9067c = 1;
-        this.i = new a(activity, bj.a(activity), new bk.a(1, weakReference, this.j), this.f9071g, this.f9072h, this.f9069e, this.f9068d, true, this.f9070f);
+        this.f9067b = weakReference;
+        this.f9068c = 1;
+        this.i = new a(activity, bj.a(activity), new bk.a(1, weakReference, this.j), this.f9072g, this.f9073h, this.f9070e, this.f9069d, true, this.f9071f);
     }
 
     public void a(Activity activity, boolean z) {
@@ -261,8 +261,8 @@ public class bf {
         if (a(activity, 2)) {
             return;
         }
-        this.f9066b = new WeakReference<>(activity);
-        this.f9067c = 2;
+        this.f9067b = new WeakReference<>(activity);
+        this.f9068c = 2;
         a aVar = this.i;
         if (aVar != null) {
             aVar.a();
@@ -270,8 +270,8 @@ public class bf {
     }
 
     private boolean a(Activity activity, int i) {
-        WeakReference<Activity> weakReference = this.f9066b;
-        return weakReference != null && weakReference.get() == activity && this.f9067c == i;
+        WeakReference<Activity> weakReference = this.f9067b;
+        return weakReference != null && weakReference.get() == activity && this.f9068c == i;
     }
 
     public static void a(Activity activity, View view, boolean z) {

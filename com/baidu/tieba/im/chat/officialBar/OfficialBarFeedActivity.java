@@ -13,7 +13,7 @@ import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
 import d.b.i0.d1.h.o.a;
 import d.b.i0.d1.l.c.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
     public OfficialBarFeedMsglistModel mCurrentMsgListModel;
     public OfficialBarFeedMsglistView mCurrentMsgListView;

@@ -19,32 +19,32 @@ import d.b.h0.w.n;
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, n {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f18769e;
+    public TBSpecificationBtn f18770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditorTools f18770f;
+    public EditorTools f18771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18771g;
+    public int f18772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18772h;
+    public boolean f18773h;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.f18771g = 0;
-        this.f18772h = true;
+        this.f18772g = 0;
+        this.f18773h = true;
         c();
     }
 
     public void a(int i) {
-        this.f18769e.l(i);
+        this.f18770e.l(i);
     }
 
     @Override // d.b.h0.w.n
     public void b() {
-        if (this.f18772h) {
-            this.f18772h = false;
+        if (this.f18773h) {
+            this.f18773h = false;
             d(new a(18, -1, Config.TRACE_VISIT_FIRST));
         }
     }
@@ -64,17 +64,17 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         bVar.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-        this.f18769e = tBSpecificationBtn;
+        this.f18770e = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f18769e.setTextSize(R.dimen.tbds32);
-        this.f18769e.setOnClickListener(this);
-        this.f18769e.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.f18769e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds63)));
+        this.f18770e.setTextSize(R.dimen.tbds32);
+        this.f18770e.setOnClickListener(this);
+        this.f18770e.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.f18770e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds63)));
     }
 
     @Override // d.b.h0.w.n
     public void d(a aVar) {
-        EditorTools editorTools = this.f18770f;
+        EditorTools editorTools = this.f18771f;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -82,12 +82,12 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // d.b.h0.w.n
     public int getToolId() {
-        return this.f18771g;
+        return this.f18772g;
     }
 
     @Override // d.b.h0.w.n
     public void hide() {
-        this.f18769e.setText(getContext().getString(R.string.location_where_are_you));
+        this.f18770e.setText(getContext().getString(R.string.location_where_are_you));
     }
 
     @Override // d.b.h0.w.n
@@ -99,7 +99,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         if (aVar == null) {
             return;
         }
-        int i = aVar.f51523a;
+        int i = aVar.f51524a;
         if (i != 19) {
             if (i == 20) {
                 hide();
@@ -107,18 +107,18 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             }
             return;
         }
-        Object obj = aVar.f51525c;
+        Object obj = aVar.f51526c;
         if (obj == null) {
             hide();
             return;
         }
         d.b.h0.w.u.a aVar2 = (d.b.h0.w.u.a) obj;
-        if (aVar2.f51548a == 1) {
-            this.f18769e.setText(getContext().getString(R.string.location_loading));
-        } else if (!TextUtils.isEmpty(aVar2.f51549b)) {
-            this.f18769e.setText(aVar2.f51549b);
+        if (aVar2.f51549a == 1) {
+            this.f18770e.setText(getContext().getString(R.string.location_loading));
+        } else if (!TextUtils.isEmpty(aVar2.f51550b)) {
+            this.f18770e.setText(aVar2.f51550b);
         } else {
-            this.f18769e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f18770e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
@@ -129,18 +129,18 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f18769e) {
+        if (view == this.f18770e) {
             d(new a(18, -1, null));
         }
     }
 
     @Override // d.b.h0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f18770f = editorTools;
+        this.f18771f = editorTools;
     }
 
     @Override // d.b.h0.w.n
     public void setToolId(int i) {
-        this.f18771g = i;
+        this.f18772g = i;
     }
 }

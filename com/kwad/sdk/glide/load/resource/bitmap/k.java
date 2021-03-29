@@ -26,23 +26,23 @@ import java.util.Set;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f35667a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
+    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f35668a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f35668b = DownsampleStrategy.f35642h;
+    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f35669b = DownsampleStrategy.f35643h;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35669c = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.FixBitmapSize", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35670c = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.FixBitmapSize", Boolean.FALSE);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35670d = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35671d = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode", Boolean.FALSE);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f35671e = Collections.unmodifiableSet(new HashSet(Arrays.asList(Downsampler.WBMP_MIME_TYPE, Downsampler.ICO_MIME_TYPE)));
+    public static final Set<String> f35672e = Collections.unmodifiableSet(new HashSet(Arrays.asList(Downsampler.WBMP_MIME_TYPE, Downsampler.ICO_MIME_TYPE)));
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f35672f = new a() { // from class: com.kwad.sdk.glide.load.resource.bitmap.k.1
+    public static final a f35673f = new a() { // from class: com.kwad.sdk.glide.load.resource.bitmap.k.1
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a() {
         }
@@ -53,10 +53,10 @@ public final class k {
     };
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<ImageHeaderParser.ImageType> f35673g = Collections.unmodifiableSet(EnumSet.of(ImageHeaderParser.ImageType.JPEG, ImageHeaderParser.ImageType.PNG_A, ImageHeaderParser.ImageType.PNG));
+    public static final Set<ImageHeaderParser.ImageType> f35674g = Collections.unmodifiableSet(EnumSet.of(ImageHeaderParser.ImageType.JPEG, ImageHeaderParser.ImageType.PNG_A, ImageHeaderParser.ImageType.PNG));
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Queue<BitmapFactory.Options> f35674h = com.kwad.sdk.glide.g.k.a(0);
+    public static final Queue<BitmapFactory.Options> f35675h = com.kwad.sdk.glide.g.k.a(0);
     public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e i;
     public final DisplayMetrics j;
     public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b k;
@@ -79,14 +79,8 @@ public final class k {
 
     public static int a(double d2) {
         int b2 = b(d2);
-        double d3 = b2;
-        Double.isNaN(d3);
-        int c2 = c(d3 * d2);
-        double d4 = c2 / b2;
-        Double.isNaN(d4);
-        double d5 = c2;
-        Double.isNaN(d5);
-        return c((d2 / d4) * d5);
+        int c2 = c(b2 * d2);
+        return c((d2 / (c2 / b2)) * c2);
     }
 
     private Bitmap a(InputStream inputStream, BitmapFactory.Options options, DownsampleStrategy downsampleStrategy, DecodeFormat decodeFormat, boolean z, int i, int i2, boolean z2, a aVar) {
@@ -154,8 +148,8 @@ public final class k {
     public static synchronized BitmapFactory.Options a() {
         BitmapFactory.Options poll;
         synchronized (k.class) {
-            synchronized (f35674h) {
-                poll = f35674h.poll();
+            synchronized (f35675h) {
+                poll = f35675h.poll();
             }
             if (poll == null) {
                 poll = new BitmapFactory.Options();
@@ -228,7 +222,7 @@ public final class k {
         int c2 = i2 / c(a2 * f2);
         int c3 = i3 / c(a2 * f3);
         int max2 = b2 == DownsampleStrategy.SampleSizeRounding.MEMORY ? Math.max(c2, c3) : Math.min(c2, c3);
-        if (Build.VERSION.SDK_INT > 23 || !f35671e.contains(options.outMimeType)) {
+        if (Build.VERSION.SDK_INT > 23 || !f35672e.contains(options.outMimeType)) {
             max = Math.max(1, Integer.highestOneBit(max2));
             if (b2 == DownsampleStrategy.SampleSizeRounding.MEMORY && max < 1.0f / a2) {
                 max <<= 1;
@@ -317,7 +311,7 @@ public final class k {
         if (Build.VERSION.SDK_INT >= 19) {
             return true;
         }
-        return f35673g.contains(imageType);
+        return f35674g.contains(imageType);
     }
 
     public static int[] a(InputStream inputStream, BitmapFactory.Options options, a aVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
@@ -387,8 +381,8 @@ public final class k {
 
     public static void c(BitmapFactory.Options options) {
         d(options);
-        synchronized (f35674h) {
-            f35674h.offer(options);
+        synchronized (f35675h) {
+            f35675h.offer(options);
         }
     }
 
@@ -409,7 +403,7 @@ public final class k {
     }
 
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar) {
-        return a(inputStream, i, i2, eVar, f35672f);
+        return a(inputStream, i, i2, eVar, f35673f);
     }
 
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar, a aVar) {
@@ -417,9 +411,9 @@ public final class k {
         byte[] bArr = (byte[]) this.k.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f35667a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f35668a);
         try {
-            return d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(DownsampleStrategy.f35642h), decodeFormat, eVar.a(f35670d) != null && ((Boolean) eVar.a(f35670d)).booleanValue(), i, i2, ((Boolean) eVar.a(f35669c)).booleanValue(), aVar), this.i);
+            return d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(DownsampleStrategy.f35643h), decodeFormat, eVar.a(f35671d) != null && ((Boolean) eVar.a(f35671d)).booleanValue(), i, i2, ((Boolean) eVar.a(f35670c)).booleanValue(), aVar), this.i);
         } finally {
             c(a2);
             this.k.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);

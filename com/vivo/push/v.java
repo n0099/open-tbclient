@@ -6,46 +6,46 @@ import com.baidu.android.common.others.lang.StringUtil;
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39588a;
+    public Context f39589a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39589b;
+    public int f39590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f39590c;
+    public y f39591c;
 
     public v(y yVar) {
-        this.f39589b = -1;
-        this.f39590c = yVar;
+        this.f39590b = -1;
+        this.f39591c = yVar;
         int b2 = yVar.b();
-        this.f39589b = b2;
+        this.f39590b = b2;
         if (b2 >= 0) {
-            this.f39588a = p.a().h();
+            this.f39589a = p.a().h();
             return;
         }
         throw new IllegalArgumentException("PushTask need a > 0 task id.");
     }
 
     public final int a() {
-        return this.f39589b;
+        return this.f39590b;
     }
 
     public abstract void a(y yVar);
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context context = this.f39588a;
-        if (context != null && !(this.f39590c instanceof com.vivo.push.b.p)) {
-            com.vivo.push.util.p.a(context, "[执行指令]" + this.f39590c);
+        Context context = this.f39589a;
+        if (context != null && !(this.f39591c instanceof com.vivo.push.b.p)) {
+            com.vivo.push.util.p.a(context, "[执行指令]" + this.f39591c);
         }
-        a(this.f39590c);
+        a(this.f39591c);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(StringUtil.ARRAY_START);
-        y yVar = this.f39590c;
+        y yVar = this.f39591c;
         sb.append(yVar == null ? "[null]" : yVar.toString());
         sb.append("}");
         return sb.toString();

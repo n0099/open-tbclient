@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends d.b.g0.a.a0.a.d.b {
     public String x;
 

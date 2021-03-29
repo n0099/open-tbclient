@@ -17,22 +17,22 @@ import java.util.regex.Pattern;
 public final class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44754a = d.b.g0.a.k.f45050a;
+    public static final boolean f44755a = d.b.g0.a.k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f44755b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    public static final Pattern f44756b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f44756c = new HashMap<>();
+    public static HashMap<String, Integer> f44757c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f44757d = new HashMap<>();
+    public static HashMap<String, Integer> f44758d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f44758e = new HashMap<>();
+    public static HashMap<String, String> f44759e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f44759f = new HashMap<>();
+    public static HashMap<String, String> f44760f = new HashMap<>();
 
     static {
         a("application/andrew-inset", "ez", 5);
@@ -357,13 +357,13 @@ public final class r {
     }
 
     public static void a(String str, String str2, int i) {
-        f44756c.put(str2, Integer.valueOf(i));
-        f44757d.put(str, Integer.valueOf(i));
-        f44758e.put(str2, str);
-        if (f44759f.containsKey(str)) {
+        f44757c.put(str2, Integer.valueOf(i));
+        f44758d.put(str, Integer.valueOf(i));
+        f44759e.put(str2, str);
+        if (f44760f.containsKey(str)) {
             return;
         }
-        f44759f.put(str, str2);
+        f44760f.put(str, str2);
     }
 
     public static String b(String str) {
@@ -376,25 +376,25 @@ public final class r {
         if (str == null) {
             return null;
         }
-        return f44759f.get(str);
+        return f44760f.get(str);
     }
 
     public static String d(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return f44758e.get(str);
+        return f44759e.get(str);
     }
 
     public static String e(String str) {
         try {
-            Matcher matcher = f44755b.matcher(str);
+            Matcher matcher = f44756b.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
             return null;
         } catch (IllegalStateException e2) {
-            if (f44754a) {
+            if (f44755a) {
                 e2.printStackTrace();
                 return null;
             }

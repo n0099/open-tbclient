@@ -9,7 +9,7 @@ public class MediaConstraints {
     public final List<KeyValuePair> mandatory = new ArrayList();
     public final List<KeyValuePair> optional = new ArrayList();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class KeyValuePair {
         public final String key;
         public final String value;

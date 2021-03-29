@@ -40,7 +40,7 @@ public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
             if (i.this.k != null) {
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar.n(), view.getContext(), 0, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

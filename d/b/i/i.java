@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.FakeVideoContainer;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends d.b.i.a<d.b.h0.r.q.a> {
     public static final int r = (d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
     public static int s;
@@ -31,36 +31,36 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
     public boolean p;
     public a.b q;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f51775e;
+        public final /* synthetic */ ViewGroup.LayoutParams f51776e;
 
         public a(ViewGroup.LayoutParams layoutParams) {
-            this.f51775e = layoutParams;
+            this.f51776e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f51775e.width = i.this.j.getWidth();
-            this.f51775e.height = (i.this.j.getWidth() / 16) * 9;
-            i.this.m.setLayoutParams(this.f51775e);
+            this.f51776e.width = i.this.j.getWidth();
+            this.f51776e.height = (i.this.j.getWidth() / 16) * 9;
+            i.this.m.setLayoutParams(this.f51776e);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements a.b {
         public b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             RoundCornerFrameLayout roundCornerFrameLayout;
-            if (c1117a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
+            if (c1118a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
                 return false;
             }
-            roundCornerFrameLayout.d(((Boolean) c1117a.c()).booleanValue());
+            roundCornerFrameLayout.d(((Boolean) c1118a.c()).booleanValue());
             return false;
         }
     }
@@ -84,11 +84,11 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
     @Override // d.b.i.a
     public View g() {
         if (this.j == null) {
-            View inflate = LayoutInflater.from(this.f51762f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f51763f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
-            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f51762f);
+            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f51763f);
             this.n = fakeVideoContainer;
             fakeVideoContainer.setBackgroundResource(R.color.transparent);
             this.m.addView(this.n);

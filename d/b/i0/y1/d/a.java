@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.h0.b.d;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final C1676a f62589a = new C1676a(null);
+    public static final C1677a f62590a = new C1677a(null);
 
     /* renamed from: d.b.i0.y1.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C1676a {
-        public C1676a() {
+    /* loaded from: classes3.dex */
+    public static final class C1677a {
+        public C1677a() {
         }
 
         @JvmStatic
@@ -49,18 +49,18 @@ public final class a {
             TiebaStatic.log(statisticItem);
         }
 
-        public /* synthetic */ C1676a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1677a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
 
     @JvmStatic
     public static final void a(int i, int i2, int i3) {
-        f62589a.a(i, i2, i3);
+        f62590a.a(i, i2, i3);
     }
 
     @JvmStatic
     public static final void b(int i, int i2) {
-        f62589a.b(i, i2);
+        f62590a.b(i, i2);
     }
 }

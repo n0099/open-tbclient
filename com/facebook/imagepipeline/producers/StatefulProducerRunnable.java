@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.common.executors.StatefulRunnable;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public final Consumer<T> mConsumer;
     public final ProducerListener mProducerListener;

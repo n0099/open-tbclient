@@ -8,13 +8,13 @@ import android.widget.Toast;
 public final class n implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23288a;
+    public final /* synthetic */ FeedbackEditActivity f23289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f23289b = 0;
+    public long f23290b = 0;
 
     public n(FeedbackEditActivity feedbackEditActivity) {
-        this.f23288a = feedbackEditActivity;
+        this.f23289a = feedbackEditActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,33 +28,33 @@ public final class n implements TextWatcher {
         String str;
         EditText editText6;
         EditText editText7;
-        z = this.f23288a.x;
+        z = this.f23289a.x;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23288a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23289a);
             dVar.b(dVar.b() + 1);
-            this.f23288a.x = true;
+            this.f23289a.x = true;
         }
         try {
-            editText = this.f23288a.n;
+            editText = this.f23289a.n;
             if (editText != null) {
-                editText4 = this.f23288a.n;
+                editText4 = this.f23289a.n;
                 if (editText4.getText().toString().length() > 30) {
-                    if (System.currentTimeMillis() - this.f23289b > 3000) {
-                        Toast.makeText(this.f23288a, com.baidu.ufosdk.f.s.a("32"), 0).show();
-                        this.f23289b = System.currentTimeMillis();
+                    if (System.currentTimeMillis() - this.f23290b > 3000) {
+                        Toast.makeText(this.f23289a, com.baidu.ufosdk.f.s.a("32"), 0).show();
+                        this.f23290b = System.currentTimeMillis();
                     }
-                    editText5 = this.f23288a.n;
-                    str = this.f23288a.R;
+                    editText5 = this.f23289a.n;
+                    str = this.f23289a.R;
                     editText5.setText(str);
-                    editText6 = this.f23288a.m;
-                    editText7 = this.f23288a.n;
+                    editText6 = this.f23289a.m;
+                    editText7 = this.f23289a.n;
                     FeedbackEditActivity.b(editText6, editText7.getText().length());
                 }
             }
-            editText2 = this.f23288a.n;
+            editText2 = this.f23289a.n;
             if (editText2 != null) {
-                FeedbackEditActivity feedbackEditActivity = this.f23288a;
-                editText3 = this.f23288a.n;
+                FeedbackEditActivity feedbackEditActivity = this.f23289a;
+                editText3 = this.f23289a.n;
                 feedbackEditActivity.R = editText3.getText().toString().trim();
             }
         } catch (Exception e2) {

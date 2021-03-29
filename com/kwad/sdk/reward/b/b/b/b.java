@@ -14,25 +14,25 @@ import com.kwad.sdk.utils.ao;
 public class b extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36318b;
+    public TextView f36319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f36319c;
+    public ImageView f36320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f36320d;
+    public AdTemplate f36321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f36321e;
+    public com.kwad.sdk.core.download.b.b f36322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f36322f;
+    public long f36323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.e f36323g = new f() { // from class: com.kwad.sdk.reward.b.b.b.b.1
+    public com.kwad.sdk.contentalliance.detail.video.e f36324g = new f() { // from class: com.kwad.sdk.reward.b.b.b.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
-            if (j2 >= b.this.f36322f) {
+            if (j2 >= b.this.f36323f) {
                 b.this.e();
             }
         }
@@ -40,70 +40,70 @@ public class b extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f36318b.getVisibility() == 0) {
+        if (this.f36319b.getVisibility() == 0) {
             return;
         }
-        String j = com.kwad.sdk.core.response.b.b.j(this.f36320d);
+        String j = com.kwad.sdk.core.response.b.b.j(this.f36321d);
         if (TextUtils.isEmpty(j)) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f36318b.getLayoutParams();
-        ImageView imageView = this.f36319c;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f36319b.getLayoutParams();
+        ImageView imageView = this.f36320c;
         if (imageView == null || imageView.getVisibility() != 0) {
             layoutParams.rightMargin = 0;
         } else {
             layoutParams.rightMargin = ao.a(o(), 40.0f);
         }
-        this.f36318b.setLayoutParams(layoutParams);
-        this.f36318b.setText(j);
-        this.f36318b.setVisibility(0);
-        this.f36318b.setOnClickListener(this);
+        this.f36319b.setLayoutParams(layoutParams);
+        this.f36319b.setText(j);
+        this.f36319b.setVisibility(0);
+        this.f36319b.setOnClickListener(this);
         f();
     }
 
     private void f() {
-        com.kwad.sdk.core.report.b.c(this.f36320d, 18, ((com.kwad.sdk.reward.d) this).f36457a.f36219d);
+        com.kwad.sdk.core.report.b.c(this.f36321d, 18, ((com.kwad.sdk.reward.d) this).f36458a.f36220d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        com.kwad.sdk.core.report.b.a(this.f36320d, 40, ((com.kwad.sdk.reward.d) this).f36457a.f36223h.getTouchCoords(), ((com.kwad.sdk.reward.d) this).f36457a.f36219d);
-        ((com.kwad.sdk.reward.d) this).f36457a.f36217b.a();
+        com.kwad.sdk.core.report.b.a(this.f36321d, 40, ((com.kwad.sdk.reward.d) this).f36458a.f36224h.getTouchCoords(), ((com.kwad.sdk.reward.d) this).f36458a.f36220d);
+        ((com.kwad.sdk.reward.d) this).f36458a.f36218b.a();
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
-        AdTemplate adTemplate = aVar.f36221f;
-        this.f36320d = adTemplate;
-        this.f36321e = aVar.j;
-        this.f36322f = com.kwad.sdk.core.response.b.b.i(adTemplate);
-        ((com.kwad.sdk.reward.d) this).f36457a.i.a(this.f36323g);
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36458a;
+        AdTemplate adTemplate = aVar.f36222f;
+        this.f36321d = adTemplate;
+        this.f36322e = aVar.j;
+        this.f36323f = com.kwad.sdk.core.response.b.b.i(adTemplate);
+        ((com.kwad.sdk.reward.d) this).f36458a.i.a(this.f36324g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.reward.d) this).f36457a.i.b(this.f36323g);
+        ((com.kwad.sdk.reward.d) this).f36458a.i.b(this.f36324g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f36318b = (TextView) b(R.id.ksad_detail_call_btn);
-        this.f36319c = (ImageView) b(R.id.ksad_detail_close_btn);
+        this.f36319b = (TextView) b(R.id.ksad_detail_call_btn);
+        this.f36320c = (ImageView) b(R.id.ksad_detail_close_btn);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f36318b) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36320d, new a.InterfaceC0378a() { // from class: com.kwad.sdk.reward.b.b.b.b.2
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
+        if (view == this.f36319b) {
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36321d, new a.InterfaceC0379a() { // from class: com.kwad.sdk.reward.b.b.b.b.2
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
                 public void a() {
                     b.this.g();
                 }
-            }, this.f36321e);
+            }, this.f36322e);
         }
     }
 }

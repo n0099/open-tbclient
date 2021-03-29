@@ -9,7 +9,7 @@ import com.baidu.mapsdkplatform.comapi.util.f;
 public class e extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7533a = e.class.getSimpleName();
+    public static final String f7534a = e.class.getSimpleName();
 
     public void a(Context context) {
         String currentNetMode = NetworkUtil.getCurrentNetMode(context);

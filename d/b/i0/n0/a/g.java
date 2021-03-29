@@ -20,28 +20,28 @@ import java.util.ArrayList;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public BawuTeamInfoActivity f56991a;
+    public BawuTeamInfoActivity f56992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f56992b;
+    public BdListView f56993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f56993c;
+    public h f56994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f56994d;
+    public NavigationBar f56995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f56995e;
+    public View f56996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f56996f;
+    public NoNetworkView f56997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56997g = false;
+    public boolean f56998g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f56998h;
+    public View f56999h;
     public d.b.h0.s.i.b i;
     public h.d j;
 
@@ -53,7 +53,7 @@ public class g {
         @Override // d.b.i0.n0.a.h.d
         public void a(String str) {
             if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                UrlManager.getInstance().dealOneLink(g.this.f56991a.getPageContext(), new String[]{str});
+                UrlManager.getInstance().dealOneLink(g.this.f56992a.getPageContext(), new String[]{str});
             } else {
                 g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
             }
@@ -61,45 +61,45 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.f56991a = bawuTeamInfoActivity;
+        this.f56992a = bawuTeamInfoActivity;
         View inflate = LayoutInflater.from(bawuTeamInfoActivity.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.f56995e = inflate;
-        this.f56991a.setContentView(inflate);
-        this.f56998h = this.f56995e.findViewById(R.id.root_bawu_team_info);
-        NavigationBar navigationBar = (NavigationBar) this.f56995e.findViewById(R.id.view_navigation_bar);
-        this.f56994d = navigationBar;
-        navigationBar.setCenterTextTitle(this.f56991a.getString(R.string.bawu_manager_team));
-        this.f56994d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f56994d.showBottomLine();
-        this.f56996f = (NoNetworkView) this.f56995e.findViewById(R.id.view_no_network);
-        this.f56992b = (BdListView) this.f56995e.findViewById(R.id.listview_bawu_team_info);
-        h hVar = new h(this.f56991a.getPageContext());
-        this.f56993c = hVar;
-        this.f56992b.setAdapter((ListAdapter) hVar);
+        this.f56996e = inflate;
+        this.f56992a.setContentView(inflate);
+        this.f56999h = this.f56996e.findViewById(R.id.root_bawu_team_info);
+        NavigationBar navigationBar = (NavigationBar) this.f56996e.findViewById(R.id.view_navigation_bar);
+        this.f56995d = navigationBar;
+        navigationBar.setCenterTextTitle(this.f56992a.getString(R.string.bawu_manager_team));
+        this.f56995d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f56995d.showBottomLine();
+        this.f56997f = (NoNetworkView) this.f56996e.findViewById(R.id.view_no_network);
+        this.f56993b = (BdListView) this.f56996e.findViewById(R.id.listview_bawu_team_info);
+        h hVar = new h(this.f56992a.getPageContext());
+        this.f56994c = hVar;
+        this.f56993b.setAdapter((ListAdapter) hVar);
         a aVar = new a();
         this.j = aVar;
-        this.f56993c.f(aVar);
+        this.f56994c.f(aVar);
     }
 
     public void c() {
-        this.f56991a.hideNetRefreshView(this.f56995e);
-        this.f56992b.setVisibility(0);
+        this.f56992a.hideNetRefreshView(this.f56996e);
+        this.f56993b.setVisibility(0);
     }
 
     public View d() {
-        return this.f56998h;
+        return this.f56999h;
     }
 
     public boolean e() {
-        return this.f56997g;
+        return this.f56998g;
     }
 
     public void f(int i) {
-        this.f56991a.getLayoutMode().k(i == 1);
-        this.f56991a.getLayoutMode().j(this.f56995e);
-        this.f56994d.onChangeSkinType(this.f56991a.getPageContext(), i);
-        this.f56996f.c(this.f56991a.getPageContext(), i);
-        this.f56993c.notifyDataSetChanged();
+        this.f56992a.getLayoutMode().k(i == 1);
+        this.f56992a.getLayoutMode().j(this.f56996e);
+        this.f56995d.onChangeSkinType(this.f56992a.getPageContext(), i);
+        this.f56997f.c(this.f56992a.getPageContext(), i);
+        this.f56994c.notifyDataSetChanged();
     }
 
     public void g() {
@@ -110,12 +110,12 @@ public class g {
     }
 
     public void h(NoNetworkView.b bVar) {
-        this.f56996f.a(bVar);
+        this.f56997f.a(bVar);
     }
 
     public final void i(AccountData accountData) {
         if (this.i == null) {
-            this.i = new d.b.h0.s.i.b(this.f56991a);
+            this.i = new d.b.h0.s.i.b(this.f56992a);
         }
         this.i.p();
         this.i.u(accountData);
@@ -123,23 +123,23 @@ public class g {
     }
 
     public void j() {
-        this.f56992b.setVisibility(8);
-        this.f56991a.showNetRefreshView(this.f56995e, this.f56991a.getPageContext().getResources().getString(R.string.no_data_text), true);
+        this.f56993b.setVisibility(8);
+        this.f56992a.showNetRefreshView(this.f56996e, this.f56992a.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
     public void k(ArrayList<i> arrayList, l lVar, boolean z) {
         if (arrayList != null && arrayList.size() > 0) {
-            this.f56997g = false;
+            this.f56998g = false;
         } else {
-            this.f56997g = true;
+            this.f56998g = true;
         }
-        if (z && this.f56997g) {
+        if (z && this.f56998g) {
             j();
             return;
         }
         c();
-        this.f56993c.d(arrayList);
-        this.f56993c.e(lVar);
-        this.f56993c.notifyDataSetChanged();
+        this.f56994c.d(arrayList);
+        this.f56994c.e(lVar);
+        this.f56994c.notifyDataSetChanged();
     }
 }

@@ -17,7 +17,7 @@ public class HodorConfig {
     public static String sMediaDirFullPath;
     public static String sResourceDirFullPath;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface HodorQueueMode {
     }
 
@@ -42,9 +42,7 @@ public class HodorConfig {
     public static long getReasonableMediaCacheBytesLimit(String str) {
         long availableBytes = FileUtils.getAvailableBytes(str);
         sMediaDirAvialbleMB = availableBytes / 1048576;
-        double d2 = availableBytes;
-        Double.isNaN(d2);
-        return (long) Math.max(1.048576E7d, Math.min(d2 * 0.5d, 2.68435456E8d));
+        return (long) Math.max(1.048576E7d, Math.min(availableBytes * 0.5d, 2.68435456E8d));
     }
 
     public static String getResourceDirFullPath() {

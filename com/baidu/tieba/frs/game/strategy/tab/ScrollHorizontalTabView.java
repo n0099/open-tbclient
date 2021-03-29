@@ -23,16 +23,16 @@ import java.util.List;
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d.b.i0.p0.s1.a.d.e> f16321e;
+    public final List<d.b.i0.p0.s1.a.d.e> f16322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<TextView> f16322f;
+    public final List<TextView> f16323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f16323g;
+    public final int f16324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f16324h;
+    public final int f16325h;
     public boolean i;
     public int j;
     public int k;
@@ -53,13 +53,13 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int size = ScrollHorizontalTabView.this.f16322f.size();
+            int size = ScrollHorizontalTabView.this.f16323f.size();
             int i = 0;
             int i2 = 0;
             while (true) {
                 if (i2 >= size) {
                     break;
-                } else if (view == ScrollHorizontalTabView.this.f16322f.get(i2)) {
+                } else if (view == ScrollHorizontalTabView.this.f16323f.get(i2)) {
                     i = i2;
                     break;
                 } else {
@@ -92,15 +92,15 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16327e;
+        public final /* synthetic */ int f16328e;
 
         public c(int i) {
-            this.f16327e = i;
+            this.f16328e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ScrollHorizontalTabView.this.scrollBy(0 - this.f16327e, 0);
+            ScrollHorizontalTabView.this.scrollBy(0 - this.f16328e, 0);
         }
     }
 
@@ -148,7 +148,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            d.b.i0.p0.s1.a.d.e eVar = (d.b.i0.p0.s1.a.d.e) ListUtils.getItem(ScrollHorizontalTabView.this.f16321e, i);
+            d.b.i0.p0.s1.a.d.e eVar = (d.b.i0.p0.s1.a.d.e) ListUtils.getItem(ScrollHorizontalTabView.this.f16322e, i);
             if (ScrollHorizontalTabView.this.s == null || ScrollHorizontalTabView.this.s.b(i, eVar)) {
                 if (ScrollHorizontalTabView.this.s != null) {
                     ScrollHorizontalTabView.this.s.a(i, eVar);
@@ -180,10 +180,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     public ScrollHorizontalTabView(Context context) {
         super(context);
-        this.f16321e = new ArrayList();
-        this.f16322f = new ArrayList();
-        this.f16323g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f16324h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16322e = new ArrayList();
+        this.f16323f = new ArrayList();
+        this.f16324g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16325h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);
@@ -196,13 +196,13 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public final void fillTabData() {
-        int size = this.f16321e.size();
-        int size2 = this.f16322f.size();
+        int size = this.f16322e.size();
+        int size2 = this.f16323f.size();
         for (int i = 0; i < size && i < size2; i++) {
-            d.b.i0.p0.s1.a.d.e eVar = this.f16321e.get(i);
-            TextView textView = this.f16322f.get(i);
+            d.b.i0.p0.s1.a.d.e eVar = this.f16322e.get(i);
+            TextView textView = this.f16323f.get(i);
             if (eVar != null && textView != null) {
-                textView.setText(eVar.f58553b);
+                textView.setText(eVar.f58554b);
             }
         }
     }
@@ -234,7 +234,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (isInEditMode() || this.f16322f.isEmpty()) {
+        if (isInEditMode() || this.f16323f.isEmpty()) {
             return;
         }
         int height = getHeight();
@@ -242,27 +242,27 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         View childAt = this.o.getChildAt(this.j);
         int width = (childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight();
         int left = this.o.getLeft() + childAt.getLeft() + childAt.getPaddingLeft();
-        int i = this.f16324h;
+        int i = this.f16325h;
         float f2 = left + ((width - i) / 2);
         float f3 = i + f2;
         if (this.l > 0.0f && this.j < this.o.getChildCount() - 1) {
             View childAt2 = this.o.getChildAt(this.j + 1);
             int width2 = (childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft();
             int left2 = childAt2.getLeft() + childAt2.getPaddingLeft() + this.o.getLeft();
-            int i2 = this.f16324h;
+            int i2 = this.f16325h;
             float f4 = left2 + ((width2 - i2) / 2);
             float f5 = this.l;
             f2 = (f4 * f5) + ((1.0f - f5) * f2);
             f3 = ((i2 + f4) * f5) + ((1.0f - f5) * f3);
         }
-        canvas.drawRect(f2, height - this.f16323g, f3, height, this.p);
+        canvas.drawRect(f2, height - this.f16324g, f3, height, this.p);
     }
 
     public final void scrollToChild(int i, int i2) {
-        if (this.f16322f.isEmpty()) {
+        if (this.f16323f.isEmpty()) {
             return;
         }
-        int left = this.f16322f.get(i).getLeft() + i2;
+        int left = this.f16323f.get(i).getLeft() + i2;
         if (i > 0 || i2 > 0) {
             left -= this.m;
         }
@@ -277,9 +277,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public void setData(List<d.b.i0.p0.s1.a.d.e> list) {
-        this.f16321e.clear();
+        this.f16322e.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.f16321e.addAll(list);
+            this.f16322e.addAll(list);
         }
         setupTabItems();
         fillTabData();
@@ -311,8 +311,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public final void setupTabItems() {
-        int size = this.f16321e.size();
-        int size2 = this.f16322f.size();
+        int size = this.f16322e.size();
+        int size2 = this.f16323f.size();
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds4);
         int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
         if (size > size2) {
@@ -322,25 +322,25 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 textView.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
                 textView.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
                 textView.setGravity(17);
-                this.f16322f.add(textView);
+                this.f16323f.add(textView);
                 size2++;
             }
         } else if (size < size2) {
             for (int i = size2 - 1; i >= size; i--) {
-                this.f16322f.remove(i);
+                this.f16323f.remove(i);
             }
         }
         this.o.removeAllViews();
-        int size3 = this.f16322f.size();
+        int size3 = this.f16323f.size();
         for (int i2 = 0; i2 < size3; i2++) {
-            this.o.addView(this.f16322f.get(i2));
+            this.o.addView(this.f16323f.get(i2));
         }
     }
 
     public final void updateTabStyles() {
-        int size = this.f16322f.size();
+        int size = this.f16323f.size();
         for (int i = 0; i < size; i++) {
-            TextView textView = this.f16322f.get(i);
+            TextView textView = this.f16323f.get(i);
             if (textView instanceof TextView) {
                 TextView textView2 = textView;
                 if (i == this.j) {
@@ -355,7 +355,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setCurrentIndex(int i, boolean z) {
         if (z) {
             int[] iArr = new int[2];
-            ((View) ListUtils.getItem(this.f16322f, i)).getLocationOnScreen(iArr);
+            ((View) ListUtils.getItem(this.f16323f, i)).getLocationOnScreen(iArr);
             int k = l.k(getContext()) - iArr[0];
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
             if (iArr[0] < 0) {
@@ -373,10 +373,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     public ScrollHorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16321e = new ArrayList();
-        this.f16322f = new ArrayList();
-        this.f16323g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f16324h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16322e = new ArrayList();
+        this.f16323f = new ArrayList();
+        this.f16324g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16325h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);
@@ -390,10 +390,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     public ScrollHorizontalTabView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16321e = new ArrayList();
-        this.f16322f = new ArrayList();
-        this.f16323g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.f16324h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.f16322e = new ArrayList();
+        this.f16323f = new ArrayList();
+        this.f16324g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.f16325h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.i = false;
         this.j = 0;
         this.k = SkinManager.getColor(R.color.CAM_X0106);

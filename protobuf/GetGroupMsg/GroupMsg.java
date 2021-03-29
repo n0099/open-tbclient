@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.MsgInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class GroupMsg extends Message {
     @ProtoField(tag = 1)
     public final GroupInfo groupInfo;

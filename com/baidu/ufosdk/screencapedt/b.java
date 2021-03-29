@@ -7,10 +7,10 @@ import com.baidu.ufosdk.f.m;
 public final class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f22979a;
+    public final /* synthetic */ ScreenCapEditActivity f22980a;
 
     public b(ScreenCapEditActivity screenCapEditActivity) {
-        this.f22979a = screenCapEditActivity;
+        this.f22980a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,17 +19,17 @@ public final class b implements View.OnClickListener {
         boolean z2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        ScreenCapEditActivity screenCapEditActivity = this.f22979a;
+        ScreenCapEditActivity screenCapEditActivity = this.f22980a;
         z = screenCapEditActivity.H;
         screenCapEditActivity.H = !z;
-        z2 = this.f22979a.H;
+        z2 = this.f22980a.H;
         if (z2) {
-            relativeLayout2 = this.f22979a.Q;
+            relativeLayout2 = this.f22980a.Q;
             relativeLayout2.setBackgroundColor(-16777216);
             return;
         }
-        relativeLayout = this.f22979a.Q;
-        this.f22979a.getApplicationContext();
+        relativeLayout = this.f22980a.Q;
+        this.f22980a.getApplicationContext();
         relativeLayout.setBackgroundDrawable(m.a(-16777216));
     }
 }

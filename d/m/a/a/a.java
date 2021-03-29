@@ -3,19 +3,19 @@ package d.m.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66270a = 255;
+    public static int f66271a = 255;
 
     public static String a() {
-        return f66270a != 0 ? "" : "https://bds.snssdk.com";
+        return f66271a != 0 ? "" : "https://bds.snssdk.com";
     }
 
     public static synchronized void b(int i) {
         synchronized (a.class) {
-            f66270a = i;
+            f66271a = i;
         }
     }
 
     public static String c() {
-        return f66270a != 0 ? "" : "https://sdfp.snssdk.com";
+        return f66271a != 0 ? "" : "https://sdfp.snssdk.com";
     }
 }

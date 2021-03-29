@@ -11,32 +11,32 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a2 f60508a;
+    public a2 f60509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60509b;
+    public boolean f60510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60510c;
+    public long f60511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<a> f60511d;
+    public List<a> f60512d;
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f60512a;
+        public int f60513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60513b;
+        public String f60514b;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f60512a = jSONObject.optInt("tag_type");
-            this.f60513b = jSONObject.optString("tag_word");
+            this.f60513a = jSONObject.optInt("tag_type");
+            this.f60514b = jSONObject.optString("tag_word");
         }
     }
 
@@ -44,12 +44,12 @@ public class b {
         if (jSONObject == null) {
             return;
         }
-        this.f60509b = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
-        this.f60510c = jSONObject.optLong("last_watch_time");
+        this.f60510b = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
+        this.f60511c = jSONObject.optLong("last_watch_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
         if (optJSONObject != null) {
             a2 a2Var = new a2();
-            this.f60508a = a2Var;
+            this.f60509a = a2Var;
             a2Var.P2(optJSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
@@ -57,13 +57,13 @@ public class b {
             return;
         }
         int length = optJSONArray.length();
-        this.f60511d = new ArrayList(length);
+        this.f60512d = new ArrayList(length);
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
             if (optJSONObject2 != null) {
                 a aVar = new a();
                 aVar.a(optJSONObject2);
-                this.f60511d.add(aVar);
+                this.f60512d.add(aVar);
             }
         }
     }

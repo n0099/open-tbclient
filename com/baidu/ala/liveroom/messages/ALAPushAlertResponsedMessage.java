@@ -92,7 +92,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // d.b.b.e.l.c
                                 public void onLoaded(a aVar, String str5, int i2) {
-                                    super.onLoaded((C00221) aVar, str5, i2);
+                                    super.onLoaded((C00231) aVar, str5, i2);
                                     if (aVar != null && aVar.p() != null) {
                                         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                         int hashCode = Long.valueOf(optLong).hashCode();

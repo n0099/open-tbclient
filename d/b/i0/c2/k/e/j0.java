@@ -42,7 +42,7 @@ public class j0 extends m<d1, PbRecommendNovelHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public PbRecommendNovelHolder R(ViewGroup viewGroup) {
-        return new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f42357e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t);
+        return new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f42358e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t);
     }
 
     public View m0(int i, View view, ViewGroup viewGroup, d1 d1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {

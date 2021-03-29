@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.DislikeReason;
 import tbclient.RecomVertical.ThreadPersonalized;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(DataRes dataRes, List<n> list) {
         d.b.i0.x.e0.b bVar;

@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.tieba.im.push.PushResponseMessage;
 import d.b.b.c.f.j;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends j {
     public d() {
         super(202009);

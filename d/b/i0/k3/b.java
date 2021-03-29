@@ -15,16 +15,16 @@ import d.b.h0.r.s.a;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f56463d = false;
+    public static boolean f56464d = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public UEGCancelModel.b f56465b;
+    public UEGCancelModel.b f56466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56466c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+    public int f56467c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
 
     /* renamed from: a  reason: collision with root package name */
-    public UEGCancelModel f56464a = new UEGCancelModel();
+    public UEGCancelModel f56465a = new UEGCancelModel();
 
     /* loaded from: classes5.dex */
     public class a implements UEGCancelModel.b {
@@ -33,7 +33,7 @@ public class b {
 
         @Override // com.baidu.tieba.ueg.UEGCancelModel.b
         public void a(BlockPopInfoData blockPopInfoData) {
-            if (blockPopInfoData == null || b.f56463d) {
+            if (blockPopInfoData == null || b.f56464d) {
                 return;
             }
             b.this.d(blockPopInfoData);
@@ -42,19 +42,19 @@ public class b {
 
     /* renamed from: d.b.i0.k3.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1324b implements a.e {
+    public class C1325b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f56468e;
+        public final /* synthetic */ BlockPopInfoData f56469e;
 
-        public C1324b(BlockPopInfoData blockPopInfoData) {
-            this.f56468e = blockPopInfoData;
+        public C1325b(BlockPopInfoData blockPopInfoData) {
+            this.f56469e = blockPopInfoData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", b.this.f56466c).param("obj_type", this.f56468e.win_type));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", b.this.f56467c).param("obj_type", this.f56469e.win_type));
         }
     }
 
@@ -62,29 +62,29 @@ public class b {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f56470e;
+        public final /* synthetic */ BlockPopInfoData f56471e;
 
         public c(BlockPopInfoData blockPopInfoData) {
-            this.f56470e = blockPopInfoData;
+            this.f56471e = blockPopInfoData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            b.this.e(this.f56470e);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", b.this.f56466c).param("obj_type", this.f56470e.win_type));
+            b.this.e(this.f56471e);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", b.this.f56467c).param("obj_type", this.f56471e.win_type));
         }
     }
 
     public b() {
-        if (this.f56465b == null) {
-            this.f56465b = new a();
+        if (this.f56466b == null) {
+            this.f56466b = new a();
         }
-        this.f56464a.u(this.f56465b);
+        this.f56465a.u(this.f56466b);
     }
 
     public void c(int i) {
-        this.f56466c = i;
-        this.f56464a.t();
+        this.f56467c = i;
+        this.f56465a.t();
     }
 
     public final void d(BlockPopInfoData blockPopInfoData) {
@@ -113,7 +113,7 @@ public class b {
         d.b.h0.r.d0.b i3 = d.b.h0.r.d0.b.i();
         i3.s(str + i + currentAccount, true);
         h(blockPopInfoData);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f56466c).param("obj_type", i));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f56467c).param("obj_type", i));
     }
 
     public final void e(BlockPopInfoData blockPopInfoData) {
@@ -125,14 +125,14 @@ public class b {
     }
 
     public void f() {
-        UEGCancelModel uEGCancelModel = this.f56464a;
+        UEGCancelModel uEGCancelModel = this.f56465a;
         if (uEGCancelModel != null) {
             uEGCancelModel.onDestroy();
         }
     }
 
     public void g(boolean z) {
-        f56463d = z;
+        f56464d = z;
     }
 
     public final void h(BlockPopInfoData blockPopInfoData) {
@@ -142,7 +142,7 @@ public class b {
         }
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(b2);
         aVar.setMessage(blockPopInfoData.block_info);
-        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1324b(blockPopInfoData));
+        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1325b(blockPopInfoData));
         aVar.setPositiveButton(blockPopInfoData.ahead_info, new c(blockPopInfoData));
         aVar.create(((g) b2).getPageContext());
         aVar.show();

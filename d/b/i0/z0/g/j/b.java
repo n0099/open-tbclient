@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import d.b.i0.x.e0.p;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.i0.x.e0.i implements p {
     public CardForum i;
 
@@ -54,10 +54,10 @@ public class b extends d.b.i0.x.e0.i implements p {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         d.b.i0.x.e0.g gVar = new d.b.i0.x.e0.g();
-                        gVar.f62205b = personalForum.avatar;
-                        gVar.f62206c = personalForum.forum_name;
-                        gVar.f62207d = d.b.b.e.m.b.d("" + personalForum.forum_id, -1);
-                        gVar.f62208e = personalForum.is_like.intValue() == 1;
+                        gVar.f62206b = personalForum.avatar;
+                        gVar.f62207c = personalForum.forum_name;
+                        gVar.f62208d = d.b.b.e.m.b.d("" + personalForum.forum_id, -1);
+                        gVar.f62209e = personalForum.is_like.intValue() == 1;
                         g(gVar);
                     }
                 }

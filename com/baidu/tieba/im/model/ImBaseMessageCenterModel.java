@@ -18,7 +18,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public f mBdPageContext;
     public final LinkedList<ImMessageCenterShowItemData> mList;

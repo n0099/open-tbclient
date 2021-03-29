@@ -9,20 +9,20 @@ import androidx.annotation.NonNull;
 import com.heytap.mcssdk.PushManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.t.b.d {
     public a(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-CheckAppInstall", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-CheckAppInstall", "parse fail");
             }
             return bVar;

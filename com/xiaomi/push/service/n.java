@@ -9,7 +9,7 @@ import java.util.List;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static n f41050a;
+    public static n f41051a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f961a;
@@ -18,10 +18,10 @@ public class n {
     public List<String> f962a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f41051b = new ArrayList();
+    public final List<String> f41052b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<String> f41052c = new ArrayList();
+    public final List<String> f41053c = new ArrayList();
 
     public n(Context context) {
         String[] split;
@@ -40,21 +40,21 @@ public class n {
         }
         for (String str2 : sharedPreferences.getString("disable_push_pkg_names", "").split(",")) {
             if (!TextUtils.isEmpty(str2)) {
-                this.f41051b.add(str2);
+                this.f41052b.add(str2);
             }
         }
         for (String str3 : sharedPreferences.getString("disable_push_pkg_names_cache", "").split(",")) {
             if (!TextUtils.isEmpty(str3)) {
-                this.f41052c.add(str3);
+                this.f41053c.add(str3);
             }
         }
     }
 
     public static n a(Context context) {
-        if (f41050a == null) {
-            f41050a = new n(context);
+        if (f41051a == null) {
+            f41051a = new n(context);
         }
-        return f41050a;
+        return f41051a;
     }
 
     public void a(String str) {
@@ -76,10 +76,10 @@ public class n {
     }
 
     public void b(String str) {
-        synchronized (this.f41051b) {
-            if (!this.f41051b.contains(str)) {
-                this.f41051b.add(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41051b, ",")).commit();
+        synchronized (this.f41052b) {
+            if (!this.f41052b.contains(str)) {
+                this.f41052b.add(str);
+                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41052b, ",")).commit();
             }
         }
     }
@@ -87,17 +87,17 @@ public class n {
     /* renamed from: b  reason: collision with other method in class */
     public boolean m615b(String str) {
         boolean contains;
-        synchronized (this.f41051b) {
-            contains = this.f41051b.contains(str);
+        synchronized (this.f41052b) {
+            contains = this.f41052b.contains(str);
         }
         return contains;
     }
 
     public void c(String str) {
-        synchronized (this.f41052c) {
-            if (!this.f41052c.contains(str)) {
-                this.f41052c.add(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41052c, ",")).commit();
+        synchronized (this.f41053c) {
+            if (!this.f41053c.contains(str)) {
+                this.f41053c.add(str);
+                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41053c, ",")).commit();
             }
         }
     }
@@ -105,8 +105,8 @@ public class n {
     /* renamed from: c  reason: collision with other method in class */
     public boolean m616c(String str) {
         boolean contains;
-        synchronized (this.f41052c) {
-            contains = this.f41052c.contains(str);
+        synchronized (this.f41053c) {
+            contains = this.f41053c.contains(str);
         }
         return contains;
     }
@@ -121,19 +121,19 @@ public class n {
     }
 
     public void e(String str) {
-        synchronized (this.f41051b) {
-            if (this.f41051b.contains(str)) {
-                this.f41051b.remove(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41051b, ",")).commit();
+        synchronized (this.f41052b) {
+            if (this.f41052b.contains(str)) {
+                this.f41052b.remove(str);
+                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f41052b, ",")).commit();
             }
         }
     }
 
     public void f(String str) {
-        synchronized (this.f41052c) {
-            if (this.f41052c.contains(str)) {
-                this.f41052c.remove(str);
-                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41052c, ",")).commit();
+        synchronized (this.f41053c) {
+            if (this.f41053c.contains(str)) {
+                this.f41053c.remove(str);
+                this.f961a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f41053c, ",")).commit();
             }
         }
     }

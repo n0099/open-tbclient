@@ -24,16 +24,16 @@ import java.util.List;
 public class AppDownloadView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20858e;
+    public TextView f20859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f20859f;
+    public ProgressBar f20860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20860g;
+    public ImageView f20861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20861h;
+    public TextView f20862h;
     public DownloadData i;
     public CustomMessageListener j;
     public CustomMessageListener k;
@@ -42,10 +42,10 @@ public class AppDownloadView extends LinearLayout {
     public static abstract class AppDownloadListener implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AppDownloadView f20864e;
+        public AppDownloadView f20865e;
 
         public void setAppDownloadView(AppDownloadView appDownloadView) {
-            this.f20864e = appDownloadView;
+            this.f20865e = appDownloadView;
         }
     }
 
@@ -64,10 +64,10 @@ public class AppDownloadView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         View inflate = LayoutInflater.from(context).inflate(R.layout.app_download_layout, (ViewGroup) this, true);
-        this.f20858e = (TextView) inflate.findViewById(R.id.app_push_title);
-        this.f20859f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
-        this.f20860g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
-        this.f20861h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
+        this.f20859e = (TextView) inflate.findViewById(R.id.app_push_title);
+        this.f20860f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
+        this.f20861g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
+        this.f20862h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -78,7 +78,7 @@ public class AppDownloadView extends LinearLayout {
         int status = downloadData.getStatus();
         if (status == 1) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f20860g, R.drawable.icon_download_pause);
+            SkinManager.setImageResource(this.f20861g, R.drawable.icon_download_pause);
         } else if (status == 3) {
             setVisibility(8);
         } else if (status == 5) {
@@ -87,7 +87,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(8);
         } else if (status == 7) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f20860g, R.drawable.icon_download_play);
+            SkinManager.setImageResource(this.f20861g, R.drawable.icon_download_play);
         }
         int j = e.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
@@ -140,9 +140,9 @@ public class AppDownloadView extends LinearLayout {
                     }
                     int p = e.p(downloadData);
                     if (p == 7) {
-                        SkinManager.setImageResource(AppDownloadView.this.f20860g, R.drawable.icon_download_pause);
+                        SkinManager.setImageResource(AppDownloadView.this.f20861g, R.drawable.icon_download_pause);
                     } else if (p == 1) {
-                        SkinManager.setImageResource(AppDownloadView.this.f20860g, R.drawable.icon_download_play);
+                        SkinManager.setImageResource(AppDownloadView.this.f20861g, R.drawable.icon_download_play);
                     }
                 }
             };
@@ -169,8 +169,8 @@ public class AppDownloadView extends LinearLayout {
 
     public final void h(int i) {
         int max = Math.max(0, i);
-        this.f20859f.setProgress(max);
-        TextView textView = this.f20861h;
+        this.f20860f.setProgress(max);
+        TextView textView = this.f20862h;
         textView.setText(max + "%");
     }
 
@@ -181,10 +181,10 @@ public class AppDownloadView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        SkinManager.setViewTextColor(this.f20858e, R.color.CAM_X0108, 1, i);
-        this.f20859f.setProgressDrawable(SkinManager.getDrawable(i, R.drawable.progress_download_app_layerlist));
-        SkinManager.setImageResource(this.f20860g, R.drawable.icon_download_play, i);
-        SkinManager.setViewTextColor(this.f20861h, R.color.CAM_X0109, 1, i);
+        SkinManager.setViewTextColor(this.f20859e, R.color.CAM_X0108, 1, i);
+        this.f20860f.setProgressDrawable(SkinManager.getDrawable(i, R.drawable.progress_download_app_layerlist));
+        SkinManager.setImageResource(this.f20861g, R.drawable.icon_download_play, i);
+        SkinManager.setViewTextColor(this.f20862h, R.color.CAM_X0109, 1, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -195,9 +195,9 @@ public class AppDownloadView extends LinearLayout {
 
     public void refreshControlIcon(int i) {
         if (i == 1) {
-            SkinManager.setImageResource(this.f20860g, R.drawable.icon_download_pause);
+            SkinManager.setImageResource(this.f20861g, R.drawable.icon_download_pause);
         } else {
-            SkinManager.setImageResource(this.f20860g, R.drawable.icon_download_play);
+            SkinManager.setImageResource(this.f20861g, R.drawable.icon_download_play);
         }
     }
 
@@ -225,7 +225,7 @@ public class AppDownloadView extends LinearLayout {
     }
 
     public void showTitleView(int i) {
-        this.f20858e.setVisibility(i);
+        this.f20859e.setVisibility(i);
     }
 
     public AppDownloadView(Context context, AttributeSet attributeSet) {

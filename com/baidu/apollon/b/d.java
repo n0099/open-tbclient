@@ -6,14 +6,14 @@ import java.security.NoSuchAlgorithmException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f3509a = b();
+    public static final X509TrustManager f3510a = b();
 
     public static X509TrustManager a() {
-        return f3509a;
+        return f3510a;
     }
 
     public static X509TrustManager b() {

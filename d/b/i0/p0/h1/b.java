@@ -40,8 +40,8 @@ public class b extends d.b.i0.x.b<c> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
-            this.f62179e = i;
+        if (this.f62180e != i) {
+            this.f62180e = i;
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.q, R.drawable.ad_list_item_bg);

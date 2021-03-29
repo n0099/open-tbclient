@@ -55,7 +55,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPlayer {
-    public static final boolean C0 = k.f45050a;
+    public static final boolean C0 = k.f45051a;
     public BaseNpcModel A0;
     public boolean B0;
     public WalkNavigateHelper y0;
@@ -63,18 +63,18 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
 
     /* renamed from: d.b.g0.h.a.j.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1013a implements c {
+    public class C1014a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bundle f48823a;
+        public final /* synthetic */ Bundle f48824a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f48824b;
+        public final /* synthetic */ Context f48825b;
 
         /* renamed from: d.b.g0.h.a.j.h.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1014a implements IWMoreNPCModelOnClickListener {
-            public C1014a() {
+        public class C1015a implements IWMoreNPCModelOnClickListener {
+            public C1015a() {
             }
 
             @Override // com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener
@@ -93,20 +93,20 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
             }
         }
 
-        public C1013a(Bundle bundle, Context context) {
-            this.f48823a = bundle;
-            this.f48824b = context;
+        public C1014a(Bundle bundle, Context context) {
+            this.f48824a = bundle;
+            this.f48825b = context;
         }
 
         @Override // d.b.g0.h.a.j.h.a.c
         public void a(Bitmap bitmap) {
-            Bundle bundle = this.f48823a;
+            Bundle bundle = this.f48824a;
             String string = bundle != null ? bundle.getString("guideKey") : "";
             if (!TextUtils.isEmpty(string)) {
                 BaseNpcModel baseNpcModel = new BaseNpcModel();
                 baseNpcModel.setDownLoadKey(string);
                 if (bitmap != null) {
-                    bitmap = a.this.H2(bitmap, h0.e(this.f48824b, 44.0f), h0.e(this.f48824b, 44.0f));
+                    bitmap = a.this.H2(bitmap, h0.e(this.f48825b, 44.0f), h0.e(this.f48825b, 44.0f));
                 }
                 Bitmap decodeResource = BitmapFactory.decodeResource(a.this.u(), R.drawable.aiapps_wsdk_npc_drawer_default);
                 if (bitmap == null) {
@@ -116,7 +116,7 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
                 ArrayList<BaseNpcModel> arrayList = new ArrayList<>();
                 arrayList.add(baseNpcModel);
                 a.this.A0 = baseNpcModel;
-                a.this.y0.addMoreNPCModelOnClickListener(new C1014a());
+                a.this.y0.addMoreNPCModelOnClickListener(new C1015a());
                 a.this.y0.setWalkNpcModelInfoList(arrayList);
             }
             a.this.y0.setWalkNaviStatusListener(a.this);
@@ -129,10 +129,10 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
     public class b extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f48827a;
+        public final /* synthetic */ c f48828a;
 
         public b(c cVar) {
-            this.f48827a = cVar;
+            this.f48828a = cVar;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
@@ -140,7 +140,7 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
             if (a.C0) {
                 Log.e("WalkARNavFragment", "onFailureImpl");
             }
-            this.f48827a.a(null);
+            this.f48828a.a(null);
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
@@ -148,7 +148,7 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
             if (a.C0) {
                 Log.e("WalkARNavFragment", "onNewResultImpl");
             }
-            this.f48827a.a(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
+            this.f48828a.a(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
         }
     }
 
@@ -261,7 +261,7 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
         d.b.g0.a.e0.l.f W = f.V().W();
         if (W != null) {
             f.b i = W.i("navigateTo");
-            i.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+            i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
             i.j(this);
             i.b();
         }
@@ -288,7 +288,7 @@ public class a extends d.b.g0.a.e0.l.c implements IWNaviStatusListener, IWTTSPla
             Log.e("WalkARNavFragment", "guideIconPath = " + string);
         }
         Context l = l();
-        F2(l, string, new C1013a(j, l));
+        F2(l, string, new C1014a(j, l));
     }
 
     @Override // d.b.g0.a.e0.l.c

@@ -11,45 +11,45 @@ import tbclient.MissionInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public DataRes f49660a;
+    public DataRes f49661a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49661b = false;
+    public boolean f49662b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49662c = "";
+    public String f49663c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArrayList<d.b.h0.a.b> f49663d = new ArrayList<>();
+    public final ArrayList<d.b.h0.a.b> f49664d = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<FloatStrategy> f49664e = new ArrayList<>();
+    public final ArrayList<FloatStrategy> f49665e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f49665f;
+    public NewUserRedPackageData f49666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ActiveCenterData f49666g;
+    public ActiveCenterData f49667g;
 
     public ArrayList<FloatStrategy> a() {
-        return this.f49664e;
+        return this.f49665e;
     }
 
     public ArrayList<d.b.h0.a.b> b() {
-        return this.f49663d;
+        return this.f49664d;
     }
 
     public void c(DataRes dataRes) {
-        this.f49660a = dataRes;
-        this.f49663d.clear();
-        this.f49664e.clear();
+        this.f49661a = dataRes;
+        this.f49664d.clear();
+        this.f49665e.clear();
         if (dataRes == null) {
             return;
         }
-        this.f49661b = dataRes.is_new_user.intValue() == 1;
-        this.f49662c = dataRes.active_url;
-        this.f49664e.addAll(dataRes.float_list);
-        for (MissionInfo missionInfo : this.f49660a.mission_list) {
+        this.f49662b = dataRes.is_new_user.intValue() == 1;
+        this.f49663c = dataRes.active_url;
+        this.f49665e.addAll(dataRes.float_list);
+        for (MissionInfo missionInfo : this.f49661a.mission_list) {
             if (missionInfo != null) {
                 d.b.h0.a.b bVar = new d.b.h0.a.b(missionInfo);
                 if (missionInfo.tasktype.intValue() == 5) {
@@ -57,16 +57,16 @@ public class b {
                 } else if (missionInfo.tasktype.intValue() == 9) {
                     p.c().f(bVar);
                 } else if (bVar.K()) {
-                    this.f49663d.add(bVar);
+                    this.f49664d.add(bVar);
                 }
             }
         }
         NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-        this.f49665f = newUserRedPackageData;
+        this.f49666f = newUserRedPackageData;
         newUserRedPackageData.parseProto(dataRes);
         if (dataRes.active_center != null) {
             ActiveCenterData activeCenterData = new ActiveCenterData();
-            this.f49666g = activeCenterData;
+            this.f49667g = activeCenterData;
             activeCenterData.parseProto(dataRes);
         }
     }

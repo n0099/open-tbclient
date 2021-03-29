@@ -28,10 +28,10 @@ import d.b.i0.r2.x.h;
 public class a extends d.b.i0.r2.d0.e {
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f59809g;
+    public HeadImageView f59810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59810h;
+    public TextView f59811h;
     public TextView i;
     public ApkDownloadView j;
     public d.b.i0.i1.o.c k;
@@ -44,8 +44,8 @@ public class a extends d.b.i0.r2.d0.e {
 
     /* renamed from: d.b.i0.r2.d0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1506a implements b.a {
-        public C1506a(a aVar) {
+    public class C1507a implements b.a {
+        public C1507a(a aVar) {
         }
 
         @Override // d.b.i0.o.c.e.b.a
@@ -58,21 +58,21 @@ public class a extends d.b.i0.r2.d0.e {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f59811e;
+        public final /* synthetic */ AdvertAppInfo f59812e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f59812f;
+        public final /* synthetic */ int f59813f;
 
         public b(AdvertAppInfo advertAppInfo, int i) {
-            this.f59811e = advertAppInfo;
-            this.f59812f = i;
+            this.f59812e = advertAppInfo;
+            this.f59813f = i;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            a.this.r(this.f59811e, this.f59812f);
+            a.this.r(this.f59812e, this.f59813f);
             if (a.this.j != null) {
-                a.this.j.v(a.this.A(this.f59811e, this.f59812f));
+                a.this.j.v(a.this.A(this.f59812e, this.f59813f));
             }
             aVar.dismiss();
         }
@@ -110,37 +110,37 @@ public class a extends d.b.i0.r2.d0.e {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdvertAppInfo f59815e;
+        public AdvertAppInfo f59816e;
 
         public e(AdvertAppInfo advertAppInfo) {
-            this.f59815e = advertAppInfo;
+            this.f59816e = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.A()) {
                 boolean z = view == a.this.j;
-                d.b.i0.i1.o.h.c.h(a.this.f59832e);
+                d.b.i0.i1.o.h.c.h(a.this.f59833e);
                 if (a.this.v()) {
                     a.this.j.performClick();
                     return;
                 }
-                AdvertAppInfo advertAppInfo = this.f59815e;
+                AdvertAppInfo advertAppInfo = this.f59816e;
                 if (advertAppInfo != null) {
                     int d2 = d.b.b.e.m.b.d(advertAppInfo.K3, -1);
-                    int m = ApkDownloadView.m(a.this.A(this.f59815e, d2));
+                    int m = ApkDownloadView.m(a.this.A(this.f59816e, d2));
                     if ((6 == m || 7 == m) && j.z() && !j.H()) {
-                        AdvertAppInfo.a aVar = this.f59815e.U3;
-                        a.this.z(this.f59815e, d2, true, aVar != null ? aVar.f13208g : "");
+                        AdvertAppInfo.a aVar = this.f59816e.U3;
+                        a.this.z(this.f59816e, d2, true, aVar != null ? aVar.f13209g : "");
                         return;
                     }
                     a aVar2 = a.this;
-                    aVar2.s(this.f59815e, d2, aVar2.j, z);
+                    aVar2.s(this.f59816e, d2, aVar2.j, z);
                     return;
                 }
                 return;
             }
-            a.this.f59833f.showToast(R.string.neterror);
+            a.this.f59834f.showToast(R.string.neterror);
         }
     }
 
@@ -175,7 +175,7 @@ public class a extends d.b.i0.r2.d0.e {
     @Override // d.b.i0.r2.d0.e
     public void c() {
         super.c();
-        SkinManager.setViewTextColor(this.f59810h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f59811h, R.color.CAM_X0101, 1);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
         SkinManager.setBackgroundResource(this.i, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
         this.j.setTextColorInitSkin(R.color.CAM_X0101);
@@ -187,39 +187,39 @@ public class a extends d.b.i0.r2.d0.e {
     public void d(AdCard.g gVar) {
         super.d(gVar);
         int i = 0;
-        this.f59809g.W(gVar.f20719c, 10, false);
-        this.f59810h.setText(gVar.f20718b);
-        this.i.setText(gVar.f20721e);
+        this.f59810g.W(gVar.f20720c, 10, false);
+        this.f59811h.setText(gVar.f20719b);
+        this.i.setText(gVar.f20722e);
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
-        d.b.i0.i1.o.h.b bVar = this.f59832e;
+        d.b.i0.i1.o.h.b bVar = this.f59833e;
         if (bVar instanceof AdCard) {
             this.o = ((AdCard) bVar).directDownload;
         }
-        AdvertAppInfo advertAppInfo = this.f59831d;
+        AdvertAppInfo advertAppInfo = this.f59832d;
         if (advertAppInfo != null) {
             e eVar = new e(advertAppInfo);
-            this.f59829b.setOnClickListener(eVar);
+            this.f59830b.setOnClickListener(eVar);
             if (v()) {
-                this.j.setOnClickInterceptListener(new C1506a(this));
+                this.j.setOnClickInterceptListener(new C1507a(this));
             } else {
                 this.j.setOnClickListener(eVar);
             }
             try {
-                if (!TextUtils.isEmpty(this.f59831d.K3)) {
-                    i = Integer.valueOf(this.f59831d.K3).intValue();
+                if (!TextUtils.isEmpty(this.f59832d.K3)) {
+                    i = Integer.valueOf(this.f59832d.K3).intValue();
                 }
             } catch (NumberFormatException unused) {
             }
-            AdvertAppInfo advertAppInfo2 = this.f59831d;
+            AdvertAppInfo advertAppInfo2 = this.f59832d;
             this.l = advertAppInfo2.J3;
             DownloadData A = A(advertAppInfo2, i);
             x(A);
             this.j.setData(A);
         }
         if (!v()) {
-            this.j.j(this.f59833f.getUniqueId());
+            this.j.j(this.f59834f.getUniqueId());
         }
-        this.q.setTag(this.f59833f.getUniqueId());
+        this.q.setTag(this.f59834f.getUniqueId());
         u();
         c();
     }
@@ -241,9 +241,9 @@ public class a extends d.b.i0.r2.d0.e {
         } else {
             this.j.c(DownloadStatus.STATUS_NONE);
         }
-        AdvertAppInfo advertAppInfo = this.f59831d;
+        AdvertAppInfo advertAppInfo = this.f59832d;
         String str = advertAppInfo != null ? advertAppInfo.c4 : "";
-        AdvertAppInfo advertAppInfo2 = this.f59831d;
+        AdvertAppInfo advertAppInfo2 = this.f59832d;
         b2.setExtInfo(advertAppInfo2 != null ? advertAppInfo2.T3 : "");
         b2.setPage(str);
         d.b.i0.o.b.b.d.a aVar = new d.b.i0.o.b.b.d.a(this.j, b2);
@@ -258,8 +258,8 @@ public class a extends d.b.i0.r2.d0.e {
         if (advertAppInfo == null) {
             return;
         }
-        if (!t.c(this.f59833f.getPageActivity())) {
-            l.K(this.f59833f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
+        if (!t.c(this.f59834f.getPageActivity())) {
+            l.K(this.f59834f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
             return;
         }
         d.b.i0.i1.o.c cVar = this.k;
@@ -277,7 +277,7 @@ public class a extends d.b.i0.r2.d0.e {
         Log.e("guoqiangxiang", "status: " + m + " id: " + A.getId());
         if (m != 1) {
             if (m == 3) {
-                h.d(this.f59833f.getPageActivity(), advertAppInfo.J3);
+                h.d(this.f59834f.getPageActivity(), advertAppInfo.J3);
                 return;
             } else if (m != 5) {
                 if (m == 6 || m == 7) {
@@ -294,11 +294,11 @@ public class a extends d.b.i0.r2.d0.e {
 
     public final void t() {
         HeadImageView headImageView = (HeadImageView) b(R.id.user_portrait);
-        this.f59809g = headImageView;
+        this.f59810g = headImageView;
         headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.f59809g.setDefaultBgResource(R.color.CAM_X0205);
-        this.f59809g.setIsRound(true);
-        this.f59810h = (TextView) b(R.id.user_name);
+        this.f59810g.setDefaultBgResource(R.color.CAM_X0205);
+        this.f59810g.setIsRound(true);
+        this.f59811h = (TextView) b(R.id.user_name);
         this.i = (TextView) b(R.id.action);
         this.j = (ApkDownloadView) b(R.id.download_view);
         MessageManager.getInstance().registerListener(this.q);
@@ -306,13 +306,13 @@ public class a extends d.b.i0.r2.d0.e {
 
     public final void u() {
         AdvertAppInfo advertAppInfo;
-        if (!v() || (advertAppInfo = this.f59831d) == null) {
+        if (!v() || (advertAppInfo = this.f59832d) == null) {
             return;
         }
         String str = advertAppInfo.J3;
         DownloadCacheKey g2 = !TextUtils.isEmpty(str) ? d.b.i0.o.c.d.c().g(str) : null;
         if (g2 == null) {
-            AdvertAppInfo advertAppInfo2 = this.f59831d;
+            AdvertAppInfo advertAppInfo2 = this.f59832d;
             g2 = DownloadCacheKey.create(str, advertAppInfo2.I3, advertAppInfo2.J3);
             d.b.i0.o.c.d.c().i(g2, null);
         }
@@ -351,16 +351,16 @@ public class a extends d.b.i0.r2.d0.e {
             return;
         }
         if (!j.A()) {
-            l.K(this.f59833f.getPageActivity(), R.string.neterror);
+            l.K(this.f59834f.getPageActivity(), R.string.neterror);
         } else if (advertAppInfo.A4()) {
             if (TextUtils.isEmpty(str)) {
-                str = this.f59833f.getString(R.string.frs_network_tips);
+                str = this.f59834f.getString(R.string.frs_network_tips);
             }
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f59833f.getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f59834f.getPageActivity());
             aVar.setMessage(str);
             aVar.setPositiveButton(R.string.alert_yes_button, new b(advertAppInfo, i));
             aVar.setNegativeButton(R.string.cancel, new c(this));
-            aVar.create(this.f59833f).show();
+            aVar.create(this.f59834f).show();
         }
     }
 }

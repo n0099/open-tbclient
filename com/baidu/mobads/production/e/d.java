@@ -8,13 +8,13 @@ import java.util.HashMap;
 public class d extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f8465a;
+    public Boolean f8466a;
 
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, Boolean bool) {
         super(context, activity, slotType);
-        this.f8465a = bool;
+        this.f8466a = bool;
         if (c().booleanValue()) {
-            this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
+            this.f8626b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
         }
     }
 
@@ -31,6 +31,6 @@ public class d extends com.baidu.mobads.vo.d {
     }
 
     public Boolean c() {
-        return this.f8465a;
+        return this.f8466a;
     }
 }

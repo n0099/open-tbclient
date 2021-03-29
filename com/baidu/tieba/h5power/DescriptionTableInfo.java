@@ -3,7 +3,7 @@ package com.baidu.tieba.h5power;
 import com.baidu.searchbox.live.interfaces.DI;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DescriptionTableInfo {
     public static String mDescriptionTable;
     public static HashSet<String> mModuleSet;

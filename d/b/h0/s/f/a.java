@@ -7,16 +7,16 @@ import tbclient.GetAddressList.friendList;
 public class a implements TbCheckBox.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51347e = false;
+    public boolean f51348e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51348f;
+    public String f51349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f51349g;
+    public long f51350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51350h;
+    public int f51351h;
     public String i;
     public String j;
     public String k;
@@ -33,7 +33,7 @@ public class a implements TbCheckBox.c {
 
     public String c() {
         StringBuilder sb = new StringBuilder(64);
-        String str = this.f51348f;
+        String str = this.f51349f;
         if (str != null) {
             sb.append(str);
         }
@@ -49,11 +49,11 @@ public class a implements TbCheckBox.c {
     }
 
     public long e() {
-        return this.f51349g;
+        return this.f51350g;
     }
 
     public String f() {
-        return this.f51348f;
+        return this.f51349f;
     }
 
     public String g() {
@@ -65,18 +65,18 @@ public class a implements TbCheckBox.c {
     }
 
     public int i() {
-        return this.f51350h;
+        return this.f51351h;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
-        return this.f51347e;
+        return this.f51348e;
     }
 
     public void j(friendList friendlist) {
         if (friendlist != null) {
-            this.f51348f = friendlist.user_name;
-            this.f51349g = friendlist.user_id.longValue();
+            this.f51349f = friendlist.user_name;
+            this.f51350g = friendlist.user_id.longValue();
             this.i = friendlist.portrait;
             this.m = friendlist.name_show;
             this.j = friendlist.quanpin;
@@ -112,11 +112,11 @@ public class a implements TbCheckBox.c {
     }
 
     public void n(long j) {
-        this.f51349g = j;
+        this.f51350g = j;
     }
 
     public void o(String str) {
-        this.f51348f = str;
+        this.f51349f = str;
     }
 
     public void p(String str) {
@@ -128,11 +128,11 @@ public class a implements TbCheckBox.c {
     }
 
     public void r(int i) {
-        this.f51350h = i;
+        this.f51351h = i;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
-        this.f51347e = z;
+        this.f51348e = z;
     }
 }

@@ -38,31 +38,31 @@ import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d implements d.b.g0.a.z0.h {
     public static volatile d v;
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanCoreVersion f44327a;
+    public SwanCoreVersion f44328a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public ExtensionCore f44328b;
+    public ExtensionCore f44329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.a.e0.k.d.b f44329c;
+    public d.b.g0.a.e0.k.d.b f44330c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.a.e0.o.f.e f44331e;
+    public d.b.g0.a.e0.o.f.e f44332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.e0.o.a f44332f;
+    public d.b.g0.a.e0.o.a f44333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44333g;
+    public boolean f44334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.a.p.d.b f44334h;
+    public d.b.g0.a.p.d.b f44335h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -71,7 +71,7 @@ public final class d implements d.b.g0.a.z0.h {
     public n q;
     public a1 r;
     public d.b.g0.a.p.d.h s;
-    public static final boolean u = d.b.g0.a.k.f45050a;
+    public static final boolean u = d.b.g0.a.k.f45051a;
     public static int w = 10150;
     public static boolean x = false;
     public static PreloadState y = PreloadState.UNKNOWN;
@@ -79,13 +79,13 @@ public final class d implements d.b.g0.a.z0.h {
     public static final boolean A = d.b.g0.a.e0.q.e.a.c();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f44330d = new CopyOnWriteArrayList();
+    public List<n> f44331d = new CopyOnWriteArrayList();
     public LinkedList<d.b.g0.a.k0.b.a> m = new LinkedList<>();
     public final Object n = new Object();
     public final String o = UUID.randomUUID().toString();
     public volatile boolean t = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends d.b.g0.a.e0.g {
         public a() {
         }
@@ -99,7 +99,7 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.i2.u0.b<Boolean> {
         public b() {
         }
@@ -112,14 +112,14 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f44337e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f44338e;
 
         public c(d dVar, d.b.g0.a.i2.u0.b bVar) {
-            this.f44337e = bVar;
+            this.f44338e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -128,7 +128,7 @@ public final class d implements d.b.g0.a.z0.h {
             if (d.u) {
                 Log.i("SwanAppCoreRuntime", "checkRuntimeRetry: isLowDevice " + a2);
             }
-            d.b.g0.a.i2.u0.b bVar = this.f44337e;
+            d.b.g0.a.i2.u0.b bVar = this.f44338e;
             if (bVar != null) {
                 bVar.onCallback(Boolean.FALSE);
             }
@@ -136,8 +136,8 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     /* renamed from: d.b.g0.a.e0.w.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0684d extends n {
+    /* loaded from: classes2.dex */
+    public static class C0685d extends n {
         @Override // d.b.g0.a.e0.w.d.n
         public void b(d dVar) {
             boolean z = !TextUtils.isEmpty(d.b.g0.a.r1.d.e().getAppId());
@@ -150,7 +150,7 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements Runnable {
         public e(d dVar) {
         }
@@ -161,22 +161,22 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f extends n {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f44338e;
+            public final /* synthetic */ d f44339e;
 
             public a(f fVar, d dVar) {
-                this.f44338e = dVar;
+                this.f44339e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.f44338e.I0();
+                this.f44339e.I0();
             }
         }
 
@@ -204,7 +204,7 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g extends n {
         public g(d dVar) {
         }
@@ -222,42 +222,42 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class h extends n {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f44339e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f44340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.g f44340f;
+        public final /* synthetic */ d.g f44341f;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f44342e;
+            public final /* synthetic */ d f44343e;
 
             public a(d dVar) {
-                this.f44342e = dVar;
+                this.f44343e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f44342e.j) {
+                if (this.f44343e.j) {
                     return;
                 }
                 d.b.g0.a.j1.i.o("startup").A(new UbcFlowEvent("na_pre_load_ok"));
                 d.b.g0.a.y1.a.d().i("na_pre_load_ok");
                 d.b.g0.a.j1.i.g("preload", "startup");
                 h hVar = h.this;
-                d.this.e0(this.f44342e, hVar.f44339e, hVar.f44340f);
-                d.b.g0.a.j1.i.i(h.this.f44339e, false);
+                d.this.e0(this.f44343e, hVar.f44340e, hVar.f44341f);
+                d.b.g0.a.j1.i.i(h.this.f44340e, false);
             }
         }
 
         public h(d.b.g0.a.y0.e.b bVar, d.g gVar) {
-            this.f44339e = bVar;
-            this.f44340f = gVar;
+            this.f44340e = bVar;
+            this.f44341f = gVar;
         }
 
         @Override // d.b.g0.a.e0.w.d.n
@@ -271,43 +271,43 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f44344e;
+        public final /* synthetic */ d.b.g0.a.r1.e f44345e;
 
         public i(d.b.g0.a.r1.e eVar) {
-            this.f44344e = eVar;
+            this.f44345e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean equals;
-            if (d.this.f44334h == null) {
+            if (d.this.f44335h == null) {
                 return;
             }
-            if (a.C0679a.b()) {
+            if (a.C0680a.b()) {
                 equals = true;
             } else {
-                String d2 = d.b.g0.a.t1.k.p0.c.d(d.b.g0.a.z0.f.V(), this.f44344e.L(), this.f44344e.D());
-                SwanAppConfigData D = this.f44344e.D();
+                String d2 = d.b.g0.a.t1.k.p0.c.d(d.b.g0.a.z0.f.V(), this.f44345e.L(), this.f44345e.D());
+                SwanAppConfigData D = this.f44345e.D();
                 equals = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT.equals(D != null ? D.g(d2) : null);
             }
-            if (!equals || this.f44344e.D() == null) {
+            if (!equals || this.f44345e.D() == null) {
                 return;
             }
-            d.b.g0.a.e0.r.b.c().b(d.A ? d.this.f44331e.l(this.f44344e.getAppId()).j() : d.this.f44332f, d.this.f44334h, this.f44344e.L(), this.f44344e.D(), null);
+            d.b.g0.a.e0.r.b.c().b(d.A ? d.this.f44332e.l(this.f44345e.getAppId()).j() : d.this.f44333f, d.this.f44335h, this.f44345e.L(), this.f44345e.D(), null);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class j implements d.b.g0.a.e0.k.d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f44346a;
+        public final /* synthetic */ boolean f44347a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -326,19 +326,19 @@ public final class d implements d.b.g0.a.z0.h {
                 }
                 d.this.K0();
                 d.this.J0();
-                if (d.this.f44327a == null) {
+                if (d.this.f44328a == null) {
                     PreloadState unused = d.y = PreloadState.LOAD_FAILED;
                     d.this.X();
                     return;
                 }
                 j jVar = j.this;
-                d.this.n0(jVar.f44346a);
+                d.this.n0(jVar.f44347a);
                 d.this.s0();
             }
         }
 
         public j(boolean z) {
-            this.f44346a = z;
+            this.f44347a = z;
         }
 
         @Override // d.b.g0.a.e0.k.d.b
@@ -351,7 +351,7 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class k implements d.b.g0.a.e0.o.f.c {
         public k() {
         }
@@ -360,14 +360,14 @@ public final class d implements d.b.g0.a.z0.h {
         public void onReady() {
             d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_master_ok"));
             synchronized (d.this.n) {
-                d.this.f44333g = true;
+                d.this.f44334g = true;
                 d.this.G();
                 d.this.f0();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class l extends d.b.g0.a.e0.g {
         public l() {
         }
@@ -377,18 +377,18 @@ public final class d implements d.b.g0.a.z0.h {
             d.b.g0.a.c0.c.h("SwanAppCoreRuntime", "prepareMaster finish. url: " + str);
             d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_master_ok"));
             synchronized (d.this.n) {
-                d.this.f44333g = true;
+                d.this.f44334g = true;
                 d.this.G();
                 d.this.f0();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class m {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f44351a = -1;
+        public static int f44352a = -1;
 
         public static int a() {
             d.b.g0.a.w0.a.N().getSwitch("swan_core_runtime_high_end_timeout", 6000);
@@ -407,11 +407,11 @@ public final class d implements d.b.g0.a.z0.h {
         }
 
         public static int c() {
-            if (f44351a < 0) {
+            if (f44352a < 0) {
                 d.b.g0.a.w0.a.N().getSwitch("swan_core_runtime_delayed_retry_switch", 1);
-                f44351a = 1;
+                f44352a = 1;
             }
-            return f44351a;
+            return f44352a;
         }
 
         public static int d() {
@@ -431,7 +431,7 @@ public final class d implements d.b.g0.a.z0.h {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class n implements d.b.g0.a.i2.u0.b<d> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
@@ -443,28 +443,28 @@ public final class d implements d.b.g0.a.z0.h {
         public abstract void b(d dVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class o {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f44352a = m.b();
+        public static final int f44353a = m.b();
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f44353b = m.a();
+        public static final int f44354b = m.a();
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f44354c = 0;
+        public static int f44355c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f44355d = 0;
+        public static int f44356d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final Runnable f44356e = new a();
+        public static final Runnable f44357e = new a();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final Runnable f44357f = new b();
+        public static final Runnable f44358f = new b();
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class a implements Runnable {
             @Override // java.lang.Runnable
             public void run() {
@@ -472,13 +472,13 @@ public final class d implements d.b.g0.a.z0.h {
                     if (d.u) {
                         Log.i("SwanAppCoreRuntime", "checkAndRetry: runtimeReady is true, return.");
                     }
-                } else if (o.f44355d >= 1) {
+                } else if (o.f44356d >= 1) {
                     if (d.u) {
                         Log.i("SwanAppCoreRuntime", "checkAndRetry: over max retry count, return.");
                     }
                 } else {
-                    if (!d.b.g0.a.r1.d.g().hasCallbacks(o.f44357f)) {
-                        d.b.g0.a.r1.d.g().postDelayed(o.f44357f, m.d());
+                    if (!d.b.g0.a.r1.d.g().hasCallbacks(o.f44358f)) {
+                        d.b.g0.a.r1.d.g().postDelayed(o.f44358f, m.d());
                     }
                     if (d.u) {
                         Log.i("SwanAppCoreRuntime", "start retry runtime.");
@@ -493,7 +493,7 @@ public final class d implements d.b.g0.a.z0.h {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class b implements Runnable {
             @Override // java.lang.Runnable
             public void run() {
@@ -501,7 +501,7 @@ public final class d implements d.b.g0.a.z0.h {
                     if (d.u) {
                         Log.i("SwanAppCoreRuntime", "Retry: successfully.");
                     }
-                } else if (o.f44355d >= 1) {
+                } else if (o.f44356d >= 1) {
                     d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
                     aVar.j(5L);
                     aVar.h(49L);
@@ -514,17 +514,17 @@ public final class d implements d.b.g0.a.z0.h {
         }
 
         public static CopyOnWriteArrayList<n> e() {
-            return new CopyOnWriteArrayList<>(d.v.f44330d);
+            return new CopyOnWriteArrayList<>(d.v.f44331d);
         }
 
         public static int f(Boolean bool) {
-            return bool.booleanValue() ? f44352a : f44353b;
+            return bool.booleanValue() ? f44353a : f44354b;
         }
 
         public static void g() {
-            f44355d++;
+            f44356d++;
             if (d.u) {
-                Log.i("SwanAppCoreRuntime", "incrementRetryTimes: retry times " + f44355d);
+                Log.i("SwanAppCoreRuntime", "incrementRetryTimes: retry times " + f44356d);
             }
         }
 
@@ -542,28 +542,28 @@ public final class d implements d.b.g0.a.z0.h {
         }
 
         public static void i() {
-            f44355d = f44354c;
+            f44356d = f44355c;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class p {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f44358a;
+        public static final boolean f44359a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static boolean f44359b;
+        public static boolean f44360b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static boolean f44360c;
+        public static boolean f44361c;
 
         static {
             boolean c2 = ProcessUtils.isMainProcess() ? d.b.g0.a.j1.m.c.c() : d.b.g0.a.w0.a.N().A();
-            f44358a = c2;
+            f44359a = c2;
             boolean q = c2 ? true : d.b.g0.a.w0.a.N().q();
-            f44359b = q;
-            f44360c = q;
+            f44360b = q;
+            f44361c = q;
         }
 
         public static String a() {
@@ -597,7 +597,7 @@ public final class d implements d.b.g0.a.z0.h {
                     return false;
                 }
             }
-            return f44360c;
+            return f44361c;
         }
 
         public static boolean d() {
@@ -606,7 +606,7 @@ public final class d implements d.b.g0.a.z0.h {
                 return true;
             }
             if (a2.equals("AB")) {
-                if (f44358a) {
+                if (f44359a) {
                     return true;
                 }
                 return d.b.g0.a.w0.a.N().q();
@@ -619,14 +619,14 @@ public final class d implements d.b.g0.a.z0.h {
         }
 
         public static void f() {
-            f44360c = f44359b;
+            f44361c = f44360b;
         }
 
         public static void g(Intent intent) {
             if (intent == null || !intent.hasExtra("bundle_key_v8_ab")) {
                 return;
             }
-            f44359b = intent.getBooleanExtra("bundle_key_v8_ab", f44359b);
+            f44360b = intent.getBooleanExtra("bundle_key_v8_ab", f44360b);
         }
     }
 
@@ -636,7 +636,7 @@ public final class d implements d.b.g0.a.z0.h {
         this.r = new d.b.g0.a.p.d.j.b();
         this.s = d.b.g0.a.p.d.j.c.a().b().b();
         if (A) {
-            this.f44331e = new d.b.g0.a.e0.o.f.e();
+            this.f44332e = new d.b.g0.a.e0.o.f.e();
         }
     }
 
@@ -691,8 +691,8 @@ public final class d implements d.b.g0.a.z0.h {
             } else {
                 copyOnWriteArrayList = null;
             }
-            if (v.f44329c != null) {
-                v.s.a(v.f44329c);
+            if (v.f44330c != null) {
+                v.s.a(v.f44330c);
             }
             d.b.g0.a.t.c.n.e.e();
             d.b.g0.a.b2.c.a.c();
@@ -724,7 +724,7 @@ public final class d implements d.b.g0.a.z0.h {
             }
             if (v != null && !v.Z()) {
                 if (v.q == null) {
-                    v.q = new C0684d();
+                    v.q = new C0685d();
                 }
                 v.o0(v.q);
                 return;
@@ -736,14 +736,14 @@ public final class d implements d.b.g0.a.z0.h {
 
     public static void x0() {
         if (A) {
-            if (v.f44331e != null) {
-                v.f44331e.k();
+            if (v.f44332e != null) {
+                v.f44332e.k();
             }
-        } else if (v.f44332f != null) {
-            if (v.f44332f instanceof d.b.g0.a.e0.o.e) {
-                v.f44332f.destroy();
+        } else if (v.f44333f != null) {
+            if (v.f44333f instanceof d.b.g0.a.e0.o.e) {
+                v.f44333f.destroy();
             }
-            v.f44332f = null;
+            v.f44333f = null;
         }
     }
 
@@ -756,8 +756,8 @@ public final class d implements d.b.g0.a.z0.h {
             }
         }
         x0();
-        if (v.f44334h != null) {
-            v.f44334h = null;
+        if (v.f44335h != null) {
+            v.f44335h = null;
         }
     }
 
@@ -765,31 +765,31 @@ public final class d implements d.b.g0.a.z0.h {
         d.b.g0.a.e0.k.a g2;
         if (aVar != null) {
             synchronized (this.n) {
-                if (!this.f44333g) {
+                if (!this.f44334g) {
                     if (u) {
-                        Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.f45055a)));
+                        Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.f45056a)));
                     }
                     this.m.add(aVar);
                     return;
                 }
                 if (A) {
-                    if (!this.f44331e.f()) {
-                        this.f44331e.e(aVar);
+                    if (!this.f44332e.f()) {
+                        this.f44332e.e(aVar);
                         return;
-                    } else if (this.f44331e.c() == null) {
+                    } else if (this.f44332e.c() == null) {
                         return;
                     } else {
-                        g2 = this.f44331e.c().j().g();
+                        g2 = this.f44332e.c().j().g();
                     }
                 } else {
-                    d.b.g0.a.e0.o.a aVar2 = this.f44332f;
+                    d.b.g0.a.e0.o.a aVar2 = this.f44333f;
                     if (aVar2 == null) {
                         return;
                     }
                     g2 = aVar2.g();
                 }
                 if (u) {
-                    Log.d("SwanAppCoreRuntime", "master dispatch msg:" + aVar.f45055a);
+                    Log.d("SwanAppCoreRuntime", "master dispatch msg:" + aVar.f45056a);
                 }
                 d.b.g0.a.k0.a.b(g2, aVar);
                 return;
@@ -829,11 +829,11 @@ public final class d implements d.b.g0.a.z0.h {
     public void D0(ExtensionCore extensionCore) {
         if (extensionCore != null && extensionCore.a()) {
             if (u) {
-                Log.d("SwanAppCoreRuntime", "setExtensionCore before. extension core: " + this.f44328b);
+                Log.d("SwanAppCoreRuntime", "setExtensionCore before. extension core: " + this.f44329b);
             }
-            this.f44328b = extensionCore;
+            this.f44329b = extensionCore;
             if (u) {
-                Log.d("SwanAppCoreRuntime", "setExtensionCore after. extension core: " + this.f44328b);
+                Log.d("SwanAppCoreRuntime", "setExtensionCore after. extension core: " + this.f44329b);
             }
         } else if (u) {
             StringBuilder sb = new StringBuilder();
@@ -866,11 +866,11 @@ public final class d implements d.b.g0.a.z0.h {
     public void E0(SwanCoreVersion swanCoreVersion) {
         if (swanCoreVersion != null && swanCoreVersion.a()) {
             if (u) {
-                Log.d("SwanAppCoreRuntime", "setSwanCoreVersion before. swan core: " + this.f44327a);
+                Log.d("SwanAppCoreRuntime", "setSwanCoreVersion before. swan core: " + this.f44328a);
             }
-            this.f44327a = swanCoreVersion;
+            this.f44328a = swanCoreVersion;
             if (u) {
-                Log.d("SwanAppCoreRuntime", "setSwanCoreVersion after. swan core: " + this.f44327a);
+                Log.d("SwanAppCoreRuntime", "setSwanCoreVersion after. swan core: " + this.f44328a);
             }
         } else if (u) {
             Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("setSwanCoreVersion failed.")));
@@ -881,7 +881,7 @@ public final class d implements d.b.g0.a.z0.h {
     public void F(boolean z2) {
         if (m.e()) {
             if (!d.b.g0.a.r1.d.e().s().i0()) {
-                boolean hasCallbacks = d.b.g0.a.r1.d.g().hasCallbacks(o.f44356e);
+                boolean hasCallbacks = d.b.g0.a.r1.d.g().hasCallbacks(o.f44357e);
                 if (!z2 && hasCallbacks) {
                     if (u) {
                         Log.i("SwanAppCoreRuntime", "checkRuntimeRetry: isReuse " + z2 + ", return.");
@@ -902,7 +902,7 @@ public final class d implements d.b.g0.a.z0.h {
 
     public void F0(d.b.g0.a.y0.e.b bVar, d.g gVar) {
         if (u) {
-            Log.d("SwanAppCoreRuntime", "startFirstPage cur swanCoreVersion: " + this.f44327a);
+            Log.d("SwanAppCoreRuntime", "startFirstPage cur swanCoreVersion: " + this.f44328a);
             Log.d("SwanAppCoreRuntime", "startFirstPage launchInfo coreVersion: " + bVar.f0());
         }
         H0(bVar);
@@ -920,7 +920,7 @@ public final class d implements d.b.g0.a.z0.h {
         while (it.hasNext()) {
             d.b.g0.a.k0.b.a next = it.next();
             if (u) {
-                Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.f45055a);
+                Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.f45056a);
             }
             A0(next);
         }
@@ -928,11 +928,11 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public void G0(d.b.g0.a.y0.e.b bVar) {
-        ExtensionCore extensionCore = this.f44328b;
+        ExtensionCore extensionCore = this.f44329b;
         if (extensionCore != null) {
             bVar.x0(extensionCore);
         } else {
-            this.f44328b = bVar.N();
+            this.f44329b = bVar.N();
         }
     }
 
@@ -943,11 +943,11 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public void H0(d.b.g0.a.y0.e.b bVar) {
-        SwanCoreVersion swanCoreVersion = this.f44327a;
+        SwanCoreVersion swanCoreVersion = this.f44328a;
         if (swanCoreVersion != null) {
             bVar.Q0(swanCoreVersion);
         } else {
-            this.f44327a = bVar.f0();
+            this.f44328a = bVar.f0();
         }
     }
 
@@ -979,7 +979,7 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public final void J0() {
-        ExtensionCore extensionCore = this.f44328b;
+        ExtensionCore extensionCore = this.f44329b;
         if (extensionCore == null || !extensionCore.a()) {
             d.b.g0.a.c0.c.h("SwanAppCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             D0(d.b.g0.a.l0.b.b(0));
@@ -988,11 +988,11 @@ public final class d implements d.b.g0.a.z0.h {
 
     @Nullable
     public ExtensionCore K() {
-        return this.f44328b;
+        return this.f44329b;
     }
 
     public final void K0() {
-        SwanCoreVersion swanCoreVersion = this.f44327a;
+        SwanCoreVersion swanCoreVersion = this.f44328a;
         if (swanCoreVersion == null || !swanCoreVersion.a()) {
             d.b.g0.a.c0.c.h("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("mSwanCoreVersion is invalid.")));
             E0(d.b.g0.a.b2.b.e(0));
@@ -1010,12 +1010,12 @@ public final class d implements d.b.g0.a.z0.h {
 
     public d.b.g0.a.e0.o.a N() {
         if (A) {
-            if (this.f44331e.f()) {
-                return this.f44331e.c().j();
+            if (this.f44332e.f()) {
+                return this.f44332e.c().j();
             }
             return null;
         }
-        return this.f44332f;
+        return this.f44333f;
     }
 
     public String O() {
@@ -1024,7 +1024,7 @@ public final class d implements d.b.g0.a.z0.h {
         if (d0()) {
             str = P();
         } else {
-            str = this.f44327a.swanCorePath + File.separator + "master/master.html";
+            str = this.f44328a.swanCorePath + File.separator + "master/master.html";
         }
         if (d.b.g0.a.e0.e.d()) {
             D(str, false);
@@ -1052,10 +1052,10 @@ public final class d implements d.b.g0.a.z0.h {
     @Nullable
     public String R() {
         K0();
-        if (this.f44327a == null) {
+        if (this.f44328a == null) {
             return null;
         }
-        String str = this.f44327a.swanCorePath + File.separator + "slaves/slaves.html";
+        String str = this.f44328a.swanCorePath + File.separator + "slaves/slaves.html";
         if (d.b.g0.a.e0.e.d()) {
             D(str, true);
         } else if (d.b.g0.a.c0.d.d.e.d()) {
@@ -1067,14 +1067,14 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public String S() {
-        if (this.f44327a == null) {
+        if (this.f44328a == null) {
             return "";
         }
-        return this.f44327a.swanCorePath + File.separator;
+        return this.f44328a.swanCorePath + File.separator;
     }
 
     public SwanCoreVersion T() {
-        return this.f44327a;
+        return this.f44328a;
     }
 
     public d.b.g0.a.p.d.d U(String str) {
@@ -1096,15 +1096,15 @@ public final class d implements d.b.g0.a.z0.h {
 
     public final void X() {
         synchronized (this.n) {
-            this.f44333g = false;
+            this.f44334g = false;
             if (A) {
-                this.f44331e.k();
+                this.f44332e.k();
             } else {
-                this.f44332f = null;
+                this.f44333f = null;
             }
         }
         this.i = false;
-        this.f44334h = null;
+        this.f44335h = null;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swanjs version", d.b.g0.a.b2.f.a.d(0));
@@ -1128,7 +1128,7 @@ public final class d implements d.b.g0.a.z0.h {
 
     public final void Y() {
         if (TextUtils.isEmpty(this.p)) {
-            d.b.g0.a.p.d.b bVar = this.f44334h;
+            d.b.g0.a.p.d.b bVar = this.f44335h;
             this.p = bVar != null ? bVar.b() : "";
             d.b.g0.a.c0.c.h("SwanAppCoreRuntime", "initWebViewUa ua: " + this.p);
         }
@@ -1137,7 +1137,7 @@ public final class d implements d.b.g0.a.z0.h {
     public boolean Z() {
         boolean z2;
         synchronized (this.n) {
-            z2 = this.f44333g;
+            z2 = this.f44334g;
         }
         return z2;
     }
@@ -1159,7 +1159,7 @@ public final class d implements d.b.g0.a.z0.h {
     public boolean a0() {
         boolean z2;
         synchronized (this.n) {
-            z2 = this.f44333g && this.i;
+            z2 = this.f44334g && this.i;
         }
         return z2;
     }
@@ -1191,40 +1191,40 @@ public final class d implements d.b.g0.a.z0.h {
 
     public boolean d0() {
         if (A) {
-            return this.f44331e.h();
+            return this.f44332e.h();
         }
-        return this.f44332f instanceof d.b.g0.a.e0.o.e;
+        return this.f44333f instanceof d.b.g0.a.e0.o.e;
     }
 
     public final void e0(d dVar, d.b.g0.a.y0.e.b bVar, d.g gVar) {
         d.b.g0.a.e0.o.a aVar;
         d.b.g0.a.p.d.b bVar2;
         if (A) {
-            d.b.g0.a.e0.o.f.e eVar = dVar.f44331e;
+            d.b.g0.a.e0.o.f.e eVar = dVar.f44332e;
             aVar = eVar.g() ? eVar.l(bVar.G()).j() : null;
         } else {
-            aVar = dVar.f44332f;
+            aVar = dVar.f44333f;
         }
-        if (aVar != null && (bVar2 = dVar.f44334h) != null) {
+        if (aVar != null && (bVar2 = dVar.f44335h) != null) {
             d.b.g0.a.t1.k.p0.c.f(aVar, bVar2, bVar, gVar);
-            dVar.f44334h = null;
+            dVar.f44335h = null;
         } else if (u) {
             StringBuilder sb = new StringBuilder();
             sb.append("startFirstPage mMasterManager ");
-            sb.append(dVar.f44332f != null);
+            sb.append(dVar.f44333f != null);
             sb.append(" startFirstPage mSlaveManager ");
-            sb.append(dVar.f44334h != null);
+            sb.append(dVar.f44335h != null);
             Log.e("SwanAppCoreRuntime", sb.toString());
         }
     }
 
     public final void f0() {
-        if (!this.f44330d.isEmpty() && a0()) {
+        if (!this.f44331d.isEmpty() && a0()) {
             y = PreloadState.LOADED;
             o.i();
             H("event_preload_finish");
             d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_end"));
-            for (n nVar : this.f44330d) {
+            for (n nVar : this.f44331d) {
                 if (nVar != null) {
                     if (u) {
                         Log.i("SwanAppCoreRuntime", "onReady result: " + nVar.toString());
@@ -1232,23 +1232,23 @@ public final class d implements d.b.g0.a.z0.h {
                     nVar.onCallback(this);
                 }
             }
-            this.f44330d.clear();
+            this.f44331d.clear();
         }
     }
 
     public void g0(boolean z2) {
-        boolean d2 = A ? this.f44331e.d() : this.f44332f != null;
-        if (z2 && !this.f44333g && d2) {
+        boolean d2 = A ? this.f44332e.d() : this.f44333f != null;
+        if (z2 && !this.f44334g && d2) {
             if (u) {
                 Log.d("SwanAppCoreRuntime", "onJSLoaded -- master");
             }
             d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_master_js_ok"));
             synchronized (this.n) {
-                this.f44333g = true;
+                this.f44334g = true;
                 G();
                 f0();
             }
-        } else if (z2 || this.f44334h == null || this.i) {
+        } else if (z2 || this.f44335h == null || this.i) {
         } else {
             if (u) {
                 Log.d("SwanAppCoreRuntime", "onJSLoaded -- slave");
@@ -1261,9 +1261,9 @@ public final class d implements d.b.g0.a.z0.h {
 
     public void h0(String str, PrefetchEvent.c cVar) {
         if (A && d.b.g0.a.e0.q.e.a.d()) {
-            this.f44331e.i(str, cVar);
+            this.f44332e.i(str, cVar);
             if (u) {
-                String q = d.b.g0.a.b2.b.q(this.f44327a.swanCoreVersion);
+                String q = d.b.g0.a.b2.b.q(this.f44328a.swanCoreVersion);
                 Log.i("SwanAppCoreRuntime", "swan-core version - " + q);
                 Log.i("SwanAppCoreRuntime", "swan-core support preload ,fire a preload event");
             }
@@ -1332,25 +1332,25 @@ public final class d implements d.b.g0.a.z0.h {
 
     public final void n0(boolean z2) {
         synchronized (this.n) {
-            boolean d2 = A ? this.f44331e.d() : this.f44332f != null;
-            if (!this.f44333g && !d2) {
+            boolean d2 = A ? this.f44332e.d() : this.f44333f != null;
+            if (!this.f44334g && !d2) {
                 d.b.g0.a.c0.c.h("SwanAppCoreRuntime", "prepareMaster start.");
                 d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_master_start"));
                 if (A) {
-                    this.f44331e.j(z2, new k());
+                    this.f44332e.j(z2, new k());
                     return;
                 }
-                this.f44332f = this.r.f(I(), z2 ? 1 : 0);
+                this.f44333f = this.r.f(I(), z2 ? 1 : 0);
                 d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_master_created"));
-                this.f44332f.loadUrl(O());
-                this.f44332f.e(new l());
+                this.f44333f.loadUrl(O());
+                this.f44333f.e(new l());
             }
         }
     }
 
     public void o0(n nVar) {
-        if (nVar != null && !this.f44330d.contains(nVar)) {
-            this.f44330d.add(nVar);
+        if (nVar != null && !this.f44331d.contains(nVar)) {
+            this.f44331d.add(nVar);
         }
         boolean a0 = a0();
         d.b.g0.a.j1.i.n().y("preload", a0 ? "1" : "0");
@@ -1373,12 +1373,12 @@ public final class d implements d.b.g0.a.z0.h {
         if (E) {
             n0(true);
         }
-        if (this.f44329c == null) {
-            this.f44329c = new j(E);
+        if (this.f44330c == null) {
+            this.f44330c = new j(E);
             if (u) {
                 Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener.");
             }
-            this.s.b(this.f44329c);
+            this.s.b(this.f44330c);
         }
     }
 
@@ -1387,14 +1387,14 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public final void q0(CopyOnWriteArrayList<n> copyOnWriteArrayList) {
-        if (this.f44330d == null) {
-            this.f44330d = new CopyOnWriteArrayList();
+        if (this.f44331d == null) {
+            this.f44331d = new CopyOnWriteArrayList();
         }
         Iterator<n> it = copyOnWriteArrayList.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (!this.f44330d.contains(next)) {
-                this.f44330d.add(next);
+            if (!this.f44331d.contains(next)) {
+                this.f44331d.add(next);
             }
         }
         o0(new g(this));
@@ -1425,22 +1425,22 @@ public final class d implements d.b.g0.a.z0.h {
     }
 
     public final void s0() {
-        if (this.i || this.f44334h != null) {
+        if (this.i || this.f44335h != null) {
             return;
         }
         if (u) {
             Log.d("SwanAppCoreRuntime", "prepareSlave start.");
         }
         d.b.g0.a.j1.i.o("preload").A(new UbcFlowEvent("na_pre_load_slave_start"));
-        this.f44334h = r0(I(), new a());
+        this.f44335h = r0(I(), new a());
         Y();
     }
 
     public final void z0(int i2) {
         Handler g2 = d.b.g0.a.r1.d.g();
-        if (g2.hasCallbacks(o.f44356e)) {
-            g2.removeCallbacks(o.f44356e);
+        if (g2.hasCallbacks(o.f44357e)) {
+            g2.removeCallbacks(o.f44357e);
         }
-        g2.postDelayed(o.f44356e, i2);
+        g2.postDelayed(o.f44357e, i2);
     }
 }

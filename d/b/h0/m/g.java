@@ -10,9 +10,7 @@ public class g implements Application.ActivityLifecycleCallbacks {
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        throw null;
-    }
+    public abstract void onActivityDestroyed(Activity activity);
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {

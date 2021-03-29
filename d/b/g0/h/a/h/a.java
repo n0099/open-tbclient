@@ -63,8 +63,8 @@ public class a extends d.b.g0.a.e0.l.c implements BaiduMap.OnMapLoadedCallback, 
 
     /* renamed from: d.b.g0.h.a.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1006a implements View.OnClickListener {
-        public View$OnClickListenerC1006a() {
+    public class View$OnClickListenerC1007a implements View.OnClickListener {
+        public View$OnClickListenerC1007a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -159,7 +159,7 @@ public class a extends d.b.g0.a.e0.l.c implements BaiduMap.OnMapLoadedCallback, 
     }
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public static a W2(Bundle bundle) {
@@ -199,7 +199,7 @@ public class a extends d.b.g0.a.e0.l.c implements BaiduMap.OnMapLoadedCallback, 
         this.P0 = view;
         ImageView imageView = (ImageView) view.findViewById(R.id.location_icon_path);
         this.E0 = imageView;
-        imageView.setOnClickListener(new View$OnClickListenerC1006a());
+        imageView.setOnClickListener(new View$OnClickListenerC1007a());
         this.K0 = (TextView) view.findViewById(R.id.location_text_position);
         this.L0 = (TextView) view.findViewById(R.id.location_text_address);
     }
@@ -323,7 +323,7 @@ public class a extends d.b.g0.a.e0.l.c implements BaiduMap.OnMapLoadedCallback, 
         d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
         if (W != null) {
             f.b i = W.i("navigateTo");
-            i.n(d.b.g0.a.e0.l.f.f44012g, d.b.g0.a.e0.l.f.i);
+            i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
             i.j(this);
             i.b();
         }

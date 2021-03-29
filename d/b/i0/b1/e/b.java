@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.h0.r.q.a2;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static void a(a2 a2Var, String str, String str2, int i) {
         if (a2Var == null || TextUtils.isEmpty(str)) {

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
 import com.baidu.tieba.R;
 import d.b.i.a;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
     public static int A;
     public static int B;
@@ -40,25 +40,25 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
     public final View.OnClickListener v;
     public a.b w;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f51816e;
+        public final /* synthetic */ ViewGroup.LayoutParams f51817e;
 
         public a(ViewGroup.LayoutParams layoutParams) {
-            this.f51816e = layoutParams;
+            this.f51817e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f51816e.width = s0.this.j.getWidth();
-            this.f51816e.height = (s0.this.j.getWidth() / 16) * 9;
-            s0.this.m.setLayoutParams(this.f51816e);
+            this.f51817e.width = s0.this.j.getWidth();
+            this.f51817e.height = (s0.this.j.getWidth() / 16) * 9;
+            s0.this.m.setLayoutParams(this.f51817e);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -68,25 +68,25 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
             s0 s0Var;
             d.b.h0.r.q.a aVar;
             if (d.b.h0.b.d.H() && (aVar = (s0Var = s0.this).l) != null) {
-                d.b.h0.z0.t.a(false, s0Var.f51762f, aVar.n(), s0.this.o);
+                d.b.h0.z0.t.a(false, s0Var.f51763f, aVar.n(), s0.this.o);
             } else if (d.b.h0.b.d.J()) {
                 d.b.h0.r.q.a aVar2 = s0.this.l;
                 if (aVar2 == null || aVar2.n() == null) {
                     return;
                 }
                 s0 s0Var2 = s0.this;
-                d.b.h0.z0.t.f(false, s0Var2.f51762f, s0Var2.l.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", s0.this.o, s0.this.o);
+                d.b.h0.z0.t.f(false, s0Var2.f51763f, s0Var2.l.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", s0.this.o, s0.this.o);
             } else {
                 s0 s0Var3 = s0.this;
-                a.InterfaceC1115a interfaceC1115a = s0Var3.i;
-                if (interfaceC1115a != null) {
-                    interfaceC1115a.a(s0Var3.l);
+                a.InterfaceC1116a interfaceC1116a = s0Var3.i;
+                if (interfaceC1116a != null) {
+                    interfaceC1116a.a(s0Var3.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -94,14 +94,14 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var = s0.this;
-            a.InterfaceC1115a interfaceC1115a = s0Var.i;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(s0Var.l);
+            a.InterfaceC1116a interfaceC1116a = s0Var.i;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(s0Var.l);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -114,46 +114,46 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e implements a.b {
         public e() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
-            if (c1117a.b() == 1) {
+        public boolean a(a.C1118a c1118a) {
+            if (c1118a.b() == 1) {
                 s0 s0Var = s0.this;
                 d.b.i0.x.m.l(s0Var.k, s0Var.l.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
-            } else if (c1117a.b() == 2) {
+            } else if (c1118a.b() == 2) {
                 d.b.i0.i2.q.a aVar = s0.this.n;
                 if (aVar != null) {
                     aVar.a0();
                     return false;
                 }
                 return false;
-            } else if (c1117a.b() == 3) {
+            } else if (c1118a.b() == 3) {
                 d.b.i0.i2.q.a aVar2 = s0.this.n;
                 if (aVar2 != null) {
                     aVar2.N();
                     return false;
                 }
                 return false;
-            } else if (c1117a.b() == 6) {
+            } else if (c1118a.b() == 6) {
                 d.b.i0.i2.q.a aVar3 = s0.this.n;
                 if (aVar3 != null) {
                     return aVar3.H();
                 }
                 return false;
-            } else if (c1117a.b() == 7) {
+            } else if (c1118a.b() == 7) {
                 RoundCornerFrameLayout roundCornerFrameLayout = s0.this.m;
                 if (roundCornerFrameLayout != null) {
-                    roundCornerFrameLayout.d(((Boolean) c1117a.c()).booleanValue());
+                    roundCornerFrameLayout.d(((Boolean) c1118a.c()).booleanValue());
                     return false;
                 }
                 return false;
-            } else if (c1117a.b() == 8 && s0.this.n != null && (c1117a.c() instanceof Boolean)) {
-                return s0.this.n.e0(((Boolean) c1117a.c()).booleanValue());
+            } else if (c1118a.b() == 8 && s0.this.n != null && (c1118a.c() instanceof Boolean)) {
+                return s0.this.n.e0(((Boolean) c1118a.c()).booleanValue());
             } else {
                 return false;
             }
@@ -191,7 +191,7 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
     @Override // d.b.i.a
     public View g() {
         if (this.j == null) {
-            View inflate = LayoutInflater.from(this.f51762f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f51763f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
@@ -362,7 +362,7 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
 
     @Override // d.b.i0.i2.e
     public void startPlay() {
-        Context context = this.f51762f;
+        Context context = this.f51763f;
         if ((context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload()) {
             this.n.startPlay();
         }
@@ -384,8 +384,8 @@ public abstract class s0 extends d.b.i.a<d.b.h0.r.q.a> implements d.b.i0.i2.e {
         }
     }
 
-    public void v(a.InterfaceC1115a interfaceC1115a) {
-        this.i = interfaceC1115a;
+    public void v(a.InterfaceC1116a interfaceC1116a) {
+        this.i = interfaceC1116a;
     }
 
     public void w(boolean z2) {

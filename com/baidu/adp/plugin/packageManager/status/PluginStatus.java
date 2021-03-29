@@ -14,22 +14,22 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_SUCCESS = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2227e;
+    public String f2228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2228f;
+    public int f2229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PluginPackageManager.PluginStatus f2229g;
+    public PluginPackageManager.PluginStatus f2230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2230h;
+    public int f2231h;
     public String i;
     public String j;
     public boolean k;
 
     public int getErrorCode() {
-        return this.f2230h;
+        return this.f2231h;
     }
 
     public String getErrorMsg() {
@@ -37,11 +37,11 @@ public class PluginStatus extends OrmObject {
     }
 
     public String getPkgName() {
-        return this.f2227e;
+        return this.f2228e;
     }
 
     public int s() {
-        return this.f2228f;
+        return this.f2229f;
     }
 
     public String t() {

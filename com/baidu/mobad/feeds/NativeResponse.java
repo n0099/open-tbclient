@@ -44,16 +44,16 @@ public interface NativeResponse {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8015a;
+        public final String f8016a;
 
         MaterialType(String str) {
-            this.f8015a = str;
+            this.f8016a = str;
         }
 
         public static MaterialType parse(String str) {
             MaterialType[] values;
             for (MaterialType materialType : values()) {
-                if (materialType.f8015a.equalsIgnoreCase(str)) {
+                if (materialType.f8016a.equalsIgnoreCase(str)) {
                     return materialType;
                 }
             }
@@ -61,7 +61,7 @@ public interface NativeResponse {
         }
 
         public String getValue() {
-            return this.f8015a;
+            return this.f8016a;
         }
     }
 

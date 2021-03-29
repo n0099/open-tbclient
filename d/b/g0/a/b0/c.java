@@ -15,11 +15,11 @@ import d.b.g0.a.l;
 import d.b.g0.a.r.a.f;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43275a = {BaseUrlManager.ONLINE_URL, "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    public static final String[] f43276a = {BaseUrlManager.ONLINE_URL, "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
     public static String a(String str, String str2, String str3) {
         StringBuilder sb;
@@ -219,7 +219,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f43275a) {
+        for (String str2 : f43276a) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -228,6 +228,6 @@ public class c {
     }
 
     public static String u(String str) {
-        return a(a(a(a(a(a(a(a(a(a(str, "uid", k()), "ua", j()), "ut", l()), "osbranch", d()), "pkgname", o()), "network", n()), "appname", c()), "hostname", c()), "swan_sdk_version", q()), "mnpunion", String.valueOf(f.f45696d.e() ? 2 : 0));
+        return a(a(a(a(a(a(a(a(a(a(str, "uid", k()), "ua", j()), "ut", l()), "osbranch", d()), "pkgname", o()), "network", n()), "appname", c()), "hostname", c()), "swan_sdk_version", q()), "mnpunion", String.valueOf(f.f45697d.e() ? 2 : 0));
     }
 }

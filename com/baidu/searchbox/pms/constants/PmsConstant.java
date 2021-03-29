@@ -1,17 +1,17 @@
 package com.baidu.searchbox.pms.constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class PmsConstant {
     public static boolean DEBUG = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DynamicDBVersion {
         public static final int DB_VERSION_10_6_0 = 1;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class EnvParam {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class Key {
             public static final String CPU_ABI = "cpu_abi";
             public static final String CPU_FEATURE = "cpu_feature";
@@ -20,7 +20,7 @@ public final class PmsConstant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Statistic {
         public static final String STATISTIC_CHANNELID = "channel_id";
         public static final String STATISTIC_CHANNELIDS = "channel_ids";
@@ -34,7 +34,7 @@ public final class PmsConstant {
         public static final String STATISTIC_URL = "url";
         public static final String STATISTIC_VERSION = "version";
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class Key {
             public static final String REV_DETAIL = "detail";
             public static final String REV_EXT = "ext";
@@ -49,12 +49,12 @@ public final class PmsConstant {
             public static final String REV_VERSION_FILTER_COUNT = "versionFilterCount";
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class UBC {
             public static final String UBC_REV_ID = "645";
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class Value {
             public static final String REV_FROM = "research";
             public static final String REV_ITEM_VALID = "1";

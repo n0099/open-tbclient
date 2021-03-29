@@ -24,46 +24,46 @@ import com.kwad.sdk.utils.ao;
 public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f36568a;
+    public ImageView f36569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36569b;
+    public TextView f36570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f36570c;
+    public AppScoreView f36571c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f36571d;
+    public TextView f36572d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36572e;
+    public TextView f36573e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f36573f;
+    public TextProgressBar f36574f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f36574g;
+    public ValueAnimator f36575g;
 
     /* renamed from: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical$2  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36576a;
+        public static final /* synthetic */ int[] f36577a;
 
         static {
             int[] iArr = new int[DOWNLOADSTAUS.values().length];
-            f36576a = iArr;
+            f36577a = iArr;
             try {
                 iArr[DOWNLOADSTAUS.START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f36576a[DOWNLOADSTAUS.DOWNLOADING.ordinal()] = 2;
+                f36577a[DOWNLOADSTAUS.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f36576a[DOWNLOADSTAUS.PROGRESS.ordinal()] = 3;
+                f36577a[DOWNLOADSTAUS.PROGRESS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -84,48 +84,48 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     private void b() {
         LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_portrait_vertical, this);
-        this.f36568a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f36570c = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f36571d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f36569b = (TextView) findViewById(R.id.ksad_app_name);
-        this.f36572e = (TextView) findViewById(R.id.ksad_app_introduce);
+        this.f36569a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f36571c = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f36572d = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f36570b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f36573e = (TextView) findViewById(R.id.ksad_app_introduce);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-        this.f36573f = textProgressBar;
+        this.f36574f = textProgressBar;
         textProgressBar.setTextDimen(ao.a(getContext(), 16.0f));
-        this.f36573f.setTextColor(-1);
+        this.f36574f.setTextColor(-1);
     }
 
     private void c() {
-        ValueAnimator valueAnimator = this.f36574g;
+        ValueAnimator valueAnimator = this.f36575g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f36574g = ofFloat;
+            this.f36575g = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f36574g.setRepeatCount(-1);
-            this.f36574g.setRepeatMode(1);
-            this.f36574g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.1
+            this.f36575g.setRepeatCount(-1);
+            this.f36575g.setRepeatMode(1);
+            this.f36575g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    TailFrameBarAppPortraitVertical.this.f36573f.setScaleY(floatValue);
-                    TailFrameBarAppPortraitVertical.this.f36573f.setScaleX(floatValue);
+                    TailFrameBarAppPortraitVertical.this.f36574f.setScaleY(floatValue);
+                    TailFrameBarAppPortraitVertical.this.f36574f.setScaleX(floatValue);
                 }
             });
-            this.f36574g.start();
+            this.f36575g.start();
         }
     }
 
     public void a() {
-        ValueAnimator valueAnimator = this.f36574g;
+        ValueAnimator valueAnimator = this.f36575g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             return;
         }
-        this.f36574g.cancel();
-        this.f36574g.end();
+        this.f36575g.cancel();
+        this.f36575g.end();
     }
 
     public void a(@NonNull AdInfo adInfo) {
-        int i = AnonymousClass2.f36576a[adInfo.status.ordinal()];
+        int i = AnonymousClass2.f36577a[adInfo.status.ordinal()];
         if (i == 1 || i == 2 || i == 3) {
             a();
         } else {
@@ -135,28 +135,28 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     public void a(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        KSImageLoader.loadAppIcon(this.f36568a, a.o(j), adTemplate, 12);
-        this.f36569b.setText(a.q(j));
+        KSImageLoader.loadAppIcon(this.f36569a, a.o(j), adTemplate, 12);
+        this.f36570b.setText(a.q(j));
         float u = a.u(j);
         if (u >= 3.0f) {
-            this.f36570c.setScore(u);
-            this.f36570c.setVisibility(0);
+            this.f36571c.setScore(u);
+            this.f36571c.setVisibility(0);
         } else {
-            this.f36570c.setVisibility(8);
+            this.f36571c.setVisibility(8);
         }
         String t = a.t(j);
         if (TextUtils.isEmpty(t)) {
-            this.f36571d.setVisibility(8);
+            this.f36572d.setVisibility(8);
         } else {
-            this.f36571d.setText(t);
-            this.f36571d.setVisibility(0);
+            this.f36572d.setText(t);
+            this.f36572d.setVisibility(0);
         }
-        this.f36572e.setText(a.n(j));
-        this.f36573f.a(a.w(j), 0);
+        this.f36573e.setText(a.n(j));
+        this.f36574f.a(a.w(j), 0);
         a(j);
     }
 
     public TextProgressBar getTextProgressBar() {
-        return this.f36573f;
+        return this.f36574f;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.remote;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDPlayerServiceProxyWrapper {
     public static IPlayerServiceProxy EMPTY = new IPlayerServiceProxy() { // from class: com.baidu.searchbox.player.remote.BDPlayerServiceProxyWrapper.1
         @Override // com.baidu.searchbox.player.remote.BDPlayerServiceProxyWrapper.IPlayerServiceProxy
@@ -17,14 +17,14 @@ public class BDPlayerServiceProxyWrapper {
     };
     public static volatile IPlayerServiceProxy mHelper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IPlayerServiceProxy {
         long getNetHandle();
 
         void onServiceBind(Context context);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Impl {
         public static IPlayerServiceProxy get() {
             return BDPlayerServiceProxyWrapper.mHelper != null ? BDPlayerServiceProxyWrapper.mHelper : BDPlayerServiceProxyWrapper.EMPTY;

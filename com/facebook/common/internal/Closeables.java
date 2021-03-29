@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class Closeables {
     @VisibleForTesting
     public static final Logger logger = Logger.getLogger(Closeables.class.getName());

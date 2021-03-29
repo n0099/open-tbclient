@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupMsgData extends CustomResponsedMessage<Object> {
     public GroupIdTypeData groupInfo;
     public boolean hasMore;

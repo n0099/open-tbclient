@@ -31,25 +31,25 @@ import java.util.HashMap;
 public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerContext {
 
     /* renamed from: b  reason: collision with root package name */
-    public IXAdContainerEventListener f8475b;
+    public IXAdContainerEventListener f8476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8476c;
+    public Context f8477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f8477d;
+    public Activity f8478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f8478e;
+    public RelativeLayout f8479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IXAdResponseInfo f8479f;
+    public IXAdResponseInfo f8480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IXAdInstanceInfo f8480g;
+    public IXAdInstanceInfo f8481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f8481h;
+    public View f8482h;
     public IXAdProdInfo i;
     public long j = 0;
     public HashMap<String, Integer> k = new HashMap<>();
@@ -58,34 +58,34 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
     public class a extends com.baidu.mobads.openad.a.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8483b;
+        public String f8484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HashMap<String, Object> f8484c;
+        public HashMap<String, Object> f8485c;
 
         public a(String str, String str2, HashMap<String, Object> hashMap) {
             super(str);
-            this.f8483b = str2;
-            this.f8484c = hashMap;
+            this.f8484b = str2;
+            this.f8485c = hashMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.mobads.openad.a.b, com.baidu.mobads.openad.interfaces.event.IOAdEvent
         /* renamed from: a */
         public HashMap<String, Object> getData() {
-            return this.f8484c;
+            return this.f8485c;
         }
     }
 
     public k(Context context, Activity activity, IXAdProdInfo iXAdProdInfo, RelativeLayout relativeLayout, IXAdContainerEventListener iXAdContainerEventListener, IXAdResponseInfo iXAdResponseInfo, View view) {
-        this.f8476c = context;
-        this.f8477d = activity;
+        this.f8477c = context;
+        this.f8478d = activity;
         this.i = iXAdProdInfo;
-        this.f8478e = relativeLayout;
-        this.f8475b = iXAdContainerEventListener;
-        this.f8479f = iXAdResponseInfo;
-        this.f8480g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
-        this.f8481h = view;
+        this.f8479e = relativeLayout;
+        this.f8476b = iXAdContainerEventListener;
+        this.f8480f = iXAdResponseInfo;
+        this.f8481g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
+        this.f8482h = view;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -103,17 +103,17 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
         String addParameters = XAdSDKFoundationFacade.getInstance().getURIUitls().addParameters(str, hashMap);
         com.baidu.mobads.openad.b.a aVar = new com.baidu.mobads.openad.b.a();
         com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(addParameters, "");
-        bVar.f8413e = 1;
+        bVar.f8414e = 1;
         aVar.a(bVar, Boolean.TRUE);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public Activity getActivity() {
         RelativeLayout relativeLayout;
-        if (this.f8477d == null && (relativeLayout = this.f8478e) != null) {
-            this.f8477d = (Activity) relativeLayout.getContext();
+        if (this.f8478d == null && (relativeLayout = this.f8479e) != null) {
+            this.f8478d = (Activity) relativeLayout.getContext();
         }
-        return this.f8477d;
+        return this.f8478d;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -123,17 +123,17 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdContainerEventListener getAdContainerListener() {
-        return this.f8475b;
+        return this.f8476b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdInstanceInfo getAdInstanceInfo() {
-        return this.f8480g;
+        return this.f8481g;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public View getAdLeadingView() {
-        return this.f8481h;
+        return this.f8482h;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -143,7 +143,7 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public RelativeLayout getAdProdBase() {
-        return this.f8478e;
+        return this.f8479e;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -158,7 +158,7 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdResponseInfo getAdResponseInfo() {
-        return this.f8479f;
+        return this.f8480f;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -203,7 +203,7 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public Context getApplicationContext() {
-        return this.f8476c;
+        return this.f8477c;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext

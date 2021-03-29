@@ -11,21 +11,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
     public d.b.i0.g1.c.a mCallback = new a();
     public int mFrom;
     public LabelSettingModel mModel;
     public d.b.i0.g1.d.b mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.i0.g1.c.a {
         public a() {
         }
 
         @Override // d.b.i0.g1.c.a
         public void callback(LabelRequestEnum labelRequestEnum, d.b.i0.g1.b.b bVar, int i) {
-            int i2 = b.f18480a[labelRequestEnum.ordinal()];
+            int i2 = b.f18481a[labelRequestEnum.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2 && i == 0) {
                     d.b.h0.r.d0.b.i().s("set_recommend_label", true);
@@ -56,21 +56,21 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18480a;
+        public static final /* synthetic */ int[] f18481a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18480a = iArr;
+            f18481a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18480a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f18481a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }

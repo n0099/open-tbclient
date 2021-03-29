@@ -45,11 +45,11 @@ public abstract class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x00f2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00c7  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x00ed  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x00f9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00ec  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x00f8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x00f1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -107,55 +107,55 @@ public abstract class d {
                             if (contentEncoding != null && AsyncHttpClient.ENCODING_GZIP.equals(contentEncoding.toLowerCase())) {
                                 inputStream = new GZIPInputStream(inputStream);
                             }
-                            try {
-                                byte[] bArr = new byte[16384];
-                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                while (true) {
-                                    int read = inputStream.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    byteArrayOutputStream.write(bArr, 0, read);
-                                }
-                                f fVar = new f(httpURLConnection.getResponseCode(), httpURLConnection.getContentType(), byteArrayOutputStream.toString());
-                                httpURLConnection.disconnect();
-                                try {
-                                    inputStream.close();
-                                } catch (Exception unused3) {
-                                }
-                                if (outputStream2 != null) {
-                                    try {
-                                        outputStream2.close();
-                                    } catch (Exception unused4) {
-                                    }
-                                }
-                                return fVar;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception unused5) {
-                                    }
-                                }
-                                if (outputStream2 != null) {
-                                    try {
-                                        outputStream2.close();
-                                    } catch (Exception unused6) {
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
+                        } catch (Throwable th2) {
                             outputStream = outputStream2;
-                            th = th3;
+                            th = th2;
                             inputStream2 = inputStream;
                             inputStream = inputStream2;
                             th = th;
                             outputStream2 = outputStream;
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception unused3) {
+                                }
+                            }
+                            if (outputStream2 != null) {
+                                try {
+                                    outputStream2.close();
+                                } catch (Exception unused4) {
+                                }
+                            }
+                            throw th;
+                        }
+                        try {
+                            byte[] bArr = new byte[16384];
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            f fVar = new f(httpURLConnection.getResponseCode(), httpURLConnection.getContentType(), byteArrayOutputStream.toString());
+                            httpURLConnection.disconnect();
+                            try {
+                                inputStream.close();
+                            } catch (Exception unused5) {
+                            }
+                            if (outputStream2 != null) {
+                                try {
+                                    outputStream2.close();
+                                } catch (Exception unused6) {
+                                }
+                            }
+                            return fVar;
+                        } catch (Throwable th3) {
+                            th = th3;
                             if (httpURLConnection != null) {
                             }
                             if (inputStream != null) {

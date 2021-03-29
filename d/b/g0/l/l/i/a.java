@@ -24,23 +24,23 @@ public class a extends d.b.g0.l.l.d<d.b.g0.l.l.j.a> {
     @Override // d.b.g0.l.l.d
     /* renamed from: n */
     public boolean d(d.b.g0.l.l.j.a aVar) {
-        List<a.C1019a> list;
-        if (aVar == null || (list = aVar.f48975a) == null || list.isEmpty()) {
+        List<a.C1020a> list;
+        if (aVar == null || (list = aVar.f48976a) == null || list.isEmpty()) {
             return false;
         }
-        for (a.C1019a c1019a : aVar.f48975a) {
-            if (TextUtils.isEmpty(c1019a.f48977b)) {
+        for (a.C1020a c1020a : aVar.f48976a) {
+            if (TextUtils.isEmpty(c1020a.f48978b)) {
                 return false;
             }
-            if (c1019a.f48976a == 0) {
-                if (c1019a.f48979d == null && c1019a.f48981f == null && c1019a.f48980e == null) {
+            if (c1020a.f48977a == 0) {
+                if (c1020a.f48980d == null && c1020a.f48982f == null && c1020a.f48981e == null) {
                     return false;
                 }
-                f fVar = c1019a.f48979d;
+                f fVar = c1020a.f48980d;
                 if (fVar != null && !fVar.a()) {
                     return false;
                 }
-                PMSAppInfo pMSAppInfo = c1019a.f48981f;
+                PMSAppInfo pMSAppInfo = c1020a.f48982f;
                 if (pMSAppInfo != null && !pMSAppInfo.a()) {
                     return false;
                 }
@@ -55,53 +55,53 @@ public class a extends d.b.g0.l.l.d<d.b.g0.l.l.j.a> {
     public d.b.g0.l.k.a l(d.b.g0.l.l.j.a aVar) {
         PMSAppInfo pMSAppInfo;
         PMSAppInfo pMSAppInfo2;
-        this.f48931e.E();
+        this.f48932e.E();
         d.b.g0.l.r.f fVar = new d.b.g0.l.r.f();
         Map<String, PMSAppInfo> s = d.b.g0.l.i.a.h().s();
         ArrayList arrayList = new ArrayList();
-        for (a.C1019a c1019a : aVar.f48975a) {
-            if (c1019a != null) {
-                int i = c1019a.f48976a;
+        for (a.C1020a c1020a : aVar.f48976a) {
+            if (c1020a != null) {
+                int i = c1020a.f48977a;
                 if (i != 0) {
-                    this.f48931e.v().m(c1019a, s.get(c1019a.f48977b), new d.b.g0.l.k.a(i, c1019a.f48977b + "，Server返回错误"));
+                    this.f48932e.v().m(c1020a, s.get(c1020a.f48978b), new d.b.g0.l.k.a(i, c1020a.f48978b + "，Server返回错误"));
                 } else {
-                    List<d.b.g0.l.k.g> list = c1019a.f48980e;
+                    List<d.b.g0.l.k.g> list = c1020a.f48981e;
                     if (list != null) {
                         for (d.b.g0.l.k.g gVar : list) {
                             if (gVar != null) {
-                                gVar.o = c1019a.f48977b;
+                                gVar.o = c1020a.f48978b;
                             }
                         }
-                        i(c1019a.f48980e, fVar);
-                        arrayList.addAll(c1019a.f48980e);
+                        i(c1020a.f48981e, fVar);
+                        arrayList.addAll(c1020a.f48981e);
                     }
-                    f fVar2 = c1019a.f48979d;
-                    if (fVar2 != null && (pMSAppInfo2 = c1019a.f48981f) != null) {
-                        pMSAppInfo2.appId = c1019a.f48977b;
+                    f fVar2 = c1020a.f48980d;
+                    if (fVar2 != null && (pMSAppInfo2 = c1020a.f48982f) != null) {
+                        pMSAppInfo2.appId = c1020a.f48978b;
                         h(fVar2, fVar);
                     } else {
-                        PMSAppInfo pMSAppInfo3 = s.get(c1019a.f48977b);
+                        PMSAppInfo pMSAppInfo3 = s.get(c1020a.f48978b);
                         if (pMSAppInfo3 == null) {
-                            PMSAppInfo pMSAppInfo4 = c1019a.f48981f;
+                            PMSAppInfo pMSAppInfo4 = c1020a.f48982f;
                             if (pMSAppInfo4 != null) {
-                                pMSAppInfo4.appId = c1019a.f48977b;
-                                List<d.b.g0.l.k.g> list2 = c1019a.f48980e;
+                                pMSAppInfo4.appId = c1020a.f48978b;
+                                List<d.b.g0.l.k.g> list2 = c1020a.f48981e;
                                 if (list2 != null && !list2.isEmpty()) {
-                                    c1019a.f48981f.d(c1019a.f48980e.get(0));
+                                    c1020a.f48982f.d(c1020a.f48981e.get(0));
                                 }
-                                this.f48931e.v().n(c1019a.f48981f, null);
+                                this.f48932e.v().n(c1020a.f48982f, null);
                             } else {
-                                int i2 = c1019a.f48976a;
-                                this.f48931e.v().m(c1019a, null, new d.b.g0.l.k.a(i2, c1019a.f48977b + "，本地记录不存在"));
+                                int i2 = c1020a.f48977a;
+                                this.f48932e.v().m(c1020a, null, new d.b.g0.l.k.a(i2, c1020a.f48978b + "，本地记录不存在"));
                             }
-                        } else if (c1019a.f48979d == null && (pMSAppInfo = c1019a.f48981f) != null) {
-                            pMSAppInfo.appId = c1019a.f48977b;
-                            this.f48931e.v().n(c1019a.f48981f, pMSAppInfo3);
+                        } else if (c1020a.f48980d == null && (pMSAppInfo = c1020a.f48982f) != null) {
+                            pMSAppInfo.appId = c1020a.f48978b;
+                            this.f48932e.v().n(c1020a.f48982f, pMSAppInfo3);
                         } else {
-                            f fVar3 = c1019a.f48979d;
-                            if (fVar3 != null && c1019a.f48981f == null) {
-                                c1019a.f48982g = true;
-                                c1019a.f48981f = pMSAppInfo3;
+                            f fVar3 = c1020a.f48980d;
+                            if (fVar3 != null && c1020a.f48982f == null) {
+                                c1020a.f48983g = true;
+                                c1020a.f48982f = pMSAppInfo3;
                                 h(fVar3, fVar);
                             }
                         }
@@ -110,10 +110,10 @@ public class a extends d.b.g0.l.l.d<d.b.g0.l.l.j.a> {
             }
         }
         if (fVar.k() == 0) {
-            this.f48931e.F();
+            this.f48932e.F();
         } else {
-            this.f48931e.G(fVar);
-            d.b.g0.l.l.h.a.a(aVar, arrayList, this.f48931e);
+            this.f48932e.G(fVar);
+            d.b.g0.l.l.h.a.a(aVar, arrayList, this.f48932e);
         }
         return null;
     }

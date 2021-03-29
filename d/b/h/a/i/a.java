@@ -3,7 +3,7 @@ package d.b.h.a.i;
 import android.os.Build;
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a extends HandlerThread {
     public a(String str, int i) {
         super(str, i);

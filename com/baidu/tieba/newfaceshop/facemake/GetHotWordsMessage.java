@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetHotWordsMessage extends JsonHttpResponsedMessage {
     public List<String> mData;
 

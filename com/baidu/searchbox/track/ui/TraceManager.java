@@ -16,7 +16,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TraceManager {
     public static final String TO_BACKGROUND = "To background";
     public static final String TO_FOREGROUND = "To foreground";

@@ -7,10 +7,10 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class h implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduNativeH5AdView f8311a;
+    public final /* synthetic */ BaiduNativeH5AdView f8312a;
 
     public h(BaiduNativeH5AdView baiduNativeH5AdView) {
-        this.f8311a = baiduNativeH5AdView;
+        this.f8312a = baiduNativeH5AdView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

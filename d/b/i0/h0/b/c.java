@@ -14,8 +14,8 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public String b(int i) {
-        int intValue = (i < 0 || i >= d.b.h0.w.p.b.f51538b.size()) ? 0 : d.b.h0.w.p.b.f51538b.get(i).intValue();
-        for (Map.Entry<String, Integer> entry : d.b.h0.w.p.b.f51539c.entrySet()) {
+        int intValue = (i < 0 || i >= d.b.h0.w.p.b.f51539b.size()) ? 0 : d.b.h0.w.p.b.f51539b.get(i).intValue();
+        for (Map.Entry<String, Integer> entry : d.b.h0.w.p.b.f51540c.entrySet()) {
             if (entry.getValue().intValue() == intValue) {
                 return entry.getKey();
             }
@@ -25,7 +25,7 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public int c() {
-        return d.b.h0.w.p.b.f51538b.size();
+        return d.b.h0.w.p.b.f51539b.size();
     }
 
     @Override // d.b.h0.w.p.c
@@ -60,7 +60,7 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public boolean m(String str) {
-        return d.b.h0.w.p.b.f51539c.get(str) != null;
+        return d.b.h0.w.p.b.f51540c.get(str) != null;
     }
 
     @Override // d.b.h0.w.p.c
@@ -71,7 +71,7 @@ public class c extends d.b.h0.w.p.c {
     @Override // d.b.h0.w.p.c
     public d.b.b.j.d.a o(String str) {
         Bitmap e2;
-        Integer num = d.b.h0.w.p.b.f51539c.get(str);
+        Integer num = d.b.h0.w.p.b.f51540c.get(str);
         if (num == null || (e2 = d.b.b.e.p.d.d().e(TbadkCoreApplication.getInst().getApp(), num.intValue())) == null) {
             return null;
         }

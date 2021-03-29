@@ -22,20 +22,20 @@ import java.util.concurrent.CountDownLatch;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BundleInfo f64915a;
+    public BundleInfo f64916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.z.g.b.a f64916b;
+    public d.b.z.g.b.a f64917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64917c = false;
+    public boolean f64918c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.z.g.c.a f64918d = null;
+    public d.b.z.g.c.a f64919d = null;
 
     public a(BundleInfo bundleInfo) {
         if (a(bundleInfo)) {
-            this.f64915a = bundleInfo;
+            this.f64916a = bundleInfo;
             return;
         }
         throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
@@ -59,21 +59,21 @@ public class a {
     }
 
     public ClassLoader c() {
-        return this.f64916b;
+        return this.f64917b;
     }
 
     public synchronized Resources d(Resources resources) {
         Application applicationContext = ContextHolder.getApplicationContext();
-        String absolutePath = c.d(applicationContext, this.f64915a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+        String absolutePath = c.d(applicationContext, this.f64916a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
         AssetManager assets = resources.getAssets();
         if (ResourcesHookUtil.hookAssets(assets, absolutePath)) {
-            if (this.f64918d == null || this.f64918d.getAssets().hashCode() != assets.hashCode()) {
-                this.f64918d = new d.b.z.g.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+            if (this.f64919d == null || this.f64919d.getAssets().hashCode() != assets.hashCode()) {
+                this.f64919d = new d.b.z.g.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
             }
         } else {
             throw new InitException(21, "resources hook error");
         }
-        return this.f64918d;
+        return this.f64919d;
     }
 
     public final void e() {
@@ -88,7 +88,7 @@ public class a {
 
     public final boolean f() {
         Application applicationContext = ContextHolder.getApplicationContext();
-        this.f64916b = new d.b.z.g.b.a(c.d(applicationContext, this.f64915a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), c.f(applicationContext, this.f64915a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.f64915a.getPackageName()).getAbsolutePath(), applicationContext);
+        this.f64917b = new d.b.z.g.b.a(c.d(applicationContext, this.f64916a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), c.f(applicationContext, this.f64916a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.f64916a.getPackageName()).getAbsolutePath(), applicationContext);
         return true;
     }
 
@@ -98,11 +98,11 @@ public class a {
             Resources a2 = d.c().a();
             Resources b2 = d.c().b();
             Resources[] d2 = d.c().d();
-            if (!this.f64917c) {
+            if (!this.f64918c) {
                 h(applicationContext);
-                this.f64917c = true;
+                this.f64918c = true;
             }
-            String absolutePath = c.d(applicationContext, this.f64915a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+            String absolutePath = c.d(applicationContext, this.f64916a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
             ResourcesHookUtil.hookResources(a2, absolutePath);
             ResourcesHookUtil.hookResources(b2, absolutePath);
             if (d2 != null) {

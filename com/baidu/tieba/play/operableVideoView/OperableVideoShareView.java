@@ -31,16 +31,16 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f20528e;
+    public d f20529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20529f;
+    public View f20530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20530g;
+    public ImageView f20531g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20531h;
+    public View f20532h;
     public ImageView i;
     public View j;
     public ImageView k;
@@ -61,9 +61,9 @@ public class OperableVideoShareView extends LinearLayout {
             if (l.a()) {
                 return;
             }
-            if (view == OperableVideoShareView.this.f20529f) {
+            if (view == OperableVideoShareView.this.f20530f) {
                 OperableVideoShareView.this.i(3);
-            } else if (view == OperableVideoShareView.this.f20531h) {
+            } else if (view == OperableVideoShareView.this.f20532h) {
                 OperableVideoShareView.this.i(2);
             } else if (view == OperableVideoShareView.this.j) {
                 OperableVideoShareView.this.i(8);
@@ -81,8 +81,8 @@ public class OperableVideoShareView extends LinearLayout {
     public void e(boolean z, boolean z2) {
         int g2;
         int g3;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20531h.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20529f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20532h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20530f.getLayoutParams();
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.l.getLayoutParams();
         LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.m.getLayoutParams();
@@ -144,20 +144,20 @@ public class OperableVideoShareView extends LinearLayout {
 
     public final void h() {
         LinearLayout.inflate(getContext(), getLayoutR(), this);
-        this.f20529f = findViewById(R.id.share_weixin);
-        this.f20530g = (ImageView) findViewById(R.id.share_weixin_img);
-        this.f20531h = findViewById(R.id.share_weixin_timeline);
+        this.f20530f = findViewById(R.id.share_weixin);
+        this.f20531g = (ImageView) findViewById(R.id.share_weixin_img);
+        this.f20532h = findViewById(R.id.share_weixin_timeline);
         this.i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
         this.j = findViewById(R.id.share_qq);
         this.k = (ImageView) findViewById(R.id.share_qq_img);
         this.l = findViewById(R.id.divider_line);
         this.m = findViewById(R.id.video_replay);
         this.n = (ImageView) findViewById(R.id.replay_img);
-        this.f20529f.setOnClickListener(this.q);
-        this.f20531h.setOnClickListener(this.q);
+        this.f20530f.setOnClickListener(this.q);
+        this.f20532h.setOnClickListener(this.q);
         this.j.setOnClickListener(this.q);
         setOnClickListener(this.q);
-        this.f20530g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+        this.f20531g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
         this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_qq40_svg, 1, false));
         this.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_replay44_svg, R.color.CAM_X0105, null, false));
@@ -208,7 +208,7 @@ public class OperableVideoShareView extends LinearLayout {
         shareItem.p = i0;
         shareItem.J = w1;
         shareItem.K = this.o.L0();
-        shareItem.f13718h = true;
+        shareItem.f13719h = true;
         shareItem.D = 3;
         shareItem.L = g(this.o);
         if (parse != null) {
@@ -247,14 +247,14 @@ public class OperableVideoShareView extends LinearLayout {
         this.o = a2Var;
         if (a2Var != null && !a2Var.x2()) {
             this.j.setVisibility(0);
-            this.f20529f.setVisibility(0);
-            this.f20531h.setVisibility(0);
+            this.f20530f.setVisibility(0);
+            this.f20532h.setVisibility(0);
             this.l.setVisibility(0);
             return;
         }
         this.j.setVisibility(8);
-        this.f20529f.setVisibility(8);
-        this.f20531h.setVisibility(8);
+        this.f20530f.setVisibility(8);
+        this.f20532h.setVisibility(8);
         this.l.setVisibility(8);
     }
 
@@ -263,7 +263,7 @@ public class OperableVideoShareView extends LinearLayout {
     }
 
     public void setVideoContainer(d dVar) {
-        this.f20528e = dVar;
+        this.f20529e = dVar;
         this.m.setOnClickListener(dVar);
     }
 

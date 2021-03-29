@@ -18,54 +18,54 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements a.c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43704f = k.f45050a;
+    public static final boolean f43705f = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f43705a;
+    public a.b f43706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalServerSocket f43706b;
+    public LocalServerSocket f43707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.a.c0.f.c.a f43707c;
+    public d.b.g0.a.c0.f.c.a f43708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43708d;
+    public String f43709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43709e;
+    public boolean f43710e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f43710a = new HashMap();
+        public Map<String, String> f43711a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43711b;
+        public String f43712b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43712c;
+        public String f43713c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f43713d;
+        public String f43714d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f43714e;
+        public boolean f43715e;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f43715a;
+        public a f43716a;
 
         public b(a aVar) {
-            this.f43715a = aVar;
+            this.f43716a = aVar;
         }
 
         public String a() {
@@ -100,27 +100,27 @@ public class c implements a.c {
     }
 
     public c(String str, a.b bVar) {
-        this.f43708d = str;
-        this.f43705a = bVar;
+        this.f43709d = str;
+        this.f43706a = bVar;
     }
 
     @Override // d.b.g0.a.c0.f.a.c
     public void start() {
-        if (this.f43709e) {
+        if (this.f43710e) {
             return;
         }
         try {
-            this.f43706b = new LocalServerSocket(this.f43708d);
-            this.f43709e = true;
+            this.f43707b = new LocalServerSocket(this.f43709d);
+            this.f43710e = true;
             int i = 0;
-            while (this.f43709e) {
-                LocalSocket accept = this.f43706b.accept();
+            while (this.f43710e) {
+                LocalSocket accept = this.f43707b.accept();
                 d.b.g0.a.c0.f.c.a aVar = new d.b.g0.a.c0.f.c.a(accept.getInputStream(), accept.getOutputStream());
-                this.f43707c = aVar;
-                aVar.o(this.f43705a);
-                ExecutorUtilsExt.postOnSerial(this.f43707c, "V8InspectorServer");
+                this.f43708c = aVar;
+                aVar.o(this.f43706a);
+                ExecutorUtilsExt.postOnSerial(this.f43708c, "V8InspectorServer");
                 if (d.b.g0.a.m1.a.a.C() && (i = i + 1) > 10) {
-                    if (f43704f) {
+                    if (f43705f) {
                         Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
                         return;
                     }
@@ -134,21 +134,21 @@ public class c implements a.c {
 
     @Override // d.b.g0.a.c0.f.a.c
     public void stop() {
-        this.f43709e = false;
-        LocalServerSocket localServerSocket = this.f43706b;
+        this.f43710e = false;
+        LocalServerSocket localServerSocket = this.f43707b;
         if (localServerSocket != null) {
             try {
                 localServerSocket.close();
             } catch (IOException e2) {
                 d.b.g0.a.c0.c.c("V8InspectorServer", "stop local server fail", e2);
             }
-            this.f43706b = null;
+            this.f43707b = null;
         }
-        d.b.g0.a.c0.f.c.a aVar = this.f43707c;
+        d.b.g0.a.c0.f.c.a aVar = this.f43708c;
         if (aVar != null) {
             aVar.l();
-            this.f43707c = null;
+            this.f43708c = null;
         }
-        this.f43705a = null;
+        this.f43706a = null;
     }
 }

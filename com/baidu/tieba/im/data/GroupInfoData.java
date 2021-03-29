@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import d.b.b.j.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupInfoData extends AbstractImageProvider implements n, Serializable, PreLoadImageProvider {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     public static final int TYPE_USER_MEIZHI_TRUE = 1;

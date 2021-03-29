@@ -1,7 +1,7 @@
 package d.b.g0.a.e0.u;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static boolean a(String str, String str2, boolean z) {
         if (!z) {

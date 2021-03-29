@@ -10,13 +10,13 @@ import com.baidu.tieba.easterEgg.RnSyncResponseMessage;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.g0.e.a f54897a;
+    public d.b.i0.g0.e.a f54898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f54898b;
+    public b f54899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f54899c = new a(CmdConfigHttp.CMD_GET_RN_SYNC);
+    public HttpMessageListener f54900c = new a(CmdConfigHttp.CMD_GET_RN_SYNC);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -29,9 +29,9 @@ public class d {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                d.this.f54897a = rnSyncResponseMessage.getData();
-                if (d.this.f54898b != null) {
-                    d.this.f54898b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                d.this.f54898a = rnSyncResponseMessage.getData();
+                if (d.this.f54899b != null) {
+                    d.this.f54899b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
@@ -43,15 +43,15 @@ public class d {
     }
 
     public d() {
-        MessageManager.getInstance().registerListener(this.f54899c);
+        MessageManager.getInstance().registerListener(this.f54900c);
     }
 
     public void c() {
-        MessageManager.getInstance().unRegisterListener(this.f54899c);
+        MessageManager.getInstance().unRegisterListener(this.f54900c);
     }
 
     public void d(b bVar) {
-        this.f54898b = bVar;
+        this.f54899b = bVar;
     }
 
     public void e() {

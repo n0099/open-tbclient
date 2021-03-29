@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Printer;
 import d.f.b.a.b;
 import d.f.b.a.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperContextDispatcher extends b {
     public void addLooperPrinter(Printer printer) {
         LooperRuntime.getInstance().getLooperNeedContext().addLooperPrinter(printer);

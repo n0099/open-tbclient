@@ -3,15 +3,15 @@ package d.b.g0.a.f1.h;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
     public b(double d2) {
-        this.f44447a = d2;
+        this.f44448a = d2;
     }
 
     @Override // d.b.g0.a.f1.h.a
     public boolean a(Bitmap bitmap, Rect rect) {
-        if (a.f44446c) {
+        if (a.f44447c) {
             Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
         }
         if (bitmap == null) {
@@ -22,10 +22,7 @@ public class b extends a {
         int height = rect2.height() - 2;
         int i = width / 3;
         int i2 = height / i;
-        double d2 = i2 * 3;
-        double d3 = this.f44447a;
-        Double.isNaN(d2);
-        int ceil = (int) Math.ceil(d2 * d3);
+        int ceil = (int) Math.ceil(i2 * 3 * this.f44448a);
         int i3 = 0;
         int i4 = 0;
         while (i4 < 3) {
@@ -53,7 +50,7 @@ public class b extends a {
     }
 
     public double d(Bitmap bitmap, Rect rect) {
-        if (a.f44446c) {
+        if (a.f44447c) {
             Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
         }
         if (bitmap == null) {
@@ -83,11 +80,7 @@ public class b extends a {
             i4++;
             i3 = i8;
         }
-        double d2 = i3;
-        double d3 = i2 * 3;
-        Double.isNaN(d2);
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i3 / (i2 * 3);
     }
 
     public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {

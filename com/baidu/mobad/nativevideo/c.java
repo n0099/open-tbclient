@@ -7,10 +7,10 @@ import com.baidu.mobad.nativevideo.PatchVideoNative;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PatchVideoNative f8062a;
+    public final /* synthetic */ PatchVideoNative f8063a;
 
     public c(PatchVideoNative patchVideoNative) {
-        this.f8062a = patchVideoNative;
+        this.f8063a = patchVideoNative;
     }
 
     @Override // java.lang.Runnable
@@ -26,25 +26,25 @@ public class c implements Runnable {
         e eVar;
         PatchVideoNative.IPatchVideoNativeListener iPatchVideoNativeListener2;
         e eVar2;
-        iPatchVideoNativeListener = this.f8062a.f8050d;
+        iPatchVideoNativeListener = this.f8063a.f8051d;
         if (iPatchVideoNativeListener != null) {
-            iPatchVideoNativeListener2 = this.f8062a.f8050d;
-            eVar2 = this.f8062a.f8053g;
+            iPatchVideoNativeListener2 = this.f8063a.f8051d;
+            eVar2 = this.f8063a.f8054g;
             iPatchVideoNativeListener2.onAdLoad(eVar2.getMaterialType());
         }
-        PatchVideoNative patchVideoNative = this.f8062a;
-        context = this.f8062a.f8047a;
-        patchVideoNative.f8052f = new com.baidu.mobads.i.b(context);
-        bVar = this.f8062a.f8052f;
-        z = this.f8062a.f8054h;
+        PatchVideoNative patchVideoNative = this.f8063a;
+        context = this.f8063a.f8048a;
+        patchVideoNative.f8053f = new com.baidu.mobads.i.b(context);
+        bVar = this.f8063a.f8053f;
+        z = this.f8063a.f8055h;
         bVar.a(z);
-        relativeLayout = this.f8062a.f8049c;
-        bVar2 = this.f8062a.f8052f;
+        relativeLayout = this.f8063a.f8050c;
+        bVar2 = this.f8063a.f8053f;
         relativeLayout.addView(bVar2, new RelativeLayout.LayoutParams(-1, -1));
-        bVar3 = this.f8062a.f8052f;
+        bVar3 = this.f8063a.f8053f;
         bVar3.a(new d(this));
-        bVar4 = this.f8062a.f8052f;
-        eVar = this.f8062a.f8053g;
+        bVar4 = this.f8063a.f8053f;
+        eVar = this.f8063a.f8054g;
         bVar4.a((XAdVideoResponse) eVar);
     }
 }

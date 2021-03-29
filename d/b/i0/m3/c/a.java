@@ -3,7 +3,7 @@ package d.b.i0.m3.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.b.c.f.c;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a extends c {
     public a() {
         super(0);

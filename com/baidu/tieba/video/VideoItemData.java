@@ -159,7 +159,7 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
         if (originalThreadInfo != null) {
-            this.thread_id = originalThreadInfo.f13215f;
+            this.thread_id = originalThreadInfo.f13216f;
             this.post_id = originalThreadInfo.n;
             VideoInfo videoInfo = originalThreadInfo.r;
             if (videoInfo != null) {
@@ -176,14 +176,14 @@ public class VideoItemData implements Serializable, Parcelable {
             this.comment_num = String.valueOf(originalThreadInfo.x);
             this.agree_num = String.valueOf(originalThreadInfo.w.agree_num);
             this.share_num = String.valueOf(originalThreadInfo.y);
-            String str = originalThreadInfo.f13216g;
+            String str = originalThreadInfo.f13217g;
             this.title = str;
             if (TextUtils.isEmpty(str)) {
-                this.title = originalThreadInfo.f13211b;
+                this.title = originalThreadInfo.f13212b;
             }
-            this.forum_id = String.valueOf(originalThreadInfo.f13214e);
+            this.forum_id = String.valueOf(originalThreadInfo.f13215e);
             this.baijiahaoData = originalThreadInfo.p;
-            this.forum_name = originalThreadInfo.f13213d;
+            this.forum_name = originalThreadInfo.f13214d;
             this.is_agreed = String.valueOf(originalThreadInfo.w.has_agree);
             if (originalThreadInfo.v != null) {
                 UserItemData userItemData = new UserItemData();

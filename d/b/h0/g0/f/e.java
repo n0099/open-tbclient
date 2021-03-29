@@ -13,22 +13,22 @@ import d.b.i0.c3.t;
 public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewEventCenter f50215e;
+    public final ViewEventCenter f50216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f50216f;
+    public D f50217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public S f50217g;
+    public S f50218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f50218h;
+    public final View f50219h;
     public TbPageContext<?> i;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.i = tbPageContext;
-        this.f50218h = view;
-        this.f50215e = viewEventCenter;
+        this.f50219h = view;
+        this.f50216e = viewEventCenter;
     }
 
     public Activity a() {
@@ -40,11 +40,11 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public D c() {
-        return this.f50216f;
+        return this.f50217f;
     }
 
     public ViewEventCenter d() {
-        return this.f50215e;
+        return this.f50216e;
     }
 
     public TbPageContext<?> e() {
@@ -56,11 +56,11 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public View g() {
-        return this.f50218h;
+        return this.f50219h;
     }
 
     public S h() {
-        return this.f50217g;
+        return this.f50218g;
     }
 
     public String i(int i) {
@@ -72,7 +72,7 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public void k(D d2) {
-        this.f50216f = d2;
+        this.f50217f = d2;
     }
 
     public void l(D d2, S s) {
@@ -81,6 +81,6 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public void m(S s) {
-        this.f50217g = s;
+        this.f50218g = s;
     }
 }

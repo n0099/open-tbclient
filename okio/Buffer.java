@@ -24,7 +24,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     public static final int REPLACEMENT_CHARACTER = 65533;
@@ -100,7 +100,8 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             if (buffer != null) {
                 if (this.readWrite) {
                     long j2 = buffer.size;
-                    if (j <= j2) {
+                    int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    if (i <= 0) {
                         if (j >= 0) {
                             long j3 = j2 - j;
                             while (true) {
@@ -109,14 +110,14 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                                 }
                                 Buffer buffer2 = this.buffer;
                                 Segment segment = buffer2.head.prev;
-                                int i = segment.limit;
-                                long j4 = i - segment.pos;
+                                int i2 = segment.limit;
+                                long j4 = i2 - segment.pos;
                                 if (j4 <= j3) {
                                     buffer2.head = segment.pop();
                                     SegmentPool.recycle(segment);
                                     j3 -= j4;
                                 } else {
-                                    segment.limit = (int) (i - j3);
+                                    segment.limit = (int) (i2 - j3);
                                     break;
                                 }
                             }
@@ -128,21 +129,21 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         } else {
                             throw new IllegalArgumentException("newSize < 0: " + j);
                         }
-                    } else if (j > j2) {
+                    } else if (i > 0) {
                         long j5 = j - j2;
                         boolean z = true;
                         while (j5 > 0) {
                             Segment writableSegment = this.buffer.writableSegment(1);
                             int min = (int) Math.min(j5, 8192 - writableSegment.limit);
-                            int i2 = writableSegment.limit + min;
-                            writableSegment.limit = i2;
+                            int i3 = writableSegment.limit + min;
+                            writableSegment.limit = i3;
                             j5 -= min;
                             if (z) {
                                 this.segment = writableSegment;
                                 this.offset = j2;
                                 this.data = writableSegment.data;
-                                this.start = i2 - min;
-                                this.end = i2;
+                                this.start = i3 - min;
+                                this.end = i3;
                                 z = false;
                             }
                         }
@@ -156,11 +157,12 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         }
 
         public int seek(long j) {
-            if (j >= -1) {
+            int i = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+            if (i >= 0) {
                 Buffer buffer = this.buffer;
                 long j2 = buffer.size;
                 if (j <= j2) {
-                    if (j != -1 && j != j2) {
+                    if (i != 0 && j != j2) {
                         long j3 = 0;
                         Segment segment = buffer.head;
                         Segment segment2 = this.segment;
@@ -178,12 +180,12 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         }
                         if (j2 - j > j - j3) {
                             while (true) {
-                                int i = segment2.limit;
-                                int i2 = segment2.pos;
-                                if (j < (i - i2) + j3) {
+                                int i2 = segment2.limit;
+                                int i3 = segment2.pos;
+                                if (j < (i2 - i3) + j3) {
                                     break;
                                 }
-                                j3 += i - i2;
+                                j3 += i2 - i3;
                                 segment2 = segment2.next;
                             }
                         } else {
@@ -206,11 +208,11 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                         this.segment = segment2;
                         this.offset = j;
                         this.data = segment2.data;
-                        int i3 = segment2.pos + ((int) (j - j3));
-                        this.start = i3;
-                        int i4 = segment2.limit;
-                        this.end = i4;
-                        return i4 - i3;
+                        int i4 = segment2.pos + ((int) (j - j3));
+                        this.start = i4;
+                        int i5 = segment2.limit;
+                        this.end = i5;
+                        return i5 - i4;
                     }
                     this.segment = null;
                     this.offset = j;
@@ -557,26 +559,37 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return new ByteString(readByteArray());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x003d, code lost:
+        r1 = new okio.Buffer().writeDecimalLong(r3).writeByte((int) r15);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x004a, code lost:
+        if (r8 != false) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004c, code lost:
+        r1.readByte();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0069, code lost:
+        throw new java.lang.NumberFormatException("Number too large: " + r1.readUtf8());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00b9, code lost:
         r17.size -= r7;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00c1, code lost:
-        if (r8 == false) goto L44;
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00bf, code lost:
+        if (r8 == false) goto L43;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00c3, code lost:
         return -r3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:?, code lost:
         return r3;
      */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00ab  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00a9  */
     @Override // okio.BufferedSource
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public long readDecimalLong() {
-        byte b2;
         long j = 0;
         if (this.size != 0) {
             long j2 = JSONLexerBase.MULTMIN_RADIX_TEN;
@@ -590,10 +603,11 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 int i2 = segment.pos;
                 int i3 = segment.limit;
                 while (i2 < i3) {
-                    b2 = bArr[i2];
+                    byte b2 = bArr[i2];
                     if (b2 >= 48 && b2 <= 57) {
                         int i4 = 48 - b2;
-                        if (j < j2 || (j == j2 && i4 < j3)) {
+                        int i5 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i5 < 0 || (i5 == 0 && i4 < j3)) {
                             break loop0;
                         }
                         j = (j * 10) + i4;
@@ -626,11 +640,6 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 }
                 break;
             }
-            Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b2);
-            if (!z) {
-                writeByte.readByte();
-            }
-            throw new NumberFormatException("Number too large: " + writeByte.readUtf8());
         }
         throw new IllegalStateException("size == 0");
     }
@@ -654,7 +663,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     /* JADX WARN: Removed duplicated region for block: B:33:0x0093  */
     /* JADX WARN: Removed duplicated region for block: B:34:0x009d  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00a5 A[EDGE_INSN: B:43:0x00a5->B:38:0x00a5 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00a5 A[EDGE_INSN: B:42:0x00a5->B:38:0x00a5 ?: BREAK  , SYNTHETIC] */
     @Override // okio.BufferedSource
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1285,12 +1294,13 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okio.BufferedSink
     public Buffer writeDecimalLong(long j) {
-        if (j == 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i == 0) {
             return writeByte(48);
         }
         boolean z = false;
-        int i = 1;
-        if (j < 0) {
+        int i2 = 1;
+        if (i < 0) {
             j = -j;
             if (j < 0) {
                 return writeUtf8("-9223372036854775808");
@@ -1298,30 +1308,30 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             z = true;
         }
         if (j >= 100000000) {
-            i = j < 1000000000000L ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
+            i2 = j < 1000000000000L ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
         } else if (j >= 10000) {
-            i = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;
+            i2 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;
         } else if (j >= 100) {
-            i = j < 1000 ? 3 : 4;
+            i2 = j < 1000 ? 3 : 4;
         } else if (j >= 10) {
-            i = 2;
+            i2 = 2;
         }
         if (z) {
-            i++;
+            i2++;
         }
-        Segment writableSegment = writableSegment(i);
+        Segment writableSegment = writableSegment(i2);
         byte[] bArr = writableSegment.data;
-        int i2 = writableSegment.limit + i;
+        int i3 = writableSegment.limit + i2;
         while (j != 0) {
-            i2--;
-            bArr[i2] = DIGITS[(int) (j % 10)];
+            i3--;
+            bArr[i3] = DIGITS[(int) (j % 10)];
             j /= 10;
         }
         if (z) {
-            bArr[i2 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
+            bArr[i3 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
         }
-        writableSegment.limit += i;
-        this.size += i;
+        writableSegment.limit += i2;
+        this.size += i2;
         return this;
     }
 

@@ -18,16 +18,16 @@ import org.json.JSONObject;
 public class InteractiveEndFrameView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RewardWebView f12758e;
+    public RewardWebView f12759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.e.a.r.b f12759f;
+    public d.b.g0.e.a.r.b f12760f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdElementInfo f12760g;
+    public AdElementInfo f12761g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.a.q.g.b.a f12761h;
+    public d.b.g0.a.q.g.b.a f12762h;
     public d.b.g0.a.q.g.a.a i;
     public JSONObject j;
     public String k;
@@ -111,24 +111,24 @@ public class InteractiveEndFrameView extends RelativeLayout {
             if (a2 == null) {
                 return;
             }
-            c.e(InteractiveEndFrameView.this.f12760g, InteractiveEndFrameView.this.f12759f);
+            c.e(InteractiveEndFrameView.this.f12761g, InteractiveEndFrameView.this.f12760f);
             InteractiveEndFrameView.this.k = str;
             String v = InteractiveEndFrameView.this.v(str);
             if (!TextUtils.isEmpty(v)) {
                 InteractiveEndFrameView.this.l = v;
             }
-            InteractiveEndFrameView.this.f12761h = new d.b.g0.a.q.g.b.a(InteractiveEndFrameView.this.k, InteractiveEndFrameView.this.l);
+            InteractiveEndFrameView.this.f12762h = new d.b.g0.a.q.g.b.a(InteractiveEndFrameView.this.k, InteractiveEndFrameView.this.l);
             InteractiveEndFrameView interactiveEndFrameView = InteractiveEndFrameView.this;
-            interactiveEndFrameView.o = a2.f(interactiveEndFrameView.getContext(), InteractiveEndFrameView.this.f12761h, InteractiveEndFrameView.this.i);
-            InteractiveEndFrameView.this.o.c(InteractiveEndFrameView.this.f12761h);
+            interactiveEndFrameView.o = a2.f(interactiveEndFrameView.getContext(), InteractiveEndFrameView.this.f12762h, InteractiveEndFrameView.this.i);
+            InteractiveEndFrameView.this.o.c(InteractiveEndFrameView.this.f12762h);
             InteractiveEndFrameView.this.o.d();
-            if (k0.C(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.f12761h.f45487b) && InteractiveEndFrameView.this.p != null) {
+            if (k0.C(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.f12762h.f45488b) && InteractiveEndFrameView.this.p != null) {
                 InteractiveEndFrameView.this.p.removeView(InteractiveEndFrameView.this.o.getRealView());
                 InteractiveEndFrameView.this.p.addView(InteractiveEndFrameView.this.o.getRealView(), InteractiveEndFrameView.this.q);
                 InteractiveEndFrameView.this.o.e(SwanAdDownloadState.INSTALLED);
                 return;
             }
-            d.b.g0.a.w0.a.d().a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.f12761h.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.i);
+            d.b.g0.a.w0.a.d().a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.f12762h.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.i);
         }
     }
 
@@ -136,18 +136,18 @@ public class InteractiveEndFrameView extends RelativeLayout {
         super(context);
         this.l = "";
         this.m = SwanAdDownloadState.NOT_START;
-        this.f12759f = new d.b.g0.e.a.r.b(context);
+        this.f12760f = new d.b.g0.e.a.r.b(context);
     }
 
     public void s(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
-        this.f12760g = adElementInfo;
+        this.f12761g = adElementInfo;
         this.p = relativeLayout;
         String t = adElementInfo.t();
         RewardWebView rewardWebView = new RewardWebView(getContext());
-        this.f12758e = rewardWebView;
+        this.f12759e = rewardWebView;
         rewardWebView.setBackgroundColor(-1);
-        this.f12758e.loadUrl(t);
-        addView(this.f12758e, new RelativeLayout.LayoutParams(-1, -1));
+        this.f12759e.loadUrl(t);
+        addView(this.f12759e, new RelativeLayout.LayoutParams(-1, -1));
         this.j = adElementInfo.i();
         this.n = new d.b.g0.a.q.b(getContext(), this.j);
         w();
@@ -155,17 +155,17 @@ public class InteractiveEndFrameView extends RelativeLayout {
     }
 
     public void setDownloadListener() {
-        this.f12758e.setDownloadListener(new b());
+        this.f12759e.setDownloadListener(new b());
     }
 
     public void t() {
-        RewardWebView rewardWebView = this.f12758e;
+        RewardWebView rewardWebView = this.f12759e;
         if (rewardWebView != null) {
             rewardWebView.destroy();
         }
         if (SwanAdDownloadState.DOWNLOADING == this.m) {
             this.i = null;
-            d.b.g0.a.w0.a.d().a(getContext(), this.f12761h.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.i);
+            d.b.g0.a.w0.a.d().a(getContext(), this.f12762h.a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.i);
         }
     }
 

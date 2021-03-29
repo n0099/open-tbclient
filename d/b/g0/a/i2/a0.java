@@ -8,7 +8,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 public final class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f44660a;
+    public static SharedPreferences f44661a;
 
     public static Context a() {
         return AppRuntime.getAppContext();
@@ -19,10 +19,10 @@ public final class a0 {
     }
 
     public static SharedPreferences c() {
-        if (f44660a == null) {
-            f44660a = PreferenceManager.getDefaultSharedPreferences(a());
+        if (f44661a == null) {
+            f44661a = PreferenceManager.getDefaultSharedPreferences(a());
         }
-        return f44660a;
+        return f44661a;
     }
 
     public static void d(String str, boolean z) {

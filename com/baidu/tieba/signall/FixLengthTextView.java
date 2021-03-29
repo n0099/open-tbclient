@@ -12,20 +12,20 @@ import com.baidu.tieba.R$styleable;
 public class FixLengthTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21126e;
+    public String f21127e;
 
     public FixLengthTextView(Context context) {
         this(context, null, 0);
     }
 
     public String getmMeasureText() {
-        return this.f21126e;
+        return this.f21127e;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i, int i2) {
-        if (!TextUtils.isEmpty(this.f21126e)) {
-            int desiredWidth = ((int) Layout.getDesiredWidth(this.f21126e, getPaint())) + getPaddingLeft() + getPaddingRight();
+        if (!TextUtils.isEmpty(this.f21127e)) {
+            int desiredWidth = ((int) Layout.getDesiredWidth(this.f21127e, getPaint())) + getPaddingLeft() + getPaddingRight();
             int size = View.MeasureSpec.getSize(i);
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 desiredWidth = Math.max(desiredWidth, size);
@@ -36,7 +36,7 @@ public class FixLengthTextView extends TextView {
     }
 
     public void setmMeasureText(String str) {
-        this.f21126e = str;
+        this.f21127e = str;
     }
 
     public FixLengthTextView(Context context, AttributeSet attributeSet) {
@@ -46,7 +46,7 @@ public class FixLengthTextView extends TextView {
     public FixLengthTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.fixtextview);
-        this.f21126e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(R$styleable.fixtextview_measuretext));
+        this.f21127e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(R$styleable.fixtextview_measuretext));
         obtainStyledAttributes.recycle();
     }
 }

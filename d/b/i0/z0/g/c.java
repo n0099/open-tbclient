@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f63049a;
+    public static int f63050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63050b;
+    public static int f63051b;
 
     public static boolean a(Activity activity) {
         if (activity != null) {
@@ -31,17 +31,17 @@ public class c {
         int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
         View childAt = bdTypeRecyclerView.getChildAt(0);
         int top = childAt != null ? childAt.getTop() : 0;
-        f63049a = firstVisiblePosition;
-        f63050b = top;
+        f63050a = firstVisiblePosition;
+        f63051b = top;
     }
 
     public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || f63049a > bdTypeRecyclerView.getCount() - 1) {
+        if (bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || f63050a > bdTypeRecyclerView.getCount() - 1) {
             return;
         }
         bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(f63049a, f63050b);
-        f63049a = 0;
-        f63050b = 0;
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(f63050a, f63051b);
+        f63050a = 0;
+        f63051b = 0;
     }
 }

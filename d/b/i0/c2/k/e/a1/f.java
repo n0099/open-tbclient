@@ -13,21 +13,21 @@ import d.b.h0.r.q.v0;
 import d.b.i.a;
 import d.b.i.o;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f extends d.b.i0.c2.k.e.a1.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f52586f;
+    public LinearLayout f52587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemCardView f52587g;
+    public ItemCardView f52588g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a2 f52588h;
+    public a2 f52589h;
     public d.b.h0.r.q.a i;
     public o j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends d.b.h0.r.q.a {
         public a() {
         }
@@ -44,11 +44,11 @@ public class f extends d.b.i0.c2.k.e.a1.a {
 
         @Override // d.b.h0.r.q.a
         public a2 n() {
-            return f.this.f52588h;
+            return f.this.f52589h;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -56,9 +56,9 @@ public class f extends d.b.i0.c2.k.e.a1.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f fVar = f.this;
-            a.InterfaceC1115a interfaceC1115a = fVar.f52566c;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(fVar.i);
+            a.InterfaceC1116a interfaceC1116a = fVar.f52567c;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(fVar.i);
             }
         }
     }
@@ -69,50 +69,50 @@ public class f extends d.b.i0.c2.k.e.a1.a {
 
     @Override // d.b.i0.c2.k.e.a1.a
     public View a() {
-        if (this.f52586f == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f52564a.getPageActivity());
-            this.f52586f = linearLayout;
+        if (this.f52587f == null) {
+            LinearLayout linearLayout = new LinearLayout(this.f52565a.getPageActivity());
+            this.f52587f = linearLayout;
             linearLayout.setClipChildren(false);
-            this.f52586f.setClipToPadding(false);
-            SkinManager.setBackgroundColor(this.f52586f, R.color.CAM_X0206);
-            this.f52586f.setOrientation(1);
-            this.f52586f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            this.f52587f.setClipToPadding(false);
+            SkinManager.setBackgroundColor(this.f52587f, R.color.CAM_X0206);
+            this.f52587f.setOrientation(1);
+            this.f52587f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
-        this.f52586f.removeAllViews();
+        this.f52587f.removeAllViews();
         if (this.j == null) {
-            o oVar = new o(this.f52564a.getPageActivity());
+            o oVar = new o(this.f52565a.getPageActivity());
             this.j = oVar;
             oVar.n(Boolean.TRUE);
             this.j.x("pb");
             this.j.z(0);
-            this.j.F(this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
+            this.j.F(this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
             this.j.G(false);
             this.j.E(true);
         }
-        this.f52586f.addView(this.j.g());
-        if (this.f52587g == null) {
-            this.f52587g = new ItemCardView(this.f52564a.getPageActivity());
+        this.f52587f.addView(this.j.g());
+        if (this.f52588g == null) {
+            this.f52588g = new ItemCardView(this.f52565a.getPageActivity());
         }
-        this.f52587g.setBackGroundColor(R.color.CAM_X0205);
+        this.f52588g.setBackGroundColor(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams.bottomMargin = this.f52564a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-        this.f52586f.addView(this.f52587g, layoutParams);
-        return this.f52586f;
+        layoutParams.topMargin = this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams.bottomMargin = this.f52565a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+        this.f52587f.addView(this.f52588g, layoutParams);
+        return this.f52587f;
     }
 
     @Override // d.b.i0.c2.k.e.a1.a
     public void b(TbPageContext tbPageContext, int i) {
-        if (this.f52568e != i) {
-            this.f52568e = i;
-            SkinManager.setBackgroundColor(this.f52586f, R.color.CAM_X0206);
+        if (this.f52569e != i) {
+            this.f52569e = i;
+            SkinManager.setBackgroundColor(this.f52587f, R.color.CAM_X0206);
             o oVar = this.j;
             if (oVar != null) {
                 oVar.onChangeSkinType(tbPageContext, i);
             }
-            ItemCardView itemCardView = this.f52587g;
+            ItemCardView itemCardView = this.f52588g;
             if (itemCardView != null) {
                 itemCardView.b();
             }
@@ -121,10 +121,10 @@ public class f extends d.b.i0.c2.k.e.a1.a {
 
     @Override // d.b.i0.c2.k.e.a1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
-        this.f52567d = originalThreadInfo;
-        this.f52588h = originalThreadInfo == null ? null : originalThreadInfo.a();
+        this.f52568d = originalThreadInfo;
+        this.f52589h = originalThreadInfo == null ? null : originalThreadInfo.a();
         this.i = new a();
-        ItemCardView itemCardView = this.f52587g;
+        ItemCardView itemCardView = this.f52588g;
         if (itemCardView != null && originalThreadInfo != null) {
             itemCardView.setData(originalThreadInfo.z, 17);
         }
@@ -135,13 +135,13 @@ public class f extends d.b.i0.c2.k.e.a1.a {
     }
 
     @Override // d.b.i0.c2.k.e.a1.a
-    public void d(a.InterfaceC1115a interfaceC1115a) {
-        super.d(interfaceC1115a);
+    public void d(a.InterfaceC1116a interfaceC1116a) {
+        super.d(interfaceC1116a);
         o oVar = this.j;
         if (oVar != null) {
-            oVar.A(interfaceC1115a);
+            oVar.A(interfaceC1116a);
         }
-        LinearLayout linearLayout = this.f52586f;
+        LinearLayout linearLayout = this.f52587f;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(new b());
         }
@@ -152,7 +152,7 @@ public class f extends d.b.i0.c2.k.e.a1.a {
         super.e(b0Var);
         o oVar = this.j;
         if (oVar != null) {
-            oVar.l(this.f52565b);
+            oVar.l(this.f52566b);
         }
     }
 }

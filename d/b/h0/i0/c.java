@@ -10,44 +10,44 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50228a;
+    public String f50229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<String> f50229b = new ArrayList<>();
+    public final ArrayList<String> f50230b = new ArrayList<>();
 
     public c(BdUniqueId bdUniqueId, String str, Intent intent) {
-        this.f50228a = str;
+        this.f50229a = str;
         f(intent);
     }
 
     public String a() {
-        return this.f50228a;
+        return this.f50229a;
     }
 
     public ArrayList<String> b() {
-        return TbPageExtraHelper.c(this.f50229b, this.f50228a);
+        return TbPageExtraHelper.c(this.f50230b, this.f50229a);
     }
 
     public ArrayList<String> c() {
-        return this.f50229b;
+        return this.f50230b;
     }
 
     public String d() {
-        return (String) ListUtils.getItem(this.f50229b, ListUtils.getCount(this.f50229b) - 1);
+        return (String) ListUtils.getItem(this.f50230b, ListUtils.getCount(this.f50230b) - 1);
     }
 
     public boolean e() {
-        return StringUtils.isNull(this.f50228a);
+        return StringUtils.isNull(this.f50229a);
     }
 
     public void f(Intent intent) {
-        this.f50229b.clear();
+        this.f50230b.clear();
         if (intent != null) {
             ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
             if (ListUtils.isEmpty(stringArrayListExtra)) {
                 return;
             }
-            this.f50229b.addAll(stringArrayListExtra);
+            this.f50230b.addAll(stringArrayListExtra);
         }
     }
 }

@@ -26,14 +26,14 @@ import d.b.i0.d1.l.c.b;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActivity> {
     public static final int MAX_FEED_ITEM_COUNT = 80;
     public IFeedHeadLoadCallback callback;
     public CustomMessageListener mCustomMessageListener;
     public a netMessageListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IFeedHeadLoadCallback {
         void onListDataLoad(List<b> list, List<d.b.i0.d1.h.o.a> list2);
 
@@ -93,19 +93,19 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             if (officialFeedHeadResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f18061b;
+            List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().f18062b;
             ArrayList arrayList = new ArrayList();
             loop0: for (ChatMessage chatMessage : list) {
-                List<a.C1202a> b2 = d.b.i0.d1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1203a> b2 = d.b.i0.d1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i = 0;
                     while (i < b2.size()) {
                         if (arrayList.size() >= 80) {
                             break loop0;
                         }
-                        a.C1202a c1202a = b2.get(i);
-                        b b3 = b.b(chatMessage, c1202a);
-                        b3.j(i == 0 && !StringUtils.isNull(c1202a.f53908c));
+                        a.C1203a c1203a = b2.get(i);
+                        b b3 = b.b(chatMessage, c1203a);
+                        b3.j(i == 0 && !StringUtils.isNull(c1203a.f53909c));
                         arrayList.add(b3);
                         i++;
                     }
@@ -115,7 +115,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             sendReadCountMessage(arrayList);
             IFeedHeadLoadCallback iFeedHeadLoadCallback = this.callback;
             if (iFeedHeadLoadCallback != null) {
-                iFeedHeadLoadCallback.onListDataLoad(arrayList, officialFeedHeadResponsedMessage.getData().f18060a);
+                iFeedHeadLoadCallback.onListDataLoad(arrayList, officialFeedHeadResponsedMessage.getData().f18061a);
             }
         }
     }
@@ -137,7 +137,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
         ArrayList arrayList = new ArrayList(list.size());
         for (b bVar : list) {
             if (bVar.h()) {
-                arrayList.add(Long.valueOf(bVar.f().f53913h));
+                arrayList.add(Long.valueOf(bVar.f().f53914h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();

@@ -23,21 +23,21 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61076a = MultiDex.CODE_CACHE_NAME + File.separator + "secondary-dexes";
+    public static final String f61077a = MultiDex.CODE_CACHE_NAME + File.separator + "secondary-dexes";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f61077b = new HashSet();
+    public static final Set<String> f61078b = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f61078c = l(System.getProperty("java.vm.version"));
+    public static final boolean f61079c = l(System.getProperty("java.vm.version"));
 
     /* renamed from: d.b.i0.t1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class C1584a {
+    /* loaded from: classes3.dex */
+    public static final class C1585a {
         public static void b(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.g(classLoader, "pathList").get(classLoader);
             a.f(obj, "dexElements", c(obj, new ArrayList(list), file));
@@ -48,7 +48,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static void b(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             IOException[] iOExceptionArr;
@@ -79,7 +79,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class c {
         public static void b(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
             int size = list.size();
@@ -196,7 +196,7 @@ public final class a {
 
     public static void j(Context context) {
         Log.i("MultiDex", "install");
-        if (f61078c) {
+        if (f61079c) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT >= 4) {
             try {
@@ -204,12 +204,12 @@ public final class a {
                 if (i == null) {
                     return;
                 }
-                synchronized (f61077b) {
+                synchronized (f61078b) {
                     String str = i.sourceDir;
-                    if (f61077b.contains(str)) {
+                    if (f61078b.contains(str)) {
                         return;
                     }
-                    f61077b.add(str);
+                    f61078b.add(str);
                     if (Build.VERSION.SDK_INT > 20) {
                         Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                     }
@@ -224,7 +224,7 @@ public final class a {
                         } catch (Throwable th) {
                             Log.w("MultiDex", "Something went wrong when trying to clear old MultiDex extraction, continuing without cleaning.", th);
                         }
-                        File file = new File(i.dataDir, f61076a);
+                        File file = new File(i.dataDir, f61077a);
                         List<File> h2 = d.b.i0.t1.b.h(context, i, file, false);
                         if (d(h2)) {
                             k(classLoader, file, h2);
@@ -259,7 +259,7 @@ public final class a {
         if (i >= 19) {
             b.b(classLoader, list, file);
         } else if (i >= 14) {
-            C1584a.b(classLoader, list, file);
+            C1585a.b(classLoader, list, file);
         } else {
             c.b(classLoader, list);
         }

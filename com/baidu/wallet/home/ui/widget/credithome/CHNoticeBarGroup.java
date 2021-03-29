@@ -15,17 +15,17 @@ import java.util.List;
 public class CHNoticeBarGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24684a;
+    public List<BaseItemView> f24685a;
     public ViewFlipper flipper;
 
     public CHNoticeBarGroup(Context context) {
         super(context);
-        this.f24684a = new ArrayList();
+        this.f24685a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24684a;
+        return this.f24685a;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -51,7 +51,7 @@ public class CHNoticeBarGroup extends BaseItemLayout {
                 CHNoticeItem cHNoticeItem = new CHNoticeItem(getContext());
                 cHNoticeItem.setData(dataItem, this.mWalletHomeInterface);
                 this.flipper.addView(cHNoticeItem);
-                this.f24684a.add(cHNoticeItem);
+                this.f24685a.add(cHNoticeItem);
             }
         }
         if (this.mConfigData.list.length == 1) {
@@ -65,6 +65,6 @@ public class CHNoticeBarGroup extends BaseItemLayout {
 
     public CHNoticeBarGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24684a = new ArrayList();
+        this.f24685a = new ArrayList();
     }
 }

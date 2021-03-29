@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static final Parcelable.Creator<ExtensionCore> CREATOR = new a();
     public static final int TYPE_DEBUG = 2;
@@ -16,7 +16,7 @@ public class ExtensionCore extends SwanAppIPCData {
     public long extensionCoreVersionCode;
     public String extensionCoreVersionName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<ExtensionCore> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

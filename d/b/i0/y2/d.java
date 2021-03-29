@@ -9,16 +9,16 @@ import org.json.JSONObject;
 public class d implements PreLoadImageProvider {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62615e;
+    public int f62616e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62616f;
+    public String f62617f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62617g;
+    public String f62618g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62618h;
+    public int f62619h;
     public int i;
     public int j;
     public int k;
@@ -30,7 +30,7 @@ public class d implements PreLoadImageProvider {
     public int q;
 
     public String a() {
-        return this.f62617g;
+        return this.f62618g;
     }
 
     public int b() {
@@ -38,11 +38,11 @@ public class d implements PreLoadImageProvider {
     }
 
     public int c() {
-        return this.f62615e;
+        return this.f62616e;
     }
 
     public String d() {
-        return this.f62616f;
+        return this.f62617f;
     }
 
     public int e() {
@@ -50,7 +50,7 @@ public class d implements PreLoadImageProvider {
     }
 
     public int f() {
-        return this.f62618h;
+        return this.f62619h;
     }
 
     public int g() {
@@ -61,7 +61,7 @@ public class d implements PreLoadImageProvider {
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-        preLoadImageInfo.imgUrl = this.f62617g;
+        preLoadImageInfo.imgUrl = this.f62618g;
         preLoadImageInfo.procType = 10;
         arrayList.add(preLoadImageInfo);
         return arrayList;
@@ -95,15 +95,15 @@ public class d implements PreLoadImageProvider {
         if (jSONObject == null) {
             return;
         }
-        this.f62615e = jSONObject.optInt("forum_id");
-        this.f62616f = jSONObject.optString("forum_name");
-        this.f62617g = jSONObject.optString("avatar");
-        this.f62618h = jSONObject.optInt("is_sign_in");
+        this.f62616e = jSONObject.optInt("forum_id");
+        this.f62617f = jSONObject.optString("forum_name");
+        this.f62618g = jSONObject.optString("avatar");
+        this.f62619h = jSONObject.optInt("is_sign_in");
         this.i = jSONObject.optInt("cont_sign_num");
         this.j = jSONObject.optInt(IntentConfig.USER_LEVEL);
         this.k = jSONObject.optInt("user_exp");
         this.l = jSONObject.optInt("need_exp");
-        if (this.f62618h != 0) {
+        if (this.f62619h != 0) {
             this.m = true;
             this.o = false;
         }
@@ -121,12 +121,12 @@ public class d implements PreLoadImageProvider {
     }
 
     public void r(int i) {
-        this.f62618h = i;
+        this.f62619h = i;
     }
 
     public void s(boolean z) {
         this.o = z;
-        this.f62618h = 0;
+        this.f62619h = 0;
     }
 
     public void t(boolean z) {
@@ -135,7 +135,7 @@ public class d implements PreLoadImageProvider {
 
     public void u(boolean z) {
         this.m = z;
-        this.f62618h = 1;
+        this.f62619h = 1;
     }
 
     public void v(boolean z) {

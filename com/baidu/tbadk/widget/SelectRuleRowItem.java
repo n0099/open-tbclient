@@ -11,7 +11,7 @@ import java.util.List;
 public class SelectRuleRowItem extends AdapterLinearLayout {
 
     /* renamed from: g  reason: collision with root package name */
-    public a f14085g;
+    public a f14086g;
 
     public SelectRuleRowItem(Context context) {
         this(context, null);
@@ -22,16 +22,16 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
         setGravity(16);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         a aVar = new a(getContext());
-        this.f14085g = aVar;
+        this.f14086g = aVar;
         setAdapter(aVar);
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.f14085g.c(list, list2);
+        this.f14086g.c(list, list2);
     }
 
     public void setType(int i) {
-        this.f14085g.e(i);
+        this.f14086g.e(i);
     }
 
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet) {
@@ -39,7 +39,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.f14085g.d(list, list2, list3);
+        this.f14086g.d(list, list2, list3);
     }
 
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet, int i) {

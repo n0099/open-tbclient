@@ -3,9 +3,9 @@ package com.baidu.platform.comapi.walknavi.g.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10066a;
+    public static int f10067a;
 
     public static void a() {
-        f10066a = 0;
+        f10067a = 0;
     }
 }

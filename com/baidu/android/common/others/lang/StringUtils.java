@@ -1,7 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class StringUtils {
     public static boolean containsWhitespace(CharSequence charSequence) {
         if (TextUtils.isEmpty(charSequence)) {

@@ -13,7 +13,7 @@ import d.b.h0.r.q.a2;
 import d.b.i0.p0.l;
 import d.b.i0.x.e0.b;
 import d.b.i0.x.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(b bVar, StatisticItem statisticItem) {
         if (bVar == null || bVar.n() == null || statisticItem == null) {

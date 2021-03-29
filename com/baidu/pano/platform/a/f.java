@@ -9,46 +9,46 @@ import java.util.concurrent.Executors;
 public class f implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f9365a = Executors.newSingleThreadExecutor();
+    public ExecutorService f9366a = Executors.newSingleThreadExecutor();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f9366b = new g(this);
+    public final Executor f9367b = new g(this);
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final n f9368b;
+        public final n f9369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final q f9369c;
+        public final q f9370c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Runnable f9370d;
+        public final Runnable f9371d;
 
         public a(n nVar, q qVar, Runnable runnable) {
-            this.f9368b = nVar;
-            this.f9369c = qVar;
-            this.f9370d = runnable;
+            this.f9369b = nVar;
+            this.f9370c = qVar;
+            this.f9371d = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f9368b.h()) {
-                this.f9368b.b("canceled-at-delivery");
+            if (this.f9369b.h()) {
+                this.f9369b.b("canceled-at-delivery");
                 return;
             }
-            if (this.f9369c.a()) {
-                this.f9368b.a((n) this.f9369c.f9407a);
+            if (this.f9370c.a()) {
+                this.f9369b.a((n) this.f9370c.f9408a);
             } else {
-                this.f9368b.b(this.f9369c.f9409c);
+                this.f9369b.b(this.f9370c.f9410c);
             }
-            if (this.f9369c.f9410d) {
-                this.f9368b.a("intermediate-response");
+            if (this.f9370c.f9411d) {
+                this.f9369b.a("intermediate-response");
             } else {
-                this.f9368b.b(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                this.f9369b.b(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
-            Runnable runnable = this.f9370d;
+            Runnable runnable = this.f9371d;
             if (runnable != null) {
                 runnable.run();
             }
@@ -67,12 +67,12 @@ public class f implements r {
     public void a(n<?> nVar, q<?> qVar, Runnable runnable) {
         nVar.v();
         nVar.a("post-response");
-        this.f9366b.execute(new a(nVar, qVar, runnable));
+        this.f9367b.execute(new a(nVar, qVar, runnable));
     }
 
     @Override // com.baidu.pano.platform.a.r
     public void a(n<?> nVar, v vVar) {
         nVar.a("post-error");
-        this.f9366b.execute(new a(nVar, q.a(vVar), null));
+        this.f9367b.execute(new a(nVar, q.a(vVar), null));
     }
 }

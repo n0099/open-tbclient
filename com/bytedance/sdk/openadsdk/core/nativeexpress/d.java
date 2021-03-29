@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class d extends com.bytedance.sdk.openadsdk.core.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.j f28525a;
+    public com.bytedance.sdk.openadsdk.core.d.j f28526a;
 
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
@@ -40,21 +40,21 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
         } else {
             i9 = a2[0];
             i10 = a2[1];
-            i5 = ((int) al.a(this.f28017c, i)) + i9;
-            i6 = ((int) al.a(this.f28017c, i2)) + i10;
-            i7 = ((int) al.a(this.f28017c, i3)) + i9;
-            i8 = ((int) al.a(this.f28017c, i4)) + i10;
+            i5 = ((int) al.a(this.f28018c, i)) + i9;
+            i6 = ((int) al.a(this.f28018c, i2)) + i10;
+            i7 = ((int) al.a(this.f28018c, i3)) + i9;
+            i8 = ((int) al.a(this.f28018c, i4)) + i10;
         }
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
-        com.bytedance.sdk.openadsdk.core.d.j jVar = this.f28525a;
+        com.bytedance.sdk.openadsdk.core.d.j jVar = this.f28526a;
         if (jVar != null) {
-            j3 = jVar.f28161e;
-            j4 = jVar.f28162f;
-            iArr[0] = ((int) al.a(this.f28017c, jVar.f28163g)) + i9;
-            iArr[1] = ((int) al.a(this.f28017c, this.f28525a.f28164h)) + i10;
-            int a3 = (int) al.a(this.f28017c, this.f28525a.i);
-            int a4 = (int) al.a(this.f28017c, this.f28525a.j);
+            j3 = jVar.f28162e;
+            j4 = jVar.f28163f;
+            iArr[0] = ((int) al.a(this.f28018c, jVar.f28164g)) + i9;
+            iArr[1] = ((int) al.a(this.f28018c, this.f28526a.f28165h)) + i10;
+            int a3 = (int) al.a(this.f28018c, this.f28526a.i);
+            int a4 = (int) al.a(this.f28018c, this.f28526a.j);
             iArr2[0] = a3;
             i11 = 1;
             iArr2[1] = a4;
@@ -75,6 +75,6 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        this.f28525a = jVar;
+        this.f28526a = jVar;
     }
 }

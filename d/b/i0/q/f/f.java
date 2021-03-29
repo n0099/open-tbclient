@@ -14,15 +14,15 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f59255a;
+    public static f f59256a;
 
     public static f f() {
         synchronized (f.class) {
-            if (f59255a == null) {
-                f59255a = new f();
+            if (f59256a == null) {
+                f59256a = new f();
             }
         }
-        return f59255a;
+        return f59256a;
     }
 
     public boolean a(d.b.h0.s.f.a aVar) {
@@ -109,7 +109,7 @@ public class f {
             b2.beginTransaction();
             char c2 = 0;
             try {
-                String[] strArr = d.b.h0.s.f.c.f51354a;
+                String[] strArr = d.b.h0.s.f.c.f51355a;
                 int length = strArr.length;
                 int i = 0;
                 while (i < length) {
@@ -164,7 +164,7 @@ public class f {
             b2.beginTransaction();
             char c2 = 0;
             try {
-                String[] strArr = d.b.h0.s.f.c.f51354a;
+                String[] strArr = d.b.h0.s.f.c.f51355a;
                 int length = strArr.length;
                 int i = 0;
                 while (i < length) {

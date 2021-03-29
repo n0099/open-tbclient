@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
     public long groupId;
     public long hasSentMsgId;

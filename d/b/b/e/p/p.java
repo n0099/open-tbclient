@@ -19,8 +19,8 @@ public class p {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            long j = bVar.f41702c;
-            long j2 = bVar2.f41702c;
+            long j = bVar.f41703c;
+            long j2 = bVar2.f41703c;
             if (j == j2) {
                 return 0;
             }
@@ -28,7 +28,7 @@ public class p {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r3v10, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r3v10, types: [T, byte[]] */
     public static List<l.b<byte[]>> a(d.b.b.e.d.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -44,10 +44,10 @@ public class p {
         while (cursor.moveToNext()) {
             try {
                 l.b bVar = new l.b();
-                bVar.f41700a = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.f41702c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.f41701a = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.f41703c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                 cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.f41701b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.f41702b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -82,10 +82,10 @@ public class p {
         while (cursor.moveToNext()) {
             try {
                 l.b bVar = new l.b();
-                bVar.f41700a = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.f41702c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.f41701a = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.f41703c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                 cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.f41701b = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.f41702b = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;

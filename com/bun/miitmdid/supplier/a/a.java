@@ -9,37 +9,37 @@ import com.bun.miitmdid.utils.SupplierListener;
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public SupplierListener f27079a;
+    public SupplierListener f27080a;
 
     /* renamed from: f  reason: collision with root package name */
-    public SupplementaryDIDManager f27084f;
+    public SupplementaryDIDManager f27085f;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27080b = "";
+    public String f27081b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27081c = "";
+    public String f27082c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27082d = "";
+    public String f27083d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27083e = "";
+    public String f27084e = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27085g = false;
+    public boolean f27086g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27086h = false;
+    public boolean f27087h = false;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f27079a = supplierListener;
-        this.f27084f = new SupplementaryDIDManager(context);
+        this.f27080a = supplierListener;
+        this.f27085f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
-        SupplierListener supplierListener = this.f27079a;
+        SupplierListener supplierListener = this.f27080a;
         if (supplierListener != null) {
             supplierListener.OnSupport(false, this);
         }
@@ -49,50 +49,50 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     public void a(com.asus.msa.a.a aVar) {
         try {
             String b2 = aVar.b();
-            this.f27080b = b2;
+            this.f27081b = b2;
             if (b2 == null) {
-                this.f27080b = "";
+                this.f27081b = "";
             }
         } catch (Exception unused) {
         }
         try {
             String c2 = aVar.c();
-            this.f27081c = c2;
+            this.f27082c = c2;
             if (c2 == null) {
-                this.f27081c = "";
+                this.f27082c = "";
             }
         } catch (Exception unused2) {
         }
         try {
             String d2 = aVar.d();
-            this.f27082d = d2;
+            this.f27083d = d2;
             if (d2 == null) {
-                this.f27082d = "";
+                this.f27083d = "";
             }
         } catch (Exception unused3) {
         }
         try {
             String e2 = aVar.e();
-            this.f27083e = e2;
+            this.f27084e = e2;
             if (e2 == null) {
-                this.f27083e = "";
+                this.f27084e = "";
             }
         } catch (Exception unused4) {
         }
         try {
-            this.f27086h = aVar.a();
+            this.f27087h = aVar.a();
         } catch (Exception unused5) {
         }
-        this.f27085g = true;
-        SupplierListener supplierListener = this.f27079a;
+        this.f27086g = true;
+        SupplierListener supplierListener = this.f27080a;
         if (supplierListener != null) {
-            supplierListener.OnSupport(this.f27086h, this);
+            supplierListener.OnSupport(this.f27087h, this);
         }
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.f27084f.init(this);
+        this.f27085f.init(this);
     }
 
     @Override // android.os.IInterface
@@ -107,33 +107,33 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        return this.f27083e;
+        return this.f27084e;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        return this.f27081c;
+        return this.f27082c;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
-        return this.f27080b;
+        return this.f27081b;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        return this.f27082d;
+        return this.f27083d;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return this.f27086h;
+        return this.f27087h;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
         SupplementaryDIDManager supplementaryDIDManager;
-        if (!this.f27085g || (supplementaryDIDManager = this.f27084f) == null) {
+        if (!this.f27086g || (supplementaryDIDManager = this.f27085f) == null) {
             return;
         }
         supplementaryDIDManager.deInit();

@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,7 +23,6 @@ import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener;
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 import com.baidu.mapapi.walknavi.model.BaseNpcModel;
@@ -57,7 +57,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     public IWNPCLoadAndInitListener W;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animation f10083a;
+    public Animation f10084a;
     public View aa;
     public View ab;
     public View ac;
@@ -66,25 +66,25 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     public TextView af;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f10084b;
+    public Animation f10085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CheckBox f10085c;
+    public CheckBox f10086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CheckBox f10086d;
+    public CheckBox f10087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f10087e;
+    public CheckBox f10088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f10088f;
+    public Button f10089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f10089g;
+    public View f10090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f10090h;
+    public ImageView f10091h;
     public FrameLayout k;
     public Context l;
     public com.baidu.platform.comapi.walknavi.g.a m;
@@ -127,14 +127,14 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0125c implements g.a {
+    public static class C0126c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> f10091a;
+        public WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> f10092a;
 
-        public C0125c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
-            this.f10091a = null;
-            this.f10091a = new WeakReference<>(bVar);
+        public C0126c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+            this.f10092a = null;
+            this.f10092a = new WeakReference<>(bVar);
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.g.a
@@ -155,10 +155,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         this.J = null;
         this.l = context;
         Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(context, R.attr.SapiSdkDividerWidth);
-        this.f10083a = c2;
+        this.f10084a = c2;
         c2.setFillAfter(true);
         Animation c3 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.SapiSdkDividerPadding);
-        this.f10084b = c3;
+        this.f10085b = c3;
         c3.setFillAfter(true);
         this.O.setDuration(300L);
         this.P.setDuration(300L);
@@ -189,7 +189,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         this.L.setOnClickListener(new r(this));
         this.p = (RelativeLayout) view.findViewById(R.dimen.abc_dialog_list_padding_top_no_title);
         com.baidu.platform.comapi.walknavi.b.a().r();
-        int i = com.baidu.platform.comapi.walknavi.b.f9894a;
+        int i = com.baidu.platform.comapi.walknavi.b.f9895a;
         ImageButton imageButton = (ImageButton) view.findViewById(R.dimen.abc_dialog_min_width_major);
         this.q = imageButton;
         imageButton.setOnClickListener(new w(this));
@@ -287,20 +287,18 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     private void l() {
         if (com.baidu.platform.comapi.wnplatform.o.a.a()) {
-            this.f10089g.setVisibility(0);
-            this.f10090h.setVisibility(0);
+            this.f10090g.setVisibility(0);
+            this.f10091h.setVisibility(0);
             com.baidu.platform.comapi.walknavi.b.a().D().b(true);
             return;
         }
-        this.f10089g.setVisibility(8);
-        this.f10090h.setVisibility(8);
+        this.f10090g.setVisibility(8);
+        this.f10091h.setVisibility(8);
         com.baidu.platform.comapi.walknavi.b.a().D().b(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        double d2;
-        Point K;
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == 0) {
             MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
             if (i != null) {
@@ -308,10 +306,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 builder.overlook(0.0f);
                 builder.zoom(19.0f);
                 WinRound winRound = i.winRound;
-                Double.isNaN(Math.abs(winRound.bottom - winRound.top) - 75);
                 WinRound winRound2 = i.winRound;
-                builder.targetScreen(new android.graphics.Point((winRound2.right + winRound2.left) / 2, ((winRound2.top + winRound2.bottom) / 2) - ((int) (0.0d - (d2 * 0.25d)))));
-                if (com.baidu.platform.comapi.walknavi.b.a().K() != null) {
+                builder.targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound2.top + winRound2.bottom) / 2) - ((int) (0.0d - ((Math.abs(winRound.bottom - winRound.top) - 75) * 0.25d)))));
+                com.baidu.mapapi.model.inner.Point K = com.baidu.platform.comapi.walknavi.b.a().K();
+                if (K != null) {
                     builder.target(new LatLng(K.getmPty(), K.getmPtx()));
                 }
                 com.baidu.platform.comapi.walknavi.b.a().G().a(i, 500);
@@ -432,7 +430,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0125c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0126c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -476,7 +474,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     public void b() {
         Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.SapiSdkDividerWidth);
         this.o.b();
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f10066a == 2) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f10067a == 2) {
             if (this.r.isShown()) {
                 this.r.setAnimation(c2);
             }
@@ -619,8 +617,8 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
             if (z) {
                 return;
             }
-            this.y.startAnimation(this.f10084b);
-            this.H.startAnimation(this.f10084b);
+            this.y.startAnimation(this.f10085b);
+            this.H.startAnimation(this.f10085b);
         } else if (i == 2) {
             this.M = true;
             this.ac.setVisibility(8);
@@ -630,9 +628,9 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 this.I.setVisibility(0);
             } else {
                 this.y.setVisibility(8);
-                this.y.startAnimation(this.f10083a);
-                this.H.startAnimation(this.f10083a);
-                this.f10083a.setAnimationListener(new g(this));
+                this.y.startAnimation(this.f10084a);
+                this.H.startAnimation(this.f10084a);
+                this.f10084a.setAnimationListener(new g(this));
             }
             com.baidu.platform.comapi.walknavi.b.a().D().c(true);
             this.n.postDelayed(this.i, 500L);
@@ -658,22 +656,22 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     private void a(RelativeLayout relativeLayout) {
         CheckBox checkBox = (CheckBox) relativeLayout.findViewById(R.dimen.abc_edit_text_inset_bottom_material);
-        this.f10085c = checkBox;
+        this.f10086c = checkBox;
         checkBox.setOnCheckedChangeListener(this);
         if (com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-            this.f10085c.setClickable(false);
+            this.f10086c.setClickable(false);
         }
         CheckBox checkBox2 = (CheckBox) relativeLayout.findViewById(R.dimen.abc_floating_window_z);
-        this.f10086d = checkBox2;
+        this.f10087d = checkBox2;
         checkBox2.setOnCheckedChangeListener(this);
-        this.f10089g = relativeLayout.findViewById(R.dimen.abc_edit_text_inset_top_material);
-        this.f10090h = (ImageView) relativeLayout.findViewById(R.dimen.abc_list_item_padding_horizontal_material);
+        this.f10090g = relativeLayout.findViewById(R.dimen.abc_edit_text_inset_top_material);
+        this.f10091h = (ImageView) relativeLayout.findViewById(R.dimen.abc_list_item_padding_horizontal_material);
         l();
         CheckBox checkBox3 = (CheckBox) relativeLayout.findViewById(R.dimen.abc_progress_bar_height_material);
-        this.f10087e = checkBox3;
+        this.f10088e = checkBox3;
         checkBox3.setOnCheckedChangeListener(this);
         Button button = (Button) relativeLayout.findViewById(R.dimen.abc_search_view_preferred_width);
-        this.f10088f = button;
+        this.f10089f = button;
         button.setOnClickListener(new k(this));
     }
 
@@ -743,7 +741,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0137, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0136, code lost:
         if (r10.equals("helpless") != false) goto L41;
      */
     @Override // com.baidu.platform.comapi.walknavi.d.b

@@ -6,16 +6,16 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
 import d.b.h.b.d.c.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum DownloadTaskType {
         ZEUS,
         BROWSER
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface IDownloadTaskListener extends INoProGuard {
         void onDownloadCancel(String str, long j, long j2, String str2);
 

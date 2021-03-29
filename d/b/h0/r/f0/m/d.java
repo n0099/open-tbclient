@@ -14,8 +14,8 @@ public class d extends TBSpecificationButtonConfig {
 
     public d() {
         this.i = true;
-        this.f13606b = R.color.CAM_X0101;
-        this.f13608d = R.color.CAM_X0302;
+        this.f13607b = R.color.CAM_X0101;
+        this.f13609d = R.color.CAM_X0302;
         this.t = false;
         this.n = this.o;
         this.m = this.l;
@@ -33,8 +33,8 @@ public class d extends TBSpecificationButtonConfig {
     }
 
     public void o(@ColorRes int i) {
-        this.f13606b = i;
-        this.f13608d = R.color.CAM_X0904;
+        this.f13607b = i;
+        this.f13609d = R.color.CAM_X0904;
         this.t = false;
         TBSpecificationButtonConfig.a aVar = this.s;
         if (aVar != null) {
@@ -51,7 +51,7 @@ public class d extends TBSpecificationButtonConfig {
 
     public final Drawable q(float f2) {
         GradientDrawable gradientDrawable;
-        int color = SkinManager.getColor(this.q, this.f13608d);
+        int color = SkinManager.getColor(this.q, this.f13609d);
         int[] iArr = {d.b.i0.c3.c.b(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
@@ -68,14 +68,14 @@ public class d extends TBSpecificationButtonConfig {
 
     public final Drawable r(float f2) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(SkinManager.getColor(this.q, this.f13608d));
+        gradientDrawable.setColor(SkinManager.getColor(this.q, this.f13609d));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f2);
         return gradientDrawable;
     }
 
     public void s(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        this.f13609e[0] = i;
-        this.f13610f = iconType;
+        this.f13610e[0] = i;
+        this.f13611f = iconType;
     }
 }

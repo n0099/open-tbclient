@@ -6,7 +6,7 @@ import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
 import d.b.i0.x2.l;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LokiRuntime {
     public static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
         @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext

@@ -8,22 +8,22 @@ public class b extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63474e;
+    public long f63475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63475f;
+    public String f63476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63476g;
+    public String f63477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63477h;
+    public boolean f63478h;
     public int i;
     public int j;
     public String k;
 
     public String g() {
-        return this.f63476g;
+        return this.f63477g;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
@@ -32,11 +32,11 @@ public class b extends BaseCardInfo {
     }
 
     public long j() {
-        return this.f63474e;
+        return this.f63475e;
     }
 
     public String n() {
-        return this.f63475f;
+        return this.f63476f;
     }
 
     public int o() {
@@ -52,24 +52,24 @@ public class b extends BaseCardInfo {
     }
 
     public boolean u() {
-        return this.f63477h;
+        return this.f63478h;
     }
 
     public void v(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo == null) {
             return;
         }
-        this.f63474e = recommendForumInfo.forum_id.longValue();
-        this.f63475f = recommendForumInfo.forum_name;
-        this.f63476g = recommendForumInfo.avatar;
+        this.f63475e = recommendForumInfo.forum_id.longValue();
+        this.f63476f = recommendForumInfo.forum_name;
+        this.f63477g = recommendForumInfo.avatar;
         this.i = recommendForumInfo.member_count.intValue();
         this.j = recommendForumInfo.thread_count.intValue();
-        this.f63477h = recommendForumInfo.is_like.intValue() == 1;
+        this.f63478h = recommendForumInfo.is_like.intValue() == 1;
         this.k = recommendForumInfo.recom_reason;
         String str = recommendForumInfo.extra;
     }
 
     public void w(boolean z) {
-        this.f63477h = z;
+        this.f63478h = z;
     }
 }

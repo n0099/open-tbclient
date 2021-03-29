@@ -16,47 +16,47 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f45513f;
+    public static String f45514f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f45514a;
+    public final b f45515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45515b;
+    public boolean f45516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45516c;
+    public boolean f45517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f45517d;
+    public View f45518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f45518e;
+    public View f45519e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f45519a;
+        public final int f45520a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f45520b;
+        public final boolean f45521b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f45521c;
+        public final int f45522c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f45522d;
+        public final int f45523d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f45523e;
+        public final boolean f45524e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final float f45524f;
+        public final float f45525f;
 
         @TargetApi(14)
         public final int a(Context context) {
@@ -77,7 +77,7 @@ public class d {
         }
 
         public int c() {
-            return this.f45521c;
+            return this.f45522c;
         }
 
         @TargetApi(14)
@@ -86,11 +86,11 @@ public class d {
             if (Build.VERSION.SDK_INT < 14 || !i(context)) {
                 return 0;
             }
-            return b(resources, this.f45523e ? "navigation_bar_height" : "navigation_bar_height_landscape");
+            return b(resources, this.f45524e ? "navigation_bar_height" : "navigation_bar_height_landscape");
         }
 
         public int e() {
-            return this.f45522d;
+            return this.f45523d;
         }
 
         @TargetApi(14)
@@ -115,7 +115,7 @@ public class d {
         }
 
         public int h() {
-            return this.f45519a;
+            return this.f45520a;
         }
 
         @TargetApi(14)
@@ -124,10 +124,10 @@ public class d {
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(d.f45513f)) {
+                if ("1".equals(d.f45514f)) {
                     return false;
                 }
-                if ("0".equals(d.f45513f)) {
+                if ("0".equals(d.f45514f)) {
                     return true;
                 }
                 return z;
@@ -136,22 +136,22 @@ public class d {
         }
 
         public boolean j() {
-            return this.f45520b;
+            return this.f45521b;
         }
 
         public boolean k() {
-            return this.f45524f >= 600.0f || this.f45523e;
+            return this.f45525f >= 600.0f || this.f45524e;
         }
 
         public b(Activity activity, boolean z, boolean z2) {
             Resources resources = activity.getResources();
-            this.f45523e = resources.getConfiguration().orientation == 1;
-            this.f45524f = g(activity);
-            this.f45519a = b(resources, "status_bar_height");
+            this.f45524e = resources.getConfiguration().orientation == 1;
+            this.f45525f = g(activity);
+            this.f45520a = b(resources, "status_bar_height");
             a(activity);
-            this.f45521c = d(activity);
-            this.f45522d = f(activity);
-            this.f45520b = this.f45521c > 0;
+            this.f45522c = d(activity);
+            this.f45523d = f(activity);
+            this.f45521b = this.f45522c > 0;
         }
     }
 
@@ -160,9 +160,9 @@ public class d {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                f45513f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f45514f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
-                f45513f = null;
+                f45514f = null;
             }
         }
     }
@@ -174,66 +174,66 @@ public class d {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.f45515b = obtainStyledAttributes.getBoolean(0, false);
-                this.f45516c = obtainStyledAttributes.getBoolean(1, false);
+                this.f45516b = obtainStyledAttributes.getBoolean(0, false);
+                this.f45517c = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((67108864 & attributes.flags) != 0) {
-                    this.f45515b = true;
+                    this.f45516b = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
-                    this.f45516c = true;
+                    this.f45517c = true;
                 }
             } catch (Throwable th) {
                 obtainStyledAttributes.recycle();
                 throw th;
             }
         }
-        b bVar = new b(activity, this.f45515b, this.f45516c);
-        this.f45514a = bVar;
+        b bVar = new b(activity, this.f45516b, this.f45517c);
+        this.f45515a = bVar;
         if (!bVar.j()) {
-            this.f45516c = false;
+            this.f45517c = false;
         }
-        if (this.f45515b) {
+        if (this.f45516b) {
             d(activity, viewGroup);
         }
-        if (this.f45516c) {
+        if (this.f45517c) {
             c(activity, viewGroup);
         }
     }
 
     public void b(boolean z) {
-        if (this.f45515b) {
-            this.f45517d.setVisibility(z ? 0 : 8);
+        if (this.f45516b) {
+            this.f45518d.setVisibility(z ? 0 : 8);
         }
     }
 
     public final void c(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
-        this.f45518e = new View(context);
-        if (this.f45514a.k()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.f45514a.c());
+        this.f45519e = new View(context);
+        if (this.f45515a.k()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.f45515a.c());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.f45514a.e(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.f45515a.e(), -1);
             layoutParams.gravity = 5;
         }
-        this.f45518e.setLayoutParams(layoutParams);
-        this.f45518e.setBackgroundColor(-1728053248);
-        this.f45518e.setVisibility(8);
-        viewGroup.addView(this.f45518e);
+        this.f45519e.setLayoutParams(layoutParams);
+        this.f45519e.setBackgroundColor(-1728053248);
+        this.f45519e.setVisibility(8);
+        viewGroup.addView(this.f45519e);
     }
 
     public final void d(Context context, ViewGroup viewGroup) {
-        this.f45517d = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f45514a.h());
+        this.f45518d = new View(context);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f45515a.h());
         layoutParams.gravity = 48;
-        if (this.f45516c && !this.f45514a.k()) {
-            layoutParams.rightMargin = this.f45514a.e();
+        if (this.f45517c && !this.f45515a.k()) {
+            layoutParams.rightMargin = this.f45515a.e();
         }
-        this.f45517d.setLayoutParams(layoutParams);
-        this.f45517d.setBackgroundColor(-1728053248);
-        this.f45517d.setVisibility(8);
-        viewGroup.addView(this.f45517d);
+        this.f45518d.setLayoutParams(layoutParams);
+        this.f45518d.setBackgroundColor(-1728053248);
+        this.f45518d.setVisibility(8);
+        viewGroup.addView(this.f45518d);
     }
 }

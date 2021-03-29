@@ -6,56 +6,56 @@ import java.util.TimerTask;
 public final class c extends TimerTask {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50042e = Integer.MAX_VALUE;
+    public int f50043e = Integer.MAX_VALUE;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50043f = 0;
+    public int f50044f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50044g;
+    public int f50045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final WheelView f50045h;
+    public final WheelView f50046h;
 
     public c(WheelView wheelView, int i) {
-        this.f50045h = wheelView;
-        this.f50044g = i;
+        this.f50046h = wheelView;
+        this.f50045g = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.f50042e == Integer.MAX_VALUE) {
-            this.f50042e = this.f50044g;
+        if (this.f50043e == Integer.MAX_VALUE) {
+            this.f50043e = this.f50045g;
         }
-        int i = this.f50042e;
+        int i = this.f50043e;
         int i2 = (int) (i * 0.1f);
-        this.f50043f = i2;
+        this.f50044f = i2;
         if (i2 == 0) {
             if (i < 0) {
-                this.f50043f = -1;
+                this.f50044f = -1;
             } else {
-                this.f50043f = 1;
+                this.f50044f = 1;
             }
         }
-        if (Math.abs(this.f50042e) <= 1) {
-            this.f50045h.b();
-            this.f50045h.getHandler().sendEmptyMessage(3000);
+        if (Math.abs(this.f50043e) <= 1) {
+            this.f50046h.b();
+            this.f50046h.getHandler().sendEmptyMessage(3000);
             return;
         }
-        WheelView wheelView = this.f50045h;
-        wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.f50043f);
-        if (!this.f50045h.i()) {
-            float itemHeight = this.f50045h.getItemHeight();
-            float itemsCount = ((this.f50045h.getItemsCount() - 1) - this.f50045h.getInitPosition()) * itemHeight;
-            if (this.f50045h.getTotalScrollY() <= (-this.f50045h.getInitPosition()) * itemHeight || this.f50045h.getTotalScrollY() >= itemsCount) {
-                WheelView wheelView2 = this.f50045h;
-                wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.f50043f);
-                this.f50045h.b();
-                this.f50045h.getHandler().sendEmptyMessage(3000);
+        WheelView wheelView = this.f50046h;
+        wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.f50044f);
+        if (!this.f50046h.i()) {
+            float itemHeight = this.f50046h.getItemHeight();
+            float itemsCount = ((this.f50046h.getItemsCount() - 1) - this.f50046h.getInitPosition()) * itemHeight;
+            if (this.f50046h.getTotalScrollY() <= (-this.f50046h.getInitPosition()) * itemHeight || this.f50046h.getTotalScrollY() >= itemsCount) {
+                WheelView wheelView2 = this.f50046h;
+                wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.f50044f);
+                this.f50046h.b();
+                this.f50046h.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.f50045h.getHandler().sendEmptyMessage(1000);
-        this.f50042e -= this.f50043f;
+        this.f50046h.getHandler().sendEmptyMessage(1000);
+        this.f50043e -= this.f50044f;
     }
 }

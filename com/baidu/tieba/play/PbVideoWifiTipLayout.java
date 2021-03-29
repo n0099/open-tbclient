@@ -14,16 +14,16 @@ import tbclient.VideoInfo;
 public class PbVideoWifiTipLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20491e;
+    public TextView f20492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20492f;
+    public TextView f20493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20493g;
+    public TextView f20494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20494h;
+    public TextView f20495h;
     public TextView i;
     public View.OnClickListener j;
 
@@ -48,10 +48,10 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public final void b() {
         LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.f20491e = (TextView) findViewById(R.id.tv_video_duration);
-        this.f20492f = (TextView) findViewById(R.id.tv_video_data);
-        this.f20493g = (TextView) findViewById(R.id.tv_play);
-        this.f20494h = (TextView) findViewById(R.id.tv_divider);
+        this.f20492e = (TextView) findViewById(R.id.tv_video_duration);
+        this.f20493f = (TextView) findViewById(R.id.tv_video_data);
+        this.f20494g = (TextView) findViewById(R.id.tv_play);
+        this.f20495h = (TextView) findViewById(R.id.tv_divider);
         TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
         this.i = textView;
         textView.setOnClickListener(new a());
@@ -62,7 +62,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public TextView getTvPlay() {
-        return this.f20493g;
+        return this.f20494g;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -77,21 +77,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.f20493g.setOnClickListener(onClickListener);
+        this.f20494g.setOnClickListener(onClickListener);
     }
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.f20491e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
+            this.f20492e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
         } else {
-            this.f20491e.setVisibility(8);
-            this.f20494h.setVisibility(8);
+            this.f20492e.setVisibility(8);
+            this.f20495h.setVisibility(8);
         }
         if (i2 > 0) {
-            this.f20492f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.f20493f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.f20492f.setVisibility(8);
-            this.f20494h.setVisibility(8);
+            this.f20493f.setVisibility(8);
+            this.f20495h.setVisibility(8);
         }
         this.i.setVisibility(0);
     }

@@ -35,12 +35,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         AccountData currentAccountObj;
         super.afterDispatchInBackGround(i, (int) bArr);
         a aVar = this.mData;
-        if (aVar == null || (eVar = aVar.f59439a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f59453a)) {
+        if (aVar == null || (eVar = aVar.f59440a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f59454a)) {
             return;
         }
-        a.b bVar = eVar.f59456d;
-        if (bVar != null && bVar.f59446b > bVar.f59447c && !StringUtils.isNull(bVar.f59448d)) {
-            currentAccountObj.setMemberIconUrl(bVar.f59448d);
+        a.b bVar = eVar.f59457d;
+        if (bVar != null && bVar.f59447b > bVar.f59448c && !StringUtils.isNull(bVar.f59449d)) {
+            currentAccountObj.setMemberIconUrl(bVar.f59449d);
         } else {
             currentAccountObj.setMemberIconUrl(null);
         }

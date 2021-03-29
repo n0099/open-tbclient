@@ -4,7 +4,7 @@ import com.baidu.apollon.restnet.rest.e;
 import com.baidu.apollon.utils.FileCopyUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a extends AbstractHttpMessageConverter<byte[]> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.restnet.converter.AbstractHttpMessageConverter

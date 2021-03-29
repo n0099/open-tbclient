@@ -9,14 +9,14 @@ import tbclient.BannerImage;
 public class m extends BaseCardInfo implements d.b.b.j.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f50844f = BdUniqueId.gen();
+    public static BdUniqueId f50845f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<l> f50845e = new ArrayList();
+    public List<l> f50846e = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f50844f;
+        return f50845f;
     }
 
     public void parserProtobuf(List<BannerImage> list) {
@@ -26,7 +26,7 @@ public class m extends BaseCardInfo implements d.b.b.j.e.n {
         for (BannerImage bannerImage : list) {
             l lVar = new l();
             lVar.f(bannerImage);
-            this.f50845e.add(lVar);
+            this.f50846e.add(lVar);
         }
     }
 }

@@ -20,35 +20,35 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f64878e = "nps" + File.separator + "manifest";
+    public static final String f64879e = "nps" + File.separator + "manifest";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f64879f = new a();
+    public static final a f64880f = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f64880a = new HashMap();
+    public Map<String, String> f64881a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Integer, Integer> f64881b = new HashMap();
+    public Map<Integer, Integer> f64882b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f64882c = new HashMap();
+    public Map<String, Integer> f64883c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64883d = false;
+    public boolean f64884d = false;
 
     public static a a() {
-        return f64879f;
+        return f64880f;
     }
 
     public int b(String str) {
         f();
-        if (this.f64882c.containsKey(str)) {
-            return this.f64882c.get(str).intValue();
+        if (this.f64883c.containsKey(str)) {
+            return this.f64883c.get(str).intValue();
         }
         return -1;
     }
@@ -56,10 +56,10 @@ public class a {
     public List<BundleInfo> c() {
         f();
         ArrayList arrayList = new ArrayList();
-        for (String str : this.f64882c.keySet()) {
+        for (String str : this.f64883c.keySet()) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setPackageName(str);
-            bundleInfo.setMinVersion(this.f64882c.get(str).intValue());
+            bundleInfo.setMinVersion(this.f64883c.get(str).intValue());
             arrayList.add(bundleInfo);
         }
         return arrayList;
@@ -67,7 +67,7 @@ public class a {
 
     public String d(String str) {
         f();
-        return this.f64880a.get(str);
+        return this.f64881a.get(str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0060, code lost:
@@ -77,13 +77,13 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean e() {
-        if (this.f64883d) {
+        if (this.f64884d) {
             return true;
         }
         InputStream inputStream = null;
         try {
             AssetManager assets = ContextHolder.getApplicationContext().getAssets();
-            inputStream = assets.open(f64878e + File.separator + "manifest.json");
+            inputStream = assets.open(f64879e + File.separator + "manifest.json");
             StringBuilder sb = new StringBuilder();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Xml.Encoding.UTF_8.toString()), 8192);
             while (true) {
@@ -93,23 +93,23 @@ public class a {
                 }
                 sb.append(readLine);
             }
-            g(new JSONArray(sb.toString()), this.f64882c, this.f64880a, this.f64881b);
+            g(new JSONArray(sb.toString()), this.f64883c, this.f64881a, this.f64882b);
         } catch (IOException unused) {
             if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException unused2) {
-                    this.f64883d = true;
+                    this.f64884d = true;
                     return true;
                 }
             }
-            this.f64883d = true;
+            this.f64884d = true;
             return true;
         } catch (JSONException unused3) {
             if (inputStream != null) {
                 inputStream.close();
             }
-            this.f64883d = true;
+            this.f64884d = true;
             return true;
         } catch (Throwable th) {
             if (inputStream != null) {
@@ -123,7 +123,7 @@ public class a {
     }
 
     public final synchronized boolean f() {
-        if (this.f64883d) {
+        if (this.f64884d) {
             return true;
         }
         e();

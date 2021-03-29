@@ -11,10 +11,10 @@ import androidx.annotation.RequiresApi;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f9680a = 0.4f;
+    public static final float f9681a = 0.4f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f9681b = 15.0f;
+    public static final float f9682b = 15.0f;
 
     @RequiresApi(api = 17)
     public static Bitmap a(Context context, Bitmap bitmap) {

@@ -39,7 +39,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static final int THREAD_ITEM_MAX_NUM = 5;
     public ManagerApplyInfo applyInfo;
@@ -57,23 +57,23 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public boolean mIsComplaintShow = false;
     public boolean mIsHasData = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f17939e;
+        public final /* synthetic */ d.b.h0.r.s.a f17940e;
 
         public a(d.b.h0.r.s.a aVar) {
-            this.f17939e = aVar;
+            this.f17940e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f17939e.dismiss();
+            this.f17940e.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -84,7 +84,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -95,7 +95,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -106,14 +106,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17944a;
+        public final /* synthetic */ boolean f17945a;
 
         public e(boolean z) {
-            this.f17944a = z;
+            this.f17945a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,12 +122,12 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             if (TextUtils.isEmpty(ForumDetailActivity.this.mForumId)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17944a);
+            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17945a);
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements NoNetworkView.b {
         public f() {
         }
@@ -149,7 +149,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public g() {
         }

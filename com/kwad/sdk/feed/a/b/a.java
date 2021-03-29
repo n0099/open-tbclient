@@ -5,11 +5,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public abstract class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f34853a;
+    public b f34854a;
 
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f34853a = (b) n();
+        this.f34854a = (b) n();
     }
 }

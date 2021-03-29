@@ -22,28 +22,28 @@ import d.b.i0.p0.f1;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f57739a;
+    public LinearLayout f57740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f1 f57740b;
+    public f1 f57741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MorePopupWindow f57741c;
+    public MorePopupWindow f57742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f57742d;
+    public View f57743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<d.b.i0.p0.k2.a> f57743e = new SparseArray<>();
+    public SparseArray<d.b.i0.p0.k2.a> f57744e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f57744f;
+    public Context f57745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.p0.k2.a f57745g;
+    public d.b.i0.p0.k2.a f57746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1392e f57746h;
+    public InterfaceC1393e f57747h;
     public d i;
 
     /* loaded from: classes4.dex */
@@ -53,7 +53,7 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.m.g.c(e.this.f57741c);
+            d.b.b.e.m.g.c(e.this.f57742c);
         }
     }
 
@@ -68,8 +68,8 @@ public class e {
 
         @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
         public void b() {
-            if (e.this.f57741c != null) {
-                d.b.b.e.m.g.c(e.this.f57741c);
+            if (e.this.f57742c != null) {
+                d.b.b.e.m.g.c(e.this.f57742c);
             }
         }
     }
@@ -78,16 +78,16 @@ public class e {
     public class c implements PopupWindow.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabItemView f57749e;
+        public final /* synthetic */ TabItemView f57750e;
 
         public c(TabItemView tabItemView) {
-            this.f57749e = tabItemView;
+            this.f57750e = tabItemView;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             if (e.this.i != null) {
-                e.this.i.a(this.f57749e);
+                e.this.i.a(this.f57750e);
             }
         }
     }
@@ -99,7 +99,7 @@ public class e {
 
     /* renamed from: d.b.i0.p0.k2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1392e {
+    public interface InterfaceC1393e {
         void a(int i);
     }
 
@@ -107,33 +107,33 @@ public class e {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f57751a;
+        public TextView f57752a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f57752b;
+        public ImageView f57753b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f57753c;
+        public View f57754c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f57754d;
+        public View f57755d;
     }
 
-    public e(Context context, InterfaceC1392e interfaceC1392e, d dVar) {
-        this.f57744f = context;
-        this.f57746h = interfaceC1392e;
+    public e(Context context, InterfaceC1393e interfaceC1393e, d dVar) {
+        this.f57745f = context;
+        this.f57747h = interfaceC1393e;
         this.i = dVar;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f57739a = linearLayout;
+        this.f57740a = linearLayout;
         linearLayout.setOrientation(1);
-        this.f57739a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.f57740a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         View view = new View(context);
-        this.f57742d = view;
+        this.f57743d = view;
         view.setOnClickListener(new a());
     }
 
     public void c() {
-        MorePopupWindow morePopupWindow = this.f57741c;
+        MorePopupWindow morePopupWindow = this.f57742c;
         if (morePopupWindow != null) {
             try {
                 morePopupWindow.dismiss();
@@ -143,28 +143,28 @@ public class e {
         }
     }
 
-    public InterfaceC1392e d() {
-        return this.f57746h;
+    public InterfaceC1393e d() {
+        return this.f57747h;
     }
 
     public final void e(Activity activity, View view, TabItemView tabItemView) {
-        if (this.f57741c == null) {
-            this.f57741c = new MorePopupWindow(activity, this.f57739a, view, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
+        if (this.f57742c == null) {
+            this.f57742c = new MorePopupWindow(activity, this.f57740a, view, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
         }
-        this.f57741c.setOnDismissListener(new c(tabItemView));
+        this.f57742c.setOnDismissListener(new c(tabItemView));
     }
 
     public void f(Activity activity, View view, TabItemView tabItemView, f1 f1Var) {
-        this.f57740b = f1Var;
-        d.b.i0.p0.k2.a aVar = this.f57743e.get(f1Var.f57494a);
-        this.f57745g = aVar;
+        this.f57741b = f1Var;
+        d.b.i0.p0.k2.a aVar = this.f57744e.get(f1Var.f57495a);
+        this.f57746g = aVar;
         if (aVar == null) {
-            d.b.i0.p0.k2.a a2 = h.a(this.f57740b.f57494a);
-            this.f57745g = a2;
-            a2.a(this.f57744f, this);
-            this.f57743e.put(this.f57740b.f57494a, this.f57745g);
+            d.b.i0.p0.k2.a a2 = h.a(this.f57741b.f57495a);
+            this.f57746g = a2;
+            a2.a(this.f57745f, this);
+            this.f57744e.put(this.f57741b.f57495a, this.f57746g);
         }
-        this.f57745g.setData(f1Var.f57495b);
+        this.f57746g.setData(f1Var.f57496b);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -172,25 +172,25 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.x(horizontalTabView.getContext());
                 int i = l.i(horizontalTabView.getContext());
-                int b2 = this.f57745g.b();
+                int b2 = this.f57746g.b();
                 int measuredHeight = (i - iArr[1]) - horizontalTabView.getMeasuredHeight();
                 if (measuredHeight < b2) {
                     horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
                 }
             }
         }
-        this.f57739a.removeAllViews();
-        this.f57739a.addView(this.f57745g.getView());
+        this.f57740a.removeAllViews();
+        this.f57740a.addView(this.f57746g.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        SkinManager.setBackgroundResource(this.f57742d, R.color.common_color_10050);
-        this.f57739a.addView(this.f57742d, layoutParams);
+        SkinManager.setBackgroundResource(this.f57743d, R.color.common_color_10050);
+        this.f57740a.addView(this.f57743d, layoutParams);
         e(activity, view, tabItemView);
-        MorePopupWindow morePopupWindow = this.f57741c;
+        MorePopupWindow morePopupWindow = this.f57742c;
         if (morePopupWindow != null) {
             morePopupWindow.refresh();
-            this.f57741c.setWidthAsWidthOfDeviceScreen(activity);
-            this.f57741c.setHeight(-1);
-            this.f57741c.showWindowInCustomPosition(0, 0);
+            this.f57742c.setWidthAsWidthOfDeviceScreen(activity);
+            this.f57742c.setHeight(-1);
+            this.f57742c.showWindowInCustomPosition(0, 0);
         }
     }
 }

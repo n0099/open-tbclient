@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.home.BfbInfoModel;
 import d.b.h0.r.s.a;
 import tbclient.UserBfbInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
     public static final int LOW_VERSION_ERRCODE = 260211;
     public static final int MAX_LENGTH = 30;
@@ -21,7 +21,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public BfbInfoModel mModel;
     public d.b.i0.x0.a mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements BfbInfoModel.b {
         public a() {
         }
@@ -42,36 +42,36 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16957e;
+        public final /* synthetic */ d.b.h0.r.s.a f16958e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f16957e = aVar;
+            this.f16958e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16957e.dismiss();
+            this.f16958e.dismiss();
             CreateBarGuideActivity.this.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(CreateBarGuideActivity.this.getPageContext().getPageActivity())));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16959e;
+        public final /* synthetic */ d.b.h0.r.s.a f16960e;
 
         public c(d.b.h0.r.s.a aVar) {
-            this.f16959e = aVar;
+            this.f16960e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16959e.dismiss();
+            this.f16960e.dismiss();
         }
     }
 

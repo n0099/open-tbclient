@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class SurfaceTextureHelper {
     public static final String TAG = "SurfaceTextureHelper";
     public final EglBase eglBase;

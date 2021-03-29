@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class n<T, R> implements o<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ObservableZip$ZipCoordinator<T, R> f67510e;
+    public final ObservableZip$ZipCoordinator<T, R> f67515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final f.a.x.f.a<T> f67511f;
+    public final f.a.x.f.a<T> f67516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f67512g;
+    public volatile boolean f67517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Throwable f67513h;
+    public Throwable f67518h;
     public final AtomicReference<f.a.t.b> i = new AtomicReference<>();
 
     public n(ObservableZip$ZipCoordinator<T, R> observableZip$ZipCoordinator, int i) {
-        this.f67510e = observableZip$ZipCoordinator;
-        this.f67511f = new f.a.x.f.a<>(i);
+        this.f67515e = observableZip$ZipCoordinator;
+        this.f67516f = new f.a.x.f.a<>(i);
     }
 
     public void a() {
@@ -31,21 +31,21 @@ public final class n<T, R> implements o<T> {
 
     @Override // f.a.o
     public void onComplete() {
-        this.f67512g = true;
-        this.f67510e.drain();
+        this.f67517g = true;
+        this.f67515e.drain();
     }
 
     @Override // f.a.o
     public void onError(Throwable th) {
-        this.f67513h = th;
-        this.f67512g = true;
-        this.f67510e.drain();
+        this.f67518h = th;
+        this.f67517g = true;
+        this.f67515e.drain();
     }
 
     @Override // f.a.o
     public void onNext(T t) {
-        this.f67511f.offer(t);
-        this.f67510e.drain();
+        this.f67516f.offer(t);
+        this.f67515e.drain();
     }
 
     @Override // f.a.o

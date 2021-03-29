@@ -16,33 +16,33 @@ import tbclient.SubPostList;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f52461a;
+    public ForumData f52462a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52465e;
+    public int f52466e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52467g;
+    public int f52468g;
     public AntiData i;
     public a2 j;
     public boolean l;
     public Error m;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52466f = 20;
+    public int f52467f = 20;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52468h = -1;
+    public int f52469h = -1;
     public boolean k = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public PostData f52462b = null;
+    public PostData f52463b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<PostData> f52463c = new ArrayList<>();
+    public ArrayList<PostData> f52464c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52464d = 1;
+    public int f52465d = 1;
 
     public static q w(DataRes dataRes, Context context) {
         if (dataRes == null) {
@@ -99,21 +99,21 @@ public class q {
     }
 
     public void A(ForumData forumData) {
-        this.f52461a = forumData;
+        this.f52462a = forumData;
     }
 
     public void B(int i) {
         if (i != 0) {
-            this.f52466f = i;
+            this.f52467f = i;
         }
     }
 
     public void C(PostData postData) {
-        this.f52462b = postData;
+        this.f52463b = postData;
     }
 
     public void D(ArrayList<PostData> arrayList) {
-        this.f52463c = arrayList;
+        this.f52464c = arrayList;
     }
 
     public void E(a2 a2Var) {
@@ -121,22 +121,22 @@ public class q {
     }
 
     public void F(int i) {
-        this.f52465e = i;
+        this.f52466e = i;
     }
 
     public void G(int i) {
-        this.f52464d = i;
+        this.f52465d = i;
     }
 
     public void H() {
-        int i = this.f52468h;
+        int i = this.f52469h;
         if (i < 0) {
-            this.f52468h = this.f52467g;
+            this.f52469h = this.f52468g;
             return;
         }
-        int i2 = this.f52467g;
+        int i2 = this.f52468g;
         if (i > i2) {
-            this.f52468h = i2;
+            this.f52469h = i2;
         }
     }
 
@@ -145,7 +145,7 @@ public class q {
     }
 
     public int b() {
-        return this.f52467g;
+        return this.f52468g;
     }
 
     public Error c() {
@@ -153,12 +153,12 @@ public class q {
     }
 
     public ForumData d() {
-        return this.f52461a;
+        return this.f52462a;
     }
 
     public boolean e() {
         a2 a2Var = this.j;
-        return (a2Var == null || this.f52462b == null || a2Var.T() == null || this.j.T().getUserId() == null || this.f52462b.s() == null || this.f52462b.s().getUserId() == null || !this.j.T().getUserId().equals(this.f52462b.s().getUserId())) ? false : true;
+        return (a2Var == null || this.f52463b == null || a2Var.T() == null || this.j.T().getUserId() == null || this.f52463b.s() == null || this.f52463b.s().getUserId() == null || !this.j.T().getUserId().equals(this.f52463b.s().getUserId())) ? false : true;
     }
 
     public boolean f() {
@@ -166,26 +166,26 @@ public class q {
     }
 
     public int g() {
-        return this.f52466f;
+        return this.f52467f;
     }
 
     public int h() {
-        return this.f52468h;
+        return this.f52469h;
     }
 
     public PostData i() {
-        return this.f52462b;
+        return this.f52463b;
     }
 
     public int j() {
-        if (this.f52468h == -1) {
-            this.f52468h = this.f52467g;
+        if (this.f52469h == -1) {
+            this.f52469h = this.f52468g;
         }
-        return this.f52468h;
+        return this.f52469h;
     }
 
     public ArrayList<PostData> k() {
-        return this.f52463c;
+        return this.f52464c;
     }
 
     public a2 l() {
@@ -193,15 +193,15 @@ public class q {
     }
 
     public int m() {
-        return this.f52465e;
+        return this.f52466e;
     }
 
     public int n() {
-        return this.f52464d;
+        return this.f52465d;
     }
 
     public boolean o() {
-        return this.f52467g < this.f52464d;
+        return this.f52468g < this.f52465d;
     }
 
     public boolean p() {
@@ -228,14 +228,14 @@ public class q {
             F(qVar.m());
             G(qVar.n());
         }
-        int size = this.f52463c.size();
-        if (z && size % this.f52466f != 0) {
-            for (int i = 0; i < size % this.f52466f; i++) {
-                ArrayList<PostData> arrayList = this.f52463c;
+        int size = this.f52464c.size();
+        if (z && size % this.f52467f != 0) {
+            for (int i = 0; i < size % this.f52467f; i++) {
+                ArrayList<PostData> arrayList = this.f52464c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f52463c.addAll(qVar.k());
+        this.f52464c.addAll(qVar.k());
     }
 
     public void s(q qVar) {
@@ -252,14 +252,14 @@ public class q {
             B(qVar.g());
             F(qVar.m());
             G(qVar.n());
-            int i = this.f52466f;
-            int size = (this.f52467g - (((qVar.k().size() - 1) + i) / i)) + 1;
-            this.f52468h = size;
+            int i = this.f52467f;
+            int size = (this.f52468g - (((qVar.k().size() - 1) + i) / i)) + 1;
+            this.f52469h = size;
             if (size < 0) {
-                this.f52468h = 0;
+                this.f52469h = 0;
             }
         }
-        this.f52463c.addAll(qVar.k());
+        this.f52464c.addAll(qVar.k());
     }
 
     public void t(q qVar, boolean z) {
@@ -277,14 +277,14 @@ public class q {
             F(qVar.m());
             G(qVar.n());
         }
-        int size = this.f52463c.size();
-        if (z && size % this.f52466f != 0) {
-            for (int i = 0; i < size % this.f52466f; i++) {
-                ArrayList<PostData> arrayList = this.f52463c;
+        int size = this.f52464c.size();
+        if (z && size % this.f52467f != 0) {
+            for (int i = 0; i < size % this.f52467f; i++) {
+                ArrayList<PostData> arrayList = this.f52464c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f52463c.addAll(qVar.k());
+        this.f52464c.addAll(qVar.k());
         H();
     }
 
@@ -297,14 +297,14 @@ public class q {
             return;
         }
         x(qVar.a());
-        this.f52468h = qVar.b();
+        this.f52469h = qVar.b();
         A(qVar.d());
         B(qVar.g());
         E(qVar.l());
         F(qVar.m());
         G(qVar.n());
         y(qVar.q());
-        this.f52463c.addAll(0, qVar.k());
+        this.f52464c.addAll(0, qVar.k());
     }
 
     public void x(AntiData antiData) {
@@ -316,6 +316,6 @@ public class q {
     }
 
     public void z(int i) {
-        this.f52467g = i;
+        this.f52468g = i;
     }
 }

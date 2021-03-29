@@ -9,15 +9,15 @@ public class ab extends ae {
     public void a(d dVar) {
         int i = 0;
         while (true) {
-            byte[] bArr = dVar.f36142d;
+            byte[] bArr = dVar.f36143d;
             if (i >= bArr.length || bArr[i] == 0) {
                 break;
             }
             i++;
         }
-        ((ae) this).f36130h = b.a(dVar.f36142d, 0, i);
+        ((ae) this).f36131h = b.a(dVar.f36143d, 0, i);
         int i2 = i + 1;
-        byte[] bArr2 = dVar.f36142d;
+        byte[] bArr2 = dVar.f36143d;
         this.i = i2 < bArr2.length ? b.a(bArr2, i2, bArr2.length - i2) : "";
     }
 }

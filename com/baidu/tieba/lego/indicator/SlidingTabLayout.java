@@ -13,36 +13,36 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SlidingTabLayout extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18711e;
+    public int f18712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewPager f18712f;
+    public ViewPager f18713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f18713g;
+    public ViewPager.OnPageChangeListener f18714g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18714h;
+    public int f18715h;
     public final SlidingTabStrip i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements ViewPager.OnPageChangeListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18715e;
+        public int f18716e;
 
         public b() {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            this.f18715e = i;
-            if (SlidingTabLayout.this.f18713g != null) {
-                SlidingTabLayout.this.f18713g.onPageScrollStateChanged(i);
+            this.f18716e = i;
+            if (SlidingTabLayout.this.f18714g != null) {
+                SlidingTabLayout.this.f18714g.onPageScrollStateChanged(i);
             }
         }
 
@@ -54,27 +54,27 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
             }
             View childAt = SlidingTabLayout.this.i.getChildAt(i);
             SlidingTabLayout.this.k(i, childAt != null ? (int) (childAt.getWidth() * f2) : 0);
-            if (SlidingTabLayout.this.f18713g != null) {
-                SlidingTabLayout.this.f18713g.onPageScrolled(i, f2, i2);
+            if (SlidingTabLayout.this.f18714g != null) {
+                SlidingTabLayout.this.f18714g.onPageScrolled(i, f2, i2);
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            SlidingTabLayout.this.i.b(i, SlidingTabLayout.this.f18714h);
-            SlidingTabLayout.this.f18714h = i;
-            if (this.f18715e == 0) {
+            SlidingTabLayout.this.i.b(i, SlidingTabLayout.this.f18715h);
+            SlidingTabLayout.this.f18715h = i;
+            if (this.f18716e == 0) {
                 SlidingTabLayout slidingTabLayout = SlidingTabLayout.this;
-                slidingTabLayout.k(i, slidingTabLayout.f18714h);
+                slidingTabLayout.k(i, slidingTabLayout.f18715h);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, Integer.valueOf(SlidingTabLayout.this.f18714h)));
-            if (SlidingTabLayout.this.f18713g != null) {
-                SlidingTabLayout.this.f18713g.onPageSelected(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, Integer.valueOf(SlidingTabLayout.this.f18715h)));
+            if (SlidingTabLayout.this.f18714g != null) {
+                SlidingTabLayout.this.f18714g.onPageSelected(i);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -83,7 +83,7 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         public void onClick(View view) {
             for (int i = 0; i < SlidingTabLayout.this.i.getChildCount(); i++) {
                 if (view == SlidingTabLayout.this.i.getChildAt(i)) {
-                    SlidingTabLayout.this.f18712f.setCurrentItem(i, false);
+                    SlidingTabLayout.this.f18713f.setCurrentItem(i, false);
                     return;
                 }
             }
@@ -105,7 +105,7 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
     }
 
     public final void j(int i) {
-        PagerAdapter adapter = this.f18712f.getAdapter();
+        PagerAdapter adapter = this.f18713f.getAdapter();
         c cVar = new c();
         for (int i2 = 0; i2 < adapter.getCount(); i2++) {
             TextView i3 = i(getContext());
@@ -138,7 +138,7 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         }
         int left = childAt.getLeft() + i2;
         if (i > 0 || i2 > 0) {
-            left -= this.f18711e;
+            left -= this.f18712e;
         }
         scrollTo(left, 0);
     }
@@ -146,7 +146,7 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ViewPager viewPager = this.f18712f;
+        ViewPager viewPager = this.f18713f;
         if (viewPager != null) {
             k(viewPager.getCurrentItem(), 0);
         }
@@ -160,12 +160,12 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.f18713g = onPageChangeListener;
+        this.f18714g = onPageChangeListener;
     }
 
     public void setViewPager(ViewPager viewPager, int i) {
         this.i.removeAllViews();
-        this.f18712f = viewPager;
+        this.f18713f = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new b());
             j(i);
@@ -178,10 +178,10 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
 
     public SlidingTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f18714h = 0;
+        this.f18715h = 0;
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        this.f18711e = (int) (getResources().getDisplayMetrics().density * 24.0f);
+        this.f18712e = (int) (getResources().getDisplayMetrics().density * 24.0f);
         SlidingTabStrip slidingTabStrip = new SlidingTabStrip(context);
         this.i = slidingTabStrip;
         addView(slidingTabStrip, -1, -2);

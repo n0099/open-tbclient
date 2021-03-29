@@ -19,22 +19,22 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f63333a;
+    public BdUniqueId f63334a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TopicDetailView f63334b;
+    public TopicDetailView f63335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.b.c.g.a f63335c = new C1708a(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+    public final d.b.b.c.g.a f63336c = new C1709a(CmdConfigHttp.CMD_GET_MY_POST, 303111);
 
     /* renamed from: d.b.i0.z0.j.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1708a extends d.b.b.c.g.a {
-        public C1708a(int i, int i2) {
+    /* loaded from: classes3.dex */
+    public class C1709a extends d.b.b.c.g.a {
+        public C1709a(int i, int i2) {
             super(i, i2);
         }
 
@@ -50,18 +50,18 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f63337e;
+        public long f63338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f63338f;
+        public long f63339f;
 
         public b(long j, long j2) {
-            this.f63337e = j;
-            this.f63338f = j2;
+            this.f63338e = j;
+            this.f63339f = j2;
         }
 
         @Override // java.lang.Runnable
@@ -71,14 +71,14 @@ public class a {
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.f63333a);
-            requestGetMyPostNetMessage.setParams(this.f63337e, this.f63338f, 0L, k, i, f2, i2);
+            requestGetMyPostNetMessage.setTag(a.this.f63334a);
+            requestGetMyPostNetMessage.setParams(this.f63338e, this.f63339f, 0L, k, i, f2, i2);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
     }
 
     public a(TopicDetailView topicDetailView) {
-        this.f63334b = topicDetailView;
+        this.f63335b = topicDetailView;
     }
 
     public b c(long j, long j2) {
@@ -101,7 +101,7 @@ public class a {
         a2Var.Q2(build);
         a2Var.t4(new Date().getTime());
         if (k.i0(a2Var)) {
-            this.f63334b.z(a2Var);
+            this.f63335b.z(a2Var);
         }
     }
 
@@ -120,10 +120,10 @@ public class a {
     }
 
     public void f(BdUniqueId bdUniqueId) {
-        this.f63333a = bdUniqueId;
-        this.f63335c.setTag(bdUniqueId);
-        this.f63335c.getHttpMessageListener().setSelfListener(true);
-        this.f63335c.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f63335c);
+        this.f63334a = bdUniqueId;
+        this.f63336c.setTag(bdUniqueId);
+        this.f63336c.getHttpMessageListener().setSelfListener(true);
+        this.f63336c.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f63336c);
     }
 }

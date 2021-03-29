@@ -47,7 +47,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public static final boolean DEBUG = LLog.sDebug;
     public static final String TAG = "LSStrategy";
@@ -56,7 +56,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public boolean mInvalidDirDeleted;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
 
@@ -74,7 +74,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Constants {
         public static final int KEEP_ALIVE_TIME = 60000;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -85,7 +85,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static final int UPLOAD_MAX_FILE = 5;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ContentUtil {
         public static final byte GZIP_HEAD_1 = 117;
         public static final byte GZIP_HEAD_2 = 123;
@@ -117,8 +117,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:65:0x0186 A[Catch: IOException -> 0x01b0, TryCatch #2 {IOException -> 0x01b0, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002e, B:11:0x0056, B:12:0x0061, B:15:0x0075, B:17:0x007b, B:19:0x0092, B:22:0x009a, B:24:0x00a0, B:25:0x00a7, B:27:0x00ad, B:29:0x00b5, B:31:0x00c3, B:32:0x00c5, B:33:0x00c8, B:35:0x00d6, B:39:0x00de, B:41:0x00e3, B:42:0x00e6, B:44:0x011c, B:45:0x012f, B:46:0x013a, B:47:0x0142, B:49:0x0148, B:51:0x0154, B:53:0x015a, B:63:0x017d, B:65:0x0186, B:66:0x018d, B:68:0x0193, B:59:0x016d, B:61:0x0171, B:69:0x019a, B:18:0x008b), top: B:80:0x0004 }] */
-        /* JADX WARN: Removed duplicated region for block: B:68:0x0193 A[Catch: IOException -> 0x01b0, TryCatch #2 {IOException -> 0x01b0, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002e, B:11:0x0056, B:12:0x0061, B:15:0x0075, B:17:0x007b, B:19:0x0092, B:22:0x009a, B:24:0x00a0, B:25:0x00a7, B:27:0x00ad, B:29:0x00b5, B:31:0x00c3, B:32:0x00c5, B:33:0x00c8, B:35:0x00d6, B:39:0x00de, B:41:0x00e3, B:42:0x00e6, B:44:0x011c, B:45:0x012f, B:46:0x013a, B:47:0x0142, B:49:0x0148, B:51:0x0154, B:53:0x015a, B:63:0x017d, B:65:0x0186, B:66:0x018d, B:68:0x0193, B:59:0x016d, B:61:0x0171, B:69:0x019a, B:18:0x008b), top: B:80:0x0004 }] */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x0189 A[Catch: IOException -> 0x01b3, TryCatch #0 {IOException -> 0x01b3, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0076, B:17:0x007c, B:19:0x0093, B:22:0x009b, B:24:0x00a1, B:25:0x00a8, B:27:0x00ae, B:29:0x00b6, B:31:0x00c4, B:32:0x00c6, B:33:0x00c9, B:35:0x00d7, B:39:0x00df, B:41:0x00e4, B:42:0x00e7, B:44:0x011d, B:45:0x0132, B:46:0x013d, B:47:0x0145, B:49:0x014b, B:51:0x0157, B:53:0x015d, B:63:0x0180, B:65:0x0189, B:66:0x0190, B:68:0x0196, B:59:0x0170, B:61:0x0174, B:69:0x019d, B:18:0x008c), top: B:76:0x0004 }] */
+        /* JADX WARN: Removed duplicated region for block: B:68:0x0196 A[Catch: IOException -> 0x01b3, TryCatch #0 {IOException -> 0x01b3, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0076, B:17:0x007c, B:19:0x0093, B:22:0x009b, B:24:0x00a1, B:25:0x00a8, B:27:0x00ae, B:29:0x00b6, B:31:0x00c4, B:32:0x00c6, B:33:0x00c9, B:35:0x00d7, B:39:0x00df, B:41:0x00e4, B:42:0x00e7, B:44:0x011d, B:45:0x0132, B:46:0x013d, B:47:0x0145, B:49:0x014b, B:51:0x0157, B:53:0x015d, B:63:0x0180, B:65:0x0189, B:66:0x0190, B:68:0x0196, B:59:0x0170, B:61:0x0174, B:69:0x019d, B:18:0x008c), top: B:76:0x0004 }] */
         @NonNull
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -248,7 +248,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 RandomAccessFile randomAccessFile2 = null;
                 try {
                     try {
-                        randomAccessFile = new RandomAccessFile(file, r.f7663a);
+                        randomAccessFile = new RandomAccessFile(file, r.f7664a);
                     } catch (IOException e2) {
                         e = e2;
                     }
@@ -555,7 +555,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashPadUtil {
         public static final int MAX_READ_BDMP = 102400;
         public static final int MAX_READ_EXTRA = 20480;
@@ -647,7 +647,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         public File mFile;
@@ -670,15 +670,15 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(@NonNull FileEntity fileEntity) {
-            long longValue = this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue();
-            if (longValue > 0) {
+            int i = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
+            if (i > 0) {
                 return -1;
             }
-            return longValue < 0 ? 1 : 0;
+            return i < 0 ? 1 : 0;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class StoreUtil {
         public static final String BASE_GZIP_TMP = ".gz.tmp";
         public static final String BASE_TMP = ".tmp";
@@ -718,7 +718,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class TrimConfig {
         public long mLifeTime;
         public int mMaxCount;
@@ -729,7 +729,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum Type {
         CONTENT,
         ATTACHMENT
@@ -774,7 +774,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         updateFileFlag(type);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00ab, code lost:
         if (r7 == 2) goto L44;
      */
     @Nullable
@@ -1097,7 +1097,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return uploadSync;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileName {
         public static final String FILE_ID_SEPARATOR = "_";
         public static final String SEPARATOR = "#";

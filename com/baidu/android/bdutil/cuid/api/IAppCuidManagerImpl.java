@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IAppCuidManagerImpl implements IAppCuidManager {
     @Override // com.baidu.android.bdutil.cuid.sdk.IAppCuidManager
     public String getCuid() {

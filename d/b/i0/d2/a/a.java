@@ -41,8 +41,8 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     /* renamed from: d.b.i0.d2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1217a implements View.OnClickListener {
-        public View$OnClickListenerC1217a(a aVar) {
+    public class View$OnClickListenerC1218a implements View.OnClickListener {
+        public View$OnClickListenerC1218a(a aVar) {
         }
 
         @Override // android.view.View.OnClickListener
@@ -96,7 +96,7 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         super.i0(bVar);
         if (bVar != null) {
             this.B = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.C = l.k(this.f42357e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
+            this.C = l.k(this.f42358e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
         }
     }
 
@@ -107,12 +107,12 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     public final void j0(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
         if (!TextUtils.isEmpty(postData.t()) && this.t) {
-            pbInterviewLiveNormalItemViewHolder.f20170f.setOnClickListener(this.x);
+            pbInterviewLiveNormalItemViewHolder.f20171f.setOnClickListener(this.x);
         } else {
-            pbInterviewLiveNormalItemViewHolder.f20170f.setOnClickListener(null);
+            pbInterviewLiveNormalItemViewHolder.f20171f.setOnClickListener(null);
         }
-        pbInterviewLiveNormalItemViewHolder.f20170f.setTextViewCheckSelection(false);
-        pbInterviewLiveNormalItemViewHolder.f20170f.setTextViewOnClickListener(new View$OnClickListenerC1217a(this));
+        pbInterviewLiveNormalItemViewHolder.f20171f.setTextViewCheckSelection(false);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setTextViewOnClickListener(new View$OnClickListenerC1218a(this));
     }
 
     @Override // d.b.i0.c2.k.c.a
@@ -148,16 +148,16 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         if (pbInterviewLiveNormalItemViewHolder == null || postData == null) {
             return;
         }
-        l0(pbInterviewLiveNormalItemViewHolder.f20170f, (int) this.f42357e.getResources().getDimension(R.dimen.ds30));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.f20170f.getLayoutParams();
+        l0(pbInterviewLiveNormalItemViewHolder.f20171f, (int) this.f42358e.getResources().getDimension(R.dimen.ds30));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.f20171f.getLayoutParams();
         layoutParams.bottomMargin = 0;
         layoutParams.topMargin = 0;
-        pbInterviewLiveNormalItemViewHolder.f20170f.setLayoutParams(layoutParams);
-        pbInterviewLiveNormalItemViewHolder.f20170f.setPadding(0, 0, 0, 0);
-        pbInterviewLiveNormalItemViewHolder.f20170f.a0(null);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setLayoutParams(layoutParams);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setPadding(0, 0, 0, 0);
+        pbInterviewLiveNormalItemViewHolder.f20171f.a0(null);
         postData.z0();
         if (postData.z() == 1) {
-            pbInterviewLiveNormalItemViewHolder.f20172h.setVisibility(0);
+            pbInterviewLiveNormalItemViewHolder.f20173h.setVisibility(0);
             if (postData.s() != null) {
                 long userIdLong = postData.s().getUserIdLong();
                 String userName = postData.s().getUserName();
@@ -169,61 +169,61 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
                 str2 = null;
                 j = 0;
             }
-            pbInterviewLiveNormalItemViewHolder.f20172h.g(postData.C(), str, str2, j, d.b.b.e.m.b.f(this.v.L().o0(), 0L), d.b.b.e.m.b.f(postData.D(), 0L));
-            pbInterviewLiveNormalItemViewHolder.f20172h.i();
+            pbInterviewLiveNormalItemViewHolder.f20173h.g(postData.C(), str, str2, j, d.b.b.e.m.b.f(this.v.L().o0(), 0L), d.b.b.e.m.b.f(postData.D(), 0L));
+            pbInterviewLiveNormalItemViewHolder.f20173h.i();
             if (this.w) {
                 PraiseData P0 = this.v.L().P0();
                 if (P0 != null && P0.getUser() != null && P0.getUser().size() > 0) {
                     pbInterviewLiveNormalItemViewHolder.i.setVisibility(0);
-                    pbInterviewLiveNormalItemViewHolder.f20171g.setVisibility(0);
+                    pbInterviewLiveNormalItemViewHolder.f20172g.setVisibility(0);
                     pbInterviewLiveNormalItemViewHolder.j.setVisibility(0);
                     pbInterviewLiveNormalItemViewHolder.i.setIsFromPb(true);
                     pbInterviewLiveNormalItemViewHolder.i.setData(P0, this.v.L().o0(), P0.getPostId(), true);
                     pbInterviewLiveNormalItemViewHolder.i.i(this.p);
                 } else {
                     pbInterviewLiveNormalItemViewHolder.i.setVisibility(8);
-                    pbInterviewLiveNormalItemViewHolder.f20171g.setVisibility(8);
+                    pbInterviewLiveNormalItemViewHolder.f20172g.setVisibility(8);
                     pbInterviewLiveNormalItemViewHolder.j.setVisibility(8);
                 }
             } else {
                 pbInterviewLiveNormalItemViewHolder.i.setVisibility(8);
-                pbInterviewLiveNormalItemViewHolder.f20171g.setVisibility(8);
+                pbInterviewLiveNormalItemViewHolder.f20172g.setVisibility(8);
                 pbInterviewLiveNormalItemViewHolder.j.setVisibility(8);
             }
             pbInterviewLiveNormalItemViewHolder.i.setVisibility(0);
-            pbInterviewLiveNormalItemViewHolder.f20171g.setVisibility(0);
+            pbInterviewLiveNormalItemViewHolder.f20172g.setVisibility(0);
             pbInterviewLiveNormalItemViewHolder.j.setVisibility(0);
-            l0(pbInterviewLiveNormalItemViewHolder.f20170f, (int) this.f42357e.getResources().getDimension(R.dimen.ds30));
+            l0(pbInterviewLiveNormalItemViewHolder.f20171f, (int) this.f42358e.getResources().getDimension(R.dimen.ds30));
         } else {
-            pbInterviewLiveNormalItemViewHolder.f20172h.setVisibility(8);
+            pbInterviewLiveNormalItemViewHolder.f20173h.setVisibility(8);
         }
-        pbInterviewLiveNormalItemViewHolder.f20170f.getLayoutStrategy().x(R.drawable.pic_video);
-        pbInterviewLiveNormalItemViewHolder.f20170f.setTextColor(SkinManager.getColor(R.color.common_color_10039));
-        pbInterviewLiveNormalItemViewHolder.f20170f.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-        pbInterviewLiveNormalItemViewHolder.f20170f.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        pbInterviewLiveNormalItemViewHolder.f20171f.getLayoutStrategy().x(R.drawable.pic_video);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setTextColor(SkinManager.getColor(R.color.common_color_10039));
+        pbInterviewLiveNormalItemViewHolder.f20171f.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        pbInterviewLiveNormalItemViewHolder.f20171f.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         if (this.t) {
-            pbInterviewLiveNormalItemViewHolder.f20170f.getLayoutStrategy().g(R.drawable.transparent_bg);
+            pbInterviewLiveNormalItemViewHolder.f20171f.getLayoutStrategy().g(R.drawable.transparent_bg);
         } else {
-            pbInterviewLiveNormalItemViewHolder.f20170f.getLayoutStrategy().g(R.drawable.icon_click);
+            pbInterviewLiveNormalItemViewHolder.f20171f.getLayoutStrategy().g(R.drawable.icon_click);
         }
-        pbInterviewLiveNormalItemViewHolder.f20170f.setIsFromCDN(this.q);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setIsFromCDN(this.q);
         TbRichText J = postData.J();
         if (!this.D && this.E) {
-            pbInterviewLiveNormalItemViewHolder.f20170f.setText(J, true);
+            pbInterviewLiveNormalItemViewHolder.f20171f.setText(J, true);
         } else {
-            pbInterviewLiveNormalItemViewHolder.f20170f.setText(J, false);
+            pbInterviewLiveNormalItemViewHolder.f20171f.setText(J, false);
         }
         if (this.v.L().o1() != null) {
-            pbInterviewLiveNormalItemViewHolder.f20169e.W(this.v.L().o1().i(), this.q ? 17 : 18, false);
-            int k = l.k(this.f42357e);
+            pbInterviewLiveNormalItemViewHolder.f20170e.W(this.v.L().o1().i(), this.q ? 17 : 18, false);
+            int k = l.k(this.f42358e);
             float h2 = o1.h() / o1.j();
             int i = (int) (h2 > 1.0f ? k * 1.0f : h2 < 0.2f ? k * 0.2f : k * h2);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.f20169e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.f20170e.getLayoutParams();
             layoutParams2.height = i;
             layoutParams2.width = k;
-            pbInterviewLiveNormalItemViewHolder.f20169e.setLayoutParams(layoutParams2);
+            pbInterviewLiveNormalItemViewHolder.f20170e.setLayoutParams(layoutParams2);
         } else {
-            pbInterviewLiveNormalItemViewHolder.f20169e.setVisibility(8);
+            pbInterviewLiveNormalItemViewHolder.f20170e.setVisibility(8);
         }
         j0(pbInterviewLiveNormalItemViewHolder, postData);
     }
@@ -236,7 +236,7 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     @Override // d.b.b.j.e.a
     /* renamed from: n0 */
     public PbInterviewLiveNormalItemViewHolder R(ViewGroup viewGroup) {
-        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false);
+        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false);
     }
 
     public View o0(int i, View view, ViewGroup viewGroup, PostData postData, PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder) {
@@ -252,14 +252,14 @@ public class a extends m<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     }
 
     public final void p0(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder) {
-        pbInterviewLiveNormalItemViewHolder.f20170f.setOnLongClickListener(this.A);
-        pbInterviewLiveNormalItemViewHolder.f20170f.setOnTouchListener(this.z);
-        pbInterviewLiveNormalItemViewHolder.f20170f.setOnImageClickListener(this.y);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setOnLongClickListener(this.A);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setOnTouchListener(this.z);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setOnImageClickListener(this.y);
         b bVar = this.m;
         if (bVar == null || bVar.P() == null) {
             return;
         }
-        pbInterviewLiveNormalItemViewHolder.f20170f.setOnEmotionClickListener(this.m.P().mEvent.f52997e);
+        pbInterviewLiveNormalItemViewHolder.f20171f.setOnEmotionClickListener(this.m.P().mEvent.f52998e);
     }
 
     @Override // d.b.i0.c2.k.c.a

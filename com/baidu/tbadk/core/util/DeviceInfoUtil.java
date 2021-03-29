@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.switchs.IsFullScreenSwitch;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoUtil {
     public static String getDevicesManufacturer() {
         String str = Build.MANUFACTURER;

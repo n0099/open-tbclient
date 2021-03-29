@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.AppOpsManager;
 import android.content.Context;
 @TargetApi(23)
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static String a(String str) {
         return AppOpsManager.permissionToOp(str);

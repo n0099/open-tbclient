@@ -60,10 +60,10 @@ public class b extends com.baidu.mobads.production.a implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public View x() {
         if (this.B == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f8438f);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f8439f);
             this.B = relativeLayout;
             relativeLayout.setBackgroundColor(Color.argb(42, 0, 0, 0));
-            TextView textView = new TextView(this.f8438f);
+            TextView textView = new TextView(this.f8439f);
             this.C = textView;
             textView.setTextColor(-65536);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -92,7 +92,7 @@ public class b extends com.baidu.mobads.production.a implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams z() {
-        int screenDensity = (int) (XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.f8438f) * 20.0f);
+        int screenDensity = (int) (XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.f8439f) * 20.0f);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(screenDensity, screenDensity);
         layoutParams.addRule(11);
         layoutParams.addRule(10);
@@ -199,13 +199,13 @@ public class b extends com.baidu.mobads.production.a implements a {
                 this.H = activity;
                 start();
                 u();
-                this.f8437e.setBackgroundColor(0);
+                this.f8438e.setBackgroundColor(0);
                 RelativeLayout relativeLayout2 = new RelativeLayout(activity);
                 relativeLayout2.setBackgroundColor(0);
                 relativeLayout.addView(relativeLayout2, new RelativeLayout.LayoutParams(-1, -1));
-                this.f8437e.addView(this.f8440h.getAdView(), new RelativeLayout.LayoutParams(-1, -1));
-                relativeLayout2.addView(this.f8437e, new RelativeLayout.LayoutParams(-1, -1));
-                this.f8440h.getAdView().setVisibility(4);
+                this.f8438e.addView(this.f8441h.getAdView(), new RelativeLayout.LayoutParams(-1, -1));
+                relativeLayout2.addView(this.f8438e, new RelativeLayout.LayoutParams(-1, -1));
+                this.f8441h.getAdView().setVisibility(4);
             } else if (this.G) {
                 this.A.w("interstitial ad is showing now");
             } else if (this.F) {

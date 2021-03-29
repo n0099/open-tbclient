@@ -18,7 +18,7 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.h0.g0.f.a<FeedData, d.b.h0.g0.d.b> {
     public HeadImageView k;
     public TextView l;
@@ -29,9 +29,9 @@ public class a extends d.b.h0.g0.f.a<FeedData, d.b.h0.g0.d.b> {
     public int q;
 
     /* renamed from: d.b.i0.e1.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1233a implements View.OnClickListener {
-        public View$OnClickListenerC1233a() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1234a implements View.OnClickListener {
+        public View$OnClickListenerC1234a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -40,7 +40,7 @@ public class a extends d.b.h0.g0.f.a<FeedData, d.b.h0.g0.d.b> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -58,7 +58,7 @@ public class a extends d.b.h0.g0.f.a<FeedData, d.b.h0.g0.d.b> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnLongClickListener {
         public c() {
         }
@@ -83,7 +83,7 @@ public class a extends d.b.h0.g0.f.a<FeedData, d.b.h0.g0.d.b> {
         this.n = (TextView) view.findViewById(R.id.time);
         this.o = (TextView) view.findViewById(R.id.content);
         this.p = view.findViewById(R.id.line);
-        this.k.setOnClickListener(new View$OnClickListenerC1233a());
+        this.k.setOnClickListener(new View$OnClickListenerC1234a());
         view.setOnClickListener(new b());
         view.setOnLongClickListener(new c());
     }

@@ -17,30 +17,30 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<PendantData> f58946e;
+    public List<PendantData> f58947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f58947f;
+    public f f58948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f58948g;
+    public b f58949g;
 
     /* renamed from: d.b.i0.p3.j.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1457a implements View.OnClickListener {
-        public View$OnClickListenerC1457a() {
+    public class View$OnClickListenerC1458a implements View.OnClickListener {
+        public View$OnClickListenerC1458a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f58948g != null) {
+            if (a.this.f58949g != null) {
                 c cVar = (c) view.getTag();
-                if (cVar.f58951b.getTag() instanceof Integer) {
-                    Integer num = (Integer) cVar.f58951b.getTag();
-                    if (a.this.f58946e.size() <= num.intValue()) {
+                if (cVar.f58952b.getTag() instanceof Integer) {
+                    Integer num = (Integer) cVar.f58952b.getTag();
+                    if (a.this.f58947e.size() <= num.intValue()) {
                         return;
                     }
-                    a.this.f58948g.a(view, num.intValue(), (PendantData) a.this.f58946e.get(num.intValue()));
+                    a.this.f58949g.a(view, num.intValue(), (PendantData) a.this.f58947e.get(num.intValue()));
                 }
             }
         }
@@ -55,37 +55,37 @@ public class a extends BaseAdapter {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f58950a;
+        public TextView f58951a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f58951b;
+        public TbImageView f58952b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ProgressBar f58952c;
+        public ProgressBar f58953c;
 
         public c(a aVar) {
         }
     }
 
     public a(f fVar) {
-        this.f58947f = fVar;
+        this.f58948f = fVar;
     }
 
     public void c(List<PendantData> list) {
         if (list == null) {
             return;
         }
-        this.f58946e = list;
+        this.f58947e = list;
         notifyDataSetChanged();
     }
 
     public void d(b bVar) {
-        this.f58948g = bVar;
+        this.f58949g = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<PendantData> list = this.f58946e;
+        List<PendantData> list = this.f58947e;
         if (list == null) {
             return 0;
         }
@@ -106,56 +106,56 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         c cVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f58947f.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f58948f.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             cVar = new c(this);
-            cVar.f58950a = (TextView) view.findViewById(R.id.cover_text);
-            cVar.f58951b = (TbImageView) view.findViewById(R.id.pendant_image);
-            cVar.f58952c = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            cVar.f58951b.setDefaultBgResource(R.color.transparent);
-            cVar.f58951b.setDefaultResource(R.color.CAM_X0101);
-            view.setOnClickListener(new View$OnClickListenerC1457a());
+            cVar.f58951a = (TextView) view.findViewById(R.id.cover_text);
+            cVar.f58952b = (TbImageView) view.findViewById(R.id.pendant_image);
+            cVar.f58953c = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            cVar.f58952b.setDefaultBgResource(R.color.transparent);
+            cVar.f58952b.setDefaultResource(R.color.CAM_X0101);
+            view.setOnClickListener(new View$OnClickListenerC1458a());
             view.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
             view.setTag(cVar);
         } else {
             cVar = (c) view.getTag();
         }
-        PendantData pendantData = this.f58946e.get(i);
+        PendantData pendantData = this.f58947e.get(i);
         if (pendantData != null) {
-            cVar.f58951b.setTag(Integer.valueOf(i));
+            cVar.f58952b.setTag(Integer.valueOf(i));
             int i2 = pendantData.pendantType;
             if (i2 == 0) {
-                cVar.f58950a.setVisibility(0);
-                cVar.f58951b.setVisibility(8);
-                cVar.f58952c.setVisibility(8);
-                cVar.f58950a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                cVar.f58950a.setText("No");
-                cVar.f58950a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
+                cVar.f58951a.setVisibility(0);
+                cVar.f58952b.setVisibility(8);
+                cVar.f58953c.setVisibility(8);
+                cVar.f58951a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                cVar.f58951a.setText("No");
+                cVar.f58951a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
             } else if (i2 == 1) {
-                cVar.f58950a.setVisibility(0);
-                cVar.f58951b.setVisibility(8);
-                cVar.f58952c.setVisibility(8);
-                cVar.f58950a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                cVar.f58950a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                cVar.f58950a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
+                cVar.f58951a.setVisibility(0);
+                cVar.f58952b.setVisibility(8);
+                cVar.f58953c.setVisibility(8);
+                cVar.f58951a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                cVar.f58951a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                cVar.f58951a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
             } else if (i2 == 2) {
-                cVar.f58950a.setVisibility(0);
-                cVar.f58951b.setVisibility(8);
-                cVar.f58952c.setVisibility(8);
-                cVar.f58950a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                cVar.f58950a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                cVar.f58950a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
+                cVar.f58951a.setVisibility(0);
+                cVar.f58952b.setVisibility(8);
+                cVar.f58953c.setVisibility(8);
+                cVar.f58951a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                cVar.f58951a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                cVar.f58951a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
             } else if (i2 != 3) {
-                cVar.f58950a.setVisibility(8);
-                cVar.f58951b.setVisibility(0);
-                cVar.f58952c.setVisibility(8);
-                cVar.f58951b.W(pendantData.img, 10, false);
+                cVar.f58951a.setVisibility(8);
+                cVar.f58952b.setVisibility(0);
+                cVar.f58953c.setVisibility(8);
+                cVar.f58952b.W(pendantData.img, 10, false);
             } else {
-                cVar.f58950a.setVisibility(0);
-                cVar.f58951b.setVisibility(8);
-                cVar.f58952c.setVisibility(8);
-                cVar.f58950a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                cVar.f58950a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                cVar.f58950a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
+                cVar.f58951a.setVisibility(0);
+                cVar.f58952b.setVisibility(8);
+                cVar.f58953c.setVisibility(8);
+                cVar.f58951a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                cVar.f58951a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                cVar.f58951a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
             }
         }
         return view;

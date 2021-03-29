@@ -45,16 +45,16 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmResponse, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6393e;
+        public int f6394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6394f;
+        public long f6395f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6395g;
+        public int f6396g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f6396h = "";
+        public Object f6397h = "";
         public long i;
 
         public b() {
@@ -72,7 +72,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean hasErrorCode() {
-            return (this.f6393e & 2) == 2;
+            return (this.f6394e & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -105,17 +105,17 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public LcmPb$LcmResponse buildPartial() {
             LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this);
-            int i = this.f6393e;
+            int i = this.f6394e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            lcmPb$LcmResponse.logId_ = this.f6394f;
+            lcmPb$LcmResponse.logId_ = this.f6395f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            lcmPb$LcmResponse.errorCode_ = this.f6395g;
+            lcmPb$LcmResponse.errorCode_ = this.f6396g;
             if ((i & 4) == 4) {
                 i2 |= 4;
             }
-            lcmPb$LcmResponse.errorMsg_ = this.f6396h;
+            lcmPb$LcmResponse.errorMsg_ = this.f6397h;
             if ((i & 8) == 8) {
                 i2 |= 8;
             }
@@ -126,17 +126,17 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         public b o() {
             super.clear();
-            this.f6394f = 0L;
-            int i = this.f6393e & (-2);
-            this.f6393e = i;
-            this.f6395g = 0;
+            this.f6395f = 0L;
+            int i = this.f6394e & (-2);
+            this.f6394e = i;
+            this.f6396g = 0;
             int i2 = i & (-3);
-            this.f6393e = i2;
-            this.f6396h = "";
+            this.f6394e = i2;
+            this.f6397h = "";
             int i3 = i2 & (-5);
-            this.f6393e = i3;
+            this.f6394e = i3;
             this.i = 0L;
-            this.f6393e = i3 & (-9);
+            this.f6394e = i3 & (-9);
             return this;
         }
 
@@ -157,11 +157,11 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean s() {
-            return (this.f6393e & 4) == 4;
+            return (this.f6394e & 4) == 4;
         }
 
         public boolean t() {
-            return (this.f6393e & 1) == 1;
+            return (this.f6394e & 1) == 1;
         }
 
         public b u(LcmPb$LcmResponse lcmPb$LcmResponse) {
@@ -175,8 +175,8 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                 w(lcmPb$LcmResponse.getErrorCode());
             }
             if (lcmPb$LcmResponse.hasErrorMsg()) {
-                this.f6393e |= 4;
-                this.f6396h = lcmPb$LcmResponse.errorMsg_;
+                this.f6394e |= 4;
+                this.f6397h = lcmPb$LcmResponse.errorMsg_;
             }
             if (lcmPb$LcmResponse.hasNextIntervalMs()) {
                 y(lcmPb$LcmResponse.getNextIntervalMs());
@@ -219,19 +219,19 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public b w(int i) {
-            this.f6393e |= 2;
-            this.f6395g = i;
+            this.f6394e |= 2;
+            this.f6396g = i;
             return this;
         }
 
         public b x(long j) {
-            this.f6393e |= 1;
-            this.f6394f = j;
+            this.f6394e |= 1;
+            this.f6395f = j;
             return this;
         }
 
         public b y(long j) {
-            this.f6393e |= 8;
+            this.f6394e |= 8;
             this.i = j;
             return this;
         }

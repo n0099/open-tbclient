@@ -11,10 +11,10 @@ public class a {
     public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f54517a;
+        public String f54518a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f54518b;
+        public c f54519b;
 
         public b() {
         }
@@ -23,7 +23,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new d.b.h0.b0.f("user_pics").j(FileHelper.getFileDireciory(this.f54517a), false);
+            return new d.b.h0.b0.f("user_pics").j(FileHelper.getFileDireciory(this.f54518a), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class a {
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             String str;
             super.onPostExecute(imageUploadResult);
-            if (this.f54518b != null) {
+            if (this.f54519b != null) {
                 int i = 0;
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
@@ -40,7 +40,7 @@ public class a {
                 } else {
                     str = "";
                 }
-                this.f54518b.a(i, str, imageUploadResult);
+                this.f54519b.a(i, str, imageUploadResult);
             }
         }
     }
@@ -55,8 +55,8 @@ public class a {
             return;
         }
         b bVar = new b();
-        bVar.f54517a = str;
-        bVar.f54518b = cVar;
+        bVar.f54518a = str;
+        bVar.f54519b = cVar;
         bVar.execute("");
     }
 }

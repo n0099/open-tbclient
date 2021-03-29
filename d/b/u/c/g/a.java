@@ -12,11 +12,11 @@ public class a extends b {
 
     @Override // d.b.u.c.g.b
     public void j() {
-        if (this.f64776h == 0) {
-            this.f64776h = this.f64773e.presentationTimeUs;
+        if (this.f64777h == 0) {
+            this.f64777h = this.f64774e.presentationTimeUs;
         }
-        MediaCodec.BufferInfo bufferInfo = this.f64773e;
-        long j = bufferInfo.presentationTimeUs - this.f64776h;
+        MediaCodec.BufferInfo bufferInfo = this.f64774e;
+        long j = bufferInfo.presentationTimeUs - this.f64777h;
         bufferInfo.presentationTimeUs = j;
         long j2 = this.l;
         if (j < j2) {
@@ -24,7 +24,7 @@ public class a extends b {
             this.l = j3;
             bufferInfo.presentationTimeUs = j3;
         }
-        MediaCodec.BufferInfo bufferInfo2 = this.f64773e;
+        MediaCodec.BufferInfo bufferInfo2 = this.f64774e;
         long j4 = bufferInfo2.presentationTimeUs;
         long j5 = b.j;
         if (j4 > j5 + 500000) {
@@ -35,16 +35,16 @@ public class a extends b {
                 bufferInfo2.presentationTimeUs = j6 + 5000;
             }
         }
-        if (b.j > this.f64773e.presentationTimeUs + 500000) {
+        if (b.j > this.f64774e.presentationTimeUs + 500000) {
             b.k = 1200;
         }
-        this.l = this.f64773e.presentationTimeUs;
+        this.l = this.f64774e.presentationTimeUs;
     }
 
     public void k(d dVar, e eVar) {
         boolean z = false;
         if (dVar != null && eVar != null) {
-            this.f64771c = eVar;
+            this.f64772c = eVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.c());
             mediaFormat.setInteger("aac-profile", 2);
@@ -54,19 +54,19 @@ public class a extends b {
             mediaFormat.setInteger("max-input-size", dVar.d());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.c());
-                this.f64772d = createEncoderByType;
+                this.f64773d = createEncoderByType;
                 createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.p()) {
-                    this.f64775g = true;
+                    this.f64776g = true;
                 } else {
-                    this.f64775g = false;
+                    this.f64776g = false;
                 }
                 z = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        c cVar = this.f64774f;
+        c cVar = this.f64775f;
         if (cVar != null) {
             cVar.c(z);
         }

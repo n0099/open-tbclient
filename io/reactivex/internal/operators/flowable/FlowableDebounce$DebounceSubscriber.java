@@ -25,25 +25,25 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
     public static final class a<T, U> extends f.a.e0.a<U> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final FlowableDebounce$DebounceSubscriber<T, U> f68025f;
+        public final FlowableDebounce$DebounceSubscriber<T, U> f68030f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f68026g;
+        public final long f68031g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final T f68027h;
+        public final T f68032h;
         public boolean i;
         public final AtomicBoolean j = new AtomicBoolean();
 
         public a(FlowableDebounce$DebounceSubscriber<T, U> flowableDebounce$DebounceSubscriber, long j, T t) {
-            this.f68025f = flowableDebounce$DebounceSubscriber;
-            this.f68026g = j;
-            this.f68027h = t;
+            this.f68030f = flowableDebounce$DebounceSubscriber;
+            this.f68031g = j;
+            this.f68032h = t;
         }
 
         public void c() {
             if (this.j.compareAndSet(false, true)) {
-                this.f68025f.emit(this.f68026g, this.f68027h);
+                this.f68030f.emit(this.f68031g, this.f68032h);
             }
         }
 
@@ -63,7 +63,7 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
                 return;
             }
             this.i = true;
-            this.f68025f.onError(th);
+            this.f68030f.onError(th);
         }
 
         @Override // g.d.c

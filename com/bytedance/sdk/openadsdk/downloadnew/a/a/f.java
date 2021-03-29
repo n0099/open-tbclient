@@ -20,10 +20,10 @@ import org.apache.http.protocol.HTTP;
 public class f implements d.o.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29207a;
+    public final WeakReference<Context> f29208a;
 
     public f(Context context) {
-        this.f29207a = new WeakReference<>(context);
+        this.f29208a = new WeakReference<>(context);
     }
 
     @Nullable

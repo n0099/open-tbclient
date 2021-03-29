@@ -24,32 +24,32 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f46876c = k.f45050a;
+    public static final boolean f46877c = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Timer f46877a;
+    public Timer f46878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.x.c.b f46878b;
+    public d.b.g0.a.x.c.b f46879b;
 
     /* renamed from: d.b.g0.a.x.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0874a extends TimerTask {
+    /* loaded from: classes2.dex */
+    public class C0875a extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.x.c.b f46879e;
+        public final /* synthetic */ d.b.g0.a.x.c.b f46880e;
 
-        public C0874a(d.b.g0.a.x.c.b bVar) {
-            this.f46879e = bVar;
+        public C0875a(d.b.g0.a.x.c.b bVar) {
+            this.f46880e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            d.b.g0.a.x.c.b bVar = this.f46879e;
+            d.b.g0.a.x.c.b bVar = this.f46880e;
             if (bVar != null) {
                 bVar.a();
             }
@@ -57,23 +57,23 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f46881a = new a(null);
+        public static final a f46882a = new a(null);
     }
 
-    public /* synthetic */ a(C0874a c0874a) {
+    public /* synthetic */ a(C0875a c0875a) {
         this();
     }
 
     public static a b() {
-        return b.f46881a;
+        return b.f46882a;
     }
 
     public void a() {
-        d.b.g0.a.x.c.b bVar = this.f46878b;
+        d.b.g0.a.x.c.b bVar = this.f46879b;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -108,7 +108,7 @@ public class a {
             }
             jSONObject.put("eType", str3);
         } catch (JSONException e2) {
-            if (f46876c) {
+            if (f46877c) {
                 e2.printStackTrace();
             }
         }
@@ -119,7 +119,7 @@ public class a {
         try {
             CameraPreview.j();
         } catch (Exception e2) {
-            if (f46876c) {
+            if (f46877c) {
                 e2.printStackTrace();
             }
         }
@@ -139,18 +139,18 @@ public class a {
             File file = new File(str);
             if (file.exists()) {
                 boolean delete = file.delete();
-                if (f46876c) {
+                if (f46877c) {
                     Log.d("SwanAppCameraManager", "delete = " + delete);
                 }
             }
             if (file.getParentFile() != null) {
                 boolean mkdirs = file.getParentFile().mkdirs();
-                if (f46876c) {
+                if (f46877c) {
                     Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
                 }
             }
             boolean createNewFile = file.createNewFile();
-            if (f46876c) {
+            if (f46877c) {
                 Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
             }
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
@@ -171,13 +171,13 @@ public class a {
             d.a(bufferedOutputStream);
             return true;
         } catch (Exception e2) {
-            if (f46876c) {
+            if (f46877c) {
                 e2.printStackTrace();
                 return false;
             }
             return false;
         } catch (OutOfMemoryError e3) {
-            if (f46876c) {
+            if (f46877c) {
                 e3.printStackTrace();
                 return false;
             }
@@ -186,15 +186,15 @@ public class a {
     }
 
     public void i(int i, d.b.g0.a.x.c.b bVar) {
-        this.f46878b = bVar;
+        this.f46879b = bVar;
         Timer timer = new Timer();
-        this.f46877a = timer;
-        timer.schedule(new C0874a(bVar), i);
+        this.f46878a = timer;
+        timer.schedule(new C0875a(bVar), i);
     }
 
     public void j() {
-        this.f46878b = null;
-        Timer timer = this.f46877a;
+        this.f46879b = null;
+        Timer timer = this.f46878a;
         if (timer != null) {
             timer.cancel();
         }

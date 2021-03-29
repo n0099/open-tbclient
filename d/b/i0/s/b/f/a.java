@@ -21,29 +21,29 @@ import java.util.concurrent.TimeUnit;
 public class a implements d.b.g0.a.w0.c.d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f60065c = k.f45050a;
+    public static final boolean f60066c = k.f45051a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f60066d = TimeUnit.MINUTES.toMillis(3);
+    public static final long f60067d = TimeUnit.MINUTES.toMillis(3);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f60067e = new c(null);
+    public static final c f60068e = new c(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public LocationClient f60068a;
+    public LocationClient f60069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocationClientOption f60069b;
+    public LocationClientOption f60070b;
 
     /* renamed from: d.b.i0.s.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1522a implements Runnable {
-        public RunnableC1522a() {
+    public class RunnableC1523a implements Runnable {
+        public RunnableC1523a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f60068a.requestLocation();
+            a.this.f60069a.requestLocation();
         }
     }
 
@@ -54,14 +54,14 @@ public class a implements d.b.g0.a.w0.c.d {
 
         @Override // d.b.g0.a.w0.c.d.a
         public void a(d.b.g0.a.t1.k.k0.b bVar) {
-            if (a.f60065c) {
+            if (a.f60066c) {
                 Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + bVar);
             }
         }
 
         @Override // d.b.g0.a.w0.c.d.a
         public void onFailed(int i) {
-            if (a.f60065c) {
+            if (a.f60066c) {
                 Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
             }
         }
@@ -71,37 +71,37 @@ public class a implements d.b.g0.a.w0.c.d {
     public static class d extends BDAbstractLocationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public LocationClient f60073a;
+        public LocationClient f60074a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a f60074b;
+        public d.a f60075b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60075c;
+        public String f60076c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f60076d;
+        public boolean f60077d;
 
         public d(LocationClient locationClient, d.a aVar, String str, boolean z) {
-            this.f60073a = locationClient;
-            this.f60074b = aVar;
-            this.f60075c = str;
-            this.f60076d = z;
+            this.f60074a = locationClient;
+            this.f60075b = aVar;
+            this.f60076c = str;
+            this.f60077d = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.f60073a.unRegisterLocationListener(this);
+            this.f60074a.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
             if (a.r(locType)) {
-                a.f60067e.e(bDLocation);
-                if (this.f60076d) {
+                a.f60068e.e(bDLocation);
+                if (this.f60077d) {
                     return;
                 }
-                this.f60074b.a(a.p(bDLocation, this.f60075c));
-            } else if (this.f60076d) {
+                this.f60075b.a(a.p(bDLocation, this.f60076c));
+            } else if (this.f60077d) {
             } else {
-                this.f60074b.onFailed(locType);
+                this.f60075b.onFailed(locType);
             }
         }
     }
@@ -151,26 +151,26 @@ public class a implements d.b.g0.a.w0.c.d {
 
     @Override // d.b.g0.a.w0.c.d
     public void d(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation c2 = f60067e.c(q());
+        BDLocation c2 = f60068e.c(q());
         boolean z3 = c2 != null;
         if (z3) {
             aVar.a(p(c2, str));
         }
-        if (this.f60068a == null) {
-            this.f60068a = new LocationClient(AppRuntime.getAppContext());
+        if (this.f60069a == null) {
+            this.f60069a = new LocationClient(AppRuntime.getAppContext());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setCoorType("gcj02");
             locationClientOption.setScanSpan(0);
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
-            this.f60068a.setLocOption(locationClientOption);
-            this.f60069b = locationClientOption;
-            this.f60068a.start();
+            this.f60069a.setLocOption(locationClientOption);
+            this.f60070b = locationClientOption;
+            this.f60069a.start();
         }
-        this.f60068a.registerLocationListener(new d(this.f60068a, aVar, str, z3));
-        this.f60069b.setIsNeedAltitude(z2);
-        this.f60068a.setLocOption(this.f60069b);
-        k0.T(new RunnableC1522a());
+        this.f60069a.registerLocationListener(new d(this.f60069a, aVar, str, z3));
+        this.f60070b.setIsNeedAltitude(z2);
+        this.f60069a.setLocOption(this.f60070b);
+        k0.T(new RunnableC1523a());
     }
 
     @Override // d.b.g0.a.w0.c.d
@@ -179,7 +179,7 @@ public class a implements d.b.g0.a.w0.c.d {
 
     @Override // d.b.g0.a.w0.c.d
     public double[] f(@NonNull d.b.g0.a.t1.k.k0.b bVar, @NonNull String str) {
-        return o(bVar.f46450b, bVar.f46451c, bVar.f46449a, str);
+        return o(bVar.f46451b, bVar.f46452c, bVar.f46450a, str);
     }
 
     @Override // d.b.g0.a.w0.c.d
@@ -189,8 +189,8 @@ public class a implements d.b.g0.a.w0.c.d {
     @Override // d.b.g0.a.w0.c.d
     public void h() {
         long q = q();
-        if (f60067e.f60072b == null || (q > 0 && !f60067e.d(q))) {
-            if (f60065c) {
+        if (f60068e.f60073b == null || (q > 0 && !f60068e.d(q))) {
+            if (f60066c) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
             d("gcj02", false, true, new b(this));
@@ -199,7 +199,7 @@ public class a implements d.b.g0.a.w0.c.d {
 
     @Override // d.b.g0.a.w0.c.d
     public d.b.g0.a.t1.k.k0.b i() {
-        BDLocation bDLocation = f60067e.f60072b;
+        BDLocation bDLocation = f60068e.f60073b;
         if (bDLocation == null) {
             return null;
         }
@@ -227,44 +227,44 @@ public class a implements d.b.g0.a.w0.c.d {
     }
 
     public final long q() {
-        return f60066d;
+        return f60067d;
     }
 
     /* loaded from: classes4.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f60071a;
+        public long f60072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BDLocation f60072b;
+        public BDLocation f60073b;
 
         public c() {
-            this.f60071a = 0L;
+            this.f60072a = 0L;
         }
 
         public synchronized BDLocation c(long j) {
-            return d(j) ? this.f60072b : null;
+            return d(j) ? this.f60073b : null;
         }
 
         public synchronized boolean d(long j) {
             boolean z;
-            long currentTimeMillis = System.currentTimeMillis() - this.f60071a;
-            boolean z2 = this.f60072b != null;
+            long currentTimeMillis = System.currentTimeMillis() - this.f60072a;
+            boolean z2 = this.f60073b != null;
             boolean z3 = currentTimeMillis < j;
             z = z2 && z3;
-            if (a.f60065c) {
+            if (a.f60066c) {
                 Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
             }
             return z;
         }
 
         public final synchronized void e(BDLocation bDLocation) {
-            this.f60072b = bDLocation;
-            this.f60071a = System.currentTimeMillis();
+            this.f60073b = bDLocation;
+            this.f60072a = System.currentTimeMillis();
         }
 
-        public /* synthetic */ c(RunnableC1522a runnableC1522a) {
+        public /* synthetic */ c(RunnableC1523a runnableC1523a) {
             this();
         }
     }

@@ -29,14 +29,14 @@ public class b extends d.b.b.j.e.a<d.b.i0.z2.f.b, CardViewHolder<c>> {
                 if (!"推荐".equals(f2)) {
                     StatisticItem statisticItem = new StatisticItem("c13652");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", bVar.f63474e);
+                    statisticItem.param("fid", bVar.f63475e);
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f2);
                     TiebaStatic.log(statisticItem);
                     return;
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13643");
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", bVar.f63474e);
+                statisticItem2.param("fid", bVar.f63475e);
                 statisticItem2.param("obj_locate", 3);
                 TiebaStatic.log(statisticItem2);
             }
@@ -72,7 +72,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.z2.f.b, CardViewHolder<c>> {
             if (!"推荐".equals(f2)) {
                 StatisticItem statisticItem = new StatisticItem("c13651");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", bVar.f63474e);
+                statisticItem.param("fid", bVar.f63475e);
                 statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f2);
                 TiebaStatic.log(statisticItem);
             } else {

@@ -47,46 +47,46 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f53581a = BdUniqueId.gen();
+    public static final BdUniqueId f53582a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<d.b.h0.r.f0.a> f53582b;
+    public static WeakReference<d.b.h0.r.f0.a> f53583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PostWriteCallBackData f53583c;
+    public static PostWriteCallBackData f53584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f0 f53584d;
+    public static f0 f53585d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static WriteData f53585e;
+    public static WriteData f53586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AntiData f53586f;
+    public static AntiData f53587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Intent f53587g;
+    public static Intent f53588g;
 
     /* loaded from: classes5.dex */
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f53588e;
+        public final /* synthetic */ Activity f53589e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f53589f;
+        public final /* synthetic */ NavigationBarCoverTip f53590f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f53590g;
+        public final /* synthetic */ long f53591g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f53591h;
+        public final /* synthetic */ long f53592h;
 
         public a(Activity activity, NavigationBarCoverTip navigationBarCoverTip, long j, long j2) {
-            this.f53588e = activity;
-            this.f53589f = navigationBarCoverTip;
-            this.f53590g = j;
-            this.f53591h = j2;
+            this.f53589e = activity;
+            this.f53590f = navigationBarCoverTip;
+            this.f53591g = j;
+            this.f53592h = j2;
         }
 
         @Override // android.view.View.OnClickListener
@@ -94,22 +94,22 @@ public class c {
             d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- start");
             view.setOnClickListener(null);
             if (!j.z()) {
-                l.K(this.f53588e, R.string.neterror);
-                this.f53589f.e();
+                l.K(this.f53589e, R.string.neterror);
+                this.f53590f.e();
                 d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 失败 -- 无网");
                 return;
             }
             int k = l.k(TbadkCoreApplication.getInst());
             int i = l.i(TbadkCoreApplication.getInst());
-            float f2 = this.f53588e.getResources().getDisplayMetrics().density;
+            float f2 = this.f53589e.getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(c.f53581a);
-            requestGetMyPostNetMessage.setParams(this.f53590g, this.f53591h, 0L, k, i, f2, i2);
+            requestGetMyPostNetMessage.setTag(c.f53582a);
+            requestGetMyPostNetMessage.setParams(this.f53591g, this.f53592h, 0L, k, i, f2, i2);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 发送GetMyPost");
-            c.j(this.f53588e);
-            this.f53589f.e();
+            c.j(this.f53589e);
+            this.f53590f.e();
             d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 关闭成功弹框");
         }
     }
@@ -118,18 +118,18 @@ public class c {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f53592e;
+        public final /* synthetic */ Activity f53593e;
 
         public b(Activity activity) {
-            this.f53592e = activity;
+            this.f53593e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.b.i0.c3.q0.b.a("发帖-失败： 重新编辑 -- start");
             view.setOnClickListener(null);
-            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f53592e);
-            Intent intent = c.f53587g;
+            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f53593e);
+            Intent intent = c.f53588g;
             if (intent != null) {
                 newInstance.setIntent(intent);
             }
@@ -142,8 +142,8 @@ public class c {
 
     /* renamed from: d.b.i0.c3.q0.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1190c extends d.b.b.c.g.a {
-        public C1190c(int i, int i2) {
+    public static class C1191c extends d.b.b.c.g.a {
+        public C1191c(int i, int i2) {
             super(i, i2);
         }
 
@@ -217,26 +217,26 @@ public class c {
     public static void h() {
         d.b.h0.r.f0.a aVar;
         d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 隐藏loading -- start");
-        WeakReference<d.b.h0.r.f0.a> weakReference = f53582b;
+        WeakReference<d.b.h0.r.f0.a> weakReference = f53583b;
         if (weakReference == null || (aVar = weakReference.get()) == null) {
             return;
         }
         aVar.h(false);
         d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 隐藏loading -- end");
-        f53582b.clear();
+        f53583b.clear();
     }
 
     public static void i() {
-        C1190c c1190c = new C1190c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        c1190c.setTag(f53581a);
-        c1190c.getHttpMessageListener().setSelfListener(true);
-        c1190c.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(c1190c);
+        C1191c c1191c = new C1191c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        c1191c.setTag(f53582a);
+        c1191c.getHttpMessageListener().setSelfListener(true);
+        c1191c.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(c1191c);
     }
 
     public static void j(Activity activity) {
         d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(activity);
-        f53582b = new WeakReference<>(aVar);
+        f53583b = new WeakReference<>(aVar);
         aVar.h(true);
         d.b.i0.c3.q0.b.a("发帖-成功： 开始分享 -- 显示loading");
     }
@@ -270,7 +270,7 @@ public class c {
         shareItem.I = valueOf;
         shareItem.p = i0;
         shareItem.J = w1;
-        shareItem.f13716f = true;
+        shareItem.f13717f = true;
         shareItem.D = 15;
         shareItem.L = f(a2Var);
         if (parse != null) {
@@ -296,10 +296,10 @@ public class c {
             d.b.i0.c3.q0.b.a("发帖-失败： 失败弹框 -- 无backData");
             return;
         }
-        f53583c = postWriteCallBackData;
-        f53584d = f0Var;
-        f53585e = writeData;
-        f53586f = antiData;
+        f53584c = postWriteCallBackData;
+        f53585d = f0Var;
+        f53586e = writeData;
+        f53587f = antiData;
         d.b.i0.c3.q0.b.a("发帖-失败： 失败弹框 -- start");
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity == null) {

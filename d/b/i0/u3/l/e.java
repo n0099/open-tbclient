@@ -47,10 +47,10 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
     public Intent B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61607e;
+    public int f61608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61608f;
+    public int f61609f;
     public BaseFragmentActivity i;
     public c j;
     public d.b.i0.u3.l.a k;
@@ -60,10 +60,10 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
     public FrsTabInfoData x;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61609g = 0;
+    public int f61610g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61610h = false;
+    public boolean f61611h = false;
     public String n = "";
     public String p = "";
     public String q = "";
@@ -138,7 +138,7 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
         } else {
             s(bundle);
         }
-        Q(0, this.f61607e);
+        Q(0, this.f61608e);
     }
 
     public void A() {
@@ -246,22 +246,22 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
 
     public void P(int i) {
         if (i == 1) {
-            Q(i, this.f61608f);
+            Q(i, this.f61609f);
         } else {
-            Q(i, this.f61607e);
+            Q(i, this.f61608e);
         }
     }
 
     public final void Q(int i, int i2) {
-        if (this.f61610h) {
+        if (this.f61611h) {
             return;
         }
         FragmentTransaction beginTransaction = this.i.getSupportFragmentManager().beginTransaction();
-        Fragment findFragmentByTag = this.i.getSupportFragmentManager().findFragmentByTag(this.k.l(this.f61609g));
+        Fragment findFragmentByTag = this.i.getSupportFragmentManager().findFragmentByTag(this.k.l(this.f61610g));
         if (findFragmentByTag != null) {
             beginTransaction.hide(findFragmentByTag);
         }
-        this.f61609g = i;
+        this.f61610g = i;
         if (this.i.getSupportFragmentManager().findFragmentByTag(this.k.l(i)) != null) {
             beginTransaction.show(this.k.k(i));
         } else {
@@ -524,7 +524,7 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
             }
             k();
         } else if (view == this.k.d()) {
-            Q(0, this.f61607e);
+            Q(0, this.f61608e);
         } else if (view == this.k.o()) {
             S(2);
         } else if (view == this.k.n()) {
@@ -546,8 +546,8 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
 
     public final void q(BaseFragmentActivity baseFragmentActivity, int i, int i2) {
         this.i = baseFragmentActivity;
-        this.f61607e = i;
-        this.f61608f = i2;
+        this.f61608e = i;
+        this.f61609f = i2;
         d.b.i0.u3.l.a aVar = new d.b.i0.u3.l.a(baseFragmentActivity.getPageContext(), this);
         this.k = aVar;
         aVar.q();
@@ -646,7 +646,7 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
 
     public void w() {
         this.i.closeLoadingDialog();
-        int i = this.f61609g;
+        int i = this.f61610g;
         if (i != 0) {
             if (i == 1) {
                 P(0);
@@ -662,7 +662,7 @@ public class e implements d.b.h0.t0.a, View.OnClickListener {
     }
 
     public void x() {
-        this.f61610h = true;
+        this.f61611h = true;
         R();
         this.i.closeLoadingDialog();
         this.i.dismissAllDialog();

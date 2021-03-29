@@ -12,30 +12,30 @@ import org.json.JSONObject;
 public class d extends d.b.g0.a.n1.a.a.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47795f;
+    public String f47796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47796g;
+    public String f47797g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f47797h;
+    public JSONObject f47798h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f47798e;
+        public final /* synthetic */ JSONObject f47799e;
 
         public a(JSONObject jSONObject) {
-            this.f47798e = jSONObject;
+            this.f47799e = jSONObject;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // java.lang.Runnable
         public void run() {
             char c2;
-            d.b.g0.f.f.a.l().y(d.this.f47797h);
-            String str = d.this.f47795f;
+            d.b.g0.f.f.a.l().y(d.this.f47798h);
+            String str = d.this.f47796f;
             switch (str.hashCode()) {
                 case -1261560102:
                     if (str.equals("queryStatus")) {
@@ -99,22 +99,22 @@ public class d extends d.b.g0.a.n1.a.a.a {
             }
             switch (c2) {
                 case 0:
-                    d.this.w(this.f47798e);
+                    d.this.w(this.f47799e);
                     return;
                 case 1:
-                    d.this.t(this.f47798e);
+                    d.this.t(this.f47799e);
                     return;
                 case 2:
                     d.this.s();
                     return;
                 case 3:
-                    d.this.r(this.f47798e);
+                    d.this.r(this.f47799e);
                     return;
                 case 4:
-                    d.this.v(this.f47798e);
+                    d.this.v(this.f47799e);
                     return;
                 case 5:
-                    d.this.p(this.f47798e);
+                    d.this.p(this.f47799e);
                     return;
                 case 6:
                     d.this.u();
@@ -142,15 +142,15 @@ public class d extends d.b.g0.a.n1.a.a.a {
 
     @Override // d.b.g0.a.n1.a.a.a
     public void b(@NonNull Bundle bundle) {
-        this.f47795f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-        this.f47797h = v.b(bundle.getString(InstallAntiBlockingActivity.KEY_UBC_PARAMS, ""));
+        this.f47796f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+        this.f47798h = v.b(bundle.getString(InstallAntiBlockingActivity.KEY_UBC_PARAMS, ""));
         JSONObject b2 = v.b(bundle.getString("data", ""));
-        this.f47796g = b2.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
-        d.b.g0.f.f.c.b.f47768d.execute(new a(b2));
+        this.f47797g = b2.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        d.b.g0.f.f.c.b.f47769d.execute(new a(b2));
     }
 
     public final void p(@NonNull JSONObject jSONObject) {
-        d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, null, null, new d.b.g0.f.f.h.a(this.f47797h));
+        d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, null, null, new d.b.g0.f.f.h.a(this.f47798h));
         d.b.g0.f.f.a.l().k(jSONObject.optString("url"), new b());
     }
 
@@ -159,7 +159,7 @@ public class d extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void r(@NonNull JSONObject jSONObject) {
-        d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, null, null, new d.b.g0.f.f.h.a(this.f47797h));
+        d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, null, null, new d.b.g0.f.f.h.a(this.f47798h));
         d.b.g0.f.f.a.l().p(jSONObject.optString("url"), new b());
     }
 
@@ -176,27 +176,27 @@ public class d extends d.b.g0.a.n1.a.a.a {
     }
 
     public final void v(@NonNull JSONObject jSONObject) {
-        d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, null, null, new d.b.g0.f.f.h.a(this.f47797h));
+        d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, null, null, new d.b.g0.f.f.h.a(this.f47798h));
         d.b.g0.f.f.a.l().x(jSONObject.optString("url"), new b());
     }
 
     public final void w(@NonNull JSONObject jSONObject) {
-        d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, null, null, new d.b.g0.f.f.h.a(this.f47797h));
+        d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, null, null, new d.b.g0.f.f.h.a(this.f47798h));
         d.b.g0.f.f.a.l().z(jSONObject.optString("url"), jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME), jSONObject.optString("apkId"), new b());
     }
 
     public final void x(d.b.g0.f.f.g.b bVar) {
-        this.f45339d.clear();
+        this.f45340d.clear();
         if (bVar != null) {
-            this.f45339d.putString("functionType", bVar.a());
-            this.f45339d.putString("resultData", bVar.b());
-            this.f45339d.putInt(l.f1992a, bVar.c());
+            this.f45340d.putString("functionType", bVar.a());
+            this.f45340d.putString("resultData", bVar.b());
+            this.f45340d.putInt(l.f1992a, bVar.c());
             if (bVar.d()) {
-                if (!TextUtils.equals(this.f47795f, "startDownload")) {
-                    d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, "success", null, new d.b.g0.f.f.h.a(this.f47797h));
+                if (!TextUtils.equals(this.f47796f, "startDownload")) {
+                    d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, "success", null, new d.b.g0.f.f.h.a(this.f47798h));
                 }
             } else {
-                d.b.g0.f.f.h.c.a(this.f47796g, this.f47795f, "fail", String.valueOf(bVar.c()), new d.b.g0.f.f.h.a(this.f47797h));
+                d.b.g0.f.f.h.c.a(this.f47797g, this.f47796f, "fail", String.valueOf(bVar.c()), new d.b.g0.f.f.h.a(this.f47798h));
             }
         }
         c();

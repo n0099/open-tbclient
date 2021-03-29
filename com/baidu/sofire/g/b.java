@@ -8,7 +8,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         try {

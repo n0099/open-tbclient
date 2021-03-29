@@ -46,7 +46,7 @@ public class g extends b<d.b.i0.d0.e> {
     public void onClick(View view) {
         if (view == this.n || view == this.o || view == this.p || view == this.q) {
             TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.t));
-            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(this.f62180f.getPageActivity()), new String[]{(String) view.getTag()}, true);
+            UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(this.f62181f.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 

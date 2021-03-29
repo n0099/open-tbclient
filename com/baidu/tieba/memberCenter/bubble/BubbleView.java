@@ -18,16 +18,16 @@ import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 public class BubbleView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18892e;
+    public Context f18893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f18893f;
+    public ViewGroup f18894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18894g;
+    public TbImageView f18895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f18895h;
+    public ImageView f18896h;
     public ImageView i;
     public ImageView j;
     public ImageView k;
@@ -43,7 +43,7 @@ public class BubbleView extends RelativeLayout {
 
     public BubbleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f18892e = context;
+        this.f18893e = context;
         b();
     }
 
@@ -53,10 +53,10 @@ public class BubbleView extends RelativeLayout {
     }
 
     public final void b() {
-        View inflate = LayoutInflater.from(this.f18892e).inflate(getXmlLayoutResId(), this);
-        this.f18893f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-        this.f18894g = (TbImageView) inflate.findViewById(R.id.bubble_image);
-        this.f18895h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+        View inflate = LayoutInflater.from(this.f18893e).inflate(getXmlLayoutResId(), this);
+        this.f18894f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+        this.f18895g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+        this.f18896h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
         this.i = (ImageView) inflate.findViewById(R.id.free_tip);
         this.j = (ImageView) inflate.findViewById(R.id.defualt_tip);
         this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
@@ -75,7 +75,7 @@ public class BubbleView extends RelativeLayout {
     }
 
     public void setCurrentNotUse() {
-        this.f18893f.setVisibility(8);
+        this.f18894f.setVisibility(8);
         this.k.setVisibility(0);
         this.i.setVisibility(8);
         if (!this.t) {
@@ -91,7 +91,7 @@ public class BubbleView extends RelativeLayout {
         this.m.setVisibility(8);
         this.p.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(this.f18892e.getString(R.string.bubble_notuse_text));
+        this.s.setText(this.f18893e.getString(R.string.bubble_notuse_text));
     }
 
     public void setData(BubbleListData.BubbleData bubbleData, boolean z) {
@@ -101,16 +101,16 @@ public class BubbleView extends RelativeLayout {
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
             this.j.setVisibility(z ? 0 : 8);
-            this.f18895h.setVisibility(z ? 0 : 8);
+            this.f18896h.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f18893f.setVisibility(0);
+        this.f18894f.setVisibility(0);
         this.k.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f18895h.setVisibility(0);
+            this.f18896h.setVisibility(0);
             this.j.setVisibility(0);
         } else {
-            this.f18895h.setVisibility(8);
+            this.f18896h.setVisibility(8);
             this.j.setVisibility(8);
         }
         if (bubbleData.isFree()) {
@@ -119,8 +119,8 @@ public class BubbleView extends RelativeLayout {
             this.i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f18894g.setTag(bubbleData.getB_url());
-            this.f18894g.W(bubbleData.getB_url(), 10, false);
+            this.f18895g.setTag(bubbleData.getB_url());
+            this.f18895g.W(bubbleData.getB_url(), 10, false);
         }
         if (!this.t) {
             this.n.setVisibility(8);
@@ -152,13 +152,13 @@ public class BubbleView extends RelativeLayout {
 
     public BubbleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18892e = context;
+        this.f18893e = context;
         b();
     }
 
     public BubbleView(Context context) {
         super(context);
-        this.f18892e = context;
+        this.f18893e = context;
         b();
     }
 }

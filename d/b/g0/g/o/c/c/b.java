@@ -19,10 +19,7 @@ public class b {
     }
 
     public int hashCode() {
-        double d2 = this.identifier;
-        double d3 = this.clientX;
-        Double.isNaN(d2);
-        return Double.valueOf(d2 + d3 + this.clientY).hashCode();
+        return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
     }
 
     public String toString() {

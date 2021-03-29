@@ -3,28 +3,28 @@ package com.kwai.video.ksvodplayerkit;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37270a;
+    public long f37271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f37271b;
+    public long f37272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f37272c;
+    public long f37273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37273d;
+    public long f37274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37274e;
+    public String f37275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37275f;
+    public String f37276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37276g;
+    public String f37277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37277h;
+    public String f37278h;
     public String i;
     public int j;
     public long k;
@@ -38,9 +38,9 @@ public class c {
     public long s = i.a().s();
 
     public boolean a() {
-        long j = this.f37271b;
+        long j = this.f37272b;
         if (j > 0) {
-            long j2 = this.f37272c;
+            long j2 = this.f37273c;
             if (j2 > 0 && (j >= j2 || j >= this.s)) {
                 return true;
             }

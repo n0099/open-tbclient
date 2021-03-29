@@ -13,51 +13,51 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface f {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f45442a = d.b.g0.a.k.f45050a;
+        public static final boolean f45443a = d.b.g0.a.k.f45051a;
 
         /* renamed from: d.b.g0.a.p.c.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0752a implements d.b.g0.a.k1.b {
+        /* loaded from: classes2.dex */
+        public class C0753a implements d.b.g0.a.k1.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f45443a;
+            public final /* synthetic */ String f45444a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f45444b;
+            public final /* synthetic */ String f45445b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f45445c;
+            public final /* synthetic */ String f45446c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ boolean f45446d;
+            public final /* synthetic */ boolean f45447d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f45447e;
+            public final /* synthetic */ Context f45448e;
 
-            public C0752a(a aVar, String str, String str2, String str3, boolean z, Context context) {
-                this.f45443a = str;
-                this.f45444b = str2;
-                this.f45445c = str3;
-                this.f45446d = z;
-                this.f45447e = context;
+            public C0753a(a aVar, String str, String str2, String str3, boolean z, Context context) {
+                this.f45444a = str;
+                this.f45445b = str2;
+                this.f45446c = str3;
+                this.f45447d = z;
+                this.f45448e = context;
             }
 
             @Override // d.b.g0.a.k1.b
             public void a(String str) {
-                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f45443a));
-                String str2 = this.f45443a;
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f45444a));
+                String str2 = this.f45444a;
                 request.setDestinationInExternalPublicDir("", str2.substring(str2.lastIndexOf("/") + 1));
-                if (!TextUtils.isEmpty(this.f45444b) && !TextUtils.isEmpty(this.f45445c)) {
+                if (!TextUtils.isEmpty(this.f45445b) && !TextUtils.isEmpty(this.f45446c)) {
                     request.setNotificationVisibility(1);
-                    request.setTitle(this.f45444b);
-                    request.setDescription(this.f45445c);
+                    request.setTitle(this.f45445b);
+                    request.setDescription(this.f45446c);
                     request.setVisibleInDownloadsUi(true);
                     request.allowScanningByMediaScanner();
                     request.setMimeType("application/vnd.android.package-archive");
@@ -65,16 +65,16 @@ public interface f {
                 DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
                 if (downloadManager != null) {
                     downloadManager.enqueue(request);
-                    if (this.f45446d) {
+                    if (this.f45447d) {
                         return;
                     }
-                    d.b.g0.a.i2.e.f(this.f45447e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                    d.b.g0.a.i2.e.f(this.f45448e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
                 }
             }
 
             @Override // d.b.g0.a.k1.b
             public void b(int i, String str) {
-                if (a.f45442a) {
+                if (a.f45443a) {
                     Log.d("DownloadImpl", "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
                 }
             }
@@ -104,7 +104,7 @@ public interface f {
                 d.b.g0.a.q1.b.f.d.f(AppRuntime.getAppContext(), "download url is empty");
                 return false;
             }
-            d.b.g0.a.k1.a.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 3, context, new C0752a(this, optString, optString2, optString3, optBoolean, context));
+            d.b.g0.a.k1.a.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 3, context, new C0753a(this, optString, optString2, optString3, optBoolean, context));
             return true;
         }
     }

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class CacheControl {
     @Nullable
     public String headerValue;

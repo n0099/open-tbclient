@@ -24,22 +24,22 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f53961c;
+    public static volatile a f53962c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ImMessageCenterPojo> f53962a = new LinkedList();
+    public List<ImMessageCenterPojo> f53963a = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final CustomMessageListener f53963b = new C1206a(0);
+    public final CustomMessageListener f53964b = new C1207a(0);
 
     /* renamed from: d.b.i0.d1.p.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1206a extends CustomMessageListener {
-        public C1206a(int i) {
+    /* loaded from: classes3.dex */
+    public class C1207a extends CustomMessageListener {
+        public C1207a(int i) {
             super(i);
         }
 
@@ -56,14 +56,14 @@ public class a {
             } else if (customResponsedMessage.getCmd() == 2016007) {
                 a.this.u(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                if (a.this.f53962a != null) {
-                    a.this.f53962a.clear();
+                if (a.this.f53963a != null) {
+                    a.this.f53963a.clear();
                 }
                 d.b.h0.s.d.b.g0().f0(new f());
                 d.b.h0.s.d.b.g0().b0(0);
                 d.b.h0.s.d.b.g0().a();
                 d.b.h0.s.d.b.g0().l();
-            } else if (customResponsedMessage.getCmd() != 2016010 || a.this.f53962a == null) {
+            } else if (customResponsedMessage.getCmd() != 2016010 || a.this.f53963a == null) {
             } else {
                 a.this.v(false);
             }
@@ -75,14 +75,14 @@ public class a {
     }
 
     public static a o() {
-        if (f53961c == null) {
+        if (f53962c == null) {
             synchronized (a.class) {
-                if (f53961c == null) {
-                    f53961c = new a();
+                if (f53962c == null) {
+                    f53962c = new a();
                 }
             }
         }
-        return f53961c;
+        return f53962c;
     }
 
     public final boolean f(ImMessageCenterPojo imMessageCenterPojo) {
@@ -112,8 +112,8 @@ public class a {
         JSONArray jSONArray;
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && d.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
             f.a aVar = new f.a();
-            aVar.f51331a = imMessageCenterPojo.getGid();
-            aVar.f51335e = imMessageCenterPojo.getGroup_name();
+            aVar.f51332a = imMessageCenterPojo.getGid();
+            aVar.f51336e = imMessageCenterPojo.getGroup_name();
             if (userType == 4) {
                 String str4 = null;
                 try {
@@ -139,12 +139,12 @@ public class a {
                             }
                             if (str4 == null) {
                             }
-                            aVar.f51332b = str4;
-                            aVar.f51333c = str2;
+                            aVar.f51333b = str4;
+                            aVar.f51334c = str2;
                             aVar.i = str3;
-                            aVar.f51334d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-                            aVar.f51336f = userType;
-                            aVar.f51337g = imMessageCenterPojo.getUnread_count();
+                            aVar.f51335d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                            aVar.f51337f = userType;
+                            aVar.f51338g = imMessageCenterPojo.getUnread_count();
                             fVar.g().add(aVar);
                             if (userType == 4) {
                             }
@@ -162,10 +162,10 @@ public class a {
                     if (str4 == null) {
                         str4 = imMessageCenterPojo.getGroup_name();
                     }
-                    aVar.f51332b = str4;
-                    aVar.f51333c = str2;
+                    aVar.f51333b = str4;
+                    aVar.f51334c = str2;
                     aVar.i = str3;
-                    aVar.f51334d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f51335d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
                 } else {
                     str3 = null;
                     str2 = null;
@@ -173,18 +173,18 @@ public class a {
                     }
                     if (str4 == null) {
                     }
-                    aVar.f51332b = str4;
-                    aVar.f51333c = str2;
+                    aVar.f51333b = str4;
+                    aVar.f51334c = str2;
                     aVar.i = str3;
-                    aVar.f51334d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f51335d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
                 }
             } else {
                 String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
-                aVar.f51333c = str5;
-                aVar.f51334d = str5;
+                aVar.f51334c = str5;
+                aVar.f51335d = str5;
             }
-            aVar.f51336f = userType;
-            aVar.f51337g = imMessageCenterPojo.getUnread_count();
+            aVar.f51337f = userType;
+            aVar.f51338g = imMessageCenterPojo.getUnread_count();
             fVar.g().add(aVar);
             if (userType == 4) {
                 fVar.S(fVar.s() + imMessageCenterPojo.getUnread_count());
@@ -256,8 +256,8 @@ public class a {
         for (f.a aVar : list) {
             if (aVar != null) {
                 for (f.a aVar2 : list2) {
-                    if (aVar2 != null && StringHelper.equals(aVar.f51331a, aVar2.f51331a)) {
-                        aVar.f51338h = aVar2.f51337g;
+                    if (aVar2 != null && StringHelper.equals(aVar.f51332a, aVar2.f51332a)) {
+                        aVar.f51339h = aVar2.f51338g;
                     }
                 }
             }
@@ -317,9 +317,9 @@ public class a {
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             boolean r = r(data);
             if (memoryChangedMessage.getType() == 1) {
-                p(data, this.f53962a);
+                p(data, this.f53963a);
             } else if (memoryChangedMessage.getType() == 2) {
-                x(data, this.f53962a);
+                x(data, this.f53963a);
             }
             v(r);
         }
@@ -336,10 +336,10 @@ public class a {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
             if (responsedMemoryListMessage.getType() == 1) {
-                this.f53962a.clear();
+                this.f53963a.clear();
                 for (ImMessageCenterPojo imMessageCenterPojo : data) {
                     if (q(imMessageCenterPojo)) {
-                        this.f53962a.add(imMessageCenterPojo);
+                        this.f53963a.add(imMessageCenterPojo);
                     }
                 }
             }
@@ -385,11 +385,11 @@ public class a {
     }
 
     public final void w() {
-        MessageManager.getInstance().registerListener(2016004, this.f53963b);
-        MessageManager.getInstance().registerListener(2016007, this.f53963b);
-        MessageManager.getInstance().registerListener(2016001, this.f53963b);
-        MessageManager.getInstance().registerListener(2016010, this.f53963b);
-        MessageManager.getInstance().registerListener(2016002, this.f53963b);
+        MessageManager.getInstance().registerListener(2016004, this.f53964b);
+        MessageManager.getInstance().registerListener(2016007, this.f53964b);
+        MessageManager.getInstance().registerListener(2016001, this.f53964b);
+        MessageManager.getInstance().registerListener(2016010, this.f53964b);
+        MessageManager.getInstance().registerListener(2016002, this.f53964b);
     }
 
     public final void x(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -410,7 +410,7 @@ public class a {
         if (fVar == null) {
             return;
         }
-        for (ImMessageCenterPojo imMessageCenterPojo : this.f53962a) {
+        for (ImMessageCenterPojo imMessageCenterPojo : this.f53963a) {
             if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && q(imMessageCenterPojo)) {
                 m(imMessageCenterPojo, fVar);
                 h(imMessageCenterPojo, fVar);

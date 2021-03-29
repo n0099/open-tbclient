@@ -3,10 +3,10 @@ package com.baidu.mobads;
 public class s implements SplashLpCloseListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SplashAd f8512a;
+    public final /* synthetic */ SplashAd f8513a;
 
     public s(SplashAd splashAd) {
-        this.f8512a = splashAd;
+        this.f8513a = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener

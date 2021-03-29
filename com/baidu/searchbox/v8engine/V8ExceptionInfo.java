@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8ExceptionInfo {
     public static final String V8_EXCEPTION_ERROR = "Error";
     public static final String V8_EXCEPTION_RANGE_ERROR = "RangeError";

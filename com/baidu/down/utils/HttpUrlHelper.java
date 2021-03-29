@@ -20,7 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class HttpUrlHelper {
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     public static final String FRAGMENT_ENCODE_SET = "";
@@ -44,7 +44,7 @@ public final class HttpUrlHelper {
     public final String username;
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
 
@@ -79,10 +79,10 @@ public final class HttpUrlHelper {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(7:3|(1:40)(2:7|(2:20|(1:36))(6:10|11|12|13|14|15))|29|12|13|14|15) */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0053, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0054, code lost:
         r0.printStackTrace();
      */
     /*
@@ -460,7 +460,7 @@ public final class HttpUrlHelper {
         return this.username;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Builder {
         public String encodedFragment;
         public final List<String> encodedPathSegments;
@@ -471,7 +471,7 @@ public final class HttpUrlHelper {
         public String encodedPassword = "";
         public int port = -1;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public enum ParseResult {
             SUCCESS,
             MISSING_SCHEME,

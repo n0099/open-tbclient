@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<n> f54558a;
+    public ArrayList<n> f54559a;
 
     public void a(ArrayList<n> arrayList) {
-        this.f54558a = arrayList;
+        this.f54559a = arrayList;
     }
 
     public void b(boolean z) {

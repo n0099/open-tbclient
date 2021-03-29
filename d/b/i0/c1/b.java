@@ -12,56 +12,56 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52283e;
+    public String f52284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<d> f52284f = new ArrayList();
+    public final List<d> f52285f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public LayoutInflater f52285g;
+    public LayoutInflater f52286g;
 
     /* renamed from: d.b.i0.c1.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1138b {
+    /* loaded from: classes3.dex */
+    public class C1139b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52286a;
+        public int f52287a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52287b;
+        public TextView f52288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f52288c;
+        public View f52289c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f52289d;
+        public View f52290d;
 
-        public C1138b(b bVar) {
-            this.f52286a = 3;
+        public C1139b(b bVar) {
+            this.f52287a = 3;
         }
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f52285g = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f52286g = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public final void a(C1138b c1138b, View view, int i) {
-        if (c1138b == null || c1138b.f52286a == i) {
+    public final void a(C1139b c1139b, View view, int i) {
+        if (c1139b == null || c1139b.f52287a == i) {
             return;
         }
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundColor(c1138b.f52289d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(c1138b.f52288c, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(c1138b.f52287b, R.color.CAM_X0105, 1);
-        c1138b.f52286a = i;
+        SkinManager.setBackgroundColor(c1139b.f52290d, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(c1139b.f52289c, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(c1139b.f52288b, R.color.CAM_X0105, 1);
+        c1139b.f52287a = i;
     }
 
     public void b() {
-        this.f52284f.clear();
+        this.f52285f.clear();
         notifyDataSetChanged();
     }
 
@@ -69,25 +69,25 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: c */
     public d getItem(int i) {
-        return this.f52284f.get(i);
+        return this.f52285f.get(i);
     }
 
     public List<d> d() {
-        return this.f52284f;
+        return this.f52285f;
     }
 
     public void e(String str, List<d> list) {
-        this.f52283e = str;
-        this.f52284f.clear();
+        this.f52284e = str;
+        this.f52285f.clear();
         if (list != null) {
-            this.f52284f.addAll(list);
+            this.f52285f.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f52284f.size();
+        return this.f52285f.size();
     }
 
     @Override // android.widget.Adapter
@@ -97,24 +97,24 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1138b c1138b;
+        C1139b c1139b;
         d item = getItem(i);
         if (item == null) {
             return view;
         }
-        if (view != null && (view.getTag() instanceof C1138b)) {
-            c1138b = (C1138b) view.getTag();
+        if (view != null && (view.getTag() instanceof C1139b)) {
+            c1139b = (C1139b) view.getTag();
         } else {
-            view = this.f52285g.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
-            c1138b = new C1138b();
-            c1138b.f52287b = (TextView) view.findViewById(R.id.name);
-            c1138b.f52288c = view.findViewById(R.id.divider_line_top);
-            c1138b.f52289d = view.findViewById(R.id.divider_line_bottom);
-            view.setTag(c1138b);
+            view = this.f52286g.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
+            c1139b = new C1139b();
+            c1139b.f52288b = (TextView) view.findViewById(R.id.name);
+            c1139b.f52289c = view.findViewById(R.id.divider_line_top);
+            c1139b.f52290d = view.findViewById(R.id.divider_line_bottom);
+            view.setTag(c1139b);
         }
-        c1138b.f52288c.setVisibility(i == 0 ? 0 : 8);
-        c1138b.f52287b.setText(StringHelper.highLightText(d.b.h0.p0.b.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.f52283e, R.color.CAM_X0302));
-        a(c1138b, view, TbadkCoreApplication.getInst().getSkinType());
+        c1139b.f52289c.setVisibility(i == 0 ? 0 : 8);
+        c1139b.f52288b.setText(StringHelper.highLightText(d.b.h0.p0.b.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.f52284e, R.color.CAM_X0302));
+        a(c1139b, view, TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 }

@@ -52,15 +52,17 @@ public class e {
     public String l;
     public volatile int m = 0;
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: boolean : 0x01c2: INVOKE  (r0v62 boolean A[REMOVE]) = (r0v61 android.net.NetworkInfo) type: VIRTUAL call: android.net.NetworkInfo.isConnected():boolean)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: boolean : 0x01bc: INVOKE  (r0v62 boolean A[REMOVE]) = (r0v61 android.net.NetworkInfo) type: VIRTUAL call: android.net.NetworkInfo.isConnected():boolean)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x011c: INVOKE  (r9v14 double A[REMOVE]) = (r0v43 android.location.Location) type: VIRTUAL call: android.location.Location.getLatitude():double)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x012f: INVOKE  (r9v15 double A[REMOVE]) = (r0v43 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0208: INVOKE  (r0v56 int A[REMOVE]) = (r0v55 android.net.wifi.WifiInfo) type: VIRTUAL call: android.net.wifi.WifiInfo.getRssi():int)] */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0223  */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x0224 A[Catch: all -> 0x022e, TRY_LEAVE, TryCatch #10 {all -> 0x022e, blocks: (B:100:0x021b, B:103:0x0224), top: B:126:0x021b }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x01b1 A[Catch: Exception -> 0x0217, TryCatch #7 {Exception -> 0x0217, blocks: (B:89:0x01a9, B:91:0x01b1, B:92:0x01d0, B:94:0x01d8, B:96:0x01e7), top: B:120:0x01a9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01d8 A[Catch: Exception -> 0x0217, TryCatch #7 {Exception -> 0x0217, blocks: (B:89:0x01a9, B:91:0x01b1, B:92:0x01d0, B:94:0x01d8, B:96:0x01e7), top: B:120:0x01a9 }] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x0182: ARITH  (r8v2 double A[REMOVE]) = (r2v6 int) / (14400.0d double))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x0193: ARITH  (r8v4 double A[REMOVE]) = (r0v41 int) / (14400.0d double))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0201: INVOKE  (r0v56 int A[REMOVE]) = (r0v55 android.net.wifi.WifiInfo) type: VIRTUAL call: android.net.wifi.WifiInfo.getRssi():int)] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x01ab A[Catch: Exception -> 0x0210, TryCatch #0 {Exception -> 0x0210, blocks: (B:85:0x01a3, B:87:0x01ab, B:88:0x01ca, B:90:0x01d2, B:92:0x01e0), top: B:102:0x01a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x01d2 A[Catch: Exception -> 0x0210, TryCatch #0 {Exception -> 0x0210, blocks: (B:85:0x01a3, B:87:0x01ab, B:88:0x01ca, B:90:0x01d2, B:92:0x01e0), top: B:102:0x01a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x021c  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x021d A[Catch: all -> 0x0227, TRY_LEAVE, TryCatch #9 {all -> 0x0227, blocks: (B:96:0x0214, B:99:0x021d), top: B:120:0x0214 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -253,14 +255,10 @@ public class e {
                     int baseStationLongitude = cdmaCellLocation2.getBaseStationLongitude();
                     if (Integer.MAX_VALUE != baseStationLatitude && Integer.MAX_VALUE != baseStationLongitude) {
                         StringBuilder sb3 = new StringBuilder();
-                        double d2 = baseStationLatitude;
-                        Double.isNaN(d2);
-                        sb3.append(d2 / 14400.0d);
+                        sb3.append(baseStationLatitude / 14400.0d);
                         eVar.b(sb3.toString());
                         StringBuilder sb4 = new StringBuilder();
-                        double d3 = baseStationLongitude;
-                        Double.isNaN(d3);
-                        sb4.append(d3 / 14400.0d);
+                        sb4.append(baseStationLongitude / 14400.0d);
                         eVar.a(sb4.toString());
                     }
                 }
@@ -332,7 +330,7 @@ public class e {
         this.f2078d = str;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x004b: IGET  (r2v4 int A[REMOVE]) = (r2v3 android.net.wifi.ScanResult) android.net.wifi.ScanResult.level int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0048: IGET  (r2v4 int A[REMOVE]) = (r2v3 android.net.wifi.ScanResult) android.net.wifi.ScanResult.level int)] */
     public List<Map<String, String>> c() {
         WifiManager wifiManager;
         List<ScanResult> scanResults;

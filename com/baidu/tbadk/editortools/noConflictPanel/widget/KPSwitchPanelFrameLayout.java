@@ -9,7 +9,7 @@ import d.b.h0.w.v.b;
 public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.w.v.c.b f13877e;
+    public d.b.h0.w.v.c.b f13878e;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
@@ -18,21 +18,21 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
 
     @Override // d.b.h0.w.v.b
     public void a(boolean z) {
-        this.f13877e.f(z);
+        this.f13878e.f(z);
     }
 
     @Override // d.b.h0.w.v.a
     public boolean b() {
-        return this.f13877e.b();
+        return this.f13878e.b();
     }
 
     public final void c(AttributeSet attributeSet) {
-        this.f13877e = new d.b.h0.w.v.c.b(this, attributeSet);
+        this.f13878e = new d.b.h0.w.v.c.b(this, attributeSet);
     }
 
     @Override // d.b.h0.w.v.a
     public void handleHide() {
-        this.f13877e.handleHide();
+        this.f13878e.handleHide();
     }
 
     @Override // d.b.h0.w.v.a
@@ -42,27 +42,27 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
 
     @Override // d.b.h0.w.v.a
     public boolean isVisible() {
-        return this.f13877e.isVisible();
+        return this.f13878e.isVisible();
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        int[] c2 = this.f13877e.c(i, i2);
+        int[] c2 = this.f13878e.c(i, i2);
         super.onMeasure(c2[0], c2[1]);
     }
 
     @Override // d.b.h0.w.v.b
     public void refreshHeight(int i) {
-        this.f13877e.d(i);
+        this.f13878e.d(i);
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.f13877e.e(z);
+        this.f13878e.e(z);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (this.f13877e.a(i)) {
+        if (this.f13878e.a(i)) {
             return;
         }
         super.setVisibility(i);

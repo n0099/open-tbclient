@@ -2,7 +2,7 @@ package com.baidu.searchbox.unitedscheme.moniter;
 
 import android.text.TextUtils;
 import java.util.Hashtable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TimeCostMonitor {
     public static final boolean DEBUG = false;
     public static final String TAG = "TimeCostMonitor";

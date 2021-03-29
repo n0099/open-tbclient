@@ -19,40 +19,40 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60944a;
+    public TbPageContext f60945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f60945b;
+    public b f60946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTask f60946c;
+    public BdAsyncTask f60947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f60947d;
+    public HttpMessageListener f60948d;
 
     /* renamed from: d.b.i0.t.j.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1573a extends HttpMessageListener {
+    public class C1574a extends HttpMessageListener {
 
         /* renamed from: d.b.i0.t.j.g.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1574a extends BdAsyncTask {
+        public class C1575a extends BdAsyncTask {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f60949a;
+            public final /* synthetic */ List f60950a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ HttpResponsedMessage f60950b;
+            public final /* synthetic */ HttpResponsedMessage f60951b;
 
-            public C1574a(List list, HttpResponsedMessage httpResponsedMessage) {
-                this.f60949a = list;
-                this.f60950b = httpResponsedMessage;
+            public C1575a(List list, HttpResponsedMessage httpResponsedMessage) {
+                this.f60950a = list;
+                this.f60951b = httpResponsedMessage;
             }
 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Object doInBackground(Object[] objArr) {
                 AlaDynamicGift alaDynamicGift;
-                for (n nVar : this.f60949a) {
+                for (n nVar : this.f60950a) {
                     if (nVar instanceof AlaEnterEffectData) {
                         AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) nVar;
                         if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
@@ -70,17 +70,17 @@ public class a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onCancelled() {
                 super.onCancelled();
-                a.this.f60945b.a((AlaGetEnterEffectResponsedMessage) this.f60950b);
+                a.this.f60946b.a((AlaGetEnterEffectResponsedMessage) this.f60951b);
             }
 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onPostExecute(Object obj) {
                 super.onPostExecute(obj);
-                a.this.f60945b.a((AlaGetEnterEffectResponsedMessage) this.f60950b);
+                a.this.f60946b.a((AlaGetEnterEffectResponsedMessage) this.f60951b);
             }
         }
 
-        public C1573a(int i) {
+        public C1574a(int i) {
             super(i);
         }
 
@@ -91,10 +91,10 @@ public class a {
                 AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
                 List<n> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
                 if (ListUtils.isEmpty(effectList)) {
-                    a.this.f60945b.a(alaGetEnterEffectResponsedMessage);
+                    a.this.f60946b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                a.this.f60946c = new C1574a(effectList, httpResponsedMessage).execute(new Object[0]);
+                a.this.f60947c = new C1575a(effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
@@ -105,15 +105,15 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, b bVar) {
-        C1573a c1573a = new C1573a(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.f60947d = c1573a;
-        this.f60944a = tbPageContext;
-        this.f60945b = bVar;
-        tbPageContext.registerListener(c1573a);
+        C1574a c1574a = new C1574a(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.f60948d = c1574a;
+        this.f60945a = tbPageContext;
+        this.f60946b = bVar;
+        tbPageContext.registerListener(c1574a);
     }
 
     public void c() {
-        BdAsyncTask bdAsyncTask = this.f60946c;
+        BdAsyncTask bdAsyncTask = this.f60947c;
         if (bdAsyncTask != null) {
             bdAsyncTask.cancel();
         }
@@ -122,6 +122,6 @@ public class a {
     public void d() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-        this.f60944a.sendMessage(httpMessage);
+        this.f60945a.sendMessage(httpMessage);
     }
 }

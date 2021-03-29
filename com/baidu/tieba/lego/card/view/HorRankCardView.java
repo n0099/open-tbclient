@@ -21,7 +21,7 @@ import d.b.i0.i1.i;
 import d.b.i0.i1.o.j.c;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HorRankCardView extends BaseCardView<HorRankCard> {
     public LinearLayout r;
     public HorizontalScrollListView s;
@@ -32,23 +32,23 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public ImageView x;
     public ImageView y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f18649e;
+        public final /* synthetic */ HorRankCard f18650e;
 
         public a(HorRankCard horRankCard) {
-            this.f18649e = horRankCard;
+            this.f18650e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18649e.getScheme())) {
+            if (TextUtils.isEmpty(this.f18650e.getScheme())) {
                 return;
             }
-            i.e(this.f18649e).a(TiebaStatic.Params.OBJ_URL, this.f18649e.getScheme()).c("obj_locate", HorRankCardView.this.getStatPosition()).b(this.f18649e);
-            v.c(HorRankCardView.this.m, this.f18649e.getScheme());
+            i.e(this.f18650e).a(TiebaStatic.Params.OBJ_URL, this.f18650e.getScheme()).c("obj_locate", HorRankCardView.this.getStatPosition()).b(this.f18650e);
+            v.c(HorRankCardView.this.m, this.f18650e.getScheme());
         }
     }
 

@@ -3,7 +3,7 @@ package d.b.i0.i1.o.k;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static int a() {
         try {

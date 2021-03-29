@@ -14,13 +14,13 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class FlowableRefCount<T> extends a<T, T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final f.a.v.a<T> f68028f;
+    public final f.a.v.a<T> f68033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile f.a.t.a f68029g;
+    public volatile f.a.t.a f68034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicInteger f68030h;
+    public final AtomicInteger f68035h;
     public final ReentrantLock i;
 
     /* loaded from: classes7.dex */
@@ -46,11 +46,11 @@ public final class FlowableRefCount<T> extends a<T, T> {
         public void cleanup() {
             FlowableRefCount.this.i.lock();
             try {
-                if (FlowableRefCount.this.f68029g == this.currentBase) {
-                    f.a.v.a<T> aVar = FlowableRefCount.this.f68028f;
-                    FlowableRefCount.this.f68029g.dispose();
-                    FlowableRefCount.this.f68029g = new f.a.t.a();
-                    FlowableRefCount.this.f68030h.set(0);
+                if (FlowableRefCount.this.f68034g == this.currentBase) {
+                    f.a.v.a<T> aVar = FlowableRefCount.this.f68033f;
+                    FlowableRefCount.this.f68034g.dispose();
+                    FlowableRefCount.this.f68034g = new f.a.t.a();
+                    FlowableRefCount.this.f68035h.set(0);
                 }
             } finally {
                 FlowableRefCount.this.i.unlock();

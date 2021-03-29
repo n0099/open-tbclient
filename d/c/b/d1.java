@@ -39,7 +39,7 @@ public final class d1 implements g1 {
             }
             if (call.getInt("code", -1) == 0) {
                 g1.a aVar = new g1.a();
-                aVar.f64995a = call.getString("id");
+                aVar.f64996a = call.getString("id");
                 return aVar;
             }
             String string = call.getString("message");

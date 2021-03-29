@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MyProvider extends ContentProvider {
     public static boolean a(String str, Bundle bundle) {
         try {

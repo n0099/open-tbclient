@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.spswitch.IPanelHeightTarget;
 import com.baidu.spswitch.R;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SoftInputUtil {
     public static final String TAG = "SoftInputUtil";
     public static WeakReference<ViewGroup> sContentViewRef;
@@ -23,12 +23,12 @@ public class SoftInputUtil {
     public static int sMaxPanelHeight = 0;
     public static int sLastSaveSoftInputHeight = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnSoftInputShowingListener {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public final Activity mActivity;
         public final ViewGroup mContentView;

@@ -65,13 +65,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public SharedElementCallback c0;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13031f;
+    public View f13032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13032g;
+    public int f13033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bundle f13033h;
+    public Bundle f13034h;
     public SparseArray<Parcelable> i;
     public String k;
     public Bundle l;
@@ -90,7 +90,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public Fragment z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13030e = 0;
+    public int f13031e = 0;
     public int j = -1;
     public int n = -1;
     public boolean I = true;
@@ -109,7 +109,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
 
         /* renamed from: e  reason: collision with root package name */
-        public final Bundle f13034e;
+        public final Bundle f13035e;
 
         /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
@@ -130,7 +130,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             Bundle readBundle = parcel.readBundle();
-            this.f13034e = readBundle;
+            this.f13035e = readBundle;
             if (classLoader == null || readBundle == null) {
                 return;
             }
@@ -144,7 +144,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeBundle(this.f13034e);
+            parcel.writeBundle(this.f13035e);
         }
     }
 
@@ -611,7 +611,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         printWriter.println(this.C);
         printWriter.print(str);
         printWriter.print("mState=");
-        printWriter.print(this.f13030e);
+        printWriter.print(this.f13031e);
         printWriter.print(" mIndex=");
         printWriter.print(this.j);
         printWriter.print(" mWho=");
@@ -665,10 +665,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mArguments=");
             printWriter.println(this.l);
         }
-        if (this.f13033h != null) {
+        if (this.f13034h != null) {
             printWriter.print(str);
             printWriter.print("mSavedFragmentState=");
-            printWriter.println(this.f13033h);
+            printWriter.println(this.f13034h);
         }
         if (this.i != null) {
             printWriter.print(str);
@@ -702,13 +702,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mInnerView=");
             printWriter.println(this.M);
         }
-        if (this.f13031f != null) {
+        if (this.f13032f != null) {
             printWriter.print(str);
             printWriter.print("mAnimatingAway=");
-            printWriter.println(this.f13031f);
+            printWriter.println(this.f13032f);
             printWriter.print(str);
             printWriter.print("mStateAfterAnimating=");
-            printWriter.println(this.f13032g);
+            printWriter.println(this.f13033g);
         }
         if (this.Q != null) {
             printWriter.print(str);
@@ -751,7 +751,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void g1(boolean z) {
-        if (!this.P && z && this.f13030e < 4) {
+        if (!this.P && z && this.f13031e < 4) {
             this.w.V(this);
         }
         this.P = z;
@@ -799,7 +799,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final k k() {
         if (this.y == null) {
             h0();
-            int i = this.f13030e;
+            int i = this.f13031e;
             if (i >= 5) {
                 this.y.z();
             } else if (i >= 4) {

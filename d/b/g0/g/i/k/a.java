@@ -5,10 +5,10 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f48179a;
+    public V8Engine f48180a;
 
     public a(V8Engine v8Engine) {
-        this.f48179a = v8Engine;
+        this.f48180a = v8Engine;
     }
 
     public void a(String str) {
@@ -20,6 +20,6 @@ public class a {
     }
 
     public final void c(int i, String str) {
-        this.f48179a.onConsoleCallBack(i, str);
+        this.f48180a.onConsoleCallBack(i, str);
     }
 }

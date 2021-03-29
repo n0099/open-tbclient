@@ -16,16 +16,16 @@ import com.baidu.wallet.base.widget.BorderTipTextView;
 public class BankMsgInfoView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f26359a;
+    public NetImageView f26360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26360b;
+    public TextView f26361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f26361c;
+    public BorderTipTextView f26362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f26362d;
+    public ViewGroup f26363d;
 
     public BankMsgInfoView(Context context) {
         super(context);
@@ -34,42 +34,42 @@ public class BankMsgInfoView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
-        this.f26362d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
-        this.f26359a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
-        this.f26360b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
-        this.f26361c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+        this.f26363d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
+        this.f26360a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
+        this.f26361b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
+        this.f26362c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
     }
 
     public void hideCouponView() {
-        this.f26361c.setVisibility(8);
+        this.f26362c.setVisibility(8);
     }
 
     public void setBankInfo(String str, CharSequence charSequence) {
         if (!TextUtils.isEmpty(str)) {
-            this.f26359a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
-            this.f26359a.setImageUrl(str);
-            this.f26359a.setVisibility(0);
+            this.f26360a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
+            this.f26360a.setImageUrl(str);
+            this.f26360a.setVisibility(0);
         }
-        this.f26360b.setText(charSequence);
+        this.f26361b.setText(charSequence);
     }
 
     public void setCouponDesc(CharSequence charSequence) {
         if (!TextUtils.isEmpty(charSequence)) {
-            this.f26361c.setVisibility(0);
-            this.f26361c.setText(charSequence, true);
+            this.f26362c.setVisibility(0);
+            this.f26362c.setText(charSequence, true);
             return;
         }
-        this.f26361c.setVisibility(8);
+        this.f26362c.setVisibility(8);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 0) {
             super.setVisibility(0);
-            this.f26362d.setVisibility(0);
+            this.f26363d.setVisibility(0);
             return;
         }
-        this.f26362d.setVisibility(4);
+        this.f26363d.setVisibility(4);
     }
 
     public BankMsgInfoView(Context context, AttributeSet attributeSet) {

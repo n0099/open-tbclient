@@ -22,7 +22,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public static final String TAG = "IMPaGetOneInfoRequest";
     public long mAppid;
@@ -115,7 +115,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         onRequestReturn((Integer) transErrorCode.first, (String) transErrorCode.second, (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x01db  */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

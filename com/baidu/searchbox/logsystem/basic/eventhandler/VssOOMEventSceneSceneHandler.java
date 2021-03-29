@@ -7,7 +7,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VssOOMEventSceneSceneHandler extends OOMEventSceneSceneHandler {
     public static final String CWA = "android.database.CursorWindowAllocationException: Cursor window allocation";
     public static final String PC = "pthread_create";

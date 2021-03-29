@@ -131,10 +131,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public class f implements TimePickerDialog.OnTimeSetListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f21027a;
+        public final /* synthetic */ int f21028a;
 
         public f(int i) {
-            this.f21027a = i;
+            this.f21028a = i;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -143,7 +143,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 return;
             }
             timePicker.clearFocus();
-            boolean z = this.f21027a == R.id.no_disturb_start_time;
+            boolean z = this.f21028a == R.id.no_disturb_start_time;
             StringBuilder sb = new StringBuilder();
             sb.append(timePicker.getCurrentHour().intValue() < 10 ? "0" : "");
             sb.append(timePicker.getCurrentHour());
@@ -168,22 +168,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f21030e;
+            public final /* synthetic */ boolean f21031e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f21031f;
+            public final /* synthetic */ BdSwitchView f21032f;
 
             public a(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                this.f21030e = z;
-                this.f21031f = bdSwitchView;
+                this.f21031e = z;
+                this.f21032f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f21030e) {
-                    this.f21031f.k();
+                if (this.f21031e) {
+                    this.f21032f.k();
                 } else {
-                    this.f21031f.h();
+                    this.f21032f.h();
                 }
             }
         }
@@ -192,22 +192,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f21032e;
+            public final /* synthetic */ boolean f21033e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f21033f;
+            public final /* synthetic */ BdSwitchView f21034f;
 
             public b(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                this.f21032e = z;
-                this.f21033f = bdSwitchView;
+                this.f21033e = z;
+                this.f21034f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f21032e) {
-                    this.f21033f.h();
+                if (this.f21033e) {
+                    this.f21034f.h();
                 } else {
-                    this.f21033f.k();
+                    this.f21034f.k();
                 }
             }
         }

@@ -6,19 +6,19 @@ import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.http.HttpDefines;
 import com.baidu.apollon.restnet.rest.RestHttpNetwork;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f3803a;
+    public static c f3804a;
 
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f3803a == null) {
-                f3803a = new c();
+            if (f3804a == null) {
+                f3804a = new c();
             }
-            cVar = f3803a;
+            cVar = f3804a;
         }
         return cVar;
     }

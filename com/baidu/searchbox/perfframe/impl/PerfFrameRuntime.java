@@ -5,7 +5,7 @@ import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
 import d.b.d0.a.b.b;
 import d.b.d0.a.b.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerfFrameRuntime {
     public static PerfFrameRuntime sInstance;
     @Inject

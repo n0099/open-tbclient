@@ -13,46 +13,46 @@ import java.util.List;
 public class d extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<e> f61007e;
+    public List<e> f61008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f61008f;
+    public Context f61009f;
 
     /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f61009a;
+        public TextView f61010a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f61010b;
+        public View f61011b;
 
         public b(d dVar) {
         }
     }
 
     public d(Context context) {
-        this.f61008f = context;
+        this.f61009f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public e getItem(int i) {
-        if (this.f61007e == null || i < 0 || i >= getCount() - 1) {
+        if (this.f61008e == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.f61007e.get(i);
+        return this.f61008e.get(i);
     }
 
     public void b(List<e> list) {
-        this.f61007e = list;
+        this.f61008e = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<e> list = this.f61007e;
+        List<e> list = this.f61008e;
         if (list == null) {
             return 1;
         }
@@ -75,29 +75,29 @@ public class d extends BaseAdapter {
         if (view != null && view.getTag() != null) {
             bVar = (b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f61008f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f61009f).inflate(R.layout.gift_num_item, (ViewGroup) null);
             bVar = new b();
-            bVar.f61009a = (TextView) view.findViewById(R.id.text);
-            bVar.f61010b = view.findViewById(R.id.divider);
+            bVar.f61010a = (TextView) view.findViewById(R.id.text);
+            bVar.f61011b = view.findViewById(R.id.divider);
             view.setTag(bVar);
         }
         SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-        SkinManager.setViewTextColor(bVar.f61009a, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundColor(bVar.f61010b, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(bVar.f61010a, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundColor(bVar.f61011b, R.color.CAM_X0204);
         e item = getItem(i);
         if (getItemViewType(i) == 1) {
-            bVar.f61009a.setText(R.string.custom_num);
-            bVar.f61010b.setVisibility(4);
+            bVar.f61010a.setText(R.string.custom_num);
+            bVar.f61011b.setVisibility(4);
         } else {
             if (item != null) {
                 int b2 = item.b() > 0 ? item.b() : 1;
                 String a2 = item.a() != null ? item.a() : "";
-                TextView textView = bVar.f61009a;
+                TextView textView = bVar.f61010a;
                 textView.setText(b2 + a2);
-                bVar.f61010b.setVisibility(0);
+                bVar.f61011b.setVisibility(0);
             } else {
-                bVar.f61009a.setText("");
-                bVar.f61010b.setVisibility(0);
+                bVar.f61010a.setText("");
+                bVar.f61011b.setVisibility(0);
             }
         }
         return view;

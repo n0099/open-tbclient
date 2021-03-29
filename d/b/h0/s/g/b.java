@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1097b f51359a;
+    public InterfaceC1098b f51360a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f51360a;
+        public final /* synthetic */ ShareItem f51361a;
 
         public a(ShareItem shareItem) {
-            this.f51360a = shareItem;
+            this.f51361a = shareItem;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class b {
             NetWork netWork = new NetWork();
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
             if (shareItem.y == 4) {
-                netWork.addPostData("forum_id", this.f51360a.I);
+                netWork.addPostData("forum_id", this.f51361a.I);
                 netWork.addPostData("type", "2");
             } else {
                 netWork.addPostData("thread_id", str2);
@@ -66,15 +66,15 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ShareItem shareItem) {
             super.onPostExecute(shareItem);
-            if (b.this.f51359a != null) {
-                b.this.f51359a.a(shareItem);
+            if (b.this.f51360a != null) {
+                b.this.f51360a.a(shareItem);
             }
         }
     }
 
     /* renamed from: d.b.h0.s.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1097b {
+    public interface InterfaceC1098b {
         void a(ShareItem shareItem);
     }
 
@@ -82,7 +82,7 @@ public class b {
         new a(shareItem).execute(shareItem);
     }
 
-    public void c(InterfaceC1097b interfaceC1097b) {
-        this.f51359a = interfaceC1097b;
+    public void c(InterfaceC1098b interfaceC1098b) {
+        this.f51360a = interfaceC1098b;
     }
 }

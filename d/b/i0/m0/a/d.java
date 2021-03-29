@@ -11,22 +11,22 @@ import java.util.ArrayList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56820a;
+    public TbPageContext f56821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemoveFansController f56821b;
+    public RemoveFansController f56822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.m0.a.c f56822c;
+    public d.b.i0.m0.a.c f56823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.e2.e f56823d;
+    public d.b.i0.e2.e f56824d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.t3.a f56824e;
+    public d.b.i0.t3.a f56825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f56825f;
+    public e f56826f;
 
     /* loaded from: classes4.dex */
     public class a implements c.b {
@@ -35,8 +35,8 @@ public class d {
 
         @Override // d.b.i0.m0.a.c.b
         public void a(int i, String str, boolean z) {
-            if (d.this.f56825f != null) {
-                d.this.f56825f.b(i, str, z, 0, 0L);
+            if (d.this.f56826f != null) {
+                d.this.f56826f.b(i, str, z, 0, 0L);
             }
         }
     }
@@ -48,8 +48,8 @@ public class d {
 
         @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
         public void onResultCallBack(int i, String str, long j, boolean z) {
-            if (d.this.f56825f != null) {
-                d.this.f56825f.b(i, str, z, 1, j);
+            if (d.this.f56826f != null) {
+                d.this.f56826f.b(i, str, z, 1, j);
             }
         }
     }
@@ -61,26 +61,26 @@ public class d {
 
         @Override // d.b.i0.t3.a.d
         public void onClick() {
-            d.this.f56823d.dismiss();
-            if (d.this.f56825f != null) {
-                d.this.f56825f.a();
+            d.this.f56824d.dismiss();
+            if (d.this.f56826f != null) {
+                d.this.f56826f.a();
             }
-            d.this.f56822c.d();
+            d.this.f56823c.d();
         }
     }
 
     /* renamed from: d.b.i0.m0.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1340d implements a.c {
-        public C1340d() {
+    public class C1341d implements a.c {
+        public C1341d() {
         }
 
         @Override // d.b.i0.t3.a.c
         public void onClick() {
-            if (d.this.f56823d == null) {
+            if (d.this.f56824d == null) {
                 return;
             }
-            d.this.f56823d.dismiss();
+            d.this.f56824d.dismiss();
         }
     }
 
@@ -92,17 +92,17 @@ public class d {
     }
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.f56820a = tbPageContext;
+        this.f56821a = tbPageContext;
         d.b.i0.m0.a.c cVar = new d.b.i0.m0.a.c(tbPageContext, bdUniqueId);
-        this.f56822c = cVar;
+        this.f56823c = cVar;
         cVar.e(new a());
         RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.f56821b = removeFansController;
+        this.f56822b = removeFansController;
         removeFansController.setResultCallBack(new b());
     }
 
     public void d() {
-        d.b.i0.t3.a aVar = this.f56824e;
+        d.b.i0.t3.a aVar = this.f56825e;
         if (aVar != null) {
             aVar.f();
         }
@@ -113,28 +113,28 @@ public class d {
     }
 
     public void f(long j) {
-        this.f56821b.removeFans(j);
+        this.f56822b.removeFans(j);
     }
 
     public void g(e eVar) {
-        this.f56825f = eVar;
+        this.f56826f = eVar;
     }
 
     public final void h() {
-        if (this.f56823d == null) {
-            d.b.i0.t3.a aVar = new d.b.i0.t3.a(this.f56820a.getContext());
-            this.f56824e = aVar;
-            aVar.i(this.f56820a.getString(R.string.confirm_remove_all_forbidden_fans));
+        if (this.f56824d == null) {
+            d.b.i0.t3.a aVar = new d.b.i0.t3.a(this.f56821a.getContext());
+            this.f56825e = aVar;
+            aVar.i(this.f56821a.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.b bVar = new a.b(this.f56820a.getString(R.string.confirm), this.f56824e);
+            a.b bVar = new a.b(this.f56821a.getString(R.string.confirm), this.f56825e);
             bVar.h(new c());
             arrayList.add(bVar);
-            this.f56824e.h(new C1340d());
-            this.f56824e.g(arrayList);
-            d.b.i0.e2.e eVar = new d.b.i0.e2.e(this.f56820a.getPageActivity(), this.f56824e.b());
-            this.f56823d = eVar;
+            this.f56825e.h(new C1341d());
+            this.f56825e.g(arrayList);
+            d.b.i0.e2.e eVar = new d.b.i0.e2.e(this.f56821a.getPageActivity(), this.f56825e.b());
+            this.f56824d = eVar;
             eVar.a(0.7f);
         }
-        this.f56823d.show();
+        this.f56824d.show();
     }
 }

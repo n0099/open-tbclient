@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public final class ObjectTypeAdapter extends TypeAdapter<Object> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30956b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
+    public static final TypeAdapterFactory f30957b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
             if (aVar.c() == Object.class) {
@@ -23,51 +23,51 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final Gson f30957a;
+    public final Gson f30958a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30958a;
+        public static final /* synthetic */ int[] f30959a;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f30958a = iArr;
+            f30959a = iArr;
             try {
                 iArr[JsonToken.BEGIN_ARRAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30958a[JsonToken.BEGIN_OBJECT.ordinal()] = 2;
+                f30959a[JsonToken.BEGIN_OBJECT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30958a[JsonToken.STRING.ordinal()] = 3;
+                f30959a[JsonToken.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f30958a[JsonToken.NUMBER.ordinal()] = 4;
+                f30959a[JsonToken.NUMBER.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f30958a[JsonToken.BOOLEAN.ordinal()] = 5;
+                f30959a[JsonToken.BOOLEAN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f30958a[JsonToken.NULL.ordinal()] = 6;
+                f30959a[JsonToken.NULL.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public ObjectTypeAdapter(Gson gson) {
-        this.f30957a = gson;
+        this.f30958a = gson;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(d.g.c.d.a aVar) throws IOException {
-        switch (a.f30958a[aVar.M().ordinal()]) {
+        switch (a.f30959a[aVar.M().ordinal()]) {
             case 1:
                 ArrayList arrayList = new ArrayList();
                 aVar.n();
@@ -104,7 +104,7 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
             bVar.B();
             return;
         }
-        TypeAdapter adapter = this.f30957a.getAdapter(obj.getClass());
+        TypeAdapter adapter = this.f30958a.getAdapter(obj.getClass());
         if (adapter instanceof ObjectTypeAdapter) {
             bVar.r();
             bVar.v();

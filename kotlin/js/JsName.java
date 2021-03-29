@@ -12,7 +12,7 @@ import kotlin.annotation.AnnotationTarget;
 @OptionalExpectation
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY, AnnotationTarget.CONSTRUCTOR, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public @interface JsName {
     String name();
 }

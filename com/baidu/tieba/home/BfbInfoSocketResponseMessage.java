@@ -6,7 +6,7 @@ import tbclient.Error;
 import tbclient.GetUserBfbInfo.DataRes;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BfbInfoSocketResponseMessage extends SocketResponsedMessage {
     public UserBfbInfo bfbInfo;
 

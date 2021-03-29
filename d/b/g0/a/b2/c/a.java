@@ -5,30 +5,30 @@ import d.b.g0.a.k;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43568a = k.f45050a;
+    public static final boolean f43569a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f43569b;
+    public static JSONObject f43570b;
 
     public static synchronized JSONObject a() {
         synchronized (a.class) {
-            if (f43569b != null) {
-                if (f43568a) {
-                    Log.d("SwanCoreConfigHelper", "return cache obj : " + f43569b.toString());
+            if (f43570b != null) {
+                if (f43569a) {
+                    Log.d("SwanCoreConfigHelper", "return cache obj : " + f43570b.toString());
                 }
-                return f43569b;
+                return f43570b;
             }
             JSONObject rawSwitch = d.b.g0.a.w0.a.N().getRawSwitch();
             if (rawSwitch == null) {
-                f43569b = new JSONObject();
-                if (f43568a) {
+                f43570b = new JSONObject();
+                if (f43569a) {
                     Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
                 }
-                return f43569b;
+                return f43570b;
             }
             Iterator<String> keys = rawSwitch.keys();
             while (keys.hasNext()) {
@@ -36,11 +36,11 @@ public class a {
                     keys.remove();
                 }
             }
-            f43569b = rawSwitch;
-            if (f43568a) {
-                Log.d("SwanCoreConfigHelper", "return new obj : " + f43569b.toString());
+            f43570b = rawSwitch;
+            if (f43569a) {
+                Log.d("SwanCoreConfigHelper", "return new obj : " + f43570b.toString());
             }
-            return f43569b;
+            return f43570b;
         }
     }
 
@@ -56,10 +56,10 @@ public class a {
 
     public static synchronized void c() {
         synchronized (a.class) {
-            if (f43568a) {
+            if (f43569a) {
                 Log.d("SwanCoreConfigHelper", "release cache ab obj ");
             }
-            f43569b = null;
+            f43570b = null;
         }
     }
 }

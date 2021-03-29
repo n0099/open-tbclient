@@ -23,7 +23,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     @VisibleForTesting
     public static final String CREATED_THUMBNAIL = "createdThumbnail";

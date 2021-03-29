@@ -14,7 +14,7 @@ import com.baidu.spswitch.emotion.SpanStringUtils;
 import com.baidu.spswitch.utils.SPConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionLoader {
     public static final boolean CACHE_DEBUG = false;
     public static final boolean DEBUG = SPConfig.isDebug();
@@ -25,13 +25,13 @@ public class EmotionLoader {
     public LruCache<String, Bitmap> mLruCache;
     public Handler mUIHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class SpannableBeanHolder {
         public String content;
         public SpannableString ss;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f11859tv;
+        public TextView f11860tv;
 
         public SpannableBeanHolder() {
         }
@@ -123,7 +123,7 @@ public class EmotionLoader {
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                    TextView textView2 = spannableBeanHolder.f11859tv;
+                    TextView textView2 = spannableBeanHolder.f11860tv;
                     SpannableString spannableString = spannableBeanHolder.ss;
                     String str2 = spannableBeanHolder.content;
                     if (EmotionLoader.DEBUG) {
@@ -144,7 +144,7 @@ public class EmotionLoader {
                 SpannableString parseEmotion = EmotionLoader.this.parseEmotion(emotionType, context, str, textView);
                 SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                 spannableBeanHolder.ss = parseEmotion;
-                spannableBeanHolder.f11859tv = textView;
+                spannableBeanHolder.f11860tv = textView;
                 spannableBeanHolder.content = str;
                 Message obtain = Message.obtain();
                 obtain.obj = spannableBeanHolder;

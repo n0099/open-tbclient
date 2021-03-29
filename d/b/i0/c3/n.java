@@ -7,23 +7,23 @@ import tbclient.FrsPage.StarInfo;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53510a = 0;
+    public int f53511a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f53511b = 0;
+    public long f53512b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53512c = false;
+    public boolean f53513c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53513d = null;
+    public String f53514d = null;
 
     public String a() {
-        return this.f53513d;
+        return this.f53514d;
     }
 
     public int b() {
-        return this.f53510a;
+        return this.f53511a;
     }
 
     public void c(StarInfo starInfo) {
@@ -31,7 +31,7 @@ public class n {
             return;
         }
         int intValue = starInfo.has_frs_star.intValue();
-        this.f53510a = intValue;
+        this.f53511a = intValue;
         if (intValue == 1) {
             String str = starInfo.top;
             String str2 = starInfo.head;
@@ -40,7 +40,7 @@ public class n {
                 fans.is_get.intValue();
                 fans.num.intValue();
                 fans.open.intValue();
-                this.f53511b = fans.left_time.intValue();
+                this.f53512b = fans.left_time.intValue();
             }
             Size size = starInfo.top_size;
             if (size != null) {
@@ -54,7 +54,7 @@ public class n {
             }
         }
         boolean z = starInfo.trade != null;
-        this.f53512c = z;
+        this.f53513c = z;
         if (z) {
             Integer num = starInfo.trade.time;
             if (num != null) {
@@ -62,6 +62,6 @@ public class n {
             }
             String str3 = starInfo.trade.url;
         }
-        this.f53513d = starInfo.star_forum_headimg;
+        this.f53514d = starInfo.star_forum_headimg;
     }
 }

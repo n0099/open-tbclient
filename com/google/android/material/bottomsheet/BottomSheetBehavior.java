@@ -140,7 +140,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface State {
     }
 

@@ -29,7 +29,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class IMConnection {
     public static final int ERROR_LOGIN_FAIL = 20;
     public static final int MAX_RETRY_TIMES = 10;
@@ -57,7 +57,7 @@ public final class IMConnection {
     public Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.f64551e) {
+            if (a.f64552e) {
                 return;
             }
             IMConnection.this.internalConnect(false);
@@ -82,7 +82,7 @@ public final class IMConnection {
     public AtomicBoolean mConnectting = new AtomicBoolean(false);
     public Handler mHandler = new MyHandler(Looper.getMainLooper());
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public final class ConnectTask implements Runnable {
         public Integer mConnectTaskId;
         public String mIp;
@@ -177,7 +177,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class ConnectTimeOutTask implements Runnable {
         public Integer mConnectTaskId;
         public boolean mTaskStoped = false;
@@ -207,7 +207,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);
@@ -228,7 +228,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class ReadThread extends Thread {
         public ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -275,7 +275,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class SendThread extends Thread {
         public SendThread() {
             setName("IM-IMConnection-SendThread");
@@ -446,13 +446,11 @@ public final class IMConnection {
         if (this.mDelayTimes < 0) {
             this.mDelayTimes = new Random().nextInt(30) % 31;
         }
-        double d2 = this.mDelayTimes;
-        Double.isNaN(d2);
-        return ((long) ((Math.pow(2.0d, i) * 0.3d) + d2)) * 1000;
+        return ((long) ((Math.pow(2.0d, i) * 0.3d) + this.mDelayTimes)) * 1000;
     }
 
     private void connectImpl(final boolean z) {
-        if (a.f64551e) {
+        if (a.f64552e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -465,7 +463,7 @@ public final class IMConnection {
             Utility.writeLoginFlag(this.mContext, "10Y", "connect begin");
             LogUtils.i(TAG, "will get socket address .......");
             IMSocketAddrProvider.getInstance(this.mContext).getSocketAddr(new IMSocketAddrProvider.IGetSocketAddrListener() { // from class: com.baidu.android.imsdk.internal.IMConnection.1
-                /* JADX WARN: Removed duplicated region for block: B:19:0x00b9  */
+                /* JADX WARN: Removed duplicated region for block: B:19:0x00b8  */
                 /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
                 @Override // com.baidu.android.imsdk.internal.IMSocketAddrProvider.IGetSocketAddrListener
                 /*
@@ -547,7 +545,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (a.f64551e) {
+        if (a.f64552e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -623,7 +621,7 @@ public final class IMConnection {
     }
 
     public void disconnectedByPeer() {
-        if (a.f64551e) {
+        if (a.f64552e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

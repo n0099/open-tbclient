@@ -12,34 +12,34 @@ import org.json.JSONObject;
 public final class i1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65012a;
+    public final String f65013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65013b;
+    public final String f65014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f65014c;
+    public final Boolean f65015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Long f65015d;
+    public final Long f65016d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f65016e;
+    public final Long f65017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Integer f65017f;
+    public final Integer f65018f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Long f65018g;
+    public final Long f65019g;
 
     public i1(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
-        this.f65012a = str;
-        this.f65013b = str2;
-        this.f65014c = bool;
-        this.f65015d = l;
-        this.f65016e = l2;
-        this.f65017f = num;
-        this.f65018g = l3;
+        this.f65013a = str;
+        this.f65014b = str2;
+        this.f65015c = bool;
+        this.f65016d = l;
+        this.f65017e = l2;
+        this.f65018f = num;
+        this.f65019g = l3;
     }
 
     @Nullable
@@ -60,26 +60,26 @@ public final class i1 {
     @NonNull
     public Map<String, String> b() {
         HashMap hashMap = new HashMap();
-        f1.h(hashMap, "id", this.f65012a);
-        f1.h(hashMap, "req_id", this.f65013b);
-        f1.h(hashMap, "is_track_limited", String.valueOf(this.f65014c));
-        f1.h(hashMap, "take_ms", String.valueOf(this.f65015d));
-        f1.h(hashMap, "time", String.valueOf(this.f65016e));
-        f1.h(hashMap, "query_times", String.valueOf(this.f65017f));
-        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f65018g));
+        f1.h(hashMap, "id", this.f65013a);
+        f1.h(hashMap, "req_id", this.f65014b);
+        f1.h(hashMap, "is_track_limited", String.valueOf(this.f65015c));
+        f1.h(hashMap, "take_ms", String.valueOf(this.f65016d));
+        f1.h(hashMap, "time", String.valueOf(this.f65017e));
+        f1.h(hashMap, "query_times", String.valueOf(this.f65018f));
+        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f65019g));
         return hashMap;
     }
 
     @NonNull
     public JSONObject c() {
         JSONObject jSONObject = new JSONObject();
-        f1.i(jSONObject, "id", this.f65012a);
-        f1.i(jSONObject, "req_id", this.f65013b);
-        f1.i(jSONObject, "is_track_limited", this.f65014c);
-        f1.i(jSONObject, "take_ms", this.f65015d);
-        f1.i(jSONObject, "time", this.f65016e);
-        f1.i(jSONObject, "query_times", this.f65017f);
-        f1.i(jSONObject, "hw_id_version_code", this.f65018g);
+        f1.i(jSONObject, "id", this.f65013a);
+        f1.i(jSONObject, "req_id", this.f65014b);
+        f1.i(jSONObject, "is_track_limited", this.f65015c);
+        f1.i(jSONObject, "take_ms", this.f65016d);
+        f1.i(jSONObject, "time", this.f65017e);
+        f1.i(jSONObject, "query_times", this.f65018f);
+        f1.i(jSONObject, "hw_id_version_code", this.f65019g);
         return jSONObject;
     }
 

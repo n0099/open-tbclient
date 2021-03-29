@@ -17,65 +17,65 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f54740a;
+    public e f54741a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.f2.c.a f54741b;
+    public d.b.i0.f2.c.a f54742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.f2.c.b f54742c;
+    public d.b.i0.f2.c.b f54743c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f54743d;
+    public g f54744d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f54744e;
+    public d f54745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.f2.c.c f54745f;
+    public d.b.i0.f2.c.c f54746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f54746g;
+    public f f54747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f54747h;
+    public BdTypeListView f54748h;
     public List<d.b.b.j.e.a> i = new ArrayList();
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.f54747h = bdTypeListView;
+        this.f54748h = bdTypeListView;
         b(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void a() {
-        this.f54741b.h0();
+        this.f54742b.h0();
     }
 
     public final void b(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.f54740a = new e(tbPageContext, i.f54786f);
-        this.f54741b = new d.b.i0.f2.c.a(tbPageContext, d.b.i0.f2.e.d.k);
-        this.f54742c = new d.b.i0.f2.c.b(tbPageContext, d.b.i0.f2.e.e.f54767e);
-        this.f54743d = new g(tbPageContext, n.f54806f);
-        this.f54744e = new d(tbPageContext, h.p);
-        this.f54746g = new f(tbPageContext, k.f54796f);
-        this.f54745f = new d.b.i0.f2.c.c(tbPageContext, d.b.i0.f2.e.g.f54776g);
-        this.i.add(this.f54740a);
-        this.i.add(this.f54741b);
-        this.i.add(this.f54742c);
-        this.i.add(this.f54743d);
-        this.i.add(this.f54744e);
-        this.i.add(this.f54745f);
-        this.i.add(this.f54746g);
+        this.f54741a = new e(tbPageContext, i.f54787f);
+        this.f54742b = new d.b.i0.f2.c.a(tbPageContext, d.b.i0.f2.e.d.k);
+        this.f54743c = new d.b.i0.f2.c.b(tbPageContext, d.b.i0.f2.e.e.f54768e);
+        this.f54744d = new g(tbPageContext, n.f54807f);
+        this.f54745e = new d(tbPageContext, h.p);
+        this.f54747g = new f(tbPageContext, k.f54797f);
+        this.f54746f = new d.b.i0.f2.c.c(tbPageContext, d.b.i0.f2.e.g.f54777g);
+        this.i.add(this.f54741a);
+        this.i.add(this.f54742b);
+        this.i.add(this.f54743c);
+        this.i.add(this.f54744d);
+        this.i.add(this.f54745e);
+        this.i.add(this.f54746f);
+        this.i.add(this.f54747g);
         bdTypeListView.a(this.i);
     }
 
     public void c() {
-        BdTypeListView bdTypeListView = this.f54747h;
+        BdTypeListView bdTypeListView = this.f54748h;
         if (bdTypeListView != null && (bdTypeListView.getAdapter2() instanceof d.b.b.j.e.e)) {
-            this.f54747h.getAdapter2().notifyDataSetChanged();
+            this.f54748h.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void d() {
-        this.f54741b.l0();
+        this.f54742b.l0();
     }
 }

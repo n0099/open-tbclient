@@ -3,13 +3,13 @@ package d.b.b.e.r;
 public class u extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f42137a;
+    public byte[] f42138a;
 
     public u() {
-        this.f42137a = null;
+        this.f42138a = null;
     }
 
     public u(byte[] bArr) {
-        this.f42137a = bArr;
+        this.f42138a = bArr;
     }
 }

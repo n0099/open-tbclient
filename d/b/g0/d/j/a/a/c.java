@@ -10,40 +10,40 @@ import d.b.g0.a.p.c.g;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f47523a = new d.b.g0.e.a.l.j.b();
+    public final g f47524a = new d.b.g0.e.a.l.j.b();
 
     @Override // d.b.g0.a.p.c.g
     public void a(String str) {
-        this.f47523a.a(str);
+        this.f47524a.a(str);
     }
 
     @Override // d.b.g0.a.p.c.g
     public void b(int i) {
-        this.f47523a.b(i);
+        this.f47524a.b(i);
     }
 
     @Override // d.b.g0.a.p.c.g
     public void c(Object obj) {
-        this.f47523a.c(obj);
+        this.f47524a.c(obj);
     }
 
     @Override // d.b.g0.a.p.c.g
     public void d() {
-        this.f47523a.d();
+        this.f47524a.d();
     }
 
     @Override // d.b.g0.a.p.c.g
     public void e(SwanAdDownloadState swanAdDownloadState) {
-        this.f47523a.e(swanAdDownloadState);
+        this.f47524a.e(swanAdDownloadState);
     }
 
     @Override // d.b.g0.a.p.c.g
     public g f(Context context, d.b.g0.a.q.g.b.a aVar, d.b.g0.a.q.g.a.a aVar2) {
-        return this.f47523a.f(context, aVar, aVar2);
+        return this.f47524a.f(context, aVar, aVar2);
     }
 
     @Override // d.b.g0.a.p.c.g
     public View getRealView() {
-        return this.f47523a.getRealView();
+        return this.f47524a.getRealView();
     }
 }

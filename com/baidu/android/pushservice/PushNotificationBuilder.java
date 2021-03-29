@@ -3,7 +3,7 @@ package com.baidu.android.pushservice;
 import android.app.Notification;
 import android.content.Context;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class PushNotificationBuilder implements Serializable {
     public String mChannelId;
     public String mChannelName;

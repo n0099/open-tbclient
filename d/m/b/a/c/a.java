@@ -14,7 +14,7 @@ import javax.net.ssl.SSLContext;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f66289a = false;
+    public static boolean f66290a = false;
 
     public static String a(String str, byte[] bArr) {
         URL url;
@@ -29,7 +29,7 @@ public class a {
     public static String b(URL url, byte[] bArr, String str) {
         URLConnection openConnection;
         try {
-            if ("https".equals(url.getProtocol().toLowerCase()) && f66289a) {
+            if ("https".equals(url.getProtocol().toLowerCase()) && f66290a) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 openConnection = url.openConnection(Proxy.NO_PROXY);
             } else {

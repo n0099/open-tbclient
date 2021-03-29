@@ -6,33 +6,33 @@ import com.baidu.tbadk.core.util.ListUtils;
 import d.b.b.e.p.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52290a;
+    public String f52291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52291b = -1;
+    public int f52292b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f52292c = new ArrayList();
+    public List<d> f52293c = new ArrayList();
 
     public String a() {
-        return this.f52290a;
+        return this.f52291a;
     }
 
     public List<d> b() {
-        return this.f52292c;
+        return this.f52293c;
     }
 
     public int c() {
-        return this.f52291b;
+        return this.f52292b;
     }
 
     public void d(TopicListModule topicListModule) {
         if (topicListModule != null) {
-            this.f52290a = topicListModule.module_title;
+            this.f52291a = topicListModule.module_title;
             List<TopicList> list = topicListModule.topic_list;
             if (list == null) {
                 return;
@@ -44,7 +44,7 @@ public class c {
                 if (topicList != null) {
                     dVar.c(topicList);
                     if (!k.isEmptyStringAfterTrim(dVar.b())) {
-                        this.f52292c.add(dVar);
+                        this.f52293c.add(dVar);
                     }
                 }
             }
@@ -52,10 +52,10 @@ public class c {
     }
 
     public void e(String str) {
-        this.f52290a = str;
+        this.f52291a = str;
     }
 
     public void f(int i) {
-        this.f52291b = i;
+        this.f52292b = i;
     }
 }

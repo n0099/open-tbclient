@@ -32,13 +32,11 @@ public final class TestClock extends AbstractLongClock {
                 m1596overflowLRDsOJo(d2);
             }
         } else {
-            double d3 = this.reading;
-            Double.isNaN(d3);
-            double d4 = d3 + m1582toDoubleimpl;
-            if (d4 > Long.MAX_VALUE || d4 < Long.MIN_VALUE) {
+            double d3 = this.reading + m1582toDoubleimpl;
+            if (d3 > Long.MAX_VALUE || d3 < Long.MIN_VALUE) {
                 m1596overflowLRDsOJo(d2);
             }
-            j = (long) d4;
+            j = (long) d3;
         }
         this.reading = j;
     }

@@ -17,28 +17,28 @@ import java.util.Map;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public u f56650a = u.s();
+    public u f56651a = u.s();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f56651b = new Handler(Looper.getMainLooper());
+    public Handler f56652b = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes4.dex */
     public class a implements u.l {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f56652e;
+        public final /* synthetic */ List f56653e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f56653f;
+        public final /* synthetic */ Map f56654f;
 
         public a(List list, Map map) {
-            this.f56652e = list;
-            this.f56653f = map;
+            this.f56653e = list;
+            this.f56654f = map;
         }
 
         @Override // d.b.i0.l0.u.l
         public void onResult(int i, int i2, int i3) {
-            w.this.d(this.f56652e, this.f56653f);
+            w.this.d(this.f56653e, this.f56654f);
         }
     }
 
@@ -46,10 +46,10 @@ public class w {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f56655e;
+        public final /* synthetic */ List f56656e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f56656f;
+        public final /* synthetic */ List f56657f;
 
         /* loaded from: classes4.dex */
         public class a implements u.l {
@@ -59,18 +59,18 @@ public class w {
             @Override // d.b.i0.l0.u.l
             public void onResult(int i, int i2, int i3) {
                 b bVar = b.this;
-                w.this.g(bVar.f56656f);
+                w.this.g(bVar.f56657f);
             }
         }
 
         public b(List list, List list2) {
-            this.f56655e = list;
-            this.f56656f = list2;
+            this.f56656e = list;
+            this.f56657f = list2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            w.this.f56650a.h(this.f56655e, false, new a());
+            w.this.f56651a.h(this.f56656e, false, new a());
         }
     }
 
@@ -100,15 +100,15 @@ public class w {
             ArrayList arrayList2 = new ArrayList();
             for (CollectEmotionData collectEmotionData2 : arrayList) {
                 d.b.h0.b0.c cVar = new d.b.h0.b0.c();
-                cVar.f49778f = collectEmotionData2.pkgId;
-                cVar.f49773a = collectEmotionData2.pid;
-                cVar.f49776d = collectEmotionData2.picUrl;
-                cVar.f49774b = collectEmotionData2.width;
-                cVar.f49775c = collectEmotionData2.height;
-                cVar.f49777e = collectEmotionData2.thumbnail;
+                cVar.f49779f = collectEmotionData2.pkgId;
+                cVar.f49774a = collectEmotionData2.pid;
+                cVar.f49777d = collectEmotionData2.picUrl;
+                cVar.f49775b = collectEmotionData2.width;
+                cVar.f49776c = collectEmotionData2.height;
+                cVar.f49778e = collectEmotionData2.thumbnail;
                 arrayList2.add(cVar);
             }
-            this.f56651b.post(new b(arrayList2, list));
+            this.f56652b.post(new b(arrayList2, list));
             return;
         }
         g(list);
@@ -124,7 +124,7 @@ public class w {
             }
         }
         if (!arrayList.isEmpty()) {
-            this.f56650a.l(arrayList, false, new a(list, h2));
+            this.f56651a.l(arrayList, false, new a(list, h2));
         } else {
             d(list, h2);
         }
@@ -153,7 +153,7 @@ public class w {
     }
 
     public final void g(List<CollectEmotionData> list) {
-        this.f56650a.t(list, false, new c(this));
+        this.f56651a.t(list, false, new c(this));
     }
 
     public final Map<String, CollectEmotionData> h(List<CollectEmotionData> list) {

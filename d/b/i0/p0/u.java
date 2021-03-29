@@ -3,8 +3,8 @@ package d.b.i0.p0;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f58581a;
+    public int f58582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58582b;
+    public boolean f58583b;
 }

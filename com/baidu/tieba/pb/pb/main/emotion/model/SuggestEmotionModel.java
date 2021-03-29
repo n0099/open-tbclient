@@ -16,16 +16,16 @@ import d.b.b.e.m.e;
 public class SuggestEmotionModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f19805e;
+    public c f19806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19806f;
+    public String f19807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19807g;
+    public String f19808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f19808h = new a(2921322);
+    public final CustomMessageListener f19809h = new a(2921322);
     public final HttpMessageListener i = new b(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
 
     /* loaded from: classes4.dex */
@@ -33,21 +33,21 @@ public class SuggestEmotionModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0217a implements Runnable {
+        public class RunnableC0218a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f19810e;
+            public final /* synthetic */ CustomResponsedMessage f19811e;
 
-            public RunnableC0217a(CustomResponsedMessage customResponsedMessage) {
-                this.f19810e = customResponsedMessage;
+            public RunnableC0218a(CustomResponsedMessage customResponsedMessage) {
+                this.f19811e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-                httpMessage.addParam("forum_id", SuggestEmotionModel.this.f19806f);
-                httpMessage.addParam("forum_name", SuggestEmotionModel.this.f19807g);
-                httpMessage.addParam("has_pkg", (String) this.f19810e.getData());
+                httpMessage.addParam("forum_id", SuggestEmotionModel.this.f19807f);
+                httpMessage.addParam("forum_name", SuggestEmotionModel.this.f19808g);
+                httpMessage.addParam("has_pkg", (String) this.f19811e.getData());
                 SuggestEmotionModel.this.sendMessage(httpMessage);
             }
         }
@@ -60,7 +60,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                e.a().post(new RunnableC0217a(customResponsedMessage));
+                e.a().post(new RunnableC0218a(customResponsedMessage));
             }
         }
     }
@@ -74,14 +74,14 @@ public class SuggestEmotionModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003329 || !(httpResponsedMessage instanceof SuggestEmotionResponseMessage) || SuggestEmotionModel.this.f19805e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003329 || !(httpResponsedMessage instanceof SuggestEmotionResponseMessage) || SuggestEmotionModel.this.f19806e == null) {
                 return;
             }
             SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
             if (suggestEmotionResponseMessage.getData() != null) {
-                SuggestEmotionModel.this.f19805e.a(suggestEmotionResponseMessage.getData());
+                SuggestEmotionModel.this.f19806e.a(suggestEmotionResponseMessage.getData());
             } else {
-                SuggestEmotionModel.this.f19805e.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                SuggestEmotionModel.this.f19806e.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
             }
         }
     }
@@ -109,7 +109,7 @@ public class SuggestEmotionModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.i);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-        MessageManager.getInstance().unRegisterListener(this.f19808h);
+        MessageManager.getInstance().unRegisterListener(this.f19809h);
         return true;
     }
 
@@ -117,13 +117,13 @@ public class SuggestEmotionModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/suggest");
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f19808h);
+        MessageManager.getInstance().registerListener(this.f19809h);
     }
 
     public void v(String str, String str2, c cVar) {
-        this.f19805e = cVar;
-        this.f19806f = str;
-        this.f19807g = str2;
+        this.f19806e = cVar;
+        this.f19807f = str;
+        this.f19808g = str2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004612, new Integer(2921322)));
     }
 }
